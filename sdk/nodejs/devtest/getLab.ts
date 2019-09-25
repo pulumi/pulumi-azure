@@ -92,7 +92,7 @@ export interface GetLabResult {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The unique immutable identifier of the Dev Test Lab.
      */

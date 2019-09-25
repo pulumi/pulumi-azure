@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a ServiceBus Queue.
+ * Manages a ServiceBus Queue.
  * 
  * ## Example Usage
  * 

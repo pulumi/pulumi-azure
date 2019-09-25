@@ -57,7 +57,7 @@ class Factory(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, github_configuration=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, vsts_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Data Factory (Version 2).
+        Manages an Azure Data Factory (Version 2).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

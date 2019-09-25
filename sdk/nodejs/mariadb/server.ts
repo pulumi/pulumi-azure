@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  *     storageProfile: {
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",
+ *         storageAutogrow: "Disabled",
  *         storageMb: 5120,
  *     },
  *     version: "10.2",
@@ -113,7 +114,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+     * Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -231,7 +232,7 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+     * Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -277,7 +278,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+     * Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
      */
     readonly version: pulumi.Input<string>;
 }

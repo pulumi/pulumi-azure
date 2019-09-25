@@ -117,7 +117,7 @@ export interface GetCacheResult {
      */
     readonly sslPort: number;
     readonly subnetId: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly zones: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

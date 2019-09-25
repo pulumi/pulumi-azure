@@ -336,7 +336,7 @@ export namespace apimanagement {
 export namespace appservice {
     export interface AppServiceAuthSettings {
         activeDirectory?: pulumi.Input<inputs.appservice.AppServiceAuthSettingsActiveDirectory>;
-        additionalLoginParams?: pulumi.Input<{[key: string]: any}>;
+        additionalLoginParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -442,7 +442,13 @@ export namespace appservice {
     }
 
     export interface AppServiceLogsHttpLogs {
+        azureBlobStorage?: pulumi.Input<inputs.appservice.AppServiceLogsHttpLogsAzureBlobStorage>;
         fileSystem?: pulumi.Input<inputs.appservice.AppServiceLogsHttpLogsFileSystem>;
+    }
+
+    export interface AppServiceLogsHttpLogsAzureBlobStorage {
+        retentionInDays: pulumi.Input<number>;
+        sasUrl: pulumi.Input<string>;
     }
 
     export interface AppServiceLogsHttpLogsFileSystem {
@@ -483,8 +489,9 @@ export namespace appservice {
     }
 
     export interface AppServiceSiteConfigIpRestriction {
-        ipAddress: pulumi.Input<string>;
+        ipAddress?: pulumi.Input<string>;
         subnetMask?: pulumi.Input<string>;
+        virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     export interface AppServiceSiteCredential {
@@ -523,7 +530,7 @@ export namespace appservice {
 
     export interface FunctionAppAuthSettings {
         activeDirectory?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsActiveDirectory>;
-        additionalLoginParams?: pulumi.Input<{[key: string]: any}>;
+        additionalLoginParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -675,7 +682,7 @@ export namespace appservice {
 
     export interface SlotAuthSettings {
         activeDirectory?: pulumi.Input<inputs.appservice.SlotAuthSettingsActiveDirectory>;
-        additionalLoginParams?: pulumi.Input<{[key: string]: any}>;
+        additionalLoginParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
         defaultProvider?: pulumi.Input<string>;
         /**
@@ -843,8 +850,9 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
-        ipAddress: pulumi.Input<string>;
+        ipAddress?: pulumi.Input<string>;
         subnetMask?: pulumi.Input<string>;
+        virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     export interface SlotSiteCredential {
@@ -922,7 +930,7 @@ export namespace autoscale {
     }
 
     export interface SettingNotificationWebhook {
-        properties?: pulumi.Input<{[key: string]: any}>;
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         serviceUri: pulumi.Input<string>;
     }
 
@@ -1016,7 +1024,7 @@ export namespace batch {
         /**
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
-        environment?: {[key: string]: any};
+        environment?: {[key: string]: string};
         /**
          * The number of retry count.
          */
@@ -1118,7 +1126,7 @@ export namespace batch {
 
     export interface PoolStartTask {
         commandLine: pulumi.Input<string>;
-        environment?: pulumi.Input<{[key: string]: any}>;
+        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         maxTaskRetryCount?: pulumi.Input<number>;
         resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskResourceFile>[]>;
         userIdentity: pulumi.Input<inputs.batch.PoolStartTaskUserIdentity>;
@@ -1677,6 +1685,10 @@ export namespace compute {
         sourceVaultId: pulumi.Input<string>;
     }
 
+    export interface VirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled: pulumi.Input<boolean>;
+    }
+
     export interface VirtualMachineBootDiagnostics {
         enabled: pulumi.Input<boolean>;
         storageUri: pulumi.Input<string>;
@@ -1792,7 +1804,7 @@ export namespace containerservice {
         command?: pulumi.Input<string>;
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         cpu: pulumi.Input<number>;
-        environmentVariables?: pulumi.Input<{[key: string]: any}>;
+        environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         gpu?: pulumi.Input<inputs.containerservice.GroupContainerGpu>;
         image: pulumi.Input<string>;
         livenessProbe?: pulumi.Input<inputs.containerservice.GroupContainerLivenessProbe>;
@@ -1805,7 +1817,7 @@ export namespace containerservice {
         ports?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainerPort>[]>;
         protocol?: pulumi.Input<string>;
         readinessProbe?: pulumi.Input<inputs.containerservice.GroupContainerReadinessProbe>;
-        secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>;
+        secureEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         volumes?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainerVolume>[]>;
     }
 
@@ -1892,6 +1904,7 @@ export namespace containerservice {
          * A `httpApplicationRouting` block as defined below.
          */
         httpApplicationRouting?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting>;
+        kubeDashboard?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileKubeDashboard>;
         omsAgent?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileOmsAgent>;
     }
 
@@ -1906,6 +1919,10 @@ export namespace containerservice {
          * The Zone Name of the HTTP Application Routing.
          */
         httpApplicationRoutingZoneName?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterAddonProfileKubeDashboard {
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface KubernetesClusterAddonProfileOmsAgent {
@@ -2044,6 +2061,10 @@ export namespace containerservice {
          * One or more `ipRule` blocks as defined below.
          */
         ipRules?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetIpRule>[]>;
+        /**
+         * One or more `virtualNetwork` blocks as defined below.
+         */
+        virtualNetworks?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetVirtualNetwork>[]>;
     }
 
     export interface RegistryNetworkRuleSetIpRule {
@@ -2055,6 +2076,17 @@ export namespace containerservice {
          * The CIDR block from which requests will match the rule.
          */
         ipRange: pulumi.Input<string>;
+    }
+
+    export interface RegistryNetworkRuleSetVirtualNetwork {
+        /**
+         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The subnet id from which requests will match the rule.
+         */
+        subnetId: pulumi.Input<string>;
     }
 
     export interface RegistryStorageAccount {
@@ -2307,6 +2339,9 @@ export namespace devtest {
     }
 
     export interface ScheduleDailyRecurrence {
+        /**
+         * The time each day when the schedule takes effect.
+         */
         time: pulumi.Input<string>;
     }
 
@@ -2315,13 +2350,28 @@ export namespace devtest {
     }
 
     export interface ScheduleNotificationSettings {
+        /**
+         * The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+         */
         status?: pulumi.Input<string>;
+        /**
+         * Time in minutes before event at which notification will be sent.
+         */
         timeInMinutes?: pulumi.Input<number>;
+        /**
+         * The webhook URL to which the notification will be sent.
+         */
         webhookUrl?: pulumi.Input<string>;
     }
 
     export interface ScheduleWeeklyRecurrence {
+        /**
+         * The time each day when the schedule takes effect.
+         */
         time: pulumi.Input<string>;
+        /**
+         * A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+         */
         weekDays?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -2656,6 +2706,175 @@ export namespace eventhub {
          * Address to send to.
          */
         to?: pulumi.Input<string>;
+    }
+}
+
+export namespace frontdoor {
+    export interface FirewallPolicyCustomRule {
+        action: pulumi.Input<string>;
+        /**
+         * Is the policy a enabled state or disabled state. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        matchConditions?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyCustomRuleMatchCondition>[]>;
+        /**
+         * The name of the policy. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
+        rateLimitDurationInMinutes?: pulumi.Input<number>;
+        rateLimitThreshold?: pulumi.Input<number>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyCustomRuleMatchCondition {
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchVariable: pulumi.Input<string>;
+        negationCondition?: pulumi.Input<boolean>;
+        operator: pulumi.Input<string>;
+        selector?: pulumi.Input<string>;
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyManagedRule {
+        overrides?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverride>[]>;
+        type: pulumi.Input<string>;
+        version: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyManagedRuleOverride {
+        rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideRule>[]>;
+        ruleGroupName: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyManagedRuleOverrideRule {
+        action: pulumi.Input<string>;
+        /**
+         * Is the policy a enabled state or disabled state. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        ruleId: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBackendPool {
+        backends: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolBackend>[]>;
+        healthProbeName: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        loadBalancingName: pulumi.Input<string>;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBackendPoolBackend {
+        address: pulumi.Input<string>;
+        enabled?: pulumi.Input<boolean>;
+        hostHeader: pulumi.Input<string>;
+        httpPort: pulumi.Input<number>;
+        httpsPort: pulumi.Input<number>;
+        priority?: pulumi.Input<number>;
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface FrontdoorBackendPoolHealthProbe {
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        intervalInSeconds?: pulumi.Input<number>;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        path?: pulumi.Input<string>;
+        protocol?: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBackendPoolLoadBalancing {
+        additionalLatencyMilliseconds?: pulumi.Input<number>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        sampleSize?: pulumi.Input<number>;
+        successfulSamplesRequired?: pulumi.Input<number>;
+    }
+
+    export interface FrontdoorFrontendEndpoint {
+        customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration>;
+        customHttpsProvisioningEnabled: pulumi.Input<boolean>;
+        hostName: pulumi.Input<string>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        sessionAffinityEnabled?: pulumi.Input<boolean>;
+        sessionAffinityTtlSeconds?: pulumi.Input<number>;
+        /**
+         * (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+         */
+        webApplicationFirewallPolicyLinkId?: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorFrontendEndpointCustomHttpsConfiguration {
+        azureKeyVaultCertificateSecretName?: pulumi.Input<string>;
+        azureKeyVaultCertificateSecretVersion?: pulumi.Input<string>;
+        azureKeyVaultCertificateVaultId?: pulumi.Input<string>;
+        certificateSource?: pulumi.Input<string>;
+        /**
+         * Provisioning state of the Front Door.
+         */
+        provisioningState?: pulumi.Input<string>;
+        /**
+         * Provisioning substate of the Front Door
+         */
+        provisioningSubstate?: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorRoutingRule {
+        acceptedProtocols: pulumi.Input<pulumi.Input<string>[]>;
+        enabled?: pulumi.Input<boolean>;
+        forwardingConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration>;
+        frontendEndpoints: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Resource ID.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        patternsToMatches: pulumi.Input<pulumi.Input<string>[]>;
+        redirectConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorRoutingRuleRedirectConfiguration>;
+    }
+
+    export interface FrontdoorRoutingRuleForwardingConfiguration {
+        backendPoolName: pulumi.Input<string>;
+        cacheQueryParameterStripDirective?: pulumi.Input<string>;
+        cacheUseDynamicCompression?: pulumi.Input<boolean>;
+        customForwardingPath?: pulumi.Input<string>;
+        forwardingProtocol?: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorRoutingRuleRedirectConfiguration {
+        customFragment?: pulumi.Input<string>;
+        customHost: pulumi.Input<string>;
+        customPath?: pulumi.Input<string>;
+        customQueryString?: pulumi.Input<string>;
+        redirectProtocol: pulumi.Input<string>;
+        redirectType: pulumi.Input<string>;
     }
 }
 
@@ -3480,6 +3699,16 @@ export namespace keyvault {
     }
 }
 
+export namespace kusto {
+    export interface ClusterSku {
+        capacity: pulumi.Input<number>;
+        /**
+         * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+}
+
 export namespace lb {
     export interface LoadBalancerFrontendIpConfiguration {
         inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>;
@@ -3528,7 +3757,7 @@ export namespace lb {
 }
 
 export namespace loganalytics {
-    export interface LinkedServiceLinkedServiceProperty {
+    export interface LinkedServiceLinkedServiceProperties {
         /**
          * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
          */
@@ -3548,6 +3777,7 @@ export namespace mariadb {
     }
 
     export interface ServerStorageProfile {
+        autoGrow?: pulumi.Input<string>;
         backupRetentionDays?: pulumi.Input<number>;
         geoRedundantBackup?: pulumi.Input<string>;
         storageMb: pulumi.Input<number>;
@@ -3654,7 +3884,7 @@ export namespace monitoring {
     }
 
     export interface AutoscaleSettingNotificationWebhook {
-        properties?: pulumi.Input<{[key: string]: any}>;
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         serviceUri: pulumi.Input<string>;
     }
 
@@ -3851,6 +4081,10 @@ export namespace mysql {
     }
 
     export interface ServerStorageProfile {
+        /**
+         * Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
+         */
+        autoGrow?: pulumi.Input<string>;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
@@ -4195,6 +4429,18 @@ export namespace network {
         minProtocolVersion?: pulumi.Input<string>;
         policyName?: pulumi.Input<string>;
         policyType?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationGatewayTrustedRootCertificate {
+        data: pulumi.Input<string>;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface ApplicationGatewayUrlPathMap {
@@ -4703,7 +4949,7 @@ export namespace operationalinsights {
         publisher: pulumi.Input<string>;
     }
 
-    export interface AnalyticsWorkspaceLinkedServiceLinkedServiceProperty {
+    export interface AnalyticsWorkspaceLinkedServiceLinkedServiceProperties {
         /**
          * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
          */
@@ -4746,6 +4992,10 @@ export namespace postgresql {
     }
 
     export interface ServerStorageProfile {
+        /**
+         * Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.  
+         */
+        autoGrow?: pulumi.Input<string>;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
@@ -4795,6 +5045,9 @@ export namespace recoveryservices {
         stagingStorageAccountId: pulumi.Input<string>;
         targetDiskType: pulumi.Input<string>;
         targetReplicaDiskType: pulumi.Input<string>;
+        /**
+         * Id of resource group where the VM should be created when a failover is done.
+         */
         targetResourceGroupId: pulumi.Input<string>;
     }
 }
@@ -4857,7 +5110,7 @@ export namespace scheduler {
         authenticationBasic?: pulumi.Input<inputs.scheduler.JobActionWebAuthenticationBasic>;
         authenticationCertificate?: pulumi.Input<inputs.scheduler.JobActionWebAuthenticationCertificate>;
         body?: pulumi.Input<string>;
-        headers?: pulumi.Input<{[key: string]: any}>;
+        headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         method: pulumi.Input<string>;
         url: pulumi.Input<string>;
     }
@@ -4910,7 +5163,7 @@ export namespace scheduler {
         authenticationBasic?: pulumi.Input<inputs.scheduler.JobErrorActionWebAuthenticationBasic>;
         authenticationCertificate?: pulumi.Input<inputs.scheduler.JobErrorActionWebAuthenticationCertificate>;
         body?: pulumi.Input<string>;
-        headers?: pulumi.Input<{[key: string]: any}>;
+        headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         method: pulumi.Input<string>;
         url: pulumi.Input<string>;
     }
@@ -5045,12 +5298,12 @@ export namespace servicefabric {
          * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ClusterNodeType {
         applicationPorts?: pulumi.Input<inputs.servicefabric.ClusterNodeTypeApplicationPorts>;
-        capacities?: pulumi.Input<{[key: string]: any}>;
+        capacities?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         clientEndpointPort: pulumi.Input<number>;
         durabilityLevel?: pulumi.Input<string>;
         ephemeralPorts?: pulumi.Input<inputs.servicefabric.ClusterNodeTypeEphemeralPorts>;
@@ -5061,7 +5314,7 @@ export namespace servicefabric {
          * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        placementProperties?: pulumi.Input<{[key: string]: any}>;
+        placementProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         reverseProxyEndpointPort?: pulumi.Input<number>;
     }
 
@@ -5165,11 +5418,11 @@ export namespace sql {
          */
         id: pulumi.Input<string>;
         /**
-         * the location of a SQL server in `partnerServers`
+         * the location of the failover group.
          */
         location?: pulumi.Input<string>;
         /**
-         * the current role of the SQL server named in `serverName`
+         * local replication role of the failover group instance.
          */
         role?: pulumi.Input<string>;
     }
@@ -5258,6 +5511,15 @@ export namespace storage {
         version: pulumi.Input<string>;
     }
 
+    export interface GetAccountBlobContainerSASPermissions {
+        add: boolean;
+        create: boolean;
+        delete: boolean;
+        list: boolean;
+        read: boolean;
+        write: boolean;
+    }
+
     export interface GetAccountSASPermissions {
         add: boolean;
         create: boolean;
@@ -5341,6 +5603,13 @@ export namespace streamanalytics {
         type: pulumi.Input<string>;
     }
 
+    export interface OutputServicebusTopicSerialization {
+        encoding?: pulumi.Input<string>;
+        fieldDelimiter?: pulumi.Input<string>;
+        format?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface StreamInputBlobSerialization {
         encoding?: pulumi.Input<string>;
         fieldDelimiter?: pulumi.Input<string>;
@@ -5388,5 +5657,35 @@ export namespace trafficmanager {
         protocol: pulumi.Input<string>;
         timeoutInSeconds?: pulumi.Input<number>;
         toleratedNumberOfFailures?: pulumi.Input<number>;
+    }
+}
+
+export namespace waf {
+    export interface PolicyCustomRule {
+        action: pulumi.Input<string>;
+        matchConditions: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRuleMatchCondition>[]>;
+        /**
+         * The name of the policy. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        priority: pulumi.Input<number>;
+        ruleType: pulumi.Input<string>;
+    }
+
+    export interface PolicyCustomRuleMatchCondition {
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchVariables: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRuleMatchConditionMatchVariable>[]>;
+        negationCondition?: pulumi.Input<boolean>;
+        operator: pulumi.Input<string>;
+    }
+
+    export interface PolicyCustomRuleMatchConditionMatchVariable {
+        selector?: pulumi.Input<string>;
+        variableName: pulumi.Input<string>;
+    }
+
+    export interface PolicyPolicySettings {
+        enabled?: pulumi.Input<boolean>;
+        mode?: pulumi.Input<string>;
     }
 }

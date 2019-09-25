@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage a managed disk.
+// Manages a managed disk.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
 type ManagedDisk struct {
@@ -30,6 +30,8 @@ func NewManagedDisk(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["createOption"] = nil
+		inputs["diskIopsReadWrite"] = nil
+		inputs["diskMbpsReadWrite"] = nil
 		inputs["diskSizeGb"] = nil
 		inputs["encryptionSettings"] = nil
 		inputs["imageReferenceId"] = nil
@@ -44,6 +46,8 @@ func NewManagedDisk(ctx *pulumi.Context,
 		inputs["zones"] = nil
 	} else {
 		inputs["createOption"] = args.CreateOption
+		inputs["diskIopsReadWrite"] = args.DiskIopsReadWrite
+		inputs["diskMbpsReadWrite"] = args.DiskMbpsReadWrite
 		inputs["diskSizeGb"] = args.DiskSizeGb
 		inputs["encryptionSettings"] = args.EncryptionSettings
 		inputs["imageReferenceId"] = args.ImageReferenceId
@@ -71,6 +75,8 @@ func GetManagedDisk(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["createOption"] = state.CreateOption
+		inputs["diskIopsReadWrite"] = state.DiskIopsReadWrite
+		inputs["diskMbpsReadWrite"] = state.DiskMbpsReadWrite
 		inputs["diskSizeGb"] = state.DiskSizeGb
 		inputs["encryptionSettings"] = state.EncryptionSettings
 		inputs["imageReferenceId"] = state.ImageReferenceId
@@ -104,6 +110,16 @@ func (r *ManagedDisk) ID() *pulumi.IDOutput {
 // The method to use when creating the managed disk. Possible values include:
 func (r *ManagedDisk) CreateOption() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createOption"])
+}
+
+// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+func (r *ManagedDisk) DiskIopsReadWrite() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["diskIopsReadWrite"])
+}
+
+// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+func (r *ManagedDisk) DiskMbpsReadWrite() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["diskMbpsReadWrite"])
 }
 
 // Specifies the size of the managed disk to create in gigabytes.
@@ -177,6 +193,10 @@ func (r *ManagedDisk) Zones() *pulumi.StringOutput {
 type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Possible values include:
 	CreateOption interface{}
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite interface{}
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	DiskMbpsReadWrite interface{}
 	// Specifies the size of the managed disk to create in gigabytes.
 	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 	DiskSizeGb interface{}
@@ -214,6 +234,10 @@ type ManagedDiskState struct {
 type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Possible values include:
 	CreateOption interface{}
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite interface{}
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	DiskMbpsReadWrite interface{}
 	// Specifies the size of the managed disk to create in gigabytes.
 	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 	DiskSizeGb interface{}

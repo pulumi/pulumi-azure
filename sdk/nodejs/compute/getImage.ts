@@ -91,7 +91,7 @@ export interface GetImageResult {
     /**
      * a mapping of tags to assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * is zone resiliency enabled?
      */

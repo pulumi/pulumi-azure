@@ -77,7 +77,7 @@ export class RegistryWebook extends pulumi.CustomResource {
     /**
      * Custom headers that will be added to the webhook notifications request.
      */
-    public readonly customHeaders!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly customHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -177,7 +177,7 @@ export interface RegistryWebookState {
     /**
      * Custom headers that will be added to the webhook notifications request.
      */
-    readonly customHeaders?: pulumi.Input<{[key: string]: any}>;
+    readonly customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -220,7 +220,7 @@ export interface RegistryWebookArgs {
     /**
      * Custom headers that will be added to the webhook notifications request.
      */
-    readonly customHeaders?: pulumi.Input<{[key: string]: any}>;
+    readonly customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

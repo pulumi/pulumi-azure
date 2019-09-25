@@ -98,7 +98,7 @@ func (r *FailoverGroup) Databases() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["databases"])
 }
 
-// the location of a SQL server in `partnerServers`
+// the location of the failover group.
 func (r *FailoverGroup) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
@@ -128,7 +128,7 @@ func (r *FailoverGroup) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// the current role of the SQL server named in `serverName`
+// local replication role of the failover group instance.
 func (r *FailoverGroup) Role() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["role"])
 }
@@ -147,7 +147,7 @@ func (r *FailoverGroup) Tags() *pulumi.MapOutput {
 type FailoverGroupState struct {
 	// A list of database ids to add to the failover group
 	Databases interface{}
-	// the location of a SQL server in `partnerServers`
+	// the location of the failover group.
 	Location interface{}
 	// The name of the failover group. Changing this forces a new resource to be created.
 	Name interface{}
@@ -159,7 +159,7 @@ type FailoverGroupState struct {
 	ReadonlyEndpointFailoverPolicy interface{}
 	// The name of the resource group containing the SQL server
 	ResourceGroupName interface{}
-	// the current role of the SQL server named in `serverName`
+	// local replication role of the failover group instance.
 	Role interface{}
 	// The name of the primary SQL server. Changing this forces a new resource to be created.
 	ServerName interface{}

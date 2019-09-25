@@ -94,7 +94,7 @@ class Queue(pulumi.CustomResource):
     support_ordering: pulumi.Output[bool]
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, location=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a ServiceBus Queue.
+        Manages a ServiceBus Queue.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

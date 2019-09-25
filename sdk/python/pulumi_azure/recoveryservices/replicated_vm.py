@@ -11,23 +11,73 @@ from .. import utilities, tables
 
 class ReplicatedVm(pulumi.CustomResource):
     managed_disks: pulumi.Output[list]
+    """
+    One or more `managed_disk` block.
+    
+      * `diskId` (`str`)
+      * `stagingStorageAccountId` (`str`)
+      * `targetDiskType` (`str`)
+      * `targetReplicaDiskType` (`str`)
+      * `target_resource_group_id` (`str`) - Id of resource group where the VM should be created when a failover is done.
+    """
     name: pulumi.Output[str]
+    """
+    The name of the network mapping.
+    """
     recovery_replication_policy_id: pulumi.Output[str]
     recovery_vault_name: pulumi.Output[str]
+    """
+    The name of the vault that should be updated.
+    """
     resource_group_name: pulumi.Output[str]
+    """
+    Name of the resource group where the vault that should be updated is located.
+    """
     source_recovery_fabric_name: pulumi.Output[str]
+    """
+    Name of fabric that should contains this replication.
+    """
     source_recovery_protection_container_name: pulumi.Output[str]
+    """
+    Name of the protection container to use.
+    """
     source_vm_id: pulumi.Output[str]
+    """
+    Id of the VM to replicate
+    """
     target_availability_set_id: pulumi.Output[str]
+    """
+    Id of availability set that the new VM should belong to when a failover is done.
+    """
     target_recovery_fabric_id: pulumi.Output[str]
+    """
+    Id of fabric where the VM replication should be handled when a failover is done.
+    """
     target_recovery_protection_container_id: pulumi.Output[str]
+    """
+    Id of protection container where the VM replication should be created when a failover is done.
+    """
     target_resource_group_id: pulumi.Output[str]
+    """
+    Id of resource group where the VM should be created when a failover is done.
+    """
     def __init__(__self__, resource_name, opts=None, managed_disks=None, name=None, recovery_replication_policy_id=None, recovery_vault_name=None, resource_group_name=None, source_recovery_fabric_name=None, source_recovery_protection_container_name=None, source_vm_id=None, target_availability_set_id=None, target_recovery_fabric_id=None, target_recovery_protection_container_id=None, target_resource_group_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a ReplicatedVm resource with the given unique name, props, and options.
+        Manages a Azure recovery replicated vms (Azure to Azure). An replicated VM keeps a copiously updated image of the vm in another region in order to be able to start the VM in that region in case of a disaster. 
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] managed_disks: One or more `managed_disk` block.
+        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication.
+        :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use.
+        :param pulumi.Input[str] source_vm_id: Id of the VM to replicate
+        :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
+        :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
+        :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
+        :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
         
         The **managed_disks** object supports the following:
         
@@ -35,7 +85,9 @@ class ReplicatedVm(pulumi.CustomResource):
           * `stagingStorageAccountId` (`pulumi.Input[str]`)
           * `targetDiskType` (`pulumi.Input[str]`)
           * `targetReplicaDiskType` (`pulumi.Input[str]`)
-          * `target_resource_group_id` (`pulumi.Input[str]`)
+          * `target_resource_group_id` (`pulumi.Input[str]`) - Id of resource group where the VM should be created when a failover is done.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_replicated_vm.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,6 +151,17 @@ class ReplicatedVm(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] managed_disks: One or more `managed_disk` block.
+        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication.
+        :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use.
+        :param pulumi.Input[str] source_vm_id: Id of the VM to replicate
+        :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
+        :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
+        :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
+        :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
         
         The **managed_disks** object supports the following:
         
@@ -106,7 +169,9 @@ class ReplicatedVm(pulumi.CustomResource):
           * `stagingStorageAccountId` (`pulumi.Input[str]`)
           * `targetDiskType` (`pulumi.Input[str]`)
           * `targetReplicaDiskType` (`pulumi.Input[str]`)
-          * `target_resource_group_id` (`pulumi.Input[str]`)
+          * `target_resource_group_id` (`pulumi.Input[str]`) - Id of resource group where the VM should be created when a failover is done.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_replicated_vm.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

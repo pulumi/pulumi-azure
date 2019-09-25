@@ -7,6 +7,7 @@ export * from "./database";
 export * from "./elasticPool";
 export * from "./failoverGroup";
 export * from "./firewallRule";
+export * from "./getDatabase";
 export * from "./getServer";
 export * from "./sqlServer";
 export * from "./virtualNetworkRule";

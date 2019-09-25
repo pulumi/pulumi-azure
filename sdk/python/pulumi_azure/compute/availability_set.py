@@ -30,6 +30,10 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     Specifies the number of update domains that are used. Defaults to 5.
     """
+    proximity_placement_group_id: pulumi.Output[str]
+    """
+    The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
@@ -38,7 +42,7 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group_id=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an availability set for virtual machines.
         
@@ -49,6 +53,7 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to 3.
         :param pulumi.Input[float] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to 5.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -76,6 +81,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__['name'] = name
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
             __props__['platform_update_domain_count'] = platform_update_domain_count
+            __props__['proximity_placement_group_id'] = proximity_placement_group_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -87,7 +93,7 @@ class AvailabilitySet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group_id=None, resource_group_name=None, tags=None):
         """
         Get an existing AvailabilitySet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -100,6 +106,7 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to 3.
         :param pulumi.Input[float] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to 5.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -113,6 +120,7 @@ class AvailabilitySet(pulumi.CustomResource):
         __props__["name"] = name
         __props__["platform_fault_domain_count"] = platform_fault_domain_count
         __props__["platform_update_domain_count"] = platform_update_domain_count
+        __props__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         return AvailabilitySet(resource_name, opts=opts, __props__=__props__)

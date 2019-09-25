@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Application Insights component.
+ * Manages an Application Insights component.
  * 
  * ## Example Usage
  * 

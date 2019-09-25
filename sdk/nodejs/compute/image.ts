@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a custom virtual machine image that can be used to create virtual machines.
+ * Manages a custom virtual machine image that can be used to create virtual machines.
  * 
  * ## Example Usage Creating from VHD
  * 

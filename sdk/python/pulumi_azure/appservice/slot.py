@@ -129,6 +129,7 @@ class Slot(pulumi.CustomResource):
     
         * `ipAddress` (`str`)
         * `subnetMask` (`str`)
+        * `virtualNetworkSubnetId` (`str`)
     
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
       * `javaContainerVersion` (`str`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
@@ -252,6 +253,7 @@ class Slot(pulumi.CustomResource):
         
             * `ipAddress` (`pulumi.Input[str]`)
             * `subnetMask` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
@@ -414,6 +416,7 @@ class Slot(pulumi.CustomResource):
         
             * `ipAddress` (`pulumi.Input[str]`)
             * `subnetMask` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.

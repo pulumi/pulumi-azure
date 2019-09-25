@@ -51,6 +51,7 @@ class Server(pulumi.CustomResource):
     """
     A `storage_profile` block as defined below.
     
+      * `autoGrow` (`str`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
       * `backupRetentionDays` (`float`) - Backup retention days for the server, supported values are between `7` and `35` days.
       * `geoRedundantBackup` (`str`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
       * `storageMb` (`float`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
@@ -89,6 +90,7 @@ class Server(pulumi.CustomResource):
         
         The **storage_profile** object supports the following:
         
+          * `autoGrow` (`pulumi.Input[str]`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
           * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
           * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
@@ -173,6 +175,7 @@ class Server(pulumi.CustomResource):
         
         The **storage_profile** object supports the following:
         
+          * `autoGrow` (`pulumi.Input[str]`) - Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
           * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
           * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
           * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).

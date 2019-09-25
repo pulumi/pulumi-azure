@@ -128,7 +128,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A mapping of tags assigned to this resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * A `windowsProfile` block as documented below.
      */

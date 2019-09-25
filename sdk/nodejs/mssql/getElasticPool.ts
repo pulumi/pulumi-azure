@@ -91,7 +91,7 @@ export interface GetElasticPoolResult {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Whether or not this elastic pool is zone redundant.
      */

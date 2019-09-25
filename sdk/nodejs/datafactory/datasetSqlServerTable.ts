@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a SQL Server Table Dataset inside a Azure Data Factory.
+ * Manages a SQL Server Table Dataset inside a Azure Data Factory.
  * 
  * ## Example Usage
  * 
@@ -70,7 +70,7 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
      */
@@ -98,7 +98,7 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
     /**
      * A map of parameters to associate with the Data Factory Dataset SQL Server Table.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
      */
@@ -176,7 +176,7 @@ export interface DatasetSqlServerTableState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
      */
@@ -204,7 +204,7 @@ export interface DatasetSqlServerTableState {
     /**
      * A map of parameters to associate with the Data Factory Dataset SQL Server Table.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
      */
@@ -226,7 +226,7 @@ export interface DatasetSqlServerTableArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
      */
@@ -254,7 +254,7 @@ export interface DatasetSqlServerTableArgs {
     /**
      * A map of parameters to associate with the Data Factory Dataset SQL Server Table.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
      */

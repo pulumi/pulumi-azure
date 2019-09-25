@@ -34,6 +34,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["additionalCapabilities"] = nil
 		inputs["availabilitySetId"] = nil
 		inputs["bootDiagnostics"] = nil
 		inputs["deleteDataDisksOnTermination"] = nil
@@ -49,6 +50,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		inputs["osProfileWindowsConfig"] = nil
 		inputs["plan"] = nil
 		inputs["primaryNetworkInterfaceId"] = nil
+		inputs["proximityPlacementGroupId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["storageDataDisks"] = nil
 		inputs["storageImageReference"] = nil
@@ -57,6 +59,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		inputs["vmSize"] = nil
 		inputs["zones"] = nil
 	} else {
+		inputs["additionalCapabilities"] = args.AdditionalCapabilities
 		inputs["availabilitySetId"] = args.AvailabilitySetId
 		inputs["bootDiagnostics"] = args.BootDiagnostics
 		inputs["deleteDataDisksOnTermination"] = args.DeleteDataDisksOnTermination
@@ -72,6 +75,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		inputs["osProfileWindowsConfig"] = args.OsProfileWindowsConfig
 		inputs["plan"] = args.Plan
 		inputs["primaryNetworkInterfaceId"] = args.PrimaryNetworkInterfaceId
+		inputs["proximityPlacementGroupId"] = args.ProximityPlacementGroupId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["storageDataDisks"] = args.StorageDataDisks
 		inputs["storageImageReference"] = args.StorageImageReference
@@ -93,6 +97,7 @@ func GetVirtualMachine(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *VirtualMachineState, opts ...pulumi.ResourceOpt) (*VirtualMachine, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["additionalCapabilities"] = state.AdditionalCapabilities
 		inputs["availabilitySetId"] = state.AvailabilitySetId
 		inputs["bootDiagnostics"] = state.BootDiagnostics
 		inputs["deleteDataDisksOnTermination"] = state.DeleteDataDisksOnTermination
@@ -108,6 +113,7 @@ func GetVirtualMachine(ctx *pulumi.Context,
 		inputs["osProfileWindowsConfig"] = state.OsProfileWindowsConfig
 		inputs["plan"] = state.Plan
 		inputs["primaryNetworkInterfaceId"] = state.PrimaryNetworkInterfaceId
+		inputs["proximityPlacementGroupId"] = state.ProximityPlacementGroupId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["storageDataDisks"] = state.StorageDataDisks
 		inputs["storageImageReference"] = state.StorageImageReference
@@ -131,6 +137,11 @@ func (r *VirtualMachine) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *VirtualMachine) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// A `additionalCapabilities` block.
+func (r *VirtualMachine) AdditionalCapabilities() *pulumi.Output {
+	return r.s.State["additionalCapabilities"]
 }
 
 // The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -208,6 +219,11 @@ func (r *VirtualMachine) PrimaryNetworkInterfaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryNetworkInterfaceId"])
 }
 
+// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+func (r *VirtualMachine) ProximityPlacementGroupId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
+}
+
 // Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 func (r *VirtualMachine) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
@@ -245,6 +261,8 @@ func (r *VirtualMachine) Zones() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering VirtualMachine resources.
 type VirtualMachineState struct {
+	// A `additionalCapabilities` block.
+	AdditionalCapabilities interface{}
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId interface{}
 	// A `bootDiagnostics` block.
@@ -275,6 +293,8 @@ type VirtualMachineState struct {
 	Plan interface{}
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId interface{}
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId interface{}
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// One or more `storageDataDisk` blocks.
@@ -293,6 +313,8 @@ type VirtualMachineState struct {
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
+	// A `additionalCapabilities` block.
+	AdditionalCapabilities interface{}
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId interface{}
 	// A `bootDiagnostics` block.
@@ -323,6 +345,8 @@ type VirtualMachineArgs struct {
 	Plan interface{}
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId interface{}
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId interface{}
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// One or more `storageDataDisk` blocks.

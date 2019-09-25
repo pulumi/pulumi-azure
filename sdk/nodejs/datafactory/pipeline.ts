@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Pipeline inside a Azure Data Factory.
+ * Manages a Pipeline inside a Azure Data Factory.
  * 
  * ## Example Usage
  * 
@@ -79,7 +79,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
      */
@@ -87,7 +87,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    public readonly variables!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -158,7 +158,7 @@ export interface PipelineState {
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
      */
@@ -166,7 +166,7 @@ export interface PipelineState {
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    readonly variables?: pulumi.Input<{[key: string]: any}>;
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface PipelineArgs {
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
      */
@@ -200,5 +200,5 @@ export interface PipelineArgs {
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    readonly variables?: pulumi.Input<{[key: string]: any}>;
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

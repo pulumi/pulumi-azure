@@ -87,8 +87,8 @@ func (r *AnalyticsWorkspaceLinkedService) LinkedServiceName() *pulumi.StringOutp
 }
 
 // A `linkedServiceProperties` block as defined below.
-func (r *AnalyticsWorkspaceLinkedService) LinkedServiceProperties() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["linkedServiceProperties"])
+func (r *AnalyticsWorkspaceLinkedService) LinkedServiceProperties() *pulumi.Output {
+	return r.s.State["linkedServiceProperties"]
 }
 
 // The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`

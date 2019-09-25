@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Azure Data Lake Store Firewall Rule.
+ * Manages a Azure Data Lake Store Firewall Rule.
  * 
  * ## Example Usage
  * 

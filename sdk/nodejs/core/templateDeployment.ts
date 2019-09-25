@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage a template deployment of resources
+ * Manages a template deployment of resources
  * 
  * > **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, this provider can only manage the deployment of the ARM Template - and not any resources which are created by it.
  * This means that when deleting the `azure.core.TemplateDeployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
@@ -139,11 +139,11 @@ export class TemplateDeployment extends pulumi.CustomResource {
     /**
      * A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the name and value pairs that define the deployment parameters for the template.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      */
@@ -222,11 +222,11 @@ export interface TemplateDeploymentState {
     /**
      * A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
      */
-    readonly outputs?: pulumi.Input<{[key: string]: any}>;
+    readonly outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the name and value pairs that define the deployment parameters for the template.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      */
@@ -260,7 +260,7 @@ export interface TemplateDeploymentArgs {
     /**
      * Specifies the name and value pairs that define the deployment parameters for the template.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      */

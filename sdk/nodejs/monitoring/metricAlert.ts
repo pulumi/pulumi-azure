@@ -120,7 +120,7 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The resource ID at which the metric criteria should be applied.
+     * A set of strings of resource IDs at which the metric criteria should be applied.
      */
     public readonly scopes!: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export interface MetricAlertState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The resource ID at which the metric criteria should be applied.
+     * A set of strings of resource IDs at which the metric criteria should be applied.
      */
     readonly scopes?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface MetricAlertArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The resource ID at which the metric criteria should be applied.
+     * A set of strings of resource IDs at which the metric criteria should be applied.
      */
     readonly scopes: pulumi.Input<string>;
     /**

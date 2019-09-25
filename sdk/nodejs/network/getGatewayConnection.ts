@@ -113,7 +113,7 @@ export interface GetGatewayConnectionResult {
     /**
      * (Optional) A mapping of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).

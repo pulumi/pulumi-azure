@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Application Security Group.
+ * Manages an Application Security Group.
  * 
  * ## Example Usage
  * 

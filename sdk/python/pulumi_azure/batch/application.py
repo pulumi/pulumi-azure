@@ -36,7 +36,7 @@ class Application(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, allow_updates=None, default_version=None, display_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage Azure Batch Application instance.
+        Manages Azure Batch Application instance.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -40,7 +40,7 @@ class Job(pulumi.CustomResource):
         * `expiration` (`str`) - (Computed)  The certificate expiration date.
         * `password` (`str`)
         * `pfx` (`str`)
-        * `subjectName` (`str`) - (Computed) The certificate's certificate subject name.
+        * `subject_name` (`str`) - (Computed) The certificate's certificate subject name.
         * `thumbprint` (`str`) - (Computed) The certificate thumbprint.
     
       * `body` (`str`)
@@ -78,7 +78,7 @@ class Job(pulumi.CustomResource):
         * `expiration` (`str`) - (Computed)  The certificate expiration date.
         * `password` (`str`)
         * `pfx` (`str`)
-        * `subjectName` (`str`) - (Computed) The certificate's certificate subject name.
+        * `subject_name` (`str`) - (Computed) The certificate's certificate subject name.
         * `thumbprint` (`str`) - (Computed) The certificate thumbprint.
     
       * `body` (`str`)
@@ -177,7 +177,7 @@ class Job(pulumi.CustomResource):
             * `expiration` (`pulumi.Input[str]`) - (Computed)  The certificate expiration date.
             * `password` (`pulumi.Input[str]`)
             * `pfx` (`pulumi.Input[str]`)
-            * `subjectName` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
+            * `subject_name` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
             * `thumbprint` (`pulumi.Input[str]`) - (Computed) The certificate thumbprint.
         
           * `body` (`pulumi.Input[str]`)
@@ -211,7 +211,7 @@ class Job(pulumi.CustomResource):
             * `expiration` (`pulumi.Input[str]`) - (Computed)  The certificate expiration date.
             * `password` (`pulumi.Input[str]`)
             * `pfx` (`pulumi.Input[str]`)
-            * `subjectName` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
+            * `subject_name` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
             * `thumbprint` (`pulumi.Input[str]`) - (Computed) The certificate thumbprint.
         
           * `body` (`pulumi.Input[str]`)
@@ -327,7 +327,7 @@ class Job(pulumi.CustomResource):
             * `expiration` (`pulumi.Input[str]`) - (Computed)  The certificate expiration date.
             * `password` (`pulumi.Input[str]`)
             * `pfx` (`pulumi.Input[str]`)
-            * `subjectName` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
+            * `subject_name` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
             * `thumbprint` (`pulumi.Input[str]`) - (Computed) The certificate thumbprint.
         
           * `body` (`pulumi.Input[str]`)
@@ -361,7 +361,7 @@ class Job(pulumi.CustomResource):
             * `expiration` (`pulumi.Input[str]`) - (Computed)  The certificate expiration date.
             * `password` (`pulumi.Input[str]`)
             * `pfx` (`pulumi.Input[str]`)
-            * `subjectName` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
+            * `subject_name` (`pulumi.Input[str]`) - (Computed) The certificate's certificate subject name.
             * `thumbprint` (`pulumi.Input[str]`) - (Computed) The certificate thumbprint.
         
           * `body` (`pulumi.Input[str]`)

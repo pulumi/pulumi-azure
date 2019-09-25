@@ -15,17 +15,18 @@ type ZipBlob struct {
 // NewZipBlob registers a new resource with the given unique name, arguments, and options.
 func NewZipBlob(ctx *pulumi.Context,
 	name string, args *ZipBlobArgs, opts ...pulumi.ResourceOpt) (*ZipBlob, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
 	if args == nil || args.StorageContainerName == nil {
 		return nil, errors.New("missing required argument 'StorageContainerName'")
 	}
+	if args == nil || args.Type == nil {
+		return nil, errors.New("missing required argument 'Type'")
+	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["accessTier"] = nil
 		inputs["attempts"] = nil
 		inputs["contentType"] = nil
 		inputs["metadata"] = nil
@@ -34,11 +35,13 @@ func NewZipBlob(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["size"] = nil
 		inputs["content"] = nil
+		inputs["sourceContent"] = nil
 		inputs["sourceUri"] = nil
 		inputs["storageAccountName"] = nil
 		inputs["storageContainerName"] = nil
 		inputs["type"] = nil
 	} else {
+		inputs["accessTier"] = args.AccessTier
 		inputs["attempts"] = args.Attempts
 		inputs["contentType"] = args.ContentType
 		inputs["metadata"] = args.Metadata
@@ -47,6 +50,7 @@ func NewZipBlob(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["size"] = args.Size
 		inputs["content"] = args.Content
+		inputs["sourceContent"] = args.SourceContent
 		inputs["sourceUri"] = args.SourceUri
 		inputs["storageAccountName"] = args.StorageAccountName
 		inputs["storageContainerName"] = args.StorageContainerName
@@ -66,6 +70,7 @@ func GetZipBlob(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ZipBlobState, opts ...pulumi.ResourceOpt) (*ZipBlob, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["accessTier"] = state.AccessTier
 		inputs["attempts"] = state.Attempts
 		inputs["contentType"] = state.ContentType
 		inputs["metadata"] = state.Metadata
@@ -74,6 +79,7 @@ func GetZipBlob(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["size"] = state.Size
 		inputs["content"] = state.Content
+		inputs["sourceContent"] = state.SourceContent
 		inputs["sourceUri"] = state.SourceUri
 		inputs["storageAccountName"] = state.StorageAccountName
 		inputs["storageContainerName"] = state.StorageContainerName
@@ -95,6 +101,10 @@ func (r *ZipBlob) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ZipBlob) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+func (r *ZipBlob) AccessTier() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["accessTier"])
 }
 
 func (r *ZipBlob) Attempts() *pulumi.IntOutput {
@@ -129,6 +139,10 @@ func (r *ZipBlob) Content() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["content"])
 }
 
+func (r *ZipBlob) SourceContent() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["sourceContent"])
+}
+
 func (r *ZipBlob) SourceUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
 }
@@ -151,6 +165,7 @@ func (r *ZipBlob) Url() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering ZipBlob resources.
 type ZipBlobState struct {
+	AccessTier interface{}
 	Attempts interface{}
 	ContentType interface{}
 	Metadata interface{}
@@ -159,6 +174,7 @@ type ZipBlobState struct {
 	ResourceGroupName interface{}
 	Size interface{}
 	Content interface{}
+	SourceContent interface{}
 	SourceUri interface{}
 	StorageAccountName interface{}
 	StorageContainerName interface{}
@@ -168,6 +184,7 @@ type ZipBlobState struct {
 
 // The set of arguments for constructing a ZipBlob resource.
 type ZipBlobArgs struct {
+	AccessTier interface{}
 	Attempts interface{}
 	ContentType interface{}
 	Metadata interface{}
@@ -176,6 +193,7 @@ type ZipBlobArgs struct {
 	ResourceGroupName interface{}
 	Size interface{}
 	Content interface{}
+	SourceContent interface{}
 	SourceUri interface{}
 	StorageAccountName interface{}
 	StorageContainerName interface{}

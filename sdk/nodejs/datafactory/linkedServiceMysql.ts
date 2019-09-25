@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Linked Service (connection) between MySQL and Azure Data Factory.
+ * Manages a Linked Service (connection) between MySQL and Azure Data Factory.
  * 
  * > **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
@@ -66,7 +66,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
@@ -94,7 +94,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
     /**
      * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
      */
@@ -160,7 +160,7 @@ export interface LinkedServiceMysqlState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
@@ -188,7 +188,7 @@ export interface LinkedServiceMysqlState {
     /**
      * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
      */
@@ -202,7 +202,7 @@ export interface LinkedServiceMysqlArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
@@ -230,7 +230,7 @@ export interface LinkedServiceMysqlArgs {
     /**
      * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
      */

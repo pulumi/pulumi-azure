@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Data Lake Analytics Account.
+ * Manages an Azure Data Lake Analytics Account.
  * 
  * ## Example Usage
  * 

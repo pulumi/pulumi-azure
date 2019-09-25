@@ -158,7 +158,7 @@ func (r *Server) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+// Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
 func (r *Server) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
@@ -185,7 +185,7 @@ type ServerState struct {
 	StorageProfile interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+	// Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
 	Version interface{}
 }
 
@@ -209,6 +209,6 @@ type ServerArgs struct {
 	StorageProfile interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+	// Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
 	Version interface{}
 }

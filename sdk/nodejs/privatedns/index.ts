@@ -5,3 +5,4 @@
 export * from "./aRecord";
 export * from "./cnameRecord";
 export * from "./zone";
+export * from "./zoneVirtualNetworkLink";

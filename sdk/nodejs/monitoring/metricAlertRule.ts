@@ -149,7 +149,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The threshold value that activates the alert.
      */
@@ -285,7 +285,7 @@ export interface MetricAlertRuleState {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The threshold value that activates the alert.
      */
@@ -347,7 +347,7 @@ export interface MetricAlertRuleArgs {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The threshold value that activates the alert.
      */

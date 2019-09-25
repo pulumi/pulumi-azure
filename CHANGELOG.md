@@ -6,6 +6,7 @@ CHANGELOG
 * Fix an issue where `records` property of `dns.NsRecord` was mistakenly mapped to the deprecated `record` property (fixes [#243](https://github.com/pulumi/pulumi-azure/issues/243))
   [#361](https://github.com/pulumi/pulumi-azure/pull/361)
 * Upgrade to support go1.13
+* Upgrade to v1.34.0 of the Azurerm Terraform Provider
 
 ---
 

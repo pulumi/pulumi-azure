@@ -44,7 +44,7 @@ class TemplateDeployment(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, deployment_mode=None, name=None, parameters=None, parameters_body=None, resource_group_name=None, template_body=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a template deployment of resources
+        Manages a template deployment of resources
         
         > **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, this provider can only manage the deployment of the ARM Template - and not any resources which are created by it.
         This means that when deleting the `core.TemplateDeployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.

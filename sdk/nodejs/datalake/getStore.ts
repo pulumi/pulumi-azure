@@ -79,7 +79,7 @@ export interface GetStoreResult {
     /**
      * A mapping of tags to assign to the Data Lake Store.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Current monthly commitment tier for the account.
      */

@@ -6,3 +6,4 @@
 from .a_record import *
 from .cname_record import *
 from .zone import *
+from .zone_virtual_network_link import *

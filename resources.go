@@ -21,7 +21,7 @@ import (
 	"unicode"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
-	"github.com/hashicorp/terraform/config/hcl2shim"
+	"github.com/hashicorp/terraform/configs/hcl2shim"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 	"github.com/pkg/errors"
@@ -53,6 +53,7 @@ const (
 	azureAuthorization       = "authorization"       // Authorization
 	azureAutoscale           = "autoscale"           // Autoscale
 	azureBatch               = "batch"               // Batch
+	azureBot                 = "bot"                 // Bot
 	azureCDN                 = "cdn"                 // CDN
 	azureCognitive           = "cognitive"           // Cognitive
 	azureCompute             = "compute"             // Virtual Machines
@@ -66,9 +67,11 @@ const (
 	azureDevSpace            = "devspace"            // DevSpace
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
+	azureFrontdoor           = "frontdoor"           // Frontdoor
 	azureHdInsight           = "hdinsight"           // nolint:misspell // HDInsight
 	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
+	azureKusto               = "kusto"               // Kusto
 	azureLogAnalytics        = "loganalytics"        // Log Analytics
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
@@ -77,6 +80,7 @@ const (
 	azureEventHub            = "eventhub"            // Event Hub
 	azureManagement          = "management"          // Management Resources
 	azureMaps                = "maps"                // Maps
+	azureMarketPlace         = "marketplace"         // Marketplace
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSSQL               = "mssql"               // MS Sql
@@ -86,6 +90,7 @@ const (
 	azureOperationalInsights = "operationalinsights" // Operational Insights
 	azurePostgresql          = "postgresql"          // Postgress SQL
 	azurePolicy              = "policy"              // Policy
+	azureProximity           = "proximity"           // Proximity
 	azurePrivateDNS          = "privatedns"          // Private DNS
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
@@ -99,6 +104,7 @@ const (
 	azureSQL                 = "sql"                 // SQL
 	azureStorage             = "storage"             // Storage
 	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
+	azureWaf                 = "waf"                 // WAF
 
 	// Legacy Module Names
 	azureLegacyRole             = "role"               // Azure Role (Legacy)
@@ -385,6 +391,8 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				}},
+			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
+			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
 
 			// Automation
 			"azurerm_automation_account":               {Tok: azureResource(azureAutomation, "Account")},
@@ -716,6 +724,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_a_record":     {Tok: azureResource(azurePrivateDNS, "ARecord")},
 			"azurerm_private_dns_cname_record": {Tok: azureResource(azurePrivateDNS, "CnameRecord")},
 			"azurerm_private_dns_zone":         {Tok: azureResource(azurePrivateDNS, "Zone")},
+			"azurerm_private_dns_zone_virtual_network_link": {
+				Tok: azureResource(azurePrivateDNS, "ZoneVirtualNetworkLink"),
+			},
 
 			// SQL
 			"azurerm_sql_elasticpool":    {Tok: azureResource(azureSQL, "ElasticPool")},
@@ -832,8 +843,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Recovery Services
-			"azurerm_recovery_network_mapping":                       {Tok: azureResource(azureRecoveryServices, "NetworkMapping")},
-			"azurerm_recovery_replicated_vm":                         {Tok: azureResource(azureRecoveryServices, "ReplicatedVm")},
+			"azurerm_recovery_network_mapping": {Tok: azureResource(azureRecoveryServices, "NetworkMapping")},
+			"azurerm_recovery_replicated_vm": {
+				Tok: azureResource(azureRecoveryServices, "ReplicatedVm"),
+				Docs: &tfbridge.DocInfo{
+					Source: "recovery_services_replicated_vm.html.markdown",
+				}},
 			"azurerm_recovery_services_fabric":                       {Tok: azureResource(azureRecoveryServices, "Fabric")},
 			"azurerm_recovery_services_protected_vm":                 {Tok: azureResource(azureRecoveryServices, "ProtectedVM")},
 			"azurerm_recovery_services_protection_container":         {Tok: azureResource(azureRecoveryServices, "ProtectionContainer")},
@@ -913,6 +928,38 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_blob":       {Tok: azureResource(azureStreamAnalytics, "StreamInputBlob")},
 			"azurerm_stream_analytics_stream_input_eventhub":   {Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub")},
 			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
+			"azurerm_stream_analytics_output_servicebus_topic": {Tok: azureResource(azureStreamAnalytics, "OutputServicebusTopic")},
+
+			// Marketplace
+			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
+
+			// Kusto
+			"azurerm_kusto_cluster":  {Tok: azureResource(azureKusto, "Cluster")},
+			"azurerm_kusto_database": {Tok: azureResource(azureKusto, "Database")},
+
+			// Frontdoor
+			"azurerm_frontdoor": {
+				Tok: azureResource(azureFrontdoor, "Frontdoor"),
+				Docs: &tfbridge.DocInfo{
+					Source: "front_door.html.markdown",
+				},
+			},
+			"azurerm_frontdoor_firewall_policy": {
+				Tok: azureResource(azureFrontdoor, "FirewallPolicy"),
+				Docs: &tfbridge.DocInfo{
+					Source: "front_door_firewall_policy.html.markdown",
+				},
+			},
+
+			// Bot
+			"azurerm_bot_channels_registration": {Tok: azureResource(azureBot, "ChannelsRegistration")},
+			"azurerm_bot_connection":            {Tok: azureResource(azureBot, "Connection")},
+
+			// Proximity
+			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
+
+			// WAF
+			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1015,19 +1062,20 @@ func Provider() tfbridge.ProviderInfo {
 					"address_spaces": {Name: "addressSpacesCollection"},
 				},
 			},
-			"azurerm_virtual_network_gateway":    {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
-			"azurerm_network_security_group":     {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
-			"azurerm_network_interface":          {Tok: azureDataSource(azureNetwork, "getNetworkInterface")},
-			"azurerm_network_watcher":            {Tok: azureDataSource(azureNetwork, "getNetworkWatcher")},
-			"azurerm_public_ip":                  {Tok: azureDataSource(azureNetwork, "getPublicIP")},
-			"azurerm_public_ips":                 {Tok: azureDataSource(azureNetwork, "getPublicIPs")},
-			"azurerm_application_security_group": {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
-			"azurerm_recovery_services_vault":    {Tok: azureDataSource(azureRecoveryServices, "getVault")},
-			"azurerm_redis_cache":                {Tok: azureDataSource(azureRedis, "getCache")},
-			"azurerm_resource_group":             {Tok: azureDataSource(azureCore, "getResourceGroup")},
-			"azurerm_snapshot":                   {Tok: azureDataSource(azureCompute, "getSnapshot")},
-			"azurerm_subnet":                     {Tok: azureDataSource(azureNetwork, "getSubnet")},
-			"azurerm_route_table":                {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_virtual_network_gateway":      {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
+			"azurerm_network_security_group":       {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
+			"azurerm_network_interface":            {Tok: azureDataSource(azureNetwork, "getNetworkInterface")},
+			"azurerm_network_watcher":              {Tok: azureDataSource(azureNetwork, "getNetworkWatcher")},
+			"azurerm_public_ip":                    {Tok: azureDataSource(azureNetwork, "getPublicIP")},
+			"azurerm_public_ips":                   {Tok: azureDataSource(azureNetwork, "getPublicIPs")},
+			"azurerm_application_security_group":   {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
+			"azurerm_recovery_services_vault":      {Tok: azureDataSource(azureRecoveryServices, "getVault")},
+			"azurerm_redis_cache":                  {Tok: azureDataSource(azureRedis, "getCache")},
+			"azurerm_resource_group":               {Tok: azureDataSource(azureCore, "getResourceGroup")},
+			"azurerm_snapshot":                     {Tok: azureDataSource(azureCompute, "getSnapshot")},
+			"azurerm_subnet":                       {Tok: azureDataSource(azureNetwork, "getSubnet")},
+			"azurerm_route_table":                  {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_network_ddos_protection_plan": {Tok: azureDataSource(azureNetwork, "getNetworkDdosProtectionPlan")},
 			"azurerm_express_route_circuit": {
 				Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1035,20 +1083,24 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_sql_server":                             {Tok: azureDataSource(azureSQL, "getServer")},
-			"azurerm_virtual_network_gateway_connection":     {Tok: azureDataSource(azureNetwork, "getGatewayConnection")},
-			"azurerm_firewall":                               {Tok: azureDataSource(azureNetwork, "getFirewall")},
-			"azurerm_subscription":                           {Tok: azureDataSource(azureCore, "getSubscription")},
-			"azurerm_policy_definition":                      {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
-			"azurerm_platform_image":                         {Tok: azureDataSource(azureCompute, "getPlatformImage")},
-			"azurerm_managed_disk":                           {Tok: azureDataSource(azureCompute, "getManagedDisk")},
-			"azurerm_recovery_services_protection_policy_vm": {Tok: azureDataSource(azureRecoveryServices, "getVMProtectionPolicy")},
-			"azurerm_scheduler_job_collection":               {Tok: azureDataSource(azureScheduler, "getJobCollection")},
-			"azurerm_storage_account":                        {Tok: azureDataSource(azureStorage, "getAccount")},
-			"azurerm_storage_account_sas":                    {Tok: azureDataSource(azureStorage, "getAccountSAS")},
-			"azurerm_virtual_machine":                        {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
-			"azurerm_hdinsight_cluster":                      {Tok: azureDataSource(azureHdInsight, "getCluster")},
-			"azurerm_stream_analytics_job":                   {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
+			"azurerm_sql_server":                              {Tok: azureDataSource(azureSQL, "getServer")},
+			"azurerm_sql_database":                            {Tok: azureDataSource(azureSQL, "getDatabase")},
+			"azurerm_virtual_network_gateway_connection":      {Tok: azureDataSource(azureNetwork, "getGatewayConnection")},
+			"azurerm_firewall":                                {Tok: azureDataSource(azureNetwork, "getFirewall")},
+			"azurerm_subscription":                            {Tok: azureDataSource(azureCore, "getSubscription")},
+			"azurerm_policy_definition":                       {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
+			"azurerm_platform_image":                          {Tok: azureDataSource(azureCompute, "getPlatformImage")},
+			"azurerm_managed_disk":                            {Tok: azureDataSource(azureCompute, "getManagedDisk")},
+			"azurerm_recovery_services_protection_policy_vm":  {Tok: azureDataSource(azureRecoveryServices, "getVMProtectionPolicy")},
+			"azurerm_scheduler_job_collection":                {Tok: azureDataSource(azureScheduler, "getJobCollection")},
+			"azurerm_storage_account":                         {Tok: azureDataSource(azureStorage, "getAccount")},
+			"azurerm_storage_account_sas":                     {Tok: azureDataSource(azureStorage, "getAccountSAS")},
+			"azurerm_storage_account_blob_container_sas":      {Tok: azureDataSource(azureStorage, "getAccountBlobContainerSAS")},
+			"azurerm_virtual_machine":                         {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
+			"azurerm_hdinsight_cluster":                       {Tok: azureDataSource(azureHdInsight, "getCluster")},
+			"azurerm_stream_analytics_job":                    {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
+			"azurerm_proximity_placement_group":               {Tok: azureDataSource(azureProximity, "getPlacementGroup")},
+			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureDataSource(azureServiceBus, "getNamespaceAuthorizationRule")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

@@ -16,7 +16,7 @@ class FailoverGroup(pulumi.CustomResource):
     """
     location: pulumi.Output[str]
     """
-    the location of a SQL server in `partner_servers`
+    the location of the failover group.
     """
     name: pulumi.Output[str]
     """
@@ -27,8 +27,8 @@ class FailoverGroup(pulumi.CustomResource):
     A list of secondary servers as documented below
     
       * `id` (`str`) - the SQL server ID
-      * `location` (`str`) - the location of a SQL server in `partner_servers`
-      * `role` (`str`) - the current role of the SQL server named in `server_name`
+      * `location` (`str`) - the location of the failover group.
+      * `role` (`str`) - local replication role of the failover group instance.
     """
     read_write_endpoint_failover_policy: pulumi.Output[dict]
     """
@@ -49,7 +49,7 @@ class FailoverGroup(pulumi.CustomResource):
     """
     role: pulumi.Output[str]
     """
-    the current role of the SQL server named in `server_name`
+    local replication role of the failover group instance.
     """
     server_name: pulumi.Output[str]
     """
@@ -77,8 +77,8 @@ class FailoverGroup(pulumi.CustomResource):
         The **partner_servers** object supports the following:
         
           * `id` (`pulumi.Input[str]`) - the SQL server ID
-          * `location` (`pulumi.Input[str]`) - the location of a SQL server in `partner_servers`
-          * `role` (`pulumi.Input[str]`) - the current role of the SQL server named in `server_name`
+          * `location` (`pulumi.Input[str]`) - the location of the failover group.
+          * `role` (`pulumi.Input[str]`) - local replication role of the failover group instance.
         
         The **read_write_endpoint_failover_policy** object supports the following:
         
@@ -142,21 +142,21 @@ class FailoverGroup(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] databases: A list of database ids to add to the failover group
-        :param pulumi.Input[str] location: the location of a SQL server in `partner_servers`
+        :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input[dict] read_write_endpoint_failover_policy: A read/write policy as documented below
         :param pulumi.Input[dict] readonly_endpoint_failover_policy: a read-only policy as documented below
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
-        :param pulumi.Input[str] role: the current role of the SQL server named in `server_name`
+        :param pulumi.Input[str] role: local replication role of the failover group instance.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **partner_servers** object supports the following:
         
           * `id` (`pulumi.Input[str]`) - the SQL server ID
-          * `location` (`pulumi.Input[str]`) - the location of a SQL server in `partner_servers`
-          * `role` (`pulumi.Input[str]`) - the current role of the SQL server named in `server_name`
+          * `location` (`pulumi.Input[str]`) - the location of the failover group.
+          * `role` (`pulumi.Input[str]`) - local replication role of the failover group instance.
         
         The **read_write_endpoint_failover_policy** object supports the following:
         

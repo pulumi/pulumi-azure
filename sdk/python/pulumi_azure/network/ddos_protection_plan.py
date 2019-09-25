@@ -34,7 +34,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
         """
         Manages an AzureNetwork DDoS Protection Plan.
         
-        > **NOTE** Azure only allow `one` DDoS Protection Plan per region.
+        > **NOTE** Azure only allows `one` DDoS Protection Plan per region.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

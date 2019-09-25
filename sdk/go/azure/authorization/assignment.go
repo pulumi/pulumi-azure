@@ -31,13 +31,16 @@ func NewAssignment(ctx *pulumi.Context,
 		inputs["roleDefinitionId"] = nil
 		inputs["roleDefinitionName"] = nil
 		inputs["scope"] = nil
+		inputs["skipServicePrincipalAadCheck"] = nil
 	} else {
 		inputs["name"] = args.Name
 		inputs["principalId"] = args.PrincipalId
 		inputs["roleDefinitionId"] = args.RoleDefinitionId
 		inputs["roleDefinitionName"] = args.RoleDefinitionName
 		inputs["scope"] = args.Scope
+		inputs["skipServicePrincipalAadCheck"] = args.SkipServicePrincipalAadCheck
 	}
+	inputs["principalType"] = nil
 	s, err := ctx.RegisterResource("azure:authorization/assignment:Assignment", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -53,9 +56,11 @@ func GetAssignment(ctx *pulumi.Context,
 	if state != nil {
 		inputs["name"] = state.Name
 		inputs["principalId"] = state.PrincipalId
+		inputs["principalType"] = state.PrincipalType
 		inputs["roleDefinitionId"] = state.RoleDefinitionId
 		inputs["roleDefinitionName"] = state.RoleDefinitionName
 		inputs["scope"] = state.Scope
+		inputs["skipServicePrincipalAadCheck"] = state.SkipServicePrincipalAadCheck
 	}
 	s, err := ctx.ReadResource("azure:authorization/assignment:Assignment", name, id, inputs, opts...)
 	if err != nil {
@@ -84,6 +89,11 @@ func (r *Assignment) PrincipalId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["principalId"])
 }
 
+// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+func (r *Assignment) PrincipalType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["principalType"])
+}
+
 // The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 func (r *Assignment) RoleDefinitionId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleDefinitionId"])
@@ -99,18 +109,27 @@ func (r *Assignment) Scope() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scope"])
 }
 
+// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+func (r *Assignment) SkipServicePrincipalAadCheck() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["skipServicePrincipalAadCheck"])
+}
+
 // Input properties used for looking up and filtering Assignment resources.
 type AssignmentState struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name interface{}
 	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
 	PrincipalId interface{}
+	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+	PrincipalType interface{}
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId interface{}
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
 	RoleDefinitionName interface{}
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope interface{}
+	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+	SkipServicePrincipalAadCheck interface{}
 }
 
 // The set of arguments for constructing a Assignment resource.
@@ -125,4 +144,6 @@ type AssignmentArgs struct {
 	RoleDefinitionName interface{}
 	// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
 	Scope interface{}
+	// If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+	SkipServicePrincipalAadCheck interface{}
 }

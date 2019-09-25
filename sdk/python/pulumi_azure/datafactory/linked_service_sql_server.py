@@ -48,7 +48,7 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, additional_properties=None, annotations=None, connection_string=None, data_factory_name=None, description=None, integration_runtime_name=None, name=None, parameters=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Linked Service (connection) between a SQL Server and Azure Data Factory.
+        Manages a Linked Service (connection) between a SQL Server and Azure Data Factory.
         
         > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         

@@ -93,7 +93,7 @@ export interface GetKeyVaultResult {
     /**
      * A mapping of tags assigned to the Key Vault.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
      */

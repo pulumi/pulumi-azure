@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Table within an Azure Storage Account.
+ * Manages a Table within an Azure Storage Account.
  * 
  * ## Example Usage
  * 

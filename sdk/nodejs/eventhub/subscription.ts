@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a ServiceBus Subscription.
+ * Manages a ServiceBus Subscription.
  * 
  * ## Example Usage
  * 

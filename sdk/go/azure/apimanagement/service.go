@@ -32,7 +32,7 @@ func NewService(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["additionalLocation"] = nil
+		inputs["additionalLocations"] = nil
 		inputs["certificates"] = nil
 		inputs["hostnameConfiguration"] = nil
 		inputs["identity"] = nil
@@ -49,7 +49,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
-		inputs["additionalLocation"] = args.AdditionalLocation
+		inputs["additionalLocations"] = args.AdditionalLocations
 		inputs["certificates"] = args.Certificates
 		inputs["hostnameConfiguration"] = args.HostnameConfiguration
 		inputs["identity"] = args.Identity
@@ -85,7 +85,7 @@ func GetService(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["additionalLocation"] = state.AdditionalLocation
+		inputs["additionalLocations"] = state.AdditionalLocations
 		inputs["certificates"] = state.Certificates
 		inputs["gatewayRegionalUrl"] = state.GatewayRegionalUrl
 		inputs["gatewayUrl"] = state.GatewayUrl
@@ -126,8 +126,8 @@ func (r *Service) ID() *pulumi.IDOutput {
 }
 
 // One or more `additionalLocation` blocks as defined below.
-func (r *Service) AdditionalLocation() *pulumi.Output {
-	return r.s.State["additionalLocation"]
+func (r *Service) AdditionalLocations() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["additionalLocations"])
 }
 
 // One or more (up to 10) `certificate` blocks as defined below.
@@ -238,7 +238,7 @@ func (r *Service) Tags() *pulumi.MapOutput {
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
 	// One or more `additionalLocation` blocks as defined below.
-	AdditionalLocation interface{}
+	AdditionalLocations interface{}
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates interface{}
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -286,7 +286,7 @@ type ServiceState struct {
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// One or more `additionalLocation` blocks as defined below.
-	AdditionalLocation interface{}
+	AdditionalLocations interface{}
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates interface{}
 	// A `hostnameConfiguration` block as defined below.

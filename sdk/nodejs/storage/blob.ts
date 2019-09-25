@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Storage Blob.
+ * Manages a Blob within a Storage Container.
  * 
  * ## Example Usage
  * 
@@ -16,29 +16,29 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "westus",
- *     name: "acctestRG-d",
+ *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: "westus",
- *     name: "acctestaccs",
+ *     location: testResourceGroup.location,
+ *     name: "examplestoracc",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
- *     name: "vhds",
+ *     name: "content",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
- * const testsb = new azure.storage.Blob("testsb", {
- *     name: "sample.vhd",
+ * const testBlob = new azure.storage.Blob("test", {
+ *     name: "my-awesome-content.zip",
  *     resourceGroupName: testResourceGroup.name,
- *     size: 5120,
+ *     source: "some-local-file.zip",
  *     storageAccountName: testAccount.name,
  *     storageContainerName: testContainer.name,
- *     type: "page",
+ *     type: "blob",
  * });
  * ```
  *
@@ -72,6 +72,10 @@ export class Blob extends pulumi.CustomResource {
     }
 
     /**
+     * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+     */
+    public readonly accessTier!: pulumi.Output<string>;
+    /**
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
     public readonly attempts!: pulumi.Output<number | undefined>;
@@ -82,7 +86,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -92,8 +96,7 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the storage container. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the storage container.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -101,12 +104,16 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
-     * An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+     */
+    public readonly sourceContent!: pulumi.Output<string | undefined>;
+    /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
     public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
@@ -119,10 +126,9 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly storageContainerName!: pulumi.Output<string>;
     /**
-     * The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-     * this becomes required.
+     * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * The URL of the blob
      */
@@ -140,6 +146,7 @@ export class Blob extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BlobState | undefined;
+            inputs["accessTier"] = state ? state.accessTier : undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
@@ -148,6 +155,7 @@ export class Blob extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["size"] = state ? state.size : undefined;
             inputs["source"] = state ? state.source : undefined;
+            inputs["sourceContent"] = state ? state.sourceContent : undefined;
             inputs["sourceUri"] = state ? state.sourceUri : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["storageContainerName"] = state ? state.storageContainerName : undefined;
@@ -155,15 +163,16 @@ export class Blob extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as BlobArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if (!args || args.storageAccountName === undefined) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             if (!args || args.storageContainerName === undefined) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
+            if (!args || args.type === undefined) {
+                throw new Error("Missing required property 'type'");
+            }
+            inputs["accessTier"] = args ? args.accessTier : undefined;
             inputs["attempts"] = args ? args.attempts : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
@@ -172,6 +181,7 @@ export class Blob extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["size"] = args ? args.size : undefined;
             inputs["source"] = args ? args.source : undefined;
+            inputs["sourceContent"] = args ? args.sourceContent : undefined;
             inputs["sourceUri"] = args ? args.sourceUri : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["storageContainerName"] = args ? args.storageContainerName : undefined;
@@ -194,6 +204,10 @@ export class Blob extends pulumi.CustomResource {
  */
 export interface BlobState {
     /**
+     * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+     */
+    readonly accessTier?: pulumi.Input<string>;
+    /**
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
     readonly attempts?: pulumi.Input<number>;
@@ -204,7 +218,7 @@ export interface BlobState {
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -214,8 +228,7 @@ export interface BlobState {
      */
     readonly parallelism?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to
-     * create the storage container. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the storage container.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -223,12 +236,16 @@ export interface BlobState {
      */
     readonly size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
      */
     readonly source?: pulumi.Input<string>;
     /**
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+     */
+    readonly sourceContent?: pulumi.Input<string>;
+    /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
@@ -241,8 +258,7 @@ export interface BlobState {
      */
     readonly storageContainerName?: pulumi.Input<string>;
     /**
-     * The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-     * this becomes required.
+     * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
     readonly type?: pulumi.Input<string>;
     /**
@@ -256,6 +272,10 @@ export interface BlobState {
  */
 export interface BlobArgs {
     /**
+     * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+     */
+    readonly accessTier?: pulumi.Input<string>;
+    /**
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
     readonly attempts?: pulumi.Input<number>;
@@ -266,7 +286,7 @@ export interface BlobArgs {
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -276,21 +296,24 @@ export interface BlobArgs {
      */
     readonly parallelism?: pulumi.Input<number>;
     /**
-     * The name of the resource group in which to
-     * create the storage container. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the storage container.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
     readonly size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
      */
     readonly source?: pulumi.Input<string>;
     /**
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+     */
+    readonly sourceContent?: pulumi.Input<string>;
+    /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-     * for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+     * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
@@ -303,8 +326,7 @@ export interface BlobArgs {
      */
     readonly storageContainerName: pulumi.Input<string>;
     /**
-     * The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-     * this becomes required.
+     * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type: pulumi.Input<string>;
 }

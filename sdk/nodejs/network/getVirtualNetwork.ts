@@ -68,6 +68,10 @@ export interface GetVirtualNetworkResult {
      * The list of DNS servers used by the virtual network.
      */
     readonly dnsServers: string[];
+    /**
+     * Location of the virtual network.
+     */
+    readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
@@ -77,7 +81,7 @@ export interface GetVirtualNetworkResult {
     /**
      * A mapping of name - virtual network id of the virtual network peerings.
      */
-    readonly vnetPeerings: {[key: string]: any};
+    readonly vnetPeerings: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

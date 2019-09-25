@@ -24,7 +24,7 @@ class StoreFile(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, local_file_path=None, remote_file_path=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Azure Data Lake Store File.
+        Manages a Azure Data Lake Store File.
         
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
         taint the resource so the `datalake.StoreFile` gets recreated with the new data.

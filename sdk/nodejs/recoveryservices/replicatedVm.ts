@@ -6,6 +6,149 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Azure recovery replicated vms (Azure to Azure). An replicated VM keeps a copiously updated image of the vm in another region in order to be able to start the VM in that region in case of a disaster. 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primaryResourceGroup = new azure.core.ResourceGroup("primary", {
+ *     location: "West US",
+ *     name: "tfex-replicated-vm-primary",
+ * });
+ * const secondaryResourceGroup = new azure.core.ResourceGroup("secondary", {
+ *     location: "East US",
+ *     name: "tfex-replicated-vm-secondary",
+ * });
+ * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
+ *     addressSpaces: ["192.168.1.0/24"],
+ *     location: primaryResourceGroup.location,
+ *     name: "network1",
+ *     resourceGroupName: primaryResourceGroup.name,
+ * });
+ * const primarySubnet = new azure.network.Subnet("primary", {
+ *     addressPrefix: "192.168.1.0/24",
+ *     name: "network1-subnet",
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ * });
+ * const vmNetworkInterface = new azure.network.NetworkInterface("vm", {
+ *     ipConfigurations: [{
+ *         name: "vm",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: primarySubnet.id,
+ *     }],
+ *     location: primaryResourceGroup.location,
+ *     name: "vm-nic",
+ *     resourceGroupName: primaryResourceGroup.name,
+ * });
+ * const vault = new azure.recoveryservices.Vault("vault", {
+ *     location: secondaryResourceGroup.location,
+ *     name: "example-recovery-vault",
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
+ *     location: primaryResourceGroup.location,
+ *     name: "primary-fabric",
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
+ *     location: secondaryResourceGroup.location,
+ *     name: "secondary-fabric",
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * const primaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("primary", {
+ *     name: "primary-protection-container",
+ *     recoveryFabricName: primaryFabric.name,
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * const secondaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("secondary", {
+ *     name: "secondary-protection-container",
+ *     recoveryFabricName: secondaryFabric.name,
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * const policy = new azure.recoveryservices.ReplicationPolicy("policy", {
+ *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
+ *     name: "policy",
+ *     recoveryPointRetentionInMinutes: (24 * 60),
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * const primaryAccount = new azure.storage.Account("primary", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: primaryResourceGroup.location,
+ *     name: "primaryrecoverycache",
+ *     resourceGroupName: primaryResourceGroup.name,
+ * });
+ * const vmVirtualMachine = new azure.compute.VirtualMachine("vm", {
+ *     location: primaryResourceGroup.location,
+ *     name: "vm",
+ *     networkInterfaceIds: [vmNetworkInterface.id],
+ *     osProfile: {
+ *         adminPassword: "test-pwd-123",
+ *         adminUsername: "test-admin-123",
+ *         computerName: "vm",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     storageImageReference: {
+ *         offer: "CentOS",
+ *         publisher: "OpenLogic",
+ *         sku: "7.5",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Premium_LRS",
+ *         name: "vm-os-disk",
+ *         osType: "Linux",
+ *     },
+ *     vmSize: "Standard_B1s",
+ * });
+ * const vmReplication = new azure.recoveryservices.ReplicatedVm("vm-replication", {
+ *     managedDisks: [{
+ *         diskId: vmVirtualMachine.storageOsDisk.managedDiskId,
+ *         stagingStorageAccountId: primaryAccount.id,
+ *         targetDiskType: "Premium_LRS",
+ *         targetReplicaDiskType: "Premium_LRS",
+ *         targetResourceGroupId: secondaryResourceGroup.id,
+ *     }],
+ *     name: "vm-replication",
+ *     recoveryReplicationPolicyId: policy.id,
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ *     sourceRecoveryFabricName: primaryFabric.name,
+ *     sourceRecoveryProtectionContainerName: primaryProtectionContainer.name,
+ *     sourceVmId: vmVirtualMachine.id,
+ *     targetRecoveryFabricId: secondaryFabric.id,
+ *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
+ *     targetResourceGroupId: secondaryResourceGroup.id,
+ * });
+ * const containerMapping = new azure.recoveryservices.ProtectionContainerMapping("container-mapping", {
+ *     name: "container-mapping",
+ *     recoveryFabricName: primaryFabric.name,
+ *     recoveryReplicationPolicyId: policy.id,
+ *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
+ *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_replicated_vm.html.markdown.
+ */
 export class ReplicatedVm extends pulumi.CustomResource {
     /**
      * Get an existing ReplicatedVm resource's state with the given name, ID, and optional extra
@@ -33,17 +176,50 @@ export class ReplicatedVm extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicatedVm.__pulumiType;
     }
 
+    /**
+     * One or more `managedDisk` block.
+     */
     public readonly managedDisks!: pulumi.Output<outputs.recoveryservices.ReplicatedVmManagedDisk[] | undefined>;
+    /**
+     * The name of the network mapping.
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
+    /**
+     * The name of the vault that should be updated.
+     */
     public readonly recoveryVaultName!: pulumi.Output<string>;
+    /**
+     * Name of the resource group where the vault that should be updated is located.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Name of fabric that should contains this replication.
+     */
     public readonly sourceRecoveryFabricName!: pulumi.Output<string>;
+    /**
+     * Name of the protection container to use.
+     */
     public readonly sourceRecoveryProtectionContainerName!: pulumi.Output<string>;
+    /**
+     * Id of the VM to replicate
+     */
     public readonly sourceVmId!: pulumi.Output<string>;
+    /**
+     * Id of availability set that the new VM should belong to when a failover is done.
+     */
     public readonly targetAvailabilitySetId!: pulumi.Output<string | undefined>;
+    /**
+     * Id of fabric where the VM replication should be handled when a failover is done.
+     */
     public readonly targetRecoveryFabricId!: pulumi.Output<string>;
+    /**
+     * Id of protection container where the VM replication should be created when a failover is done.
+     */
     public readonly targetRecoveryProtectionContainerId!: pulumi.Output<string>;
+    /**
+     * Id of resource group where the VM should be created when a failover is done.
+     */
     public readonly targetResourceGroupId!: pulumi.Output<string>;
 
     /**
@@ -127,17 +303,50 @@ export class ReplicatedVm extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicatedVm resources.
  */
 export interface ReplicatedVmState {
+    /**
+     * One or more `managedDisk` block.
+     */
     readonly managedDisks?: pulumi.Input<pulumi.Input<inputs.recoveryservices.ReplicatedVmManagedDisk>[]>;
+    /**
+     * The name of the network mapping.
+     */
     readonly name?: pulumi.Input<string>;
     readonly recoveryReplicationPolicyId?: pulumi.Input<string>;
+    /**
+     * The name of the vault that should be updated.
+     */
     readonly recoveryVaultName?: pulumi.Input<string>;
+    /**
+     * Name of the resource group where the vault that should be updated is located.
+     */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Name of fabric that should contains this replication.
+     */
     readonly sourceRecoveryFabricName?: pulumi.Input<string>;
+    /**
+     * Name of the protection container to use.
+     */
     readonly sourceRecoveryProtectionContainerName?: pulumi.Input<string>;
+    /**
+     * Id of the VM to replicate
+     */
     readonly sourceVmId?: pulumi.Input<string>;
+    /**
+     * Id of availability set that the new VM should belong to when a failover is done.
+     */
     readonly targetAvailabilitySetId?: pulumi.Input<string>;
+    /**
+     * Id of fabric where the VM replication should be handled when a failover is done.
+     */
     readonly targetRecoveryFabricId?: pulumi.Input<string>;
+    /**
+     * Id of protection container where the VM replication should be created when a failover is done.
+     */
     readonly targetRecoveryProtectionContainerId?: pulumi.Input<string>;
+    /**
+     * Id of resource group where the VM should be created when a failover is done.
+     */
     readonly targetResourceGroupId?: pulumi.Input<string>;
 }
 
@@ -145,16 +354,49 @@ export interface ReplicatedVmState {
  * The set of arguments for constructing a ReplicatedVm resource.
  */
 export interface ReplicatedVmArgs {
+    /**
+     * One or more `managedDisk` block.
+     */
     readonly managedDisks?: pulumi.Input<pulumi.Input<inputs.recoveryservices.ReplicatedVmManagedDisk>[]>;
+    /**
+     * The name of the network mapping.
+     */
     readonly name?: pulumi.Input<string>;
     readonly recoveryReplicationPolicyId: pulumi.Input<string>;
+    /**
+     * The name of the vault that should be updated.
+     */
     readonly recoveryVaultName: pulumi.Input<string>;
+    /**
+     * Name of the resource group where the vault that should be updated is located.
+     */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of fabric that should contains this replication.
+     */
     readonly sourceRecoveryFabricName: pulumi.Input<string>;
+    /**
+     * Name of the protection container to use.
+     */
     readonly sourceRecoveryProtectionContainerName: pulumi.Input<string>;
+    /**
+     * Id of the VM to replicate
+     */
     readonly sourceVmId: pulumi.Input<string>;
+    /**
+     * Id of availability set that the new VM should belong to when a failover is done.
+     */
     readonly targetAvailabilitySetId?: pulumi.Input<string>;
+    /**
+     * Id of fabric where the VM replication should be handled when a failover is done.
+     */
     readonly targetRecoveryFabricId: pulumi.Input<string>;
+    /**
+     * Id of protection container where the VM replication should be created when a failover is done.
+     */
     readonly targetRecoveryProtectionContainerId: pulumi.Input<string>;
+    /**
+     * Id of resource group where the VM should be created when a failover is done.
+     */
     readonly targetResourceGroupId: pulumi.Input<string>;
 }

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Container within an Azure Storage Account.
+ * Manages a Container within an Azure Storage Account.
  * 
  * ## Example Usage
  * 
@@ -89,7 +89,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
      */
-    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
      */
@@ -171,7 +171,7 @@ export interface ContainerState {
     /**
      * (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
      */

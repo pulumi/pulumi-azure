@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a MySQL Dataset inside a Azure Data Factory.
+ * Manages a MySQL Dataset inside a Azure Data Factory.
  * 
  * ## Example Usage
  * 
@@ -70,7 +70,7 @@ export class DatasetMysql extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset MySQL.
      */
@@ -98,7 +98,7 @@ export class DatasetMysql extends pulumi.CustomResource {
     /**
      * A map of parameters to associate with the Data Factory Dataset MySQL.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
      */
@@ -176,7 +176,7 @@ export interface DatasetMysqlState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset MySQL.
      */
@@ -204,7 +204,7 @@ export interface DatasetMysqlState {
     /**
      * A map of parameters to associate with the Data Factory Dataset MySQL.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
      */
@@ -226,7 +226,7 @@ export interface DatasetMysqlArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset MySQL.
      */
@@ -254,7 +254,7 @@ export interface DatasetMysqlArgs {
     /**
      * A map of parameters to associate with the Data Factory Dataset MySQL.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
      */

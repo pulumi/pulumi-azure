@@ -8,6 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi/config"
 )
 
+func GetAuxiliaryTenantIds(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:auxiliaryTenantIds")
+}
+
 // The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 // Certificate
 func GetClientCertificatePassword(ctx *pulumi.Context) string {

@@ -456,7 +456,7 @@ export namespace apimanagement {
 export namespace appservice {
     export interface AppServiceAuthSettings {
         activeDirectory?: outputs.appservice.AppServiceAuthSettingsActiveDirectory;
-        additionalLoginParams?: {[key: string]: any};
+        additionalLoginParams?: {[key: string]: string};
         allowedExternalRedirectUrls?: string[];
         defaultProvider?: string;
         /**
@@ -562,7 +562,13 @@ export namespace appservice {
     }
 
     export interface AppServiceLogsHttpLogs {
+        azureBlobStorage?: outputs.appservice.AppServiceLogsHttpLogsAzureBlobStorage;
         fileSystem?: outputs.appservice.AppServiceLogsHttpLogsFileSystem;
+    }
+
+    export interface AppServiceLogsHttpLogsAzureBlobStorage {
+        retentionInDays: number;
+        sasUrl: string;
     }
 
     export interface AppServiceLogsHttpLogsFileSystem {
@@ -603,8 +609,9 @@ export namespace appservice {
     }
 
     export interface AppServiceSiteConfigIpRestriction {
-        ipAddress: string;
-        subnetMask?: string;
+        ipAddress?: string;
+        subnetMask: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface AppServiceSiteCredential {
@@ -643,7 +650,7 @@ export namespace appservice {
 
     export interface FunctionAppAuthSettings {
         activeDirectory?: outputs.appservice.FunctionAppAuthSettingsActiveDirectory;
-        additionalLoginParams?: {[key: string]: any};
+        additionalLoginParams?: {[key: string]: string};
         allowedExternalRedirectUrls?: string[];
         defaultProvider?: string;
         /**
@@ -927,6 +934,7 @@ export namespace appservice {
          * The Subnet mask used for this IP Restriction.
          */
         subnetMask: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface GetAppServiceSiteCredential {
@@ -971,7 +979,7 @@ export namespace appservice {
 
     export interface SlotAuthSettings {
         activeDirectory?: outputs.appservice.SlotAuthSettingsActiveDirectory;
-        additionalLoginParams?: {[key: string]: any};
+        additionalLoginParams?: {[key: string]: string};
         allowedExternalRedirectUrls?: string[];
         defaultProvider?: string;
         /**
@@ -1139,8 +1147,9 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
-        ipAddress: string;
-        subnetMask?: string;
+        ipAddress?: string;
+        subnetMask: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface SlotSiteCredential {
@@ -1250,7 +1259,7 @@ export namespace autoscale {
     }
 
     export interface SettingNotificationWebhook {
-        properties?: {[key: string]: any};
+        properties?: {[key: string]: string};
         serviceUri: string;
     }
 
@@ -1407,7 +1416,7 @@ export namespace batch {
         /**
          * A map of strings (key,value) that represents the environment variables to set in the start task.
          */
-        environment?: {[key: string]: any};
+        environment?: {[key: string]: string};
         /**
          * The number of retry count.
          */
@@ -1520,7 +1529,7 @@ export namespace batch {
 
     export interface PoolStartTask {
         commandLine: string;
-        environment?: {[key: string]: any};
+        environment?: {[key: string]: string};
         maxTaskRetryCount?: number;
         resourceFiles?: outputs.batch.PoolStartTaskResourceFile[];
         userIdentity: outputs.batch.PoolStartTaskUserIdentity;
@@ -2171,6 +2180,10 @@ export namespace compute {
         sourceVaultId: string;
     }
 
+    export interface VirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled: boolean;
+    }
+
     export interface VirtualMachineBootDiagnostics {
         enabled: boolean;
         storageUri: string;
@@ -2288,6 +2301,10 @@ export namespace containerservice {
          */
         httpApplicationRoutings: outputs.containerservice.GetKubernetesClusterAddonProfileHttpApplicationRouting[];
         /**
+         * A `kubeDashboard` block.
+         */
+        kubeDashboards: outputs.containerservice.GetKubernetesClusterAddonProfileKubeDashboard[];
+        /**
          * A `omsAgent` block.
          */
         omsAgents: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgent[];
@@ -2302,6 +2319,13 @@ export namespace containerservice {
          * The Zone Name of the HTTP Application Routing.
          */
         httpApplicationRoutingZoneName: string;
+    }
+
+    export interface GetKubernetesClusterAddonProfileKubeDashboard {
+        /**
+         * Is Role Based Access Control enabled?
+         */
+        enabled: boolean;
     }
 
     export interface GetKubernetesClusterAddonProfileOmsAgent {
@@ -2518,7 +2542,7 @@ export namespace containerservice {
         command: string;
         commands: string[];
         cpu: number;
-        environmentVariables?: {[key: string]: any};
+        environmentVariables?: {[key: string]: string};
         gpu?: outputs.containerservice.GroupContainerGpu;
         image: string;
         livenessProbe?: outputs.containerservice.GroupContainerLivenessProbe;
@@ -2531,7 +2555,7 @@ export namespace containerservice {
         ports: outputs.containerservice.GroupContainerPort[];
         protocol: string;
         readinessProbe?: outputs.containerservice.GroupContainerReadinessProbe;
-        secureEnvironmentVariables?: {[key: string]: any};
+        secureEnvironmentVariables?: {[key: string]: string};
         volumes?: outputs.containerservice.GroupContainerVolume[];
     }
 
@@ -2618,6 +2642,7 @@ export namespace containerservice {
          * A `httpApplicationRouting` block as defined below.
          */
         httpApplicationRouting?: outputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting;
+        kubeDashboard?: outputs.containerservice.KubernetesClusterAddonProfileKubeDashboard;
         omsAgent?: outputs.containerservice.KubernetesClusterAddonProfileOmsAgent;
     }
 
@@ -2632,6 +2657,10 @@ export namespace containerservice {
          * The Zone Name of the HTTP Application Routing.
          */
         httpApplicationRoutingZoneName: string;
+    }
+
+    export interface KubernetesClusterAddonProfileKubeDashboard {
+        enabled: boolean;
     }
 
     export interface KubernetesClusterAddonProfileOmsAgent {
@@ -2770,6 +2799,10 @@ export namespace containerservice {
          * One or more `ipRule` blocks as defined below.
          */
         ipRules?: outputs.containerservice.RegistryNetworkRuleSetIpRule[];
+        /**
+         * One or more `virtualNetwork` blocks as defined below.
+         */
+        virtualNetworks?: outputs.containerservice.RegistryNetworkRuleSetVirtualNetwork[];
     }
 
     export interface RegistryNetworkRuleSetIpRule {
@@ -2781,6 +2814,17 @@ export namespace containerservice {
          * The CIDR block from which requests will match the rule.
          */
         ipRange: string;
+    }
+
+    export interface RegistryNetworkRuleSetVirtualNetwork {
+        /**
+         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         */
+        action: string;
+        /**
+         * The subnet id from which requests will match the rule.
+         */
+        subnetId: string;
     }
 
     export interface RegistryStorageAccount {
@@ -3139,6 +3183,9 @@ export namespace devtest {
     }
 
     export interface ScheduleDailyRecurrence {
+        /**
+         * The time each day when the schedule takes effect.
+         */
         time: string;
     }
 
@@ -3147,13 +3194,28 @@ export namespace devtest {
     }
 
     export interface ScheduleNotificationSettings {
+        /**
+         * The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+         */
         status?: string;
+        /**
+         * Time in minutes before event at which notification will be sent.
+         */
         timeInMinutes?: number;
+        /**
+         * The webhook URL to which the notification will be sent.
+         */
         webhookUrl?: string;
     }
 
     export interface ScheduleWeeklyRecurrence {
+        /**
+         * The time each day when the schedule takes effect.
+         */
         time: string;
+        /**
+         * A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+         */
         weekDays?: string[];
     }
 
@@ -3488,6 +3550,175 @@ export namespace eventhub {
          * Address to send to.
          */
         to?: string;
+    }
+}
+
+export namespace frontdoor {
+    export interface FirewallPolicyCustomRule {
+        action: string;
+        /**
+         * Is the policy a enabled state or disabled state. Defaults to `true`.
+         */
+        enabled?: boolean;
+        matchConditions?: outputs.frontdoor.FirewallPolicyCustomRuleMatchCondition[];
+        /**
+         * The name of the policy. Changing this forces a new resource to be created.
+         */
+        name: string;
+        priority?: number;
+        rateLimitDurationInMinutes?: number;
+        rateLimitThreshold?: number;
+        type: string;
+    }
+
+    export interface FirewallPolicyCustomRuleMatchCondition {
+        matchValues: string[];
+        matchVariable: string;
+        negationCondition?: boolean;
+        operator: string;
+        selector?: string;
+        transforms?: string[];
+    }
+
+    export interface FirewallPolicyManagedRule {
+        overrides?: outputs.frontdoor.FirewallPolicyManagedRuleOverride[];
+        type: string;
+        version: string;
+    }
+
+    export interface FirewallPolicyManagedRuleOverride {
+        rules?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRule[];
+        ruleGroupName: string;
+    }
+
+    export interface FirewallPolicyManagedRuleOverrideRule {
+        action: string;
+        /**
+         * Is the policy a enabled state or disabled state. Defaults to `true`.
+         */
+        enabled?: boolean;
+        ruleId: string;
+    }
+
+    export interface FrontdoorBackendPool {
+        backends: outputs.frontdoor.FrontdoorBackendPoolBackend[];
+        healthProbeName: string;
+        /**
+         * Resource ID.
+         */
+        id: string;
+        loadBalancingName: string;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
+    export interface FrontdoorBackendPoolBackend {
+        address: string;
+        enabled?: boolean;
+        hostHeader: string;
+        httpPort: number;
+        httpsPort: number;
+        priority?: number;
+        weight?: number;
+    }
+
+    export interface FrontdoorBackendPoolHealthProbe {
+        /**
+         * Resource ID.
+         */
+        id: string;
+        intervalInSeconds?: number;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: string;
+        path?: string;
+        protocol?: string;
+    }
+
+    export interface FrontdoorBackendPoolLoadBalancing {
+        additionalLatencyMilliseconds?: number;
+        /**
+         * Resource ID.
+         */
+        id: string;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: string;
+        sampleSize?: number;
+        successfulSamplesRequired?: number;
+    }
+
+    export interface FrontdoorFrontendEndpoint {
+        customHttpsConfiguration?: outputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration;
+        customHttpsProvisioningEnabled: boolean;
+        hostName: string;
+        /**
+         * Resource ID.
+         */
+        id: string;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: string;
+        sessionAffinityEnabled?: boolean;
+        sessionAffinityTtlSeconds?: number;
+        /**
+         * (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+         */
+        webApplicationFirewallPolicyLinkId?: string;
+    }
+
+    export interface FrontdoorFrontendEndpointCustomHttpsConfiguration {
+        azureKeyVaultCertificateSecretName?: string;
+        azureKeyVaultCertificateSecretVersion?: string;
+        azureKeyVaultCertificateVaultId?: string;
+        certificateSource?: string;
+        /**
+         * Provisioning state of the Front Door.
+         */
+        provisioningState: string;
+        /**
+         * Provisioning substate of the Front Door
+         */
+        provisioningSubstate: string;
+    }
+
+    export interface FrontdoorRoutingRule {
+        acceptedProtocols: string[];
+        enabled?: boolean;
+        forwardingConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration;
+        frontendEndpoints: string[];
+        /**
+         * Resource ID.
+         */
+        id: string;
+        /**
+         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         */
+        name: string;
+        patternsToMatches: string[];
+        redirectConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleRedirectConfiguration;
+    }
+
+    export interface FrontdoorRoutingRuleForwardingConfiguration {
+        backendPoolName: string;
+        cacheQueryParameterStripDirective?: string;
+        cacheUseDynamicCompression?: boolean;
+        customForwardingPath?: string;
+        forwardingProtocol?: string;
+    }
+
+    export interface FrontdoorRoutingRuleRedirectConfiguration {
+        customFragment?: string;
+        customHost: string;
+        customPath?: string;
+        customQueryString?: string;
+        redirectProtocol: string;
+        redirectType: string;
     }
 }
 
@@ -4372,6 +4603,16 @@ export namespace keyvault {
     }
 }
 
+export namespace kusto {
+    export interface ClusterSku {
+        capacity: number;
+        /**
+         * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+}
+
 export namespace lb {
     export interface GetLBFrontendIpConfiguration {
         /**
@@ -4447,7 +4688,7 @@ export namespace lb {
 }
 
 export namespace loganalytics {
-    export interface LinkedServiceLinkedServiceProperty {
+    export interface LinkedServiceLinkedServiceProperties {
         /**
          * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
          */
@@ -4467,6 +4708,7 @@ export namespace mariadb {
     }
 
     export interface ServerStorageProfile {
+        autoGrow?: string;
         backupRetentionDays?: number;
         geoRedundantBackup?: string;
         storageMb: number;
@@ -4573,7 +4815,7 @@ export namespace monitoring {
     }
 
     export interface AutoscaleSettingNotificationWebhook {
-        properties?: {[key: string]: any};
+        properties?: {[key: string]: string};
         serviceUri: string;
     }
 
@@ -4818,6 +5060,10 @@ export namespace mysql {
     }
 
     export interface ServerStorageProfile {
+        /**
+         * Defines whether autogrow is enabled or disabled for the storage. Valid values are `Enabled` or `Disabled`.
+         */
+        autoGrow?: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
@@ -5162,6 +5408,18 @@ export namespace network {
         minProtocolVersion?: string;
         policyName?: string;
         policyType?: string;
+    }
+
+    export interface ApplicationGatewayTrustedRootCertificate {
+        data: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of the Application Gateway. Changing this forces a new resource to be created.
+         */
+        name: string;
     }
 
     export interface ApplicationGatewayUrlPathMap {
@@ -6064,7 +6322,7 @@ export namespace operationalinsights {
         publisher: string;
     }
 
-    export interface AnalyticsWorkspaceLinkedServiceLinkedServiceProperty {
+    export interface AnalyticsWorkspaceLinkedServiceLinkedServiceProperties {
         /**
          * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
          */
@@ -6107,6 +6365,10 @@ export namespace postgresql {
     }
 
     export interface ServerStorageProfile {
+        /**
+         * Enable/Disable auto-growing of the storage. Valid values for this property are `Enabled` or `Disabled`. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `Enabled`.  
+         */
+        autoGrow?: string;
         /**
          * Backup retention days for the server, supported values are between `7` and `35` days.
          */
@@ -6156,6 +6418,9 @@ export namespace recoveryservices {
         stagingStorageAccountId: string;
         targetDiskType: string;
         targetReplicaDiskType: string;
+        /**
+         * Id of resource group where the VM should be created when a failover is done.
+         */
         targetResourceGroupId: string;
     }
 }
@@ -6321,7 +6586,7 @@ export namespace scheduler {
         authenticationBasic?: outputs.scheduler.JobActionWebAuthenticationBasic;
         authenticationCertificate?: outputs.scheduler.JobActionWebAuthenticationCertificate;
         body?: string;
-        headers?: {[key: string]: any};
+        headers?: {[key: string]: string};
         method: string;
         url: string;
     }
@@ -6374,7 +6639,7 @@ export namespace scheduler {
         authenticationBasic?: outputs.scheduler.JobErrorActionWebAuthenticationBasic;
         authenticationCertificate?: outputs.scheduler.JobErrorActionWebAuthenticationCertificate;
         body?: string;
-        headers?: {[key: string]: any};
+        headers?: {[key: string]: string};
         method: string;
         url: string;
     }
@@ -6509,12 +6774,12 @@ export namespace servicefabric {
          * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        parameters?: {[key: string]: any};
+        parameters?: {[key: string]: string};
     }
 
     export interface ClusterNodeType {
         applicationPorts: outputs.servicefabric.ClusterNodeTypeApplicationPorts;
-        capacities?: {[key: string]: any};
+        capacities?: {[key: string]: string};
         clientEndpointPort: number;
         durabilityLevel?: string;
         ephemeralPorts: outputs.servicefabric.ClusterNodeTypeEphemeralPorts;
@@ -6525,7 +6790,7 @@ export namespace servicefabric {
          * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
          */
         name: string;
-        placementProperties?: {[key: string]: any};
+        placementProperties?: {[key: string]: string};
         reverseProxyEndpointPort?: number;
     }
 
@@ -6629,11 +6894,11 @@ export namespace sql {
          */
         id: string;
         /**
-         * the location of a SQL server in `partnerServers`
+         * the location of the failover group.
          */
         location: string;
         /**
-         * the current role of the SQL server named in `serverName`
+         * local replication role of the failover group instance.
          */
         role: string;
     }
@@ -6720,6 +6985,15 @@ export namespace storage {
         includeApis?: boolean;
         retentionPolicyDays?: number;
         version: string;
+    }
+
+    export interface GetAccountBlobContainerSASPermissions {
+        add: boolean;
+        create: boolean;
+        delete: boolean;
+        list: boolean;
+        read: boolean;
+        write: boolean;
     }
 
     export interface GetAccountCustomDomain {
@@ -6812,6 +7086,13 @@ export namespace streamanalytics {
         type: string;
     }
 
+    export interface OutputServicebusTopicSerialization {
+        encoding?: string;
+        fieldDelimiter?: string;
+        format?: string;
+        type: string;
+    }
+
     export interface StreamInputBlobSerialization {
         encoding?: string;
         fieldDelimiter?: string;
@@ -6859,5 +7140,35 @@ export namespace trafficmanager {
         protocol: string;
         timeoutInSeconds?: number;
         toleratedNumberOfFailures?: number;
+    }
+}
+
+export namespace waf {
+    export interface PolicyCustomRule {
+        action: string;
+        matchConditions: outputs.waf.PolicyCustomRuleMatchCondition[];
+        /**
+         * The name of the policy. Changing this forces a new resource to be created.
+         */
+        name?: string;
+        priority: number;
+        ruleType: string;
+    }
+
+    export interface PolicyCustomRuleMatchCondition {
+        matchValues: string[];
+        matchVariables: outputs.waf.PolicyCustomRuleMatchConditionMatchVariable[];
+        negationCondition?: boolean;
+        operator: string;
+    }
+
+    export interface PolicyCustomRuleMatchConditionMatchVariable {
+        selector?: string;
+        variableName: string;
+    }
+
+    export interface PolicyPolicySettings {
+        enabled?: boolean;
+        mode?: string;
     }
 }

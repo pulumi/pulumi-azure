@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages automated startup and shutdown schedules for Azure Dev Test Lab.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
 type Schedule struct {
 	s *pulumi.ResourceState
 }
@@ -109,14 +112,17 @@ func (r *Schedule) HourlyRecurrence() *pulumi.Output {
 	return r.s.State["hourlyRecurrence"]
 }
 
+// The name of the dev test lab. Changing this forces a new resource to be created.
 func (r *Schedule) LabName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["labName"])
 }
 
+// The location where the schedule is created. Changing this forces a new resource to be created.
 func (r *Schedule) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
+// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
 func (r *Schedule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -125,22 +131,27 @@ func (r *Schedule) NotificationSettings() *pulumi.Output {
 	return r.s.State["notificationSettings"]
 }
 
+// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 func (r *Schedule) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
 func (r *Schedule) Status() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["status"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Schedule) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 func (r *Schedule) TaskType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["taskType"])
 }
 
+// The time zone ID (e.g. Pacific Standard time).
 func (r *Schedule) TimeZoneId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["timeZoneId"])
 }
@@ -153,14 +164,22 @@ func (r *Schedule) WeeklyRecurrence() *pulumi.Output {
 type ScheduleState struct {
 	DailyRecurrence interface{}
 	HourlyRecurrence interface{}
+	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName interface{}
+	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
 	Name interface{}
 	NotificationSettings interface{}
+	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
 	Status interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType interface{}
+	// The time zone ID (e.g. Pacific Standard time).
 	TimeZoneId interface{}
 	WeeklyRecurrence interface{}
 }
@@ -169,14 +188,22 @@ type ScheduleState struct {
 type ScheduleArgs struct {
 	DailyRecurrence interface{}
 	HourlyRecurrence interface{}
+	// The name of the dev test lab. Changing this forces a new resource to be created.
 	LabName interface{}
+	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
 	Name interface{}
 	NotificationSettings interface{}
+	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
 	Status interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
 	TaskType interface{}
+	// The time zone ID (e.g. Pacific Standard time).
 	TimeZoneId interface{}
 	WeeklyRecurrence interface{}
 }

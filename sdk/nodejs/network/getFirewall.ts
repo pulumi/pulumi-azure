@@ -66,7 +66,7 @@ export interface GetFirewallResult {
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

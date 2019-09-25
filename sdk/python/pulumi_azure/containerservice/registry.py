@@ -47,6 +47,11 @@ class Registry(pulumi.CustomResource):
     
         * `action` (`str`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
         * `ipRange` (`str`) - The CIDR block from which requests will match the rule.
+    
+      * `virtualNetworks` (`list`) - One or more `virtual_network` blocks as defined below.
+    
+        * `action` (`str`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+        * `subnetId` (`str`) - The subnet id from which requests will match the rule.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -91,6 +96,11 @@ class Registry(pulumi.CustomResource):
         
             * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
             * `ipRange` (`pulumi.Input[str]`) - The CIDR block from which requests will match the rule.
+        
+          * `virtualNetworks` (`pulumi.Input[list]`) - One or more `virtual_network` blocks as defined below.
+        
+            * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+            * `subnetId` (`pulumi.Input[str]`) - The subnet id from which requests will match the rule.
         
         The **storage_account** object supports the following:
         
@@ -166,6 +176,11 @@ class Registry(pulumi.CustomResource):
         
             * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
             * `ipRange` (`pulumi.Input[str]`) - The CIDR block from which requests will match the rule.
+        
+          * `virtualNetworks` (`pulumi.Input[list]`) - One or more `virtual_network` blocks as defined below.
+        
+            * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+            * `subnetId` (`pulumi.Input[str]`) - The subnet id from which requests will match the rule.
         
         The **storage_account** object supports the following:
         

@@ -66,7 +66,7 @@ export interface GetAppServiceResult {
     /**
      * A key-value pair of App Settings for the App Service.
      */
-    readonly appSettings: {[key: string]: any};
+    readonly appSettings: {[key: string]: string};
     /**
      * Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -114,7 +114,7 @@ export interface GetAppServiceResult {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

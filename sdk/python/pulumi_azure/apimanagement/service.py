@@ -10,7 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class Service(pulumi.CustomResource):
-    additional_location: pulumi.Output[dict]
+    additional_locations: pulumi.Output[list]
     """
     One or more `additional_location` blocks as defined below.
     
@@ -167,13 +167,13 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags assigned to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, additional_location=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Service.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] additional_location: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[list] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[list] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[dict] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[dict] identity: An `identity` block is documented below.
@@ -190,7 +190,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
         
-        The **additional_location** object supports the following:
+        The **additional_locations** object supports the following:
         
           * `gateway_regional_url` (`pulumi.Input[str]`) - The URL of the Regional Gateway for the API Management Service in the specified region.
           * `location` (`pulumi.Input[str]`) - The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -296,7 +296,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['additional_location'] = additional_location
+            __props__['additional_locations'] = additional_locations
             __props__['certificates'] = certificates
             __props__['hostname_configuration'] = hostname_configuration
             __props__['identity'] = identity
@@ -333,7 +333,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_location=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku=None, tags=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -341,7 +341,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] additional_location: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[list] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[list] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
@@ -364,7 +364,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
         
-        The **additional_location** object supports the following:
+        The **additional_locations** object supports the following:
         
           * `gateway_regional_url` (`pulumi.Input[str]`) - The URL of the Regional Gateway for the API Management Service in the specified region.
           * `location` (`pulumi.Input[str]`) - The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -456,7 +456,7 @@ class Service(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["additional_location"] = additional_location
+        __props__["additional_locations"] = additional_locations
         __props__["certificates"] = certificates
         __props__["gateway_regional_url"] = gateway_regional_url
         __props__["gateway_url"] = gateway_url

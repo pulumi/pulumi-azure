@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a CDN Profile to create a collection of CDN Endpoints.
+ * Manages a CDN Profile to create a collection of CDN Endpoints.
  * 
  * ## Example Usage
  * 

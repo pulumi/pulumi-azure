@@ -86,7 +86,7 @@ export interface GetZoneResult {
     /**
      * A mapping of tags to assign to the EventHub Namespace.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
      */

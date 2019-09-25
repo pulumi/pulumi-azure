@@ -14,6 +14,14 @@ class ManagedDisk(pulumi.CustomResource):
     """
     The method to use when creating the managed disk. Possible values include:
     """
+    disk_iops_read_write: pulumi.Output[float]
+    """
+    The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+    """
+    disk_mbps_read_write: pulumi.Output[float]
+    """
+    The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+    """
     disk_size_gb: pulumi.Output[float]
     """
     Specifies the size of the managed disk to create in gigabytes.
@@ -80,13 +88,15 @@ class ManagedDisk(pulumi.CustomResource):
     """
     A collection containing the availability zone to allocate the Managed Disk in.
     """
-    def __init__(__self__, resource_name, opts=None, create_option=None, disk_size_gb=None, encryption_settings=None, image_reference_id=None, location=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, create_option=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, encryption_settings=None, image_reference_id=None, location=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a managed disk.
+        Manages a managed disk.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
+        :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[float] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[float] disk_size_gb: Specifies the size of the managed disk to create in gigabytes.
                If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
         :param pulumi.Input[dict] encryption_settings: an `encryption_settings` block as defined below.
@@ -142,6 +152,8 @@ class ManagedDisk(pulumi.CustomResource):
             if create_option is None:
                 raise TypeError("Missing required property 'create_option'")
             __props__['create_option'] = create_option
+            __props__['disk_iops_read_write'] = disk_iops_read_write
+            __props__['disk_mbps_read_write'] = disk_mbps_read_write
             __props__['disk_size_gb'] = disk_size_gb
             __props__['encryption_settings'] = encryption_settings
             __props__['image_reference_id'] = image_reference_id
@@ -165,7 +177,7 @@ class ManagedDisk(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, create_option=None, disk_size_gb=None, encryption_settings=None, image_reference_id=None, location=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None):
+    def get(resource_name, id, opts=None, create_option=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, encryption_settings=None, image_reference_id=None, location=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None):
         """
         Get an existing ManagedDisk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -174,6 +186,8 @@ class ManagedDisk(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
+        :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[float] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         :param pulumi.Input[float] disk_size_gb: Specifies the size of the managed disk to create in gigabytes.
                If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
         :param pulumi.Input[dict] encryption_settings: an `encryption_settings` block as defined below.
@@ -213,6 +227,8 @@ class ManagedDisk(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["create_option"] = create_option
+        __props__["disk_iops_read_write"] = disk_iops_read_write
+        __props__["disk_mbps_read_write"] = disk_mbps_read_write
         __props__["disk_size_gb"] = disk_size_gb
         __props__["encryption_settings"] = encryption_settings
         __props__["image_reference_id"] = image_reference_id

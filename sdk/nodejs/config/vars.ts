@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("azure");
 
+export let auxiliaryTenantIds: string[] | undefined = __config.getObject<string[]>("auxiliaryTenantIds");
 /**
  * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
  * Certificate

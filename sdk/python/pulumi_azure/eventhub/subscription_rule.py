@@ -57,7 +57,7 @@ class SubscriptionRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, action=None, correlation_filter=None, filter_type=None, name=None, namespace_name=None, resource_group_name=None, sql_filter=None, subscription_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a ServiceBus Subscription Rule.
+        Manages a ServiceBus Subscription Rule.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

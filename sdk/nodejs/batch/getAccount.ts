@@ -95,7 +95,7 @@ export interface GetAccountResult {
     /**
      * A map of tags assigned to the Batch account.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage an Azure Storage Blob.
+// Manages a Blob within a Storage Container.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
 type Blob struct {
@@ -18,17 +18,18 @@ type Blob struct {
 // NewBlob registers a new resource with the given unique name, arguments, and options.
 func NewBlob(ctx *pulumi.Context,
 	name string, args *BlobArgs, opts ...pulumi.ResourceOpt) (*Blob, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
 	if args == nil || args.StorageContainerName == nil {
 		return nil, errors.New("missing required argument 'StorageContainerName'")
 	}
+	if args == nil || args.Type == nil {
+		return nil, errors.New("missing required argument 'Type'")
+	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["accessTier"] = nil
 		inputs["attempts"] = nil
 		inputs["contentType"] = nil
 		inputs["metadata"] = nil
@@ -37,11 +38,13 @@ func NewBlob(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["size"] = nil
 		inputs["source"] = nil
+		inputs["sourceContent"] = nil
 		inputs["sourceUri"] = nil
 		inputs["storageAccountName"] = nil
 		inputs["storageContainerName"] = nil
 		inputs["type"] = nil
 	} else {
+		inputs["accessTier"] = args.AccessTier
 		inputs["attempts"] = args.Attempts
 		inputs["contentType"] = args.ContentType
 		inputs["metadata"] = args.Metadata
@@ -50,6 +53,7 @@ func NewBlob(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["size"] = args.Size
 		inputs["source"] = args.Source
+		inputs["sourceContent"] = args.SourceContent
 		inputs["sourceUri"] = args.SourceUri
 		inputs["storageAccountName"] = args.StorageAccountName
 		inputs["storageContainerName"] = args.StorageContainerName
@@ -69,6 +73,7 @@ func GetBlob(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *BlobState, opts ...pulumi.ResourceOpt) (*Blob, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["accessTier"] = state.AccessTier
 		inputs["attempts"] = state.Attempts
 		inputs["contentType"] = state.ContentType
 		inputs["metadata"] = state.Metadata
@@ -77,6 +82,7 @@ func GetBlob(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["size"] = state.Size
 		inputs["source"] = state.Source
+		inputs["sourceContent"] = state.SourceContent
 		inputs["sourceUri"] = state.SourceUri
 		inputs["storageAccountName"] = state.StorageAccountName
 		inputs["storageContainerName"] = state.StorageContainerName
@@ -98,6 +104,11 @@ func (r *Blob) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Blob) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+func (r *Blob) AccessTier() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["accessTier"])
 }
 
 // The number of attempts to make per page or block when uploading. Defaults to `1`.
@@ -125,8 +136,7 @@ func (r *Blob) Parallelism() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["parallelism"])
 }
 
-// The name of the resource group in which to
-// create the storage container. Changing this forces a new resource to be created.
+// The name of the resource group in which to create the storage container.
 func (r *Blob) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -136,13 +146,18 @@ func (r *Blob) Size() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["size"])
 }
 
-// An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
+// An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
 func (r *Blob) Source() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["source"])
 }
 
+// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+func (r *Blob) SourceContent() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["sourceContent"])
+}
+
 // The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-// for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 func (r *Blob) SourceUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
 }
@@ -158,8 +173,7 @@ func (r *Blob) StorageContainerName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageContainerName"])
 }
 
-// The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-// this becomes required.
+// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 func (r *Blob) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
@@ -171,6 +185,8 @@ func (r *Blob) Url() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Blob resources.
 type BlobState struct {
+	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+	AccessTier interface{}
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
 	Attempts interface{}
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -181,23 +197,23 @@ type BlobState struct {
 	Name interface{}
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism interface{}
-	// The name of the resource group in which to
-	// create the storage container. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the storage container.
 	ResourceGroupName interface{}
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size interface{}
-	// An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
 	Source interface{}
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	SourceContent interface{}
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri interface{}
 	// Specifies the storage account in which to create the storage container.
 	// Changing this forces a new resource to be created.
 	StorageAccountName interface{}
 	// The name of the storage container in which this blob should be created.
 	StorageContainerName interface{}
-	// The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-	// this becomes required.
+	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type interface{}
 	// The URL of the blob
 	Url interface{}
@@ -205,6 +221,8 @@ type BlobState struct {
 
 // The set of arguments for constructing a Blob resource.
 type BlobArgs struct {
+	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+	AccessTier interface{}
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
 	Attempts interface{}
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -215,22 +233,22 @@ type BlobArgs struct {
 	Name interface{}
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
 	Parallelism interface{}
-	// The name of the resource group in which to
-	// create the storage container. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the storage container.
 	ResourceGroupName interface{}
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size interface{}
-	// An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
 	Source interface{}
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	SourceContent interface{}
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-	// for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri interface{}
 	// Specifies the storage account in which to create the storage container.
 	// Changing this forces a new resource to be created.
 	StorageAccountName interface{}
 	// The name of the storage container in which this blob should be created.
 	StorageContainerName interface{}
-	// The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-	// this becomes required.
+	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type interface{}
 }

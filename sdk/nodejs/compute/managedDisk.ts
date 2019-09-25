@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a managed disk.
+ * Manages a managed disk.
  * 
  * ## Example Usage with Create Empty
  * 
@@ -101,6 +101,14 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     */
+    public readonly diskIopsReadWrite!: pulumi.Output<number>;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     */
+    public readonly diskMbpsReadWrite!: pulumi.Output<number>;
+    /**
      * Specifies the size of the managed disk to create in gigabytes.
      * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
@@ -169,6 +177,8 @@ export class ManagedDisk extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ManagedDiskState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
+            inputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
+            inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
             inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
@@ -193,6 +203,8 @@ export class ManagedDisk extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountType'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;
+            inputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
+            inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
             inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
@@ -225,6 +237,14 @@ export interface ManagedDiskState {
      * The method to use when creating the managed disk. Possible values include:
      */
     readonly createOption?: pulumi.Input<string>;
+    /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     */
+    readonly diskIopsReadWrite?: pulumi.Input<number>;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     */
+    readonly diskMbpsReadWrite?: pulumi.Input<number>;
     /**
      * Specifies the size of the managed disk to create in gigabytes.
      * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
@@ -290,6 +310,14 @@ export interface ManagedDiskArgs {
      * The method to use when creating the managed disk. Possible values include:
      */
     readonly createOption: pulumi.Input<string>;
+    /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+     */
+    readonly diskIopsReadWrite?: pulumi.Input<number>;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+     */
+    readonly diskMbpsReadWrite?: pulumi.Input<number>;
     /**
      * Specifies the size of the managed disk to create in gigabytes.
      * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.

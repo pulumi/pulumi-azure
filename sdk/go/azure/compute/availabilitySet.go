@@ -28,6 +28,7 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["platformFaultDomainCount"] = nil
 		inputs["platformUpdateDomainCount"] = nil
+		inputs["proximityPlacementGroupId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
 	} else {
@@ -36,6 +37,7 @@ func NewAvailabilitySet(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["platformFaultDomainCount"] = args.PlatformFaultDomainCount
 		inputs["platformUpdateDomainCount"] = args.PlatformUpdateDomainCount
+		inputs["proximityPlacementGroupId"] = args.ProximityPlacementGroupId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
 	}
@@ -57,6 +59,7 @@ func GetAvailabilitySet(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["platformFaultDomainCount"] = state.PlatformFaultDomainCount
 		inputs["platformUpdateDomainCount"] = state.PlatformUpdateDomainCount
+		inputs["proximityPlacementGroupId"] = state.ProximityPlacementGroupId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["tags"] = state.Tags
 	}
@@ -102,6 +105,11 @@ func (r *AvailabilitySet) PlatformUpdateDomainCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["platformUpdateDomainCount"])
 }
 
+// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+func (r *AvailabilitySet) ProximityPlacementGroupId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
+}
+
 // The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 func (r *AvailabilitySet) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
@@ -124,6 +132,8 @@ type AvailabilitySetState struct {
 	PlatformFaultDomainCount interface{}
 	// Specifies the number of update domains that are used. Defaults to 5.
 	PlatformUpdateDomainCount interface{}
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId interface{}
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
@@ -142,6 +152,8 @@ type AvailabilitySetArgs struct {
 	PlatformFaultDomainCount interface{}
 	// Specifies the number of update domains that are used. Defaults to 5.
 	PlatformUpdateDomainCount interface{}
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId interface{}
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.

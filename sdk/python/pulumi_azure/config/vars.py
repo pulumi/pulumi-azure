@@ -11,6 +11,8 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('azure')
 
+auxiliary_tenant_ids = __config__.get('auxiliaryTenantIds')
+
 client_certificate_password = __config__.get('clientCertificatePassword') or (utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
 """
 The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
