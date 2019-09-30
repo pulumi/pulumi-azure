@@ -13,19 +13,16 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-import * as eventgrid from "azure-eventgrid/lib/models";
 
 import { Account } from "./account";
 import { Blob } from "./blob";
 import { Container } from "./container";
-import { getAccountSAS } from "./getAccountSAS";
 import { Queue } from "./queue";
 import { Table } from "./table";
 import { ZipBlob } from "./zipBlob";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
-import * as eventhub from "../eventhub";
 import * as storage from "../storage";
 
 /**
@@ -43,21 +40,11 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
 
     return pulumi.all([account.name, account.primaryConnectionString, blob.storageContainerName, blob.name]).apply(
         async ([accountName, connectionString, containerName, blobName]) => {
-            const sas = await getAccountSAS({
+            const sas = await storage.getAccountBlobContainerSAS({
                 connectionString,
+                containerName,
                 start: "2019-01-01",
                 expiry: signatureExpiration,
-                services: {
-                    blob: true,
-                    queue: false,
-                    table: false,
-                    file: false,
-                },
-                resourceTypes: {
-                    service: false,
-                    container: false,
-                    object: true,
-                },
                 permissions: {
                     read: true,
                     write: false,
@@ -65,8 +52,6 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
                     list: false,
                     add: false,
                     create: false,
-                    update: false,
-                    process: false,
                 },
             });
 

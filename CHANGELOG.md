@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Use Blob Container SAS instead of Account SAS for zip packages for Function App deployments
+  [#378](https://github.com/pulumi/pulumi-azure/pull/378)
 
 ---
 
