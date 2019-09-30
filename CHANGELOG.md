@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v1.35.0 of the Azurerm Terraform Provider
+* Use Blob Container SAS instead of Account SAS for zip packages for Function App deployments
+  [#378](https://github.com/pulumi/pulumi-azure/pull/378)
 
 ---
 
@@ -13,6 +15,8 @@ CHANGELOG
 * Upgrade to support go1.13
 * Upgrade to v1.34.0 of the Azurerm Terraform Provider
 * Regenerate SDK against tf2pulumi 0.6.0
+
+---
 
 ## 1.0.0 (2019-09-03)
 * Use 1.0 version of Pulumi dependency
