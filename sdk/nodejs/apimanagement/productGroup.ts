@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * });
+ * const exampleProduct = azure.apimanagement.getProduct({
+ *     apiManagementName: exampleService.name,
+ *     productId: "my-product",
+ *     resourceGroupName: exampleService.resourceGroupName,
+ * });
  * const exampleGroup = azure.apimanagement.getGroup({
  *     apiManagementName: exampleService.name,
  *     name: "my-group",
@@ -28,11 +33,6 @@ import * as utilities from "../utilities";
  *     apiManagementName: exampleService.name,
  *     groupName: exampleGroup.name,
  *     productId: azurerm_api_management_user_example.id,
- *     resourceGroupName: exampleService.resourceGroupName,
- * });
- * const exampleProduct = azure.apimanagement.getProduct({
- *     apiManagementName: exampleService.name,
- *     productId: "my-product",
  *     resourceGroupName: exampleService.resourceGroupName,
  * });
  * ```

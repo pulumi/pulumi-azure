@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "example-resources",
  * });
+ * const toMonitor = new azure.storage.Account("toMonitor", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: mainResourceGroup.location,
+ *     name: "examplestorageaccount",
+ *     resourceGroupName: mainResourceGroup.name,
+ * });
  * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
  *     name: "example-actiongroup",
  *     resourceGroupName: mainResourceGroup.name,
@@ -27,13 +34,6 @@ import * as utilities from "../utilities";
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
- * });
- * const toMonitor = new azure.storage.Account("toMonitor", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: mainResourceGroup.location,
- *     name: "examplestorageaccount",
- *     resourceGroupName: mainResourceGroup.name,
  * });
  * const test = new azure.monitoring.MetricAlert("test", {
  *     actions: [{

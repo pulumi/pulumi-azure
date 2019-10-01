@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  *     location: "northeurope",
  *     name: "example",
  * });
- * const current = azure.core.getClientConfig({});
  * const exampleFactory = new azure.datafactory.Factory("example", {
  *     location: exampleResourceGroup.location,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
+ * const current = azure.core.getClientConfig();
  * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("example", {
  *     dataFactoryName: azurerm_data_factory_test.name,
  *     name: "example",

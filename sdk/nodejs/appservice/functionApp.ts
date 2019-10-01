@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  *     location: "westus2",
  *     name: "azure-functions-test-rg",
  * });
+ * const testAccount = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: testResourceGroup.location,
+ *     name: "functionsapptestsa",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
  *     name: "azure-functions-test-service-plan",
@@ -27,13 +34,6 @@ import * as utilities from "../utilities";
  *         size: "S1",
  *         tier: "Standard",
  *     },
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     name: "functionsapptestsa",
- *     resourceGroupName: testResourceGroup.name,
  * });
  * const testFunctionApp = new azure.appservice.FunctionApp("test", {
  *     appServicePlanId: testPlan.id,
@@ -53,6 +53,13 @@ import * as utilities from "../utilities";
  *     location: "westus2",
  *     name: "azure-functions-cptest-rg",
  * });
+ * const testAccount = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: testResourceGroup.location,
+ *     name: "functionsapptestsa",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "FunctionApp",
  *     location: testResourceGroup.location,
@@ -62,13 +69,6 @@ import * as utilities from "../utilities";
  *         size: "Y1",
  *         tier: "Dynamic",
  *     },
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     name: "functionsapptestsa",
- *     resourceGroupName: testResourceGroup.name,
  * });
  * const testFunctionApp = new azure.appservice.FunctionApp("test", {
  *     appServicePlanId: testPlan.id,

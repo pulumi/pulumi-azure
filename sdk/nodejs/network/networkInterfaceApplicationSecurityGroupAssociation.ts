@@ -19,11 +19,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "example-resources",
  * });
- * const testApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("test", {
- *     location: testResourceGroup.location,
- *     name: "example-asg",
- *     resourceGroupName: testResourceGroup.name,
- * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
@@ -35,6 +30,11 @@ import * as utilities from "../utilities";
  *     name: "internal",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * const testApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("test", {
+ *     location: testResourceGroup.location,
+ *     name: "example-asg",
+ *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{

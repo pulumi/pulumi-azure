@@ -24,14 +24,14 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
  * });
- * const testPlan = new azure.ddosprotection.Plan("test", {
- *     location: testResourceGroup.location,
- *     name: "ddospplan1",
- *     resourceGroupName: testResourceGroup.name,
- * });
  * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
  *     location: testResourceGroup.location,
  *     name: "acceptanceTestSecurityGroup1",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testPlan = new azure.ddosprotection.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     name: "ddospplan1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {

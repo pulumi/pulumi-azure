@@ -17,12 +17,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     name: "example",
- *     resourceGroupName: azurerm_resource_group_test.name,
- * });
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "example",
@@ -31,6 +25,12 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
+ *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+ *     dataFactoryName: azurerm_data_factory_test.name,
+ *     name: "example",
+ *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * ```
  *

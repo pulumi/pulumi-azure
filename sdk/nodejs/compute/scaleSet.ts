@@ -23,6 +23,18 @@ import * as utilities from "../utilities";
  *     location: "West US 2",
  *     name: "acctestRG",
  * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: testResourceGroup.location,
+ *     name: "acctvn",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testSubnet = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     domainNameLabel: testResourceGroup.name,
@@ -65,18 +77,6 @@ import * as utilities from "../utilities";
  *     requestPath: "/health",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     name: "acctvn",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testSubnet = new azure.network.Subnet("test", {
- *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
- * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {
  *     // automatic rolling upgrade
  *     automaticOsUpgrade: true,
@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  *     networkProfiles: [{
  *         ipConfigurations: [{
  *             loadBalancerBackendAddressPoolIds: [bpepool.id],
- *             loadBalancerInboundNatRulesIds: [pulumi.all(lbnatpool.map(v => v.id)).apply(id => id.map(v => v)[1])],
+ *             loadBalancerInboundNatRulesIds: [lbnatpool.id.apply(id => id[1])],
  *             name: "TestIPConfiguration",
  *             primary: true,
  *             subnetId: testSubnet.id,
@@ -154,6 +154,18 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "acctestRG",
  * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: "West US",
+ *     name: "acctvn",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testSubnet = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
@@ -169,18 +181,6 @@ import * as utilities from "../utilities";
  *     name: "vhds",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
- * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: "West US",
- *     name: "acctvn",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testSubnet = new azure.network.Subnet("test", {
- *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {
  *     location: "West US",

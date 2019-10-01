@@ -34,16 +34,6 @@ import * as utilities from "../utilities";
  *     location: "West US 2",
  *     name: "test-resources",
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
- *     allocationMethod: "Dynamic",
- *     idleTimeoutInMinutes: 30,
- *     location: testResourceGroup.location,
- *     name: "test-pip",
- *     resourceGroupName: testResourceGroup.name,
- *     tags: {
- *         environment: "test",
- *     },
- * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
@@ -55,6 +45,16 @@ import * as utilities from "../utilities";
  *     name: "acctsub",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * const testPublicIp = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Dynamic",
+ *     idleTimeoutInMinutes: 30,
+ *     location: testResourceGroup.location,
+ *     name: "test-pip",
+ *     resourceGroupName: testResourceGroup.name,
+ *     tags: {
+ *         environment: "test",
+ *     },
  * });
  * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{

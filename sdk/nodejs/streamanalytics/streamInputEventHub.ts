@@ -15,12 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testConsumerGroup = new azure.eventhub.ConsumerGroup("test", {
- *     eventhubName: azurerm_eventhub_test.name,
- *     name: "example-consumergroup",
- *     namespaceName: azurerm_eventhub_namespace_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
- * });
  * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
@@ -42,6 +36,12 @@ import * as utilities from "../utilities";
  *     namespaceName: exampleEventHubNamespace.name,
  *     partitionCount: 2,
  *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const testConsumerGroup = new azure.eventhub.ConsumerGroup("test", {
+ *     eventhubName: azurerm_eventhub_test.name,
+ *     name: "example-consumergroup",
+ *     namespaceName: azurerm_eventhub_namespace_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * const testStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("test", {
  *     eventhubConsumerGroupName: azurerm_eventhub_consumer_group_example.name,

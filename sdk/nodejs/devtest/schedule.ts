@@ -16,6 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
+ * const sampleResourceGroup = new azure.core.ResourceGroup("sample", {
+ *     location: "West US",
+ *     name: "acctestRG",
+ * });
  * const sampleLab = new azure.devtest.Lab("sample", {
  *     location: azurerm_resource_group_test.location,
  *     name: "YourDevTestLab",
@@ -39,10 +43,6 @@ import * as utilities from "../utilities";
  *             "Tuesday",
  *         ],
  *     },
- * });
- * const sampleResourceGroup = new azure.core.ResourceGroup("sample", {
- *     location: "West US",
- *     name: "acctestRG",
  * });
  * ```
  *

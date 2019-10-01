@@ -15,10 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const builtin = azure.authorization.getBuiltinRoleDefinition({
- *     name: "Contributor",
- * });
- * const primary = azure.core.getSubscription({});
+ * const primary = azure.core.getSubscription();
  * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
  *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
@@ -32,9 +29,12 @@ import * as utilities from "../utilities";
  *     name: name,
  *     scope: primary,
  * }));
+ * const builtin = azure.authorization.getBuiltinRoleDefinition({
+ *     name: "Contributor",
+ * });
  * 
- * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
  * export const customRoleDefinitionId = customAuthorizationRoleDefinition.id;
+ * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.

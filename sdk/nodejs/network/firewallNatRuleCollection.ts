@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  *     location: "North Europe",
  *     name: "example-resources",
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
- *     allocationMethod: "Static",
- *     location: testResourceGroup.location,
- *     name: "testpip",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: "Standard",
- * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
@@ -37,6 +30,13 @@ import * as utilities from "../utilities";
  *     name: "AzureFirewallSubnet",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * const testPublicIp = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Static",
+ *     location: testResourceGroup.location,
+ *     name: "testpip",
+ *     resourceGroupName: testResourceGroup.name,
+ *     sku: "Standard",
  * });
  * const testFirewall = new azure.network.Firewall("test", {
  *     ipConfiguration: {

@@ -21,19 +21,19 @@ import * as utilities from "../utilities";
  *     location: "eastus",
  *     name: "logprofiletest-rg",
  * });
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
- *     capacity: 2,
- *     location: testResourceGroup.location,
- *     name: "logprofileeventhub",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: "Standard",
- * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
  *     name: "afscsdfytw",
  *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
+ *     capacity: 2,
+ *     location: testResourceGroup.location,
+ *     name: "logprofileeventhub",
+ *     resourceGroupName: testResourceGroup.name,
+ *     sku: "Standard",
  * });
  * const testLogProfile = new azure.monitoring.LogProfile("test", {
  *     categories: [

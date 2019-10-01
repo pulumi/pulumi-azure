@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
+ * const datasourcemd = azure.compute.getManagedDisk({
+ *     name: "testManagedDisk",
+ *     resourceGroupName: "acctestRG",
+ * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: "West US 2",
  *     name: "acctvn",
- *     resourceGroupName: "acctestRG",
- * });
- * const datasourcemd = azure.compute.getManagedDisk({
- *     name: "testManagedDisk",
  *     resourceGroupName: "acctestRG",
  * });
  * const testSubnet = new azure.network.Subnet("test", {

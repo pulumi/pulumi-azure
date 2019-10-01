@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
+ * const current = azure.core.getClientConfig();
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "my-resource-group",
  * });
- * const current = azure.core.getClientConfig({});
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {

@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * 
- * export const appId = testInsights.appId;
  * export const instrumentationKey = testInsights.instrumentationKey;
+ * export const appId = testInsights.appId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.

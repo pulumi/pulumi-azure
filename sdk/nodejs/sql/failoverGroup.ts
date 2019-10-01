@@ -27,12 +27,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
  * });
- * const db1 = new azure.sql.Database("db1", {
- *     location: primary.location,
- *     name: "db1",
- *     resourceGroupName: primary.resourceGroupName,
- *     serverName: primary.name,
- * });
  * const secondary = new azure.sql.SqlServer("secondary", {
  *     administratorLogin: "sqladmin",
  *     administratorLoginPassword: "pa$$w0rd",
@@ -40,6 +34,12 @@ import * as utilities from "../utilities";
  *     name: "sql-secondary",
  *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
+ * });
+ * const db1 = new azure.sql.Database("db1", {
+ *     location: primary.location,
+ *     name: "db1",
+ *     resourceGroupName: primary.resourceGroupName,
+ *     serverName: primary.name,
  * });
  * const exampleFailoverGroup = new azure.sql.FailoverGroup("example", {
  *     databases: [db1.id],

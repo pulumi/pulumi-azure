@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "trafficmanagerendpointTest",
- * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         azi_id: 1,
  *     },
+ * });
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "trafficmanagerendpointTest",
  * });
  * const testTrafficManagerProfile = new azure.network.TrafficManagerProfile("test", {
  *     dnsConfigs: [{

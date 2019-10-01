@@ -20,6 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "example-resources",
  * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     applicationType: "Other",
+ *     location: exampleResourceGroup.location,
+ *     name: "example-appinsights",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleService = new azure.apimanagement.Service("example", {
  *     location: exampleResourceGroup.location,
  *     name: "example-apim",
@@ -30,12 +36,6 @@ import * as utilities from "../utilities";
  *         capacity: 1,
  *         name: "Developer",
  *     },
- * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
- *     applicationType: "Other",
- *     location: exampleResourceGroup.location,
- *     name: "example-appinsights",
- *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLogger = new azure.apimanagement.Logger("example", {
  *     apiManagementName: exampleService.name,

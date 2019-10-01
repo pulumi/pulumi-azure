@@ -21,12 +21,6 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "test",
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
- *     allocationMethod: "Dynamic",
- *     location: testResourceGroup.location,
- *     name: "test",
- *     resourceGroupName: testResourceGroup.name,
- * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
@@ -38,6 +32,12 @@ import * as utilities from "../utilities";
  *     name: "GatewaySubnet",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * const testPublicIp = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Dynamic",
+ *     location: testResourceGroup.location,
+ *     name: "test",
+ *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("test", {
  *     activeActive: false,

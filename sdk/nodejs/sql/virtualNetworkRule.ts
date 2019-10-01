@@ -19,14 +19,6 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "example-sql-server-vnet-rule",
  * });
- * const sqlserver = new azure.sql.SqlServer("sqlserver", {
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: example.location,
- *     name: "unqiueazuresqlserver",
- *     resourceGroupName: example.name,
- *     version: "12.0",
- * });
  * const vnet = new azure.network.VirtualNetwork("vnet", {
  *     addressSpaces: ["10.7.29.0/29"],
  *     location: example.location,
@@ -39,6 +31,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     serviceEndpoints: ["Microsoft.Sql"],
  *     virtualNetworkName: vnet.name,
+ * });
+ * const sqlserver = new azure.sql.SqlServer("sqlserver", {
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     location: example.location,
+ *     name: "unqiueazuresqlserver",
+ *     resourceGroupName: example.name,
+ *     version: "12.0",
  * });
  * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
  *     name: "sql-vnet-rule",

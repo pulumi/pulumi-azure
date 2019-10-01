@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "packet-capture-rg",
  * });
+ * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
+ *     location: testResourceGroup.location,
+ *     name: "network-watcher",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
@@ -39,18 +44,6 @@ import * as utilities from "../utilities";
  *     }],
  *     location: testResourceGroup.location,
  *     name: "pctest-nic",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
- *     location: testResourceGroup.location,
- *     name: "network-watcher",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     name: "pctestsa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
@@ -89,6 +82,13 @@ import * as utilities from "../utilities";
  *     type: "NetworkWatcherAgentLinux",
  *     typeHandlerVersion: "1.4",
  *     virtualMachineName: testVirtualMachine.name,
+ * });
+ * const testAccount = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: testResourceGroup.location,
+ *     name: "pctestsa",
+ *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkPacketCapture = new azure.network.NetworkPacketCapture("test", {
  *     name: "pctestcapture",

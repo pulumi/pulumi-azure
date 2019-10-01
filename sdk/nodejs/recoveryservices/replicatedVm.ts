@@ -45,6 +45,34 @@ import * as utilities from "../utilities";
  *     name: "vm-nic",
  *     resourceGroupName: primaryResourceGroup.name,
  * });
+ * const vmVirtualMachine = new azure.compute.VirtualMachine("vm", {
+ *     location: primaryResourceGroup.location,
+ *     name: "vm",
+ *     networkInterfaceIds: [vmNetworkInterface.id],
+ *     osProfile: {
+ *         adminPassword: "test-pwd-123",
+ *         adminUsername: "test-admin-123",
+ *         computerName: "vm",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     resourceGroupName: primaryResourceGroup.name,
+ *     storageImageReference: {
+ *         offer: "CentOS",
+ *         publisher: "OpenLogic",
+ *         sku: "7.5",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Premium_LRS",
+ *         name: "vm-os-disk",
+ *         osType: "Linux",
+ *     },
+ *     vmSize: "Standard_B1s",
+ * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: secondaryResourceGroup.location,
  *     name: "example-recovery-vault",
@@ -82,6 +110,15 @@ import * as utilities from "../utilities";
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
+ * const containerMapping = new azure.recoveryservices.ProtectionContainerMapping("container-mapping", {
+ *     name: "container-mapping",
+ *     recoveryFabricName: primaryFabric.name,
+ *     recoveryReplicationPolicyId: policy.id,
+ *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
+ *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
  * const primaryAccount = new azure.storage.Account("primary", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
@@ -89,37 +126,9 @@ import * as utilities from "../utilities";
  *     name: "primaryrecoverycache",
  *     resourceGroupName: primaryResourceGroup.name,
  * });
- * const vmVirtualMachine = new azure.compute.VirtualMachine("vm", {
- *     location: primaryResourceGroup.location,
- *     name: "vm",
- *     networkInterfaceIds: [vmNetworkInterface.id],
- *     osProfile: {
- *         adminPassword: "test-pwd-123",
- *         adminUsername: "test-admin-123",
- *         computerName: "vm",
- *     },
- *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: false,
- *     },
- *     resourceGroupName: primaryResourceGroup.name,
- *     storageImageReference: {
- *         offer: "CentOS",
- *         publisher: "OpenLogic",
- *         sku: "7.5",
- *         version: "latest",
- *     },
- *     storageOsDisk: {
- *         caching: "ReadWrite",
- *         createOption: "FromImage",
- *         managedDiskType: "Premium_LRS",
- *         name: "vm-os-disk",
- *         osType: "Linux",
- *     },
- *     vmSize: "Standard_B1s",
- * });
  * const vmReplication = new azure.recoveryservices.ReplicatedVm("vm-replication", {
  *     managedDisks: [{
- *         diskId: vmVirtualMachine.storageOsDisk.managedDiskId,
+ *         diskId: vmVirtualMachine.storageOsDisk.managedDiskId!,
  *         stagingStorageAccountId: primaryAccount.id,
  *         targetDiskType: "Premium_LRS",
  *         targetReplicaDiskType: "Premium_LRS",
@@ -135,15 +144,6 @@ import * as utilities from "../utilities";
  *     targetRecoveryFabricId: secondaryFabric.id,
  *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
  *     targetResourceGroupId: secondaryResourceGroup.id,
- * });
- * const containerMapping = new azure.recoveryservices.ProtectionContainerMapping("container-mapping", {
- *     name: "container-mapping",
- *     recoveryFabricName: primaryFabric.name,
- *     recoveryReplicationPolicyId: policy.id,
- *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
- *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * ```
  *

@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * import * as random from "@pulumi/random";
  * import sprintf = require("sprintf-js");
  * 
+ * const current = azure.core.getClientConfig();
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "my-resource-group",
  * });
- * const current = azure.core.getClientConfig({});
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {

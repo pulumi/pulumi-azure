@@ -25,15 +25,15 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleService.resourceGroupName,
  *     revision: "2",
  * });
+ * const test = azure.apimanagement.getProduct({
+ *     apiManagementName: exampleService.name,
+ *     productId: "my-product",
+ *     resourceGroupName: exampleService.resourceGroupName,
+ * });
  * const exampleProductApi = new azure.apimanagement.ProductApi("example", {
  *     apiManagementName: exampleService.name,
  *     apiName: exampleApi.name,
  *     productId: azurerm_api_management_product_example.productId,
- *     resourceGroupName: exampleService.resourceGroupName,
- * });
- * const test = azure.apimanagement.getProduct({
- *     apiManagementName: exampleService.name,
- *     productId: "my-product",
  *     resourceGroupName: exampleService.resourceGroupName,
  * });
  * ```

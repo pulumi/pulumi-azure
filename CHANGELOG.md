@@ -7,6 +7,7 @@ CHANGELOG
   [#361](https://github.com/pulumi/pulumi-azure/pull/361)
 * Upgrade to support go1.13
 * Upgrade to v1.34.0 of the Azurerm Terraform Provider
+* Regenerate SDK against tf2pulumi 0.6.0
 
 ---
 

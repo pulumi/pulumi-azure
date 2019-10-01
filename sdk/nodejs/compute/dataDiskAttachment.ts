@@ -27,14 +27,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: `${prefix}-resources`,
  * });
- * const testManagedDisk = new azure.compute.ManagedDisk("test", {
- *     createOption: "Empty",
- *     diskSizeGb: 10,
- *     location: mainResourceGroup.location,
- *     name: `${vmName}-disk1`,
- *     resourceGroupName: mainResourceGroup.name,
- *     storageAccountType: "Standard_LRS",
- * });
  * const mainVirtualNetwork = new azure.network.VirtualNetwork("main", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: mainResourceGroup.location,
@@ -83,6 +75,14 @@ import * as utilities from "../utilities";
  *         name: "myosdisk1",
  *     },
  *     vmSize: "Standard_F2",
+ * });
+ * const testManagedDisk = new azure.compute.ManagedDisk("test", {
+ *     createOption: "Empty",
+ *     diskSizeGb: 10,
+ *     location: mainResourceGroup.location,
+ *     name: `${vmName}-disk1`,
+ *     resourceGroupName: mainResourceGroup.name,
+ *     storageAccountType: "Standard_LRS",
  * });
  * const testDataDiskAttachment = new azure.compute.DataDiskAttachment("test", {
  *     caching: "ReadWrite",
