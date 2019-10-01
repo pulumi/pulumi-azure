@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * 
- * export const latestVersion = current.latestVersion;
  * export const versions = current.versions;
+ * export const latestVersion = current.latestVersion;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.

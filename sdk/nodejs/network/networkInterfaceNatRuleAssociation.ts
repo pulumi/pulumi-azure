@@ -19,6 +19,18 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "example-resources",
  * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: testResourceGroup.location,
+ *     name: "example-network",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testSubnet = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: testResourceGroup.location,
@@ -42,18 +54,6 @@ import * as utilities from "../utilities";
  *     name: "RDPAccess",
  *     protocol: "Tcp",
  *     resourceGroupName: testResourceGroup.name,
- * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     name: "example-network",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testSubnet = new azure.network.Subnet("test", {
- *     addressPrefix: "10.0.2.0/24",
- *     name: "internal",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{

@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testClientConfig = azure.core.getClientConfig({});
- * const primary = azure.core.getSubscription({});
+ * const primary = azure.core.getSubscription();
+ * const testClientConfig = azure.core.getClientConfig();
  * const testAssignment = new azure.authorization.Assignment("test", {
  *     principalId: testClientConfig.servicePrincipalObjectId,
  *     roleDefinitionName: "Reader",
@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testClientConfig = azure.core.getClientConfig({});
- * const primary = azure.core.getSubscription({});
+ * const primary = azure.core.getSubscription();
+ * const testClientConfig = azure.core.getClientConfig();
  * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
@@ -54,8 +54,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testClientConfig = azure.core.getClientConfig({});
- * const primary = azure.core.getSubscription({});
+ * const primary = azure.core.getSubscription();
+ * const testClientConfig = azure.core.getClientConfig();
  * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
@@ -80,9 +80,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testClientConfig = azure.core.getClientConfig({});
- * const testGroup = azure.management.getGroup({});
- * const primary = azure.core.getSubscription({});
+ * const primary = azure.core.getSubscription();
+ * const testClientConfig = azure.core.getClientConfig();
+ * const testGroup = azure.management.getGroup();
  * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",

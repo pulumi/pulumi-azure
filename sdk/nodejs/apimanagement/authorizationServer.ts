@@ -16,6 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
+ * const exampleApi = azure.apimanagement.getApi({
+ *     apiManagementName: "search-api-management",
+ *     name: "search-api",
+ *     resourceGroupName: "search-service",
+ *     revision: "2",
+ * });
  * const exampleAuthorizationServer = new azure.apimanagement.AuthorizationServer("example", {
  *     apiManagementName: azurerm_api_management_example.name,
  *     authorizationEndpoint: "https://example.mydomain.com/client/authorize",
@@ -25,12 +31,6 @@ import * as utilities from "../utilities";
  *     grantTypes: ["authorizationCode"],
  *     name: "test-server",
  *     resourceGroupName: azurerm_api_management_example.resourceGroupName,
- * });
- * const exampleApi = azure.apimanagement.getApi({
- *     apiManagementName: "search-api-management",
- *     name: "search-api",
- *     resourceGroupName: "search-service",
- *     revision: "2",
  * });
  * ```
  *

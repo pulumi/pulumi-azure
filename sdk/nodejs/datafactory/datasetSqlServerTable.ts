@@ -24,15 +24,15 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("example", {
- *     dataFactoryName: exampleFactory.name,
- *     linkedServiceName: azurerm_data_factory_linked_service_sql_server_test.name,
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
  * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  *     dataFactoryName: exampleFactory.name,
+ *     name: "example",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("example", {
+ *     dataFactoryName: exampleFactory.name,
+ *     linkedServiceName: azurerm_data_factory_linked_service_sql_server_test.name,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });

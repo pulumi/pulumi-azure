@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const available = azure.core.getSubscriptions({});
+ * const available = azure.core.getSubscriptions();
  * 
  * export const availableSubscriptions = available.subscriptions;
  * export const firstAvailableSubscriptionDisplayName = available.subscriptions[0].displayName;

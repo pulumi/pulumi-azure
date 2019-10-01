@@ -23,6 +23,22 @@ import * as utilities from "../utilities";
  *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
+ * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
+ *     applicationInsightsId: testInsights.id,
+ *     name: "tf-test-appinsights-read-telemetry-api-key",
+ *     readPermissions: [
+ *         "aggregate",
+ *         "api",
+ *         "draft",
+ *         "extendqueries",
+ *         "search",
+ *     ],
+ * });
+ * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
+ *     applicationInsightsId: testInsights.id,
+ *     name: "tf-test-appinsights-write-annotations-api-key",
+ *     writePermissions: ["annotations"],
+ * });
  * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannel", {
  *     applicationInsightsId: testInsights.id,
  *     name: "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
@@ -41,27 +57,11 @@ import * as utilities from "../utilities";
  *     ],
  *     writePermissions: ["annotations"],
  * });
- * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
- *     applicationInsightsId: testInsights.id,
- *     name: "tf-test-appinsights-read-telemetry-api-key",
- *     readPermissions: [
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- * });
- * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
- *     applicationInsightsId: testInsights.id,
- *     name: "tf-test-appinsights-write-annotations-api-key",
- *     writePermissions: ["annotations"],
- * });
  * 
- * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
- * export const fullPermissionsApiKey = fullPermissions.apiKey;
  * export const readTelemetryApiKey = readTelemetry.apiKey;
  * export const writeAnnotationsApiKey = writeAnnotations.apiKey;
+ * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
+ * export const fullPermissionsApiKey = fullPermissions.apiKey;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.

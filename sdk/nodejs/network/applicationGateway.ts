@@ -25,25 +25,31 @@ import * as utilities from "../utilities";
  *     name: "example-network",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const backendAddressPoolName = pulumi.interpolate`${testVirtualNetwork.name}-beap`;
- * const frontendIpConfigurationName = pulumi.interpolate`${testVirtualNetwork.name}-feip`;
- * const frontendPortName = pulumi.interpolate`${testVirtualNetwork.name}-feport`;
- * const httpSettingName = pulumi.interpolate`${testVirtualNetwork.name}-be-htst`;
- * const listenerName = pulumi.interpolate`${testVirtualNetwork.name}-httplstn`;
- * const redirectConfigurationName = pulumi.interpolate`${testVirtualNetwork.name}-rdrcfg`;
- * const requestRoutingRuleName = pulumi.interpolate`${testVirtualNetwork.name}-rqrt`;
- * const testPublicIp = new azure.network.PublicIp("test", {
- *     allocationMethod: "Dynamic",
- *     location: testResourceGroup.location,
- *     name: "example-pip",
- *     resourceGroupName: testResourceGroup.name,
- * });
  * const frontend = new azure.network.Subnet("frontend", {
  *     addressPrefix: "10.254.0.0/24",
  *     name: "frontend",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
+ * const backend = new azure.network.Subnet("backend", {
+ *     addressPrefix: "10.254.2.0/24",
+ *     name: "backend",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * const testPublicIp = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Dynamic",
+ *     location: testResourceGroup.location,
+ *     name: "example-pip",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const backendAddressPoolName = pulumi.interpolate`${testVirtualNetwork.name}-beap`;
+ * const frontendPortName = pulumi.interpolate`${testVirtualNetwork.name}-feport`;
+ * const frontendIpConfigurationName = pulumi.interpolate`${testVirtualNetwork.name}-feip`;
+ * const httpSettingName = pulumi.interpolate`${testVirtualNetwork.name}-be-htst`;
+ * const listenerName = pulumi.interpolate`${testVirtualNetwork.name}-httplstn`;
+ * const requestRoutingRuleName = pulumi.interpolate`${testVirtualNetwork.name}-rqrt`;
+ * const redirectConfigurationName = pulumi.interpolate`${testVirtualNetwork.name}-rdrcfg`;
  * const network = new azure.network.ApplicationGateway("network", {
  *     backendAddressPools: [{
  *         name: backendAddressPoolName,
@@ -89,12 +95,6 @@ import * as utilities from "../utilities";
  *         name: "Standard_Small",
  *         tier: "Standard",
  *     },
- * });
- * const backend = new azure.network.Subnet("backend", {
- *     addressPrefix: "10.254.2.0/24",
- *     name: "backend",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * ```
  *

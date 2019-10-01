@@ -15,13 +15,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: azurerm_resource_group_example.location,
- *     name: "examplestoracc",
- *     resourceGroupName: azurerm_resource_group_example.name,
- * });
  * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
@@ -29,6 +22,13 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: name,
  * }));
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_example.location,
+ *     name: "examplestoracc",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
  *     name: "example",

@@ -21,6 +21,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "example-resources",
  * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: testResourceGroup.location,
+ *     name: "example-network",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
  * const testRouteTable = new azure.network.RouteTable("test", {
  *     location: testResourceGroup.location,
  *     name: "example-routetable",
@@ -31,12 +37,6 @@ import * as utilities from "../utilities";
  *         nextHopInIpAddress: "10.10.1.1",
  *         nextHopType: "VirtualAppliance",
  *     }],
- * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     name: "example-network",
- *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",

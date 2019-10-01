@@ -21,6 +21,19 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "example-resources",
  * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: testResourceGroup.location,
+ *     name: "example-vnet",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const internal = new azure.network.Subnet("internal", {
+ *     addressPrefix: "10.7.29.0/29",
+ *     name: "internal",
+ *     resourceGroupName: testResourceGroup.name,
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
  * const testServer = new azure.postgresql.Server("test", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
@@ -40,19 +53,6 @@ import * as utilities from "../utilities";
  *         storageMb: 5120,
  *     },
  *     version: "9.5",
- * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
- *     addressSpaces: ["10.7.29.0/29"],
- *     location: testResourceGroup.location,
- *     name: "example-vnet",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     addressPrefix: "10.7.29.0/29",
- *     name: "internal",
- *     resourceGroupName: testResourceGroup.name,
- *     serviceEndpoints: ["Microsoft.Sql"],
- *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * const testVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("test", {
  *     ignoreMissingVnetServiceEndpoint: true,

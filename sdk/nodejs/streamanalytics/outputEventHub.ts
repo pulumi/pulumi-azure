@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: name,
  * }));
- * const testEventHub = new azure.eventhub.EventHub("test", {
- *     messageRetention: 1,
- *     name: "example-eventhub",
- *     namespaceName: azurerm_eventhub_namespace_example.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
  * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 1,
  *     kafkaEnabled: false,
@@ -36,6 +29,13 @@ import * as utilities from "../utilities";
  *     name: "example-ehnamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
+ * });
+ * const testEventHub = new azure.eventhub.EventHub("test", {
+ *     messageRetention: 1,
+ *     name: "example-eventhub",
+ *     namespaceName: azurerm_eventhub_namespace_example.name,
+ *     partitionCount: 2,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("example", {
  *     eventhubName: azurerm_eventhub_example.name,

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const current = azure.core.getSubscription({});
+ * const current = azure.core.getSubscription();
  * const subscriptionLevel = new azure.management.Lock("subscription-level", {
  *     lockLevel: "CanNotDelete",
  *     name: "subscription-level",

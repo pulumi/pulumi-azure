@@ -15,6 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
+ *     name: "example-job",
+ *     resourceGroupName: name,
+ * }));
  * const testIoTHub = new azure.iot.IoTHub("test", {
  *     location: azurerm_resource_group_example.location,
  *     name: "example-iothub",
@@ -25,13 +32,6 @@ import * as utilities from "../utilities";
  *         tier: "Standard",
  *     },
  * });
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
  * const testStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("test", {
  *     endpoint: "messages/events",
  *     eventhubConsumerGroupName: "$Default",

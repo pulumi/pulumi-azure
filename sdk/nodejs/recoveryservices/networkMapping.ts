@@ -27,6 +27,18 @@ import * as utilities from "../utilities";
  *     resourceGroupName: secondaryResourceGroup.name,
  *     sku: "Standard",
  * });
+ * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
+ *     location: primaryResourceGroup.location,
+ *     name: "primary-fabric",
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * });
+ * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
+ *     location: secondaryResourceGroup.location,
+ *     name: "secondary-fabric",
+ *     recoveryVaultName: vault.name,
+ *     resourceGroupName: secondaryResourceGroup.name,
+ * }, {dependsOn: [primaryFabric]});
  * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: primaryResourceGroup.location,
@@ -48,18 +60,6 @@ import * as utilities from "../utilities";
  *     targetNetworkId: secondaryVirtualNetwork.id,
  *     targetRecoveryFabricName: "secondary-fabric",
  * });
- * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
- *     location: primaryResourceGroup.location,
- *     name: "primary-fabric",
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
- *     location: secondaryResourceGroup.location,
- *     name: "secondary-fabric",
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * }, {dependsOn: [primaryFabric]});
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_network_mapping.html.markdown.

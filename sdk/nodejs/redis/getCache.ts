@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "redis-cache",
  * });
  * 
- * export const hostname = example.hostname;
  * export const primaryAccessKey = example.primaryAccessKey;
+ * export const hostname = example.hostname;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.

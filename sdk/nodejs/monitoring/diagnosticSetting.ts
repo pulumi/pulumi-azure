@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "example-resources",
  * });
- * const testKeyVault = testResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
- *     name: "example-vault",
- *     resourceGroupName: name,
- * }));
  * const testAccount = testResourceGroup.name.apply(name => azure.storage.getAccount({
  *     name: "examplestoracc",
+ *     resourceGroupName: name,
+ * }));
+ * const testKeyVault = testResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
+ *     name: "example-vault",
  *     resourceGroupName: name,
  * }));
  * const testDiagnosticSetting = new azure.monitoring.DiagnosticSetting("test", {

@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testServer = new azure.mysql.Server("test", {});
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "api-rg-pro",
  * });
+ * const testServer = new azure.mysql.Server("test", {});
  * const testFirewallRule = new azure.mysql.FirewallRule("test", {
  *     endIpAddress: "40.112.8.12",
  *     name: "office",
@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testServer = new azure.mysql.Server("test", {});
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "api-rg-pro",
  * });
+ * const testServer = new azure.mysql.Server("test", {});
  * const testFirewallRule = new azure.mysql.FirewallRule("test", {
  *     endIpAddress: "40.112.255.255",
  *     name: "office",

@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
+ * const current = azure.core.getClientConfig();
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "key-vault-certificate-example",
  * });
- * const current = azure.core.getClientConfig({});
  * const testKeyVault = new azure.keyvault.KeyVault("test", {
  *     accessPolicies: [{
  *         certificatePermissions: [
