@@ -16,6 +16,13 @@ install:
     # Install Pulumi
     - curl -L https://get.pulumi.com/ | bash
     - export PATH=$HOME/.pulumi/bin:$PATH
+    # Install Azure CLI
+    - curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    - az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} --tenant ${ARM_TENANT_ID}
+    - az account set --subscription ${ARM_SUBSCRIPTION_ID}
+    - az group list -o table
+    - az monitor activity-log list --resource-group webserver4ccbb142 --max-events 500 --correlation-id f90a6c3e-ad76-52b0-d82f-630f41959ff0
+    - az monitor activity-log list --resource-group webserver4ccbb142 --max-events 500 --correlation-id 77368e79-ea93-2351-770c-f509381c21e6
 before_script:
     - ${PULUMI_SCRIPTS}/ci/ensure-dependencies
 script:

@@ -33,85 +33,65 @@ func TestExamples(t *testing.T) {
 	}
 
 	// base options shared amongst all tests.
-	base := integration.ProgramTestOptions{
+	base := ProgramTestOptions{
 		Config: map[string]string{
 			"azure:environment": environ,
 			"azure:location":    azureLocation,
 		},
 	}
 
-	jsBase := base.With(integration.ProgramTestOptions{
+	jsBase := base.With(ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/azure",
 		},
 	})
 
-	pythonBase := base.With(integration.ProgramTestOptions{
+	pythonBase := base.With(ProgramTestOptions{
 		Dependencies: []string{
 			filepath.Join("..", "sdk", "python", "bin"),
 		},
 	})
 
-	shortTests := []integration.ProgramTestOptions{
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-		jsBase.With(integration.ProgramTestOptions{
-			Dir:           path.Join(cwd, "eventgrid"),
+	shortTests := []ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		jsBase.With(ProgramTestOptions{
+			Dir: path.Join(cwd, "eventgrid"),
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "eventhub"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "http-external"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "http-multi"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "iot"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "queue"),
-			RunUpdateTest: true,
 		}),
-		//jsBase.With(integration.ProgramTestOptions{
-		//	Dir:           path.Join(cwd, "table"),
-		//	RunUpdateTest: true,
-		//}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "timer"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "topic"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:                  path.Join(cwd, "webserver"),
-			RunUpdateTest:        true,
 			ExpectRefreshChanges: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "http"),
-			RunUpdateTest: true,
-			ExtraRuntimeValidation: validateAPITest(func(body string) {
-				assert.Equal(t, body, "Hello World!")
-			}),
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "blob"),
-			RunUpdateTest: true,
-			ExtraRuntimeValidation: validateAPITest(func(body string) {
-				assert.Equal(t, body, "A File from Blob Storage")
-			}),
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "msi-renamed-to-authorization"),
 			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
+			EditDirs: []EditDir{
 				{
 					Dir:             "step2",
 					Additive:        true,
@@ -119,10 +99,10 @@ func TestExamples(t *testing.T) {
 				},
 			},
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "servicebus-migration-test"),
 			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
+			EditDirs: []EditDir{
 				{
 					Dir:             "step2",
 					Additive:        true,
@@ -130,37 +110,32 @@ func TestExamples(t *testing.T) {
 				},
 			},
 		}),
-		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal-py")}),
-		pythonBase.With(integration.ProgramTestOptions{
+		pythonBase.With(ProgramTestOptions{Dir: path.Join(cwd, "minimal-py")}),
+		pythonBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "eventhub-py"),
 			RunUpdateTest: true,
 		}),
-		pythonBase.With(integration.ProgramTestOptions{
+		pythonBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "datasource-py"),
 			RunUpdateTest: true,
 		}),
 	}
 
-	longTests := []integration.ProgramTestOptions{
-		jsBase.With(integration.ProgramTestOptions{
+	longTests := []ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "aci-multi"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "aci-volume-mount"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "cosmosdb"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "loadbalancer"),
-			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
+		jsBase.With(ProgramTestOptions{
 			Dir:           path.Join(cwd, "multi-callback-all"),
-			RunUpdateTest: true,
 		}),
 	}
 
@@ -170,13 +145,13 @@ func TestExamples(t *testing.T) {
 	}
 
 	for _, ex := range tests {
-		example := ex.With(integration.ProgramTestOptions{
+		example := ex.With(ProgramTestOptions{
 			// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
 			// change during a `pulumi refresh` for reasons outside our control.
 			ExpectRefreshChanges: true,
 		})
 		t.Run(example.Dir, func(t *testing.T) {
-			integration.ProgramTest(t, &example)
+			ProgramTest(t, &example)
 		})
 	}
 }

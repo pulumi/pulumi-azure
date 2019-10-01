@@ -5,6 +5,7 @@ require (
 	github.com/djherbis/times v1.2.0 // indirect
 	github.com/gofrs/flock v0.7.1 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
+	github.com/hashicorp/go-multierror v1.0.0
 	github.com/hashicorp/terraform v0.12.8
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pkg/errors v0.8.1
