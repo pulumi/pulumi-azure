@@ -13,7 +13,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, id=None):
+    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, id=None):
         if capacity and not isinstance(capacity, float):
             raise TypeError("Expected argument 'capacity' to be a float")
         __self__.capacity = capacity
@@ -70,6 +70,12 @@ class GetNamespaceResult:
         """
         A mapping of tags assigned to the resource.
         """
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        __self__.zone_redundant = zone_redundant
+        """
+        Whether or not this ServiceBus Namespace is zone redundant.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -92,6 +98,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             tags=self.tags,
+            zone_redundant=self.zone_redundant,
             id=self.id)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
@@ -124,4 +131,5 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
+        zone_redundant=__ret__.get('zoneRedundant'),
         id=__ret__.get('id'))

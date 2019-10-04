@@ -41,6 +41,7 @@ func NewSlot(ctx *pulumi.Context,
 		inputs["httpsOnly"] = nil
 		inputs["identity"] = nil
 		inputs["location"] = nil
+		inputs["logs"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["siteConfig"] = nil
@@ -56,6 +57,7 @@ func NewSlot(ctx *pulumi.Context,
 		inputs["httpsOnly"] = args.HttpsOnly
 		inputs["identity"] = args.Identity
 		inputs["location"] = args.Location
+		inputs["logs"] = args.Logs
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["siteConfig"] = args.SiteConfig
@@ -87,6 +89,7 @@ func GetSlot(ctx *pulumi.Context,
 		inputs["httpsOnly"] = state.HttpsOnly
 		inputs["identity"] = state.Identity
 		inputs["location"] = state.Location
+		inputs["logs"] = state.Logs
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["siteConfig"] = state.SiteConfig
@@ -165,6 +168,10 @@ func (r *Slot) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
+func (r *Slot) Logs() *pulumi.Output {
+	return r.s.State["logs"]
+}
+
 // The name of the Connection String.
 func (r *Slot) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -214,6 +221,7 @@ type SlotState struct {
 	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	Logs interface{}
 	// The name of the Connection String.
 	Name interface{}
 	// The name of the resource group in which to create the App Service Slot component.
@@ -248,6 +256,7 @@ type SlotArgs struct {
 	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	Logs interface{}
 	// The name of the Connection String.
 	Name interface{}
 	// The name of the resource group in which to create the App Service Slot component.

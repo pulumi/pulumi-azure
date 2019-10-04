@@ -79,6 +79,9 @@ export interface GetAppServiceResult {
      * An `connectionString` block as defined below.
      */
     readonly connectionStrings: outputs.appservice.GetAppServiceConnectionString[];
+    /**
+     * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+     */
     readonly defaultSiteHostname: string;
     /**
      * Is the App Service Enabled?

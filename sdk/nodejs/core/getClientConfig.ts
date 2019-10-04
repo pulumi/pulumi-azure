@@ -39,6 +39,7 @@ export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientC
  */
 export interface GetClientConfigResult {
     readonly clientId: string;
+    readonly objectId: string;
     readonly servicePrincipalApplicationId: string;
     readonly servicePrincipalObjectId: string;
     readonly subscriptionId: string;

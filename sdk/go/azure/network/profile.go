@@ -76,6 +76,7 @@ func (r *Profile) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// A `containerNetworkInterface` block as documented below.
 func (r *Profile) ContainerNetworkInterface() *pulumi.Output {
 	return r.s.State["containerNetworkInterface"]
 }
@@ -107,6 +108,7 @@ func (r *Profile) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Profile resources.
 type ProfileState struct {
+	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface interface{}
 	// One or more Resource IDs of Azure Container Network Interfaces.
 	ContainerNetworkInterfaceIds interface{}
@@ -122,6 +124,7 @@ type ProfileState struct {
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
+	// A `containerNetworkInterface` block as documented below.
 	ContainerNetworkInterface interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

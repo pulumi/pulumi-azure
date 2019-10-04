@@ -22,7 +22,19 @@ class CustomHostnameBinding(pulumi.CustomResource):
     """
     The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_name=None, hostname=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    ssl_state: pulumi.Output[str]
+    """
+    The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+    """
+    thumbprint: pulumi.Output[str]
+    """
+    The SSL certificate thumbprint. Changing this forces a new resource to be created.
+    """
+    virtual_ip: pulumi.Output[str]
+    """
+    The virtual IP address assigned to the hostname if IP based SSL is enabled.
+    """
+    def __init__(__self__, resource_name, opts=None, app_service_name=None, hostname=None, resource_group_name=None, ssl_state=None, thumbprint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Hostname Binding within an App Service.
         
@@ -31,6 +43,8 @@ class CustomHostnameBinding(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ssl_state: The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] thumbprint: The SSL certificate thumbprint. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_custom_hostname_binding.html.markdown.
         """
@@ -60,6 +74,9 @@ class CustomHostnameBinding(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['ssl_state'] = ssl_state
+            __props__['thumbprint'] = thumbprint
+            __props__['virtual_ip'] = None
         super(CustomHostnameBinding, __self__).__init__(
             'azure:appservice/customHostnameBinding:CustomHostnameBinding',
             resource_name,
@@ -67,7 +84,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_name=None, hostname=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, app_service_name=None, hostname=None, resource_group_name=None, ssl_state=None, thumbprint=None, virtual_ip=None):
         """
         Get an existing CustomHostnameBinding resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -78,6 +95,9 @@ class CustomHostnameBinding(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ssl_state: The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] thumbprint: The SSL certificate thumbprint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_ip: The virtual IP address assigned to the hostname if IP based SSL is enabled.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_custom_hostname_binding.html.markdown.
         """
@@ -87,6 +107,9 @@ class CustomHostnameBinding(pulumi.CustomResource):
         __props__["app_service_name"] = app_service_name
         __props__["hostname"] = hostname
         __props__["resource_group_name"] = resource_group_name
+        __props__["ssl_state"] = ssl_state
+        __props__["thumbprint"] = thumbprint
+        __props__["virtual_ip"] = virtual_ip
         return CustomHostnameBinding(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -54,7 +54,11 @@ class Namespace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, capacity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    zone_redundant: pulumi.Output[bool]
+    """
+    Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+    """
+    def __init__(__self__, resource_name, opts=None, capacity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Namespace.
         
@@ -68,6 +72,7 @@ class Namespace(pulumi.CustomResource):
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_legacy.html.markdown.
         """
@@ -98,6 +103,7 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['zone_redundant'] = zone_redundant
             __props__['default_primary_connection_string'] = None
             __props__['default_primary_key'] = None
             __props__['default_secondary_connection_string'] = None
@@ -109,7 +115,7 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -131,6 +137,7 @@ class Namespace(pulumi.CustomResource):
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_legacy.html.markdown.
         """
@@ -147,6 +154,7 @@ class Namespace(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
         __props__["tags"] = tags
+        __props__["zone_redundant"] = zone_redundant
         return Namespace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

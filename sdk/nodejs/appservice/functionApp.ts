@@ -109,7 +109,7 @@ export class FunctionApp extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
+     * The ID of the App Service Plan within which to create this Function App.
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
     /**
@@ -275,7 +275,7 @@ export class FunctionApp extends pulumi.CustomResource {
  */
 export interface FunctionAppState {
     /**
-     * The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
+     * The ID of the App Service Plan within which to create this Function App.
      */
     readonly appServicePlanId?: pulumi.Input<string>;
     /**
@@ -365,7 +365,7 @@ export interface FunctionAppState {
  */
 export interface FunctionAppArgs {
     /**
-     * The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
+     * The ID of the App Service Plan within which to create this Function App.
      */
     readonly appServicePlanId: pulumi.Input<string>;
     /**

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
  *     apiManagementName: exampleService.name,
  *     groupName: exampleGroup.name,
- *     productId: azurerm_api_management_user_example.id,
+ *     productId: exampleProduct.productId,
  *     resourceGroupName: exampleService.resourceGroupName,
  * });
  * ```

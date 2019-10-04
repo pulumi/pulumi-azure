@@ -27,6 +27,7 @@ func NewServer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["adminUsers"] = nil
+		inputs["backupBlobContainerUri"] = nil
 		inputs["enablePowerBiService"] = nil
 		inputs["ipv4FirewallRules"] = nil
 		inputs["location"] = nil
@@ -37,6 +38,7 @@ func NewServer(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["adminUsers"] = args.AdminUsers
+		inputs["backupBlobContainerUri"] = args.BackupBlobContainerUri
 		inputs["enablePowerBiService"] = args.EnablePowerBiService
 		inputs["ipv4FirewallRules"] = args.Ipv4FirewallRules
 		inputs["location"] = args.Location
@@ -46,6 +48,7 @@ func NewServer(ctx *pulumi.Context,
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
 	}
+	inputs["serverFullName"] = nil
 	s, err := ctx.RegisterResource("azure:analysisservices/server:Server", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -60,12 +63,14 @@ func GetServer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["adminUsers"] = state.AdminUsers
+		inputs["backupBlobContainerUri"] = state.BackupBlobContainerUri
 		inputs["enablePowerBiService"] = state.EnablePowerBiService
 		inputs["ipv4FirewallRules"] = state.Ipv4FirewallRules
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["querypoolConnectionMode"] = state.QuerypoolConnectionMode
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["serverFullName"] = state.ServerFullName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
 	}
@@ -89,6 +94,11 @@ func (r *Server) ID() *pulumi.IDOutput {
 // List of email addresses of admin users.
 func (r *Server) AdminUsers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["adminUsers"])
+}
+
+// URI and SAS token for a blob container to store backups.
+func (r *Server) BackupBlobContainerUri() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["backupBlobContainerUri"])
 }
 
 // Indicates if the Power BI service is allowed to access or not.
@@ -121,6 +131,11 @@ func (r *Server) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// The full name of the Analysis Services Server.
+func (r *Server) ServerFullName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["serverFullName"])
+}
+
 // SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
 func (r *Server) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
@@ -134,6 +149,8 @@ func (r *Server) Tags() *pulumi.MapOutput {
 type ServerState struct {
 	// List of email addresses of admin users.
 	AdminUsers interface{}
+	// URI and SAS token for a blob container to store backups.
+	BackupBlobContainerUri interface{}
 	// Indicates if the Power BI service is allowed to access or not.
 	EnablePowerBiService interface{}
 	// One or more `ipv4FirewallRule` block(s) as defined below.
@@ -146,6 +163,8 @@ type ServerState struct {
 	QuerypoolConnectionMode interface{}
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The full name of the Analysis Services Server.
+	ServerFullName interface{}
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
 	Sku interface{}
 	Tags interface{}
@@ -155,6 +174,8 @@ type ServerState struct {
 type ServerArgs struct {
 	// List of email addresses of admin users.
 	AdminUsers interface{}
+	// URI and SAS token for a blob container to store backups.
+	BackupBlobContainerUri interface{}
 	// Indicates if the Power BI service is allowed to access or not.
 	EnablePowerBiService interface{}
 	// One or more `ipv4FirewallRule` block(s) as defined below.

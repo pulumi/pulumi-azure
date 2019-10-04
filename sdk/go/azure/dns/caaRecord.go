@@ -93,7 +93,7 @@ func (r *CaaRecord) Records() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["records"])
 }
 
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 func (r *CaaRecord) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -119,7 +119,7 @@ type CaaRecordState struct {
 	Name interface{}
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records interface{}
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -135,7 +135,7 @@ type CaaRecordArgs struct {
 	Name interface{}
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records interface{}
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

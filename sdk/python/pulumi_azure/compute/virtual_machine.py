@@ -40,7 +40,7 @@ class VirtualMachine(pulumi.CustomResource):
     A `identity` block.
     
       * `identityIds` (`list`)
-      * `principal_id` (`str`)
+      * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
       * `type` (`str`)
     """
     license_type: pulumi.Output[str]
@@ -223,7 +223,7 @@ class VirtualMachine(pulumi.CustomResource):
         The **identity** object supports the following:
         
           * `identityIds` (`pulumi.Input[list]`)
-          * `principal_id` (`pulumi.Input[str]`)
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
           * `type` (`pulumi.Input[str]`)
         
         The **os_profile** object supports the following:
@@ -408,7 +408,7 @@ class VirtualMachine(pulumi.CustomResource):
         The **identity** object supports the following:
         
           * `identityIds` (`pulumi.Input[list]`)
-          * `principal_id` (`pulumi.Input[str]`)
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
           * `type` (`pulumi.Input[str]`)
         
         The **os_profile** object supports the following:

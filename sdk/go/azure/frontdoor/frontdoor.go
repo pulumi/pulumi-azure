@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage an Azure Front Door instance.
+// Manages an Azure Front Door instance.
 // 
 // Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
 // 
@@ -139,6 +139,7 @@ func (r *Frontdoor) Cname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["cname"])
 }
 
+// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
 func (r *Frontdoor) EnforceBackendPoolsCertificateNameCheck() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enforceBackendPoolsCertificateNameCheck"])
 }
@@ -168,6 +169,7 @@ func (r *Frontdoor) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
 func (r *Frontdoor) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -192,6 +194,7 @@ type FrontdoorState struct {
 	BackendPoolLoadBalancings interface{}
 	// The host that each frontendEndpoint must CNAME to.
 	Cname interface{}
+	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck interface{}
 	// A friendly name for the Front Door service.
 	FriendlyName interface{}
@@ -203,6 +206,7 @@ type FrontdoorState struct {
 	Location interface{}
 	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
 	Name interface{}
+	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `routingRule` block as defined below.
 	RoutingRules interface{}
@@ -218,6 +222,7 @@ type FrontdoorArgs struct {
 	BackendPoolHealthProbes interface{}
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings interface{}
+	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck interface{}
 	// A friendly name for the Front Door service.
 	FriendlyName interface{}
@@ -229,6 +234,7 @@ type FrontdoorArgs struct {
 	Location interface{}
 	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
 	Name interface{}
+	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `routingRule` block as defined below.
 	RoutingRules interface{}

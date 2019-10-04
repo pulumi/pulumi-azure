@@ -93,7 +93,7 @@ func (r *ARecord) Records() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["records"])
 }
 
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 func (r *ARecord) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -118,7 +118,7 @@ type ARecordState struct {
 	Name interface{}
 	// List of IPv4 Addresses.
 	Records interface{}
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -133,7 +133,7 @@ type ARecordArgs struct {
 	Name interface{}
 	// List of IPv4 Addresses.
 	Records interface{}
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

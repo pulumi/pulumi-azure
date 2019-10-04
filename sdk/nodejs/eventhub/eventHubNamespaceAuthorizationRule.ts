@@ -15,26 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "resourceGroup1",
+ *     name: "resourcegroup",
  * });
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 2,
- *     location: testResourceGroup.location,
+ *     location: azurerm_resource_group_test.location,
  *     name: "acceptanceTestEventHubNamespace",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
  *     sku: "Basic",
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const testEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("test", {
+ * const exampleEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
  *     name: "navi",
- *     namespaceName: testEventHubNamespace.name,
- *     resourceGroupName: testResourceGroup.name,
+ *     namespaceName: azurerm_eventhub_namespace_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
  *     send: false,
  * });
  * ```

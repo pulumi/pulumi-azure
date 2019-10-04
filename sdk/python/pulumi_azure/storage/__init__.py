@@ -6,6 +6,8 @@
 from .account import *
 from .blob import *
 from .container import *
+from .data_lake_gen2_filesystem import *
+from .management_policy import *
 from .queue import *
 from .share import *
 from .share_directory import *
@@ -15,3 +17,4 @@ from .zip_blob import *
 from .get_account import *
 from .get_account_blob_container_sas import *
 from .get_account_sas import *
+from .get_policy import *

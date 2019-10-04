@@ -62,6 +62,7 @@ type GetAppServiceResult struct {
 	ClientCertEnabled interface{}
 	// An `connectionString` block as defined below.
 	ConnectionStrings interface{}
+	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname interface{}
 	// Is the App Service Enabled?
 	Enabled interface{}

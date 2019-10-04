@@ -445,7 +445,7 @@ export namespace apimanagement {
     }
 
     export interface ServiceSku {
-        capacity: number;
+        capacity?: number;
         /**
          * The name of the API Management Service. Changing this forces a new resource to be created.
          */
@@ -1049,6 +1049,36 @@ export namespace appservice {
          * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
          */
         type: string;
+    }
+
+    export interface SlotLogs {
+        applicationLogs: outputs.appservice.SlotLogsApplicationLogs;
+        httpLogs: outputs.appservice.SlotLogsHttpLogs;
+    }
+
+    export interface SlotLogsApplicationLogs {
+        azureBlobStorage?: outputs.appservice.SlotLogsApplicationLogsAzureBlobStorage;
+    }
+
+    export interface SlotLogsApplicationLogsAzureBlobStorage {
+        level: string;
+        retentionInDays: number;
+        sasUrl: string;
+    }
+
+    export interface SlotLogsHttpLogs {
+        azureBlobStorage?: outputs.appservice.SlotLogsHttpLogsAzureBlobStorage;
+        fileSystem?: outputs.appservice.SlotLogsHttpLogsFileSystem;
+    }
+
+    export interface SlotLogsHttpLogsAzureBlobStorage {
+        retentionInDays: number;
+        sasUrl: string;
+    }
+
+    export interface SlotLogsHttpLogsFileSystem {
+        retentionInDays: number;
+        retentionInMb: number;
     }
 
     export interface SlotSiteConfig {
@@ -1766,7 +1796,7 @@ export namespace compute {
 
     export interface ManagedDiskEncryptionSettingsKeyEncryptionKey {
         /**
-         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
          */
         keyUrl: string;
         /**
@@ -2191,6 +2221,9 @@ export namespace compute {
 
     export interface VirtualMachineIdentity {
         identityIds?: string[];
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+         */
         principalId: string;
         type: string;
     }
@@ -3446,6 +3479,22 @@ export namespace eventhub {
          */
         name: string;
         storageAccountId: string;
+    }
+
+    export interface EventHubNamespaceNetworkRulesets {
+        defaultAction: string;
+        ipRule?: outputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule;
+        virtualNetworkRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsVirtualNetworkRule[];
+    }
+
+    export interface EventHubNamespaceNetworkRulesetsIpRule {
+        action?: string;
+        ipMask: string;
+    }
+
+    export interface EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+        ignoreMissingVirtualNetworkServiceEndpoint?: boolean;
+        subnetId: string;
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -7025,6 +7074,132 @@ export namespace storage {
         file: boolean;
         queue: boolean;
         table: boolean;
+    }
+
+    export interface GetPolicyRule {
+        /**
+         * An `actions` block as documented below.
+         */
+        actions: outputs.storage.GetPolicyRuleActions;
+        /**
+         * (Required)  Boolean to specify whether the rule is enabled.
+         */
+        enabled: boolean;
+        /**
+         * A `filter` block as documented below.
+         */
+        filters: outputs.storage.GetPolicyRuleFilters;
+        /**
+         * (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         */
+        name: string;
+    }
+
+    export interface GetPolicyRuleActions {
+        /**
+         * A `baseBlob` block as documented below.
+         */
+        baseBlob: outputs.storage.GetPolicyRuleActionsBaseBlob;
+        /**
+         * A `snapshot` block as documented below.
+         */
+        snapshot: outputs.storage.GetPolicyRuleActionsSnapshot;
+    }
+
+    export interface GetPolicyRuleActionsBaseBlob {
+        /**
+         * The age in days after last modification to delete the blob.
+         */
+        deleteAfterDaysSinceModificationGreaterThan: number;
+        /**
+         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+         */
+        tierToArchiveAfterDaysSinceModificationGreaterThan: number;
+        /**
+         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
+         */
+        tierToCoolAfterDaysSinceModificationGreaterThan: number;
+    }
+
+    export interface GetPolicyRuleActionsSnapshot {
+        /**
+         * The age in days after create to delete the snaphot.
+         */
+        deleteAfterDaysSinceCreationGreaterThan: number;
+    }
+
+    export interface GetPolicyRuleFilters {
+        /**
+         * An array of predefined values. Only `blockBlob` is supported.
+         */
+        blobTypes: string[];
+        /**
+         * An array of strings for prefixes to be matched.
+         */
+        prefixMatches: string[];
+    }
+
+    export interface ManagementPolicyRule {
+        /**
+         * An `actions` block as documented below.
+         */
+        actions: outputs.storage.ManagementPolicyRuleActions;
+        /**
+         * Boolean to specify whether the rule is enabled.
+         */
+        enabled: boolean;
+        /**
+         * A `filter` block as documented below.
+         */
+        filters?: outputs.storage.ManagementPolicyRuleFilters;
+        /**
+         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         */
+        name: string;
+    }
+
+    export interface ManagementPolicyRuleActions {
+        /**
+         * A `baseBlob` block as documented below.
+         */
+        baseBlob?: outputs.storage.ManagementPolicyRuleActionsBaseBlob;
+        /**
+         * A `snapshot` block as documented below.
+         */
+        snapshot?: outputs.storage.ManagementPolicyRuleActionsSnapshot;
+    }
+
+    export interface ManagementPolicyRuleActionsBaseBlob {
+        /**
+         * The age in days after last modification to delete the blob. Must be at least 0.
+         */
+        deleteAfterDaysSinceModificationGreaterThan?: number;
+        /**
+         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+         */
+        tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
+        /**
+         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+         */
+        tierToCoolAfterDaysSinceModificationGreaterThan?: number;
+    }
+
+    export interface ManagementPolicyRuleActionsSnapshot {
+        /**
+         * The age in days after create to delete the snaphot. Must be at least 0.
+         */
+        deleteAfterDaysSinceCreationGreaterThan?: number;
+    }
+
+    export interface ManagementPolicyRuleFilters {
+        /**
+         * An array of predefined values. Only `blockBlob` is supported.
+         */
+        blobTypes?: string[];
+        /**
+         * An array of strings for prefixes to be matched.
+         */
+        prefixMatches?: string[];
     }
 
     export interface ShareAcl {

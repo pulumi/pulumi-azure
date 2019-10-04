@@ -119,7 +119,7 @@ func (r *Service) SecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
-// Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
 func (r *Service) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
 }
@@ -145,7 +145,7 @@ type ServiceState struct {
 	ResourceGroupName interface{}
 	// The Search Service Administration secondary key.
 	SecondaryKey interface{}
-	// Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -163,7 +163,7 @@ type ServiceArgs struct {
 	ReplicaCount interface{}
 	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

@@ -25,10 +25,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
+ *     skuName: "Developer_1",
  * });
  * const testUser = new azure.apimanagement.User("test", {
  *     apiManagementName: testService.name,

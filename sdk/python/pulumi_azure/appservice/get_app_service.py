@@ -47,6 +47,9 @@ class GetAppServiceResult:
         if default_site_hostname and not isinstance(default_site_hostname, str):
             raise TypeError("Expected argument 'default_site_hostname' to be a str")
         __self__.default_site_hostname = default_site_hostname
+        """
+        The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+        """
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         __self__.enabled = enabled

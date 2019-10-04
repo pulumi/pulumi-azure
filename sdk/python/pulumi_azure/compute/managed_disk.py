@@ -39,7 +39,7 @@ class ManagedDisk(pulumi.CustomResource):
       * `enabled` (`bool`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
       * `keyEncryptionKey` (`dict`) - A `key_encryption_key` block as defined below.
     
-        * `keyUrl` (`str`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        * `keyUrl` (`str`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
         * `sourceVaultId` (`str`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
     """
     image_reference_id: pulumi.Output[str]
@@ -127,7 +127,7 @@ class ManagedDisk(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
           * `keyEncryptionKey` (`pulumi.Input[dict]`) - A `key_encryption_key` block as defined below.
         
-            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
             * `sourceVaultId` (`pulumi.Input[str]`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
@@ -218,7 +218,7 @@ class ManagedDisk(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
           * `keyEncryptionKey` (`pulumi.Input[dict]`) - A `key_encryption_key` block as defined below.
         
-            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
             * `sourceVaultId` (`pulumi.Input[str]`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.

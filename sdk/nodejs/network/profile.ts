@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
  * const exampleProfile = new azure.network.Profile("example", {
- *     containerNetworkInterfaceConfiguration: [{
- *         ipConfiguration: [{
+ *     containerNetworkInterface: {
+ *         ipConfigurations: [{
  *             name: "exampleipconfig",
  *             subnetId: exampleSubnet.id,
  *         }],
  *         name: "examplecnic",
- *     }],
+ *     },
  *     location: exampleResourceGroup.location,
  *     name: "examplenetprofile",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -81,6 +81,9 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
+    /**
+     * A `containerNetworkInterface` block as documented below.
+     */
     public readonly containerNetworkInterface!: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
      * One or more Resource IDs of Azure Container Network Interfaces.
@@ -151,6 +154,9 @@ export class Profile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Profile resources.
  */
 export interface ProfileState {
+    /**
+     * A `containerNetworkInterface` block as documented below.
+     */
     readonly containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
      * One or more Resource IDs of Azure Container Network Interfaces.
@@ -178,6 +184,9 @@ export interface ProfileState {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
+    /**
+     * A `containerNetworkInterface` block as documented below.
+     */
     readonly containerNetworkInterface: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

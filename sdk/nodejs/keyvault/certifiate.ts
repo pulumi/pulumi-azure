@@ -159,7 +159,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<outputs.keyvault.CertifiateCertificate | undefined>;
     /**
-     * The raw Key Vault Certificate.
+     * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
     public /*out*/ readonly certificateData!: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+     * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
     public readonly vaultUri!: pulumi.Output<string>;
@@ -250,7 +250,7 @@ export interface CertifiateState {
      */
     readonly certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
     /**
-     * The raw Key Vault Certificate.
+     * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
     readonly certificateData?: pulumi.Input<string>;
     /**
@@ -274,7 +274,7 @@ export interface CertifiateState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+     * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
     readonly thumbprint?: pulumi.Input<string>;
     readonly vaultUri?: pulumi.Input<string>;

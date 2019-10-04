@@ -19,7 +19,7 @@ class Certifiate(pulumi.CustomResource):
     """
     certificate_data: pulumi.Output[str]
     """
-    The raw Key Vault Certificate.
+    The raw Key Vault Certificate data represented as a hexadecimal string.
     """
     certificate_policy: pulumi.Output[dict]
     """
@@ -82,7 +82,7 @@ class Certifiate(pulumi.CustomResource):
     """
     thumbprint: pulumi.Output[str]
     """
-    The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+    The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
     """
     vault_uri: pulumi.Output[str]
     version: pulumi.Output[str]
@@ -194,13 +194,13 @@ class Certifiate(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below, used to Import an existing certificate.
-        :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate.
+        :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[dict] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+        :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
         
         The **certificate** object supports the following:

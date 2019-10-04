@@ -32,11 +32,16 @@ func NewCustomHostnameBinding(ctx *pulumi.Context,
 		inputs["appServiceName"] = nil
 		inputs["hostname"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["sslState"] = nil
+		inputs["thumbprint"] = nil
 	} else {
 		inputs["appServiceName"] = args.AppServiceName
 		inputs["hostname"] = args.Hostname
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["sslState"] = args.SslState
+		inputs["thumbprint"] = args.Thumbprint
 	}
+	inputs["virtualIp"] = nil
 	s, err := ctx.RegisterResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -53,6 +58,9 @@ func GetCustomHostnameBinding(ctx *pulumi.Context,
 		inputs["appServiceName"] = state.AppServiceName
 		inputs["hostname"] = state.Hostname
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["sslState"] = state.SslState
+		inputs["thumbprint"] = state.Thumbprint
+		inputs["virtualIp"] = state.VirtualIp
 	}
 	s, err := ctx.ReadResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, id, inputs, opts...)
 	if err != nil {
@@ -86,6 +94,21 @@ func (r *CustomHostnameBinding) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+func (r *CustomHostnameBinding) SslState() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["sslState"])
+}
+
+// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+func (r *CustomHostnameBinding) Thumbprint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+}
+
+// The virtual IP address assigned to the hostname if IP based SSL is enabled.
+func (r *CustomHostnameBinding) VirtualIp() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["virtualIp"])
+}
+
 // Input properties used for looking up and filtering CustomHostnameBinding resources.
 type CustomHostnameBindingState struct {
 	// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
@@ -94,6 +117,12 @@ type CustomHostnameBindingState struct {
 	Hostname interface{}
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+	SslState interface{}
+	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+	Thumbprint interface{}
+	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIp interface{}
 }
 
 // The set of arguments for constructing a CustomHostnameBinding resource.
@@ -104,4 +133,8 @@ type CustomHostnameBindingArgs struct {
 	Hostname interface{}
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+	SslState interface{}
+	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+	Thumbprint interface{}
 }

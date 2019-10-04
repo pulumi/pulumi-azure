@@ -87,7 +87,7 @@ func (r *Certificate) Certificate() *pulumi.Output {
 	return r.s.State["certificate"]
 }
 
-// The raw Key Vault Certificate.
+// The raw Key Vault Certificate data represented as a hexadecimal string.
 func (r *Certificate) CertificateData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateData"])
 }
@@ -117,7 +117,7 @@ func (r *Certificate) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 func (r *Certificate) Thumbprint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
 }
@@ -135,7 +135,7 @@ func (r *Certificate) Version() *pulumi.StringOutput {
 type CertificateState struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate interface{}
-	// The raw Key Vault Certificate.
+	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData interface{}
 	// A `certificatePolicy` block as defined below.
 	CertificatePolicy interface{}
@@ -147,7 +147,7 @@ type CertificateState struct {
 	SecretId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+	// The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
 	Thumbprint interface{}
 	VaultUri interface{}
 	// The current version of the Key Vault Certificate.

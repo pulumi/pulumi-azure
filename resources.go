@@ -60,6 +60,7 @@ const (
 	azureContainerService    = "containerservice"    // Azure Container Service
 	azureCore                = "core"                // Base Resources
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
+	azureDashboard           = "dashboard"           // Dashboard
 	azureDataFactory         = "datafactory"         // Data Factory
 	azureDatalake            = "datalake"            // Data Lake
 	azureDataBricks          = "databricks"          // DataBricks
@@ -342,6 +343,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "application_insights_webtests.html.markdown",
 				},
 			},
+			"azurerm_application_insights_analytics_item": {Tok: azureResource(azureAppInsights, "AnalyticsItem")},
 
 			// App Service
 			"azurerm_app_service": {
@@ -574,6 +576,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub":                              {Tok: azureResource(azureEventHub, "EventHub")},
 			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureEventHub, "EventHubNamespace")},
 			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureEventHub, "EventHubNamespaceAuthorizationRule")},
+			"azurerm_eventhub_namespace_disaster_recovery_config": {
+				Tok: azureResource(azureEventHub, "EventhubNamespaceDisasterRecoveryConfig"),
+			},
 
 			// IoT Resources
 			"azurerm_iot_dps":             {Tok: azureResource(azureIot, "Dps")},
@@ -917,6 +922,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_table_entity": {
 				Tok: azureResource(azureStorage, "TableEntity"),
 			},
+			"azurerm_storage_data_lake_gen2_filesystem": {Tok: azureResource(azureStorage, "DataLakeGen2Filesystem")},
+			"azurerm_storage_management_policy":         {Tok: azureResource(azureStorage, "ManagementPolicy")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {Tok: azureResource(azureStreamAnalytics, "FunctionJavaScriptUDF")},
@@ -954,12 +961,18 @@ func Provider() tfbridge.ProviderInfo {
 			// Bot
 			"azurerm_bot_channels_registration": {Tok: azureResource(azureBot, "ChannelsRegistration")},
 			"azurerm_bot_connection":            {Tok: azureResource(azureBot, "Connection")},
+			"azurerm_bot_channel_email":         {Tok: azureResource(azureBot, "ChannelEmail")},
+			"azurerm_bot_channel_slack":         {Tok: azureResource(azureBot, "ChannelSlack")},
+			"azurerm_bot_web_app":               {Tok: azureResource(azureBot, "WebApp")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
 
 			// WAF
 			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},
+
+			// Dashboard
+			"azurerm_dashboard": {Tok: azureResource(azureDashboard, "Dashboard")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1068,6 +1081,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_watcher":              {Tok: azureDataSource(azureNetwork, "getNetworkWatcher")},
 			"azurerm_public_ip":                    {Tok: azureDataSource(azureNetwork, "getPublicIP")},
 			"azurerm_public_ips":                   {Tok: azureDataSource(azureNetwork, "getPublicIPs")},
+			"azurerm_public_ip_prefix":             {Tok: azureDataSource(azureNetwork, "getPublicIpPrefix")},
 			"azurerm_application_security_group":   {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
 			"azurerm_recovery_services_vault":      {Tok: azureDataSource(azureRecoveryServices, "getVault")},
 			"azurerm_redis_cache":                  {Tok: azureDataSource(azureRedis, "getCache")},
@@ -1096,11 +1110,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account":                         {Tok: azureDataSource(azureStorage, "getAccount")},
 			"azurerm_storage_account_sas":                     {Tok: azureDataSource(azureStorage, "getAccountSAS")},
 			"azurerm_storage_account_blob_container_sas":      {Tok: azureDataSource(azureStorage, "getAccountBlobContainerSAS")},
+			"azurerm_storage_management_policy":               {Tok: azureDataSource(azureStorage, "getPolicy")},
 			"azurerm_virtual_machine":                         {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
 			"azurerm_hdinsight_cluster":                       {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":                    {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
 			"azurerm_proximity_placement_group":               {Tok: azureDataSource(azureProximity, "getPlacementGroup")},
 			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureDataSource(azureServiceBus, "getNamespaceAuthorizationRule")},
+			"azurerm_app_service_certificate":                 {Tok: azureDataSource(azureAppService, "getCertificate")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

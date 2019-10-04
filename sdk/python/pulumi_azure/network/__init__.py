@@ -49,6 +49,7 @@ from .get_network_interface import *
 from .get_network_security_group import *
 from .get_network_watcher import *
 from .get_public_ip import *
+from .get_public_ip_prefix import *
 from .get_public_i_ps import *
 from .get_route_table import *
 from .get_subnet import *

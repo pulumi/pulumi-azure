@@ -116,6 +116,7 @@ export interface GetServiceResult {
      * A `sku` block as documented below.
      */
     readonly sku: outputs.apimanagement.GetServiceSku;
+    readonly skuName: string;
     /**
      * A mapping of tags assigned to the resource.
      */

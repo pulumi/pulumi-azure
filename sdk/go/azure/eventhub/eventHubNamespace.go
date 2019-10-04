@@ -32,6 +32,7 @@ func NewEventHubNamespace(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["maximumThroughputUnits"] = nil
 		inputs["name"] = nil
+		inputs["networkRulesets"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
@@ -42,6 +43,7 @@ func NewEventHubNamespace(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["maximumThroughputUnits"] = args.MaximumThroughputUnits
 		inputs["name"] = args.Name
+		inputs["networkRulesets"] = args.NetworkRulesets
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
@@ -73,6 +75,7 @@ func GetEventHubNamespace(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["maximumThroughputUnits"] = state.MaximumThroughputUnits
 		inputs["name"] = state.Name
+		inputs["networkRulesets"] = state.NetworkRulesets
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
@@ -99,7 +102,7 @@ func (r *EventHubNamespace) AutoInflateEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["autoInflateEnabled"])
 }
 
-// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 func (r *EventHubNamespace) Capacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["capacity"])
 }
@@ -136,7 +139,7 @@ func (r *EventHubNamespace) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 func (r *EventHubNamespace) MaximumThroughputUnits() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maximumThroughputUnits"])
 }
@@ -144,6 +147,11 @@ func (r *EventHubNamespace) MaximumThroughputUnits() *pulumi.IntOutput {
 // Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 func (r *EventHubNamespace) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// A `networkRulesets` block as defined below.
+func (r *EventHubNamespace) NetworkRulesets() *pulumi.Output {
+	return r.s.State["networkRulesets"]
 }
 
 // The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
@@ -165,7 +173,7 @@ func (r *EventHubNamespace) Tags() *pulumi.MapOutput {
 type EventHubNamespaceState struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled interface{}
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity interface{}
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
@@ -181,10 +189,12 @@ type EventHubNamespaceState struct {
 	KafkaEnabled interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits interface{}
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `networkRulesets` block as defined below.
+	NetworkRulesets interface{}
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// Defines which tier to use. Valid options are `Basic` and `Standard`.
@@ -197,16 +207,18 @@ type EventHubNamespaceState struct {
 type EventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled interface{}
-	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity interface{}
 	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
 	KafkaEnabled interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
 	MaximumThroughputUnits interface{}
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `networkRulesets` block as defined below.
+	NetworkRulesets interface{}
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// Defines which tier to use. Valid options are `Basic` and `Standard`.
