@@ -2,14 +2,17 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.1.0 (2019-10-04)
 * Fix an issue where `pulumi-azure` would fail to install on Windows (fixes [#356](https://github.com/pulumi/pulumi-azure/issues/356))
 * Fix an issue where `records` property of `dns.NsRecord` was mistakenly mapped to the deprecated `record` property (fixes [#243](https://github.com/pulumi/pulumi-azure/issues/243))
   [#361](https://github.com/pulumi/pulumi-azure/pull/361)
 * Upgrade to support go1.13
 * Upgrade to v1.34.0 of the Azurerm Terraform Provider
 * Regenerate SDK against tf2pulumi 0.6.0
-
----
 
 ## 1.0.0 (2019-09-03)
 * Use 1.0 version of Pulumi dependency
