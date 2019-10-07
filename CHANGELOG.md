@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.35.0 of the Azurerm Terraform Provider
+_(none)_
 
 ---
+
+## 1.2.0 (2019-10-07)
+* Upgrade to v1.35.0 of the Azurerm Terraform Provider
 
 ## 1.1.0 (2019-10-04)
 * Fix an issue where `pulumi-azure` would fail to install on Windows (fixes [#356](https://github.com/pulumi/pulumi-azure/issues/356))
