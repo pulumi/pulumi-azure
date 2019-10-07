@@ -16,8 +16,6 @@ CHANGELOG
 * Upgrade to v1.34.0 of the Azurerm Terraform Provider
 * Regenerate SDK against tf2pulumi 0.6.0
 
----
-
 ## 1.0.0 (2019-09-03)
 * Use 1.0 version of Pulumi dependency
 
