@@ -100,7 +100,7 @@ class Cache(pulumi.CustomResource):
     """
     subnet_id: pulumi.Output[str]
     """
-    The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+    *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -157,7 +157,7 @@ class Cache(pulumi.CustomResource):
                create the Redis instance.
         :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
         
@@ -264,7 +264,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[float] ssl_port: The SSL Port of the Redis Instance
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
         

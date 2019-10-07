@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Front Door instance.
+ * Manages an Azure Front Door instance.
  * 
  * Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
  * 
@@ -110,6 +110,9 @@ export class Frontdoor extends pulumi.CustomResource {
      * The host that each frontendEndpoint must CNAME to.
      */
     public /*out*/ readonly cname!: pulumi.Output<string>;
+    /**
+     * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+     */
     public readonly enforceBackendPoolsCertificateNameCheck!: pulumi.Output<boolean>;
     /**
      * A friendly name for the Front Door service.
@@ -131,6 +134,9 @@ export class Frontdoor extends pulumi.CustomResource {
      * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `routingRule` block as defined below.
@@ -234,6 +240,9 @@ export interface FrontdoorState {
      * The host that each frontendEndpoint must CNAME to.
      */
     readonly cname?: pulumi.Input<string>;
+    /**
+     * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+     */
     readonly enforceBackendPoolsCertificateNameCheck?: pulumi.Input<boolean>;
     /**
      * A friendly name for the Front Door service.
@@ -255,6 +264,9 @@ export interface FrontdoorState {
      * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+     */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * A `routingRule` block as defined below.
@@ -282,6 +294,9 @@ export interface FrontdoorArgs {
      * A `backendPoolLoadBalancing` block as defined below.
      */
     readonly backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    /**
+     * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+     */
     readonly enforceBackendPoolsCertificateNameCheck: pulumi.Input<boolean>;
     /**
      * A friendly name for the Front Door service.
@@ -303,6 +318,9 @@ export interface FrontdoorArgs {
      * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+     */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
      * A `routingRule` block as defined below.

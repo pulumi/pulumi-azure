@@ -107,7 +107,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly sslPort!: pulumi.Output<number>;
     /**
-     * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+     * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface CacheState {
      */
     readonly sslPort?: pulumi.Input<number>;
     /**
-     * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+     * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
     /**
@@ -340,7 +340,7 @@ export interface CacheArgs {
      */
     readonly skuName: pulumi.Input<string>;
     /**
-     * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+     * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
     /**

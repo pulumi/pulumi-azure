@@ -20,7 +20,7 @@ class AaaaRecord(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+    Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -39,7 +39,7 @@ class AaaaRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS AAAA Record.
         :param pulumi.Input[list] records: List of IPv6 Addresses.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 
@@ -93,7 +93,7 @@ class AaaaRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS AAAA Record.
         :param pulumi.Input[list] records: List of IPv6 Addresses.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 

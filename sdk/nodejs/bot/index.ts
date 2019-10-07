@@ -2,5 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./channelEmail";
+export * from "./channelSlack";
 export * from "./channelsRegistration";
 export * from "./connection";
+export * from "./webApp";

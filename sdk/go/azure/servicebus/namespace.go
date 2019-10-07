@@ -32,6 +32,7 @@ func NewNamespace(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
+		inputs["zoneRedundant"] = nil
 	} else {
 		inputs["capacity"] = args.Capacity
 		inputs["location"] = args.Location
@@ -39,6 +40,7 @@ func NewNamespace(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
+		inputs["zoneRedundant"] = args.ZoneRedundant
 	}
 	inputs["defaultPrimaryConnectionString"] = nil
 	inputs["defaultPrimaryKey"] = nil
@@ -67,6 +69,7 @@ func GetNamespace(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
+		inputs["zoneRedundant"] = state.ZoneRedundant
 	}
 	s, err := ctx.ReadResource("azure:servicebus/namespace:Namespace", name, id, inputs, opts...)
 	if err != nil {
@@ -139,6 +142,11 @@ func (r *Namespace) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+func (r *Namespace) ZoneRedundant() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["zoneRedundant"])
+}
+
 // Input properties used for looking up and filtering Namespace resources.
 type NamespaceState struct {
 	// Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
@@ -165,6 +173,8 @@ type NamespaceState struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	ZoneRedundant interface{}
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -183,4 +193,6 @@ type NamespaceArgs struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	ZoneRedundant interface{}
 }

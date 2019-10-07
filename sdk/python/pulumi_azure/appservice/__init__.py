@@ -12,4 +12,5 @@ from .slot import *
 from .source_code_token import *
 from .function_app import *
 from .get_app_service import *
+from .get_certificate import *
 from .get_app_service_plan import *

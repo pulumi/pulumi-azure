@@ -101,6 +101,10 @@ export class Namespace extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -124,6 +128,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -138,6 +143,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["defaultPrimaryConnectionString"] = undefined /*out*/;
             inputs["defaultPrimaryKey"] = undefined /*out*/;
             inputs["defaultSecondaryConnectionString"] = undefined /*out*/;
@@ -204,6 +210,10 @@ export interface NamespaceState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -236,4 +246,8 @@ export interface NamespaceArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

@@ -120,7 +120,7 @@ func (r *FunctionApp) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
+// The ID of the App Service Plan within which to create this Function App.
 func (r *FunctionApp) AppServicePlanId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appServicePlanId"])
 }
@@ -227,7 +227,7 @@ func (r *FunctionApp) Version() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering FunctionApp resources.
 type FunctionAppState struct {
-	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
+	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
@@ -273,7 +273,7 @@ type FunctionAppState struct {
 
 // The set of arguments for constructing a FunctionApp resource.
 type FunctionAppArgs struct {
-	// The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
+	// The ID of the App Service Plan within which to create this Function App.
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}

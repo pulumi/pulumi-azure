@@ -26,10 +26,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "pub1@email.com",
  *     publisherName: "pub1",
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
+ *     skuName: "Developer_1",
  * });
  * const exampleProperty = new azure.apimanagement.Property("example", {
  *     apiManagementName: exampleService.name,

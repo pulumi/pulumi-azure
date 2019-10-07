@@ -3,5 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .channel_email import *
+from .channel_slack import *
 from .channels_registration import *
 from .connection import *
+from .web_app import *

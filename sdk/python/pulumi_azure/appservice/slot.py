@@ -102,6 +102,7 @@ class Slot(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
+    logs: pulumi.Output[dict]
     name: pulumi.Output[str]
     """
     The name of the Connection String.
@@ -159,7 +160,7 @@ class Slot(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service Slot (within an App Service).
         
@@ -236,6 +237,28 @@ class Slot(pulumi.CustomResource):
           * `tenantId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         
+        The **logs** object supports the following:
+        
+          * `applicationLogs` (`pulumi.Input[dict]`)
+        
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `level` (`pulumi.Input[str]`)
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
+          * `httpLogs` (`pulumi.Input[dict]`)
+        
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
+            * `fileSystem` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retentionInMb` (`pulumi.Input[float]`)
+        
         The **site_config** object supports the following:
         
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
@@ -305,6 +328,7 @@ class Slot(pulumi.CustomResource):
             __props__['https_only'] = https_only
             __props__['identity'] = identity
             __props__['location'] = location
+            __props__['logs'] = logs
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -320,7 +344,7 @@ class Slot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, site_credential=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, site_credential=None, tags=None):
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -399,6 +423,28 @@ class Slot(pulumi.CustomResource):
           * `tenantId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         
+        The **logs** object supports the following:
+        
+          * `applicationLogs` (`pulumi.Input[dict]`)
+        
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `level` (`pulumi.Input[str]`)
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
+          * `httpLogs` (`pulumi.Input[dict]`)
+        
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
+            * `fileSystem` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retentionInMb` (`pulumi.Input[float]`)
+        
         The **site_config** object supports the following:
         
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
@@ -456,6 +502,7 @@ class Slot(pulumi.CustomResource):
         __props__["https_only"] = https_only
         __props__["identity"] = identity
         __props__["location"] = location
+        __props__["logs"] = logs
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config

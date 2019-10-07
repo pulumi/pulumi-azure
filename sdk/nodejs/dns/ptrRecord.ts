@@ -82,7 +82,7 @@ export class PtrRecord extends pulumi.CustomResource {
      */
     public readonly ttl!: pulumi.Output<number>;
     /**
-     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     public readonly zoneName!: pulumi.Output<string>;
 
@@ -161,7 +161,7 @@ export interface PtrRecordState {
      */
     readonly ttl?: pulumi.Input<number>;
     /**
-     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     readonly zoneName?: pulumi.Input<string>;
 }
@@ -191,7 +191,7 @@ export interface PtrRecordArgs {
      */
     readonly ttl: pulumi.Input<number>;
     /**
-     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     readonly zoneName: pulumi.Input<string>;
 }

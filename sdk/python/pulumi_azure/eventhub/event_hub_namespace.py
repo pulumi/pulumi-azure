@@ -16,7 +16,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     capacity: pulumi.Output[float]
     """
-    Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+    Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
     """
     default_primary_connection_string: pulumi.Output[str]
     """
@@ -46,11 +46,26 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     maximum_throughput_units: pulumi.Output[float]
     """
-    Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+    Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
     """
     name: pulumi.Output[str]
     """
     Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+    """
+    network_rulesets: pulumi.Output[dict]
+    """
+    A `network_rulesets` block as defined below.
+    
+      * `defaultAction` (`str`)
+      * `ipRule` (`dict`)
+    
+        * `action` (`str`)
+        * `ipMask` (`str`)
+    
+      * `virtual_network_rules` (`list`)
+    
+        * `ignoreMissingVirtualNetworkServiceEndpoint` (`bool`)
+        * `subnetId` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -64,21 +79,35 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventHub Namespace.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+        :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
         :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+        :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **network_rulesets** object supports the following:
+        
+          * `defaultAction` (`pulumi.Input[str]`)
+          * `ipRule` (`pulumi.Input[dict]`)
+        
+            * `action` (`pulumi.Input[str]`)
+            * `ipMask` (`pulumi.Input[str]`)
+        
+          * `virtual_network_rules` (`pulumi.Input[list]`)
+        
+            * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`)
+            * `subnetId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
         """
@@ -105,6 +134,7 @@ class EventHubNamespace(pulumi.CustomResource):
             __props__['location'] = location
             __props__['maximum_throughput_units'] = maximum_throughput_units
             __props__['name'] = name
+            __props__['network_rulesets'] = network_rulesets
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -123,7 +153,7 @@ class EventHubNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None):
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -132,7 +162,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+        :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -141,11 +171,25 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+        :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **network_rulesets** object supports the following:
+        
+          * `defaultAction` (`pulumi.Input[str]`)
+          * `ipRule` (`pulumi.Input[dict]`)
+        
+            * `action` (`pulumi.Input[str]`)
+            * `ipMask` (`pulumi.Input[str]`)
+        
+          * `virtual_network_rules` (`pulumi.Input[list]`)
+        
+            * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`)
+            * `subnetId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
         """
@@ -162,6 +206,7 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__["location"] = location
         __props__["maximum_throughput_units"] = maximum_throughput_units
         __props__["name"] = name
+        __props__["network_rulesets"] = network_rulesets
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
         __props__["tags"] = tags

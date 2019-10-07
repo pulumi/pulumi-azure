@@ -36,6 +36,7 @@ func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult
 		ResourceGroupName: outputs["resourceGroupName"],
 		ScmUrl: outputs["scmUrl"],
 		Sku: outputs["sku"],
+		SkuName: outputs["skuName"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -80,6 +81,7 @@ type GetServiceResult struct {
 	ScmUrl interface{}
 	// A `sku` block as documented below.
 	Sku interface{}
+	SkuName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

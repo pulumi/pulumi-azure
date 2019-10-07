@@ -71,6 +71,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly adminUsers!: pulumi.Output<string[] | undefined>;
     /**
+     * URI and SAS token for a blob container to store backups.
+     */
+    public readonly backupBlobContainerUri!: pulumi.Output<string | undefined>;
+    /**
      * Indicates if the Power BI service is allowed to access or not.
      */
     public readonly enablePowerBiService!: pulumi.Output<boolean | undefined>;
@@ -95,6 +99,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The full name of the Analysis Services Server.
+     */
+    public /*out*/ readonly serverFullName!: pulumi.Output<string>;
+    /**
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
      */
     public readonly sku!: pulumi.Output<string>;
@@ -113,12 +121,14 @@ export class Server extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ServerState | undefined;
             inputs["adminUsers"] = state ? state.adminUsers : undefined;
+            inputs["backupBlobContainerUri"] = state ? state.backupBlobContainerUri : undefined;
             inputs["enablePowerBiService"] = state ? state.enablePowerBiService : undefined;
             inputs["ipv4FirewallRules"] = state ? state.ipv4FirewallRules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["querypoolConnectionMode"] = state ? state.querypoolConnectionMode : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["serverFullName"] = state ? state.serverFullName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -130,6 +140,7 @@ export class Server extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["adminUsers"] = args ? args.adminUsers : undefined;
+            inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
             inputs["enablePowerBiService"] = args ? args.enablePowerBiService : undefined;
             inputs["ipv4FirewallRules"] = args ? args.ipv4FirewallRules : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -138,6 +149,7 @@ export class Server extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["serverFullName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -158,6 +170,10 @@ export interface ServerState {
      * List of email addresses of admin users.
      */
     readonly adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URI and SAS token for a blob container to store backups.
+     */
+    readonly backupBlobContainerUri?: pulumi.Input<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      */
@@ -183,6 +199,10 @@ export interface ServerState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * The full name of the Analysis Services Server.
+     */
+    readonly serverFullName?: pulumi.Input<string>;
+    /**
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
      */
     readonly sku?: pulumi.Input<string>;
@@ -197,6 +217,10 @@ export interface ServerArgs {
      * List of email addresses of admin users.
      */
     readonly adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * URI and SAS token for a blob container to store backups.
+     */
+    readonly backupBlobContainerUri?: pulumi.Input<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      */

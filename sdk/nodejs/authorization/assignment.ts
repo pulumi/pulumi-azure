@@ -157,7 +157,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
      */
-    public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean | undefined>;
+    public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.

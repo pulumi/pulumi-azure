@@ -325,7 +325,7 @@ export namespace apimanagement {
     }
 
     export interface ServiceSku {
-        capacity: pulumi.Input<number>;
+        capacity?: pulumi.Input<number>;
         /**
          * The name of the API Management Service. Changing this forces a new resource to be created.
          */
@@ -752,6 +752,36 @@ export namespace appservice {
          * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface SlotLogs {
+        applicationLogs?: pulumi.Input<inputs.appservice.SlotLogsApplicationLogs>;
+        httpLogs?: pulumi.Input<inputs.appservice.SlotLogsHttpLogs>;
+    }
+
+    export interface SlotLogsApplicationLogs {
+        azureBlobStorage?: pulumi.Input<inputs.appservice.SlotLogsApplicationLogsAzureBlobStorage>;
+    }
+
+    export interface SlotLogsApplicationLogsAzureBlobStorage {
+        level: pulumi.Input<string>;
+        retentionInDays: pulumi.Input<number>;
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface SlotLogsHttpLogs {
+        azureBlobStorage?: pulumi.Input<inputs.appservice.SlotLogsHttpLogsAzureBlobStorage>;
+        fileSystem?: pulumi.Input<inputs.appservice.SlotLogsHttpLogsFileSystem>;
+    }
+
+    export interface SlotLogsHttpLogsAzureBlobStorage {
+        retentionInDays: pulumi.Input<number>;
+        sasUrl: pulumi.Input<string>;
+    }
+
+    export interface SlotLogsHttpLogsFileSystem {
+        retentionInDays: pulumi.Input<number>;
+        retentionInMb: pulumi.Input<number>;
     }
 
     export interface SlotSiteConfig {
@@ -1271,7 +1301,7 @@ export namespace compute {
 
     export interface ManagedDiskEncryptionSettingsKeyEncryptionKey {
         /**
-         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
          */
         keyUrl: pulumi.Input<string>;
         /**
@@ -1696,6 +1726,9 @@ export namespace compute {
 
     export interface VirtualMachineIdentity {
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+         */
         principalId?: pulumi.Input<string>;
         type: pulumi.Input<string>;
     }
@@ -2602,6 +2635,22 @@ export namespace eventhub {
          */
         name: pulumi.Input<string>;
         storageAccountId: pulumi.Input<string>;
+    }
+
+    export interface EventHubNamespaceNetworkRulesets {
+        defaultAction: pulumi.Input<string>;
+        ipRule?: pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule>;
+        virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesetsVirtualNetworkRule>[]>;
+    }
+
+    export interface EventHubNamespaceNetworkRulesetsIpRule {
+        action?: pulumi.Input<string>;
+        ipMask: pulumi.Input<string>;
+    }
+
+    export interface EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
+        ignoreMissingVirtualNetworkServiceEndpoint?: pulumi.Input<boolean>;
+        subnetId: pulumi.Input<string>;
     }
 
     export interface EventSubscriptionEventhubEndpoint {
@@ -5542,6 +5591,69 @@ export namespace storage {
         file: boolean;
         queue: boolean;
         table: boolean;
+    }
+
+    export interface ManagementPolicyRule {
+        /**
+         * An `actions` block as documented below.
+         */
+        actions: pulumi.Input<inputs.storage.ManagementPolicyRuleActions>;
+        /**
+         * Boolean to specify whether the rule is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * A `filter` block as documented below.
+         */
+        filters?: pulumi.Input<inputs.storage.ManagementPolicyRuleFilters>;
+        /**
+         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ManagementPolicyRuleActions {
+        /**
+         * A `baseBlob` block as documented below.
+         */
+        baseBlob?: pulumi.Input<inputs.storage.ManagementPolicyRuleActionsBaseBlob>;
+        /**
+         * A `snapshot` block as documented below.
+         */
+        snapshot?: pulumi.Input<inputs.storage.ManagementPolicyRuleActionsSnapshot>;
+    }
+
+    export interface ManagementPolicyRuleActionsBaseBlob {
+        /**
+         * The age in days after last modification to delete the blob. Must be at least 0.
+         */
+        deleteAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+         */
+        tierToArchiveAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+         */
+        tierToCoolAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
+    }
+
+    export interface ManagementPolicyRuleActionsSnapshot {
+        /**
+         * The age in days after create to delete the snaphot. Must be at least 0.
+         */
+        deleteAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
+    }
+
+    export interface ManagementPolicyRuleFilters {
+        /**
+         * An array of predefined values. Only `blockBlob` is supported.
+         */
+        blobTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings for prefixes to be matched.
+         */
+        prefixMatches?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ShareAcl {

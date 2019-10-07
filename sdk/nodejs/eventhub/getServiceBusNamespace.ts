@@ -96,6 +96,10 @@ export interface GetServiceBusNamespaceResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * Whether or not this ServiceBus Namespace is zone redundant.
+     */
+    readonly zoneRedundant: boolean;
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

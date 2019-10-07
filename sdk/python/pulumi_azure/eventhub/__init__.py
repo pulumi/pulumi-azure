@@ -13,6 +13,7 @@ from .consumer_group import *
 from .event_hub_consumer_group import *
 from .event_hub_namespace import *
 from .event_hub_namespace_authorization_rule import *
+from .eventhub_namespace_disaster_recovery_config import *
 from .namespace_authorization_rule import *
 from .namespace import *
 from .queue_authorization_rule import *

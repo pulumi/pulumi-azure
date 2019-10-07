@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleConnection = new azure.bot.Connection("example", {
  *     botName: exampleChannelsRegistration.name,
  *     clientId: "exampleId",
- *     clientSecret: "exampleSecrete",
+ *     clientSecret: "exampleSecret",
  *     location: exampleChannelsRegistration.location,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,

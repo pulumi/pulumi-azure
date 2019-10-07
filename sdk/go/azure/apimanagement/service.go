@@ -27,9 +27,6 @@ func NewService(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["additionalLocations"] = nil
@@ -47,6 +44,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["signIn"] = nil
 		inputs["signUp"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["additionalLocations"] = args.AdditionalLocations
@@ -64,6 +62,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["signIn"] = args.SignIn
 		inputs["signUp"] = args.SignUp
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["tags"] = args.Tags
 	}
 	inputs["gatewayRegionalUrl"] = nil
@@ -106,6 +105,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["signIn"] = state.SignIn
 		inputs["signUp"] = state.SignUp
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:apimanagement/service:Service", name, id, inputs, opts...)
@@ -225,9 +225,14 @@ func (r *Service) SignUp() *pulumi.Output {
 	return r.s.State["signUp"]
 }
 
-// A `sku` block as documented below.
+// A `sku` block as documented below
 func (r *Service) Sku() *pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+func (r *Service) SkuName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags assigned to the resource.
@@ -277,8 +282,10 @@ type ServiceState struct {
 	SignIn interface{}
 	// A `signUp` block as defined below.
 	SignUp interface{}
-	// A `sku` block as documented below.
+	// A `sku` block as documented below
 	Sku interface{}
+	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	SkuName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 }
@@ -313,8 +320,10 @@ type ServiceArgs struct {
 	SignIn interface{}
 	// A `signUp` block as defined below.
 	SignUp interface{}
-	// A `sku` block as documented below.
+	// A `sku` block as documented below
 	Sku interface{}
+	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	SkuName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 }

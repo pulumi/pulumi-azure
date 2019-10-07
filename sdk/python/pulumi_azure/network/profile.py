@@ -11,6 +11,16 @@ from .. import utilities, tables
 
 class Profile(pulumi.CustomResource):
     container_network_interface: pulumi.Output[dict]
+    """
+    A `container_network_interface` block as documented below.
+    
+      * `ip_configurations` (`list`)
+    
+        * `name` (`str`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+        * `subnet_id` (`str`)
+    
+      * `name` (`str`) - Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+    """
     container_network_interface_ids: pulumi.Output[list]
     """
     One or more Resource IDs of Azure Container Network Interfaces.
@@ -37,6 +47,7 @@ class Profile(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] container_network_interface: A `container_network_interface` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -95,6 +106,7 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] container_network_interface: A `container_network_interface` block as documented below.
         :param pulumi.Input[list] container_network_interface_ids: One or more Resource IDs of Azure Container Network Interfaces.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.

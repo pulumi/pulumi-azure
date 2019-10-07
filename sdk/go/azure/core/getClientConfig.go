@@ -17,6 +17,7 @@ func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
 	}
 	return &GetClientConfigResult{
 		ClientId: outputs["clientId"],
+		ObjectId: outputs["objectId"],
 		ServicePrincipalApplicationId: outputs["servicePrincipalApplicationId"],
 		ServicePrincipalObjectId: outputs["servicePrincipalObjectId"],
 		SubscriptionId: outputs["subscriptionId"],
@@ -28,6 +29,7 @@ func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
 // A collection of values returned by getClientConfig.
 type GetClientConfigResult struct {
 	ClientId interface{}
+	ObjectId interface{}
 	ServicePrincipalApplicationId interface{}
 	ServicePrincipalObjectId interface{}
 	SubscriptionId interface{}

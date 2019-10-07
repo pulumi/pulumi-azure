@@ -25,10 +25,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
+ *     skuName: "Developer_1",
  * });
  * ```
  *
@@ -142,9 +139,13 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as documented below
      */
     public readonly sku!: pulumi.Output<outputs.apimanagement.ServiceSku>;
+    /**
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     */
+    public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
@@ -183,6 +184,7 @@ export class Service extends pulumi.CustomResource {
             inputs["signIn"] = state ? state.signIn : undefined;
             inputs["signUp"] = state ? state.signUp : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
@@ -194,9 +196,6 @@ export class Service extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
             }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
@@ -213,6 +212,7 @@ export class Service extends pulumi.CustomResource {
             inputs["signIn"] = args ? args.signIn : undefined;
             inputs["signUp"] = args ? args.signUp : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
             inputs["gatewayUrl"] = undefined /*out*/;
@@ -317,9 +317,13 @@ export interface ServiceState {
      */
     readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as documented below
      */
     readonly sku?: pulumi.Input<inputs.apimanagement.ServiceSku>;
+    /**
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
@@ -387,9 +391,13 @@ export interface ServiceArgs {
      */
     readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * A `sku` block as documented below.
+     * A `sku` block as documented below
      */
-    readonly sku: pulumi.Input<inputs.apimanagement.ServiceSku>;
+    readonly sku?: pulumi.Input<inputs.apimanagement.ServiceSku>;
+    /**
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */

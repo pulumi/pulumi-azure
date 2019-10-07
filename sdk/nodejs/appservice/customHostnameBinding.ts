@@ -89,6 +89,18 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     */
+    public readonly sslState!: pulumi.Output<string | undefined>;
+    /**
+     * The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     */
+    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    /**
+     * The virtual IP address assigned to the hostname if IP based SSL is enabled.
+     */
+    public /*out*/ readonly virtualIp!: pulumi.Output<string>;
 
     /**
      * Create a CustomHostnameBinding resource with the given unique name, arguments, and options.
@@ -105,6 +117,9 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["sslState"] = state ? state.sslState : undefined;
+            inputs["thumbprint"] = state ? state.thumbprint : undefined;
+            inputs["virtualIp"] = state ? state.virtualIp : undefined;
         } else {
             const args = argsOrState as CustomHostnameBindingArgs | undefined;
             if (!args || args.appServiceName === undefined) {
@@ -119,6 +134,9 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
             inputs["appServiceName"] = args ? args.appServiceName : undefined;
             inputs["hostname"] = args ? args.hostname : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sslState"] = args ? args.sslState : undefined;
+            inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            inputs["virtualIp"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -147,6 +165,18 @@ export interface CustomHostnameBindingState {
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     */
+    readonly sslState?: pulumi.Input<string>;
+    /**
+     * The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     */
+    readonly thumbprint?: pulumi.Input<string>;
+    /**
+     * The virtual IP address assigned to the hostname if IP based SSL is enabled.
+     */
+    readonly virtualIp?: pulumi.Input<string>;
 }
 
 /**
@@ -165,4 +195,12 @@ export interface CustomHostnameBindingArgs {
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+     */
+    readonly sslState?: pulumi.Input<string>;
+    /**
+     * The SSL certificate thumbprint. Changing this forces a new resource to be created.
+     */
+    readonly thumbprint?: pulumi.Input<string>;
 }

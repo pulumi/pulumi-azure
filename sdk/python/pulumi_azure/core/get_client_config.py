@@ -13,10 +13,13 @@ class GetClientConfigResult:
     """
     A collection of values returned by getClientConfig.
     """
-    def __init__(__self__, client_id=None, service_principal_application_id=None, service_principal_object_id=None, subscription_id=None, tenant_id=None, id=None):
+    def __init__(__self__, client_id=None, object_id=None, service_principal_application_id=None, service_principal_object_id=None, subscription_id=None, tenant_id=None, id=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         __self__.client_id = client_id
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        __self__.object_id = object_id
         if service_principal_application_id and not isinstance(service_principal_application_id, str):
             raise TypeError("Expected argument 'service_principal_application_id' to be a str")
         __self__.service_principal_application_id = service_principal_application_id
@@ -42,6 +45,7 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
             yield self
         return GetClientConfigResult(
             client_id=self.client_id,
+            object_id=self.object_id,
             service_principal_application_id=self.service_principal_application_id,
             service_principal_object_id=self.service_principal_object_id,
             subscription_id=self.subscription_id,
@@ -64,6 +68,7 @@ def get_client_config(opts=None):
 
     return AwaitableGetClientConfigResult(
         client_id=__ret__.get('clientId'),
+        object_id=__ret__.get('objectId'),
         service_principal_application_id=__ret__.get('servicePrincipalApplicationId'),
         service_principal_object_id=__ret__.get('servicePrincipalObjectId'),
         subscription_id=__ret__.get('subscriptionId'),

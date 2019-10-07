@@ -54,6 +54,9 @@ class Frontdoor(pulumi.CustomResource):
     The host that each frontendEndpoint must CNAME to.
     """
     enforce_backend_pools_certificate_name_check: pulumi.Output[bool]
+    """
+    Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+    """
     friendly_name: pulumi.Output[str]
     """
     A friendly name for the Front Door service.
@@ -92,6 +95,9 @@ class Frontdoor(pulumi.CustomResource):
     Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
+    """
+    Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+    """
     routing_rules: pulumi.Output[list]
     """
     A `routing_rule` block as defined below.
@@ -125,7 +131,7 @@ class Frontdoor(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, backend_pools=None, backend_pool_health_probes=None, backend_pool_load_balancings=None, enforce_backend_pools_certificate_name_check=None, friendly_name=None, frontend_endpoints=None, load_balancer_enabled=None, location=None, name=None, resource_group_name=None, routing_rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Front Door instance.
+        Manages an Azure Front Door instance.
         
         Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
         
@@ -139,11 +145,13 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[list] backend_pools: A `backend_pool` block as defined below.
         :param pulumi.Input[list] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[list] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[list] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[bool] load_balancer_enabled: Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
         :param pulumi.Input[str] location: Resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routing_rules: A `routing_rule` block as defined below.
         :param pulumi.Input[dict] tags: Resource tags.
         
@@ -289,11 +297,13 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[list] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[list] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
+        :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[list] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[bool] load_balancer_enabled: Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
         :param pulumi.Input[str] location: Resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routing_rules: A `routing_rule` block as defined below.
         :param pulumi.Input[dict] tags: Resource tags.
         

@@ -65,7 +65,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly autoInflateEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
@@ -95,13 +95,17 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
      */
     public readonly maximumThroughputUnits!: pulumi.Output<number>;
     /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A `networkRulesets` block as defined below.
+     */
+    public readonly networkRulesets!: pulumi.Output<outputs.eventhub.EventHubNamespaceNetworkRulesets>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
@@ -137,6 +141,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkRulesets"] = state ? state.networkRulesets : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -154,6 +159,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkRulesets"] = args ? args.networkRulesets : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -182,7 +188,7 @@ export interface EventHubNamespaceState {
      */
     readonly autoInflateEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -212,13 +218,17 @@ export interface EventHubNamespaceState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
      */
     readonly maximumThroughputUnits?: pulumi.Input<number>;
     /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `networkRulesets` block as defined below.
+     */
+    readonly networkRulesets?: pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesets>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
@@ -242,7 +252,7 @@ export interface EventHubNamespaceArgs {
      */
     readonly autoInflateEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -254,13 +264,17 @@ export interface EventHubNamespaceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
      */
     readonly maximumThroughputUnits?: pulumi.Input<number>;
     /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `networkRulesets` block as defined below.
+     */
+    readonly networkRulesets?: pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesets>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */

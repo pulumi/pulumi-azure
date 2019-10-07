@@ -14,7 +14,7 @@ class ActionGroup(pulumi.CustomResource):
     """
     One or more `email_receiver` blocks as defined below.
     
-      * `emailAddress` (`str`) - The email address of this receiver.
+      * `email_address` (`str`) - The email address of this receiver.
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
     """
     enabled: pulumi.Output[bool]
@@ -69,7 +69,7 @@ class ActionGroup(pulumi.CustomResource):
         
         The **email_receivers** object supports the following:
         
-          * `emailAddress` (`pulumi.Input[str]`) - The email address of this receiver.
+          * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         
         The **sms_receivers** object supports the following:
@@ -140,7 +140,7 @@ class ActionGroup(pulumi.CustomResource):
         
         The **email_receivers** object supports the following:
         
-          * `emailAddress` (`pulumi.Input[str]`) - The email address of this receiver.
+          * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         
         The **sms_receivers** object supports the following:

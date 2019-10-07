@@ -75,7 +75,7 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
     > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     
-    :param str key_vault_id: Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+    :param str key_vault_id: Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Secret.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.

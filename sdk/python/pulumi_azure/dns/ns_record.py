@@ -38,7 +38,7 @@ class NsRecord(pulumi.CustomResource):
     """
     zone_name: pulumi.Output[str]
     """
-    Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+    Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, name=None, record=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -52,7 +52,7 @@ class NsRecord(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         
         The **record** object supports the following:
         
@@ -111,7 +111,7 @@ class NsRecord(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         
         The **record** object supports the following:
         

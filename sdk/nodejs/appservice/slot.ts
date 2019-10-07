@@ -199,6 +199,7 @@ export class Slot extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    public readonly logs!: pulumi.Output<outputs.appservice.SlotLogs>;
     /**
      * The name of the Connection String.
      */
@@ -243,6 +244,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["logs"] = state ? state.logs : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
@@ -269,6 +271,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logs"] = args ? args.logs : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
@@ -335,6 +338,7 @@ export interface SlotState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    readonly logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
      * The name of the Connection String.
      */
@@ -401,6 +405,7 @@ export interface SlotArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    readonly logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
      * The name of the Connection String.
      */

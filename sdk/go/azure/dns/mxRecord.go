@@ -108,7 +108,7 @@ func (r *MxRecord) Ttl() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["ttl"])
 }
 
-// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 func (r *MxRecord) ZoneName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["zoneName"])
 }
@@ -125,7 +125,7 @@ type MxRecordState struct {
 	Tags interface{}
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl interface{}
-	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ZoneName interface{}
 }
 
@@ -141,6 +141,6 @@ type MxRecordArgs struct {
 	Tags interface{}
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl interface{}
-	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ZoneName interface{}
 }

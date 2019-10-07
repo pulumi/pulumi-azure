@@ -234,7 +234,7 @@ func (r *Cache) SslPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["sslPort"])
 }
 
-// The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 func (r *Cache) SubnetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["subnetId"])
 }
@@ -287,7 +287,7 @@ type CacheState struct {
 	SkuName interface{}
 	// The SSL Port of the Redis Instance
 	SslPort interface{}
-	// The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 	SubnetId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -323,7 +323,7 @@ type CacheArgs struct {
 	ShardCount interface{}
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	SkuName interface{}
-	// The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 	SubnetId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

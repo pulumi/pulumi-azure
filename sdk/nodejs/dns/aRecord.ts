@@ -68,7 +68,7 @@ export class ARecord extends pulumi.CustomResource {
      */
     public readonly records!: pulumi.Output<string[]>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface ARecordState {
      */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -171,7 +171,7 @@ export interface ARecordArgs {
      */
     readonly records: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

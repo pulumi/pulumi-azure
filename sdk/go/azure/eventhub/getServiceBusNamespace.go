@@ -31,6 +31,7 @@ func LookupServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespace
 		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
+		ZoneRedundant: outputs["zoneRedundant"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -65,6 +66,8 @@ type GetServiceBusNamespaceResult struct {
 	Sku interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
+	// Whether or not this ServiceBus Namespace is zone redundant.
+	ZoneRedundant interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

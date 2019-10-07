@@ -23,6 +23,7 @@ export * from "./getNetworkSecurityGroup";
 export * from "./getNetworkWatcher";
 export * from "./getPublicIP";
 export * from "./getPublicIPs";
+export * from "./getPublicIpPrefix";
 export * from "./getRouteTable";
 export * from "./getSubnet";
 export * from "./getTrafficManager";

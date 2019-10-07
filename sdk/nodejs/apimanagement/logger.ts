@@ -32,10 +32,7 @@ import * as utilities from "../utilities";
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
+ *     skuName: "Developer_1",
  * });
  * const exampleLogger = new azure.apimanagement.Logger("example", {
  *     apiManagementName: exampleService.name,
