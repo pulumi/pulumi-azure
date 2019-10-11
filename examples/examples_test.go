@@ -55,11 +55,14 @@ func TestExamples(t *testing.T) {
 	shortTests := []integration.ProgramTestOptions{
 		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir:           path.Join(cwd, "eventgrid"),
+			Dir: path.Join(cwd, "eventgrid"),
 		}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "eventhub"),
 			RunUpdateTest: true,
+			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "http-external"),
@@ -68,6 +71,9 @@ func TestExamples(t *testing.T) {
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "http-multi"),
 			RunUpdateTest: true,
+			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "iot"),
@@ -134,6 +140,9 @@ func TestExamples(t *testing.T) {
 		pythonBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "eventhub-py"),
 			RunUpdateTest: true,
+			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		}),
 		pythonBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "datasource-py"),
