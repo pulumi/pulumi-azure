@@ -49,15 +49,15 @@ func TestAccEventhub(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccHttpExternal(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http-external"),
-			RunUpdateTest: true,
-		})
+// func TestAccHttpExternal(t *testing.T) {
+// 	test := getJSBaseOptions(t).
+// 		With(integration.ProgramTestOptions{
+// 			Dir:           path.Join(getCwd(t), "http-external"),
+// 			RunUpdateTest: true,
+// 		})
 
-	integration.ProgramTest(t, &test)
-}
+// 	integration.ProgramTest(t, &test)
+// }
 
 func TestAccHttpMulti(t *testing.T) {
 	test := getJSBaseOptions(t).
