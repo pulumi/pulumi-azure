@@ -53,7 +53,7 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
                     add: false,
                     create: false,
                 },
-            });
+            }, { async: true });
 
             return `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sas.sas}`;
         });
@@ -524,7 +524,10 @@ function resolveAccount(container: { storageAccountName: pulumi.Output<string>, 
     const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
     const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
                         .apply(([resourceGroupName, storageAccountName]) =>
-                            storage.getAccount({ resourceGroupName, name: storageAccountName }));
+                            storage.getAccount({
+                                resourceGroupName,
+                                name: storageAccountName
+                            }, { async: true }));
 
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
         ([connectionString, key]) => ({ [key]: connectionString }));
