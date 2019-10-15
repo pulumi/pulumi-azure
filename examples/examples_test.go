@@ -269,16 +269,16 @@ func TestAccLoadbalancer(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccMultiCallback(t *testing.T) {
-	skipIfShort(t)
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "multi-callback-all"),
-			RunUpdateTest: true,
-		})
+// func TestAccMultiCallback(t *testing.T) {
+// 	skipIfShort(t)
+// 	test := getJSBaseOptions(t).
+// 		With(integration.ProgramTestOptions{
+// 			Dir:           path.Join(getCwd(t), "multi-callback-all"),
+// 			RunUpdateTest: true,
+// 		})
 
-	integration.ProgramTest(t, &test)
-}
+// 	integration.ProgramTest(t, &test)
+// }
 
 func skipIfShort(t *testing.T) {
 	if testing.Short() {
