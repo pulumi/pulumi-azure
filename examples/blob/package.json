@@ -7,7 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "dev",
+        "@pulumi/pulumi": "feature-synchronousInvokes2",
         "mime-types": "^2.1.19",
         "@pulumi/azure": "latest"
     },
