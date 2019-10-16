@@ -64,9 +64,6 @@ func TestAccHttpMulti(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "http-multi"),
 			RunUpdateTest: true,
-			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -275,6 +272,9 @@ func TestAccMultiCallback(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           path.Join(getCwd(t), "multi-callback-all"),
 			RunUpdateTest: true,
+			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)
