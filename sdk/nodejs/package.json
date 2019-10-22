@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/azure",
-    "version": "1.2.0",
+    "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing Microsoft Azure cloud resources.",
     "keywords": [
         "pulumi",
