@@ -301,10 +301,8 @@ func getLocation(t *testing.T) string {
 		azureLocation = "northcentralus"
 		fmt.Println("Defaulting ARM_LOCATION to 'northcentralus'.  You can override using the ARM_LOCATION variable")
 	}
-	if azureLocation == "westus" {
-		azureLocation = "northcentralus"
-		fmt.Println("Switched ARM_LOCATION to 'northcentralus'.  If was WestUS.")
-	}
+	azureLocation = "northcentralus"
+	fmt.Println("Switched ARM_LOCATION to 'northcentralus'.")
 
 	return azureLocation
 }
