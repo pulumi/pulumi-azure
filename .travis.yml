@@ -8,6 +8,7 @@ git:
     depth: false
 before_install:
     - nslookup management.azure.com
+    - echo $ARM_LOCATION
     - git clone https://github.com/pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
     - source ${GOPATH}/src/github.com/pulumi/scripts/ci/prepare-environment.sh
     - source ${PULUMI_SCRIPTS}/ci/keep-failed-tests.sh

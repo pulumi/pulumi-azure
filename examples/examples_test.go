@@ -298,8 +298,8 @@ func getEnviron(t *testing.T) string {
 func getLocation(t *testing.T) string {
 	azureLocation := os.Getenv("ARM_LOCATION")
 	if azureLocation == "" {
-		azureLocation = "westus"
-		fmt.Println("Defaulting ARM_LOCATION to 'westus'.  You can override using the ARM_LOCATION variable")
+		azureLocation = "eastus"
+		fmt.Println("Defaulting ARM_LOCATION to 'eastus'.  You can override using the ARM_LOCATION variable")
 	}
 
 	return azureLocation
