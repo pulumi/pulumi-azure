@@ -10,6 +10,7 @@ before_install:
     - git clone https://github.com/pulumi/scripts ${GOPATH}/src/github.com/pulumi/scripts
     - source ${GOPATH}/src/github.com/pulumi/scripts/ci/prepare-environment.sh
     - source ${PULUMI_SCRIPTS}/ci/keep-failed-tests.sh
+    - nslookup management.azure.com
 install:
     - source ${PULUMI_SCRIPTS}/ci/install-common-toolchain.sh
     # Install Pulumi
