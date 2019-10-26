@@ -11,6 +11,12 @@ PROVIDER        := pulumi-resource-${PACK}
 VERSION         := $(shell scripts/get-version)
 PYPI_VERSION    := $(shell scripts/get-py-version)
 
+DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
+DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
+DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview-$(strip ${DOTNET_SUFFIX})
+
+LOCAL_NUGET ?= ~/.nuget/local
+
 TESTPARALLELISM := 20
 
 # Set NOPROXY to true to skip GOPROXY on 'ensure'
@@ -20,7 +26,7 @@ NOPROXY := false
 # We set the PLUGIN_VERSION to be the same as the version we use when building
 # the provider (e.g. x.y.z-dev-... instead of x.y.zdev...)
 build:: provider tfgen install_plugins
-	for LANGUAGE in "nodejs" "python" "go" ; do \
+	for LANGUAGE in "nodejs" "python" "go" "dotnet" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
 	cd ${PACKDIR}/nodejs/ && \
@@ -35,6 +41,9 @@ build:: provider tfgen install_plugins
 		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
 		rm ./bin/setup.py.bak && \
 		cd ./bin && $(PYTHON) setup.py build sdist
+	cd ${PACKDIR}/dotnet/ && \
+		echo "${VERSION:v%=%}" >version.txt && \
+		dotnet build /p:Version=${DOTNET_VERSION}
 
 provider::
 	go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
@@ -60,6 +69,8 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
+	mkdir -p ${LOCAL_NUGET}
+	cp -p ${PACKDIR}/dotnet/bin/Debug/*.nupkg ${LOCAL_NUGET}
 
 test_fast::
 	$(GO_TEST_FAST) ./examples
