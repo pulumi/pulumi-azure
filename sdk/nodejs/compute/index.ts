@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./availabilitySet";
+export * from "./bastionHost";
 export * from "./dataDiskAttachment";
 export * from "./extension";
 export * from "./getAvailabilitySet";

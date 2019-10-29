@@ -535,6 +535,25 @@ export namespace appservice {
         type: pulumi.Input<string>;
     }
 
+    export interface CertificateOrderCertificate {
+        /**
+         * The name of the App Service Certificate.
+         */
+        certificateName?: pulumi.Input<string>;
+        /**
+         * Key Vault resource Id.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Key Vault secret name.
+         */
+        keyVaultSecretName?: pulumi.Input<string>;
+        /**
+         * Status of the Key Vault secret.
+         */
+        provisioningState?: pulumi.Input<string>;
+    }
+
     export interface FunctionAppAuthSettings {
         activeDirectory?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsActiveDirectory>;
         additionalLoginParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -1234,6 +1253,15 @@ export namespace cognitive {
 }
 
 export namespace compute {
+    export interface BastionHostIpConfiguration {
+        /**
+         * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        publicIpAddressId: pulumi.Input<string>;
+        subnetId: pulumi.Input<string>;
+    }
+
     export interface ImageDataDisk {
         /**
          * Specifies the URI in Azure storage of the blob that you want to use to create the image.
@@ -2358,6 +2386,23 @@ export namespace datafactory {
          */
         tenantId: pulumi.Input<string>;
     }
+
+    export interface IntegrationRuntimeManagedCatalogInfo {
+        administratorLogin: pulumi.Input<string>;
+        administratorPassword: pulumi.Input<string>;
+        pricingTier?: pulumi.Input<string>;
+        serverEndpoint: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeManagedCustomSetupScript {
+        blobContainerUri: pulumi.Input<string>;
+        sasToken: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeManagedVnetIntegration {
+        subnetName: pulumi.Input<string>;
+        vnetId: pulumi.Input<string>;
+    }
 }
 
 export namespace devspace {
@@ -3363,6 +3408,31 @@ export namespace hdinsight {
         isDefault: pulumi.Input<boolean>;
         storageAccountKey: pulumi.Input<string>;
         storageContainerId: pulumi.Input<string>;
+    }
+}
+
+export namespace healthcare {
+    export interface ServiceAuthenticationConfiguration {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         */
+        audience?: pulumi.Input<string>;
+        /**
+         * <elided>
+         */
+        authority?: pulumi.Input<string>;
+        /**
+         * Enables the 'SMART on FHIR' option for mobile and web implementations.
+         */
+        smartProxyEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface ServiceCorsConfiguration {
+        allowCredentials?: pulumi.Input<boolean>;
+        allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        maxAgeInSeconds: pulumi.Input<number>;
     }
 }
 

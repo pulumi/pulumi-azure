@@ -7,8 +7,10 @@ from .factory import *
 from .dataset_mysql import *
 from .dataset_postgresql import *
 from .dataset_sql_server_table import *
+from .integration_runtime_managed import *
 from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_mysql import *
 from .linked_service_postgresql import *
 from .linked_service_sql_server import *
 from .pipeline import *
+from .get_factory import *

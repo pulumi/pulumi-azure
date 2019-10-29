@@ -655,6 +655,25 @@ export namespace appservice {
         type: string;
     }
 
+    export interface CertificateOrderCertificate {
+        /**
+         * The name of the App Service Certificate.
+         */
+        certificateName: string;
+        /**
+         * Key Vault resource Id.
+         */
+        keyVaultId: string;
+        /**
+         * Key Vault secret name.
+         */
+        keyVaultSecretName: string;
+        /**
+         * Status of the Key Vault secret.
+         */
+        provisioningState: string;
+    }
+
     export interface FunctionAppAuthSettings {
         activeDirectory?: outputs.appservice.FunctionAppAuthSettingsActiveDirectory;
         additionalLoginParams?: {[key: string]: string};
@@ -956,6 +975,25 @@ export namespace appservice {
     export interface GetAppServiceSourceControl {
         branch: string;
         repoUrl: string;
+    }
+
+    export interface GetCertificateOrderCertificate {
+        /**
+         * The name of the App Service Certificate.
+         */
+        certificateName: string;
+        /**
+         * Key Vault resource Id.
+         */
+        keyVaultId: string;
+        /**
+         * Key Vault secret name.
+         */
+        keyVaultSecretName: string;
+        /**
+         * Status of the Key Vault secret.
+         */
+        provisioningState: string;
     }
 
     export interface PlanProperties {
@@ -1637,6 +1675,15 @@ export namespace cognitive {
 }
 
 export namespace compute {
+    export interface BastionHostIpConfiguration {
+        /**
+         * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpAddressId: string;
+        subnetId: string;
+    }
+
     export interface GetImageDataDisk {
         /**
          * the URI in Azure storage of the blob used to create the image.
@@ -2966,6 +3013,29 @@ export namespace containerservice {
 }
 
 export namespace core {
+    export interface GetResourcesResource {
+        /**
+         * The Resource ID of this resource.
+         */
+        id: string;
+        /**
+         * The location of this resource.
+         */
+        location: string;
+        /**
+         * The name of the Resource.
+         */
+        name: string;
+        /**
+         * The type of resource that this is, such as `Microsoft.Network/virtualNetworks`.
+         */
+        tags: {[key: string]: string};
+        /**
+         * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
+         */
+        type: string;
+    }
+
     export interface GetSubscriptionsSubscription {
         /**
          * The subscription display name.
@@ -3177,6 +3247,88 @@ export namespace datafactory {
          * The ID of the Azure Active Directory Tenant.
          */
         tenantId: string;
+    }
+
+    export interface GetFactoryGithubConfiguration {
+        /**
+         * The VSTS account name.
+         */
+        accountName: string;
+        /**
+         * The branch of the repository to get code from.
+         */
+        branchName: string;
+        /**
+         * The GitHub Enterprise host name. 
+         */
+        gitUrl: string;
+        /**
+         * The name of the git repository.
+         */
+        repositoryName: string;
+        /**
+         * The root folder within the repository.
+         */
+        rootFolder: string;
+    }
+
+    export interface GetFactoryIdentity {
+        /**
+         * The ID of the Principal (Client) in Azure Active Directory.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with the VSTS account.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the Data Factory.
+         */
+        type: string;
+    }
+
+    export interface GetFactoryVstsConfiguration {
+        /**
+         * The VSTS account name.
+         */
+        accountName: string;
+        /**
+         * The branch of the repository to get code from.
+         */
+        branchName: string;
+        /**
+         * The name of the VSTS project.
+         */
+        projectName: string;
+        /**
+         * The name of the git repository.
+         */
+        repositoryName: string;
+        /**
+         * The root folder within the repository.
+         */
+        rootFolder: string;
+        /**
+         * The Tenant ID associated with the VSTS account.
+         */
+        tenantId: string;
+    }
+
+    export interface IntegrationRuntimeManagedCatalogInfo {
+        administratorLogin: string;
+        administratorPassword: string;
+        pricingTier?: string;
+        serverEndpoint: string;
+    }
+
+    export interface IntegrationRuntimeManagedCustomSetupScript {
+        blobContainerUri: string;
+        sasToken: string;
+    }
+
+    export interface IntegrationRuntimeManagedVnetIntegration {
+        subnetName: string;
+        vnetId: string;
     }
 }
 
@@ -4233,6 +4385,69 @@ export namespace hdinsight {
         isDefault: boolean;
         storageAccountKey: string;
         storageContainerId: string;
+    }
+}
+
+export namespace healthcare {
+    export interface GetServiceAuthenticationConfiguration {
+        /**
+         * The intended audience to receive authentication tokens for the service. 
+         */
+        audience: string;
+        /**
+         * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. 
+         */
+        authority: string;
+        /**
+         * Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+         */
+        smartProxyEnabled: boolean;
+    }
+
+    export interface GetServiceCorsConfiguration {
+        /**
+         * Are credentials are allowed via CORS?
+         */
+        allowCredentials: boolean;
+        /**
+         * The set of headers to be allowed via CORS.
+         */
+        allowedHeaders: string[];
+        /**
+         * The methods to be allowed via CORS.
+         */
+        allowedMethods: string[];
+        /**
+         * The set of origins to be allowed via CORS.
+         */
+        allowedOrigins: string[];
+        /**
+         * The max age to be allowed via CORS.
+         */
+        maxAgeInSeconds: number;
+    }
+
+    export interface ServiceAuthenticationConfiguration {
+        /**
+         * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         */
+        audience?: string;
+        /**
+         * <elided>
+         */
+        authority?: string;
+        /**
+         * Enables the 'SMART on FHIR' option for mobile and web implementations.
+         */
+        smartProxyEnabled?: boolean;
+    }
+
+    export interface ServiceCorsConfiguration {
+        allowCredentials?: boolean;
+        allowedHeaders: string[];
+        allowedMethods: string[];
+        allowedOrigins: string[];
+        maxAgeInSeconds: number;
     }
 }
 

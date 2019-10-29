@@ -4,6 +4,7 @@
 // Export members:
 export * from "./getClientConfig";
 export * from "./getResourceGroup";
+export * from "./getResources";
 export * from "./getSubscription";
 export * from "./getSubscriptions";
 export * from "./getUserAssignedIdentity";
