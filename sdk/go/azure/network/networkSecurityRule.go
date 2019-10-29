@@ -184,7 +184,7 @@ func (r *NetworkSecurityRule) Priority() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["priority"])
 }
 
-// Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
 func (r *NetworkSecurityRule) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -243,7 +243,7 @@ type NetworkSecurityRuleState struct {
 	NetworkSecurityGroupName interface{}
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority interface{}
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
 	Protocol interface{}
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -283,7 +283,7 @@ type NetworkSecurityRuleArgs struct {
 	NetworkSecurityGroupName interface{}
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority interface{}
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
 	Protocol interface{}
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

@@ -46,7 +46,9 @@ class NatPool(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, backend_port=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Load Balancer NAT pool.
+        Manages a Load Balancer NAT pool. 
+        
+        > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
         
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         

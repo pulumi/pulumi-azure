@@ -86,8 +86,6 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
     
-    > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
-    
     :param str gallery_name: The name of the Shared Image in which the Shared Image exists.
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.

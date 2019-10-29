@@ -146,7 +146,7 @@ func (r *Blob) Size() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["size"])
 }
 
-// An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
+// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
 func (r *Blob) Source() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["source"])
 }
@@ -201,7 +201,7 @@ type BlobState struct {
 	ResourceGroupName interface{}
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size interface{}
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
 	Source interface{}
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent interface{}
@@ -237,7 +237,7 @@ type BlobArgs struct {
 	ResourceGroupName interface{}
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size interface{}
-	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
 	Source interface{}
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
 	SourceContent interface{}

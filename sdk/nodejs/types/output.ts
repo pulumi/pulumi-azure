@@ -419,14 +419,21 @@ export namespace apimanagement {
     }
 
     export interface ServiceSecurity {
-        disableBackendSsl30?: boolean;
-        disableBackendTls10?: boolean;
-        disableBackendTls11?: boolean;
-        disableFrontendSsl30?: boolean;
-        disableFrontendTls10?: boolean;
-        disableFrontendTls11?: boolean;
+        disableBackendSsl30: boolean;
+        disableBackendTls10: boolean;
+        disableBackendTls11: boolean;
+        disableFrontendSsl30: boolean;
+        disableFrontendTls10: boolean;
+        disableFrontendTls11: boolean;
         disableTripleDesChipers: boolean;
         disableTripleDesCiphers: boolean;
+        enableBackendSsl30: boolean;
+        enableBackendTls10: boolean;
+        enableBackendTls11: boolean;
+        enableFrontendSsl30: boolean;
+        enableFrontendTls10: boolean;
+        enableFrontendTls11: boolean;
+        enableTripleDesCiphers: boolean;
     }
 
     export interface ServiceSignIn {
@@ -736,6 +743,10 @@ export namespace appservice {
          * A `cors` block as defined below.
          */
         cors: outputs.appservice.FunctionAppSiteConfigCors;
+        /**
+         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: boolean;
         /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
@@ -1897,7 +1908,7 @@ export namespace compute {
 
     export interface ScaleSetNetworkProfileIpConfiguration {
         /**
-         * Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of one application gateway. Multiple scale sets cannot use the same application gateway.
+         * Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
          */
         applicationGatewayBackendAddressPoolIds?: string[];
         /**
@@ -1909,7 +1920,7 @@ export namespace compute {
          */
         loadBalancerBackendAddressPoolIds?: string[];
         /**
-         * Specifies an array of references to inbound NAT rules for load balancers.
+         * Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          */
         loadBalancerInboundNatRulesIds: string[];
         /**
@@ -2330,6 +2341,10 @@ export namespace compute {
 export namespace containerservice {
     export interface GetKubernetesClusterAddonProfile {
         /**
+         * A `azurePolicy` block.
+         */
+        azurePolicies: outputs.containerservice.GetKubernetesClusterAddonProfileAzurePolicy[];
+        /**
          * A `httpApplicationRouting` block.
          */
         httpApplicationRoutings: outputs.containerservice.GetKubernetesClusterAddonProfileHttpApplicationRouting[];
@@ -2341,6 +2356,13 @@ export namespace containerservice {
          * A `omsAgent` block.
          */
         omsAgents: outputs.containerservice.GetKubernetesClusterAddonProfileOmsAgent[];
+    }
+
+    export interface GetKubernetesClusterAddonProfileAzurePolicy {
+        /**
+         * Is Role Based Access Control enabled?
+         */
+        enabled: boolean;
     }
 
     export interface GetKubernetesClusterAddonProfileHttpApplicationRouting {
@@ -2374,7 +2396,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfile {
         /**
-         * The availability zones used for the nodes. 
+         * The availability zones used for the nodes.
          */
         availabilityZones: string[];
         /**
@@ -2386,7 +2408,7 @@ export namespace containerservice {
          */
         dnsPrefix: string;
         /**
-         * If the auto-scaler is enabled. 
+         * If the auto-scaler is enabled.
          */
         enableAutoScaling: boolean;
         /**
@@ -2398,7 +2420,7 @@ export namespace containerservice {
          */
         maxPods: number;
         /**
-         * Minimum number of nodes for auto-scaling 
+         * Minimum number of nodes for auto-scaling
          */
         minCount: number;
         /**
@@ -2671,6 +2693,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfile {
         aciConnectorLinux?: outputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux;
+        azurePolicy?: outputs.containerservice.KubernetesClusterAddonProfileAzurePolicy;
         /**
          * A `httpApplicationRouting` block as defined below.
          */
@@ -2681,7 +2704,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
         enabled: boolean;
-        subnetName: string;
+        subnetName?: string;
+    }
+
+    export interface KubernetesClusterAddonProfileAzurePolicy {
+        enabled: boolean;
     }
 
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
@@ -2698,7 +2725,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgent {
         enabled: boolean;
-        logAnalyticsWorkspaceId: string;
+        logAnalyticsWorkspaceId?: string;
     }
 
     export interface KubernetesClusterAgentPoolProfile {
@@ -3763,7 +3790,7 @@ export namespace frontdoor {
 
     export interface FrontdoorRoutingRuleRedirectConfiguration {
         customFragment?: string;
-        customHost: string;
+        customHost?: string;
         customPath?: string;
         customQueryString?: string;
         redirectProtocol: string;
@@ -4663,6 +4690,13 @@ export namespace kusto {
 }
 
 export namespace lb {
+    export interface GetBackendAddressPoolBackendIpConfiguration {
+        /**
+         * The ID of the Backend Address Pool.
+         */
+        id: string;
+    }
+
     export interface GetLBFrontendIpConfiguration {
         /**
          * Specifies the name of the Load Balancer.
@@ -4726,7 +4760,7 @@ export namespace lb {
 
     export interface OutboundRuleFrontendIpConfiguration {
         /**
-         * The ID of the Load Balancer to which the resource is attached.
+         * The ID of the Load Balancer Outbound Rule.
          */
         id: string;
         /**
@@ -4810,6 +4844,10 @@ export namespace monitoring {
          * The URI where webhooks should be sent.
          */
         serviceUri: string;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
     }
 
     export interface ActivityLogAlertAction {
@@ -4978,6 +5016,7 @@ export namespace monitoring {
          * The URI where webhooks should be sent.
          */
         serviceUri: string;
+        useCommonAlertSchema?: boolean;
     }
 
     export interface GetLogProfileRetentionPolicy {
@@ -6105,7 +6144,7 @@ export namespace network {
          */
         priority: number;
         /**
-         * Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+         * Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
          */
         protocol: string;
         /**

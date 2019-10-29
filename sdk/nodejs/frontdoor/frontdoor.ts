@@ -22,9 +22,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = new azure.frontdoor.Frontdoor("example", {
- *     backendPools: [{
- *         backends: [{
+ * const example = new azure.FrontDoor("example", {
+ *     backendPool: [{
+ *         backend: [{
  *             address: "www.bing.com",
  *             hostHeader: "www.bing.com",
  *             httpPort: 80,
@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  *         loadBalancingName: "exampleLoadBalancingSettings1",
  *         name: "exampleBackendBing",
  *     }],
- *     backendPoolHealthProbes: [{
+ *     backendPoolHealthProbe: [{
  *         name: "exampleHealthProbeSetting1",
  *     }],
- *     backendPoolLoadBalancings: [{
+ *     backendPoolLoadBalancing: [{
  *         name: "exampleLoadBalancingSettings1",
  *     }],
  *     enforceBackendPoolsCertificateNameCheck: false,
- *     frontendEndpoints: [{
+ *     frontendEndpoint: [{
  *         customHttpsProvisioningEnabled: false,
  *         hostName: "example-FrontDoor.azurefd.net",
  *         name: "exampleFrontendEndpoint1",
@@ -49,18 +49,18 @@ import * as utilities from "../utilities";
  *     location: azurerm_resource_group_example.location,
  *     name: "example-FrontDoor",
  *     resourceGroupName: azurerm_resource_group_example.name,
- *     routingRules: [{
+ *     routingRule: [{
  *         acceptedProtocols: [
  *             "Http",
  *             "Https",
  *         ],
- *         forwardingConfiguration: {
+ *         forwardingConfiguration: [{
  *             backendPoolName: "exampleBackendBing",
  *             forwardingProtocol: "MatchRequest",
- *         },
+ *         }],
  *         frontendEndpoints: ["exampleFrontendEndpoint1"],
  *         name: "exampleRoutingRule1",
- *         patternsToMatches: ["/*"],
+ *         patternsToMatch: ["/*"],
  *     }],
  * });
  * ```

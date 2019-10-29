@@ -60,7 +60,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
+     * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
@@ -167,7 +167,7 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
+     * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -221,7 +221,7 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
+     * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
     readonly capacity?: pulumi.Input<number>;
     /**

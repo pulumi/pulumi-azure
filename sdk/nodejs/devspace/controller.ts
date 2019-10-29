@@ -8,48 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DevSpace Controller.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "westeurope",
- *     name: "acctestRG1",
- * });
- * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
- *     agentPoolProfiles: [{
- *         count: 1,
- *         name: "default",
- *         vmSize: "Standard_DS2_v2",
- *     }],
- *     dnsPrefix: "acctestaks1",
- *     location: testResourceGroup.location,
- *     name: "acctestaks1",
- *     resourceGroupName: testResourceGroup.name,
- *     servicePrincipal: {
- *         clientId: "00000000-0000-0000-0000-000000000000",
- *         clientSecret: "00000000000000000000000000000000",
- *     },
- * });
- * const testController = new azure.devspace.Controller("test", {
- *     hostSuffix: "suffix",
- *     location: testResourceGroup.location,
- *     name: "acctestdsc1",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "S1",
- *         tier: "Standard",
- *     },
- *     tags: {
- *         Environment: "Testing",
- *     },
- *     targetContainerHostCredentialsBase64: testKubernetesCluster.kubeConfigRaw.apply(kubeConfigRaw => Buffer.from(kubeConfigRaw).toString("base64")),
- *     targetContainerHostResourceId: testKubernetesCluster.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
  */
@@ -85,9 +43,9 @@ export class Controller extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataPlaneFqdn!: pulumi.Output<string>;
     /**
-     * The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
+     * The host suffix for the DevSpace Controller.
      */
-    public readonly hostSuffix!: pulumi.Output<string>;
+    public /*out*/ readonly hostSuffix!: pulumi.Output<string>;
     /**
      * Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
      */
@@ -140,9 +98,6 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostResourceId"] = state ? state.targetContainerHostResourceId : undefined;
         } else {
             const args = argsOrState as ControllerArgs | undefined;
-            if (!args || args.hostSuffix === undefined) {
-                throw new Error("Missing required property 'hostSuffix'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -155,7 +110,6 @@ export class Controller extends pulumi.CustomResource {
             if (!args || args.targetContainerHostResourceId === undefined) {
                 throw new Error("Missing required property 'targetContainerHostResourceId'");
             }
-            inputs["hostSuffix"] = args ? args.hostSuffix : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -164,6 +118,7 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
             inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
             inputs["dataPlaneFqdn"] = undefined /*out*/;
+            inputs["hostSuffix"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -185,7 +140,7 @@ export interface ControllerState {
      */
     readonly dataPlaneFqdn?: pulumi.Input<string>;
     /**
-     * The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
+     * The host suffix for the DevSpace Controller.
      */
     readonly hostSuffix?: pulumi.Input<string>;
     /**
@@ -222,10 +177,6 @@ export interface ControllerState {
  * The set of arguments for constructing a Controller resource.
  */
 export interface ControllerArgs {
-    /**
-     * The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
-     */
-    readonly hostSuffix: pulumi.Input<string>;
     /**
      * Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
      */

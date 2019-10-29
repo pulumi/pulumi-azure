@@ -41,6 +41,7 @@ import * as utilities from "../utilities";
  *     webhookReceivers: [{
  *         name: "callmyapiaswell",
  *         serviceUri: "http://example.com/alert",
+ *         useCommonAlertSchema: true,
  *     }],
  * });
  * ```

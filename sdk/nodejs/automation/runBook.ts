@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     logVerbose: true,
  *     name: "Get-AzureVMTutorial",
  *     publishContentLink: {
- *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+ *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
  *     },
  *     resourceGroupName: exampleResourceGroup.name,
  *     runbookType: "PowerShellWorkflow",

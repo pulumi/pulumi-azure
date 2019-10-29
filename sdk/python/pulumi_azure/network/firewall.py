@@ -36,7 +36,11 @@ class Firewall(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, ip_configuration=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    zones: pulumi.Output[list]
+    """
+    Specifies the availability zones in which the Azure Firewall should be created.
+    """
+    def __init__(__self__, resource_name, opts=None, ip_configuration=None, location=None, name=None, resource_group_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Firewall.
         
@@ -47,6 +51,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] zones: Specifies the availability zones in which the Azure Firewall should be created.
         
         The **ip_configuration** object supports the following:
         
@@ -84,6 +89,7 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['zones'] = zones
         super(Firewall, __self__).__init__(
             'azure:network/firewall:Firewall',
             resource_name,
@@ -91,7 +97,7 @@ class Firewall(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, ip_configuration=None, location=None, name=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, ip_configuration=None, location=None, name=None, resource_group_name=None, tags=None, zones=None):
         """
         Get an existing Firewall resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -104,6 +110,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] zones: Specifies the availability zones in which the Azure Firewall should be created.
         
         The **ip_configuration** object supports the following:
         
@@ -123,6 +130,7 @@ class Firewall(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
+        __props__["zones"] = zones
         return Firewall(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

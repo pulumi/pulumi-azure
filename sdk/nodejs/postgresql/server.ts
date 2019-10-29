@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
- *         family: "Gen4",
+ *         family: "Gen5",
  *         name: "B_Gen5_2",
  *         tier: "Basic",
  *     },

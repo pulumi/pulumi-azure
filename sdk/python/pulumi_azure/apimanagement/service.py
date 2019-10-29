@@ -138,6 +138,13 @@ class Service(pulumi.CustomResource):
       * `disableFrontendTls11` (`bool`)
       * `disableTripleDesChipers` (`bool`)
       * `disableTripleDesCiphers` (`bool`)
+      * `enableBackendSsl30` (`bool`)
+      * `enableBackendTls10` (`bool`)
+      * `enableBackendTls11` (`bool`)
+      * `enableFrontendSsl30` (`bool`)
+      * `enableFrontendTls10` (`bool`)
+      * `enableFrontendTls11` (`bool`)
+      * `enableTripleDesCiphers` (`bool`)
     """
     sign_in: pulumi.Output[dict]
     """
@@ -263,6 +270,13 @@ class Service(pulumi.CustomResource):
           * `disableFrontendTls11` (`pulumi.Input[bool]`)
           * `disableTripleDesChipers` (`pulumi.Input[bool]`)
           * `disableTripleDesCiphers` (`pulumi.Input[bool]`)
+          * `enableBackendSsl30` (`pulumi.Input[bool]`)
+          * `enableBackendTls10` (`pulumi.Input[bool]`)
+          * `enableBackendTls11` (`pulumi.Input[bool]`)
+          * `enableFrontendSsl30` (`pulumi.Input[bool]`)
+          * `enableFrontendTls10` (`pulumi.Input[bool]`)
+          * `enableFrontendTls11` (`pulumi.Input[bool]`)
+          * `enableTripleDesCiphers` (`pulumi.Input[bool]`)
         
         The **sign_in** object supports the following:
         
@@ -437,6 +451,13 @@ class Service(pulumi.CustomResource):
           * `disableFrontendTls11` (`pulumi.Input[bool]`)
           * `disableTripleDesChipers` (`pulumi.Input[bool]`)
           * `disableTripleDesCiphers` (`pulumi.Input[bool]`)
+          * `enableBackendSsl30` (`pulumi.Input[bool]`)
+          * `enableBackendTls10` (`pulumi.Input[bool]`)
+          * `enableBackendTls11` (`pulumi.Input[bool]`)
+          * `enableFrontendSsl30` (`pulumi.Input[bool]`)
+          * `enableFrontendTls10` (`pulumi.Input[bool]`)
+          * `enableFrontendTls11` (`pulumi.Input[bool]`)
+          * `enableTripleDesCiphers` (`pulumi.Input[bool]`)
         
         The **sign_in** object supports the following:
         

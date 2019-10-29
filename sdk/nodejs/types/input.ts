@@ -307,6 +307,13 @@ export namespace apimanagement {
         disableFrontendTls11?: pulumi.Input<boolean>;
         disableTripleDesChipers?: pulumi.Input<boolean>;
         disableTripleDesCiphers?: pulumi.Input<boolean>;
+        enableBackendSsl30?: pulumi.Input<boolean>;
+        enableBackendTls10?: pulumi.Input<boolean>;
+        enableBackendTls11?: pulumi.Input<boolean>;
+        enableFrontendSsl30?: pulumi.Input<boolean>;
+        enableFrontendTls10?: pulumi.Input<boolean>;
+        enableFrontendTls11?: pulumi.Input<boolean>;
+        enableTripleDesCiphers?: pulumi.Input<boolean>;
     }
 
     export interface ServiceSignIn {
@@ -616,6 +623,10 @@ export namespace appservice {
          * A `cors` block as defined below.
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
+        /**
+         * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+         */
+        http2Enabled?: pulumi.Input<boolean>;
         /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
@@ -1402,7 +1413,7 @@ export namespace compute {
 
     export interface ScaleSetNetworkProfileIpConfiguration {
         /**
-         * Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of one application gateway. Multiple scale sets cannot use the same application gateway.
+         * Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
          */
         applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1414,7 +1425,7 @@ export namespace compute {
          */
         loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies an array of references to inbound NAT rules for load balancers.
+         * Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          */
         loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -1933,6 +1944,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfile {
         aciConnectorLinux?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAciConnectorLinux>;
+        azurePolicy?: pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileAzurePolicy>;
         /**
          * A `httpApplicationRouting` block as defined below.
          */
@@ -1943,7 +1955,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileAciConnectorLinux {
         enabled: pulumi.Input<boolean>;
-        subnetName: pulumi.Input<string>;
+        subnetName?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterAddonProfileAzurePolicy {
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface KubernetesClusterAddonProfileHttpApplicationRouting {
@@ -1960,7 +1976,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgent {
         enabled: pulumi.Input<boolean>;
-        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        logAnalyticsWorkspaceId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterAgentPoolProfile {
@@ -2919,7 +2935,7 @@ export namespace frontdoor {
 
     export interface FrontdoorRoutingRuleRedirectConfiguration {
         customFragment?: pulumi.Input<string>;
-        customHost: pulumi.Input<string>;
+        customHost?: pulumi.Input<string>;
         customPath?: pulumi.Input<string>;
         customQueryString?: pulumi.Input<string>;
         redirectProtocol: pulumi.Input<string>;
@@ -3795,7 +3811,7 @@ export namespace lb {
 
     export interface OutboundRuleFrontendIpConfiguration {
         /**
-         * The ID of the Load Balancer to which the resource is attached.
+         * The ID of the Load Balancer Outbound Rule.
          */
         id?: pulumi.Input<string>;
         /**
@@ -3879,6 +3895,10 @@ export namespace monitoring {
          * The URI where webhooks should be sent.
          */
         serviceUri: pulumi.Input<string>;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
     }
 
     export interface ActivityLogAlertAction {
@@ -4769,7 +4789,7 @@ export namespace network {
          */
         priority: pulumi.Input<number>;
         /**
-         * Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+         * Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
          */
         protocol: pulumi.Input<string>;
         /**

@@ -36,7 +36,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
       * `direction` (`str`) - The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
       * `name` (`str`) - The name of the security rule.
       * `priority` (`float`) - Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-      * `protocol` (`str`) - Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+      * `protocol` (`str`) - Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
       * `source_address_prefix` (`str`) - CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
       * `source_address_prefixes` (`list`) - List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
       * `source_application_security_group_ids` (`list`) - A List of source Application Security Group ID's
@@ -75,7 +75,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
           * `direction` (`pulumi.Input[str]`) - The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
           * `name` (`pulumi.Input[str]`) - The name of the security rule.
           * `priority` (`pulumi.Input[float]`) - Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
           * `source_address_prefix` (`pulumi.Input[str]`) - CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
           * `source_address_prefixes` (`pulumi.Input[list]`) - List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
           * `source_application_security_group_ids` (`pulumi.Input[list]`) - A List of source Application Security Group ID's
@@ -141,7 +141,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
           * `direction` (`pulumi.Input[str]`) - The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
           * `name` (`pulumi.Input[str]`) - The name of the security rule.
           * `priority` (`pulumi.Input[float]`) - Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
           * `source_address_prefix` (`pulumi.Input[str]`) - CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
           * `source_address_prefixes` (`pulumi.Input[list]`) - List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
           * `source_application_security_group_ids` (`pulumi.Input[list]`) - A List of source Application Security Group ID's

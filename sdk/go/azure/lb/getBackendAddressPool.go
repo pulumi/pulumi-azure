@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about an existing Load Balancer Backend Address Pool.
+// Use this data source to access information about an existing Load Balancer's Backend Address Pool.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
 func LookupBackendAddressPool(ctx *pulumi.Context, args *GetBackendAddressPoolArgs) (*GetBackendAddressPoolResult, error) {
@@ -21,6 +21,7 @@ func LookupBackendAddressPool(ctx *pulumi.Context, args *GetBackendAddressPoolAr
 		return nil, err
 	}
 	return &GetBackendAddressPoolResult{
+		BackendIpConfigurations: outputs["backendIpConfigurations"],
 		LoadbalancerId: outputs["loadbalancerId"],
 		Name: outputs["name"],
 		Id: outputs["id"],
@@ -37,7 +38,10 @@ type GetBackendAddressPoolArgs struct {
 
 // A collection of values returned by getBackendAddressPool.
 type GetBackendAddressPoolResult struct {
+	// An array of references to IP addresses defined in network interfaces.
+	BackendIpConfigurations interface{}
 	LoadbalancerId interface{}
+	// The name of the Backend Address Pool.
 	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

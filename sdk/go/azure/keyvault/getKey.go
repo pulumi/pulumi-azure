@@ -41,10 +41,10 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
+	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
 	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Key.
 	Name interface{}
-	// Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	VaultUri interface{}
 }
 

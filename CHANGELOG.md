@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Use Blob Container SAS instead of Account SAS for zip packages for Function App deployments
   [#378](https://github.com/pulumi/pulumi-azure/pull/378)
+* Upgrade to v1.36.0 of the AzureRM Terraform Provider
 
 ---
 

@@ -117,7 +117,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+     * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -274,7 +274,7 @@ export interface NetworkSecurityRuleState {
      */
     readonly priority?: pulumi.Input<number>;
     /**
-     * Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+     * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -352,7 +352,7 @@ export interface NetworkSecurityRuleArgs {
      */
     readonly priority: pulumi.Input<number>;
     /**
-     * Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+     * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
      */
     readonly protocol: pulumi.Input<string>;
     /**

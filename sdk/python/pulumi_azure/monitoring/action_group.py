@@ -51,6 +51,7 @@ class ActionGroup(pulumi.CustomResource):
     
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
       * `service_uri` (`str`) - The URI where webhooks should be sent.
+      * `useCommonAlertSchema` (`bool`) - Enables or disables the common alert schema.
     """
     def __init__(__self__, resource_name, opts=None, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, tags=None, webhook_receivers=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -82,6 +83,7 @@ class ActionGroup(pulumi.CustomResource):
         
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
+          * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """
@@ -153,6 +155,7 @@ class ActionGroup(pulumi.CustomResource):
         
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
           * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
+          * `useCommonAlertSchema` (`pulumi.Input[bool]`) - Enables or disables the common alert schema.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """

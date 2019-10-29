@@ -41,6 +41,7 @@ import * as utilities from "../utilities";
  *     name: "tfex-cosmos-mongo-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     shardKey: "uniqueKey",
+ *     throughput: 400,
  * });
  * ```
  *
@@ -95,9 +96,13 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys. 
+     * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     public readonly shardKey!: pulumi.Output<string | undefined>;
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+     */
+    public readonly throughput!: pulumi.Output<number | undefined>;
 
     /**
      * Create a MongoCollection resource with the given unique name, arguments, and options.
@@ -118,6 +123,7 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["shardKey"] = state ? state.shardKey : undefined;
+            inputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as MongoCollectionArgs | undefined;
             if (!args || args.accountName === undefined) {
@@ -136,6 +142,7 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardKey"] = args ? args.shardKey : undefined;
+            inputs["throughput"] = args ? args.throughput : undefined;
         }
         if (!opts) {
             opts = {}
@@ -174,9 +181,13 @@ export interface MongoCollectionState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys. 
+     * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     readonly shardKey?: pulumi.Input<string>;
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+     */
+    readonly throughput?: pulumi.Input<number>;
 }
 
 /**
@@ -205,7 +216,11 @@ export interface MongoCollectionArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the key to partition on for sharding. There must not be any other unique index keys. 
+     * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     readonly shardKey?: pulumi.Input<string>;
+    /**
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+     */
+    readonly throughput?: pulumi.Input<number>;
 }
