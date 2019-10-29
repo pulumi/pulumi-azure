@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, environment=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -53,6 +53,9 @@ class Provider(pulumi.ProviderResource):
                 client_secret = (utilities.get_env('ARM_CLIENT_SECRET') or '')
             __props__['client_secret'] = client_secret
             __props__['disable_correlation_request_id'] = pulumi.Output.from_input(disable_correlation_request_id).apply(json.dumps) if disable_correlation_request_id is not None else None
+            if disable_terraform_partner_id is None:
+                disable_terraform_partner_id = (utilities.get_env_bool('ARM_DISABLE_TERRAFORM_PARTNER_ID') or True)
+            __props__['disable_terraform_partner_id'] = pulumi.Output.from_input(disable_terraform_partner_id).apply(json.dumps) if disable_terraform_partner_id is not None else None
             if environment is None:
                 environment = (utilities.get_env('ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment

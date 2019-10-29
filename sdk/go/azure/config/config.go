@@ -67,6 +67,18 @@ func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableCorrelationRequestId")
 }
 
+// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
+	v, err := config.TryBool(ctx, "azure:disableTerraformPartnerId")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID").(bool); ok {
+		return dv
+	}
+	return v
+}
+
 // The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 // public.
 func GetEnvironment(ctx *pulumi.Context) string {

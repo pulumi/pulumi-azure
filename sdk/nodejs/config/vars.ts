@@ -30,6 +30,10 @@ export let clientSecret: string | undefined = __config.get("clientSecret") || (u
  */
 export let disableCorrelationRequestId: boolean | undefined = __config.getObject<boolean>("disableCorrelationRequestId");
 /**
+ * This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+ */
+export let disableTerraformPartnerId: boolean | undefined = __config.getObject<boolean>("disableTerraformPartnerId") || (utilities.getEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") || true);
+/**
  * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
  * public.
  */
