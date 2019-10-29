@@ -13,6 +13,7 @@ export * from "./getDateTimeVariable";
 export * from "./getIntVariable";
 export * from "./getStringVariable";
 export * from "./intVariable";
+export * from "./jobSchedule";
 export * from "./module";
 export * from "./runBook";
 export * from "./schedule";

@@ -1,17 +1,60 @@
-The Microsoft Azure provider package offers support for all Azure services and their properties.
-Services are exposed as types from modules such as `appinsights`, `compute`, and `storage`, among many others. Using this
-package allows you to programmatically declare instances of any Azure services using infrastructure as code, which
-Pulumi then uses to drive the Azure API.
+[![Build Status](https://travis-ci.com/pulumi/pulumi-azure.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-azure)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fazure.svg)](https://npmjs.com/package/@pulumi/azure)
+[![Python version](https://badge.fury.io/py/pulumi-azure.svg)](https://pypi.org/project/pulumi-azure)
+[![GoDoc](https://godoc.org/github.com/pulumi/pulumi-azure?status.svg)](https://godoc.org/github.com/pulumi/pulumi-azure)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-azure/blob/master/LICENSE)
 
-If this is your first time using this package, these two resources may be helpful:
+# Microsoft Azure Resource Provider
 
-* [Azure Getting Started Guide](https://www.pulumi.com/docs/get-started/azure/): Get up and running quickly.
-* [Azure Pulumi Setup Documentation](https://www.pulumi.com/docs/get-started/azure/configure/): How to configure Pulumi
-    for use with your Azure account.
+The Microsoft Azure resource provider for Pulumi lets you use Azure resources in your cloud programs.  To use
+this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and Azure configuration, click "Get Started" below.
 
-Use the navigation below to see detailed documentation, including sample code, for each of the supported Azure services.
+<div>
+    <a href="https://www.pulumi.com/docs/get-started/azure" title="Get Started">
+       <img src="https://www.pulumi.com/images/get-started.svg" width="120">
+    </a>
+</div>
 
-> This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-azurerm)
-> distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,
-> first check the [`pulumi/pulumi-azure` repo](https://github.com/pulumi/pulumi-azure/issues); however, if that doesn't turn up
-> anything, please consult the source [`terraform-providers/terraform-provider-azurerm` repo](https://github.com/terraform-providers/terraform-provider-azurerm/issues).
+## Installing
+
+This package is available in many languages in the standard packaging formats.
+
+### Node.js (Java/TypeScript)
+
+To use from JavaScript or TypeScript in Node.js, install using either `npm`:
+
+    $ npm install @pulumi/azure
+
+or `yarn`:
+
+    $ yarn add @pulumi/azure
+
+### Python
+
+To use from Python, install using `pip`:
+
+    $ pip install pulumi_azure
+
+### Go
+
+To use from Go, use `go get` to grab the latest version of the library
+
+    $ go get github.com/pulumi/pulumi-azure/sdk/go/...
+
+## Concepts
+
+The `@pulumi/azure` package provides a strongly-typed means to build cloud applications that create
+and interact closely with Azure resources.  Resources are exposed for the entire Azure surface area,
+including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault', and more.
+
+## Configuring credentials
+
+There are a variety of ways credentials may be configured for the Azure provider, appropriate for
+different use cases. They are enumerated [in the quickstart guide](
+https://pulumi.io/quickstart/azure/setup.html).
+
+## Reference
+
+For detailed reference documentation, please visit [the API docs](
+https://pulumi.io/reference/pkg/nodejs/@pulumi/azure/index.html).

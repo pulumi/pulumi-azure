@@ -69,6 +69,7 @@ const (
 	azureDNS                 = "dns"                 // DNS
 	azureFrontdoor           = "frontdoor"           // Frontdoor
 	azureHdInsight           = "hdinsight"           // nolint:misspell // HDInsight
+	azureHealthcare          = "healthcare"          // HealthCare
 	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureKusto               = "kusto"               // Kusto
@@ -394,6 +395,7 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
 			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
+			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
 
 			// Automation
 			"azurerm_automation_account":               {Tok: azureResource(azureAutomation, "Account")},
@@ -407,6 +409,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_variable_datetime":     {Tok: azureResource(azureAutomation, "DateTimeVariable")},
 			"azurerm_automation_variable_int":          {Tok: azureResource(azureAutomation, "IntVariable")},
 			"azurerm_automation_variable_string":       {Tok: azureResource(azureAutomation, "StringVariable")},
+			"azurerm_automation_job_schedule":          {Tok: azureResource(azureAutomation, "JobSchedule")},
 
 			// Autoscale
 			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
@@ -501,6 +504,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_shared_image":         {Tok: azureResource(azureCompute, "SharedImage")},
 			"azurerm_shared_image_gallery": {Tok: azureResource(azureCompute, "SharedImageGallery")},
 			"azurerm_shared_image_version": {Tok: azureResource(azureCompute, "SharedImageVersion")},
+			"azurerm_bastion_host":         {Tok: azureResource(azureCompute, "BastionHost")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -513,10 +517,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_data_lake_storage_gen2": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceDataLakeStorageGen2"),
 			},
-			"azurerm_data_factory_linked_service_mysql":      {Tok: azureResource(azureDataFactory, "LinkedServiceMysql")},
-			"azurerm_data_factory_linked_service_postgresql": {Tok: azureResource(azureDataFactory, "LinkedServicePostgresql")},
-			"azurerm_data_factory_linked_service_sql_server": {Tok: azureResource(azureDataFactory, "LinkedServiceSqlServer")},
-			"azurerm_data_factory_pipeline":                  {Tok: azureResource(azureDataFactory, "Pipeline")},
+			"azurerm_data_factory_linked_service_mysql":        {Tok: azureResource(azureDataFactory, "LinkedServiceMysql")},
+			"azurerm_data_factory_linked_service_postgresql":   {Tok: azureResource(azureDataFactory, "LinkedServicePostgresql")},
+			"azurerm_data_factory_linked_service_sql_server":   {Tok: azureResource(azureDataFactory, "LinkedServiceSqlServer")},
+			"azurerm_data_factory_pipeline":                    {Tok: azureResource(azureDataFactory, "Pipeline")},
+			"azurerm_data_factory_integration_runtime_managed": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeManaged")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -940,8 +945,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
 
 			// Kusto
-			"azurerm_kusto_cluster":  {Tok: azureResource(azureKusto, "Cluster")},
-			"azurerm_kusto_database": {Tok: azureResource(azureKusto, "Database")},
+			"azurerm_kusto_cluster":                  {Tok: azureResource(azureKusto, "Cluster")},
+			"azurerm_kusto_database":                 {Tok: azureResource(azureKusto, "Database")},
+			"azurerm_kusto_eventhub_data_connection": {Tok: azureResource(azureKusto, "EventhubDataConnection")},
 
 			// Frontdoor
 			"azurerm_frontdoor": {
@@ -972,6 +978,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Dashboard
 			"azurerm_dashboard": {Tok: azureResource(azureDashboard, "Dashboard")},
+
+			// Healthcare
+			"azurerm_healthcare_service": {Tok: azureResource(azureHealthcare, "Service")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1116,6 +1125,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_proximity_placement_group":               {Tok: azureDataSource(azureProximity, "getPlacementGroup")},
 			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureDataSource(azureServiceBus, "getNamespaceAuthorizationRule")},
 			"azurerm_app_service_certificate":                 {Tok: azureDataSource(azureAppService, "getCertificate")},
+			"azurerm_app_service_certificate_order":           {Tok: azureDataSource(azureAppService, "getCertificateOrder")},
+			"azurerm_data_factory":                            {Tok: azureDataSource(azureDataFactory, "getFactory")},
+			"azurerm_healthcare_service":                      {Tok: azureDataSource(azureHealthcare, "getService")},
+			"azurerm_postgresql_server":                       {Tok: azureDataSource(azurePostgresql, "getServer")},
+			"azurerm_resources":                               {Tok: azureDataSource(azureCore, "getResources")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

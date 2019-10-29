@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .availability_set import *
+from .bastion_host import *
 from .image import *
 from .managed_disk import *
 from .shared_image import *

@@ -6,6 +6,8 @@ export * from "./datasetMysql";
 export * from "./datasetPostgresql";
 export * from "./datasetSqlServerTable";
 export * from "./factory";
+export * from "./getFactory";
+export * from "./integrationRuntimeManaged";
 export * from "./linkedServiceDataLakeStorageGen2";
 export * from "./linkedServiceMysql";
 export * from "./linkedServicePostgresql";
