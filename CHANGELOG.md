@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.36.1 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 1.3.1 (2019-10-29)
+* Upgrade to v1.36.1 of the AzureRM Terraform Provider
 
 ## 1.3.0 (2019-10-29)
 * Use Blob Container SAS instead of Account SAS for zip packages for Function App deployments
