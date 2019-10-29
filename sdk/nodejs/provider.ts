@@ -44,6 +44,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["clientId"] = (args ? args.clientId : undefined) || (utilities.getEnv("ARM_CLIENT_ID") || "");
             inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
             inputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
+            inputs["disableTerraformPartnerId"] = pulumi.output((args ? args.disableTerraformPartnerId : undefined) || (utilities.getEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") || true)).apply(JSON.stringify);
             inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
             inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
             inputs["partnerId"] = (args ? args.partnerId : undefined) || (utilities.getEnv("ARM_PARTNER_ID") || "");
@@ -91,6 +92,10 @@ export interface ProviderArgs {
      * This will disable the x-ms-correlation-request-id header.
      */
     readonly disableCorrelationRequestId?: pulumi.Input<boolean>;
+    /**
+     * This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+     */
+    readonly disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
      * public.

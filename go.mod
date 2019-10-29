@@ -10,7 +10,7 @@ require (
 
 replace (
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20191029102306-b434898e7425
+	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20191029195905-e81fa5ad3ed3
 )
 
 module github.com/pulumi/pulumi-azure

@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Regenerate SDKs based on v1.36.0 of the AzureRM Terraform Provider.
+* Upgrade to v1.36.1 of the AzureRM Terraform Provider
 
 ---
 

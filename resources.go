@@ -281,6 +281,12 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_MSI_ENDPOINT"},
 				},
 			},
+			"disable_terraform_partner_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   true,
+					EnvVars: []string{"ARM_DISABLE_TERRAFORM_PARTNER_ID"},
+				},
+			},
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {

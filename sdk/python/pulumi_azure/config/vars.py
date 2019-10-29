@@ -40,6 +40,11 @@ disable_correlation_request_id = __config__.get('disableCorrelationRequestId')
 This will disable the x-ms-correlation-request-id header.
 """
 
+disable_terraform_partner_id = __config__.get('disableTerraformPartnerId') or (utilities.get_env_bool('ARM_DISABLE_TERRAFORM_PARTNER_ID') or True)
+"""
+This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+"""
+
 environment = __config__.get('environment') or (utilities.get_env('ARM_ENVIRONMENT') or 'public')
 """
 The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
