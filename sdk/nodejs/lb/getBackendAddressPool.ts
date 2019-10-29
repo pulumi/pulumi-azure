@@ -7,25 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Load Balancer Backend Address Pool.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testLB = azure.lb.getLB({
- *     name: "example-lb",
- *     resourceGroupName: "example-resources",
- * });
- * const testBackendAddressPool = azure.lb.getBackendAddressPool({
- *     loadbalancerId: testLB.id,
- *     name: "first",
- * });
- * 
- * export const backendAddressPoolId = testBackendAddressPool.id;
- * ```
+ * Use this data source to access information about an existing Load Balancer's Backend Address Pool.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
  */
@@ -63,7 +45,14 @@ export interface GetBackendAddressPoolArgs {
  * A collection of values returned by getBackendAddressPool.
  */
 export interface GetBackendAddressPoolResult {
+    /**
+     * An array of references to IP addresses defined in network interfaces.
+     */
+    readonly backendIpConfigurations: outputs.lb.GetBackendAddressPoolBackendIpConfiguration[];
     readonly loadbalancerId: string;
+    /**
+     * The name of the Backend Address Pool.
+     */
     readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

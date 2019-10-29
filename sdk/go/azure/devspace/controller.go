@@ -18,9 +18,6 @@ type Controller struct {
 // NewController registers a new resource with the given unique name, arguments, and options.
 func NewController(ctx *pulumi.Context,
 	name string, args *ControllerArgs, opts ...pulumi.ResourceOpt) (*Controller, error) {
-	if args == nil || args.HostSuffix == nil {
-		return nil, errors.New("missing required argument 'HostSuffix'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -35,7 +32,6 @@ func NewController(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["hostSuffix"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
@@ -44,7 +40,6 @@ func NewController(ctx *pulumi.Context,
 		inputs["targetContainerHostCredentialsBase64"] = nil
 		inputs["targetContainerHostResourceId"] = nil
 	} else {
-		inputs["hostSuffix"] = args.HostSuffix
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -54,6 +49,7 @@ func NewController(ctx *pulumi.Context,
 		inputs["targetContainerHostResourceId"] = args.TargetContainerHostResourceId
 	}
 	inputs["dataPlaneFqdn"] = nil
+	inputs["hostSuffix"] = nil
 	s, err := ctx.RegisterResource("azure:devspace/controller:Controller", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -99,7 +95,7 @@ func (r *Controller) DataPlaneFqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataPlaneFqdn"])
 }
 
-// The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
+// The host suffix for the DevSpace Controller.
 func (r *Controller) HostSuffix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostSuffix"])
 }
@@ -143,7 +139,7 @@ func (r *Controller) TargetContainerHostResourceId() *pulumi.StringOutput {
 type ControllerState struct {
 	// DNS name for accessing DataPlane services.
 	DataPlaneFqdn interface{}
-	// The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
+	// The host suffix for the DevSpace Controller.
 	HostSuffix interface{}
 	// Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
 	Location interface{}
@@ -163,8 +159,6 @@ type ControllerState struct {
 
 // The set of arguments for constructing a Controller resource.
 type ControllerArgs struct {
-	// The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
-	HostSuffix interface{}
 	// Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.

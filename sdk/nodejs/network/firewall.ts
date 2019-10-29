@@ -99,6 +99,10 @@ export class Firewall extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Specifies the availability zones in which the Azure Firewall should be created.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
             if (!args || args.ipConfiguration === undefined) {
@@ -130,6 +135,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts) {
             opts = {}
@@ -166,6 +172,10 @@ export interface FirewallState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Specifies the availability zones in which the Azure Firewall should be created.
+     */
+    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -192,4 +202,8 @@ export interface FirewallArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Specifies the availability zones in which the Azure Firewall should be created.
+     */
+    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

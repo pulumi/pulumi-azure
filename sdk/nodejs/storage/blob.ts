@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     source: "some-local-file.zip",
  *     storageAccountName: testAccount.name,
  *     storageContainerName: testContainer.name,
- *     type: "blob",
+ *     type: "Block",
  * });
  * ```
  *
@@ -86,7 +86,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: any}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -104,7 +104,7 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface BlobState {
      */
     readonly size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
     readonly source?: pulumi.Input<string>;
     /**
@@ -304,7 +304,7 @@ export interface BlobArgs {
      */
     readonly size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `sourceContent` or `sourceUri` is specified.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
     readonly source?: pulumi.Input<string>;
     /**

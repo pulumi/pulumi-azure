@@ -123,6 +123,10 @@ class KubernetesCluster(pulumi.CustomResource):
             * `enabled` (`pulumi.Input[bool]`)
             * `subnetName` (`pulumi.Input[str]`)
         
+          * `azurePolicy` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+        
           * `httpApplicationRouting` (`pulumi.Input[dict]`) - A `http_application_routing` block as defined below.
         
             * `enabled` (`pulumi.Input[bool]`)
@@ -275,6 +279,10 @@ class KubernetesCluster(pulumi.CustomResource):
         
             * `enabled` (`pulumi.Input[bool]`)
             * `subnetName` (`pulumi.Input[str]`)
+        
+          * `azurePolicy` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
         
           * `httpApplicationRouting` (`pulumi.Input[dict]`) - A `http_application_routing` block as defined below.
         

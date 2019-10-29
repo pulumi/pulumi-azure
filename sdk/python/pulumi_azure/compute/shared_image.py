@@ -62,8 +62,6 @@ class SharedImage(pulumi.CustomResource):
         """
         Manages a Shared Image within a Shared Image Gallery.
         
-        > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
-        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this Shared Image.

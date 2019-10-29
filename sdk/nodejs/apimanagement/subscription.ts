@@ -87,7 +87,7 @@ export class Subscription extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly secondaryKey!: pulumi.Output<string>;
     /**
-     * The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
+     * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface SubscriptionState {
     readonly resourceGroupName?: pulumi.Input<string>;
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
+     * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
     readonly state?: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface SubscriptionArgs {
     readonly resourceGroupName: pulumi.Input<string>;
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
+     * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
     readonly state?: pulumi.Input<string>;
     /**

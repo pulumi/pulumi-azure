@@ -123,7 +123,7 @@ func (r *Subscription) SecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
-// The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
+// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 func (r *Subscription) State() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["state"])
 }
@@ -150,7 +150,7 @@ type SubscriptionState struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	SecondaryKey interface{}
-	// The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
+	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State interface{}
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
 	SubscriptionId interface{}
@@ -170,7 +170,7 @@ type SubscriptionArgs struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	SecondaryKey interface{}
-	// The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
+	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
 	State interface{}
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
 	SubscriptionId interface{}

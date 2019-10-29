@@ -17,7 +17,7 @@ package main
 import (
 	_ "unsafe" // Import go:linkname
 
-	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 
 	azure "github.com/pulumi/pulumi-azure"
 	"github.com/pulumi/pulumi-azure/pkg/version"

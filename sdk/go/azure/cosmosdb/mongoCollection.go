@@ -36,6 +36,7 @@ func NewMongoCollection(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["shardKey"] = nil
+		inputs["throughput"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
 		inputs["databaseName"] = args.DatabaseName
@@ -44,6 +45,7 @@ func NewMongoCollection(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["shardKey"] = args.ShardKey
+		inputs["throughput"] = args.Throughput
 	}
 	s, err := ctx.RegisterResource("azure:cosmosdb/mongoCollection:MongoCollection", name, true, inputs, opts...)
 	if err != nil {
@@ -65,6 +67,7 @@ func GetMongoCollection(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["shardKey"] = state.ShardKey
+		inputs["throughput"] = state.Throughput
 	}
 	s, err := ctx.ReadResource("azure:cosmosdb/mongoCollection:MongoCollection", name, id, inputs, opts...)
 	if err != nil {
@@ -112,9 +115,14 @@ func (r *MongoCollection) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The name of the key to partition on for sharding. There must not be any other unique index keys. 
+// The name of the key to partition on for sharding. There must not be any other unique index keys.
 func (r *MongoCollection) ShardKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["shardKey"])
+}
+
+// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+func (r *MongoCollection) Throughput() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["throughput"])
 }
 
 // Input properties used for looking up and filtering MongoCollection resources.
@@ -130,8 +138,10 @@ type MongoCollectionState struct {
 	Name interface{}
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The name of the key to partition on for sharding. There must not be any other unique index keys. 
+	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey interface{}
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+	Throughput interface{}
 }
 
 // The set of arguments for constructing a MongoCollection resource.
@@ -147,6 +157,8 @@ type MongoCollectionArgs struct {
 	Name interface{}
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The name of the key to partition on for sharding. There must not be any other unique index keys. 
+	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey interface{}
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+	Throughput interface{}
 }

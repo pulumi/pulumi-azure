@@ -66,10 +66,10 @@ class ScaleSet(pulumi.CustomResource):
     
       * `ipConfigurations` (`list`) - An ip_configuration block as documented below.
     
-        * `applicationGatewayBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of one application gateway. Multiple scale sets cannot use the same application gateway.
+        * `applicationGatewayBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
         * `applicationSecurityGroupIds` (`list`) - Specifies up to `20` application security group IDs.
         * `loadBalancerBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-        * `loadBalancerInboundNatRulesIds` (`list`) - Specifies an array of references to inbound NAT rules for load balancers.
+        * `loadBalancerInboundNatRulesIds` (`list`) - Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         * `name` (`str`) - Specifies the name of the image from the marketplace.
         * `primary` (`bool`) - Specifies if this ip_configuration is the primary one.
         * `publicIpAddressConfiguration` (`dict`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
@@ -226,10 +226,7 @@ class ScaleSet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a virtual machine scale set.
-        
-        > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-        [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        Create a ScaleSet resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,10 +289,10 @@ class ScaleSet(pulumi.CustomResource):
         
           * `ipConfigurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
         
-            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of one application gateway. Multiple scale sets cannot use the same application gateway.
+            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - Specifies up to `20` application security group IDs.
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - Specifies an array of references to inbound NAT rules for load balancers.
+            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
             * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
             * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
             * `publicIpAddressConfiguration` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
@@ -531,10 +528,10 @@ class ScaleSet(pulumi.CustomResource):
         
           * `ipConfigurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
         
-            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of one application gateway. Multiple scale sets cannot use the same application gateway.
+            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
             * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - Specifies up to `20` application security group IDs.
             * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - Specifies an array of references to inbound NAT rules for load balancers.
+            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
             * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
             * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
             * `publicIpAddressConfiguration` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.

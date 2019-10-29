@@ -26,7 +26,7 @@ class SourceCodeToken(pulumi.CustomResource):
         """
         Manages an App Service source control token.
         
-        > **NOTE:** Source Control Token's are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
+        > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

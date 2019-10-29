@@ -8,11 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a virtual machine scale set.
-// 
-// > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
 type ScaleSet struct {
 	s *pulumi.ResourceState

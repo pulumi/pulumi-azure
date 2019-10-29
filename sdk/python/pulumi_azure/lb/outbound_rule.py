@@ -26,7 +26,7 @@ class OutboundRule(pulumi.CustomResource):
     """
     One or more `frontend_ip_configuration` blocks as defined below.
     
-      * `id` (`str`) - The ID of the Load Balancer to which the resource is attached.
+      * `id` (`str`) - The ID of the Load Balancer Outbound Rule.
       * `name` (`str`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
     """
     idle_timeout_in_minutes: pulumi.Output[float]
@@ -69,7 +69,7 @@ class OutboundRule(pulumi.CustomResource):
         
         The **frontend_ip_configurations** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer to which the resource is attached.
+          * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer Outbound Rule.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
@@ -135,7 +135,7 @@ class OutboundRule(pulumi.CustomResource):
         
         The **frontend_ip_configurations** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer to which the resource is attached.
+          * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer Outbound Rule.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.

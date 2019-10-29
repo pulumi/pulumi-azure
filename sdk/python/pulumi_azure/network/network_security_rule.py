@@ -56,7 +56,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
     """
     protocol: pulumi.Output[str]
     """
-    Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+    Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -103,7 +103,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_name: The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
         :param pulumi.Input[float] priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
         :param pulumi.Input[list] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
@@ -186,7 +186,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_name: The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
         :param pulumi.Input[float] priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
         :param pulumi.Input[list] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.

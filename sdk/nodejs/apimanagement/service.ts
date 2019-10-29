@@ -22,6 +22,15 @@ import * as utilities from "../utilities";
  * const testService = new azure.apimanagement.Service("test", {
  *     location: testResourceGroup.location,
  *     name: "example-apim",
+ *     policy: {
+ *         xmlContent: `    <policies>
+ *       <inbound />
+ *       <backend />
+ *       <outbound />
+ *       <on-error />
+ *     </policies>
+ * `,
+ *     },
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: testResourceGroup.name,

@@ -8,8 +8,6 @@ import (
 )
 
 // Use this data source to access information about an existing Shared Image Gallery.
-// 
-// > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
 func LookupSharedImageGallery(ctx *pulumi.Context, args *GetSharedImageGalleryArgs) (*GetSharedImageGalleryResult, error) {

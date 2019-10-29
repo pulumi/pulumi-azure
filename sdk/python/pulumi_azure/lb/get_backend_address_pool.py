@@ -13,13 +13,22 @@ class GetBackendAddressPoolResult:
     """
     A collection of values returned by getBackendAddressPool.
     """
-    def __init__(__self__, loadbalancer_id=None, name=None, id=None):
+    def __init__(__self__, backend_ip_configurations=None, loadbalancer_id=None, name=None, id=None):
+        if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
+            raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
+        __self__.backend_ip_configurations = backend_ip_configurations
+        """
+        An array of references to IP addresses defined in network interfaces.
+        """
         if loadbalancer_id and not isinstance(loadbalancer_id, str):
             raise TypeError("Expected argument 'loadbalancer_id' to be a str")
         __self__.loadbalancer_id = loadbalancer_id
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        """
+        The name of the Backend Address Pool.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -32,13 +41,14 @@ class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
         if False:
             yield self
         return GetBackendAddressPoolResult(
+            backend_ip_configurations=self.backend_ip_configurations,
             loadbalancer_id=self.loadbalancer_id,
             name=self.name,
             id=self.id)
 
 def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     """
-    Use this data source to access information about an existing Load Balancer Backend Address Pool.
+    Use this data source to access information about an existing Load Balancer's Backend Address Pool.
     
     :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
     :param str name: Specifies the name of the Backend Address Pool.
@@ -56,6 +66,7 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts).value
 
     return AwaitableGetBackendAddressPoolResult(
+        backend_ip_configurations=__ret__.get('backendIpConfigurations'),
         loadbalancer_id=__ret__.get('loadbalancerId'),
         name=__ret__.get('name'),
         id=__ret__.get('id'))

@@ -131,6 +131,7 @@ class FunctionApp(pulumi.CustomResource):
         * `allowedOrigins` (`list`)
         * `supportCredentials` (`bool`)
     
+      * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
       * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service should be attached to.
@@ -239,6 +240,7 @@ class FunctionApp(pulumi.CustomResource):
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
         
+          * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service should be attached to.
@@ -388,6 +390,7 @@ class FunctionApp(pulumi.CustomResource):
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
         
+          * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service should be attached to.

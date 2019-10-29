@@ -31,12 +31,14 @@ func NewFirewall(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
+		inputs["zones"] = nil
 	} else {
 		inputs["ipConfiguration"] = args.IpConfiguration
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
+		inputs["zones"] = args.Zones
 	}
 	s, err := ctx.RegisterResource("azure:network/firewall:Firewall", name, true, inputs, opts...)
 	if err != nil {
@@ -56,6 +58,7 @@ func GetFirewall(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["tags"] = state.Tags
+		inputs["zones"] = state.Zones
 	}
 	s, err := ctx.ReadResource("azure:network/firewall:Firewall", name, id, inputs, opts...)
 	if err != nil {
@@ -99,6 +102,11 @@ func (r *Firewall) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Specifies the availability zones in which the Azure Firewall should be created.
+func (r *Firewall) Zones() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["zones"])
+}
+
 // Input properties used for looking up and filtering Firewall resources.
 type FirewallState struct {
 	// A `ipConfiguration` block as documented below.
@@ -111,6 +119,8 @@ type FirewallState struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Specifies the availability zones in which the Azure Firewall should be created.
+	Zones interface{}
 }
 
 // The set of arguments for constructing a Firewall resource.
@@ -125,4 +135,6 @@ type FirewallArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Specifies the availability zones in which the Azure Firewall should be created.
+	Zones interface{}
 }

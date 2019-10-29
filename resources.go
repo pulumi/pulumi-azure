@@ -21,11 +21,10 @@ import (
 	"unicode"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
-	"github.com/hashicorp/terraform/configs/hcl2shim"
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/hashicorp/terraform/terraform"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
 	"github.com/pulumi/pulumi/pkg/util/contract"
@@ -1247,7 +1246,7 @@ func Provider() tfbridge.ProviderInfo {
 								// we special logic to propagate likewise unknown location values.
 								if rg, has := res.Properties["resourceGroupName"]; has {
 									if rg.IsComputed() || rg.IsOutput() {
-										return hcl2shim.UnknownVariableValue, nil
+										return tfbridge.TerraformUnknownVariableValue, nil
 									}
 									if rg.IsString() {
 										rgName := rg.StringValue()
@@ -1264,7 +1263,7 @@ func Provider() tfbridge.ProviderInfo {
 												return nil, err
 											}
 											if rgData.Id() == "" {
-												rgRegion = hcl2shim.UnknownVariableValue
+												rgRegion = tfbridge.TerraformUnknownVariableValue
 											} else {
 												rgRegion = azure.NormalizeLocation(rgData.Get("location"))
 											}

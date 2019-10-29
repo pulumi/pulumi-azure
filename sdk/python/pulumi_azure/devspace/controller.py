@@ -16,7 +16,7 @@ class Controller(pulumi.CustomResource):
     """
     host_suffix: pulumi.Output[str]
     """
-    The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
+    The host suffix for the DevSpace Controller.
     """
     location: pulumi.Output[str]
     """
@@ -49,13 +49,12 @@ class Controller(pulumi.CustomResource):
     """
     The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, host_suffix=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a DevSpace Controller.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] host_suffix: The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
@@ -88,9 +87,6 @@ class Controller(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if host_suffix is None:
-                raise TypeError("Missing required property 'host_suffix'")
-            __props__['host_suffix'] = host_suffix
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
@@ -107,6 +103,7 @@ class Controller(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_container_host_resource_id'")
             __props__['target_container_host_resource_id'] = target_container_host_resource_id
             __props__['data_plane_fqdn'] = None
+            __props__['host_suffix'] = None
         super(Controller, __self__).__init__(
             'azure:devspace/controller:Controller',
             resource_name,
@@ -123,7 +120,7 @@ class Controller(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_plane_fqdn: DNS name for accessing DataPlane services.
-        :param pulumi.Input[str] host_suffix: The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] host_suffix: The host suffix for the DevSpace Controller.
         :param pulumi.Input[str] location: Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
