@@ -30,6 +30,8 @@ import (
 	"github.com/pulumi/pulumi/pkg/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
+
+	"github.com/pulumi/pulumi-azure/pkg/version"
 )
 
 const (
@@ -208,6 +210,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		License:     "Apache-2.0",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
+		Version:     version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"subscription_id": {
 				Default: &tfbridge.DefaultInfo{
@@ -341,8 +344,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
 
 			// AppInsights
-			"azurerm_application_insights":         {Tok: azureResource(azureAppInsights, "Insights")},
-			"azurerm_application_insights_api_key": {Tok: azureResource(azureAppInsights, "ApiKey")},
+			"azurerm_application_insights": {Tok: azureResource(azureAppInsights, "Insights")},
+			"azurerm_application_insights_api_key": {
+				Tok: azureResource(azureAppInsights, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"api_key": {
+						CSharpName: "Key",
+					},
+				},
+			},
 			"azurerm_application_insights_web_test": {
 				Tok: azureResource(azureAppInsights, "WebTest"),
 				Docs: &tfbridge.DocInfo{
@@ -454,8 +464,15 @@ func Provider() tfbridge.ProviderInfo {
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
 			"azurerm_batch_application": {Tok: azureResource(azureBatch, "Application")},
-			"azurerm_batch_certificate": {Tok: azureResource(azureBatch, "Certificate")},
-			"azurerm_batch_pool":        {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_certificate": {
+				Tok: azureResource(azureBatch, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate": {
+						CSharpName: "BatchCertificate",
+					},
+				},
+			},
+			"azurerm_batch_pool": {Tok: azureResource(azureBatch, "Pool")},
 
 			// Core
 			"azurerm_resource_group": {
@@ -1207,6 +1224,12 @@ func Provider() tfbridge.ProviderInfo {
 				"pulumi": ">=1.0.0,<2.0.0",
 			},
 		},
+		CSharp: &tfbridge.CSharpInfo{
+			PackageReferences: map[string]string{
+				"Pulumi":                       "1.5.0-*",
+				"System.Collections.Immutable": "1.6.0",
+			},
+		},
 	}
 
 	renameLegacyModules(&prov)
@@ -1561,5 +1584,12 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 
 	// Fix the spelling on the KeyVault Certificate
 	renameResourceWithAlias("azurerm_key_vault_certificate", "Certifiate", "Certificate",
-		azureKeyVault, azureKeyVault, nil)
+		azureKeyVault, azureKeyVault, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"certificate": {
+					CSharpName: "KeyVaultCertificate",
+				},
+			},
+		},
+	)
 }
