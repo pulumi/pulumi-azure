@@ -15,8 +15,6 @@ DOTNET_PREFIX  := $(firstword $(subst -, ,${VERSION:v%=%})) # e.g. 1.5.0
 DOTNET_SUFFIX  := $(word 2,$(subst -, ,${VERSION:v%=%}))    # e.g. alpha.1
 DOTNET_VERSION := $(strip ${DOTNET_PREFIX})-preview-$(strip ${DOTNET_SUFFIX})
 
-LOCAL_NUGET ?= ~/.nuget/local
-
 TESTPARALLELISM := 20
 
 # Set NOPROXY to true to skip GOPROXY on 'ensure'
@@ -69,8 +67,6 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
-	mkdir -p ${LOCAL_NUGET}
-	cp -p ${PACKDIR}/dotnet/bin/Debug/*.nupkg ${LOCAL_NUGET}
 
 test_fast::
 	$(GO_TEST_FAST) ./examples
