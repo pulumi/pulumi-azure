@@ -40,6 +40,11 @@ namespace Pulumi.Azure.Config
         public static bool? DisableCorrelationRequestId { get; set; } = __config.GetBoolean("disableCorrelationRequestId");
 
         /// <summary>
+        /// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+        /// </summary>
+        public static bool? DisableTerraformPartnerId { get; set; } = __config.GetBoolean("disableTerraformPartnerId") ?? Utilities.GetEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") ?? true;
+
+        /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china.
         /// Defaults to public.
         /// </summary>

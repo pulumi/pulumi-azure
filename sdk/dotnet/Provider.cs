@@ -86,6 +86,12 @@ namespace Pulumi.Azure
         public Input<bool>? DisableCorrelationRequestId { get; set; }
 
         /// <summary>
+        /// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
+        /// </summary>
+        [Input("disableTerraformPartnerId", json: true)]
+        public Input<bool>? DisableTerraformPartnerId { get; set; }
+
+        /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china.
         /// Defaults to public.
         /// </summary>
@@ -142,6 +148,7 @@ namespace Pulumi.Azure
             ClientCertificatePath = Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PATH") ?? "";
             ClientId = Utilities.GetEnv("ARM_CLIENT_ID") ?? "";
             ClientSecret = Utilities.GetEnv("ARM_CLIENT_SECRET") ?? "";
+            DisableTerraformPartnerId = Utilities.GetEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") ?? true;
             Environment = Utilities.GetEnv("ARM_ENVIRONMENT") ?? "public";
             MsiEndpoint = Utilities.GetEnv("ARM_MSI_ENDPOINT") ?? "";
             PartnerId = Utilities.GetEnv("ARM_PARTNER_ID") ?? "";
