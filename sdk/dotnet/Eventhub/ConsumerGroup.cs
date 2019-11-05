@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Eventhub
+namespace Pulumi.Azure.EventHub
 {
     /// <summary>
     /// Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Servicebus
+namespace Pulumi.Azure.ServiceBus
 {
     /// <summary>
     /// Manages a ServiceBus Queue.

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Recoveryservices
+namespace Pulumi.Azure.RecoveryServices
 {
     /// <summary>
     /// Manages a Azure recovery vault fabric.

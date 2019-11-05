@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Hdinsight
+namespace Pulumi.Azure.HDInsight
 {
     /// <summary>
     /// Manages a HDInsight Hadoop Cluster.

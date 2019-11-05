@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Analysisservices
+namespace Pulumi.Azure.AnalysisServices
 {
     /// <summary>
     /// Manages an Analysis Services Server.

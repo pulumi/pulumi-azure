@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Cosmosdb
+namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Table within a Cosmos DB Account.

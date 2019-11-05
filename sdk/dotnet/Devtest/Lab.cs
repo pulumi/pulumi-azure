@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Devtest
+namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages a Dev Test Lab.

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Mariadb
+namespace Pulumi.Azure.MariaDB
 {
     /// <summary>
     /// Sets a MariaDB Configuration value on a MariaDB Server.

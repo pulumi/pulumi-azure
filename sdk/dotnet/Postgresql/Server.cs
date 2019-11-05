@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Postgresql
+namespace Pulumi.Azure.PostgreSql
 {
     /// <summary>
     /// Manages a PostgreSQL Server.

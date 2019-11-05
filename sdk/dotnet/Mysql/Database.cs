@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Mysql
+namespace Pulumi.Azure.MySql
 {
     /// <summary>
     /// Manages a MySQL Database within a MySQL Server

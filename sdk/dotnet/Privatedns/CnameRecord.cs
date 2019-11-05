@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Privatedns
+namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS CNAME Records within Azure Private DNS.

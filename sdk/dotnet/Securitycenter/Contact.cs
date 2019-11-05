@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Securitycenter
+namespace Pulumi.Azure.SecurityCenter
 {
     /// <summary>
     /// Manages the subscription's Security Center Contact.

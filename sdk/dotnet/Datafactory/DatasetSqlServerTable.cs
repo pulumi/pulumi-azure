@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Datafactory
+namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages a SQL Server Table Dataset inside a Azure Data Factory.

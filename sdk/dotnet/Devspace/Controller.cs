@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Devspace
+namespace Pulumi.Azure.DevSpace
 {
     /// <summary>
     /// Manages a DevSpace Controller.

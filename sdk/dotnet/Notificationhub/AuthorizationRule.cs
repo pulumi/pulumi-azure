@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Notificationhub
+namespace Pulumi.Azure.NotificationHub
 {
     /// <summary>
     /// Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.

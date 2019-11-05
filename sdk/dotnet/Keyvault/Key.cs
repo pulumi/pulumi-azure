@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Keyvault
+namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
     /// Manages a Key Vault Key.

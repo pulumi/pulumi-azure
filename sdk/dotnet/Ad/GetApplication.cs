@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Ad
+namespace Pulumi.Azure.AD
 {
     public static partial class Invokes
     {

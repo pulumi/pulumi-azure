@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Appservice
+namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// Promotes an App Service Slot to Production within an App Service.

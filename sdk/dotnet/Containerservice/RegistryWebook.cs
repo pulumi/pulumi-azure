@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Containerservice
+namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
     /// Manages an Azure Container Registry Webhook.
