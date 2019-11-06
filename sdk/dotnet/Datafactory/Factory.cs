@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Datafactory
+namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages an Azure Data Factory (Version 2).

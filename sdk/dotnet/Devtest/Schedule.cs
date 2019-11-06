@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Devtest
+namespace Pulumi.Azure.DevTest
 {
     /// <summary>
     /// Manages automated startup and shutdown schedules for Azure Dev Test Lab.

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Frontdoor
+namespace Pulumi.Azure.FrontDoor
 {
     /// <summary>
     /// Manages an Azure Front Door instance.

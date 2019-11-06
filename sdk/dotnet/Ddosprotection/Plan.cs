@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Ddosprotection
+namespace Pulumi.Azure.DdosProtection
 {
     /// <summary>
     /// Manages an Azure DDoS Protection Plan.

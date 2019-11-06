@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Databricks
+namespace Pulumi.Azure.DataBricks
 {
     /// <summary>
     /// Manages a Databricks Workspace

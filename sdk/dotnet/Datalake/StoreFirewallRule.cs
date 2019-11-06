@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Datalake
+namespace Pulumi.Azure.DataLake
 {
     /// <summary>
     /// Manages a Azure Data Lake Store Firewall Rule.

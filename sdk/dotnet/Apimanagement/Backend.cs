@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Apimanagement
+namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages a backend within an API Management Service.

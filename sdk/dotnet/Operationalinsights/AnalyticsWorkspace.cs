@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Operationalinsights
+namespace Pulumi.Azure.OperationalInsights
 {
     /// <summary>
     /// Manages a Log Analytics (formally Operational Insights) Workspace.

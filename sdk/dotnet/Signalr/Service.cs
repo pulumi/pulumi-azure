@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Signalr
+namespace Pulumi.Azure.SignalR
 {
     /// <summary>
     /// Manages an Azure SignalR service.

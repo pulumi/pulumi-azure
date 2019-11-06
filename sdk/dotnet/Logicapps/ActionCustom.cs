@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Logicapps
+namespace Pulumi.Azure.LogicApps
 {
     /// <summary>
     /// Manages a Custom Action within a Logic App Workflow

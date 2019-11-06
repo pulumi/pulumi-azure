@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Mediaservices
+namespace Pulumi.Azure.MediaServices
 {
     /// <summary>
     /// Manages a Media Services Account.

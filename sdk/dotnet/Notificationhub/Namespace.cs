@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Notificationhub
+namespace Pulumi.Azure.NotificationHub
 {
     /// <summary>
     /// Manages a Notification Hub Namespace.

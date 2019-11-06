@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Datalake
+namespace Pulumi.Azure.DataLake
 {
     public static partial class Invokes
     {
