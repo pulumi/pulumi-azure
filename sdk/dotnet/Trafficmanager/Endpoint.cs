@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Trafficmanager
+namespace Pulumi.Azure.TrafficManager
 {
     /// <summary>
     /// Manages a Traffic Manager Endpoint.
