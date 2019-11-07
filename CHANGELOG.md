@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add **preview** support for .NET
+_(none)_
 
 ---
+
+## 1.4.0 (2019-11-07)
+* Add **preview** support for .NET
 
 ## 1.3.1 (2019-10-29)
 * Upgrade to v1.36.1 of the AzureRM Terraform Provider
