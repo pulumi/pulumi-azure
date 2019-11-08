@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Managementgroups
+namespace Pulumi.Azure.ManagementGroups
 {
     public static partial class Invokes
     {

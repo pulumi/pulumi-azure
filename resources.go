@@ -1264,6 +1264,10 @@ func Provider() tfbridge.ProviderInfo {
 				"servicefabric":       "ServiceFabric",
 				"signalr":             "SignalR",
 				"streamanalytics":     "StreamAnalytics",
+				// legacy
+				"managementgroups":   "ManagementGroups",
+				"managementresource": "ManagementResource",
+				"trafficmanager":     "TrafficManager",
 			},
 		},
 	}

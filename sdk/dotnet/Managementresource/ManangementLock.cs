@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.Managementresource
+namespace Pulumi.Azure.ManagementResource
 {
     /// <summary>
     /// Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
