@@ -1229,6 +1229,15 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi":                       "1.5.0-preview",
 				"System.Collections.Immutable": "1.6.0",
 			},
+			Overlay: &tfbridge.OverlayInfo{
+				Modules: map[string]*tfbridge.OverlayInfo{
+					"Storage": {
+						DestFiles: []string{
+							"SharedAccessSignature.cs",
+						},
+					},
+				},
+			},
 			Namespaces: map[string]string{
 				"ad":                  "AD",
 				"analysisservices":    "AnalysisServices",
