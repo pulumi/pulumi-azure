@@ -6,6 +6,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge v1.2.1-0.20191106001426-e727be072e34
 	github.com/stretchr/testify v1.4.0
 	github.com/terraform-providers/terraform-provider-azurerm v1.36.0
+	golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7 // indirect
 )
 
 replace (
