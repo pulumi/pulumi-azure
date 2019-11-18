@@ -11,20 +11,20 @@ export let auxiliaryTenantIds: string[] | undefined = __config.getObject<string[
  * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
  * Certificate
  */
-export let clientCertificatePassword: string | undefined = __config.get("clientCertificatePassword") || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
+export let clientCertificatePassword: string | undefined = __config.get("clientCertificatePassword") || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
 /**
  * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
  * Principal using a Client Certificate.
  */
-export let clientCertificatePath: string | undefined = __config.get("clientCertificatePath") || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH") || "");
+export let clientCertificatePath: string | undefined = __config.get("clientCertificatePath") || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") || "");
 /**
  * The Client ID which should be used.
  */
-export let clientId: string | undefined = __config.get("clientId") || (utilities.getEnv("ARM_CLIENT_ID") || "");
+export let clientId: string | undefined = __config.get("clientId") || (utilities.getEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") || "");
 /**
  * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
  */
-export let clientSecret: string | undefined = __config.get("clientSecret") || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
+export let clientSecret: string | undefined = __config.get("clientSecret") || (utilities.getEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") || "");
 /**
  * This will disable the x-ms-correlation-request-id header.
  */
@@ -37,7 +37,7 @@ export let disableTerraformPartnerId: boolean | undefined = __config.getObject<b
  * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
  * public.
  */
-export let environment: string | undefined = __config.get("environment") || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
+export let environment: string | undefined = __config.get("environment") || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
 /**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.
@@ -63,7 +63,7 @@ export let subscriptionId: string | undefined = __config.get("subscriptionId") |
 /**
  * The Tenant ID which should be used.
  */
-export let tenantId: string | undefined = __config.get("tenantId") || (utilities.getEnv("ARM_TENANT_ID") || "");
+export let tenantId: string | undefined = __config.get("tenantId") || (utilities.getEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") || "");
 /**
  * Allowed Managed Service Identity be used for Authentication.
  */

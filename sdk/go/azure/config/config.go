@@ -19,7 +19,7 @@ func GetClientCertificatePassword(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PASSWORD").(string); ok {
+	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string); ok {
 		return dv
 	}
 	return v
@@ -32,7 +32,7 @@ func GetClientCertificatePath(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PATH").(string); ok {
+	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH").(string); ok {
 		return dv
 	}
 	return v
@@ -44,7 +44,7 @@ func GetClientId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_CLIENT_ID").(string); ok {
+	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID").(string); ok {
 		return dv
 	}
 	return v
@@ -56,7 +56,7 @@ func GetClientSecret(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_CLIENT_SECRET").(string); ok {
+	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string); ok {
 		return dv
 	}
 	return v
@@ -86,7 +86,7 @@ func GetEnvironment(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("public", nil, "ARM_ENVIRONMENT").(string); ok {
+	if dv, ok := getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string); ok {
 		return dv
 	}
 	return v
@@ -160,7 +160,7 @@ func GetTenantId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_TENANT_ID").(string); ok {
+	if dv, ok := getEnvOrDefault("", nil, "AZURE_TENANT_ID", "ARM_TENANT_ID").(string); ok {
 		return dv
 	}
 	return v
