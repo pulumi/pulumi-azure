@@ -30,18 +30,14 @@ namespace Pulumi.Azure.Storage
         public static Output<string> SignedBlobReadUrl(ZipBlob blob, Account account)
         {
             return Output
-                .All<string>(account.Name, account.PrimaryConnectionString, blob.StorageContainerName, blob.Name)
-                .Apply(async values =>
-                {
-                    string accountName = values[0];
-                    string connectionString = values[1];
-                    string containerName = values[2];
-                    string blobName = values[3];
+                .Tuple(account.Name, account.PrimaryConnectionString, blob.StorageContainerName, blob.Name)
+                .Apply(async ((string accountName, string connectionString, string containerName, string blobName) v) =>
+                {                    
                     var sas = await Invokes.GetAccountBlobContainerSAS(
                         new GetAccountBlobContainerSASArgs
                         {
-                            ConnectionString = connectionString,
-                            ContainerName = containerName,
+                            ConnectionString = v.connectionString,
+                            ContainerName = v.containerName,
                             Start = "2019-01-01",
                             Expiry = "2100-01-01",
                             Permissions = new Inputs.GetAccountBlobContainerSASPermissionsArgs
@@ -55,7 +51,7 @@ namespace Pulumi.Azure.Storage
                             },
                         }
                     );
-                    return $"https://{accountName}.blob.core.windows.net/{containerName}/{blobName}{sas.Sas}";
+                    return $"https://{v.accountName}.blob.core.windows.net/{v.containerName}/{v.blobName}{sas.Sas}";
                 });
         }
     }
