@@ -7,3 +7,5 @@ Pulumi.*.yaml
 yarn.lock
 .idea/
 *.iml
+obj/
+bin/
