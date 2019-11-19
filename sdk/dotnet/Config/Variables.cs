@@ -15,24 +15,24 @@ namespace Pulumi.Azure.Config
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal
         /// using a Client Certificate
         /// </summary>
-        public static string? ClientCertificatePassword { get; set; } = __config.Get("clientCertificatePassword") ?? Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PASSWORD") ?? "";
+        public static string? ClientCertificatePassword { get; set; } = __config.Get("clientCertificatePassword") ?? Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") ?? "";
 
         /// <summary>
         /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a
         /// Service Principal using a Client Certificate.
         /// </summary>
-        public static string? ClientCertificatePath { get; set; } = __config.Get("clientCertificatePath") ?? Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PATH") ?? "";
+        public static string? ClientCertificatePath { get; set; } = __config.Get("clientCertificatePath") ?? Utilities.GetEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") ?? "";
 
         /// <summary>
         /// The Client ID which should be used.
         /// </summary>
-        public static string? ClientId { get; set; } = __config.Get("clientId") ?? Utilities.GetEnv("ARM_CLIENT_ID") ?? "";
+        public static string? ClientId { get; set; } = __config.Get("clientId") ?? Utilities.GetEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") ?? "";
 
         /// <summary>
         /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client
         /// Secret.
         /// </summary>
-        public static string? ClientSecret { get; set; } = __config.Get("clientSecret") ?? Utilities.GetEnv("ARM_CLIENT_SECRET") ?? "";
+        public static string? ClientSecret { get; set; } = __config.Get("clientSecret") ?? Utilities.GetEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") ?? "";
 
         /// <summary>
         /// This will disable the x-ms-correlation-request-id header.
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Config
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china.
         /// Defaults to public.
         /// </summary>
-        public static string? Environment { get; set; } = __config.Get("environment") ?? Utilities.GetEnv("ARM_ENVIRONMENT") ?? "public";
+        public static string? Environment { get; set; } = __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
 
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Config
         /// <summary>
         /// The Tenant ID which should be used.
         /// </summary>
-        public static string? TenantId { get; set; } = __config.Get("tenantId") ?? Utilities.GetEnv("ARM_TENANT_ID") ?? "";
+        public static string? TenantId { get; set; } = __config.Get("tenantId") ?? Utilities.GetEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") ?? "";
 
         /// <summary>
         /// Allowed Managed Service Identity be used for Authentication.

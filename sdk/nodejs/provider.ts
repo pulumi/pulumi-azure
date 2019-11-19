@@ -39,19 +39,19 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         {
             inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
-            inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
-            inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH") || "");
-            inputs["clientId"] = (args ? args.clientId : undefined) || (utilities.getEnv("ARM_CLIENT_ID") || "");
-            inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
+            inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
+            inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") || "");
+            inputs["clientId"] = (args ? args.clientId : undefined) || (utilities.getEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID") || "");
+            inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET") || "");
             inputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
             inputs["disableTerraformPartnerId"] = pulumi.output((args ? args.disableTerraformPartnerId : undefined) || (utilities.getEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") || true)).apply(JSON.stringify);
-            inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
+            inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
             inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
             inputs["partnerId"] = (args ? args.partnerId : undefined) || (utilities.getEnv("ARM_PARTNER_ID") || "");
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false)).apply(JSON.stringify);
             inputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
-            inputs["tenantId"] = (args ? args.tenantId : undefined) || (utilities.getEnv("ARM_TENANT_ID") || "");
+            inputs["tenantId"] = (args ? args.tenantId : undefined) || (utilities.getEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") || "");
             inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) || (utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
         }
         if (!opts) {

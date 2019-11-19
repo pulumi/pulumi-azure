@@ -13,24 +13,24 @@ __config__ = pulumi.Config('azure')
 
 auxiliary_tenant_ids = __config__.get('auxiliaryTenantIds')
 
-client_certificate_password = __config__.get('clientCertificatePassword') or (utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
+client_certificate_password = __config__.get('clientCertificatePassword') or (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PASSWORD', 'ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
 """
 The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
 Certificate
 """
 
-client_certificate_path = __config__.get('clientCertificatePath') or (utilities.get_env('ARM_CLIENT_CERTIFICATE_PATH') or '')
+client_certificate_path = __config__.get('clientCertificatePath') or (utilities.get_env('AZURE_CLIENT_CERTIFICATE_PATH', 'ARM_CLIENT_CERTIFICATE_PATH') or '')
 """
 The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
 Principal using a Client Certificate.
 """
 
-client_id = __config__.get('clientId') or (utilities.get_env('ARM_CLIENT_ID') or '')
+client_id = __config__.get('clientId') or (utilities.get_env('AZURE_CLIENT_ID', 'ARM_CLIENT_ID') or '')
 """
 The Client ID which should be used.
 """
 
-client_secret = __config__.get('clientSecret') or (utilities.get_env('ARM_CLIENT_SECRET') or '')
+client_secret = __config__.get('clientSecret') or (utilities.get_env('AZURE_CLIENT_SECRET', 'ARM_CLIENT_SECRET') or '')
 """
 The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 """
@@ -45,7 +45,7 @@ disable_terraform_partner_id = __config__.get('disableTerraformPartnerId') or (u
 This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 """
 
-environment = __config__.get('environment') or (utilities.get_env('ARM_ENVIRONMENT') or 'public')
+environment = __config__.get('environment') or (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
 """
 The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 public.
@@ -78,7 +78,7 @@ subscription_id = __config__.get('subscriptionId') or (utilities.get_env('ARM_SU
 The Subscription ID which should be used.
 """
 
-tenant_id = __config__.get('tenantId') or (utilities.get_env('ARM_TENANT_ID') or '')
+tenant_id = __config__.get('tenantId') or (utilities.get_env('AZURE_TENANT_ID', 'ARM_TENANT_ID') or '')
 """
 The Tenant ID which should be used.
 """

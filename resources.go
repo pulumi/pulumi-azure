@@ -221,37 +221,37 @@ func Provider() tfbridge.ProviderInfo {
 			"client_id": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
-					EnvVars: []string{"ARM_CLIENT_ID"},
+					EnvVars: []string{"AZURE_CLIENT_ID", "ARM_CLIENT_ID"},
 				},
 			},
 			"tenant_id": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   cloudShell.tenantID,
-					EnvVars: []string{"ARM_TENANT_ID"},
+					EnvVars: []string{"AZURE_TENANT_ID", "ARM_TENANT_ID"},
 				},
 			},
 			"environment": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "public",
-					EnvVars: []string{"ARM_ENVIRONMENT"},
+					EnvVars: []string{"AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"},
 				},
 			},
 			"client_certificate_password": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
-					EnvVars: []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"},
+					EnvVars: []string{"AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD"},
 				},
 			},
 			"client_certificate_path": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
-					EnvVars: []string{"ARM_CLIENT_CERTIFICATE_PATH"},
+					EnvVars: []string{"AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH"},
 				},
 			},
 			"client_secret": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
-					EnvVars: []string{"ARM_CLIENT_SECRET"},
+					EnvVars: []string{"AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET"},
 				},
 			},
 			"partner_id": {

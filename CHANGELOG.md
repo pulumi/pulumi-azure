@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to support go 1.13.x
+* Allow service principle credentials to be specified via environment variables prefixed with `AZURE_` as per the documented standard in addition to those with the prefix `ARM_`.
 
 ---
 
