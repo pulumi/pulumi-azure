@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ServiceBus
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_authorization_rule.html.markdown.
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> GetNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs

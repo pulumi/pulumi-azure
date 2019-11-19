@@ -15,7 +15,7 @@ namespace Pulumi.Azure.KeyVault
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
         /// </summary>
         public static Task<GetAccessPolicyResult> GetAccessPolicy(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAccessPolicyArgs : Pulumi.ResourceArgs

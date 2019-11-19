@@ -131,7 +131,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WindowsVirtualMachine(string name, WindowsVirtualMachineArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, args, MakeResourceOptions(options, ""))
+            : base("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

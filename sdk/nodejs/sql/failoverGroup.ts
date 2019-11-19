@@ -17,13 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "uksouth",
- *     name: "example",
  * });
  * const primary = new azure.sql.SqlServer("primary", {
  *     administratorLogin: "sqladmin",
  *     administratorLoginPassword: "pa$$w0rd",
  *     location: exampleResourceGroup.location,
- *     name: "sql-primary",
  *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
  * });
@@ -31,19 +29,16 @@ import * as utilities from "../utilities";
  *     administratorLogin: "sqladmin",
  *     administratorLoginPassword: "pa$$w0rd",
  *     location: "northeurope",
- *     name: "sql-secondary",
  *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
  * });
  * const db1 = new azure.sql.Database("db1", {
  *     location: primary.location,
- *     name: "db1",
  *     resourceGroupName: primary.resourceGroupName,
  *     serverName: primary.name,
  * });
  * const exampleFailoverGroup = new azure.sql.FailoverGroup("example", {
  *     databases: [db1.id],
- *     name: "example-failover-group",
  *     partnerServers: [{
  *         id: secondary.id,
  *     }],

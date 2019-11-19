@@ -41,7 +41,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TriggerCustom(string name, TriggerCustomArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/triggerCustom:TriggerCustom", name, args, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/triggerCustom:TriggerCustom", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

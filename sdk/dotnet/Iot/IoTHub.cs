@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IoTHub(string name, IoTHubArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/ioTHub:IoTHub", name, args, MakeResourceOptions(options, ""))
+            : base("azure:iot/ioTHub:IoTHub", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

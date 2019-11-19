@@ -15,7 +15,7 @@ namespace Pulumi.Azure.PostgreSql
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
         /// </summary>
         public static Task<GetServerResult> GetServer(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:postgresql/getServer:getServer", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServerArgs : Pulumi.ResourceArgs

@@ -47,7 +47,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TriggerRecurrence(string name, TriggerRecurrenceArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, args, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

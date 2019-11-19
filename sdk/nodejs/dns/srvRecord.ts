@@ -17,14 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testZone = new azure.dns.Zone("test", {
- *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSrvRecord = new azure.dns.SrvRecord("test", {
- *     name: "test",
  *     records: [{
  *         port: 8080,
  *         priority: 1,

@@ -18,12 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * import sprintf = require("sprintf-js");
  * 
  * const current = azure.core.getClientConfig();
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "my-resource-group",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -46,7 +44,6 @@ import * as utilities from "../utilities";
  *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
- *     name: server.hex.apply(hex => sprintf.sprintf("%s%s", "kv", hex)),
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "premium",
  *     tags: {
@@ -56,7 +53,6 @@ import * as utilities from "../utilities";
  * });
  * const testSecret = new azure.keyvault.Secret("test", {
  *     keyVaultId: testKeyVault.id,
- *     name: "secret-sauce",
  *     tags: {
  *         environment: "Production",
  *     },

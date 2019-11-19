@@ -18,17 +18,14 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "example-resources",
  * });
  * const exampleInsights = new azure.appinsights.Insights("example", {
  *     applicationType: "Other",
  *     location: exampleResourceGroup.location,
- *     name: "example-appinsights",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleService = new azure.apimanagement.Service("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example-apim",
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -39,7 +36,6 @@ import * as utilities from "../utilities";
  *     applicationInsights: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
- *     name: "example-logger",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

@@ -86,7 +86,7 @@ namespace Pulumi.Azure.MSSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ElasticPool(string name, ElasticPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure:mssql/elasticPool:ElasticPool", name, args, MakeResourceOptions(options, ""))
+            : base("azure:mssql/elasticPool:ElasticPool", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

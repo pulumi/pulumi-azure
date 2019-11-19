@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "resourceGroup1",
  * });
  * const testPublicIpPrefix = new azure.network.PublicIpPrefix("test", {
  *     location: testResourceGroup.location,
- *     name: "acceptanceTestPublicIpPrefix1",
  *     prefixLength: 31,
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {

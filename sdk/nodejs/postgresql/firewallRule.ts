@@ -15,12 +15,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const testServer = new azure.postgresql.Server("test", {});
  * const testFirewallRule = new azure.postgresql.FirewallRule("test", {
  *     endIpAddress: "40.112.8.12",
- *     name: "office",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,
  *     startIpAddress: "40.112.8.12",
@@ -35,12 +33,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const testServer = new azure.postgresql.Server("test", {});
  * const testFirewallRule = new azure.postgresql.FirewallRule("test", {
  *     endIpAddress: "40.112.255.255",
- *     name: "office",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,
  *     startIpAddress: "40.112.0.0",

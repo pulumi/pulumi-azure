@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
         /// </summary>
         public static Task<GetGroupResult> GetGroup(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetGroupArgs : Pulumi.ResourceArgs

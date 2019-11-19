@@ -16,12 +16,10 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig();
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "example",
  * });
  * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
  *     location: "global",
  *     microsoftAppId: current.servicePrincipalApplicationId,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });
@@ -30,7 +28,6 @@ import * as utilities from "../utilities";
  *     clientId: "exampleId",
  *     clientSecret: "exampleSecret",
  *     location: exampleChannelsRegistration.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serviceProviderName: "box",
  * });

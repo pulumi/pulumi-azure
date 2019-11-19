@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MxRecord(string name, MxRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/mxRecord:MxRecord", name, args, MakeResourceOptions(options, ""))
+            : base("azure:dns/mxRecord:MxRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

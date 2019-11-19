@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ContainerService
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
         /// </summary>
         public static Task<GetKubernetesServiceVersionsResult> GetKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesServiceVersionsResult>("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetKubernetesServiceVersionsArgs : Pulumi.ResourceArgs

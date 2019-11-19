@@ -26,20 +26,17 @@ import * as utilities from "../utilities";
  *     capacity: 1,
  *     kafkaEnabled: false,
  *     location: exampleResourceGroup.location,
- *     name: "example-ehnamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const testEventHub = new azure.eventhub.EventHub("test", {
  *     messageRetention: 1,
- *     name: "example-eventhub",
  *     namespaceName: azurerm_eventhub_namespace_example.name,
  *     partitionCount: 2,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("example", {
  *     eventhubName: azurerm_eventhub_example.name,
- *     name: "output-to-eventhub",
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         type: "Avro",

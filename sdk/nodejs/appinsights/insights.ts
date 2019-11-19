@@ -15,12 +15,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "tf-test",
  * });
  * const testInsights = new azure.appinsights.Insights("test", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * 

@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "tfex-automation-account",
  * });
  * const exampleAccount = new azure.automation.Account("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex-automation-account",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Basic",
@@ -32,7 +30,6 @@ import * as utilities from "../utilities";
  *     description: "This is an example schedule",
  *     frequency: "Week",
  *     interval: 1,
- *     name: "tfex-automation-schedule",
  *     resourceGroupName: exampleResourceGroup.name,
  *     startTime: "2014-04-15T18:00:15+02:00",
  *     timezone: "Central Europe Standard Time",

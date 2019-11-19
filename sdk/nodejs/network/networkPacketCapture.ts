@@ -17,22 +17,18 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "packet-capture-rg",
  * });
  * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
  *     location: testResourceGroup.location,
- *     name: "network-watcher",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
- *     name: "production-network",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "internal",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -43,12 +39,10 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     }],
  *     location: testResourceGroup.location,
- *     name: "pctest-nic",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
  *     location: testResourceGroup.location,
- *     name: "pctest-vm",
  *     networkInterfaceIds: [testNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
@@ -76,7 +70,6 @@ import * as utilities from "../utilities";
  * const testExtension = new azure.compute.Extension("test", {
  *     autoUpgradeMinorVersion: true,
  *     location: testResourceGroup.location,
- *     name: "network-watcher",
  *     publisher: "Microsoft.Azure.NetworkWatcher",
  *     resourceGroupName: testResourceGroup.name,
  *     type: "NetworkWatcherAgentLinux",
@@ -87,11 +80,9 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "pctestsa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkPacketCapture = new azure.network.NetworkPacketCapture("test", {
- *     name: "pctestcapture",
  *     networkWatcherName: testNetworkWatcher.name,
  *     resourceGroupName: testResourceGroup.name,
  *     storageLocation: {

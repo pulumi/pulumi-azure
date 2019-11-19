@@ -22,12 +22,10 @@ import * as utilities from "../utilities";
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: "West US 2",
- *     name: "acctvn",
  *     resourceGroupName: "acctestRG",
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
  *     resourceGroupName: "acctestRG",
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -38,12 +36,10 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     }],
  *     location: "West US 2",
- *     name: "acctni",
  *     resourceGroupName: "acctestRG",
  * });
  * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
  *     location: "West US 2",
- *     name: "acctvm",
  *     networkInterfaceIds: [testNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",

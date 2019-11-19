@@ -15,7 +15,7 @@ namespace Pulumi.Azure.HDInsight
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/hdinsight_cluster.html.markdown.
         /// </summary>
         public static Task<GetClusterResult> GetCluster(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetClusterArgs : Pulumi.ResourceArgs

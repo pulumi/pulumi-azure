@@ -17,13 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "storageaccountname",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
@@ -39,17 +37,14 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
- *     name: "virtnetname",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "subnetname",
  *     resourceGroupName: testResourceGroup.name,
  *     serviceEndpoints: [
  *         "Microsoft.Sql",
@@ -61,7 +56,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "storageaccountname",
  *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["100.0.0.1"],

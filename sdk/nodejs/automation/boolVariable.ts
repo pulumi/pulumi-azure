@@ -18,11 +18,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "tfex-example-rg",
  * });
  * const exampleAccount = new azure.automation.Account("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex-example-account",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Basic",
@@ -30,7 +28,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleBoolVariable = new azure.automation.BoolVariable("example", {
  *     automationAccountName: exampleAccount.name,
- *     name: "tfex-example-var",
  *     resourceGroupName: exampleResourceGroup.name,
  *     value: false,
  * });

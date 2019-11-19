@@ -15,11 +15,9 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "eastus",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testIdentity = new azure.authorization.UserAssignedIdentity("testIdentity", {
  *     location: test.location,
- *     name: "search-api",
  *     resourceGroupName: test.name,
  * });
  * ```

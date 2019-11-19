@@ -19,12 +19,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "autoscalingTest",
  * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {});
  * const testSetting = new azure.autoscale.Setting("test", {
  *     location: testResourceGroup.location,
- *     name: "myAutoscaleSetting",
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -91,12 +89,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "autoscalingTest",
  * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {});
  * const testSetting = new azure.autoscale.Setting("test", {
  *     location: testResourceGroup.location,
- *     name: "myAutoscaleSetting",
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -173,13 +169,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "autoscalingTest",
  * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {});
  * const testSetting = new azure.autoscale.Setting("test", {
  *     enabled: true,
  *     location: testResourceGroup.location,
- *     name: "myAutoscaleSetting",
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],

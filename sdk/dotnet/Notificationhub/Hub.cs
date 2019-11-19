@@ -59,7 +59,7 @@ namespace Pulumi.Azure.NotificationHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Hub(string name, HubArgs args, CustomResourceOptions? options = null)
-            : base("azure:notificationhub/hub:Hub", name, args, MakeResourceOptions(options, ""))
+            : base("azure:notificationhub/hub:Hub", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

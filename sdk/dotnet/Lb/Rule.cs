@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Lb
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Rule(string name, RuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:lb/rule:Rule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:lb/rule:Rule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

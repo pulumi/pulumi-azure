@@ -17,13 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "exprtTest",
  * });
  * const testExpressRouteCircuit = new azure.network.ExpressRouteCircuit("test", {
  *     allowClassicOperations: false,
  *     bandwidthInMbps: 50,
  *     location: testResourceGroup.location,
- *     name: "expressRoute1",
  *     peeringLocation: "Silicon Valley",
  *     resourceGroupName: testResourceGroup.name,
  *     serviceProviderName: "Equinix",
@@ -37,7 +35,6 @@ import * as utilities from "../utilities";
  * });
  * const testExpressRouteCircuitAuthorization = new azure.network.ExpressRouteCircuitAuthorization("test", {
  *     expressRouteCircuitName: testExpressRouteCircuit.name,
- *     name: "exampleERCAuth",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```

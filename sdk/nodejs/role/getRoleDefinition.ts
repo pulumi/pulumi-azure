@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * 
  * const primary = azure.core.getSubscription();
  * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
- *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });

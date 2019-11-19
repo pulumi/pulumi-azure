@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig();
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "key-vault-certificate-example",
  * });
  * const testKeyVault = new azure.keyvault.KeyVault("test", {
  *     accessPolicies: [{
@@ -68,7 +67,6 @@ import * as utilities from "../utilities";
  *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
- *     name: "keyvaultcertexample",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "standard",
  *     tags: {
@@ -121,7 +119,6 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     keyVaultId: testKeyVault.id,
- *     name: "generated-cert",
  * });
  * ```
  *

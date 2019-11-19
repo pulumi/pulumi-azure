@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: "West US",
- *     name: "acceptanceTestPublicIp1",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "Production",

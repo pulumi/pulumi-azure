@@ -65,7 +65,7 @@ namespace Pulumi.Azure.DataBricks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workspace(string name, WorkspaceArgs args, CustomResourceOptions? options = null)
-            : base("azure:databricks/workspace:Workspace", name, args, MakeResourceOptions(options, ""))
+            : base("azure:databricks/workspace:Workspace", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

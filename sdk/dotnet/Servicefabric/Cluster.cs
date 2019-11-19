@@ -137,7 +137,7 @@ namespace Pulumi.Azure.ServiceFabric
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicefabric/cluster:Cluster", name, args, MakeResourceOptions(options, ""))
+            : base("azure:servicefabric/cluster:Cluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Network
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
         /// </summary>
         public static Task<GetPublicIpPrefixResult> GetPublicIpPrefix(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetPublicIpPrefixArgs : Pulumi.ResourceArgs

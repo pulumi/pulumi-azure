@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "resourcegroup-01",
  * });
  * const testAccount = new azure.automation.Account("test", {
  *     location: testResourceGroup.location,
- *     name: "automation-01",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "Basic",
@@ -32,7 +30,6 @@ import * as utilities from "../utilities";
  * });
  * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
  *     location: testResourceGroup.location,
- *     name: "workspace-01",
  *     resourceGroupName: testResourceGroup.name,
  *     retentionInDays: 30,
  *     sku: "PerGB2018",

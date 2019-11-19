@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConsumerGroup(string name, ConsumerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/consumerGroup:ConsumerGroup", name, args, MakeResourceOptions(options, ""))
+            : base("azure:iot/consumerGroup:ConsumerGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

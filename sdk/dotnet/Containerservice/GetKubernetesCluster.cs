@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
         /// </summary>
         public static Task<GetKubernetesClusterResult> GetKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetKubernetesClusterArgs : Pulumi.ResourceArgs

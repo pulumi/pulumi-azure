@@ -15,7 +15,7 @@ namespace Pulumi.Azure.LogicApps
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
         /// </summary>
         public static Task<GetWorkflowResult> GetWorkflow(GetWorkflowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure:logicapps/getWorkflow:getWorkflow", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetWorkflowArgs : Pulumi.ResourceArgs

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleCassandraKeyspace = new azure.cosmosdb.CassandraKeyspace("example", {
  *     accountName: exampleAccount.name,
- *     name: "tfex-cosmos-cassandra-keyspace",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  * });
  * ```

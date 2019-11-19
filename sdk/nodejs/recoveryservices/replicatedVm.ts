@@ -17,21 +17,17 @@ import * as utilities from "../utilities";
  * 
  * const primaryResourceGroup = new azure.core.ResourceGroup("primary", {
  *     location: "West US",
- *     name: "tfex-replicated-vm-primary",
  * });
  * const secondaryResourceGroup = new azure.core.ResourceGroup("secondary", {
  *     location: "East US",
- *     name: "tfex-replicated-vm-secondary",
  * });
  * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: primaryResourceGroup.location,
- *     name: "network1",
  *     resourceGroupName: primaryResourceGroup.name,
  * });
  * const primarySubnet = new azure.network.Subnet("primary", {
  *     addressPrefix: "192.168.1.0/24",
- *     name: "network1-subnet",
  *     resourceGroupName: primaryResourceGroup.name,
  *     virtualNetworkName: primaryVirtualNetwork.name,
  * });
@@ -42,12 +38,10 @@ import * as utilities from "../utilities";
  *         subnetId: primarySubnet.id,
  *     }],
  *     location: primaryResourceGroup.location,
- *     name: "vm-nic",
  *     resourceGroupName: primaryResourceGroup.name,
  * });
  * const vmVirtualMachine = new azure.compute.VirtualMachine("vm", {
  *     location: primaryResourceGroup.location,
- *     name: "vm",
  *     networkInterfaceIds: [vmNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "test-pwd-123",
@@ -75,43 +69,36 @@ import * as utilities from "../utilities";
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: secondaryResourceGroup.location,
- *     name: "example-recovery-vault",
  *     resourceGroupName: secondaryResourceGroup.name,
  *     sku: "Standard",
  * });
  * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
  *     location: primaryResourceGroup.location,
- *     name: "primary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
  *     location: secondaryResourceGroup.location,
- *     name: "secondary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const primaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("primary", {
- *     name: "primary-protection-container",
  *     recoveryFabricName: primaryFabric.name,
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const secondaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("secondary", {
- *     name: "secondary-protection-container",
  *     recoveryFabricName: secondaryFabric.name,
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const policy = new azure.recoveryservices.ReplicationPolicy("policy", {
  *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
- *     name: "policy",
  *     recoveryPointRetentionInMinutes: (24 * 60),
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const containerMapping = new azure.recoveryservices.ProtectionContainerMapping("container-mapping", {
- *     name: "container-mapping",
  *     recoveryFabricName: primaryFabric.name,
  *     recoveryReplicationPolicyId: policy.id,
  *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
@@ -123,7 +110,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: primaryResourceGroup.location,
- *     name: "primaryrecoverycache",
  *     resourceGroupName: primaryResourceGroup.name,
  * });
  * const vmReplication = new azure.recoveryservices.ReplicatedVm("vm-replication", {
@@ -134,7 +120,6 @@ import * as utilities from "../utilities";
  *         targetReplicaDiskType: "Premium_LRS",
  *         targetResourceGroupId: secondaryResourceGroup.id,
  *     }],
- *     name: "vm-replication",
  *     recoveryReplicationPolicyId: policy.id,
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,

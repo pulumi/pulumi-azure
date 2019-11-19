@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Iot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dps(string name, DpsArgs args, CustomResourceOptions? options = null)
-            : base("azure:iot/dps:Dps", name, args, MakeResourceOptions(options, ""))
+            : base("azure:iot/dps:Dps", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

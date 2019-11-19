@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Lb
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
         /// </summary>
         public static Task<GetLBResult> GetLB(GetLBArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetLBArgs : Pulumi.ResourceArgs

@@ -56,7 +56,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CnameRecord(string name, CnameRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:privatedns/cnameRecord:CnameRecord", name, args, MakeResourceOptions(options, ""))
+            : base("azure:privatedns/cnameRecord:CnameRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

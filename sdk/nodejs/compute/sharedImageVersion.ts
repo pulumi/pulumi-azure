@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  *     imageName: existingSharedImage.name,
  *     location: existingSharedImage.location,
  *     managedImageId: existingImage.id,
- *     name: "0.0.1",
  *     resourceGroupName: existingSharedImage.resourceGroupName,
  *     targetRegions: [{
  *         name: existingSharedImage.location,

@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     }
  *   `,
  *     mode: "Indexed",
- *     name: "accTestPolicy",
  *     parameters: `	{
  *     "allowedLocations": {
  *       "type": "Array",

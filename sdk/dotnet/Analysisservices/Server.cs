@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AnalysisServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("azure:analysisservices/server:Server", name, args, MakeResourceOptions(options, ""))
+            : base("azure:analysisservices/server:Server", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

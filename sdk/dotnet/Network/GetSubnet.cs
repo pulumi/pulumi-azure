@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Network
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
         /// </summary>
         public static Task<GetSubnetResult> GetSubnet(GetSubnetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure:network/getSubnet:getSubnet", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("azure:network/getSubnet:getSubnet", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSubnetArgs : Pulumi.ResourceArgs

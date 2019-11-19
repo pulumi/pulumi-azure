@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
         /// </summary>
         public static Task<GetAvailabilitySetResult> GetAvailabilitySet(GetAvailabilitySetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure:compute/getAvailabilitySet:getAvailabilitySet", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAvailabilitySetArgs : Pulumi.ResourceArgs

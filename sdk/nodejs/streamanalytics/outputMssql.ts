@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  *     administratorLogin: "dbadmin",
  *     administratorLoginPassword: "example-password",
  *     location: azurerm_resource_group_example.location,
- *     name: "example-server",
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     version: "12.0",
  * });
@@ -35,14 +34,12 @@ import * as utilities from "../utilities";
  *     createMode: "Default",
  *     location: azurerm_resource_group_example.location,
  *     maxSizeBytes: "268435456000",
- *     name: "exampledb",
  *     requestedServiceObjectiveName: "S0",
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     serverName: exampleSqlServer.name,
  * });
  * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("example", {
  *     database: exampleDatabase.name,
- *     name: "example-output-sql",
  *     password: exampleSqlServer.administratorLoginPassword,
  *     resourceGroupName: azurerm_stream_analytics_job_example.resourceGroupName,
  *     server: exampleSqlServer.fullyQualifiedDomainName,

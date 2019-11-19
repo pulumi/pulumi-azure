@@ -15,17 +15,14 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "tf-test",
  * });
  * const testInsights = new azure.appinsights.Insights("test", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
  *     applicationInsightsId: testInsights.id,
- *     name: "tf-test-appinsights-read-telemetry-api-key",
  *     readPermissions: [
  *         "aggregate",
  *         "api",
@@ -36,17 +33,14 @@ import * as utilities from "../utilities";
  * });
  * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
  *     applicationInsightsId: testInsights.id,
- *     name: "tf-test-appinsights-write-annotations-api-key",
  *     writePermissions: ["annotations"],
  * });
  * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannel", {
  *     applicationInsightsId: testInsights.id,
- *     name: "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
  *     readPermissions: ["agentconfig"],
  * });
  * const fullPermissions = new azure.appinsights.ApiKey("fullPermissions", {
  *     applicationInsightsId: testInsights.id,
- *     name: "tf-test-appinsights-full-permissions-api-key",
  *     readPermissions: [
  *         "agentconfig",
  *         "aggregate",

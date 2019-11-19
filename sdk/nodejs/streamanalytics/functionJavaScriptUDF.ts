@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  *     inputs: [{
  *         type: "bigint",
  *     }],
- *     name: "example-javascript-function",
  *     output: {
  *         type: "bigint",
  *     },

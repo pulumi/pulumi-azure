@@ -41,7 +41,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SqlDatabase(string name, SqlDatabaseArgs args, CustomResourceOptions? options = null)
-            : base("azure:cosmosdb/sqlDatabase:SqlDatabase", name, args, MakeResourceOptions(options, ""))
+            : base("azure:cosmosdb/sqlDatabase:SqlDatabase", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

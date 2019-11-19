@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkSecurityGroup(string name, NetworkSecurityGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, args, MakeResourceOptions(options, ""))
+            : base("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

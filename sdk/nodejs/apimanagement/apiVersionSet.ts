@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "example-resources",
  * });
  * const exampleService = new azure.apimanagement.Service("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example-apim",
  *     publisherEmail: "pub1@email.com",
  *     publisherName: "pub1",
  *     resourceGroupName: exampleResourceGroup.name,

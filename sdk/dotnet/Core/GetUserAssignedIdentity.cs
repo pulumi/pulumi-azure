@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Core
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity_legacy.html.markdown.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> GetUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetUserAssignedIdentityArgs : Pulumi.ResourceArgs

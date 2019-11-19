@@ -17,22 +17,18 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "eventhub-replication",
  * });
  * const primary = new azure.eventhub.EventHubNamespace("primary", {
  *     location: exampleResourceGroup.location,
- *     name: "eventhub-primary",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const secondary = new azure.eventhub.EventHubNamespace("secondary", {
  *     location: "West US",
- *     name: "eventhub-secondary",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleEventhubNamespaceDisasterRecoveryConfig = new azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("example", {
- *     name: "replicate-evenhub",
  *     namespaceName: primary.name,
  *     partnerNamespaceId: secondary.id,
  *     resourceGroupName: exampleResourceGroup.name,

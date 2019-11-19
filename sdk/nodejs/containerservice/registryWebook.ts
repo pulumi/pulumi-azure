@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const acr = new azure.containerservice.Registry("acr", {
  *     adminEnabled: false,
  *     location: rg.location,
- *     name: "containerRegistry1",
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
  * });
@@ -32,7 +30,6 @@ import * as utilities from "../utilities";
  *         "Content-Type": "application/json",
  *     },
  *     location: rg.location,
- *     name: "mywebhook",
  *     registryName: acr.name,
  *     resourceGroupName: rg.name,
  *     scope: "mytag:*",

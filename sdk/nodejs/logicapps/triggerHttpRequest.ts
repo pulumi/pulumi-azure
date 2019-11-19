@@ -15,16 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "workflow-resources",
  * });
  * const testWorkflow = new azure.logicapps.Workflow("test", {
  *     location: testResourceGroup.location,
- *     name: "workflow1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testTriggerHttpRequest = new azure.logicapps.TriggerHttpRequest("test", {
  *     logicAppId: testWorkflow.id,
- *     name: "some-http-trigger",
  *     schema: `{
  *     "type": "object",
  *     "properties": {

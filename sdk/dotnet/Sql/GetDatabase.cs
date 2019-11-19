@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Sql
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
         /// </summary>
         public static Task<GetDatabaseResult> GetDatabase(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetDatabaseArgs : Pulumi.ResourceArgs

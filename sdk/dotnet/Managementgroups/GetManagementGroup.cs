@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
         /// </summary>
         public static Task<GetManagementGroupResult> GetManagementGroup(GetManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure:managementgroups/getManagementGroup:getManagementGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetManagementGroupArgs : Pulumi.ResourceArgs

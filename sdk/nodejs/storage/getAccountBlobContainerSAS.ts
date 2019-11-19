@@ -19,18 +19,15 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "westus",
- *     name: "resourceGroupName",
  * });
  * const storage = new azure.storage.Account("storage", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: rg.location,
- *     name: "storageaccountname",
  *     resourceGroupName: rg.name,
  * });
  * const container = new azure.storage.Container("container", {
  *     containerAccessType: "private",
- *     name: "mycontainer",
  *     resourceGroupName: rg.name,
  *     storageAccountName: storage.name,
  * });

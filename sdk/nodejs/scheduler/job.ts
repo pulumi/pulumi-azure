@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *         url: "http://this.url.fails",
  *     },
  *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
- *     name: "tfex-web-once-now",
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     // re-enable it each run
  *     state: "enabled",
@@ -50,7 +49,6 @@ import * as utilities from "../utilities";
  *         url: "https://this.url.fails",
  *     },
  *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
- *     name: "tfex-web-recurring-daily",
  *     recurrence: {
  *         count: 1000,
  *         frequency: "day",
@@ -86,11 +84,9 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: azurerm_resource_group_example.location,
- *     name: "tfexstorageaccount",
  *     resourceGroupName: azurerm_resource_group_example.name,
  * });
  * const exampleQueue = new azure.storage.Queue("example", {
- *     name: "tfex-schedulerjob-storagequeue",
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     storageAccountName: exampleAccount.name,
  * });
@@ -102,7 +98,6 @@ import * as utilities from "../utilities";
  *         storageQueueName: exampleQueue.name,
  *     },
  *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
- *     name: "tfex-storage-once-now",
  *     resourceGroupName: azurerm_resource_group_example.name,
  * });
  * ```

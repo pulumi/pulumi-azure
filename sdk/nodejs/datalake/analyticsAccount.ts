@@ -15,17 +15,14 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "tfex-datalake-account",
  * });
  * const exampleStore = new azure.datalake.Store("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfexdatalakestore",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAnalyticsAccount = new azure.datalake.AnalyticsAccount("example", {
  *     defaultStoreAccountName: exampleStore.name,
  *     location: exampleResourceGroup.location,
- *     name: "tfexdatalakeaccount",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

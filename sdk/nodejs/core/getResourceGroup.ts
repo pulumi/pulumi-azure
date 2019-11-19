@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  *     location: testResourceGroup.location,
- *     name: "managedDiskName",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  * });

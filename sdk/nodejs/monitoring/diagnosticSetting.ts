@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testAccount = testResourceGroup.name.apply(name => azure.storage.getAccount({
  *     name: "examplestoracc",
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *             enabled: false,
  *         },
  *     }],
- *     name: "example",
  *     storageAccountId: testAccount.id,
  *     targetResourceId: testKeyVault.id,
  * });

@@ -49,7 +49,7 @@ namespace Pulumi.Azure.MySql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetworkRule(string name, VirtualNetworkRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

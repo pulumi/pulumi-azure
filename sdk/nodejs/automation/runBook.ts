@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "resourceGroup1",
  * });
  * const exampleAccount = new azure.automation.Account("example", {
  *     location: exampleResourceGroup.location,
- *     name: "account1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Basic",
@@ -33,7 +31,6 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     logProgress: true,
  *     logVerbose: true,
- *     name: "Get-AzureVMTutorial",
  *     publishContentLink: {
  *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
  *     },

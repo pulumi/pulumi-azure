@@ -15,7 +15,7 @@ namespace Pulumi.Azure.AppInsights
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
         /// </summary>
         public static Task<GetInsightsResult> GetInsights(GetInsightsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetInsightsArgs : Pulumi.ResourceArgs

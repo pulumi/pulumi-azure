@@ -77,7 +77,7 @@ namespace Pulumi.Azure.NotificationHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationRule(string name, AuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:notificationhub/authorizationRule:AuthorizationRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:notificationhub/authorizationRule:AuthorizationRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "examplegroup",
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.1.0.0/16"],
  *     location: exampleResourceGroup.location,
- *     name: "examplevnet",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
@@ -34,7 +32,6 @@ import * as utilities from "../utilities";
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *         },
  *     }],
- *     name: "examplesubnet",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
@@ -47,7 +44,6 @@ import * as utilities from "../utilities";
  *         name: "examplecnic",
  *     },
  *     location: exampleResourceGroup.location,
- *     name: "examplenetprofile",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

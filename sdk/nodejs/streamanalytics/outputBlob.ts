@@ -26,18 +26,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: exampleResourceGroup.location,
- *     name: "examplesa",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
  *     dateFormat: "yyyy-MM-dd",
- *     name: "output-to-blob-storage",
  *     pathPattern: "some-pattern",
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {

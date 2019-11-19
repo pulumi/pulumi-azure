@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Dns
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
         /// </summary>
         public static Task<GetZoneResult> GetZone(GetZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetZoneArgs : Pulumi.ResourceArgs

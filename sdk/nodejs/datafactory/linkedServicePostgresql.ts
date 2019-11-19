@@ -19,17 +19,14 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "example",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("example", {
  *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
  *     dataFactoryName: azurerm_data_factory_test.name,
- *     name: "example",
  *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * ```

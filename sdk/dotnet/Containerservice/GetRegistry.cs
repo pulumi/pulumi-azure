@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ContainerService
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.html.markdown.
         /// </summary>
         public static Task<GetRegistryResult> GetRegistry(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("azure:containerservice/getRegistry:getRegistry", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRegistryArgs : Pulumi.ResourceArgs

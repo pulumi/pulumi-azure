@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testSharedImageGallery = new azure.compute.SharedImageGallery("test", {
  *     description: "Shared images and things.",
  *     location: testResourceGroup.location,
- *     name: "exampleImageGallery",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Hello: "There",

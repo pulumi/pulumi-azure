@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "resourceGroup1",
  * });
  * const exampleAccount = new azure.automation.Account("example", {
  *     location: exampleResourceGroup.location,
- *     name: "automationAccount1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Basic",
  *     tags: {

@@ -15,12 +15,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "tf-test",
  * });
  * const testInsights = new azure.appinsights.Insights("test", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testWebTest = new azure.appinsights.WebTest("test", {
@@ -39,7 +37,6 @@ import * as utilities from "../utilities";
  *     ],
  *     kind: "ping",
  *     location: testResourceGroup.location,
- *     name: "tf-test-appinsights-webtest",
  *     resourceGroupName: testResourceGroup.name,
  *     timeout: 60,
  * });

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Network
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
         /// </summary>
         public static Task<GetNetworkDdosProtectionPlanResult> GetNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDdosProtectionPlanResult>("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNetworkDdosProtectionPlanArgs : Pulumi.ResourceArgs

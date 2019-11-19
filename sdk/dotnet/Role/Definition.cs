@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Role
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Definition(string name, DefinitionArgs args, CustomResourceOptions? options = null)
-            : base("azure:role/definition:Definition", name, args, MakeResourceOptions(options, ""))
+            : base("azure:role/definition:Definition", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

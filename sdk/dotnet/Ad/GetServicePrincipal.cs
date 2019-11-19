@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AD
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
         /// </summary>
         public static Task<GetServicePrincipalResult> GetServicePrincipal(GetServicePrincipalArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServicePrincipalResult>("azure:ad/getServicePrincipal:getServicePrincipal", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServicePrincipalResult>("azure:ad/getServicePrincipal:getServicePrincipal", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServicePrincipalArgs : Pulumi.ResourceArgs

@@ -15,18 +15,15 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "tf-test",
  * });
  * const testInsights = new azure.appinsights.Insights("test", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testAnalyticsItem = new azure.appinsights.AnalyticsItem("test", {
  *     applicationInsightsId: testInsights.id,
  *     content: "requests //simple example query",
- *     name: "testquery",
  *     scope: "shared",
  *     type: "query",
  * });

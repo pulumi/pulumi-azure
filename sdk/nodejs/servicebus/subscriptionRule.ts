@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "tfex-servicebus-subscription-rule-sql",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -30,20 +28,17 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubscription = new azure.servicebus.Subscription("example", {
  *     maxDeliveryCount: 1,
- *     name: "tfexSevicebusSubscription",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     topicName: exampleTopic.name,
  * });
  * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("example", {
  *     filterType: "SqlFilter",
- *     name: "tfexSevicebusRule",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sqlFilter: "color = 'red'",
@@ -60,11 +55,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "tfex-servicebus-subscription-rule-cor",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -73,13 +66,11 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubscription = new azure.servicebus.Subscription("example", {
  *     maxDeliveryCount: 1,
- *     name: "tfexSevicebusSubscription",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     topicName: exampleTopic.name,
@@ -90,7 +81,6 @@ import * as utilities from "../utilities";
  *         label: "red",
  *     },
  *     filterType: "CorrelationFilter",
- *     name: "tfexSevicebusRule",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     subscriptionName: exampleSubscription.name,

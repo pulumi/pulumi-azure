@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testService = new azure.apimanagement.Service("test", {
  *     location: testResourceGroup.location,
- *     name: "example-apim",
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: testResourceGroup.name,
@@ -35,7 +33,6 @@ import * as utilities from "../utilities";
  *     clientId: "00001111-2222-3333-4444-555566667777",
  *     displayName: "Example Provider",
  *     metadataEndpoint: "https://example.com/example",
- *     name: "example-provider",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```

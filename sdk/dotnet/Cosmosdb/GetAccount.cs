@@ -15,7 +15,7 @@ namespace Pulumi.Azure.CosmosDB
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
         /// </summary>
         public static Task<GetAccountResult> GetAccount(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cosmosdb/getAccount:getAccount", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cosmosdb/getAccount:getAccount", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAccountArgs : Pulumi.ResourceArgs

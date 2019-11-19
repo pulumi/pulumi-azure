@@ -20,13 +20,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "database-rg",
  * });
  * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
  *     location: testResourceGroup.location,
- *     name: "mysqlserver",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "production",

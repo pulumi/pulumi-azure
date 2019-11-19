@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  *     clientRegistrationEndpoint: "https://example.mydomain.com/client/register",
  *     displayName: "Test Server",
  *     grantTypes: ["authorizationCode"],
- *     name: "test-server",
  *     resourceGroupName: azurerm_api_management_example.resourceGroupName,
  * });
  * ```

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cdn
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
         /// </summary>
         public static Task<GetProfileResult> GetProfile(GetProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetProfileArgs : Pulumi.ResourceArgs

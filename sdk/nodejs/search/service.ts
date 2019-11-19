@@ -15,11 +15,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testService = new azure.search.Service("test", {
  *     location: testResourceGroup.location,
- *     name: "acceptanceTestSearchService1",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "standard",
  *     tags: {

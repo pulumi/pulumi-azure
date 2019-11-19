@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SourceCodeToken(string name, SourceCodeTokenArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/sourceCodeToken:SourceCodeToken", name, args, MakeResourceOptions(options, ""))
+            : base("azure:appservice/sourceCodeToken:SourceCodeToken", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

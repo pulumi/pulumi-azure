@@ -89,7 +89,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatasetPostgresql(string name, DatasetPostgresqlArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, args, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

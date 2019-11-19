@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
         /// </summary>
         public static Task<GetApiResult> GetApi(GetApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetApiArgs : Pulumi.ResourceArgs

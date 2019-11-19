@@ -21,12 +21,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "LoadBalancerRG",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: "West US",
- *     name: "PublicIPForLB",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
@@ -35,7 +33,6 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: testPublicIp.id,
  *     }],
  *     location: "West US",
- *     name: "TestLoadBalancer",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNatRule = new azure.lb.NatRule("test", {
@@ -43,7 +40,6 @@ import * as utilities from "../utilities";
  *     frontendIpConfigurationName: "PublicIPAddress",
  *     frontendPort: 3389,
  *     loadbalancerId: testLoadBalancer.id,
- *     name: "RDPAccess",
  *     protocol: "Tcp",
  *     resourceGroupName: testResourceGroup.name,
  * });

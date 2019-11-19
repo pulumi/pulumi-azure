@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "resourcegroup",
  * });
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 2,
  *     location: azurerm_resource_group_test.location,
- *     name: "acceptanceTestEventHubNamespace",
  *     resourceGroupName: azurerm_resource_group_test.name,
  *     sku: "Basic",
  *     tags: {
@@ -32,7 +30,6 @@ import * as utilities from "../utilities";
  * const exampleEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
- *     name: "navi",
  *     namespaceName: azurerm_eventhub_namespace_test.name,
  *     resourceGroupName: azurerm_resource_group_test.name,
  *     send: false,

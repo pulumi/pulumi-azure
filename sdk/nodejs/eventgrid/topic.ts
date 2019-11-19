@@ -19,11 +19,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
- *     name: "resourceGroup1",
  * });
  * const testTopic = new azure.eventgrid.Topic("test", {
  *     location: testResourceGroup.location,
- *     name: "my-eventgrid-topic",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "Production",

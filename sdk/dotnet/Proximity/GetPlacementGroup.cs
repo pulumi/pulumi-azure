@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Proximity
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
         /// </summary>
         public static Task<GetPlacementGroupResult> GetPlacementGroup(GetPlacementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetPlacementGroupArgs : Pulumi.ResourceArgs

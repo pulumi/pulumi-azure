@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus2",
- *     name: "azure-functions-test-rg",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "functionsapptestsa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
- *     name: "azure-functions-test-service-plan",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  * const testFunctionApp = new azure.appservice.FunctionApp("test", {
  *     appServicePlanId: testPlan.id,
  *     location: testResourceGroup.location,
- *     name: "test-azure-functions",
  *     resourceGroupName: testResourceGroup.name,
  *     storageConnectionString: testAccount.primaryConnectionString,
  * });
@@ -51,19 +47,16 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus2",
- *     name: "azure-functions-cptest-rg",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "functionsapptestsa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "FunctionApp",
  *     location: testResourceGroup.location,
- *     name: "azure-functions-test-service-plan",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "Y1",
@@ -73,7 +66,6 @@ import * as utilities from "../utilities";
  * const testFunctionApp = new azure.appservice.FunctionApp("test", {
  *     appServicePlanId: testPlan.id,
  *     location: testResourceGroup.location,
- *     name: "test-azure-functions",
  *     resourceGroupName: testResourceGroup.name,
  *     storageConnectionString: testAccount.primaryConnectionString,
  * });

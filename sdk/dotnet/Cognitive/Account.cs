@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Cognitive
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("azure:cognitive/account:Account", name, args, MakeResourceOptions(options, ""))
+            : base("azure:cognitive/account:Account", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

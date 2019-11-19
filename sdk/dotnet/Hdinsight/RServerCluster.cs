@@ -101,7 +101,7 @@ namespace Pulumi.Azure.HDInsight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RServerCluster(string name, RServerClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:hdinsight/rServerCluster:RServerCluster", name, args, MakeResourceOptions(options, ""))
+            : base("azure:hdinsight/rServerCluster:RServerCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

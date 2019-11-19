@@ -47,7 +47,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProductGroup(string name, ProductGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/productGroup:ProductGroup", name, args, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/productGroup:ProductGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

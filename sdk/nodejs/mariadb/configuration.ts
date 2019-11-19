@@ -15,13 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const exampleServer = new azure.mariadb.Server("example", {
  *     administratorLogin: "mariadbadmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     location: exampleResourceGroup.location,
- *     name: "mariadb-server-1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
@@ -38,7 +36,6 @@ import * as utilities from "../utilities";
  *     version: "10.2",
  * });
  * const exampleConfiguration = new azure.mariadb.Configuration("example", {
- *     name: "interactiveTimeout",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  *     value: "600",

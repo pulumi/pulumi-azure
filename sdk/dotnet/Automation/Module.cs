@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Module(string name, ModuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/module:Module", name, args, MakeResourceOptions(options, ""))
+            : base("azure:automation/module:Module", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

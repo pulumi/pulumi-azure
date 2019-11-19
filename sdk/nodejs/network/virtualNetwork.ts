@@ -22,16 +22,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
  *     location: testResourceGroup.location,
- *     name: "acceptanceTestSecurityGroup1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testPlan = new azure.ddosprotection.Plan("test", {
  *     location: testResourceGroup.location,
- *     name: "ddospplan1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
@@ -45,7 +42,6 @@ import * as utilities from "../utilities";
  *         "10.0.0.5",
  *     ],
  *     location: testResourceGroup.location,
- *     name: "virtualNetwork1",
  *     resourceGroupName: testResourceGroup.name,
  *     subnets: [
  *         {

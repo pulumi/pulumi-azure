@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "tfex-servicebus",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfexServicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -29,14 +27,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
- *     name: "tfexServicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
- *     name: "tfex_servicebus_topic_sasPolicy",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     send: false,

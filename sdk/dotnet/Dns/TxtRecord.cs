@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Dns
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TxtRecord(string name, TxtRecordArgs args, CustomResourceOptions? options = null)
-            : base("azure:dns/txtRecord:TxtRecord", name, args, MakeResourceOptions(options, ""))
+            : base("azure:dns/txtRecord:TxtRecord", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

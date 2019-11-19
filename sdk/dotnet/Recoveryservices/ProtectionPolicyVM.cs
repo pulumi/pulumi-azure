@@ -83,7 +83,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionPolicyVM(string name, ProtectionPolicyVMArgs args, CustomResourceOptions? options = null)
-            : base("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, args, MakeResourceOptions(options, ""))
+            : base("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

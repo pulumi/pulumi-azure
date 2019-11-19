@@ -21,24 +21,20 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: exampleResourceGroup.location,
- *     name: "examplevnet",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "192.168.1.224/27",
- *     name: "AzureBastionSubnet",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
  * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Static",
  *     location: exampleResourceGroup.location,
- *     name: "examplepip",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
@@ -49,7 +45,6 @@ import * as utilities from "../utilities";
  *         subnetId: exampleSubnet.id,
  *     },
  *     location: exampleResourceGroup.location,
- *     name: "examplebastion",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

@@ -17,25 +17,21 @@ import * as utilities from "../utilities";
  * 
  * const defaultResourceGroup = new azure.core.ResourceGroup("default", {
  *     location: "West US 2",
- *     name: "defaultResourceGroup",
  * });
  * const defaultAccount = new azure.storage.Account("default", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: defaultResourceGroup.location,
- *     name: "defaultStorageAccount",
  *     resourceGroupName: defaultResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
  * const defaultQueue = new azure.storage.Queue("default", {
- *     name: "defaultStorageQueue",
  *     resourceGroupName: defaultResourceGroup.name,
  *     storageAccountName: defaultAccount.name,
  * });
  * const defaultEventSubscription = new azure.eventgrid.EventSubscription("default", {
- *     name: "defaultEventSubscription",
  *     scope: defaultResourceGroup.id,
  *     storageQueueEndpoint: {
  *         queueName: defaultQueue.name,

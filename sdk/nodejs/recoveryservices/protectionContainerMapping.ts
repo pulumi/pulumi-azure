@@ -17,51 +17,42 @@ import * as utilities from "../utilities";
  * 
  * const primaryResourceGroup = new azure.core.ResourceGroup("primary", {
  *     location: "West US",
- *     name: "tfex-network-mapping-primary",
  * });
  * const secondaryResourceGroup = new azure.core.ResourceGroup("secondary", {
  *     location: "East US",
- *     name: "tfex-network-mapping-secondary",
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: secondaryResourceGroup.location,
- *     name: "example-recovery-vault",
  *     resourceGroupName: secondaryResourceGroup.name,
  *     sku: "Standard",
  * });
  * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
  *     location: primaryResourceGroup.location,
- *     name: "primary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
  *     location: secondaryResourceGroup.location,
- *     name: "secondary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const primaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("primary", {
- *     name: "primary-protection-container",
  *     recoveryFabricName: primaryFabric.name,
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const secondaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("secondary", {
- *     name: "secondary-protection-container",
  *     recoveryFabricName: secondaryFabric.name,
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const policy = new azure.recoveryservices.ReplicationPolicy("policy", {
  *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
- *     name: "policy",
  *     recoveryPointRetentionInMinutes: (24 * 60),
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const containerMapping = new azure.recoveryservices.ProtectionContainerMapping("container-mapping", {
- *     name: "container-mapping",
  *     recoveryFabricName: primaryFabric.name,
  *     recoveryReplicationPolicyId: policy.id,
  *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,

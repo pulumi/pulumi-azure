@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Healthcare
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/healthcare_service.html.markdown.
         /// </summary>
         public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:healthcare/getService:getService", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:healthcare/getService:getService", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServiceArgs : Pulumi.ResourceArgs

@@ -17,15 +17,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testZone = new azure.dns.Zone("test", {
- *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  *     zoneType: "Public",
  * });
  * const testPrivate = new azure.dns.Zone("testPrivate", {
- *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  *     zoneType: "Private",
  * });

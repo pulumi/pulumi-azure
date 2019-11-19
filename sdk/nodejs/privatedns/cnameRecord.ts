@@ -15,14 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testZone = new azure.privatedns.Zone("test", {
- *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testCnameRecord = new azure.privatedns.CnameRecord("test", {
- *     name: "test",
  *     record: "contoso.com",
  *     resourceGroupName: testResourceGroup.name,
  *     ttl: 300,

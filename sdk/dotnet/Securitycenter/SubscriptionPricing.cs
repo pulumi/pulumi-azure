@@ -33,7 +33,7 @@ namespace Pulumi.Azure.SecurityCenter
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubscriptionPricing(string name, SubscriptionPricingArgs args, CustomResourceOptions? options = null)
-            : base("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, args, MakeResourceOptions(options, ""))
+            : base("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -95,7 +95,7 @@ namespace Pulumi.Azure.HDInsight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SparkCluster(string name, SparkClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:hdinsight/sparkCluster:SparkCluster", name, args, MakeResourceOptions(options, ""))
+            : base("azure:hdinsight/sparkCluster:SparkCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

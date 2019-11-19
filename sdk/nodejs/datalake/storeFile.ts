@@ -18,11 +18,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "example",
  * });
  * const exampleStore = new azure.datalake.Store("example", {
  *     location: exampleResourceGroup.location,
- *     name: "consumptiondatalake",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleStoreFile = new azure.datalake.StoreFile("example", {

@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const exampleJob = new azure.streamanalytics.Job("example", {
  *     compatibilityLevel: "1.1",
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  *     eventsOutOfOrderMaxDelayInSeconds: 50,
  *     eventsOutOfOrderPolicy: "Adjust",
  *     location: exampleResourceGroup.location,
- *     name: "example-job",
  *     outputErrorPolicy: "Drop",
  *     resourceGroupName: exampleResourceGroup.name,
  *     streamingUnits: 3,

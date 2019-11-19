@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Core
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceGroup(string name, ResourceGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure:core/resourceGroup:ResourceGroup", name, args, MakeResourceOptions(options, ""))
+            : base("azure:core/resourceGroup:ResourceGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

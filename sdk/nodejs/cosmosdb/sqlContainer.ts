@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * const example = new azure.cosmosdb.SqlContainer("example", {
  *     accountName: azurerm_cosmosdb_account_example.name,
  *     databaseName: azurerm_cosmosdb_sql_database_example.name,
- *     name: "example-container",
  *     partitionKeyPath: "/definition/id",
  *     resourceGroupName: azurerm_cosmosdb_account_example.resourceGroupName,
  *     uniqueKeys: [{

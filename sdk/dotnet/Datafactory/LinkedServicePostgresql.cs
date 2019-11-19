@@ -79,7 +79,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkedServicePostgresql(string name, LinkedServicePostgresqlArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, args, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

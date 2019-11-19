@@ -15,11 +15,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "workflow-resources",
  * });
  * const testWorkflow = new azure.logicapps.Workflow("test", {
  *     location: testResourceGroup.location,
- *     name: "workflow1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testActionCustom = new azure.logicapps.ActionCustom("test", {
@@ -39,7 +37,6 @@ import * as utilities from "../utilities";
  * }
  * `,
  *     logicAppId: testWorkflow.id,
- *     name: "example-action",
  * });
  * ```
  *

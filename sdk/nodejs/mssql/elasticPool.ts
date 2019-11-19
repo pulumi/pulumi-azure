@@ -17,20 +17,17 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
- *     name: "my-resource-group",
  * });
  * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     location: testResourceGroup.location,
- *     name: "my-sql-server",
  *     resourceGroupName: testResourceGroup.name,
  *     version: "12.0",
  * });
  * const testElasticPool = new azure.mssql.ElasticPool("test", {
  *     location: testResourceGroup.location,
  *     maxSizeGb: 756,
- *     name: "test-epool",
  *     perDatabaseSettings: {
  *         maxCapacity: 4,
  *         minCapacity: 0.25,

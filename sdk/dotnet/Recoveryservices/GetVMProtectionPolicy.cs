@@ -15,7 +15,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_protection_policy_vm.html.markdown.
         /// </summary>
         public static Task<GetVMProtectionPolicyResult> GetVMProtectionPolicy(GetVMProtectionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVMProtectionPolicyResult>("azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVMProtectionPolicyResult>("azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVMProtectionPolicyArgs : Pulumi.ResourceArgs

@@ -47,7 +47,7 @@ namespace Pulumi.Azure.MariaDB
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Configuration(string name, ConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure:mariadb/configuration:Configuration", name, args, MakeResourceOptions(options, ""))
+            : base("azure:mariadb/configuration:Configuration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogProfile(string name, LogProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/logProfile:LogProfile", name, args, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/logProfile:LogProfile", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

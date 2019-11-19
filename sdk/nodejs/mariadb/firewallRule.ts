@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.mariadb.FirewallRule("test", {
  *     endIpAddress: "40.112.8.12",
- *     name: "test-rule",
  *     resourceGroupName: "test-rg",
  *     serverName: "test-server",
  *     startIpAddress: "40.112.8.12",
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.mariadb.FirewallRule("test", {
  *     endIpAddress: "40.112.255.255",
- *     name: "test-rule",
  *     resourceGroupName: "test-rg",
  *     serverName: "test-server",
  *     startIpAddress: "40.112.0.0",

@@ -17,23 +17,19 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
- *     name: "example-network",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.1.0/24",
- *     name: "internal",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * const testApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("test", {
  *     location: testResourceGroup.location,
- *     name: "example-asg",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkInterface = new azure.network.NetworkInterface("test", {
@@ -44,7 +40,6 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     }],
  *     location: testResourceGroup.location,
- *     name: "example-nic",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkInterfaceApplicationSecurityGroupAssociation = new azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("test", {

@@ -19,19 +19,16 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "eastus",
- *     name: "logprofiletest-rg",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "afscsdfytw",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 2,
  *     location: testResourceGroup.location,
- *     name: "logprofileeventhub",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard",
  * });
@@ -45,7 +42,6 @@ import * as utilities from "../utilities";
  *         "westus",
  *         "global",
  *     ],
- *     name: "default",
  *     retentionPolicy: {
  *         days: 7,
  *         enabled: true,

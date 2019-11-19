@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
         /// </summary>
         public static Task<GetVirtualMachineResult> GetVirtualMachine(GetVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure:compute/getVirtualMachine:getVirtualMachine", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVirtualMachineArgs : Pulumi.ResourceArgs

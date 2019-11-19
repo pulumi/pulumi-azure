@@ -59,7 +59,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomHostnameBinding(string name, CustomHostnameBindingArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, args, MakeResourceOptions(options, ""))
+            : base("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
