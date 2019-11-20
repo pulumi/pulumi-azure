@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testService = new azure.apimanagement.Service("test", {
  *     location: testResourceGroup.location,
- *     name: "example-apim",
  *     policy: {
  *         xmlContent: `    <policies>
  *       <inbound />

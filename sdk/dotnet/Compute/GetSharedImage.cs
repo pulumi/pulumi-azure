@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image.html.markdown.
         /// </summary>
         public static Task<GetSharedImageResult> GetSharedImage(GetSharedImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSharedImageArgs : Pulumi.ResourceArgs

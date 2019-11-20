@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Network
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_security_group.html.markdown.
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> GetNetworkSecurityGroup(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNetworkSecurityGroupArgs : Pulumi.ResourceArgs

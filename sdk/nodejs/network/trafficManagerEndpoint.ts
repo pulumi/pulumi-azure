@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * });
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "trafficmanagerendpointTest",
  * });
  * const testTrafficManagerProfile = new azure.network.TrafficManagerProfile("test", {
  *     dnsConfigs: [{
@@ -39,7 +38,6 @@ import * as utilities from "../utilities";
  *         timeoutInSeconds: 9,
  *         toleratedNumberOfFailures: 3,
  *     }],
- *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "Production",
@@ -47,7 +45,6 @@ import * as utilities from "../utilities";
  *     trafficRoutingMethod: "Weighted",
  * });
  * const testTrafficManagerEndpoint = new azure.network.TrafficManagerEndpoint("test", {
- *     name: server.hex,
  *     profileName: testTrafficManagerProfile.name,
  *     resourceGroupName: testResourceGroup.name,
  *     target: "example.com",

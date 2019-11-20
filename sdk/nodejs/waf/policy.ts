@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US 2",
- *     name: "example-rg",
  * });
  * const examplePolicy = new azure.waf.Policy("example", {
  *     customRules: [
@@ -65,7 +64,6 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     location: exampleResourceGroup.location,
- *     name: "example-wafpolicy",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

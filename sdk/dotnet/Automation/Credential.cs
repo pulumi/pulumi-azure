@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Credential(string name, CredentialArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/credential:Credential", name, args, MakeResourceOptions(options, ""))
+            : base("azure:automation/credential:Credential", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

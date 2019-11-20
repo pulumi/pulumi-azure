@@ -95,7 +95,7 @@ namespace Pulumi.Azure.HDInsight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InteractiveQueryCluster(string name, InteractiveQueryClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, args, MakeResourceOptions(options, ""))
+            : base("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

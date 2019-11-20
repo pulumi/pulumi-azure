@@ -18,17 +18,14 @@ import * as utilities from "../utilities";
  * 
  * const sampleResourceGroup = new azure.core.ResourceGroup("sample", {
  *     location: "West US",
- *     name: "acctestRG",
  * });
  * const sampleLab = new azure.devtest.Lab("sample", {
  *     location: azurerm_resource_group_test.location,
- *     name: "YourDevTestLab",
  *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * const sampleSchedule = new azure.devtest.Schedule("sample", {
  *     labName: azurerm_dev_test_lab_test.name,
  *     location: azurerm_resource_group_test.location,
- *     name: "LabVmAutoStart",
  *     notificationSettings: {},
  *     resourceGroupName: azurerm_resource_group_test.name,
  *     tags: {

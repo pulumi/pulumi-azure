@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(string name, NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, args, MakeResourceOptions(options, ""))
+            : base("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

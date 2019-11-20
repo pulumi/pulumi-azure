@@ -24,14 +24,12 @@ import * as utilities from "../utilities";
  * });
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "redis-resourcegroup",
  * });
  * const testCache = new azure.redis.Cache("test", {
  *     capacity: 1,
  *     enableNonSslPort: false,
  *     family: "P",
  *     location: testResourceGroup.location,
- *     name: pulumi.interpolate`redis${server.hex}`,
  *     redisConfiguration: {
  *         maxclients: 256,
  *         maxmemoryDelta: 2,
@@ -43,7 +41,6 @@ import * as utilities from "../utilities";
  * });
  * const testFirewallRule = new azure.redis.FirewallRule("test", {
  *     endIp: "2.3.4.5",
- *     name: "someIPrange",
  *     redisCacheName: testCache.name,
  *     resourceGroupName: testResourceGroup.name,
  *     startIp: "1.2.3.4",

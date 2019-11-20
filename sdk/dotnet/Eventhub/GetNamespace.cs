@@ -15,7 +15,7 @@ namespace Pulumi.Azure.EventHub
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
         /// </summary>
         public static Task<GetNamespaceResult> GetNamespace(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:eventhub/getNamespace:getNamespace", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:eventhub/getNamespace:getNamespace", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNamespaceArgs : Pulumi.ResourceArgs

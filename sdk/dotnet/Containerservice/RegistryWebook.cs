@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistryWebook(string name, RegistryWebookArgs args, CustomResourceOptions? options = null)
-            : base("azure:containerservice/registryWebook:RegistryWebook", name, args, MakeResourceOptions(options, ""))
+            : base("azure:containerservice/registryWebook:RegistryWebook", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

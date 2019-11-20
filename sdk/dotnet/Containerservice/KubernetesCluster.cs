@@ -124,7 +124,7 @@ namespace Pulumi.Azure.ContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KubernetesCluster(string name, KubernetesClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args, MakeResourceOptions(options, ""))
+            : base("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

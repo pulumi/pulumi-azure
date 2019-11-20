@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Marketplace
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Agreement(string name, AgreementArgs args, CustomResourceOptions? options = null)
-            : base("azure:marketplace/agreement:Agreement", name, args, MakeResourceOptions(options, ""))
+            : base("azure:marketplace/agreement:Agreement", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -65,7 +65,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualNetwork(string name, VirtualNetworkArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/virtualNetwork:VirtualNetwork", name, args, MakeResourceOptions(options, ""))
+            : base("azure:devtest/virtualNetwork:VirtualNetwork", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

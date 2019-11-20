@@ -15,10 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testAccount = new azure.maps.Account("test", {
- *     name: "example-maps-account",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "s1",
  *     tags: {

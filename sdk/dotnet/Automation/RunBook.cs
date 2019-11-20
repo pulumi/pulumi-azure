@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RunBook(string name, RunBookArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/runBook:RunBook", name, args, MakeResourceOptions(options, ""))
+            : base("azure:automation/runBook:RunBook", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

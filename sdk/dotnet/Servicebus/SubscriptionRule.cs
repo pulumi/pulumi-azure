@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SubscriptionRule(string name, SubscriptionRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:servicebus/subscriptionRule:SubscriptionRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:servicebus/subscriptionRule:SubscriptionRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

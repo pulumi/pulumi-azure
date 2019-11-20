@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserAssignedIdentity(string name, UserAssignedIdentityArgs args, CustomResourceOptions? options = null)
-            : base("azure:authorization/userAssignedIdentity:UserAssignedIdentity", name, args, MakeResourceOptions(options, ""))
+            : base("azure:authorization/userAssignedIdentity:UserAssignedIdentity", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

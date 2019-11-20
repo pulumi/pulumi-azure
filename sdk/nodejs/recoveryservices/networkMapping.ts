@@ -15,44 +15,36 @@ import * as utilities from "../utilities";
  * 
  * const primaryResourceGroup = new azure.core.ResourceGroup("primary", {
  *     location: "West US",
- *     name: "tfex-network-mapping-primary",
  * });
  * const secondaryResourceGroup = new azure.core.ResourceGroup("secondary", {
  *     location: "East US",
- *     name: "tfex-network-mapping-secondary",
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: secondaryResourceGroup.location,
- *     name: "example-recovery-vault",
  *     resourceGroupName: secondaryResourceGroup.name,
  *     sku: "Standard",
  * });
  * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
  *     location: primaryResourceGroup.location,
- *     name: "primary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
  *     location: secondaryResourceGroup.location,
- *     name: "secondary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  * }, {dependsOn: [primaryFabric]});
  * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
  *     addressSpaces: ["192.168.1.0/24"],
  *     location: primaryResourceGroup.location,
- *     name: "network1",
  *     resourceGroupName: primaryResourceGroup.name,
  * });
  * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondary", {
  *     addressSpaces: ["192.168.2.0/24"],
  *     location: secondaryResourceGroup.location,
- *     name: "network2",
  *     resourceGroupName: secondaryResourceGroup.name,
  * });
  * const recoveryMapping = new azure.recoveryservices.NetworkMapping("recovery-mapping", {
- *     name: "recovery-network-mapping-1",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondaryResourceGroup.name,
  *     sourceNetworkId: primaryVirtualNetwork.id,

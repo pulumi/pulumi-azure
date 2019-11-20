@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "northeurope",
- *     name: "analysis-services-server-test",
  * });
  * const server = new azure.analysisservices.Server("server", {
  *     adminUsers: ["myuser@domain.tld"],
@@ -28,7 +27,6 @@ import * as utilities from "../utilities";
  *         rangeStart: "210.117.252.0",
  *     }],
  *     location: "northeurope",
- *     name: "analysisservicesserver",
  *     resourceGroupName: rg.name,
  *     sku: "S0",
  *     tags: {

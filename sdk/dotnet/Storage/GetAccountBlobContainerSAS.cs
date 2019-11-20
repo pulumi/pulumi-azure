@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Storage
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.
         /// </summary>
         public static Task<GetAccountBlobContainerSASResult> GetAccountBlobContainerSAS(GetAccountBlobContainerSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountBlobContainerSASResult>("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAccountBlobContainerSASArgs : Pulumi.ResourceArgs

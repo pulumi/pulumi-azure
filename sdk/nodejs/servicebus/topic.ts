@@ -19,11 +19,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "tfex-servicebus-topic",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -32,7 +30,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });

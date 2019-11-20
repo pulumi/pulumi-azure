@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 1,
@@ -31,7 +29,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleSharedAccessPolicy = new azure.iot.SharedAccessPolicy("example", {
  *     iothubName: exampleIoTHub.name,
- *     name: "example",
  *     registryRead: true,
  *     registryWrite: true,
  *     resourceGroupName: exampleResourceGroup.name,

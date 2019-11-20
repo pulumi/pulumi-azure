@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * const testClientConfig = azure.core.getClientConfig();
  * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
- *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
@@ -58,7 +57,6 @@ import * as utilities from "../utilities";
  * const testClientConfig = azure.core.getClientConfig();
  * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
- *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
@@ -85,7 +83,6 @@ import * as utilities from "../utilities";
  * const testGroup = azure.management.getGroup();
  * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
- *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],

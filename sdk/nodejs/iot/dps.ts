@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const exampleDps = new azure.iot.Dps("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 1,

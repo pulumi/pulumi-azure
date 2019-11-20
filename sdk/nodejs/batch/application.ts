@@ -17,25 +17,21 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "example-rg",
  * });
  * const exampleStorageAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: exampleResourceGroup.location,
- *     name: "examplesa",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAccount = new azure.batch.Account("example", {
  *     location: exampleResourceGroup.location,
- *     name: "exampleba",
  *     poolAllocationMode: "BatchService",
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountId: exampleStorageAccount.id,
  * });
  * const exampleApplication = new azure.batch.Application("example", {
  *     accountName: exampleAccount.name,
- *     name: "example-batch-application",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

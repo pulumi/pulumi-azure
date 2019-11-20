@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "acctestRG-01",
  * });
  * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
  *     location: testResourceGroup.location,
- *     name: "acctest-01",
  *     resourceGroupName: testResourceGroup.name,
  *     retentionInDays: 30,
  *     sku: "PerGB2018",

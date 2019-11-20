@@ -17,23 +17,19 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "examplestoracc",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
- *     name: "content",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
  * const testBlob = new azure.storage.Blob("test", {
- *     name: "my-awesome-content.zip",
  *     resourceGroupName: testResourceGroup.name,
  *     source: "some-local-file.zip",
  *     storageAccountName: testAccount.name,

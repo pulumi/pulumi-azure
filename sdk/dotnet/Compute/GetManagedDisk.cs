@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
         /// </summary>
         public static Task<GetManagedDiskResult> GetManagedDisk(GetManagedDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetManagedDiskArgs : Pulumi.ResourceArgs

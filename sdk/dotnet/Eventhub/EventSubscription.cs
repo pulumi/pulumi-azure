@@ -101,7 +101,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSubscription(string name, EventSubscriptionArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/eventSubscription:EventSubscription", name, args, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/eventSubscription:EventSubscription", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

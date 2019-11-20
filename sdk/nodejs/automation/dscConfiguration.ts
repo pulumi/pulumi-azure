@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "resourceGroup1",
  * });
  * const exampleAccount = new azure.automation.Account("example", {
  *     location: exampleResourceGroup.location,
- *     name: "account1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Basic",
@@ -31,7 +29,6 @@ import * as utilities from "../utilities";
  *     automationAccountName: exampleAccount.name,
  *     contentEmbedded: "configuration test {}",
  *     location: exampleResourceGroup.location,
- *     name: "test",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.KeyVault
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
         /// </summary>
         public static Task<GetSecretResult> GetSecret(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure:keyvault/getSecret:getSecret", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSecretArgs : Pulumi.ResourceArgs

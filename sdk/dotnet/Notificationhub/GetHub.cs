@@ -15,7 +15,7 @@ namespace Pulumi.Azure.NotificationHub
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
         /// </summary>
         public static Task<GetHubResult> GetHub(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetHubArgs : Pulumi.ResourceArgs

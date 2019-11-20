@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "teststa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
- *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
@@ -56,7 +53,6 @@ import * as utilities from "../utilities";
  *         sasTtl: "PT1H",
  *     },
  *     location: testResourceGroup.location,
- *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     routes: [{
  *         condition: "true",

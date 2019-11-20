@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "media-resources",
  * });
  * const testStorageAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
- *     name: "examplestoracc",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testAccount = new azure.mediaservices.Account("test", {
  *     location: testResourceGroup.location,
- *     name: "examplemediaacc",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccounts: [{
  *         id: testStorageAccount.id,

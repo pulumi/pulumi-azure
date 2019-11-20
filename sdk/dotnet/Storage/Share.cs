@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Share(string name, ShareArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/share:Share", name, args, MakeResourceOptions(options, ""))
+            : base("azure:storage/share:Share", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

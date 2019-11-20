@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 2,
  *     location: "West US",
- *     name: "acceptanceTestEventHubNamespace",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Basic",
  *     tags: {
@@ -31,7 +29,6 @@ import * as utilities from "../utilities";
  * });
  * const testEventHub = new azure.eventhub.EventHub("test", {
  *     messageRetention: 2,
- *     name: "acceptanceTestEventHub",
  *     namespaceName: testEventHubNamespace.name,
  *     partitionCount: 2,
  *     resourceGroupName: testResourceGroup.name,
@@ -40,7 +37,6 @@ import * as utilities from "../utilities";
  *     eventhubName: testEventHub.name,
  *     listen: true,
  *     manage: false,
- *     name: "navi",
  *     namespaceName: testEventHubNamespace.name,
  *     resourceGroupName: testResourceGroup.name,
  *     send: false,

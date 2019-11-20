@@ -15,7 +15,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.html.markdown.
         /// </summary>
         public static Task<GetVaultResult> GetVault(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetVaultArgs : Pulumi.ResourceArgs

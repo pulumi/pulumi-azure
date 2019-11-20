@@ -17,25 +17,21 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "Australia East",
- *     name: "notificationhub-resources",
  * });
  * const testNamespace = new azure.notificationhub.Namespace("test", {
  *     location: testResourceGroup.location,
- *     name: "myappnamespace",
  *     namespaceType: "NotificationHub",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Free",
  * });
  * const testHub = new azure.notificationhub.Hub("test", {
  *     location: testResourceGroup.location,
- *     name: "mynotificationhub",
  *     namespaceName: testNamespace.name,
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testAuthorizationRule = new azure.notificationhub.AuthorizationRule("test", {
  *     listen: true,
  *     manage: true,
- *     name: "management-auth-rule",
  *     namespaceName: testNamespace.name,
  *     notificationHubName: testHub.name,
  *     resourceGroupName: testResourceGroup.name,

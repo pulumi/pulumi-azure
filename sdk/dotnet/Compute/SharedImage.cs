@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Compute
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SharedImage(string name, SharedImageArgs args, CustomResourceOptions? options = null)
-            : base("azure:compute/sharedImage:SharedImage", name, args, MakeResourceOptions(options, ""))
+            : base("azure:compute/sharedImage:SharedImage", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

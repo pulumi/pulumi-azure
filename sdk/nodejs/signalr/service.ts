@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "my-signalr",
  * });
  * const exampleService = new azure.signalr.Service("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex-signalr",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 1,

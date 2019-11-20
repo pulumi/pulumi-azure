@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const acr = new azure.containerservice.Registry("acr", {
  *     adminEnabled: false,
@@ -29,7 +28,6 @@ import * as utilities from "../utilities";
  *         "West Europe",
  *     ],
  *     location: rg.location,
- *     name: "containerRegistry1",
  *     resourceGroupName: rg.name,
  *     sku: "Premium",
  * });

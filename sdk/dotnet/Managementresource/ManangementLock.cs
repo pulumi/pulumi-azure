@@ -47,7 +47,7 @@ namespace Pulumi.Azure.ManagementResource
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManangementLock(string name, ManangementLockArgs args, CustomResourceOptions? options = null)
-            : base("azure:managementresource/manangementLock:ManangementLock", name, args, MakeResourceOptions(options, ""))
+            : base("azure:managementresource/manangementLock:ManangementLock", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

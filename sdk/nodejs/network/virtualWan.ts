@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testVirtualWan = new azure.network.VirtualWan("test", {
  *     location: testResourceGroup.location,
- *     name: "example-vwan",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```

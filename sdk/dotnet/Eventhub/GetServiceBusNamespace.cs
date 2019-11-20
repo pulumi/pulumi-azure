@@ -15,7 +15,7 @@ namespace Pulumi.Azure.EventHub
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_legacy.html.markdown.
         /// </summary>
         public static Task<GetServiceBusNamespaceResult> GetServiceBusNamespace(GetServiceBusNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceBusNamespaceResult>("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetServiceBusNamespaceArgs : Pulumi.ResourceArgs

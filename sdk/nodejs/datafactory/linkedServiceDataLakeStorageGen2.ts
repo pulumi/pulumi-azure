@@ -19,17 +19,14 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "example",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const current = azure.core.getClientConfig();
  * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("example", {
  *     dataFactoryName: azurerm_data_factory_test.name,
- *     name: "example",
  *     resourceGroupName: azurerm_resource_group_test.name,
  *     servicePrincipalId: current.clientId,
  *     servicePrincipalKey: "exampleKey",

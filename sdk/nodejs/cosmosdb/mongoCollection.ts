@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
  *     accountName: exampleAccount.name,
- *     name: "tfex-cosmos-mongo-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  * });
  * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("example", {
@@ -38,7 +37,6 @@ import * as utilities from "../utilities";
  *             unique: true,
  *         },
  *     ],
- *     name: "tfex-cosmos-mongo-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     shardKey: "uniqueKey",
  *     throughput: 400,

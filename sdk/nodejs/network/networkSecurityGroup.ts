@@ -21,11 +21,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
  *     location: testResourceGroup.location,
- *     name: "acceptanceTestSecurityGroup1",
  *     resourceGroupName: testResourceGroup.name,
  *     securityRules: [{
  *         access: "Allow",

@@ -17,18 +17,15 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: exampleResourceGroup.location,
- *     name: "hdinsightstor",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
- *     name: "hdinsight",
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  * });
@@ -43,7 +40,6 @@ import * as utilities from "../utilities";
  *         username: "acctestusrgw",
  *     },
  *     location: exampleResourceGroup.location,
- *     name: "example-hdicluster",
  *     resourceGroupName: exampleResourceGroup.name,
  *     roles: {
  *         headNode: {

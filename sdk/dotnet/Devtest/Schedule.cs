@@ -83,7 +83,7 @@ namespace Pulumi.Azure.DevTest
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schedule(string name, ScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure:devtest/schedule:Schedule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:devtest/schedule:Schedule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

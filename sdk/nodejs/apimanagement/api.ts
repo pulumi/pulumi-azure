@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testService = new azure.apimanagement.Service("test", {
  *     location: testResourceGroup.location,
- *     name: "example-apim",
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
  *     resourceGroupName: testResourceGroup.name,
@@ -34,7 +32,6 @@ import * as utilities from "../utilities";
  *         contentFormat: "swagger-link-json",
  *         contentValue: "http://conferenceapi.azurewebsites.net/?format=json",
  *     },
- *     name: "example-api",
  *     path: "example",
  *     protocols: ["https"],
  *     resourceGroupName: testResourceGroup.name,

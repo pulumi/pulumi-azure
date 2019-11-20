@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US 2",
- *     name: "example-rg",
  * });
  * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("example", {
  *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
@@ -88,7 +87,6 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     mode: "Prevention",
- *     name: "example-fdwafpolicy",
  *     redirectUrl: "https://www.contoso.com",
  *     resourceGroupName: exampleResourceGroup.name,
  * });

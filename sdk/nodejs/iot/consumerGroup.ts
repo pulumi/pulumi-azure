@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const testIoTHub = new azure.iot.IoTHub("test", {
  *     location: testResourceGroup.location,
- *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 1,
@@ -35,7 +33,6 @@ import * as utilities from "../utilities";
  * const testConsumerGroup = new azure.iot.ConsumerGroup("test", {
  *     eventhubEndpointName: "events",
  *     iothubName: testIoTHub.name,
- *     name: "test",
  *     resourceGroupName: azurerm_resource_group_foo.name,
  * });
  * ```

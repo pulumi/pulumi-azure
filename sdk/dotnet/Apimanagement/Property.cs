@@ -65,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Property(string name, PropertyArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/property:Property", name, args, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/property:Property", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

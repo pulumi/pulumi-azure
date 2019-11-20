@@ -89,7 +89,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DatasetMysql(string name, DatasetMysqlArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/datasetMysql:DatasetMysql", name, args, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/datasetMysql:DatasetMysql", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

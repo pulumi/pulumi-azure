@@ -59,7 +59,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FunctionJavaScriptUDF(string name, FunctionJavaScriptUDFArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

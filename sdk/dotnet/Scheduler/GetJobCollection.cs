@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Scheduler
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/scheduler_job_collection.html.markdown.
         /// </summary>
         public static Task<GetJobCollectionResult> GetJobCollection(GetJobCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure:scheduler/getJobCollection:getJobCollection", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure:scheduler/getJobCollection:getJobCollection", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetJobCollectionArgs : Pulumi.ResourceArgs

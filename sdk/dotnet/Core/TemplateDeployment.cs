@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Core
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TemplateDeployment(string name, TemplateDeploymentArgs args, CustomResourceOptions? options = null)
-            : base("azure:core/templateDeployment:TemplateDeployment", name, args, MakeResourceOptions(options, ""))
+            : base("azure:core/templateDeployment:TemplateDeployment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

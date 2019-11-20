@@ -15,11 +15,9 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
  * const examplePlacementGroup = new azure.proximity.PlacementGroup("example", {
  *     location: exampleResourceGroup.location,
- *     name: "exampleProximityPlacementGroup",
  *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "Production",

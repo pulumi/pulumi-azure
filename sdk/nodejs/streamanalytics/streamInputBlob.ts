@@ -26,18 +26,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: azurerm_resource_group_example.location,
- *     name: "examplestoracc",
  *     resourceGroupName: azurerm_resource_group_example.name,
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
- *     name: "example",
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     storageAccountName: exampleAccount.name,
  * });
  * const test = new azure.streamanalytics.StreamInputBlob("test", {
  *     dateFormat: "yyyy/MM/dd",
- *     name: "eventhub-stream-input",
  *     pathPattern: "some-random-pattern",
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {

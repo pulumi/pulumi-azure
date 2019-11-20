@@ -65,7 +65,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Secret(string name, SecretArgs args, CustomResourceOptions? options = null)
-            : base("azure:keyvault/secret:Secret", name, args, MakeResourceOptions(options, ""))
+            : base("azure:keyvault/secret:Secret", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

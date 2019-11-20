@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus",
- *     name: "azureexample",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: exampleResourceGroup.location,
- *     name: "azureexamplestorage1",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleTable = new azure.storage.Table("example", {
- *     name: "myexampletable",
  *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  * });

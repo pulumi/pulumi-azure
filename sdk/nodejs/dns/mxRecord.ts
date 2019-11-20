@@ -17,14 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testZone = new azure.dns.Zone("test", {
- *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testMxRecord = new azure.dns.MxRecord("test", {
- *     name: "test",
  *     records: [
  *         {
  *             exchange: "mail1.contoso.com",

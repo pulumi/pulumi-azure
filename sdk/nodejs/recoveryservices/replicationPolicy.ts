@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  * 
  * const secondary = new azure.core.ResourceGroup("secondary", {
  *     location: "East US",
- *     name: "tfex-network-mapping-secondary",
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: secondary.location,
- *     name: "example-recovery-vault",
  *     resourceGroupName: secondary.name,
  *     sku: "Standard",
  * });
  * const policy = new azure.recoveryservices.ReplicationPolicy("policy", {
  *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
- *     name: "policy",
  *     recoveryPointRetentionInMinutes: (24 * 60),
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondary.name,

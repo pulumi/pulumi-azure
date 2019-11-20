@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * const testDefinition = new azure.policy.Definition("test", {
  *     displayName: "my-policy-definition",
  *     mode: "All",
- *     name: "my-policy-definition",
  *     parameters: `	{
  *     "allowedLocations": {
  *       "type": "Array",
@@ -46,12 +45,10 @@ import * as utilities from "../utilities";
  * });
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "test-resources",
  * });
  * const testAssignment = new azure.policy.Assignment("test", {
  *     description: "Policy Assignment created via an Acceptance Test",
  *     displayName: "My Example Policy Assignment",
- *     name: "example-policy-assignment",
  *     parameters: `{
  *   "allowedLocations": {
  *     "value": [ "West Europe" ]

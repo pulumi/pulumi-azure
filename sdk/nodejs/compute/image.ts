@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctest",
  * });
  * const testImage = new azure.compute.Image("test", {
  *     location: "West US",
- *     name: "acctest",
  *     osDisk: {
  *         blobUri: "{blob_uri}",
  *         osState: "Generalized",
@@ -40,11 +38,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctest",
  * });
  * const testImage = new azure.compute.Image("test", {
  *     location: "West US",
- *     name: "acctest",
  *     resourceGroupName: testResourceGroup.name,
  *     sourceVirtualMachineId: "{vm_id}",
  * });

@@ -19,11 +19,9 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testDdosProtectionPlan = new azure.network.DdosProtectionPlan("test", {
  *     location: testResourceGroup.location,
- *     name: "example-protection-plan",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```

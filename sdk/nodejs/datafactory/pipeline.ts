@@ -17,16 +17,13 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "example",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const examplePipeline = new azure.datafactory.Pipeline("example", {
  *     dataFactoryName: exampleFactory.name,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

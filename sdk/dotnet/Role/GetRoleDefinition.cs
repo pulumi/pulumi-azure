@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Role
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition_legacy.html.markdown.
         /// </summary>
         public static Task<GetRoleDefinitionResult> GetRoleDefinition(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRoleDefinitionArgs : Pulumi.ResourceArgs

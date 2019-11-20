@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "East US",
- *     name: "my-kusto-rg",
  * });
  * const cluster = new azure.kusto.Cluster("cluster", {
  *     location: rg.location,
- *     name: "kustocluster",
  *     resourceGroupName: rg.name,
  *     sku: {
  *         capacity: 2,
@@ -32,26 +30,22 @@ import * as utilities from "../utilities";
  *     clusterName: cluster.name,
  *     hotCachePeriod: "P7D",
  *     location: rg.location,
- *     name: "my-kusto-database",
  *     resourceGroupName: rg.name,
  *     softDeletePeriod: "P31D",
  * });
  * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhubNs", {
  *     location: rg.location,
- *     name: "my-eventhub-ns",
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
  * });
  * const eventhub = new azure.eventhub.EventHub("eventhub", {
  *     messageRetention: 1,
- *     name: "my-eventhub",
  *     namespaceName: eventhubNs.name,
  *     partitionCount: 1,
  *     resourceGroupName: rg.name,
  * });
  * const consumerGroup = new azure.eventhub.ConsumerGroup("consumerGroup", {
  *     eventhubName: eventhub.name,
- *     name: "my-eventhub-consumergroup",
  *     namespaceName: eventhubNs.name,
  *     resourceGroupName: rg.name,
  * });
@@ -63,7 +57,6 @@ import * as utilities from "../utilities";
  *     eventhubId: azurerm_eventhub_evenhub.id,
  *     location: rg.location,
  *     mappingRuleName: "my-table-mapping", //(Optional)
- *     name: "my-kusto-eventhub-data-connection",
  *     resourceGroupName: rg.name,
  *     tableName: "my-table", //(Optional)
  * });

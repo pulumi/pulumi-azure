@@ -18,28 +18,23 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "peeredvnets-rg",
  * });
  * const test1VirtualNetwork = new azure.network.VirtualNetwork("test1", {
  *     addressSpaces: ["10.0.1.0/24"],
  *     location: "West US",
- *     name: "peternetwork1",
  *     resourceGroupName: test.name,
  * });
  * const test2VirtualNetwork = new azure.network.VirtualNetwork("test2", {
  *     addressSpaces: ["10.0.2.0/24"],
  *     location: "West US",
- *     name: "peternetwork2",
  *     resourceGroupName: test.name,
  * });
  * const test1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("test1", {
- *     name: "peer1to2",
  *     remoteVirtualNetworkId: test2VirtualNetwork.id,
  *     resourceGroupName: test.name,
  *     virtualNetworkName: test1VirtualNetwork.name,
  * });
  * const test2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("test2", {
- *     name: "peer2to1",
  *     remoteVirtualNetworkId: test1VirtualNetwork.id,
  *     resourceGroupName: test.name,
  *     virtualNetworkName: test2VirtualNetwork.name,

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.DataFactory
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
         /// </summary>
         public static Task<GetFactoryResult> GetFactory(GetFactoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryResult>("azure:datafactory/getFactory:getFactory", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetFactoryArgs : Pulumi.ResourceArgs

@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  *     cosmosdbThroughput: 2000,
  *     kind: "fhir-R4",
  *     location: "westus2",
- *     name: "uniquefhirname",
  *     resourceGroupName: "sample-resource-group",
  *     tags: {
  *         environment: "testenv",

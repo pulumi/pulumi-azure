@@ -54,7 +54,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRule(string name, FirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:postgresql/firewallRule:FirewallRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:postgresql/firewallRule:FirewallRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

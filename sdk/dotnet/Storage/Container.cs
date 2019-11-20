@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure:storage/container:Container", name, args, MakeResourceOptions(options, ""))
+            : base("azure:storage/container:Container", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

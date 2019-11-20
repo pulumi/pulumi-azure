@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
  *     accountName: exampleAccount.name,
- *     name: "tfex-cosmos-mongo-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  * });
  * ```

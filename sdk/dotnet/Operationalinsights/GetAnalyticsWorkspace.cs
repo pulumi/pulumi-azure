@@ -15,7 +15,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
         /// </summary>
         public static Task<GetAnalyticsWorkspaceResult> GetAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnalyticsWorkspaceResult>("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAnalyticsWorkspaceArgs : Pulumi.ResourceArgs

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleTable = new azure.cosmosdb.Table("example", {
  *     accountName: exampleAccount.name,
- *     name: "tfex-cosmos-table",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  * });
  * ```

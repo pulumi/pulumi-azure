@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Authorization
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("azure:authorization/assignment:Assignment", name, args, MakeResourceOptions(options, ""))
+            : base("azure:authorization/assignment:Assignment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

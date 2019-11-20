@@ -95,7 +95,7 @@ namespace Pulumi.Azure.FrontDoor
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallPolicy(string name, FirewallPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:frontdoor/firewallPolicy:FirewallPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("azure:frontdoor/firewallPolicy:FirewallPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

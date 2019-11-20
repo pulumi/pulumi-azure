@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Policy
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
         /// </summary>
         public static Task<GetPolicyDefintionResult> GetPolicyDefintion(GetPolicyDefintionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetPolicyDefintionArgs : Pulumi.ResourceArgs

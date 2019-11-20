@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * }));
  * const testIoTHub = new azure.iot.IoTHub("test", {
  *     location: azurerm_resource_group_example.location,
- *     name: "example-iothub",
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     sku: {
  *         capacity: 1,
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  *     endpoint: "messages/events",
  *     eventhubConsumerGroupName: "$Default",
  *     iothubNamespace: azurerm_iothub_example.name,
- *     name: "example-iothub-input",
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",

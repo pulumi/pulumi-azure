@@ -15,7 +15,7 @@ namespace Pulumi.Azure.AppService
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
         /// </summary>
         public static Task<GetCertificateResult> GetCertificate(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:appservice/getCertificate:getCertificate", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure:appservice/getCertificate:getCertificate", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetCertificateArgs : Pulumi.ResourceArgs

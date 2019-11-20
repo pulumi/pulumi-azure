@@ -92,7 +92,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AuthorizationRule(string name, AuthorizationRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/authorizationRule:AuthorizationRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/authorizationRule:AuthorizationRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

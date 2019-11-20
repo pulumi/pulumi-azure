@@ -103,7 +103,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyVault(string name, KeyVaultArgs args, CustomResourceOptions? options = null)
-            : base("azure:keyvault/keyVault:KeyVault", name, args, MakeResourceOptions(options, ""))
+            : base("azure:keyvault/keyVault:KeyVault", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

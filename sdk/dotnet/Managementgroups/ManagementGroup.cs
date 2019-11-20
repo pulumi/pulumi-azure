@@ -47,7 +47,7 @@ namespace Pulumi.Azure.ManagementGroups
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ManagementGroup(string name, ManagementGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("azure:managementgroups/managementGroup:ManagementGroup", name, args, MakeResourceOptions(options, ""))
+            : base("azure:managementgroups/managementGroup:ManagementGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

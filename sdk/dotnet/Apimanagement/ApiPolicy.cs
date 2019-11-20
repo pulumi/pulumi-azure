@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiPolicy(string name, ApiPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:apimanagement/apiPolicy:ApiPolicy", name, args, MakeResourceOptions(options, ""))
+            : base("azure:apimanagement/apiPolicy:ApiPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

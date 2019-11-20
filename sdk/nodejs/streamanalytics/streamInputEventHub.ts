@@ -26,27 +26,23 @@ import * as utilities from "../utilities";
  *     capacity: 1,
  *     kafkaEnabled: false,
  *     location: exampleResourceGroup.location,
- *     name: "example-namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleEventHub = new azure.eventhub.EventHub("example", {
  *     messageRetention: 1,
- *     name: "example-eventhub",
  *     namespaceName: exampleEventHubNamespace.name,
  *     partitionCount: 2,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const testConsumerGroup = new azure.eventhub.ConsumerGroup("test", {
  *     eventhubName: azurerm_eventhub_test.name,
- *     name: "example-consumergroup",
  *     namespaceName: azurerm_eventhub_namespace_test.name,
  *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * const testStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("test", {
  *     eventhubConsumerGroupName: azurerm_eventhub_consumer_group_example.name,
  *     eventhubName: exampleEventHub.name,
- *     name: "eventhub-stream-input",
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",

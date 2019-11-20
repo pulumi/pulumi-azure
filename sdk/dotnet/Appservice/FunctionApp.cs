@@ -149,7 +149,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FunctionApp(string name, FunctionAppArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/functionApp:FunctionApp", name, args, MakeResourceOptions(options, ""))
+            : base("azure:appservice/functionApp:FunctionApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

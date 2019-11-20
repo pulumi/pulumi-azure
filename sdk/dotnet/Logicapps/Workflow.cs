@@ -71,7 +71,7 @@ namespace Pulumi.Azure.LogicApps
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Workflow(string name, WorkflowArgs args, CustomResourceOptions? options = null)
-            : base("azure:logicapps/workflow:Workflow", name, args, MakeResourceOptions(options, ""))
+            : base("azure:logicapps/workflow:Workflow", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

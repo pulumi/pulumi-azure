@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkConnectionMonitor(string name, NetworkConnectionMonitorArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, args, MakeResourceOptions(options, ""))
+            : base("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

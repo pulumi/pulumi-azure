@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Lb
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
         /// </summary>
         public static Task<GetBackendAddressPoolResult> GetBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackendAddressPoolResult>("azure:lb/getBackendAddressPool:getBackendAddressPool", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetBackendAddressPoolArgs : Pulumi.ResourceArgs

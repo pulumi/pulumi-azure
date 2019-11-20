@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Storage
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
         /// </summary>
         public static Task<GetAccountSASResult> GetAccountSAS(GetAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAccountSASArgs : Pulumi.ResourceArgs

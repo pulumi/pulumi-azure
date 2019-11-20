@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertRule(string name, AlertRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/alertRule:AlertRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/alertRule:AlertRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

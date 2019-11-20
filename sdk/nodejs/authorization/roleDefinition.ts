@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * const test = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     description: "This is a custom role",
- *     name: "my-custom-role",
  *     permissions: [{
  *         actions: ["*"],
  *         notActions: [],

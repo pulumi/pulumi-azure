@@ -24,18 +24,15 @@ import * as utilities from "../utilities";
  * }));
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example-namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleQueue = new azure.servicebus.Queue("example", {
  *     enablePartitioning: true,
- *     name: "example-queue",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const test = new azure.streamanalytics.OutputServiceBusQueue("test", {
- *     name: "blob-storage-output",
  *     queueName: exampleQueue.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {

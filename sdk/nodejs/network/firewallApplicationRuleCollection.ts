@@ -17,24 +17,20 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "North Europe",
- *     name: "example-resources",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
- *     name: "testvnet",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.1.0/24",
- *     name: "AzureFirewallSubnet",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: testResourceGroup.location,
- *     name: "testpip",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard",
  * });
@@ -45,13 +41,11 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     },
  *     location: testResourceGroup.location,
- *     name: "testfirewall",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testFirewallApplicationRuleCollection = new azure.network.FirewallApplicationRuleCollection("test", {
  *     action: "Allow",
  *     azureFirewallName: testFirewall.name,
- *     name: "testcollection",
  *     priority: 100,
  *     resourceGroupName: testResourceGroup.name,
  *     rules: [{

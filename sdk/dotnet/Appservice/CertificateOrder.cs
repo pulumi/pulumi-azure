@@ -137,7 +137,7 @@ namespace Pulumi.Azure.AppService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateOrder(string name, CertificateOrderArgs args, CustomResourceOptions? options = null)
-            : base("azure:appservice/certificateOrder:CertificateOrder", name, args, MakeResourceOptions(options, ""))
+            : base("azure:appservice/certificateOrder:CertificateOrder", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

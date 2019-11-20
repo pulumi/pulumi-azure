@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Monitoring
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MetricAlert(string name, MetricAlertArgs args, CustomResourceOptions? options = null)
-            : base("azure:monitoring/metricAlert:MetricAlert", name, args, MakeResourceOptions(options, ""))
+            : base("azure:monitoring/metricAlert:MetricAlert", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

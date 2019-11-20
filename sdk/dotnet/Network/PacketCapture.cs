@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PacketCapture(string name, PacketCaptureArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/packetCapture:PacketCapture", name, args, MakeResourceOptions(options, ""))
+            : base("azure:network/packetCapture:PacketCapture", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

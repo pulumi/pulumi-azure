@@ -15,7 +15,7 @@ namespace Pulumi.Azure.TrafficManager
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location_legacy.html.markdown.
         /// </summary>
         public static Task<GetGeographicalLocationResult> GetGeographicalLocation(GetGeographicalLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGeographicalLocationResult>("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetGeographicalLocationArgs : Pulumi.ResourceArgs

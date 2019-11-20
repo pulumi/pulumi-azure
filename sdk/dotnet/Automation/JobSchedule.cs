@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public JobSchedule(string name, JobScheduleArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/jobSchedule:JobSchedule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:automation/jobSchedule:JobSchedule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

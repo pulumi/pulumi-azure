@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Automation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DscNodeConfiguration(string name, DscNodeConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, args, MakeResourceOptions(options, ""))
+            : base("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

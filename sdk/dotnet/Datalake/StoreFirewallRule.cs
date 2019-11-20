@@ -53,7 +53,7 @@ namespace Pulumi.Azure.DataLake
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StoreFirewallRule(string name, StoreFirewallRuleArgs args, CustomResourceOptions? options = null)
-            : base("azure:datalake/storeFirewallRule:StoreFirewallRule", name, args, MakeResourceOptions(options, ""))
+            : base("azure:datalake/storeFirewallRule:StoreFirewallRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

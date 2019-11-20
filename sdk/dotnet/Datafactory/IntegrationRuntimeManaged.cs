@@ -98,7 +98,7 @@ namespace Pulumi.Azure.DataFactory
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IntegrationRuntimeManaged(string name, IntegrationRuntimeManagedArgs args, CustomResourceOptions? options = null)
-            : base("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, args, MakeResourceOptions(options, ""))
+            : base("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

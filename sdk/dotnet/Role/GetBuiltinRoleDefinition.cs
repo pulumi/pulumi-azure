@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Role
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition_legacy.html.markdown.
         /// </summary>
         public static Task<GetBuiltinRoleDefinitionResult> GetBuiltinRoleDefinition(GetBuiltinRoleDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuiltinRoleDefinitionResult>("azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuiltinRoleDefinitionResult>("azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetBuiltinRoleDefinitionArgs : Pulumi.ResourceArgs

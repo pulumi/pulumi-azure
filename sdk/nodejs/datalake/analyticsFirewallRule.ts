@@ -15,23 +15,19 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "tfexDatalakeFwRule",
  * });
  * const exampleStore = new azure.datalake.Store("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfexdatalakestore",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAnalyticsAccount = new azure.datalake.AnalyticsAccount("example", {
  *     defaultStoreAccountName: exampleStore.name,
  *     location: exampleResourceGroup.location,
- *     name: "tfexdatalakeaccount",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAnalyticsFirewallRule = new azure.datalake.AnalyticsFirewallRule("example", {
  *     accountName: azurerm_data_lake_analytics_example.name,
  *     endIpAddress: "2.3.4.5",
- *     name: "office-ip-range",
  *     resourceGroupName: exampleResourceGroup.name,
  *     startIpAddress: "1.2.3.4",
  * });

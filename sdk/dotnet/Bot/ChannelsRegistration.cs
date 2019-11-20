@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Bot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ChannelsRegistration(string name, ChannelsRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("azure:bot/channelsRegistration:ChannelsRegistration", name, args, MakeResourceOptions(options, ""))
+            : base("azure:bot/channelsRegistration:ChannelsRegistration", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

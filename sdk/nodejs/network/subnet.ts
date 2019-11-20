@@ -21,12 +21,10 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
- *     name: "acceptanceTestVirtualNetwork1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
@@ -41,7 +39,6 @@ import * as utilities from "../utilities";
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *         },
  *     }],
- *     name: "testsubnet",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });

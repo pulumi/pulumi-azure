@@ -15,7 +15,7 @@ namespace Pulumi.Azure.MSSql
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
         /// </summary>
         public static Task<GetElasticPoolResult> GetElasticPool(GetElasticPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetElasticPoolArgs : Pulumi.ResourceArgs

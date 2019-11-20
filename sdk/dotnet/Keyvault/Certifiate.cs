@@ -80,7 +80,7 @@ namespace Pulumi.Azure.KeyVault
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certifiate(string name, CertifiateArgs args, CustomResourceOptions? options = null)
-            : base("azure:keyvault/certifiate:Certifiate", name, args, MakeResourceOptions(options, ""))
+            : base("azure:keyvault/certifiate:Certifiate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OutputServicebusTopic(string name, OutputServicebusTopicArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

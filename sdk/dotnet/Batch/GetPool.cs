@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Batch
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
         /// </summary>
         public static Task<GetPoolResult> GetPool(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetPoolArgs : Pulumi.ResourceArgs

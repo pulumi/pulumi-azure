@@ -59,7 +59,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AnalyticsSolution(string name, AnalyticsSolutionArgs args, CustomResourceOptions? options = null)
-            : base("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args, MakeResourceOptions(options, ""))
+            : base("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -101,7 +101,7 @@ namespace Pulumi.Azure.HDInsight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MLServicesCluster(string name, MLServicesClusterArgs args, CustomResourceOptions? options = null)
-            : base("azure:hdinsight/mLServicesCluster:MLServicesCluster", name, args, MakeResourceOptions(options, ""))
+            : base("azure:hdinsight/mLServicesCluster:MLServicesCluster", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

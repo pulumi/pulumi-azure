@@ -17,12 +17,10 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const exampleCertificateOrder = new azure.appservice.CertificateOrder("example", {
  *     distinguishedName: "CN=example.com",
  *     location: "global",
- *     name: "example-cert-order",
  *     productType: "standard",
  *     resourceGroupName: exampleResourceGroup.name,
  * });

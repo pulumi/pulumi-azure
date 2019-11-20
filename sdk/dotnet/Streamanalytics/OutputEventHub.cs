@@ -71,7 +71,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OutputEventHub(string name, OutputEventHubArgs args, CustomResourceOptions? options = null)
-            : base("azure:streamanalytics/outputEventHub:OutputEventHub", name, args, MakeResourceOptions(options, ""))
+            : base("azure:streamanalytics/outputEventHub:OutputEventHub", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

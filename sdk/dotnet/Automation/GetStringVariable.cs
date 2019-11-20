@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Automation
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
         /// </summary>
         public static Task<GetStringVariableResult> GetStringVariable(GetStringVariableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStringVariableResult>("azure:automation/getStringVariable:getStringVariable", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetStringVariableArgs : Pulumi.ResourceArgs

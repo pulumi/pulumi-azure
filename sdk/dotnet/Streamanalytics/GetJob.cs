@@ -15,7 +15,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
         /// </summary>
         public static Task<GetJobResult> GetJob(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetJobArgs : Pulumi.ResourceArgs

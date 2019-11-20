@@ -17,14 +17,12 @@ import * as utilities from "../utilities";
  * 
  * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
- *     name: "resourceGroupName",
  * });
  * const testsa = new azure.storage.Account("testsa", {
  *     accountKind: "BlobStorage",
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testrg.location,
- *     name: "storageaccountname",
  *     resourceGroupName: testrg.name,
  * });
  * const testpolicy = new azure.storage.ManagementPolicy("testpolicy", {

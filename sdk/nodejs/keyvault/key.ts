@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * const current = azure.core.getClientConfig();
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "my-resource-group",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -38,7 +37,6 @@ import * as utilities from "../utilities";
  *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
- *     name: "keyvaultkeyexample",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "premium",
  *     tags: {
@@ -58,7 +56,6 @@ import * as utilities from "../utilities";
  *     keySize: 2048,
  *     keyType: "RSA",
  *     keyVaultId: testKeyVault.id,
- *     name: "generated-certificate",
  * });
  * ```
  *

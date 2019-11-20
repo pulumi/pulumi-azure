@@ -17,13 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
  * const testCluster = new azure.servicefabric.Cluster("test", {
  *     clusterCodeVersion: "6.3.176.9494",
  *     location: testResourceGroup.location,
  *     managementEndpoint: "https://example:80",
- *     name: "example-servicefabric",
  *     nodeTypes: [{
  *         clientEndpointPort: 2020,
  *         httpEndpointPort: 80,

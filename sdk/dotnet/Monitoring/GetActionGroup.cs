@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Monitoring
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
         /// </summary>
         public static Task<GetActionGroupResult> GetActionGroup(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure:monitoring/getActionGroup:getActionGroup", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetActionGroupArgs : Pulumi.ResourceArgs

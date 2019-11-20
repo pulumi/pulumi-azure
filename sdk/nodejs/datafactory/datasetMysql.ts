@@ -17,23 +17,19 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "example",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
  *     location: exampleResourceGroup.location,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("example", {
  *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
  *     dataFactoryName: exampleFactory.name,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleDatasetMysql = new azure.datafactory.DatasetMysql("example", {
  *     dataFactoryName: exampleFactory.name,
  *     linkedServiceName: azurerm_data_factory_linked_service_mysql_test.name,
- *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

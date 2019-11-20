@@ -15,7 +15,7 @@ namespace Pulumi.Azure.AppService
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
         /// </summary>
         public static Task<GetAppServicePlanResult> GetAppServicePlan(GetAppServicePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetAppServicePlanArgs : Pulumi.ResourceArgs

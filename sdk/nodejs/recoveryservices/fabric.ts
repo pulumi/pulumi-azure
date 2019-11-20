@@ -17,21 +17,17 @@ import * as utilities from "../utilities";
  * 
  * const primary = new azure.core.ResourceGroup("primary", {
  *     location: "West US",
- *     name: "tfex-network-mapping-primary",
  * });
  * const secondary = new azure.core.ResourceGroup("secondary", {
  *     location: "East US",
- *     name: "tfex-network-mapping-secondary",
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: secondary.location,
- *     name: "example-recovery-vault",
  *     resourceGroupName: secondary.name,
  *     sku: "Standard",
  * });
  * const fabric = new azure.recoveryservices.Fabric("fabric", {
  *     location: primary.location,
- *     name: "primary-fabric",
  *     recoveryVaultName: vault.name,
  *     resourceGroupName: secondary.name,
  * });

@@ -19,11 +19,9 @@ import {Kind} from "./kind";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
- *     name: "api-appserviceplan-pro",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
@@ -40,12 +38,10 @@ import {Kind} from "./kind";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "FunctionApp",
  *     location: testResourceGroup.location,
- *     name: "api-appserviceplan-pro",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "Y1",
@@ -62,12 +58,10 @@ import {Kind} from "./kind";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "Linux",
  *     location: testResourceGroup.location,
- *     name: "api-appserviceplan-pro",
  *     reserved: true,
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
@@ -85,13 +79,11 @@ import {Kind} from "./kind";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     isXenon: true,
  *     kind: "xenon",
  *     location: testResourceGroup.location,
- *     name: "api-appserviceplan-pro",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "PC2",

@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallApplicationRuleCollection(string name, FirewallApplicationRuleCollectionArgs args, CustomResourceOptions? options = null)
-            : base("azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection", name, args, MakeResourceOptions(options, ""))
+            : base("azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

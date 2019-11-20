@@ -23,7 +23,6 @@ import (
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
@@ -316,7 +315,15 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an API Management name is 50.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
-					azureName: AutoNameWithMaxLength(azureName, 50),
+					//azureName: (azureName, 50),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    50,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_api_management_api":                     {Tok: azureResource(azureAPIManagement, "Api")},
@@ -367,7 +374,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an app service name is 60.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
-					azureName: AutoNameWithMaxLength(azureName, 60),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    60,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 					"site_config": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
@@ -385,7 +399,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an app service plan name is 40.
 					// This was discovered directly through the portal.
-					azureName: AutoNameWithMaxLength(azureName, 40),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    40,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 					"kind": {
 						Type:     "string",
 						AltTypes: []tokens.Type{azureType(azureAppService+"/kind", "Kind")},
@@ -398,7 +419,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a functionapp name is 60.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#compute
-					azureName: AutoNameWithMaxLength(azureName, 60),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    60,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 					"site_config": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
@@ -438,7 +466,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#containers
 					// Max length of a container name is 50
-					azureName: AutoNameWithMaxLength(azureName, 50),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    50,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_container_registry_webhook": {
@@ -450,7 +485,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#containers
 					// Max length of a container group/instance is 63
-					azureName: AutoNameWithMaxLength(azureName, 63),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    63,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				}},
 			"azurerm_kubernetes_cluster": {
 				Tok: azureResource(azureContainerService, "KubernetesCluster"),
@@ -480,7 +522,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
 					// Max length of a resource group name is 90
-					azureName: AutoNameWithMaxLength(azureName, 90),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    90,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 					azureLocation: {
 						Default: &tfbridge.DefaultInfo{
 							// To make it easy to repurpose an entire stack for different regions, we will let the
@@ -506,7 +555,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an availability set name is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_virtual_machine_extension": {Tok: azureResource(azureCompute, "Extension")},
@@ -515,7 +571,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a virtual machine name is 64. Note that the Windows host name is max 15 characters but it can be set separately.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#compute
-					azureName: AutoNameWithMaxLength(azureName, 64),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    64,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_virtual_machine_data_disk_attachment": {Tok: azureResource(azureCompute, "DataDiskAttachment")},
@@ -639,7 +702,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Load Balancer is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_lb_backend_address_pool": {Tok: azureResource(azureLB, "BackendAddressPool"),
@@ -779,7 +849,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Virtual Network is 64.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 64),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    64,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_virtual_wan":                        {Tok: azureResource(azureNetwork, "VirtualWan")},
@@ -792,7 +869,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an Application Gateway is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_application_security_group":           {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
@@ -808,7 +892,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Network Interface is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_network_interface_application_gateway_backend_address_pool_association": {Tok: azureResource(azureNetwork, "NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation")},
@@ -822,7 +913,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Network Security Group is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_network_security_rule": {
@@ -830,7 +928,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Network Security Rule is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_network_watcher": {Tok: azureResource(azureNetwork, "NetworkWatcher")},
@@ -840,7 +945,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Public IP Address is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_public_ip_prefix": {
@@ -857,7 +969,14 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Subnet is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				},
 			},
 			"azurerm_subnet_network_security_group_association": {Tok: azureResource(azureNetwork, "SubnetNetworkSecurityGroupAssociation")},
@@ -921,14 +1040,28 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
 					// Max length of a container name is 1024.
-					azureName: AutoNameWithMaxLength(azureName, 1024),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    1024,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				}},
 			"azurerm_storage_container": {
 				Tok: azureResource(azureStorage, "Container"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
 					// Max length of a container name is 63.
-					azureName: AutoNameWithMaxLength(azureName, 63),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    63,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				}},
 			"azurerm_storage_share":           {Tok: azureResource(azureStorage, "Share")},
 			"azurerm_storage_share_directory": {Tok: azureResource(azureStorage, "ShareDirectory")},
@@ -937,14 +1070,28 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
 					// Max length of a queue name is 63.
-					azureName: AutoNameWithMaxLength(azureName, 63),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    63,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				}},
 			"azurerm_storage_table": {
 				Tok: azureResource(azureStorage, "Table"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model#table-names
 					// Max length of a table name is 63.
-					azureName: AutoNameWithMaxLength(azureName, 63),
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    63,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
 				}},
 			"azurerm_storage_table_entity": {
 				Tok: azureResource(azureStorage, "TableEntity"),
@@ -1289,7 +1436,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
 			// Max length of a container name is 1024.
-			azureName: AutoNameWithMaxLength(azureName, 1024),
+			azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+				Separator: "",
+				Maxlen:    1024,
+				Randlen:   8,
+				Transform: func(name string) string {
+					return strings.ToLower(name)
+				},
+			}),
 		},
 	}
 
@@ -1310,7 +1464,14 @@ func Provider() tfbridge.ProviderInfo {
 					// Use conservative options that apply broadly for Azure.  See
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions for
 					// details.
-					res.Fields[azureName] = AutoNameWithMaxLength(azureName, 24)
+					res.Fields[azureName] = tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    24,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					})
 				}
 			}
 			if tfs, has := schema.Schema[azureLocation]; has && (tfs.Optional || tfs.Required) {
@@ -1366,67 +1527,6 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	return prov
-}
-
-// IDEA: Consider moving this refactoring of AutoName to allow more flexible configuration back into pulumi-terraform.
-
-// AutoNameOptions provides parameters to AutoName to control how names will be generated
-type AutoNameOptions struct {
-	// A separator between name and random portions of the
-	Separator string
-	// Maximum length of the generated name
-	Maxlen int
-	// Number of characters of random hex digits to add to the name
-	Randlen int
-	// A transform to apply to the name prior to adding random characters
-	Transform func(string) string
-	// Force the name to be lowercase prior to adding random characters
-	ForceLowercase bool
-}
-
-// AutoName creates custom schema for a Terraform name property which is automatically populated
-// from the resource's URN name, and transformed based on the provided options.
-func AutoName(name string, options AutoNameOptions) *tfbridge.SchemaInfo {
-	return &tfbridge.SchemaInfo{
-		Name: name,
-		Default: &tfbridge.DefaultInfo{
-			From: FromName(options),
-		},
-	}
-}
-
-func AutoNameWithMaxLength(name string, maxlength int) *tfbridge.SchemaInfo {
-	return AutoName(name, AutoNameOptions{
-		ForceLowercase: true,
-		Separator:      "",
-		Maxlen:         maxlength,
-		Randlen:        8,
-	})
-}
-
-// FromName automatically propagates a resource's URN onto the resulting default info.
-func FromName(options AutoNameOptions) func(res *tfbridge.PulumiResource) (interface{}, error) {
-	return func(res *tfbridge.PulumiResource) (interface{}, error) {
-		// Take the URN name part, transform it if required, and then append some unique characters if requested.
-		vs := string(res.URN.Name())
-		if options.Transform != nil {
-			vs = options.Transform(vs)
-		} else if options.ForceLowercase {
-			vs = strings.ToLower(vs)
-		}
-		if options.Randlen > 0 {
-			uniqueHex, err := resource.NewUniqueHex(vs+options.Separator, options.Randlen, options.Maxlen)
-			if err != nil {
-				return uniqueHex, errors.Wrapf(err, "Could not make instance of '%v'.", res.URN.Type())
-			}
-
-			return uniqueHex, nil
-		}
-		if len(vs) > options.Maxlen {
-			return "", errors.Errorf("name '%s' is longer than maximum length %d", vs, options.Maxlen)
-		}
-		return vs, nil
-	}
 }
 
 func renameLegacyModules(prov *tfbridge.ProviderInfo) {
@@ -1564,7 +1664,14 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
 				// Max length of a servicehub namespace is 50.
-				azureName: AutoNameWithMaxLength(azureName, 50),
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    50,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
 			},
 		},
 	)
@@ -1575,7 +1682,14 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
 				// Max length of a servicehub queue is 260.
-				azureName: AutoNameWithMaxLength(azureName, 260),
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    260,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
 			},
 		},
 	)
@@ -1590,7 +1704,14 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
 				// Max length of a servicehub topic is 260.
-				azureName: AutoNameWithMaxLength(azureName, 260),
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    260,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
 			},
 		},
 	)
@@ -1615,7 +1736,14 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// Max length of a Traffic Manager Profile is 80.
 				// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-				azureName: AutoNameWithMaxLength(azureName, 80),
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    80,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
 			},
 		},
 	)

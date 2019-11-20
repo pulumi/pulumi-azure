@@ -47,7 +47,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProtectionContainer(string name, ProtectionContainerArgs args, CustomResourceOptions? options = null)
-            : base("azure:recoveryservices/protectionContainer:ProtectionContainer", name, args, MakeResourceOptions(options, ""))
+            : base("azure:recoveryservices/protectionContainer:ProtectionContainer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

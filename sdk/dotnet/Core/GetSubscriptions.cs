@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Core
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
         /// </summary>
         public static Task<GetSubscriptionsResult> GetSubscriptions(GetSubscriptionsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionsResult>("azure:core/getSubscriptions:getSubscriptions", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetSubscriptionsArgs : Pulumi.ResourceArgs

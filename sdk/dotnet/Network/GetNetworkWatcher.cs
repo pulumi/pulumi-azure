@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Network
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_watcher.html.markdown.
         /// </summary>
         public static Task<GetNetworkWatcherResult> GetNetworkWatcher(GetNetworkWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure:network/getNetworkWatcher:getNetworkWatcher", args, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure:network/getNetworkWatcher:getNetworkWatcher", args ?? ResourceArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetNetworkWatcherArgs : Pulumi.ResourceArgs

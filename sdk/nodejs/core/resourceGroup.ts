@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "testResourceGroup1",
  *     tags: {
  *         environment: "Production",
  *     },

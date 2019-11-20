@@ -56,7 +56,7 @@ namespace Pulumi.Azure.EventHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventHubConsumerGroup(string name, EventHubConsumerGroupArgs args, CustomResourceOptions? options = null)
-            : base("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, args, MakeResourceOptions(options, ""))
+            : base("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -17,11 +17,9 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
- *     name: "tfex-recovery_vault",
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: rg.location,
- *     name: "exampleRecoveryVault",
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
  * });
