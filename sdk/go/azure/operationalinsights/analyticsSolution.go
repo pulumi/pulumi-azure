@@ -77,43 +77,43 @@ func GetAnalyticsSolution(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsSolution) URN() *pulumi.URNOutput {
+func (r *AnalyticsSolution) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsSolution) ID() *pulumi.IDOutput {
+func (r *AnalyticsSolution) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AnalyticsSolution) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // A `plan` block as documented below.
-func (r *AnalyticsSolution) Plan() *pulumi.Output {
+func (r *AnalyticsSolution) Plan() pulumi.Output {
 	return r.s.State["plan"]
 }
 
 // The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
-func (r *AnalyticsSolution) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AnalyticsSolution) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) SolutionName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["solutionName"])
+func (r *AnalyticsSolution) SolutionName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["solutionName"])
 }
 
 // The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) WorkspaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workspaceName"])
+func (r *AnalyticsSolution) WorkspaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workspaceName"])
 }
 
 // The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) WorkspaceResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workspaceResourceId"])
+func (r *AnalyticsSolution) WorkspaceResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workspaceResourceId"])
 }
 
 // Input properties used for looking up and filtering AnalyticsSolution resources.

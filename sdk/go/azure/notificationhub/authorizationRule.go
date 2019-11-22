@@ -78,58 +78,58 @@ func GetAuthorizationRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AuthorizationRule) URN() *pulumi.URNOutput {
+func (r *AuthorizationRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AuthorizationRule) ID() *pulumi.IDOutput {
+func (r *AuthorizationRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
-func (r *AuthorizationRule) Listen() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["listen"])
+func (r *AuthorizationRule) Listen() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["listen"])
 }
 
 // Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
-func (r *AuthorizationRule) Manage() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["manage"])
+func (r *AuthorizationRule) Manage() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["manage"])
 }
 
 // The name to use for this Authorization Rule. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AuthorizationRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *AuthorizationRule) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) NotificationHubName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notificationHubName"])
+func (r *AuthorizationRule) NotificationHubName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notificationHubName"])
 }
 
 // The Primary Access Key associated with this Authorization Rule.
-func (r *AuthorizationRule) PrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+func (r *AuthorizationRule) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
 // The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AuthorizationRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Access Key associated with this Authorization Rule.
-func (r *AuthorizationRule) SecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+func (r *AuthorizationRule) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
-func (r *AuthorizationRule) Send() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["send"])
+func (r *AuthorizationRule) Send() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["send"])
 }
 
 // Input properties used for looking up and filtering AuthorizationRule resources.

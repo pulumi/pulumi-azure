@@ -65,33 +65,33 @@ func GetConsumerGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ConsumerGroup) URN() *pulumi.URNOutput {
+func (r *ConsumerGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ConsumerGroup) ID() *pulumi.IDOutput {
+func (r *ConsumerGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) EventhubEndpointName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubEndpointName"])
+func (r *ConsumerGroup) EventhubEndpointName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubEndpointName"])
 }
 
 // The name of the IoT Hub. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) IothubName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iothubName"])
+func (r *ConsumerGroup) IothubName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iothubName"])
 }
 
 // The name of this Consumer Group. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ConsumerGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ConsumerGroup) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ConsumerGroup resources.

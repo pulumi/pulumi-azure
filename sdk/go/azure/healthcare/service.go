@@ -77,57 +77,57 @@ func GetService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() *pulumi.URNOutput {
+func (r *Service) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() *pulumi.IDOutput {
+func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Service) AccessPolicyObjectIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accessPolicyObjectIds"])
+func (r *Service) AccessPolicyObjectIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accessPolicyObjectIds"])
 }
 
 // An `authenticationConfiguration` block as defined below.
-func (r *Service) AuthenticationConfiguration() *pulumi.Output {
+func (r *Service) AuthenticationConfiguration() pulumi.Output {
 	return r.s.State["authenticationConfiguration"]
 }
 
 // A `corsConfiguration` block as defined below.
-func (r *Service) CorsConfiguration() *pulumi.Output {
+func (r *Service) CorsConfiguration() pulumi.Output {
 	return r.s.State["corsConfiguration"]
 }
 
 // The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
-func (r *Service) CosmosdbThroughput() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cosmosdbThroughput"])
+func (r *Service) CosmosdbThroughput() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["cosmosdbThroughput"])
 }
 
 // The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-func (r *Service) Kind() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kind"])
+func (r *Service) Kind() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kind"])
 }
 
 // Specifies the supported Azure Region where the Service should be created.
-func (r *Service) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Service) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the service instance. Used for service endpoint, must be unique within the audience.
-func (r *Service) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Service) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group in which to create the Service.
-func (r *Service) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Service) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Service) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Service) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Service resources.

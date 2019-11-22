@@ -77,52 +77,52 @@ func GetMongoCollection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MongoCollection) URN() *pulumi.URNOutput {
+func (r *MongoCollection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MongoCollection) ID() *pulumi.IDOutput {
+func (r *MongoCollection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *MongoCollection) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *MongoCollection) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-func (r *MongoCollection) DatabaseName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["databaseName"])
+func (r *MongoCollection) DatabaseName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["databaseName"])
 }
 
 // The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-func (r *MongoCollection) DefaultTtlSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["defaultTtlSeconds"])
+func (r *MongoCollection) DefaultTtlSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["defaultTtlSeconds"])
 }
 
 // One or more `indexes` blocks as defined below.
-func (r *MongoCollection) Indexes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["indexes"])
+func (r *MongoCollection) Indexes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["indexes"])
 }
 
 // Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-func (r *MongoCollection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MongoCollection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-func (r *MongoCollection) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *MongoCollection) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the key to partition on for sharding. There must not be any other unique index keys.
-func (r *MongoCollection) ShardKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shardKey"])
+func (r *MongoCollection) ShardKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shardKey"])
 }
 
 // The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-func (r *MongoCollection) Throughput() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["throughput"])
+func (r *MongoCollection) Throughput() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["throughput"])
 }
 
 // Input properties used for looking up and filtering MongoCollection resources.

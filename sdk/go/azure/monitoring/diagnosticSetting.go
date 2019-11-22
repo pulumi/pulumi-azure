@@ -74,58 +74,58 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DiagnosticSetting) URN() *pulumi.URNOutput {
+func (r *DiagnosticSetting) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DiagnosticSetting) ID() *pulumi.IDOutput {
+func (r *DiagnosticSetting) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) EventhubAuthorizationRuleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubAuthorizationRuleId"])
+func (r *DiagnosticSetting) EventhubAuthorizationRuleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubAuthorizationRuleId"])
 }
 
 // Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) EventhubName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubName"])
+func (r *DiagnosticSetting) EventhubName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubName"])
 }
 
 // One or more `log` blocks as defined below.
-func (r *DiagnosticSetting) Logs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["logs"])
+func (r *DiagnosticSetting) Logs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["logs"])
 }
 
 // When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
-func (r *DiagnosticSetting) LogAnalyticsDestinationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logAnalyticsDestinationType"])
+func (r *DiagnosticSetting) LogAnalyticsDestinationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logAnalyticsDestinationType"])
 }
 
 // Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) LogAnalyticsWorkspaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logAnalyticsWorkspaceId"])
+func (r *DiagnosticSetting) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logAnalyticsWorkspaceId"])
 }
 
 // One or more `metric` blocks as defined below.
-func (r *DiagnosticSetting) Metrics() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["metrics"])
+func (r *DiagnosticSetting) Metrics() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["metrics"])
 }
 
 // Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DiagnosticSetting) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *DiagnosticSetting) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) TargetResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetResourceId"])
+func (r *DiagnosticSetting) TargetResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
 }
 
 // Input properties used for looking up and filtering DiagnosticSetting resources.

@@ -68,43 +68,43 @@ func GetApplication(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() *pulumi.URNOutput {
+func (r *Application) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() *pulumi.IDOutput {
+func (r *Application) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Batch account. Changing this forces a new resource to be created.
-func (r *Application) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *Application) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
-func (r *Application) AllowUpdates() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowUpdates"])
+func (r *Application) AllowUpdates() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowUpdates"])
 }
 
 // The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-func (r *Application) DefaultVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultVersion"])
+func (r *Application) DefaultVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultVersion"])
 }
 
 // The display name for the application.
-func (r *Application) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Application) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
-func (r *Application) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Application) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
-func (r *Application) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Application) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Application resources.

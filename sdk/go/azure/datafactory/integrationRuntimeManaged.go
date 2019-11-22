@@ -92,76 +92,76 @@ func GetIntegrationRuntimeManaged(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IntegrationRuntimeManaged) URN() *pulumi.URNOutput {
+func (r *IntegrationRuntimeManaged) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IntegrationRuntimeManaged) ID() *pulumi.IDOutput {
+func (r *IntegrationRuntimeManaged) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `catalogInfo` block as defined below.
-func (r *IntegrationRuntimeManaged) CatalogInfo() *pulumi.Output {
+func (r *IntegrationRuntimeManaged) CatalogInfo() pulumi.Output {
 	return r.s.State["catalogInfo"]
 }
 
 // A `customSetupScript` block as defined below.
-func (r *IntegrationRuntimeManaged) CustomSetupScript() *pulumi.Output {
+func (r *IntegrationRuntimeManaged) CustomSetupScript() pulumi.Output {
 	return r.s.State["customSetupScript"]
 }
 
 // Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-func (r *IntegrationRuntimeManaged) DataFactoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
+func (r *IntegrationRuntimeManaged) DataFactoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
-func (r *IntegrationRuntimeManaged) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *IntegrationRuntimeManaged) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
-func (r *IntegrationRuntimeManaged) Edition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["edition"])
+func (r *IntegrationRuntimeManaged) Edition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["edition"])
 }
 
 // The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
-func (r *IntegrationRuntimeManaged) LicenseType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseType"])
+func (r *IntegrationRuntimeManaged) LicenseType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseType"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *IntegrationRuntimeManaged) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *IntegrationRuntimeManaged) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
-func (r *IntegrationRuntimeManaged) MaxParallelExecutionsPerNode() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxParallelExecutionsPerNode"])
+func (r *IntegrationRuntimeManaged) MaxParallelExecutionsPerNode() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxParallelExecutionsPerNode"])
 }
 
 // Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *IntegrationRuntimeManaged) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IntegrationRuntimeManaged) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-func (r *IntegrationRuntimeManaged) NodeSize() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nodeSize"])
+func (r *IntegrationRuntimeManaged) NodeSize() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nodeSize"])
 }
 
 // Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-func (r *IntegrationRuntimeManaged) NumberOfNodes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfNodes"])
+func (r *IntegrationRuntimeManaged) NumberOfNodes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["numberOfNodes"])
 }
 
 // The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-func (r *IntegrationRuntimeManaged) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *IntegrationRuntimeManaged) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `vnetIntegration` block as defined below.
-func (r *IntegrationRuntimeManaged) VnetIntegration() *pulumi.Output {
+func (r *IntegrationRuntimeManaged) VnetIntegration() pulumi.Output {
 	return r.s.State["vnetIntegration"]
 }
 

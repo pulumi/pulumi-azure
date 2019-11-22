@@ -70,38 +70,38 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkRule) URN() *pulumi.URNOutput {
+func (r *VirtualNetworkRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkRule) ID() *pulumi.IDOutput {
+func (r *VirtualNetworkRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
-func (r *VirtualNetworkRule) IgnoreMissingVnetServiceEndpoint() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["ignoreMissingVnetServiceEndpoint"])
+func (r *VirtualNetworkRule) IgnoreMissingVnetServiceEndpoint() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["ignoreMissingVnetServiceEndpoint"])
 }
 
 // The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNetworkRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualNetworkRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *VirtualNetworkRule) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // The ID of the subnet that the PostgreSQL server will be connected to.
-func (r *VirtualNetworkRule) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *VirtualNetworkRule) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.

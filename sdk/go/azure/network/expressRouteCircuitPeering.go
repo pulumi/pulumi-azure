@@ -95,74 +95,74 @@ func GetExpressRouteCircuitPeering(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ExpressRouteCircuitPeering) URN() *pulumi.URNOutput {
+func (r *ExpressRouteCircuitPeering) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ExpressRouteCircuitPeering) ID() *pulumi.IDOutput {
+func (r *ExpressRouteCircuitPeering) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ASN used by Azure.
-func (r *ExpressRouteCircuitPeering) AzureAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["azureAsn"])
+func (r *ExpressRouteCircuitPeering) AzureAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["azureAsn"])
 }
 
 // The name of the ExpressRoute Circuit in which to create the Peering.
-func (r *ExpressRouteCircuitPeering) ExpressRouteCircuitName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expressRouteCircuitName"])
+func (r *ExpressRouteCircuitPeering) ExpressRouteCircuitName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expressRouteCircuitName"])
 }
 
 // A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
-func (r *ExpressRouteCircuitPeering) MicrosoftPeeringConfig() *pulumi.Output {
+func (r *ExpressRouteCircuitPeering) MicrosoftPeeringConfig() pulumi.Output {
 	return r.s.State["microsoftPeeringConfig"]
 }
 
 // The Either a 16-bit or a 32-bit ASN. Can either be public or private..
-func (r *ExpressRouteCircuitPeering) PeerAsn() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["peerAsn"])
+func (r *ExpressRouteCircuitPeering) PeerAsn() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["peerAsn"])
 }
 
 // The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuitPeering) PeeringType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["peeringType"])
+func (r *ExpressRouteCircuitPeering) PeeringType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["peeringType"])
 }
 
 // The Primary Port used by Azure for this Peering.
-func (r *ExpressRouteCircuitPeering) PrimaryAzurePort() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAzurePort"])
+func (r *ExpressRouteCircuitPeering) PrimaryAzurePort() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAzurePort"])
 }
 
 // A `/30` subnet for the primary link.
-func (r *ExpressRouteCircuitPeering) PrimaryPeerAddressPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryPeerAddressPrefix"])
+func (r *ExpressRouteCircuitPeering) PrimaryPeerAddressPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryPeerAddressPrefix"])
 }
 
 // The name of the resource group in which to
 // create the Express Route Circuit Peering. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuitPeering) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ExpressRouteCircuitPeering) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Port used by Azure for this Peering.
-func (r *ExpressRouteCircuitPeering) SecondaryAzurePort() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAzurePort"])
+func (r *ExpressRouteCircuitPeering) SecondaryAzurePort() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAzurePort"])
 }
 
 // A `/30` subnet for the secondary link.
-func (r *ExpressRouteCircuitPeering) SecondaryPeerAddressPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryPeerAddressPrefix"])
+func (r *ExpressRouteCircuitPeering) SecondaryPeerAddressPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryPeerAddressPrefix"])
 }
 
 // The shared key. Can be a maximum of 25 characters.
-func (r *ExpressRouteCircuitPeering) SharedKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedKey"])
+func (r *ExpressRouteCircuitPeering) SharedKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedKey"])
 }
 
 // A valid VLAN ID to establish this peering on.
-func (r *ExpressRouteCircuitPeering) VlanId() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["vlanId"])
+func (r *ExpressRouteCircuitPeering) VlanId() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["vlanId"])
 }
 
 // Input properties used for looking up and filtering ExpressRouteCircuitPeering resources.

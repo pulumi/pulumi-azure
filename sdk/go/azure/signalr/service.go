@@ -81,78 +81,78 @@ func GetService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() *pulumi.URNOutput {
+func (r *Service) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() *pulumi.IDOutput {
+func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The FQDN of the SignalR service.
-func (r *Service) Hostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostname"])
+func (r *Service) Hostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostname"])
 }
 
 // The publicly accessible IP of the SignalR service.
-func (r *Service) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *Service) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-func (r *Service) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Service) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the SignalR service. Changing this forces a new resource to be created.
-func (r *Service) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Service) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The primary access key for the SignalR service.
-func (r *Service) PrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+func (r *Service) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
 // The primary connection string for the SignalR service.
-func (r *Service) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *Service) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The publicly accessible port of the SignalR service which is designed for browser/client use.
-func (r *Service) PublicPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["publicPort"])
+func (r *Service) PublicPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["publicPort"])
 }
 
 // The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
-func (r *Service) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Service) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The secondary access key for the SignalR service.
-func (r *Service) SecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+func (r *Service) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // The secondary connection string for the SignalR service.
-func (r *Service) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *Service) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The publicly accessible port of the SignalR service which is designed for customer server side use.
-func (r *Service) ServerPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["serverPort"])
+func (r *Service) ServerPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["serverPort"])
 }
 
 // A `sku` block as documented below.
-func (r *Service) Sku() *pulumi.Output {
+func (r *Service) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Service) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Service) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Service resources.

@@ -58,28 +58,28 @@ func GetDataLakeGen2Filesystem(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DataLakeGen2Filesystem) URN() *pulumi.URNOutput {
+func (r *DataLakeGen2Filesystem) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DataLakeGen2Filesystem) ID() *pulumi.IDOutput {
+func (r *DataLakeGen2Filesystem) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-func (r *DataLakeGen2Filesystem) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DataLakeGen2Filesystem) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
-func (r *DataLakeGen2Filesystem) Properties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["properties"])
+func (r *DataLakeGen2Filesystem) Properties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["properties"])
 }
 
 // Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
-func (r *DataLakeGen2Filesystem) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *DataLakeGen2Filesystem) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // Input properties used for looking up and filtering DataLakeGen2Filesystem resources.

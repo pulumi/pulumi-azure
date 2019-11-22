@@ -70,43 +70,43 @@ func GetCustomHostnameBinding(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CustomHostnameBinding) URN() *pulumi.URNOutput {
+func (r *CustomHostnameBinding) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CustomHostnameBinding) ID() *pulumi.IDOutput {
+func (r *CustomHostnameBinding) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) AppServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServiceName"])
+func (r *CustomHostnameBinding) AppServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServiceName"])
 }
 
 // Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) Hostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostname"])
+func (r *CustomHostnameBinding) Hostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostname"])
 }
 
 // The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *CustomHostnameBinding) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) SslState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sslState"])
+func (r *CustomHostnameBinding) SslState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sslState"])
 }
 
 // The SSL certificate thumbprint. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) Thumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+func (r *CustomHostnameBinding) Thumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
 // The virtual IP address assigned to the hostname if IP based SSL is enabled.
-func (r *CustomHostnameBinding) VirtualIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualIp"])
+func (r *CustomHostnameBinding) VirtualIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualIp"])
 }
 
 // Input properties used for looking up and filtering CustomHostnameBinding resources.

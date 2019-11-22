@@ -74,42 +74,42 @@ func GetCnameRecord(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CnameRecord) URN() *pulumi.URNOutput {
+func (r *CnameRecord) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CnameRecord) ID() *pulumi.IDOutput {
+func (r *CnameRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the DNS CNAME Record.
-func (r *CnameRecord) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *CnameRecord) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The target of the CNAME.
-func (r *CnameRecord) Record() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["record"])
+func (r *CnameRecord) Record() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["record"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *CnameRecord) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *CnameRecord) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *CnameRecord) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CnameRecord) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *CnameRecord) Ttl() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ttl"])
+func (r *CnameRecord) Ttl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
 
 // Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (r *CnameRecord) ZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneName"])
+func (r *CnameRecord) ZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneName"])
 }
 
 // Input properties used for looking up and filtering CnameRecord resources.

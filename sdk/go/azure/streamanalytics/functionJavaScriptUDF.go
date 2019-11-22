@@ -77,43 +77,43 @@ func GetFunctionJavaScriptUDF(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FunctionJavaScriptUDF) URN() *pulumi.URNOutput {
+func (r *FunctionJavaScriptUDF) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FunctionJavaScriptUDF) ID() *pulumi.IDOutput {
+func (r *FunctionJavaScriptUDF) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `input` blocks as defined below.
-func (r *FunctionJavaScriptUDF) Inputs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["inputs"])
+func (r *FunctionJavaScriptUDF) Inputs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["inputs"])
 }
 
 // The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-func (r *FunctionJavaScriptUDF) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FunctionJavaScriptUDF) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // An `output` blocks as defined below.
-func (r *FunctionJavaScriptUDF) Output() *pulumi.Output {
+func (r *FunctionJavaScriptUDF) Output() pulumi.Output {
 	return r.s.State["output"]
 }
 
 // The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *FunctionJavaScriptUDF) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FunctionJavaScriptUDF) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The JavaScript of this UDF Function.
-func (r *FunctionJavaScriptUDF) Script() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["script"])
+func (r *FunctionJavaScriptUDF) Script() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["script"])
 }
 
 // The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-func (r *FunctionJavaScriptUDF) StreamAnalyticsJobName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+func (r *FunctionJavaScriptUDF) StreamAnalyticsJobName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
 }
 
 // Input properties used for looking up and filtering FunctionJavaScriptUDF resources.

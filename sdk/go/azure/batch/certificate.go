@@ -87,57 +87,57 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Batch account. Changing this forces a new resource to be created.
-func (r *Certificate) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *Certificate) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The base64-encoded contents of the certificate.
-func (r *Certificate) Certificate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificate"])
+func (r *Certificate) Certificate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificate"])
 }
 
 // The format of the certificate. Possible values are `Cer` or `Pfx`.
-func (r *Certificate) Format() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["format"])
+func (r *Certificate) Format() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["format"])
 }
 
 // The generated name of the certificate.
-func (r *Certificate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Certificate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
-func (r *Certificate) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *Certificate) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The public key of the certificate.
-func (r *Certificate) PublicData() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publicData"])
+func (r *Certificate) PublicData() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publicData"])
 }
 
 // The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
-func (r *Certificate) Thumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+func (r *Certificate) Thumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
-func (r *Certificate) ThumbprintAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thumbprintAlgorithm"])
+func (r *Certificate) ThumbprintAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thumbprintAlgorithm"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

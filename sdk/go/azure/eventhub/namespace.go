@@ -79,72 +79,72 @@ func GetNamespace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() *pulumi.URNOutput {
+func (r *Namespace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() *pulumi.IDOutput {
+func (r *Namespace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-func (r *Namespace) Capacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["capacity"])
+func (r *Namespace) Capacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["capacity"])
 }
 
 // The primary connection string for the authorization
 // rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultPrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
+func (r *Namespace) DefaultPrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
 }
 
 // The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultPrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
+func (r *Namespace) DefaultPrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
 }
 
 // The secondary connection string for the
 // authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultSecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
+func (r *Namespace) DefaultSecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
 }
 
 // The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultSecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
+func (r *Namespace) DefaultSecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Namespace) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Namespace) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 // new resource to be created.
-func (r *Namespace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Namespace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the namespace.
-func (r *Namespace) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Namespace) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Defines which tier to use. Options are basic, standard or premium.
-func (r *Namespace) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *Namespace) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Namespace) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Namespace) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
-func (r *Namespace) ZoneRedundant() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["zoneRedundant"])
+func (r *Namespace) ZoneRedundant() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["zoneRedundant"])
 }
 
 // Input properties used for looking up and filtering Namespace resources.

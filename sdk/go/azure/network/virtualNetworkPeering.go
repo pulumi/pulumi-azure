@@ -82,51 +82,51 @@ func GetVirtualNetworkPeering(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkPeering) URN() *pulumi.URNOutput {
+func (r *VirtualNetworkPeering) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkPeering) ID() *pulumi.IDOutput {
+func (r *VirtualNetworkPeering) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Controls if forwarded traffic from  VMs
 // in the remote virtual network is allowed. Defaults to false.
-func (r *VirtualNetworkPeering) AllowForwardedTraffic() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowForwardedTraffic"])
+func (r *VirtualNetworkPeering) AllowForwardedTraffic() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowForwardedTraffic"])
 }
 
 // Controls gatewayLinks can be used in the
 // remote virtual network’s link to the local virtual network.
-func (r *VirtualNetworkPeering) AllowGatewayTransit() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowGatewayTransit"])
+func (r *VirtualNetworkPeering) AllowGatewayTransit() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowGatewayTransit"])
 }
 
 // Controls if the VMs in the remote
 // virtual network can access VMs in the local virtual network. Defaults to
 // false.
-func (r *VirtualNetworkPeering) AllowVirtualNetworkAccess() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowVirtualNetworkAccess"])
+func (r *VirtualNetworkPeering) AllowVirtualNetworkAccess() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowVirtualNetworkAccess"])
 }
 
 // The name of the virtual network peering. Changing this
 // forces a new resource to be created.
-func (r *VirtualNetworkPeering) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNetworkPeering) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The full Azure resource ID of the
 // remote virtual network.  Changing this forces a new resource to be created.
-func (r *VirtualNetworkPeering) RemoteVirtualNetworkId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["remoteVirtualNetworkId"])
+func (r *VirtualNetworkPeering) RemoteVirtualNetworkId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["remoteVirtualNetworkId"])
 }
 
 // The name of the resource group in which to
 // create the virtual network. Changing this forces a new resource to be
 // created.
-func (r *VirtualNetworkPeering) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualNetworkPeering) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Controls if remote gateways can be used on
@@ -135,14 +135,14 @@ func (r *VirtualNetworkPeering) ResourceGroupName() *pulumi.StringOutput {
 // use gateways of remote virtual network for transit. Only one peering can
 // have this flag set to `true`. This flag cannot be set if virtual network
 // already has a gateway. Defaults to `false`.
-func (r *VirtualNetworkPeering) UseRemoteGateways() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["useRemoteGateways"])
+func (r *VirtualNetworkPeering) UseRemoteGateways() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["useRemoteGateways"])
 }
 
 // The name of the virtual network. Changing
 // this forces a new resource to be created.
-func (r *VirtualNetworkPeering) VirtualNetworkName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualNetworkName"])
+func (r *VirtualNetworkPeering) VirtualNetworkName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualNetworkName"])
 }
 
 // Input properties used for looking up and filtering VirtualNetworkPeering resources.

@@ -89,52 +89,52 @@ func GetOutputMssql(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OutputMssql) URN() *pulumi.URNOutput {
+func (r *OutputMssql) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OutputMssql) ID() *pulumi.IDOutput {
+func (r *OutputMssql) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *OutputMssql) Database() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["database"])
+func (r *OutputMssql) Database() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["database"])
 }
 
 // The name of the Stream Output. Changing this forces a new resource to be created.
-func (r *OutputMssql) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OutputMssql) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-func (r *OutputMssql) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *OutputMssql) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *OutputMssql) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *OutputMssql) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The SQL server url. Changing this forces a new resource to be created.
-func (r *OutputMssql) Server() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["server"])
+func (r *OutputMssql) Server() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["server"])
 }
 
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *OutputMssql) StreamAnalyticsJobName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+func (r *OutputMssql) StreamAnalyticsJobName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
 }
 
 // Table in the database that the output points to. Changing this forces a new resource to be created.
-func (r *OutputMssql) Table() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["table"])
+func (r *OutputMssql) Table() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["table"])
 }
 
 // Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-func (r *OutputMssql) User() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["user"])
+func (r *OutputMssql) User() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["user"])
 }
 
 // Input properties used for looking up and filtering OutputMssql resources.

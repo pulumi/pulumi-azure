@@ -92,63 +92,63 @@ func GetUser(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *User) URN() *pulumi.URNOutput {
+func (r *User) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *User) ID() *pulumi.IDOutput {
+func (r *User) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
-func (r *User) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *User) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
-func (r *User) Confirmation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["confirmation"])
+func (r *User) Confirmation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["confirmation"])
 }
 
 // The email address associated with this user.
-func (r *User) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *User) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // The first name for this user.
-func (r *User) FirstName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["firstName"])
+func (r *User) FirstName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["firstName"])
 }
 
 // The last name for this user.
-func (r *User) LastName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lastName"])
+func (r *User) LastName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lastName"])
 }
 
 // A note about this user.
-func (r *User) Note() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["note"])
+func (r *User) Note() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["note"])
 }
 
 // The password associated with this user.
-func (r *User) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *User) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *User) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *User) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The state of this user. Possible values are `active`, `blocked` and `pending`.
-func (r *User) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *User) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-func (r *User) UserId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userId"])
+func (r *User) UserId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userId"])
 }
 
 // Input properties used for looking up and filtering User resources.

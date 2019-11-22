@@ -86,77 +86,77 @@ func GetRegistry(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Registry) URN() *pulumi.URNOutput {
+func (r *Registry) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Registry) ID() *pulumi.IDOutput {
+func (r *Registry) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether the admin user is enabled. Defaults to `false`.
-func (r *Registry) AdminEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["adminEnabled"])
+func (r *Registry) AdminEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["adminEnabled"])
 }
 
 // The Password associated with the Container Registry Admin account - if the admin account is enabled.
-func (r *Registry) AdminPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["adminPassword"])
+func (r *Registry) AdminPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["adminPassword"])
 }
 
 // The Username associated with the Container Registry Admin account - if the admin account is enabled.
-func (r *Registry) AdminUsername() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["adminUsername"])
+func (r *Registry) AdminUsername() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["adminUsername"])
 }
 
 // A list of Azure locations where the container registry should be geo-replicated.
-func (r *Registry) GeoreplicationLocations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["georeplicationLocations"])
+func (r *Registry) GeoreplicationLocations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["georeplicationLocations"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Registry) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Registry) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The URL that can be used to log into the container registry.
-func (r *Registry) LoginServer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loginServer"])
+func (r *Registry) LoginServer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loginServer"])
 }
 
 // Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-func (r *Registry) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Registry) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `networkRuleSet` block as documented below.
-func (r *Registry) NetworkRuleSet() *pulumi.Output {
+func (r *Registry) NetworkRuleSet() pulumi.Output {
 	return r.s.State["networkRuleSet"]
 }
 
 // The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-func (r *Registry) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Registry) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
-func (r *Registry) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *Registry) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
-func (r *Registry) StorageAccount() *pulumi.Output {
+func (r *Registry) StorageAccount() pulumi.Output {
 	return r.s.State["storageAccount"]
 }
 
 // The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
-func (r *Registry) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *Registry) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Registry) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Registry) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Registry resources.

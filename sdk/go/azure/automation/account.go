@@ -71,58 +71,58 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Primary Access Key for the DSC Endpoint associated with this Automation Account.
-func (r *Account) DscPrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dscPrimaryAccessKey"])
+func (r *Account) DscPrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dscPrimaryAccessKey"])
 }
 
 // The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
-func (r *Account) DscSecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dscSecondaryAccessKey"])
+func (r *Account) DscSecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dscSecondaryAccessKey"])
 }
 
 // The DSC Server Endpoint associated with this Automation Account.
-func (r *Account) DscServerEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dscServerEndpoint"])
+func (r *Account) DscServerEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dscServerEndpoint"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Account) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Account) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // ) A `sku` block as described below.
-func (r *Account) Sku() *pulumi.Output {
+func (r *Account) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // The SKU name of the account - only `Basic` is supported at this time.
-func (r *Account) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *Account) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Account) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Account) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Account resources.

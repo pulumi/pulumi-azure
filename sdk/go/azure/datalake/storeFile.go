@@ -65,28 +65,28 @@ func GetStoreFile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StoreFile) URN() *pulumi.URNOutput {
+func (r *StoreFile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StoreFile) ID() *pulumi.IDOutput {
+func (r *StoreFile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Data Lake Store for which the File should created.
-func (r *StoreFile) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *StoreFile) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The path to the local file to be added to the Data Lake Store.
-func (r *StoreFile) LocalFilePath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["localFilePath"])
+func (r *StoreFile) LocalFilePath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["localFilePath"])
 }
 
 // The path created for the file on the Data Lake Store.
-func (r *StoreFile) RemoteFilePath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["remoteFilePath"])
+func (r *StoreFile) RemoteFilePath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["remoteFilePath"])
 }
 
 // Input properties used for looking up and filtering StoreFile resources.

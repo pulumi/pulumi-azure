@@ -67,48 +67,48 @@ func GetRouteTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RouteTable) URN() *pulumi.URNOutput {
+func (r *RouteTable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RouteTable) ID() *pulumi.IDOutput {
+func (r *RouteTable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-func (r *RouteTable) DisableBgpRoutePropagation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disableBgpRoutePropagation"])
+func (r *RouteTable) DisableBgpRoutePropagation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disableBgpRoutePropagation"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *RouteTable) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *RouteTable) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the route.
-func (r *RouteTable) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RouteTable) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-func (r *RouteTable) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *RouteTable) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
-func (r *RouteTable) Routes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routes"])
+func (r *RouteTable) Routes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routes"])
 }
 
 // The collection of Subnets associated with this route table.
-func (r *RouteTable) Subnets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnets"])
+func (r *RouteTable) Subnets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnets"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *RouteTable) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RouteTable) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering RouteTable resources.

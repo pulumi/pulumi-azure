@@ -86,77 +86,77 @@ func GetEventSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventSubscription) URN() *pulumi.URNOutput {
+func (r *EventSubscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventSubscription) ID() *pulumi.IDOutput {
+func (r *EventSubscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
-func (r *EventSubscription) EventDeliverySchema() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventDeliverySchema"])
+func (r *EventSubscription) EventDeliverySchema() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventDeliverySchema"])
 }
 
 // A `eventhubEndpoint` block as defined below.
-func (r *EventSubscription) EventhubEndpoint() *pulumi.Output {
+func (r *EventSubscription) EventhubEndpoint() pulumi.Output {
 	return r.s.State["eventhubEndpoint"]
 }
 
 // A `hybridConnectionEndpoint` block as defined below.
-func (r *EventSubscription) HybridConnectionEndpoint() *pulumi.Output {
+func (r *EventSubscription) HybridConnectionEndpoint() pulumi.Output {
 	return r.s.State["hybridConnectionEndpoint"]
 }
 
 // A list of applicable event types that need to be part of the event subscription.
-func (r *EventSubscription) IncludedEventTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["includedEventTypes"])
+func (r *EventSubscription) IncludedEventTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["includedEventTypes"])
 }
 
 // A list of labels to assign to the event subscription.
-func (r *EventSubscription) Labels() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["labels"])
+func (r *EventSubscription) Labels() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["labels"])
 }
 
 // Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-func (r *EventSubscription) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventSubscription) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `retryPolicy` block as defined below.
-func (r *EventSubscription) RetryPolicy() *pulumi.Output {
+func (r *EventSubscription) RetryPolicy() pulumi.Output {
 	return r.s.State["retryPolicy"]
 }
 
 // Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
-func (r *EventSubscription) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *EventSubscription) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // A `storageBlobDeadLetterDestination` block as defined below.
-func (r *EventSubscription) StorageBlobDeadLetterDestination() *pulumi.Output {
+func (r *EventSubscription) StorageBlobDeadLetterDestination() pulumi.Output {
 	return r.s.State["storageBlobDeadLetterDestination"]
 }
 
 // A `storageQueueEndpoint` block as defined below.
-func (r *EventSubscription) StorageQueueEndpoint() *pulumi.Output {
+func (r *EventSubscription) StorageQueueEndpoint() pulumi.Output {
 	return r.s.State["storageQueueEndpoint"]
 }
 
 // A `subjectFilter` block as defined below.
-func (r *EventSubscription) SubjectFilter() *pulumi.Output {
+func (r *EventSubscription) SubjectFilter() pulumi.Output {
 	return r.s.State["subjectFilter"]
 }
 
 // Specifies the name of the topic to associate with the event subscription.
-func (r *EventSubscription) TopicName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topicName"])
+func (r *EventSubscription) TopicName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topicName"])
 }
 
 // A `webhookEndpoint` block as defined below.
-func (r *EventSubscription) WebhookEndpoint() *pulumi.Output {
+func (r *EventSubscription) WebhookEndpoint() pulumi.Output {
 	return r.s.State["webhookEndpoint"]
 }
 

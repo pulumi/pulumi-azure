@@ -80,43 +80,43 @@ func GetApiSchema(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApiSchema) URN() *pulumi.URNOutput {
+func (r *ApiSchema) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApiSchema) ID() *pulumi.IDOutput {
+func (r *ApiSchema) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
-func (r *ApiSchema) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *ApiSchema) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
-func (r *ApiSchema) ApiName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiName"])
+func (r *ApiSchema) ApiName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiName"])
 }
 
 // The content type of the API Schema.
-func (r *ApiSchema) ContentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentType"])
+func (r *ApiSchema) ContentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 // The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ApiSchema) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ApiSchema) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A unique identifier for this API Schema. Changing this forces a new resource to be created.
-func (r *ApiSchema) SchemaId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schemaId"])
+func (r *ApiSchema) SchemaId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schemaId"])
 }
 
 // The JSON escaped string defining the document representing the Schema.
-func (r *ApiSchema) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *ApiSchema) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering ApiSchema resources.

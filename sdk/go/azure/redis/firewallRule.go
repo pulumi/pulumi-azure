@@ -71,38 +71,38 @@ func GetFirewallRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallRule) URN() *pulumi.URNOutput {
+func (r *FirewallRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallRule) ID() *pulumi.IDOutput {
+func (r *FirewallRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The highest IP address included in the range.
-func (r *FirewallRule) EndIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endIp"])
+func (r *FirewallRule) EndIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endIp"])
 }
 
 // The name of the Firewall Rule. Changing this forces a new resource to be created.
-func (r *FirewallRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FirewallRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Redis Cache. Changing this forces a new resource to be created.
-func (r *FirewallRule) RedisCacheName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["redisCacheName"])
+func (r *FirewallRule) RedisCacheName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["redisCacheName"])
 }
 
 // The name of the resource group in which this Redis Cache exists.
-func (r *FirewallRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FirewallRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The lowest IP address included in the range
-func (r *FirewallRule) StartIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startIp"])
+func (r *FirewallRule) StartIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startIp"])
 }
 
 // Input properties used for looking up and filtering FirewallRule resources.

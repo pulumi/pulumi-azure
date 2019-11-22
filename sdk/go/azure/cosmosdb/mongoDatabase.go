@@ -59,28 +59,28 @@ func GetMongoDatabase(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MongoDatabase) URN() *pulumi.URNOutput {
+func (r *MongoDatabase) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MongoDatabase) ID() *pulumi.IDOutput {
+func (r *MongoDatabase) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
-func (r *MongoDatabase) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *MongoDatabase) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
-func (r *MongoDatabase) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MongoDatabase) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
-func (r *MongoDatabase) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *MongoDatabase) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering MongoDatabase resources.

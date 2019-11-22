@@ -71,38 +71,38 @@ func GetAnalyticsFirewallRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsFirewallRule) URN() *pulumi.URNOutput {
+func (r *AnalyticsFirewallRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsFirewallRule) ID() *pulumi.IDOutput {
+func (r *AnalyticsFirewallRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
-func (r *AnalyticsFirewallRule) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *AnalyticsFirewallRule) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The End IP Address for the firewall rule.
-func (r *AnalyticsFirewallRule) EndIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endIpAddress"])
+func (r *AnalyticsFirewallRule) EndIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
 }
 
 // Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-func (r *AnalyticsFirewallRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AnalyticsFirewallRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Data Lake Analytics.
-func (r *AnalyticsFirewallRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AnalyticsFirewallRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Start IP address for the firewall rule.
-func (r *AnalyticsFirewallRule) StartIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startIpAddress"])
+func (r *AnalyticsFirewallRule) StartIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
 }
 
 // Input properties used for looking up and filtering AnalyticsFirewallRule resources.

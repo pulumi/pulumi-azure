@@ -116,108 +116,108 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *KubernetesCluster) URN() *pulumi.URNOutput {
+func (r *KubernetesCluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *KubernetesCluster) ID() *pulumi.IDOutput {
+func (r *KubernetesCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
+func (r *KubernetesCluster) AddonProfile() pulumi.Output {
 	return r.s.State["addonProfile"]
 }
 
 // One or more `agentPoolProfile` blocks as defined below.
-func (r *KubernetesCluster) AgentPoolProfiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["agentPoolProfiles"])
+func (r *KubernetesCluster) AgentPoolProfiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["agentPoolProfiles"])
 }
 
-func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
+func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
 }
 
 // DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) DnsPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsPrefix"])
+func (r *KubernetesCluster) DnsPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsPrefix"])
 }
 
-func (r *KubernetesCluster) EnablePodSecurityPolicy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enablePodSecurityPolicy"])
+func (r *KubernetesCluster) EnablePodSecurityPolicy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enablePodSecurityPolicy"])
 }
 
 // The FQDN of the Azure Kubernetes Managed Cluster.
-func (r *KubernetesCluster) Fqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+func (r *KubernetesCluster) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-func (r *KubernetesCluster) KubeAdminConfig() *pulumi.Output {
+func (r *KubernetesCluster) KubeAdminConfig() pulumi.Output {
 	return r.s.State["kubeAdminConfig"]
 }
 
 // Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-func (r *KubernetesCluster) KubeAdminConfigRaw() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kubeAdminConfigRaw"])
+func (r *KubernetesCluster) KubeAdminConfigRaw() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kubeAdminConfigRaw"])
 }
 
 // A `kubeConfig` block as defined below.
-func (r *KubernetesCluster) KubeConfig() *pulumi.Output {
+func (r *KubernetesCluster) KubeConfig() pulumi.Output {
 	return r.s.State["kubeConfig"]
 }
 
 // Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
-func (r *KubernetesCluster) KubeConfigRaw() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kubeConfigRaw"])
+func (r *KubernetesCluster) KubeConfigRaw() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kubeConfigRaw"])
 }
 
-func (r *KubernetesCluster) KubernetesVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kubernetesVersion"])
+func (r *KubernetesCluster) KubernetesVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kubernetesVersion"])
 }
 
-func (r *KubernetesCluster) LinuxProfile() *pulumi.Output {
+func (r *KubernetesCluster) LinuxProfile() pulumi.Output {
 	return r.s.State["linuxProfile"]
 }
 
 // The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *KubernetesCluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *KubernetesCluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *KubernetesCluster) NetworkProfile() *pulumi.Output {
+func (r *KubernetesCluster) NetworkProfile() pulumi.Output {
 	return r.s.State["networkProfile"]
 }
 
 // The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
-func (r *KubernetesCluster) NodeResourceGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nodeResourceGroup"])
+func (r *KubernetesCluster) NodeResourceGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nodeResourceGroup"])
 }
 
 // Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *KubernetesCluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-func (r *KubernetesCluster) RoleBasedAccessControl() *pulumi.Output {
+func (r *KubernetesCluster) RoleBasedAccessControl() pulumi.Output {
 	return r.s.State["roleBasedAccessControl"]
 }
 
 // A `servicePrincipal` block as documented below.
-func (r *KubernetesCluster) ServicePrincipal() *pulumi.Output {
+func (r *KubernetesCluster) ServicePrincipal() pulumi.Output {
 	return r.s.State["servicePrincipal"]
 }
 
-func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *KubernetesCluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *KubernetesCluster) WindowsProfile() *pulumi.Output {
+func (r *KubernetesCluster) WindowsProfile() pulumi.Output {
 	return r.s.State["windowsProfile"]
 }
 

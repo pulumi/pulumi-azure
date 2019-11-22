@@ -67,43 +67,43 @@ func GetProfile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Profile) URN() *pulumi.URNOutput {
+func (r *Profile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Profile) ID() *pulumi.IDOutput {
+func (r *Profile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `containerNetworkInterface` block as documented below.
-func (r *Profile) ContainerNetworkInterface() *pulumi.Output {
+func (r *Profile) ContainerNetworkInterface() pulumi.Output {
 	return r.s.State["containerNetworkInterface"]
 }
 
 // One or more Resource IDs of Azure Container Network Interfaces.
-func (r *Profile) ContainerNetworkInterfaceIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["containerNetworkInterfaceIds"])
+func (r *Profile) ContainerNetworkInterfaceIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["containerNetworkInterfaceIds"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Profile) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Profile) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-func (r *Profile) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Profile) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-func (r *Profile) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Profile) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Profile) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Profile) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Profile resources.

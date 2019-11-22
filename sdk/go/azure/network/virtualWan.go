@@ -74,58 +74,58 @@ func GetVirtualWan(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualWan) URN() *pulumi.URNOutput {
+func (r *VirtualWan) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualWan) ID() *pulumi.IDOutput {
+func (r *VirtualWan) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
-func (r *VirtualWan) AllowBranchToBranchTraffic() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowBranchToBranchTraffic"])
+func (r *VirtualWan) AllowBranchToBranchTraffic() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowBranchToBranchTraffic"])
 }
 
 // Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
-func (r *VirtualWan) AllowVnetToVnetTraffic() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowVnetToVnetTraffic"])
+func (r *VirtualWan) AllowVnetToVnetTraffic() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowVnetToVnetTraffic"])
 }
 
 // Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
-func (r *VirtualWan) DisableVpnEncryption() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disableVpnEncryption"])
+func (r *VirtualWan) DisableVpnEncryption() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disableVpnEncryption"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *VirtualWan) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *VirtualWan) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
-func (r *VirtualWan) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualWan) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
-func (r *VirtualWan) Office365LocalBreakoutCategory() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["office365LocalBreakoutCategory"])
+func (r *VirtualWan) Office365LocalBreakoutCategory() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["office365LocalBreakoutCategory"])
 }
 
 // The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
-func (r *VirtualWan) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualWan) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the Security Provider.
-func (r *VirtualWan) SecurityProviderName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityProviderName"])
+func (r *VirtualWan) SecurityProviderName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityProviderName"])
 }
 
 // A mapping of tags to assign to the Virtual WAN.
-func (r *VirtualWan) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualWan) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VirtualWan resources.

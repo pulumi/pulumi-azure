@@ -100,81 +100,81 @@ func GetWebTest(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *WebTest) URN() *pulumi.URNOutput {
+func (r *WebTest) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *WebTest) ID() *pulumi.IDOutput {
+func (r *WebTest) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-func (r *WebTest) ApplicationInsightsId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationInsightsId"])
+func (r *WebTest) ApplicationInsightsId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationInsightsId"])
 }
 
 // An XML configuration specification for a WebTest.
-func (r *WebTest) Configuration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configuration"])
+func (r *WebTest) Configuration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configuration"])
 }
 
 // Purpose/user defined descriptive test for this WebTest.
-func (r *WebTest) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *WebTest) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Is the test actively being monitored.
-func (r *WebTest) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *WebTest) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Interval in seconds between test runs for this WebTest. Default is `300`.
-func (r *WebTest) Frequency() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["frequency"])
+func (r *WebTest) Frequency() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["frequency"])
 }
 
 // A list of where to physically run the tests from to give global coverage for accessibility of your application.
-func (r *WebTest) GeoLocations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["geoLocations"])
+func (r *WebTest) GeoLocations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["geoLocations"])
 }
 
-func (r *WebTest) Kind() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kind"])
+func (r *WebTest) Kind() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kind"])
 }
 
 // The location of the resource group.
-func (r *WebTest) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *WebTest) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Application Insights WebTest. Changing this forces a
 // new resource to be created.
-func (r *WebTest) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *WebTest) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *WebTest) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *WebTest) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Allow for retries should this WebTest fail.
-func (r *WebTest) RetryEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["retryEnabled"])
+func (r *WebTest) RetryEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["retryEnabled"])
 }
 
-func (r *WebTest) SyntheticMonitorId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["syntheticMonitorId"])
+func (r *WebTest) SyntheticMonitorId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["syntheticMonitorId"])
 }
 
 // Resource tags.
-func (r *WebTest) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *WebTest) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Seconds until this WebTest will timeout and fail. Default is `30`.
-func (r *WebTest) Timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeout"])
+func (r *WebTest) Timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeout"])
 }
 
 // Input properties used for looking up and filtering WebTest resources.

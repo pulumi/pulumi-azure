@@ -81,58 +81,58 @@ func GetController(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Controller) URN() *pulumi.URNOutput {
+func (r *Controller) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Controller) ID() *pulumi.IDOutput {
+func (r *Controller) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // DNS name for accessing DataPlane services.
-func (r *Controller) DataPlaneFqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataPlaneFqdn"])
+func (r *Controller) DataPlaneFqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataPlaneFqdn"])
 }
 
 // The host suffix for the DevSpace Controller.
-func (r *Controller) HostSuffix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostSuffix"])
+func (r *Controller) HostSuffix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostSuffix"])
 }
 
 // Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
-func (r *Controller) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Controller) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-func (r *Controller) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Controller) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
-func (r *Controller) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Controller) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `sku` block as documented below. Changing this forces a new resource to be created.
-func (r *Controller) Sku() *pulumi.Output {
+func (r *Controller) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Controller) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Controller) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-func (r *Controller) TargetContainerHostCredentialsBase64() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetContainerHostCredentialsBase64"])
+func (r *Controller) TargetContainerHostCredentialsBase64() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetContainerHostCredentialsBase64"])
 }
 
 // The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-func (r *Controller) TargetContainerHostResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetContainerHostResourceId"])
+func (r *Controller) TargetContainerHostResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetContainerHostResourceId"])
 }
 
 // Input properties used for looking up and filtering Controller resources.

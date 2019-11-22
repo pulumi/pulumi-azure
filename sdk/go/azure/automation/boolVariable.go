@@ -68,43 +68,43 @@ func GetBoolVariable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BoolVariable) URN() *pulumi.URNOutput {
+func (r *BoolVariable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BoolVariable) ID() *pulumi.IDOutput {
+func (r *BoolVariable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
-func (r *BoolVariable) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *BoolVariable) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The description of the Automation Variable.
-func (r *BoolVariable) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *BoolVariable) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies if the Automation Variable is encrypted. Defaults to `false`.
-func (r *BoolVariable) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *BoolVariable) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // The name of the Automation Variable. Changing this forces a new resource to be created.
-func (r *BoolVariable) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *BoolVariable) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-func (r *BoolVariable) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *BoolVariable) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The value of the Automation Variable as a `boolean`.
-func (r *BoolVariable) Value() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["value"])
+func (r *BoolVariable) Value() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering BoolVariable resources.

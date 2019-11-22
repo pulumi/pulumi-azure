@@ -100,73 +100,73 @@ func GetLinkedServiceDataLakeStorageGen2(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LinkedServiceDataLakeStorageGen2) URN() *pulumi.URNOutput {
+func (r *LinkedServiceDataLakeStorageGen2) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LinkedServiceDataLakeStorageGen2) ID() *pulumi.IDOutput {
+func (r *LinkedServiceDataLakeStorageGen2) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service MySQL.
-func (r *LinkedServiceDataLakeStorageGen2) AdditionalProperties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
+func (r *LinkedServiceDataLakeStorageGen2) AdditionalProperties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Linked Service MySQL.
-func (r *LinkedServiceDataLakeStorageGen2) Annotations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
+func (r *LinkedServiceDataLakeStorageGen2) Annotations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-func (r *LinkedServiceDataLakeStorageGen2) DataFactoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
+func (r *LinkedServiceDataLakeStorageGen2) DataFactoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Linked Service MySQL.
-func (r *LinkedServiceDataLakeStorageGen2) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *LinkedServiceDataLakeStorageGen2) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The integration runtime reference to associate with the Data Factory Linked Service MySQL.
-func (r *LinkedServiceDataLakeStorageGen2) IntegrationRuntimeName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["integrationRuntimeName"])
+func (r *LinkedServiceDataLakeStorageGen2) IntegrationRuntimeName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["integrationRuntimeName"])
 }
 
 // Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *LinkedServiceDataLakeStorageGen2) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LinkedServiceDataLakeStorageGen2) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Linked Service MySQL.
-func (r *LinkedServiceDataLakeStorageGen2) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *LinkedServiceDataLakeStorageGen2) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
-func (r *LinkedServiceDataLakeStorageGen2) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *LinkedServiceDataLakeStorageGen2) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
-func (r *LinkedServiceDataLakeStorageGen2) ServicePrincipalId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["servicePrincipalId"])
+func (r *LinkedServiceDataLakeStorageGen2) ServicePrincipalId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["servicePrincipalId"])
 }
 
 // The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
-func (r *LinkedServiceDataLakeStorageGen2) ServicePrincipalKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["servicePrincipalKey"])
+func (r *LinkedServiceDataLakeStorageGen2) ServicePrincipalKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["servicePrincipalKey"])
 }
 
 // The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
-func (r *LinkedServiceDataLakeStorageGen2) Tenant() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tenant"])
+func (r *LinkedServiceDataLakeStorageGen2) Tenant() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tenant"])
 }
 
 // The endpoint for the Azure Data Lake Storage Gen2 service.
-func (r *LinkedServiceDataLakeStorageGen2) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *LinkedServiceDataLakeStorageGen2) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering LinkedServiceDataLakeStorageGen2 resources.

@@ -65,43 +65,43 @@ func GetPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() *pulumi.URNOutput {
+func (r *Policy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() *pulumi.IDOutput {
+func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `customRule` blocks as defined below.
-func (r *Policy) CustomRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customRules"])
+func (r *Policy) CustomRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customRules"])
 }
 
 // Resource location. Changing this forces a new resource to be created.
-func (r *Policy) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Policy) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the policy. Changing this forces a new resource to be created.
-func (r *Policy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Policy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `policySetting` block as defined below.
-func (r *Policy) PolicySettings() *pulumi.Output {
+func (r *Policy) PolicySettings() pulumi.Output {
 	return r.s.State["policySettings"]
 }
 
 // The name of the resource group. Changing this forces a new resource to be created.
-func (r *Policy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Policy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the Web Application Firewall Policy.
-func (r *Policy) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Policy) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Policy resources.

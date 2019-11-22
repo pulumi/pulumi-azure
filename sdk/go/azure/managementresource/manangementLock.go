@@ -62,33 +62,33 @@ func GetManangementLock(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ManangementLock) URN() *pulumi.URNOutput {
+func (r *ManangementLock) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ManangementLock) ID() *pulumi.IDOutput {
+func (r *ManangementLock) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
-func (r *ManangementLock) LockLevel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lockLevel"])
+func (r *ManangementLock) LockLevel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lockLevel"])
 }
 
 // Specifies the name of the Management Lock. Changing this forces a new resource to be created.
-func (r *ManangementLock) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ManangementLock) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
-func (r *ManangementLock) Notes() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notes"])
+func (r *ManangementLock) Notes() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notes"])
 }
 
 // Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
-func (r *ManangementLock) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *ManangementLock) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // Input properties used for looking up and filtering ManangementLock resources.

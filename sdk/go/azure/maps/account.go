@@ -68,48 +68,48 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Azure Maps Account. Changing this forces a new resource to be created.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The primary key used to authenticate and authorize access to the Maps REST APIs.
-func (r *Account) PrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
 // The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Account) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The secondary key used to authenticate and authorize access to the Maps REST APIs.
-func (r *Account) SecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
-func (r *Account) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *Account) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the Azure Maps Account.
-func (r *Account) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Account) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A unique identifier for the Maps Account.
-func (r *Account) XMsClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["xMsClientId"])
+func (r *Account) XMsClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["xMsClientId"])
 }
 
 // Input properties used for looking up and filtering Account resources.

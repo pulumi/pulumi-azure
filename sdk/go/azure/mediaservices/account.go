@@ -62,33 +62,33 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Account) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Account) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `storageAccount` blocks as defined below.
-func (r *Account) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *Account) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // Input properties used for looking up and filtering Account resources.

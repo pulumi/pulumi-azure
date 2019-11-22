@@ -82,67 +82,67 @@ func GetServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Server) URN() *pulumi.URNOutput {
+func (r *Server) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Server) ID() *pulumi.IDOutput {
+func (r *Server) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of email addresses of admin users.
-func (r *Server) AdminUsers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["adminUsers"])
+func (r *Server) AdminUsers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["adminUsers"])
 }
 
 // URI and SAS token for a blob container to store backups.
-func (r *Server) BackupBlobContainerUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["backupBlobContainerUri"])
+func (r *Server) BackupBlobContainerUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["backupBlobContainerUri"])
 }
 
 // Indicates if the Power BI service is allowed to access or not.
-func (r *Server) EnablePowerBiService() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enablePowerBiService"])
+func (r *Server) EnablePowerBiService() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enablePowerBiService"])
 }
 
 // One or more `ipv4FirewallRule` block(s) as defined below.
-func (r *Server) Ipv4FirewallRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipv4FirewallRules"])
+func (r *Server) Ipv4FirewallRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipv4FirewallRules"])
 }
 
 // The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
-func (r *Server) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Server) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the firewall rule.
-func (r *Server) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Server) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
-func (r *Server) QuerypoolConnectionMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["querypoolConnectionMode"])
+func (r *Server) QuerypoolConnectionMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["querypoolConnectionMode"])
 }
 
 // The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
-func (r *Server) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Server) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The full name of the Analysis Services Server.
-func (r *Server) ServerFullName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverFullName"])
+func (r *Server) ServerFullName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverFullName"])
 }
 
 // SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-func (r *Server) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *Server) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
-func (r *Server) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Server) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Server resources.

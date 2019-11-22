@@ -97,90 +97,90 @@ func GetBlob(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Blob) URN() *pulumi.URNOutput {
+func (r *Blob) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Blob) ID() *pulumi.IDOutput {
+func (r *Blob) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
-func (r *Blob) AccessTier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessTier"])
+func (r *Blob) AccessTier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessTier"])
 }
 
 // The number of attempts to make per page or block when uploading. Defaults to `1`.
-func (r *Blob) Attempts() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["attempts"])
+func (r *Blob) Attempts() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["attempts"])
 }
 
 // The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
-func (r *Blob) ContentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentType"])
+func (r *Blob) ContentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 // A map of custom blob metadata.
-func (r *Blob) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *Blob) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The name of the storage blob. Must be unique within the storage container the blob is located.
-func (r *Blob) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Blob) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-func (r *Blob) Parallelism() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["parallelism"])
+func (r *Blob) Parallelism() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["parallelism"])
 }
 
 // The name of the resource group in which to create the storage container.
-func (r *Blob) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Blob) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-func (r *Blob) Size() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["size"])
+func (r *Blob) Size() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["size"])
 }
 
 // An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-func (r *Blob) Source() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["source"])
+func (r *Blob) Source() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["source"])
 }
 
 // The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
-func (r *Blob) SourceContent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceContent"])
+func (r *Blob) SourceContent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceContent"])
 }
 
 // The URI of an existing blob, or a file in the Azure File service, to use as the source contents
 // for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
-func (r *Blob) SourceUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
+func (r *Blob) SourceUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceUri"])
 }
 
 // Specifies the storage account in which to create the storage container.
 // Changing this forces a new resource to be created.
-func (r *Blob) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *Blob) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // The name of the storage container in which this blob should be created.
-func (r *Blob) StorageContainerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageContainerName"])
+func (r *Blob) StorageContainerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageContainerName"])
 }
 
 // The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
-func (r *Blob) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Blob) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // The URL of the blob
-func (r *Blob) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Blob) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering Blob resources.

@@ -76,63 +76,63 @@ func GetAnalyticsWorkspace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsWorkspace) URN() *pulumi.URNOutput {
+func (r *AnalyticsWorkspace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsWorkspace) ID() *pulumi.IDOutput {
+func (r *AnalyticsWorkspace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AnalyticsWorkspace) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AnalyticsWorkspace) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-func (r *AnalyticsWorkspace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AnalyticsWorkspace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Portal URL for the Log Analytics Workspace.
-func (r *AnalyticsWorkspace) PortalUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["portalUrl"])
+func (r *AnalyticsWorkspace) PortalUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["portalUrl"])
 }
 
 // The Primary shared key for the Log Analytics Workspace.
-func (r *AnalyticsWorkspace) PrimarySharedKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primarySharedKey"])
+func (r *AnalyticsWorkspace) PrimarySharedKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primarySharedKey"])
 }
 
 // The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-func (r *AnalyticsWorkspace) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AnalyticsWorkspace) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The workspace data retention in days. Possible values range between 30 and 730.
-func (r *AnalyticsWorkspace) RetentionInDays() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["retentionInDays"])
+func (r *AnalyticsWorkspace) RetentionInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["retentionInDays"])
 }
 
 // The Secondary shared key for the Log Analytics Workspace.
-func (r *AnalyticsWorkspace) SecondarySharedKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondarySharedKey"])
+func (r *AnalyticsWorkspace) SecondarySharedKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondarySharedKey"])
 }
 
 // Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
-func (r *AnalyticsWorkspace) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *AnalyticsWorkspace) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AnalyticsWorkspace) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AnalyticsWorkspace) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Workspace (or Customer) ID for the Log Analytics Workspace.
-func (r *AnalyticsWorkspace) WorkspaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workspaceId"])
+func (r *AnalyticsWorkspace) WorkspaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workspaceId"])
 }
 
 // Input properties used for looking up and filtering AnalyticsWorkspace resources.

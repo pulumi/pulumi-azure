@@ -76,53 +76,53 @@ func GetPolicySetDefinition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PolicySetDefinition) URN() *pulumi.URNOutput {
+func (r *PolicySetDefinition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PolicySetDefinition) ID() *pulumi.IDOutput {
+func (r *PolicySetDefinition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The description of the policy set definition.
-func (r *PolicySetDefinition) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *PolicySetDefinition) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The display name of the policy set definition.
-func (r *PolicySetDefinition) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *PolicySetDefinition) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-func (r *PolicySetDefinition) ManagementGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["managementGroupId"])
+func (r *PolicySetDefinition) ManagementGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["managementGroupId"])
 }
 
 // The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
-func (r *PolicySetDefinition) Metadata() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metadata"])
+func (r *PolicySetDefinition) Metadata() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metadata"])
 }
 
 // The name of the policy set definition. Changing this forces a new resource to be created.
-func (r *PolicySetDefinition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PolicySetDefinition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
-func (r *PolicySetDefinition) Parameters() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parameters"])
+func (r *PolicySetDefinition) Parameters() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parameters"])
 }
 
 // The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
-func (r *PolicySetDefinition) PolicyDefinitions() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyDefinitions"])
+func (r *PolicySetDefinition) PolicyDefinitions() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyDefinitions"])
 }
 
 // The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
-func (r *PolicySetDefinition) PolicyType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["policyType"])
+func (r *PolicySetDefinition) PolicyType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["policyType"])
 }
 
 // Input properties used for looking up and filtering PolicySetDefinition resources.

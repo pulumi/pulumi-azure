@@ -68,38 +68,38 @@ func GetProductPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProductPolicy) URN() *pulumi.URNOutput {
+func (r *ProductPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProductPolicy) ID() *pulumi.IDOutput {
+func (r *ProductPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductPolicy) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *ProductPolicy) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductPolicy) ProductId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productId"])
+func (r *ProductPolicy) ProductId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productId"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ProductPolicy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ProductPolicy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The XML Content for this Policy.
-func (r *ProductPolicy) XmlContent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["xmlContent"])
+func (r *ProductPolicy) XmlContent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["xmlContent"])
 }
 
 // A link to a Policy XML Document, which must be publicly available.
-func (r *ProductPolicy) XmlLink() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["xmlLink"])
+func (r *ProductPolicy) XmlLink() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["xmlLink"])
 }
 
 // Input properties used for looking up and filtering ProductPolicy resources.

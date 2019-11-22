@@ -95,68 +95,68 @@ func GetRunBook(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RunBook) URN() *pulumi.URNOutput {
+func (r *RunBook) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RunBook) ID() *pulumi.IDOutput {
+func (r *RunBook) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-func (r *RunBook) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *RunBook) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The desired content of the runbook.
-func (r *RunBook) Content() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["content"])
+func (r *RunBook) Content() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["content"])
 }
 
 // A description for this credential.
-func (r *RunBook) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *RunBook) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *RunBook) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *RunBook) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Progress log option.
-func (r *RunBook) LogProgress() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["logProgress"])
+func (r *RunBook) LogProgress() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["logProgress"])
 }
 
 // Verbose log option.
-func (r *RunBook) LogVerbose() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["logVerbose"])
+func (r *RunBook) LogVerbose() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["logVerbose"])
 }
 
 // Specifies the name of the Runbook. Changing this forces a new resource to be created.
-func (r *RunBook) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RunBook) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The published runbook content link.
-func (r *RunBook) PublishContentLink() *pulumi.Output {
+func (r *RunBook) PublishContentLink() pulumi.Output {
 	return r.s.State["publishContentLink"]
 }
 
 // The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-func (r *RunBook) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *RunBook) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
-func (r *RunBook) RunbookType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runbookType"])
+func (r *RunBook) RunbookType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runbookType"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *RunBook) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RunBook) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering RunBook resources.

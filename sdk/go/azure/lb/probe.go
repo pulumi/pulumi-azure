@@ -84,61 +84,61 @@ func GetProbe(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Probe) URN() *pulumi.URNOutput {
+func (r *Probe) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Probe) ID() *pulumi.IDOutput {
+func (r *Probe) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-func (r *Probe) IntervalInSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["intervalInSeconds"])
+func (r *Probe) IntervalInSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["intervalInSeconds"])
 }
 
-func (r *Probe) LoadBalancerRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["loadBalancerRules"])
+func (r *Probe) LoadBalancerRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["loadBalancerRules"])
 }
 
 // The ID of the LoadBalancer in which to create the NAT Rule.
-func (r *Probe) LoadbalancerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
+func (r *Probe) LoadbalancerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
 
-func (r *Probe) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Probe) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Probe.
-func (r *Probe) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Probe) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
-func (r *Probe) NumberOfProbes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfProbes"])
+func (r *Probe) NumberOfProbes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["numberOfProbes"])
 }
 
 // Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
-func (r *Probe) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *Probe) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
-func (r *Probe) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *Probe) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
-func (r *Probe) RequestPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["requestPath"])
+func (r *Probe) RequestPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["requestPath"])
 }
 
 // The name of the resource group in which to create the resource.
-func (r *Probe) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Probe) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Probe resources.

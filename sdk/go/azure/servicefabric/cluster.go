@@ -118,108 +118,108 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A List of one or more features which should be enabled, such as `DnsService`.
-func (r *Cluster) AddOnFeatures() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["addOnFeatures"])
+func (r *Cluster) AddOnFeatures() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["addOnFeatures"])
 }
 
 // An `azureActiveDirectory` block as defined below.
-func (r *Cluster) AzureActiveDirectory() *pulumi.Output {
+func (r *Cluster) AzureActiveDirectory() pulumi.Output {
 	return r.s.State["azureActiveDirectory"]
 }
 
 // A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
-func (r *Cluster) Certificate() *pulumi.Output {
+func (r *Cluster) Certificate() pulumi.Output {
 	return r.s.State["certificate"]
 }
 
 // A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
-func (r *Cluster) CertificateCommonNames() *pulumi.Output {
+func (r *Cluster) CertificateCommonNames() pulumi.Output {
 	return r.s.State["certificateCommonNames"]
 }
 
 // One or two `clientCertificateThumbprint` blocks as defined below.
-func (r *Cluster) ClientCertificateThumbprints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clientCertificateThumbprints"])
+func (r *Cluster) ClientCertificateThumbprints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clientCertificateThumbprints"])
 }
 
 // Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-func (r *Cluster) ClusterCodeVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterCodeVersion"])
+func (r *Cluster) ClusterCodeVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterCodeVersion"])
 }
 
 // The Cluster Endpoint for this Service Fabric Cluster.
-func (r *Cluster) ClusterEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterEndpoint"])
+func (r *Cluster) ClusterEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterEndpoint"])
 }
 
 // A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
-func (r *Cluster) DiagnosticsConfig() *pulumi.Output {
+func (r *Cluster) DiagnosticsConfig() pulumi.Output {
 	return r.s.State["diagnosticsConfig"]
 }
 
 // One or more `fabricSettings` blocks as defined below.
-func (r *Cluster) FabricSettings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["fabricSettings"])
+func (r *Cluster) FabricSettings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["fabricSettings"])
 }
 
 // Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
-func (r *Cluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Cluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
-func (r *Cluster) ManagementEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["managementEndpoint"])
+func (r *Cluster) ManagementEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["managementEndpoint"])
 }
 
 // The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-func (r *Cluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Cluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // One or more `nodeType` blocks as defined below.
-func (r *Cluster) NodeTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["nodeTypes"])
+func (r *Cluster) NodeTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["nodeTypes"])
 }
 
 // Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
-func (r *Cluster) ReliabilityLevel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reliabilityLevel"])
+func (r *Cluster) ReliabilityLevel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reliabilityLevel"])
 }
 
 // The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-func (r *Cluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Cluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `reverseProxyCertificate` block as defined below.
-func (r *Cluster) ReverseProxyCertificate() *pulumi.Output {
+func (r *Cluster) ReverseProxyCertificate() pulumi.Output {
 	return r.s.State["reverseProxyCertificate"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-func (r *Cluster) UpgradeMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["upgradeMode"])
+func (r *Cluster) UpgradeMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["upgradeMode"])
 }
 
 // Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
-func (r *Cluster) VmImage() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vmImage"])
+func (r *Cluster) VmImage() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vmImage"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

@@ -55,33 +55,33 @@ func GetManagementGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ManagementGroup) URN() *pulumi.URNOutput {
+func (r *ManagementGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ManagementGroup) ID() *pulumi.IDOutput {
+func (r *ManagementGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
-func (r *ManagementGroup) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *ManagementGroup) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
-func (r *ManagementGroup) GroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupId"])
+func (r *ManagementGroup) GroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupId"])
 }
 
 // The ID of the Parent Management Group. Changing this forces a new resource to be created.
-func (r *ManagementGroup) ParentManagementGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parentManagementGroupId"])
+func (r *ManagementGroup) ParentManagementGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parentManagementGroupId"])
 }
 
 // A list of Subscription GUIDs which should be assigned to the Management Group.
-func (r *ManagementGroup) SubscriptionIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subscriptionIds"])
+func (r *ManagementGroup) SubscriptionIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subscriptionIds"])
 }
 
 // Input properties used for looking up and filtering ManagementGroup resources.

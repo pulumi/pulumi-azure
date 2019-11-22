@@ -71,39 +71,39 @@ func GetDatabase(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Database) URN() *pulumi.URNOutput {
+func (r *Database) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Database) ID() *pulumi.IDOutput {
+func (r *Database) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Charset for the MariaDB Database, which needs [to be a valid MariaDB Charset](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
-func (r *Database) Charset() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["charset"])
+func (r *Database) Charset() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["charset"])
 }
 
 // Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
-func (r *Database) Collation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["collation"])
+func (r *Database) Collation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["collation"])
 }
 
 // Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
 // new resource to be created.
-func (r *Database) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Database) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
-func (r *Database) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Database) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-func (r *Database) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *Database) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // Input properties used for looking up and filtering Database resources.

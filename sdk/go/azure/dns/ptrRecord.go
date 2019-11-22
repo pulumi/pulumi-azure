@@ -74,43 +74,43 @@ func GetPtrRecord(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PtrRecord) URN() *pulumi.URNOutput {
+func (r *PtrRecord) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PtrRecord) ID() *pulumi.IDOutput {
+func (r *PtrRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the DNS PTR Record.
-func (r *PtrRecord) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PtrRecord) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // List of Fully Qualified Domain Names.
-func (r *PtrRecord) Records() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["records"])
+func (r *PtrRecord) Records() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["records"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *PtrRecord) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *PtrRecord) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *PtrRecord) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *PtrRecord) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Time To Live (TTL) of the DNS record in seconds.
-func (r *PtrRecord) Ttl() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ttl"])
+func (r *PtrRecord) Ttl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
 
 // Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *PtrRecord) ZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneName"])
+func (r *PtrRecord) ZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneName"])
 }
 
 // Input properties used for looking up and filtering PtrRecord resources.

@@ -59,28 +59,28 @@ func GetActionCustom(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActionCustom) URN() *pulumi.URNOutput {
+func (r *ActionCustom) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActionCustom) ID() *pulumi.IDOutput {
+func (r *ActionCustom) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the JSON Blob defining the Body of this Custom Action.
-func (r *ActionCustom) Body() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["body"])
+func (r *ActionCustom) Body() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["body"])
 }
 
 // Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *ActionCustom) LogicAppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logicAppId"])
+func (r *ActionCustom) LogicAppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logicAppId"])
 }
 
 // Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *ActionCustom) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ActionCustom) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ActionCustom resources.

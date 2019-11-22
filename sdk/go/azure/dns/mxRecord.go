@@ -74,43 +74,43 @@ func GetMxRecord(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MxRecord) URN() *pulumi.URNOutput {
+func (r *MxRecord) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MxRecord) ID() *pulumi.IDOutput {
+func (r *MxRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the DNS MX Record.
-func (r *MxRecord) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MxRecord) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of values that make up the MX record. Each `record` block supports fields documented below.
-func (r *MxRecord) Records() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["records"])
+func (r *MxRecord) Records() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["records"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *MxRecord) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *MxRecord) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *MxRecord) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *MxRecord) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Time To Live (TTL) of the DNS record in seconds.
-func (r *MxRecord) Ttl() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ttl"])
+func (r *MxRecord) Ttl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
 
 // Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *MxRecord) ZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneName"])
+func (r *MxRecord) ZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneName"])
 }
 
 // Input properties used for looking up and filtering MxRecord resources.

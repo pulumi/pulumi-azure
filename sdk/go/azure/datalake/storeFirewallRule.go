@@ -71,38 +71,38 @@ func GetStoreFirewallRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StoreFirewallRule) URN() *pulumi.URNOutput {
+func (r *StoreFirewallRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StoreFirewallRule) ID() *pulumi.IDOutput {
+func (r *StoreFirewallRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
-func (r *StoreFirewallRule) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *StoreFirewallRule) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The End IP Address for the firewall rule.
-func (r *StoreFirewallRule) EndIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endIpAddress"])
+func (r *StoreFirewallRule) EndIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
 }
 
 // Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-func (r *StoreFirewallRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *StoreFirewallRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Data Lake Store.
-func (r *StoreFirewallRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *StoreFirewallRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Start IP address for the firewall rule.
-func (r *StoreFirewallRule) StartIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startIpAddress"])
+func (r *StoreFirewallRule) StartIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
 }
 
 // Input properties used for looking up and filtering StoreFirewallRule resources.

@@ -59,28 +59,28 @@ func GetTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Table) URN() *pulumi.URNOutput {
+func (r *Table) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Table) ID() *pulumi.IDOutput {
+func (r *Table) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-func (r *Table) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *Table) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
-func (r *Table) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Table) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
-func (r *Table) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Table) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Table resources.

@@ -95,68 +95,68 @@ func GetSchedule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Schedule) URN() *pulumi.URNOutput {
+func (r *Schedule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Schedule) ID() *pulumi.IDOutput {
+func (r *Schedule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Schedule) DailyRecurrence() *pulumi.Output {
+func (r *Schedule) DailyRecurrence() pulumi.Output {
 	return r.s.State["dailyRecurrence"]
 }
 
-func (r *Schedule) HourlyRecurrence() *pulumi.Output {
+func (r *Schedule) HourlyRecurrence() pulumi.Output {
 	return r.s.State["hourlyRecurrence"]
 }
 
 // The name of the dev test lab. Changing this forces a new resource to be created.
-func (r *Schedule) LabName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["labName"])
+func (r *Schedule) LabName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["labName"])
 }
 
 // The location where the schedule is created. Changing this forces a new resource to be created.
-func (r *Schedule) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Schedule) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-func (r *Schedule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Schedule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *Schedule) NotificationSettings() *pulumi.Output {
+func (r *Schedule) NotificationSettings() pulumi.Output {
 	return r.s.State["notificationSettings"]
 }
 
 // The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
-func (r *Schedule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Schedule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-func (r *Schedule) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Schedule) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Schedule) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Schedule) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
-func (r *Schedule) TaskType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["taskType"])
+func (r *Schedule) TaskType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["taskType"])
 }
 
 // The time zone ID (e.g. Pacific Standard time).
-func (r *Schedule) TimeZoneId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timeZoneId"])
+func (r *Schedule) TimeZoneId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timeZoneId"])
 }
 
-func (r *Schedule) WeeklyRecurrence() *pulumi.Output {
+func (r *Schedule) WeeklyRecurrence() pulumi.Output {
 	return r.s.State["weeklyRecurrence"]
 }
 

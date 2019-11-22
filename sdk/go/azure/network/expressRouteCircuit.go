@@ -90,68 +90,68 @@ func GetExpressRouteCircuit(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ExpressRouteCircuit) URN() *pulumi.URNOutput {
+func (r *ExpressRouteCircuit) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ExpressRouteCircuit) ID() *pulumi.IDOutput {
+func (r *ExpressRouteCircuit) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-func (r *ExpressRouteCircuit) AllowClassicOperations() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowClassicOperations"])
+func (r *ExpressRouteCircuit) AllowClassicOperations() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowClassicOperations"])
 }
 
 // The bandwidth in Mbps of the circuit being created.
-func (r *ExpressRouteCircuit) BandwidthInMbps() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["bandwidthInMbps"])
+func (r *ExpressRouteCircuit) BandwidthInMbps() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["bandwidthInMbps"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuit) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ExpressRouteCircuit) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuit) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ExpressRouteCircuit) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the peering location and **not** the Azure resource location.
-func (r *ExpressRouteCircuit) PeeringLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["peeringLocation"])
+func (r *ExpressRouteCircuit) PeeringLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["peeringLocation"])
 }
 
 // The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuit) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ExpressRouteCircuit) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The string needed by the service provider to provision the ExpressRoute circuit.
-func (r *ExpressRouteCircuit) ServiceKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceKey"])
+func (r *ExpressRouteCircuit) ServiceKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceKey"])
 }
 
 // The name of the ExpressRoute Service Provider.
-func (r *ExpressRouteCircuit) ServiceProviderName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceProviderName"])
+func (r *ExpressRouteCircuit) ServiceProviderName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceProviderName"])
 }
 
 // The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
-func (r *ExpressRouteCircuit) ServiceProviderProvisioningState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceProviderProvisioningState"])
+func (r *ExpressRouteCircuit) ServiceProviderProvisioningState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceProviderProvisioningState"])
 }
 
 // A `sku` block for the ExpressRoute circuit as documented below.
-func (r *ExpressRouteCircuit) Sku() *pulumi.Output {
+func (r *ExpressRouteCircuit) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ExpressRouteCircuit) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ExpressRouteCircuit) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ExpressRouteCircuit resources.

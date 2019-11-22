@@ -86,62 +86,62 @@ func GetRegistryWebook(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RegistryWebook) URN() *pulumi.URNOutput {
+func (r *RegistryWebook) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RegistryWebook) ID() *pulumi.IDOutput {
+func (r *RegistryWebook) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
-func (r *RegistryWebook) Actions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["actions"])
+func (r *RegistryWebook) Actions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["actions"])
 }
 
 // Custom headers that will be added to the webhook notifications request.
-func (r *RegistryWebook) CustomHeaders() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["customHeaders"])
+func (r *RegistryWebook) CustomHeaders() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["customHeaders"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *RegistryWebook) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *RegistryWebook) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
-func (r *RegistryWebook) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RegistryWebook) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
-func (r *RegistryWebook) RegistryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["registryName"])
+func (r *RegistryWebook) RegistryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["registryName"])
 }
 
 // The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
-func (r *RegistryWebook) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *RegistryWebook) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-func (r *RegistryWebook) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *RegistryWebook) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // Specifies the service URI for the Webhook to post notifications.
-func (r *RegistryWebook) ServiceUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceUri"])
+func (r *RegistryWebook) ServiceUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceUri"])
 }
 
 // Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
-func (r *RegistryWebook) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *RegistryWebook) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
-func (r *RegistryWebook) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RegistryWebook) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering RegistryWebook resources.

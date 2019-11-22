@@ -79,59 +79,59 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetwork) URN() *pulumi.URNOutput {
+func (r *VirtualNetwork) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetwork) ID() *pulumi.IDOutput {
+func (r *VirtualNetwork) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The address space that is used the virtual
 // network. You can supply more than one address space. Changing this forces
 // a new resource to be created.
-func (r *VirtualNetwork) AddressSpaces() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["addressSpaces"])
+func (r *VirtualNetwork) AddressSpaces() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["addressSpaces"])
 }
 
 // A `ddosProtectionPlan` block as documented below.
-func (r *VirtualNetwork) DdosProtectionPlan() *pulumi.Output {
+func (r *VirtualNetwork) DdosProtectionPlan() pulumi.Output {
 	return r.s.State["ddosProtectionPlan"]
 }
 
 // List of IP addresses of DNS servers
-func (r *VirtualNetwork) DnsServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsServers"])
+func (r *VirtualNetwork) DnsServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsServers"])
 }
 
 // The location/region where the virtual network is
 // created. Changing this forces a new resource to be created.
-func (r *VirtualNetwork) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *VirtualNetwork) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the virtual network. Changing this forces a
 // new resource to be created.
-func (r *VirtualNetwork) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNetwork) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the virtual network.
-func (r *VirtualNetwork) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualNetwork) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Can be specified multiple times to define multiple
 // subnets. Each `subnet` block supports fields documented below.
-func (r *VirtualNetwork) Subnets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnets"])
+func (r *VirtualNetwork) Subnets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnets"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VirtualNetwork) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualNetwork) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering VirtualNetwork resources.

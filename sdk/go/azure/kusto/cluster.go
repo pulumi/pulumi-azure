@@ -69,48 +69,48 @@ func GetCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() *pulumi.URNOutput {
+func (r *Cluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() *pulumi.IDOutput {
+func (r *Cluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Kusto Cluster URI to be used for data ingestion.
-func (r *Cluster) DataIngestionUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataIngestionUri"])
+func (r *Cluster) DataIngestionUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataIngestionUri"])
 }
 
 // The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
-func (r *Cluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Cluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
-func (r *Cluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Cluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-func (r *Cluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Cluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `sku` block as defined below.
-func (r *Cluster) Sku() *pulumi.Output {
+func (r *Cluster) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Cluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The FQDN of the Azure Kusto Cluster.
-func (r *Cluster) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *Cluster) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering Cluster resources.

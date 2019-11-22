@@ -73,53 +73,53 @@ func GetNamespace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() *pulumi.URNOutput {
+func (r *Namespace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() *pulumi.IDOutput {
+func (r *Namespace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Is this Notification Hub Namespace enabled? Defaults to `true`.
-func (r *Namespace) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *Namespace) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The Azure Region in which this Notification Hub Namespace should be created.
-func (r *Namespace) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Namespace) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-func (r *Namespace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Namespace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
-func (r *Namespace) NamespaceType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceType"])
+func (r *Namespace) NamespaceType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceType"])
 }
 
 // The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-func (r *Namespace) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Namespace) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The ServiceBus Endpoint for this Notification Hub Namespace.
-func (r *Namespace) ServicebusEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["servicebusEndpoint"])
+func (r *Namespace) ServicebusEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["servicebusEndpoint"])
 }
 
 // ) A `sku` block as described below.
-func (r *Namespace) Sku() *pulumi.Output {
+func (r *Namespace) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
-func (r *Namespace) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *Namespace) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // Input properties used for looking up and filtering Namespace resources.

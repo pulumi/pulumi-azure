@@ -74,54 +74,54 @@ func GetLocalNetworkGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LocalNetworkGateway) URN() *pulumi.URNOutput {
+func (r *LocalNetworkGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LocalNetworkGateway) ID() *pulumi.IDOutput {
+func (r *LocalNetworkGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The list of string CIDRs representing the
 // address spaces the gateway exposes.
-func (r *LocalNetworkGateway) AddressSpaces() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["addressSpaces"])
+func (r *LocalNetworkGateway) AddressSpaces() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["addressSpaces"])
 }
 
 // A `bgpSettings` block as defined below containing the
 // Local Network Gateway's BGP speaker settings.
-func (r *LocalNetworkGateway) BgpSettings() *pulumi.Output {
+func (r *LocalNetworkGateway) BgpSettings() pulumi.Output {
 	return r.s.State["bgpSettings"]
 }
 
 // The IP address of the gateway to which to
 // connect.
-func (r *LocalNetworkGateway) GatewayAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayAddress"])
+func (r *LocalNetworkGateway) GatewayAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayAddress"])
 }
 
 // The location/region where the local network gateway is
 // created. Changing this forces a new resource to be created.
-func (r *LocalNetworkGateway) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *LocalNetworkGateway) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the local network gateway. Changing this
 // forces a new resource to be created.
-func (r *LocalNetworkGateway) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LocalNetworkGateway) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the local network gateway.
-func (r *LocalNetworkGateway) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *LocalNetworkGateway) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *LocalNetworkGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LocalNetworkGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering LocalNetworkGateway resources.

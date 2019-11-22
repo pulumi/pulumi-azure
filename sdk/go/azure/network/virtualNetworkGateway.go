@@ -97,12 +97,12 @@ func GetVirtualNetworkGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkGateway) URN() *pulumi.URNOutput {
+func (r *VirtualNetworkGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkGateway) ID() *pulumi.IDOutput {
+func (r *VirtualNetworkGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
@@ -110,11 +110,11 @@ func (r *VirtualNetworkGateway) ID() *pulumi.IDOutput {
 // will be created. An active-active gateway requires a `HighPerformance` or an
 // `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 // Defaults to `false`.
-func (r *VirtualNetworkGateway) ActiveActive() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["activeActive"])
+func (r *VirtualNetworkGateway) ActiveActive() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["activeActive"])
 }
 
-func (r *VirtualNetworkGateway) BgpSettings() *pulumi.Output {
+func (r *VirtualNetworkGateway) BgpSettings() pulumi.Output {
 	return r.s.State["bgpSettings"]
 }
 
@@ -123,40 +123,40 @@ func (r *VirtualNetworkGateway) BgpSettings() *pulumi.Output {
 // gateway is created will be routed (*forced tunneling*). Refer to the
 // [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 // If not specified, forced tunneling is disabled.
-func (r *VirtualNetworkGateway) DefaultLocalNetworkGatewayId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultLocalNetworkGatewayId"])
+func (r *VirtualNetworkGateway) DefaultLocalNetworkGatewayId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultLocalNetworkGatewayId"])
 }
 
 // If `true`, BGP (Border Gateway Protocol) will be enabled
 // for this Virtual Network Gateway. Defaults to `false`.
-func (r *VirtualNetworkGateway) EnableBgp() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableBgp"])
+func (r *VirtualNetworkGateway) EnableBgp() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableBgp"])
 }
 
 // One or two `ipConfiguration` blocks documented below.
 // An active-standby gateway requires exactly one `ipConfiguration` block whereas
 // an active-active gateway requires exactly two `ipConfiguration` blocks.
-func (r *VirtualNetworkGateway) IpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
+func (r *VirtualNetworkGateway) IpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
 }
 
 // The location/region where the Virtual Network Gateway is
 // located. Changing the location/region forces a new resource to be created.
-func (r *VirtualNetworkGateway) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *VirtualNetworkGateway) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Virtual Network Gateway. Changing the name
 // forces a new resource to be created.
-func (r *VirtualNetworkGateway) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNetworkGateway) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the Virtual Network Gateway. Changing the resource group name forces
 // a new resource to be created.
-func (r *VirtualNetworkGateway) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualNetworkGateway) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Configuration of the size and capacity of the virtual network
@@ -165,32 +165,32 @@ func (r *VirtualNetworkGateway) ResourceGroupName() *pulumi.StringOutput {
 // and depend on the `type` and `vpnType` arguments.
 // A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 // sku is only supported by an `ExpressRoute` gateway.
-func (r *VirtualNetworkGateway) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *VirtualNetworkGateway) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VirtualNetworkGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualNetworkGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of the Virtual Network Gateway. Valid options are
 // `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-func (r *VirtualNetworkGateway) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *VirtualNetworkGateway) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // A `vpnClientConfiguration` block which
 // is documented below. In this block the Virtual Network Gateway can be configured
 // to accept IPSec point-to-site connections.
-func (r *VirtualNetworkGateway) VpnClientConfiguration() *pulumi.Output {
+func (r *VirtualNetworkGateway) VpnClientConfiguration() pulumi.Output {
 	return r.s.State["vpnClientConfiguration"]
 }
 
 // The routing type of the Virtual Network Gateway. Valid
 // options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-func (r *VirtualNetworkGateway) VpnType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vpnType"])
+func (r *VirtualNetworkGateway) VpnType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vpnType"])
 }
 
 // Input properties used for looking up and filtering VirtualNetworkGateway resources.

@@ -92,63 +92,63 @@ func GetProduct(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Product) URN() *pulumi.URNOutput {
+func (r *Product) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Product) ID() *pulumi.IDOutput {
+func (r *Product) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *Product) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Product) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // Do subscribers need to be approved prior to being able to use the Product?
-func (r *Product) ApprovalRequired() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["approvalRequired"])
+func (r *Product) ApprovalRequired() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["approvalRequired"])
 }
 
 // A description of this Product, which may include HTML formatting tags.
-func (r *Product) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Product) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The Display Name for this API Management Product.
-func (r *Product) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Product) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-func (r *Product) ProductId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productId"])
+func (r *Product) ProductId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productId"])
 }
 
 // Is this Product Published?
-func (r *Product) Published() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["published"])
+func (r *Product) Published() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["published"])
 }
 
 // The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-func (r *Product) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Product) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Is a Subscription required to access API's included in this Product?
-func (r *Product) SubscriptionRequired() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["subscriptionRequired"])
+func (r *Product) SubscriptionRequired() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["subscriptionRequired"])
 }
 
 // The number of subscriptions a user can have to this Product at the same time.
-func (r *Product) SubscriptionsLimit() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["subscriptionsLimit"])
+func (r *Product) SubscriptionsLimit() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["subscriptionsLimit"])
 }
 
 // The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-func (r *Product) Terms() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["terms"])
+func (r *Product) Terms() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["terms"])
 }
 
 // Input properties used for looking up and filtering Product resources.

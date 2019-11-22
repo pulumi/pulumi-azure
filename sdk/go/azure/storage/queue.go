@@ -59,33 +59,33 @@ func GetQueue(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Queue) URN() *pulumi.URNOutput {
+func (r *Queue) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Queue) ID() *pulumi.IDOutput {
+func (r *Queue) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A mapping of MetaData which should be assigned to this Storage Queue.
-func (r *Queue) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *Queue) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
-func (r *Queue) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Queue) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the storage queue.
-func (r *Queue) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Queue) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-func (r *Queue) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *Queue) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // Input properties used for looking up and filtering Queue resources.

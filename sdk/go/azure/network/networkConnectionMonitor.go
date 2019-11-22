@@ -83,58 +83,58 @@ func GetNetworkConnectionMonitor(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkConnectionMonitor) URN() *pulumi.URNOutput {
+func (r *NetworkConnectionMonitor) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkConnectionMonitor) ID() *pulumi.IDOutput {
+func (r *NetworkConnectionMonitor) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
-func (r *NetworkConnectionMonitor) AutoStart() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoStart"])
+func (r *NetworkConnectionMonitor) AutoStart() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoStart"])
 }
 
 // A `destination` block as defined below.
-func (r *NetworkConnectionMonitor) Destination() *pulumi.Output {
+func (r *NetworkConnectionMonitor) Destination() pulumi.Output {
 	return r.s.State["destination"]
 }
 
 // Monitoring interval in seconds. Defaults to `60`.
-func (r *NetworkConnectionMonitor) IntervalInSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["intervalInSeconds"])
+func (r *NetworkConnectionMonitor) IntervalInSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["intervalInSeconds"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *NetworkConnectionMonitor) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *NetworkConnectionMonitor) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Network Connection Monitor. Changing this forces a new resource to be created.
-func (r *NetworkConnectionMonitor) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NetworkConnectionMonitor) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Network Watcher. Changing this forces a new resource to be created.
-func (r *NetworkConnectionMonitor) NetworkWatcherName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkWatcherName"])
+func (r *NetworkConnectionMonitor) NetworkWatcherName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkWatcherName"])
 }
 
 // The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
-func (r *NetworkConnectionMonitor) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NetworkConnectionMonitor) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `source` block as defined below.
-func (r *NetworkConnectionMonitor) Source() *pulumi.Output {
+func (r *NetworkConnectionMonitor) Source() pulumi.Output {
 	return r.s.State["source"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *NetworkConnectionMonitor) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NetworkConnectionMonitor) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering NetworkConnectionMonitor resources.

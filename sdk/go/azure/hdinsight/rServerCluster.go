@@ -101,78 +101,78 @@ func GetRServerCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RServerCluster) URN() *pulumi.URNOutput {
+func (r *RServerCluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RServerCluster) ID() *pulumi.IDOutput {
+func (r *RServerCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *RServerCluster) ClusterVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterVersion"])
+func (r *RServerCluster) ClusterVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
 }
 
 // The SSH Connectivity Endpoint for the Edge Node of the HDInsight RServer Cluster.
-func (r *RServerCluster) EdgeSshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["edgeSshEndpoint"])
+func (r *RServerCluster) EdgeSshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["edgeSshEndpoint"])
 }
 
 // A `gateway` block as defined below.
-func (r *RServerCluster) Gateway() *pulumi.Output {
+func (r *RServerCluster) Gateway() pulumi.Output {
 	return r.s.State["gateway"]
 }
 
 // The HTTPS Connectivity Endpoint for this HDInsight RServer Cluster.
-func (r *RServerCluster) HttpsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpsEndpoint"])
+func (r *RServerCluster) HttpsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
 }
 
 // Specifies the Azure Region which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-func (r *RServerCluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *RServerCluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name for this HDInsight RServer Cluster. Changing this forces a new resource to be created.
-func (r *RServerCluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RServerCluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-func (r *RServerCluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *RServerCluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `roles` block as defined below.
-func (r *RServerCluster) Roles() *pulumi.Output {
+func (r *RServerCluster) Roles() pulumi.Output {
 	return r.s.State["roles"]
 }
 
 // Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
-func (r *RServerCluster) Rstudio() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["rstudio"])
+func (r *RServerCluster) Rstudio() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["rstudio"])
 }
 
 // The SSH Connectivity Endpoint for this HDInsight RServer Cluster.
-func (r *RServerCluster) SshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
+func (r *RServerCluster) SshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
 // One or more `storageAccount` block as defined below.
-func (r *RServerCluster) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *RServerCluster) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // A map of Tags which should be assigned to this HDInsight RServer Cluster.
-func (r *RServerCluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *RServerCluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *RServerCluster) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *RServerCluster) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering RServerCluster resources.

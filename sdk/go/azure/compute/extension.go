@@ -97,79 +97,79 @@ func GetExtension(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Extension) URN() *pulumi.URNOutput {
+func (r *Extension) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Extension) ID() *pulumi.IDOutput {
+func (r *Extension) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies if the platform deploys
 // the latest minor version update to the `typeHandlerVersion` specified.
-func (r *Extension) AutoUpgradeMinorVersion() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoUpgradeMinorVersion"])
+func (r *Extension) AutoUpgradeMinorVersion() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoUpgradeMinorVersion"])
 }
 
 // The location where the extension is created. Changing
 // this forces a new resource to be created.
-func (r *Extension) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Extension) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the virtual machine extension peering. Changing
 // this forces a new resource to be created.
-func (r *Extension) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Extension) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The protectedSettings passed to the
 // extension, like settings, these are specified as a JSON object in a string.
-func (r *Extension) ProtectedSettings() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protectedSettings"])
+func (r *Extension) ProtectedSettings() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protectedSettings"])
 }
 
 // The publisher of the extension, available publishers
 // can be found by using the Azure CLI.
-func (r *Extension) Publisher() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publisher"])
+func (r *Extension) Publisher() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publisher"])
 }
 
 // The name of the resource group in which to
 // create the virtual network. Changing this forces a new resource to be
 // created.
-func (r *Extension) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Extension) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The settings passed to the extension, these are
 // specified as a JSON object in a string.
-func (r *Extension) Settings() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["settings"])
+func (r *Extension) Settings() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["settings"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Extension) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Extension) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The type of extension, available types for a publisher can
 // be found using the Azure CLI.
-func (r *Extension) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Extension) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Specifies the version of the extension to
 // use, available versions can be found using the Azure CLI.
-func (r *Extension) TypeHandlerVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["typeHandlerVersion"])
+func (r *Extension) TypeHandlerVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["typeHandlerVersion"])
 }
 
 // The name of the virtual machine. Changing
 // this forces a new resource to be created.
-func (r *Extension) VirtualMachineName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualMachineName"])
+func (r *Extension) VirtualMachineName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualMachineName"])
 }
 
 // Input properties used for looking up and filtering Extension resources.

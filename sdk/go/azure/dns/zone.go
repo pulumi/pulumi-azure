@@ -71,58 +71,58 @@ func GetZone(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Zone) URN() *pulumi.URNOutput {
+func (r *Zone) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Zone) ID() *pulumi.IDOutput {
+func (r *Zone) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-func (r *Zone) MaxNumberOfRecordSets() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
+func (r *Zone) MaxNumberOfRecordSets() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
 }
 
 // The name of the DNS Zone. Must be a valid domain name.
-func (r *Zone) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Zone) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // (Optional) A list of values that make up the NS record for the zone.
-func (r *Zone) NameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["nameServers"])
+func (r *Zone) NameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["nameServers"])
 }
 
 // (Optional) The number of records already in the zone.
-func (r *Zone) NumberOfRecordSets() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
+func (r *Zone) NumberOfRecordSets() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
 }
 
 // A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-func (r *Zone) RegistrationVirtualNetworkIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["registrationVirtualNetworkIds"])
+func (r *Zone) RegistrationVirtualNetworkIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["registrationVirtualNetworkIds"])
 }
 
 // A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-func (r *Zone) ResolutionVirtualNetworkIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["resolutionVirtualNetworkIds"])
+func (r *Zone) ResolutionVirtualNetworkIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["resolutionVirtualNetworkIds"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *Zone) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Zone) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Zone) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Zone) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-func (r *Zone) ZoneType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneType"])
+func (r *Zone) ZoneType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneType"])
 }
 
 // Input properties used for looking up and filtering Zone resources.

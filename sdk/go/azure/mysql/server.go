@@ -97,68 +97,68 @@ func GetServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Server) URN() *pulumi.URNOutput {
+func (r *Server) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Server) ID() *pulumi.IDOutput {
+func (r *Server) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Administrator Login for the MySQL Server. Changing this forces a new resource to be created.
-func (r *Server) AdministratorLogin() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["administratorLogin"])
+func (r *Server) AdministratorLogin() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["administratorLogin"])
 }
 
 // The Password associated with the `administratorLogin` for the MySQL Server.
-func (r *Server) AdministratorLoginPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
+func (r *Server) AdministratorLoginPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
 }
 
 // The FQDN of the MySQL Server.
-func (r *Server) Fqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+func (r *Server) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Server) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Server) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
-func (r *Server) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Server) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
-func (r *Server) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Server) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `sku` block as defined below.
-func (r *Server) Sku() *pulumi.Output {
+func (r *Server) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
-func (r *Server) SslEnforcement() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sslEnforcement"])
+func (r *Server) SslEnforcement() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sslEnforcement"])
 }
 
 // A `storageProfile` block as defined below.
-func (r *Server) StorageProfile() *pulumi.Output {
+func (r *Server) StorageProfile() pulumi.Output {
 	return r.s.State["storageProfile"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Server) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Server) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
-func (r *Server) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Server) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Server resources.

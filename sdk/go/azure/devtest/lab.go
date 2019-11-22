@@ -74,68 +74,68 @@ func GetLab(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Lab) URN() *pulumi.URNOutput {
+func (r *Lab) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Lab) ID() *pulumi.IDOutput {
+func (r *Lab) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Storage Account used for Artifact Storage.
-func (r *Lab) ArtifactsStorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["artifactsStorageAccountId"])
+func (r *Lab) ArtifactsStorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["artifactsStorageAccountId"])
 }
 
 // The ID of the Default Premium Storage Account for this Dev Test Lab.
-func (r *Lab) DefaultPremiumStorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultPremiumStorageAccountId"])
+func (r *Lab) DefaultPremiumStorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultPremiumStorageAccountId"])
 }
 
 // The ID of the Default Storage Account for this Dev Test Lab.
-func (r *Lab) DefaultStorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultStorageAccountId"])
+func (r *Lab) DefaultStorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultStorageAccountId"])
 }
 
 // The ID of the Key used for this Dev Test Lab.
-func (r *Lab) KeyVaultId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+func (r *Lab) KeyVaultId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
 // Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
-func (r *Lab) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Lab) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
-func (r *Lab) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Lab) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the Storage Account used for Storage of Premium Data Disk.
-func (r *Lab) PremiumDataDiskStorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["premiumDataDiskStorageAccountId"])
+func (r *Lab) PremiumDataDiskStorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["premiumDataDiskStorageAccountId"])
 }
 
 // The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-func (r *Lab) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Lab) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
-func (r *Lab) StorageType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageType"])
+func (r *Lab) StorageType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageType"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Lab) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Lab) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The unique immutable identifier of the Dev Test Lab.
-func (r *Lab) UniqueIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
+func (r *Lab) UniqueIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
 }
 
 // Input properties used for looking up and filtering Lab resources.

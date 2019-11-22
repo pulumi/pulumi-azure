@@ -70,47 +70,47 @@ func GetSecret(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Secret) URN() *pulumi.URNOutput {
+func (r *Secret) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Secret) ID() *pulumi.IDOutput {
+func (r *Secret) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the content type for the Key Vault Secret.
-func (r *Secret) ContentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentType"])
+func (r *Secret) ContentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 // The ID of the Key Vault where the Secret should be created.
-func (r *Secret) KeyVaultId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+func (r *Secret) KeyVaultId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
 // Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
-func (r *Secret) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Secret) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Secret) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Secret) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the value of the Key Vault Secret.
-func (r *Secret) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *Secret) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
-func (r *Secret) VaultUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
+func (r *Secret) VaultUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vaultUri"])
 }
 
 // The current version of the Key Vault Secret.
-func (r *Secret) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Secret) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Secret resources.

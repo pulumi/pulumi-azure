@@ -67,33 +67,33 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkRule) URN() *pulumi.URNOutput {
+func (r *VirtualNetworkRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkRule) ID() *pulumi.IDOutput {
+func (r *VirtualNetworkRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNetworkRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualNetworkRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *VirtualNetworkRule) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // The ID of the subnet that the MariaDB server will be connected to.
-func (r *VirtualNetworkRule) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *VirtualNetworkRule) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.

@@ -94,97 +94,97 @@ func GetIoTHub(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IoTHub) URN() *pulumi.URNOutput {
+func (r *IoTHub) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IoTHub) ID() *pulumi.IDOutput {
+func (r *IoTHub) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An `endpoint` block as defined below.
-func (r *IoTHub) Endpoints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["endpoints"])
+func (r *IoTHub) Endpoints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["endpoints"])
 }
 
 // The EventHub compatible endpoint for events data
-func (r *IoTHub) EventHubEventsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventHubEventsEndpoint"])
+func (r *IoTHub) EventHubEventsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventHubEventsEndpoint"])
 }
 
 // The EventHub compatible path for events data
-func (r *IoTHub) EventHubEventsPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventHubEventsPath"])
+func (r *IoTHub) EventHubEventsPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventHubEventsPath"])
 }
 
 // The EventHub compatible endpoint for operational data
-func (r *IoTHub) EventHubOperationsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventHubOperationsEndpoint"])
+func (r *IoTHub) EventHubOperationsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventHubOperationsEndpoint"])
 }
 
 // The EventHub compatible path for operational data
-func (r *IoTHub) EventHubOperationsPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventHubOperationsPath"])
+func (r *IoTHub) EventHubOperationsPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventHubOperationsPath"])
 }
 
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
-func (r *IoTHub) FallbackRoute() *pulumi.Output {
+func (r *IoTHub) FallbackRoute() pulumi.Output {
 	return r.s.State["fallbackRoute"]
 }
 
 // A `fileUpload` block as defined below.
-func (r *IoTHub) FileUpload() *pulumi.Output {
+func (r *IoTHub) FileUpload() pulumi.Output {
 	return r.s.State["fileUpload"]
 }
 
 // The hostname of the IotHub Resource.
-func (r *IoTHub) Hostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostname"])
+func (r *IoTHub) Hostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostname"])
 }
 
 // One or more `ipFilterRule` blocks as defined below.
-func (r *IoTHub) IpFilterRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipFilterRules"])
+func (r *IoTHub) IpFilterRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipFilterRules"])
 }
 
 // Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-func (r *IoTHub) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *IoTHub) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-func (r *IoTHub) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IoTHub) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-func (r *IoTHub) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *IoTHub) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `route` block as defined below.
-func (r *IoTHub) Routes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routes"])
+func (r *IoTHub) Routes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routes"])
 }
 
 // One or more `sharedAccessPolicy` blocks as defined below.
-func (r *IoTHub) SharedAccessPolicies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sharedAccessPolicies"])
+func (r *IoTHub) SharedAccessPolicies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sharedAccessPolicies"])
 }
 
 // A `sku` block as defined below.
-func (r *IoTHub) Sku() *pulumi.Output {
+func (r *IoTHub) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *IoTHub) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *IoTHub) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *IoTHub) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *IoTHub) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering IoTHub resources.

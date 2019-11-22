@@ -74,48 +74,48 @@ func GetGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Group) URN() *pulumi.URNOutput {
+func (r *Group) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Group) ID() *pulumi.IDOutput {
+func (r *Group) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
-func (r *Group) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Group) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The description of this API Management Group.
-func (r *Group) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Group) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The display name of this API Management Group.
-func (r *Group) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Group) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
-func (r *Group) ExternalId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["externalId"])
+func (r *Group) ExternalId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["externalId"])
 }
 
 // The name of the API Management Group. Changing this forces a new resource to be created.
-func (r *Group) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Group) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-func (r *Group) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Group) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
-func (r *Group) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Group) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering Group resources.

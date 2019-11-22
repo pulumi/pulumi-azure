@@ -94,73 +94,73 @@ func GetZipBlob(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ZipBlob) URN() *pulumi.URNOutput {
+func (r *ZipBlob) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ZipBlob) ID() *pulumi.IDOutput {
+func (r *ZipBlob) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *ZipBlob) AccessTier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessTier"])
+func (r *ZipBlob) AccessTier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessTier"])
 }
 
-func (r *ZipBlob) Attempts() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["attempts"])
+func (r *ZipBlob) Attempts() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["attempts"])
 }
 
-func (r *ZipBlob) ContentType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentType"])
+func (r *ZipBlob) ContentType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
-func (r *ZipBlob) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *ZipBlob) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
-func (r *ZipBlob) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ZipBlob) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *ZipBlob) Parallelism() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["parallelism"])
+func (r *ZipBlob) Parallelism() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["parallelism"])
 }
 
-func (r *ZipBlob) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ZipBlob) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-func (r *ZipBlob) Size() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["size"])
+func (r *ZipBlob) Size() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["size"])
 }
 
-func (r *ZipBlob) Content() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["content"])
+func (r *ZipBlob) Content() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["content"])
 }
 
-func (r *ZipBlob) SourceContent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceContent"])
+func (r *ZipBlob) SourceContent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceContent"])
 }
 
-func (r *ZipBlob) SourceUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
+func (r *ZipBlob) SourceUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceUri"])
 }
 
-func (r *ZipBlob) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *ZipBlob) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
-func (r *ZipBlob) StorageContainerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageContainerName"])
+func (r *ZipBlob) StorageContainerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageContainerName"])
 }
 
-func (r *ZipBlob) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *ZipBlob) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
-func (r *ZipBlob) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *ZipBlob) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering ZipBlob resources.

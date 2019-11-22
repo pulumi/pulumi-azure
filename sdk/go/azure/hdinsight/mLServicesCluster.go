@@ -101,78 +101,78 @@ func GetMLServicesCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MLServicesCluster) URN() *pulumi.URNOutput {
+func (r *MLServicesCluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MLServicesCluster) ID() *pulumi.IDOutput {
+func (r *MLServicesCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) ClusterVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterVersion"])
+func (r *MLServicesCluster) ClusterVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
 }
 
 // The SSH Connectivity Endpoint for the Edge Node of the HDInsight ML Cluster.
-func (r *MLServicesCluster) EdgeSshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["edgeSshEndpoint"])
+func (r *MLServicesCluster) EdgeSshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["edgeSshEndpoint"])
 }
 
 // A `gateway` block as defined below.
-func (r *MLServicesCluster) Gateway() *pulumi.Output {
+func (r *MLServicesCluster) Gateway() pulumi.Output {
 	return r.s.State["gateway"]
 }
 
 // The HTTPS Connectivity Endpoint for this HDInsight ML Services Cluster.
-func (r *MLServicesCluster) HttpsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpsEndpoint"])
+func (r *MLServicesCluster) HttpsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
 }
 
 // Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *MLServicesCluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MLServicesCluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *MLServicesCluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `roles` block as defined below.
-func (r *MLServicesCluster) Roles() *pulumi.Output {
+func (r *MLServicesCluster) Roles() pulumi.Output {
 	return r.s.State["roles"]
 }
 
 // Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Rstudio() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["rstudio"])
+func (r *MLServicesCluster) Rstudio() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["rstudio"])
 }
 
 // The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
-func (r *MLServicesCluster) SshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
+func (r *MLServicesCluster) SshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
 // One or more `storageAccount` block as defined below.
-func (r *MLServicesCluster) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *MLServicesCluster) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // A map of Tags which should be assigned to this HDInsight ML Services Cluster.
-func (r *MLServicesCluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *MLServicesCluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *MLServicesCluster) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering MLServicesCluster resources.

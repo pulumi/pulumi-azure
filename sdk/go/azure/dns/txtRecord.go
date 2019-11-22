@@ -74,43 +74,43 @@ func GetTxtRecord(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TxtRecord) URN() *pulumi.URNOutput {
+func (r *TxtRecord) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TxtRecord) ID() *pulumi.IDOutput {
+func (r *TxtRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the DNS TXT Record.
-func (r *TxtRecord) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TxtRecord) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of values that make up the txt record. Each `record` block supports fields documented below.
-func (r *TxtRecord) Records() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["records"])
+func (r *TxtRecord) Records() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["records"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *TxtRecord) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *TxtRecord) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *TxtRecord) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *TxtRecord) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Time To Live (TTL) of the DNS record in seconds.
-func (r *TxtRecord) Ttl() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ttl"])
+func (r *TxtRecord) Ttl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
 
 // Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *TxtRecord) ZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneName"])
+func (r *TxtRecord) ZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneName"])
 }
 
 // Input properties used for looking up and filtering TxtRecord resources.

@@ -71,53 +71,53 @@ func GetAvailabilitySet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AvailabilitySet) URN() *pulumi.URNOutput {
+func (r *AvailabilitySet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AvailabilitySet) ID() *pulumi.IDOutput {
+func (r *AvailabilitySet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AvailabilitySet) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AvailabilitySet) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
-func (r *AvailabilitySet) Managed() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["managed"])
+func (r *AvailabilitySet) Managed() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["managed"])
 }
 
 // Specifies the name of the availability set. Changing this forces a new resource to be created.
-func (r *AvailabilitySet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AvailabilitySet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the number of fault domains that are used. Defaults to 3.
-func (r *AvailabilitySet) PlatformFaultDomainCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["platformFaultDomainCount"])
+func (r *AvailabilitySet) PlatformFaultDomainCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["platformFaultDomainCount"])
 }
 
 // Specifies the number of update domains that are used. Defaults to 5.
-func (r *AvailabilitySet) PlatformUpdateDomainCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["platformUpdateDomainCount"])
+func (r *AvailabilitySet) PlatformUpdateDomainCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["platformUpdateDomainCount"])
 }
 
 // The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-func (r *AvailabilitySet) ProximityPlacementGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
+func (r *AvailabilitySet) ProximityPlacementGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
 }
 
 // The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
-func (r *AvailabilitySet) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AvailabilitySet) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AvailabilitySet) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AvailabilitySet) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering AvailabilitySet resources.

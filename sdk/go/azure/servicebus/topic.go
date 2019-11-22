@@ -97,104 +97,104 @@ func GetTopic(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Topic) URN() *pulumi.URNOutput {
+func (r *Topic) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Topic) ID() *pulumi.IDOutput {
+func (r *Topic) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ISO 8601 timespan duration of the idle interval after which the
 // Topic is automatically deleted, minimum of 5 minutes.
-func (r *Topic) AutoDeleteOnIdle() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
+func (r *Topic) AutoDeleteOnIdle() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
 }
 
 // The ISO 8601 timespan duration of TTL of messages sent to this topic if no
 // TTL value is set on the message itself.
-func (r *Topic) DefaultMessageTtl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
+func (r *Topic) DefaultMessageTtl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
 }
 
 // The ISO 8601 timespan duration during which
 // duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-func (r *Topic) DuplicateDetectionHistoryTimeWindow() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
+func (r *Topic) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
 }
 
 // Boolean flag which controls if server-side
 // batched operations are enabled. Defaults to false.
-func (r *Topic) EnableBatchedOperations() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
+func (r *Topic) EnableBatchedOperations() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
 }
 
 // Boolean flag which controls whether Express Entities
 // are enabled. An express topic holds a message in memory temporarily before writing
 // it to persistent storage. Defaults to false.
-func (r *Topic) EnableExpress() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableExpress"])
+func (r *Topic) EnableExpress() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableExpress"])
 }
 
-func (r *Topic) EnableFilteringMessagesBeforePublishing() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableFilteringMessagesBeforePublishing"])
+func (r *Topic) EnableFilteringMessagesBeforePublishing() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableFilteringMessagesBeforePublishing"])
 }
 
 // Boolean flag which controls whether to enable
 // the topic to be partitioned across multiple message brokers. Defaults to false.
 // Changing this forces a new resource to be created.
-func (r *Topic) EnablePartitioning() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enablePartitioning"])
+func (r *Topic) EnablePartitioning() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enablePartitioning"])
 }
 
 // Specifies the supported Azure location where the resource exists.
 // Changing this forces a new resource to be created.
-func (r *Topic) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Topic) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Integer value which controls the size of
 // memory allocated for the topic. For supported values see the "Queue/topic size"
 // section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-func (r *Topic) MaxSizeInMegabytes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxSizeInMegabytes"])
+func (r *Topic) MaxSizeInMegabytes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxSizeInMegabytes"])
 }
 
 // Specifies the name of the ServiceBus Topic resource. Changing this forces a
 // new resource to be created.
-func (r *Topic) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Topic) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the ServiceBus Namespace to create
 // this topic in. Changing this forces a new resource to be created.
-func (r *Topic) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *Topic) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // Boolean flag which controls whether
 // the Topic requires duplicate detection. Defaults to false. Changing this forces
 // a new resource to be created.
-func (r *Topic) RequiresDuplicateDetection() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requiresDuplicateDetection"])
+func (r *Topic) RequiresDuplicateDetection() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requiresDuplicateDetection"])
 }
 
 // The name of the resource group in which to
 // create the namespace. Changing this forces a new resource to be created.
-func (r *Topic) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Topic) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-func (r *Topic) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *Topic) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // Boolean flag which controls whether the Topic
 // supports ordering. Defaults to false.
-func (r *Topic) SupportOrdering() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["supportOrdering"])
+func (r *Topic) SupportOrdering() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["supportOrdering"])
 }
 
 // Input properties used for looking up and filtering Topic resources.

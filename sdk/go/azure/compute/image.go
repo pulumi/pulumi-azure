@@ -71,56 +71,56 @@ func GetImage(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Image) URN() *pulumi.URNOutput {
+func (r *Image) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Image) ID() *pulumi.IDOutput {
+func (r *Image) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `dataDisk` elements as defined below.
-func (r *Image) DataDisks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dataDisks"])
+func (r *Image) DataDisks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dataDisks"])
 }
 
 // Specified the supported Azure location where the resource exists.
 // Changing this forces a new resource to be created.
-func (r *Image) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Image) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the image. Changing this forces a
 // new resource to be created.
-func (r *Image) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Image) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // One or more `osDisk` elements as defined below.
-func (r *Image) OsDisk() *pulumi.Output {
+func (r *Image) OsDisk() pulumi.Output {
 	return r.s.State["osDisk"]
 }
 
 // The name of the resource group in which to create
 // the image. Changing this forces a new resource to be created.
-func (r *Image) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Image) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Virtual Machine ID from which to create the image.
-func (r *Image) SourceVirtualMachineId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceVirtualMachineId"])
+func (r *Image) SourceVirtualMachineId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceVirtualMachineId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Image) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Image) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
-func (r *Image) ZoneResilient() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["zoneResilient"])
+func (r *Image) ZoneResilient() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["zoneResilient"])
 }
 
 // Input properties used for looking up and filtering Image resources.

@@ -91,78 +91,78 @@ func GetJob(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Job) URN() *pulumi.URNOutput {
+func (r *Job) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Job) ID() *pulumi.IDOutput {
+func (r *Job) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
-func (r *Job) CompatibilityLevel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["compatibilityLevel"])
+func (r *Job) CompatibilityLevel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["compatibilityLevel"])
 }
 
 // Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
-func (r *Job) DataLocale() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataLocale"])
+func (r *Job) DataLocale() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataLocale"])
 }
 
 // Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
-func (r *Job) EventsLateArrivalMaxDelayInSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["eventsLateArrivalMaxDelayInSeconds"])
+func (r *Job) EventsLateArrivalMaxDelayInSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["eventsLateArrivalMaxDelayInSeconds"])
 }
 
 // Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
-func (r *Job) EventsOutOfOrderMaxDelayInSeconds() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["eventsOutOfOrderMaxDelayInSeconds"])
+func (r *Job) EventsOutOfOrderMaxDelayInSeconds() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["eventsOutOfOrderMaxDelayInSeconds"])
 }
 
 // Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
-func (r *Job) EventsOutOfOrderPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventsOutOfOrderPolicy"])
+func (r *Job) EventsOutOfOrderPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventsOutOfOrderPolicy"])
 }
 
 // The Job ID assigned by the Stream Analytics Job.
-func (r *Job) JobId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jobId"])
+func (r *Job) JobId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jobId"])
 }
 
 // The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
-func (r *Job) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Job) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *Job) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Job) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
-func (r *Job) OutputErrorPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["outputErrorPolicy"])
+func (r *Job) OutputErrorPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["outputErrorPolicy"])
 }
 
 // The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
-func (r *Job) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Job) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
-func (r *Job) StreamingUnits() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["streamingUnits"])
+func (r *Job) StreamingUnits() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["streamingUnits"])
 }
 
 // A mapping of tags assigned to the resource.
-func (r *Job) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Job) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
-func (r *Job) TransformationQuery() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transformationQuery"])
+func (r *Job) TransformationQuery() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transformationQuery"])
 }
 
 // Input properties used for looking up and filtering Job resources.

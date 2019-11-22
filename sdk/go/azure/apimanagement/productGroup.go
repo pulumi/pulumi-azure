@@ -68,33 +68,33 @@ func GetProductGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProductGroup) URN() *pulumi.URNOutput {
+func (r *ProductGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProductGroup) ID() *pulumi.IDOutput {
+func (r *ProductGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductGroup) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *ProductGroup) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductGroup) GroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupName"])
+func (r *ProductGroup) GroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupName"])
 }
 
 // The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductGroup) ProductId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productId"])
+func (r *ProductGroup) ProductId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productId"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ProductGroup) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ProductGroup) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ProductGroup resources.

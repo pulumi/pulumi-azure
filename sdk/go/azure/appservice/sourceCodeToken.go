@@ -61,28 +61,28 @@ func GetSourceCodeToken(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SourceCodeToken) URN() *pulumi.URNOutput {
+func (r *SourceCodeToken) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SourceCodeToken) ID() *pulumi.IDOutput {
+func (r *SourceCodeToken) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The OAuth access token.
-func (r *SourceCodeToken) Token() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["token"])
+func (r *SourceCodeToken) Token() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["token"])
 }
 
 // The OAuth access token secret.
-func (r *SourceCodeToken) TokenSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenSecret"])
+func (r *SourceCodeToken) TokenSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenSecret"])
 }
 
 // The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
-func (r *SourceCodeToken) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *SourceCodeToken) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering SourceCodeToken resources.

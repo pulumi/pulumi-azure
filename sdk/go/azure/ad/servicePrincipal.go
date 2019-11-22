@@ -50,23 +50,23 @@ func GetServicePrincipal(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServicePrincipal) URN() *pulumi.URNOutput {
+func (r *ServicePrincipal) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServicePrincipal) ID() *pulumi.IDOutput {
+func (r *ServicePrincipal) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Azure AD Application for which to create a Service Principal.
-func (r *ServicePrincipal) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *ServicePrincipal) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // The Display Name of the Azure Active Directory Application associated with this Service Principal.
-func (r *ServicePrincipal) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *ServicePrincipal) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // Input properties used for looking up and filtering ServicePrincipal resources.

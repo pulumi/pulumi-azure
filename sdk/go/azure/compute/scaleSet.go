@@ -144,152 +144,152 @@ func GetScaleSet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ScaleSet) URN() *pulumi.URNOutput {
+func (r *ScaleSet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ScaleSet) ID() *pulumi.IDOutput {
+func (r *ScaleSet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
-func (r *ScaleSet) AutomaticOsUpgrade() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["automaticOsUpgrade"])
+func (r *ScaleSet) AutomaticOsUpgrade() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["automaticOsUpgrade"])
 }
 
 // A boot diagnostics profile block as referenced below.
-func (r *ScaleSet) BootDiagnostics() *pulumi.Output {
+func (r *ScaleSet) BootDiagnostics() pulumi.Output {
 	return r.s.State["bootDiagnostics"]
 }
 
 // Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-func (r *ScaleSet) EvictionPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["evictionPolicy"])
+func (r *ScaleSet) EvictionPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["evictionPolicy"])
 }
 
 // Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
-func (r *ScaleSet) Extensions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["extensions"])
+func (r *ScaleSet) Extensions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["extensions"])
 }
 
 // Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-func (r *ScaleSet) HealthProbeId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["healthProbeId"])
+func (r *ScaleSet) HealthProbeId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["healthProbeId"])
 }
 
-func (r *ScaleSet) Identity() *pulumi.Output {
+func (r *ScaleSet) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
-func (r *ScaleSet) LicenseType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseType"])
+func (r *ScaleSet) LicenseType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseType"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ScaleSet) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ScaleSet) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the image from the marketplace.
-func (r *ScaleSet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ScaleSet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A collection of network profile block as documented below.
-func (r *ScaleSet) NetworkProfiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkProfiles"])
+func (r *ScaleSet) NetworkProfiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkProfiles"])
 }
 
 // A Virtual Machine OS Profile block as documented below.
-func (r *ScaleSet) OsProfile() *pulumi.Output {
+func (r *ScaleSet) OsProfile() pulumi.Output {
 	return r.s.State["osProfile"]
 }
 
 // A Linux config block as documented below.
-func (r *ScaleSet) OsProfileLinuxConfig() *pulumi.Output {
+func (r *ScaleSet) OsProfileLinuxConfig() pulumi.Output {
 	return r.s.State["osProfileLinuxConfig"]
 }
 
 // A collection of Secret blocks as documented below.
-func (r *ScaleSet) OsProfileSecrets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
+func (r *ScaleSet) OsProfileSecrets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
 }
 
 // A Windows config block as documented below.
-func (r *ScaleSet) OsProfileWindowsConfig() *pulumi.Output {
+func (r *ScaleSet) OsProfileWindowsConfig() pulumi.Output {
 	return r.s.State["osProfileWindowsConfig"]
 }
 
 // Specifies whether the virtual machine scale set should be overprovisioned.
-func (r *ScaleSet) Overprovision() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["overprovision"])
+func (r *ScaleSet) Overprovision() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["overprovision"])
 }
 
 // A plan block as documented below.
-func (r *ScaleSet) Plan() *pulumi.Output {
+func (r *ScaleSet) Plan() pulumi.Output {
 	return r.s.State["plan"]
 }
 
 // Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
-func (r *ScaleSet) Priority() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["priority"])
+func (r *ScaleSet) Priority() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["priority"])
 }
 
 // The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-func (r *ScaleSet) ProximityPlacementGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
+func (r *ScaleSet) ProximityPlacementGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
 }
 
 // The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-func (r *ScaleSet) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ScaleSet) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
-func (r *ScaleSet) RollingUpgradePolicy() *pulumi.Output {
+func (r *ScaleSet) RollingUpgradePolicy() pulumi.Output {
 	return r.s.State["rollingUpgradePolicy"]
 }
 
 // Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-func (r *ScaleSet) SinglePlacementGroup() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["singlePlacementGroup"])
+func (r *ScaleSet) SinglePlacementGroup() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["singlePlacementGroup"])
 }
 
 // Specifies the SKU of the image used to create the virtual machines.
-func (r *ScaleSet) Sku() *pulumi.Output {
+func (r *ScaleSet) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A storage profile data disk block as documented below
-func (r *ScaleSet) StorageProfileDataDisks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageProfileDataDisks"])
+func (r *ScaleSet) StorageProfileDataDisks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageProfileDataDisks"])
 }
 
 // A storage profile image reference block as documented below.
-func (r *ScaleSet) StorageProfileImageReference() *pulumi.Output {
+func (r *ScaleSet) StorageProfileImageReference() pulumi.Output {
 	return r.s.State["storageProfileImageReference"]
 }
 
 // A storage profile os disk block as documented below
-func (r *ScaleSet) StorageProfileOsDisk() *pulumi.Output {
+func (r *ScaleSet) StorageProfileOsDisk() pulumi.Output {
 	return r.s.State["storageProfileOsDisk"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ScaleSet) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ScaleSet) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-func (r *ScaleSet) UpgradePolicyMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["upgradePolicyMode"])
+func (r *ScaleSet) UpgradePolicyMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["upgradePolicyMode"])
 }
 
 // A collection of availability zones to spread the Virtual Machines over.
-func (r *ScaleSet) Zones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["zones"])
+func (r *ScaleSet) Zones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering ScaleSet resources.

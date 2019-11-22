@@ -62,28 +62,28 @@ func GetNetworkInterfaceNatRuleAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceNatRuleAssociation) URN() *pulumi.URNOutput {
+func (r *NetworkInterfaceNatRuleAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceNatRuleAssociation) ID() *pulumi.IDOutput {
+func (r *NetworkInterfaceNatRuleAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceNatRuleAssociation) IpConfigurationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipConfigurationName"])
+func (r *NetworkInterfaceNatRuleAssociation) IpConfigurationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipConfigurationName"])
 }
 
 // The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceNatRuleAssociation) NatRuleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["natRuleId"])
+func (r *NetworkInterfaceNatRuleAssociation) NatRuleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["natRuleId"])
 }
 
 // The ID of the Network Interface. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceNatRuleAssociation) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *NetworkInterfaceNatRuleAssociation) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceNatRuleAssociation resources.

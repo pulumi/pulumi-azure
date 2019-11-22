@@ -82,53 +82,53 @@ func GetSqlServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SqlServer) URN() *pulumi.URNOutput {
+func (r *SqlServer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SqlServer) ID() *pulumi.IDOutput {
+func (r *SqlServer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The administrator login name for the new server. Changing this forces a new resource to be created.
-func (r *SqlServer) AdministratorLogin() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["administratorLogin"])
+func (r *SqlServer) AdministratorLogin() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["administratorLogin"])
 }
 
 // The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-func (r *SqlServer) AdministratorLoginPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
+func (r *SqlServer) AdministratorLoginPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
 }
 
 // The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-func (r *SqlServer) FullyQualifiedDomainName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fullyQualifiedDomainName"])
+func (r *SqlServer) FullyQualifiedDomainName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fullyQualifiedDomainName"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *SqlServer) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *SqlServer) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the SQL Server. This needs to be globally unique within Azure.
-func (r *SqlServer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SqlServer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the SQL Server.
-func (r *SqlServer) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SqlServer) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *SqlServer) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SqlServer) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-func (r *SqlServer) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *SqlServer) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering SqlServer resources.

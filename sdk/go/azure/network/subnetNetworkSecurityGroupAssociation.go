@@ -58,23 +58,23 @@ func GetSubnetNetworkSecurityGroupAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SubnetNetworkSecurityGroupAssociation) URN() *pulumi.URNOutput {
+func (r *SubnetNetworkSecurityGroupAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SubnetNetworkSecurityGroupAssociation) ID() *pulumi.IDOutput {
+func (r *SubnetNetworkSecurityGroupAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
-func (r *SubnetNetworkSecurityGroupAssociation) NetworkSecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
+func (r *SubnetNetworkSecurityGroupAssociation) NetworkSecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
 }
 
 // The ID of the Subnet. Changing this forces a new resource to be created.
-func (r *SubnetNetworkSecurityGroupAssociation) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *SubnetNetworkSecurityGroupAssociation) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Input properties used for looking up and filtering SubnetNetworkSecurityGroupAssociation resources.

@@ -126,133 +126,133 @@ func GetVirtualMachine(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualMachine) URN() *pulumi.URNOutput {
+func (r *VirtualMachine) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualMachine) ID() *pulumi.IDOutput {
+func (r *VirtualMachine) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `additionalCapabilities` block.
-func (r *VirtualMachine) AdditionalCapabilities() *pulumi.Output {
+func (r *VirtualMachine) AdditionalCapabilities() pulumi.Output {
 	return r.s.State["additionalCapabilities"]
 }
 
 // The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-func (r *VirtualMachine) AvailabilitySetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["availabilitySetId"])
+func (r *VirtualMachine) AvailabilitySetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["availabilitySetId"])
 }
 
 // A `bootDiagnostics` block.
-func (r *VirtualMachine) BootDiagnostics() *pulumi.Output {
+func (r *VirtualMachine) BootDiagnostics() pulumi.Output {
 	return r.s.State["bootDiagnostics"]
 }
 
 // Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-func (r *VirtualMachine) DeleteDataDisksOnTermination() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deleteDataDisksOnTermination"])
+func (r *VirtualMachine) DeleteDataDisksOnTermination() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deleteDataDisksOnTermination"])
 }
 
 // Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-func (r *VirtualMachine) DeleteOsDiskOnTermination() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deleteOsDiskOnTermination"])
+func (r *VirtualMachine) DeleteOsDiskOnTermination() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deleteOsDiskOnTermination"])
 }
 
 // A `identity` block.
-func (r *VirtualMachine) Identity() *pulumi.Output {
+func (r *VirtualMachine) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
-func (r *VirtualMachine) LicenseType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseType"])
+func (r *VirtualMachine) LicenseType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseType"])
 }
 
 // Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
-func (r *VirtualMachine) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *VirtualMachine) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-func (r *VirtualMachine) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualMachine) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of Network Interface ID's which should be associated with the Virtual Machine.
-func (r *VirtualMachine) NetworkInterfaceIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
+func (r *VirtualMachine) NetworkInterfaceIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
 }
 
 // An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
-func (r *VirtualMachine) OsProfile() *pulumi.Output {
+func (r *VirtualMachine) OsProfile() pulumi.Output {
 	return r.s.State["osProfile"]
 }
 
 // A `osProfileLinuxConfig` block.
-func (r *VirtualMachine) OsProfileLinuxConfig() *pulumi.Output {
+func (r *VirtualMachine) OsProfileLinuxConfig() pulumi.Output {
 	return r.s.State["osProfileLinuxConfig"]
 }
 
 // One or more `osProfileSecrets` blocks.
-func (r *VirtualMachine) OsProfileSecrets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
+func (r *VirtualMachine) OsProfileSecrets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
 }
 
 // A `osProfileWindowsConfig` block.
-func (r *VirtualMachine) OsProfileWindowsConfig() *pulumi.Output {
+func (r *VirtualMachine) OsProfileWindowsConfig() pulumi.Output {
 	return r.s.State["osProfileWindowsConfig"]
 }
 
 // A `plan` block.
-func (r *VirtualMachine) Plan() *pulumi.Output {
+func (r *VirtualMachine) Plan() pulumi.Output {
 	return r.s.State["plan"]
 }
 
 // The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
-func (r *VirtualMachine) PrimaryNetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryNetworkInterfaceId"])
+func (r *VirtualMachine) PrimaryNetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryNetworkInterfaceId"])
 }
 
 // The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-func (r *VirtualMachine) ProximityPlacementGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
+func (r *VirtualMachine) ProximityPlacementGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
 }
 
 // Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-func (r *VirtualMachine) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualMachine) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `storageDataDisk` blocks.
-func (r *VirtualMachine) StorageDataDisks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageDataDisks"])
+func (r *VirtualMachine) StorageDataDisks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageDataDisks"])
 }
 
 // A `storageImageReference` block.
-func (r *VirtualMachine) StorageImageReference() *pulumi.Output {
+func (r *VirtualMachine) StorageImageReference() pulumi.Output {
 	return r.s.State["storageImageReference"]
 }
 
 // A `storageOsDisk` block.
-func (r *VirtualMachine) StorageOsDisk() *pulumi.Output {
+func (r *VirtualMachine) StorageOsDisk() pulumi.Output {
 	return r.s.State["storageOsDisk"]
 }
 
 // A mapping of tags to assign to the Virtual Machine.
-func (r *VirtualMachine) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualMachine) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
-func (r *VirtualMachine) VmSize() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vmSize"])
+func (r *VirtualMachine) VmSize() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vmSize"])
 }
 
 // A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
-func (r *VirtualMachine) Zones() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zones"])
+func (r *VirtualMachine) Zones() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering VirtualMachine resources.

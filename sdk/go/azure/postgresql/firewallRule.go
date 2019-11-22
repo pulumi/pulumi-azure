@@ -71,39 +71,39 @@ func GetFirewallRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallRule) URN() *pulumi.URNOutput {
+func (r *FirewallRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallRule) ID() *pulumi.IDOutput {
+func (r *FirewallRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-func (r *FirewallRule) EndIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endIpAddress"])
+func (r *FirewallRule) EndIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
 }
 
 // Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
 // new resource to be created.
-func (r *FirewallRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FirewallRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
-func (r *FirewallRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FirewallRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
-func (r *FirewallRule) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *FirewallRule) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-func (r *FirewallRule) StartIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startIpAddress"])
+func (r *FirewallRule) StartIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
 }
 
 // Input properties used for looking up and filtering FirewallRule resources.

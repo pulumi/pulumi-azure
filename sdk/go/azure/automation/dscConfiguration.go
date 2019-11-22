@@ -76,52 +76,52 @@ func GetDscConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DscConfiguration) URN() *pulumi.URNOutput {
+func (r *DscConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DscConfiguration) ID() *pulumi.IDOutput {
+func (r *DscConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
-func (r *DscConfiguration) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *DscConfiguration) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The PowerShell DSC Configuration script.
-func (r *DscConfiguration) ContentEmbedded() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentEmbedded"])
+func (r *DscConfiguration) ContentEmbedded() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentEmbedded"])
 }
 
 // Description to go with DSC Configuration.
-func (r *DscConfiguration) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *DscConfiguration) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Must be the same location as the Automation Account.
-func (r *DscConfiguration) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *DscConfiguration) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Verbose log option.
-func (r *DscConfiguration) LogVerbose() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["logVerbose"])
+func (r *DscConfiguration) LogVerbose() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["logVerbose"])
 }
 
 // Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
-func (r *DscConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DscConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
-func (r *DscConfiguration) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *DscConfiguration) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-func (r *DscConfiguration) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *DscConfiguration) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Input properties used for looking up and filtering DscConfiguration resources.

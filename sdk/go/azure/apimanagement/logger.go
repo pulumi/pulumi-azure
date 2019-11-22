@@ -71,48 +71,48 @@ func GetLogger(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Logger) URN() *pulumi.URNOutput {
+func (r *Logger) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Logger) ID() *pulumi.IDOutput {
+func (r *Logger) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *Logger) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Logger) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // An `applicationInsights` block as documented below.
-func (r *Logger) ApplicationInsights() *pulumi.Output {
+func (r *Logger) ApplicationInsights() pulumi.Output {
 	return r.s.State["applicationInsights"]
 }
 
 // Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
-func (r *Logger) Buffered() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["buffered"])
+func (r *Logger) Buffered() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["buffered"])
 }
 
 // A description of this Logger.
-func (r *Logger) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Logger) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // An `eventhub` block as documented below.
-func (r *Logger) Eventhub() *pulumi.Output {
+func (r *Logger) Eventhub() pulumi.Output {
 	return r.s.State["eventhub"]
 }
 
 // The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-func (r *Logger) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Logger) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Logger) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Logger) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Logger resources.

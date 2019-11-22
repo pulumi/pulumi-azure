@@ -114,127 +114,127 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-func (r *Account) Capabilities() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["capabilities"])
+func (r *Account) Capabilities() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["capabilities"])
 }
 
 // A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
-func (r *Account) ConnectionStrings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
+func (r *Account) ConnectionStrings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
 
 // Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
-func (r *Account) ConsistencyPolicy() *pulumi.Output {
+func (r *Account) ConsistencyPolicy() pulumi.Output {
 	return r.s.State["consistencyPolicy"]
 }
 
 // Enable automatic fail over for this Cosmos DB account.
-func (r *Account) EnableAutomaticFailover() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableAutomaticFailover"])
+func (r *Account) EnableAutomaticFailover() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableAutomaticFailover"])
 }
 
 // Enable multi-master support for this Cosmos DB account.
-func (r *Account) EnableMultipleWriteLocations() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableMultipleWriteLocations"])
+func (r *Account) EnableMultipleWriteLocations() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableMultipleWriteLocations"])
 }
 
 // The endpoint used to connect to the CosmosDB account.
-func (r *Account) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Account) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
-func (r *Account) FailoverPolicies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["failoverPolicies"])
+func (r *Account) FailoverPolicies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["failoverPolicies"])
 }
 
 // Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
-func (r *Account) GeoLocations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["geoLocations"])
+func (r *Account) GeoLocations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["geoLocations"])
 }
 
 // CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-func (r *Account) IpRangeFilter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipRangeFilter"])
+func (r *Account) IpRangeFilter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipRangeFilter"])
 }
 
 // Enables virtual network filtering for this Cosmos DB account.
-func (r *Account) IsVirtualNetworkFilterEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isVirtualNetworkFilterEnabled"])
+func (r *Account) IsVirtualNetworkFilterEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isVirtualNetworkFilterEnabled"])
 }
 
 // Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-func (r *Account) Kind() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kind"])
+func (r *Account) Kind() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kind"])
 }
 
 // The name of the Azure region to host replicated data.
-func (r *Account) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Account) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-func (r *Account) OfferType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["offerType"])
+func (r *Account) OfferType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["offerType"])
 }
 
 // The Primary master key for the CosmosDB Account.
-func (r *Account) PrimaryMasterKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryMasterKey"])
+func (r *Account) PrimaryMasterKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryMasterKey"])
 }
 
 // The Primary read-only master Key for the CosmosDB Account.
-func (r *Account) PrimaryReadonlyMasterKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryReadonlyMasterKey"])
+func (r *Account) PrimaryReadonlyMasterKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryReadonlyMasterKey"])
 }
 
 // A list of read endpoints available for this CosmosDB account.
-func (r *Account) ReadEndpoints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["readEndpoints"])
+func (r *Account) ReadEndpoints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["readEndpoints"])
 }
 
 // The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Account) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary master key for the CosmosDB Account.
-func (r *Account) SecondaryMasterKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryMasterKey"])
+func (r *Account) SecondaryMasterKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryMasterKey"])
 }
 
 // The Secondary read-only master key for the CosmosDB Account.
-func (r *Account) SecondaryReadonlyMasterKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryReadonlyMasterKey"])
+func (r *Account) SecondaryReadonlyMasterKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryReadonlyMasterKey"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Account) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Account) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
-func (r *Account) VirtualNetworkRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["virtualNetworkRules"])
+func (r *Account) VirtualNetworkRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["virtualNetworkRules"])
 }
 
 // A list of write endpoints available for this CosmosDB account.
-func (r *Account) WriteEndpoints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["writeEndpoints"])
+func (r *Account) WriteEndpoints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["writeEndpoints"])
 }
 
 // Input properties used for looking up and filtering Account resources.

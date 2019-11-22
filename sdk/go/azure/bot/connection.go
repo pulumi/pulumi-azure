@@ -89,63 +89,63 @@ func GetConnection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Connection) URN() *pulumi.URNOutput {
+func (r *Connection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Connection) ID() *pulumi.IDOutput {
+func (r *Connection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
-func (r *Connection) BotName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["botName"])
+func (r *Connection) BotName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["botName"])
 }
 
 // The Client ID that will be used to authenticate with the service provider.
-func (r *Connection) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *Connection) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // The Client Secret that will be used to authenticate with the service provider.
-func (r *Connection) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *Connection) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Connection) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Connection) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
-func (r *Connection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Connection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of additional parameters to apply to the connection.
-func (r *Connection) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *Connection) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
-func (r *Connection) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Connection) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Scopes at which the connection should be applied.
-func (r *Connection) Scopes() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scopes"])
+func (r *Connection) Scopes() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scopes"])
 }
 
 // The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
-func (r *Connection) ServiceProviderName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceProviderName"])
+func (r *Connection) ServiceProviderName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceProviderName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Connection) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Connection) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Connection resources.

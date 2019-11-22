@@ -68,43 +68,43 @@ func GetDateTimeVariable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DateTimeVariable) URN() *pulumi.URNOutput {
+func (r *DateTimeVariable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DateTimeVariable) ID() *pulumi.IDOutput {
+func (r *DateTimeVariable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
-func (r *DateTimeVariable) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *DateTimeVariable) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The description of the Automation Variable.
-func (r *DateTimeVariable) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *DateTimeVariable) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies if the Automation Variable is encrypted. Defaults to `false`.
-func (r *DateTimeVariable) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *DateTimeVariable) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // The name of the Automation Variable. Changing this forces a new resource to be created.
-func (r *DateTimeVariable) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DateTimeVariable) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-func (r *DateTimeVariable) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *DateTimeVariable) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
-func (r *DateTimeVariable) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *DateTimeVariable) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering DateTimeVariable resources.

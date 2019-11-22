@@ -99,73 +99,73 @@ func GetInteractiveQueryCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *InteractiveQueryCluster) URN() *pulumi.URNOutput {
+func (r *InteractiveQueryCluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *InteractiveQueryCluster) ID() *pulumi.IDOutput {
+func (r *InteractiveQueryCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) ClusterVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterVersion"])
+func (r *InteractiveQueryCluster) ClusterVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
 }
 
 // A `componentVersion` block as defined below.
-func (r *InteractiveQueryCluster) ComponentVersion() *pulumi.Output {
+func (r *InteractiveQueryCluster) ComponentVersion() pulumi.Output {
 	return r.s.State["componentVersion"]
 }
 
 // A `gateway` block as defined below.
-func (r *InteractiveQueryCluster) Gateway() *pulumi.Output {
+func (r *InteractiveQueryCluster) Gateway() pulumi.Output {
 	return r.s.State["gateway"]
 }
 
 // The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-func (r *InteractiveQueryCluster) HttpsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpsEndpoint"])
+func (r *InteractiveQueryCluster) HttpsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
 }
 
 // Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *InteractiveQueryCluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *InteractiveQueryCluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *InteractiveQueryCluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `roles` block as defined below.
-func (r *InteractiveQueryCluster) Roles() *pulumi.Output {
+func (r *InteractiveQueryCluster) Roles() pulumi.Output {
 	return r.s.State["roles"]
 }
 
 // The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-func (r *InteractiveQueryCluster) SshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
+func (r *InteractiveQueryCluster) SshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
 // One or more `storageAccount` block as defined below.
-func (r *InteractiveQueryCluster) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *InteractiveQueryCluster) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
-func (r *InteractiveQueryCluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *InteractiveQueryCluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *InteractiveQueryCluster) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering InteractiveQueryCluster resources.

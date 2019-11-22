@@ -68,53 +68,53 @@ func GetContainer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Container) URN() *pulumi.URNOutput {
+func (r *Container) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Container) ID() *pulumi.IDOutput {
+func (r *Container) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
-func (r *Container) ContainerAccessType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["containerAccessType"])
+func (r *Container) ContainerAccessType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["containerAccessType"])
 }
 
 // Is there an Immutability Policy configured on this Storage Container?
-func (r *Container) HasImmutabilityPolicy() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hasImmutabilityPolicy"])
+func (r *Container) HasImmutabilityPolicy() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hasImmutabilityPolicy"])
 }
 
 // Is there a Legal Hold configured on this Storage Container?
-func (r *Container) HasLegalHold() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["hasLegalHold"])
+func (r *Container) HasLegalHold() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["hasLegalHold"])
 }
 
 // A mapping of MetaData for this Container.
-func (r *Container) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *Container) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The name of the Container which should be created within the Storage Account.
-func (r *Container) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Container) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
-func (r *Container) Properties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["properties"])
+func (r *Container) Properties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["properties"])
 }
 
 // The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
-func (r *Container) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Container) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the Storage Account where the Container should be created.
-func (r *Container) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *Container) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // Input properties used for looking up and filtering Container resources.

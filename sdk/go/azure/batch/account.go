@@ -74,63 +74,63 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The account endpoint used to interact with the Batch service.
-func (r *Account) AccountEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountEndpoint"])
+func (r *Account) AccountEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountEndpoint"])
 }
 
 // A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
-func (r *Account) KeyVaultReference() *pulumi.Output {
+func (r *Account) KeyVaultReference() pulumi.Output {
 	return r.s.State["keyVaultReference"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Account) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Batch account. Changing this forces a new resource to be created.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
-func (r *Account) PoolAllocationMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["poolAllocationMode"])
+func (r *Account) PoolAllocationMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["poolAllocationMode"])
 }
 
 // The Batch account primary access key.
-func (r *Account) PrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
 // The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Account) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Batch account secondary access key.
-func (r *Account) SecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
-func (r *Account) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *Account) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Account) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Account) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Account resources.

@@ -62,33 +62,33 @@ func GetFabric(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Fabric) URN() *pulumi.URNOutput {
+func (r *Fabric) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Fabric) ID() *pulumi.IDOutput {
+func (r *Fabric) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // In what region should the fabric be located.
-func (r *Fabric) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Fabric) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the network mapping.
-func (r *Fabric) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Fabric) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the vault that should be updated.
-func (r *Fabric) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *Fabric) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // Name of the resource group where the vault that should be updated is located.
-func (r *Fabric) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Fabric) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Fabric resources.

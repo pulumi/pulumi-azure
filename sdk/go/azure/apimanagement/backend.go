@@ -92,73 +92,73 @@ func GetBackend(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Backend) URN() *pulumi.URNOutput {
+func (r *Backend) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Backend) ID() *pulumi.IDOutput {
+func (r *Backend) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-func (r *Backend) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Backend) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // A `credentials` block as documented below.
-func (r *Backend) Credentials() *pulumi.Output {
+func (r *Backend) Credentials() pulumi.Output {
 	return r.s.State["credentials"]
 }
 
 // The description of the backend.
-func (r *Backend) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Backend) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the API Management backend. Changing this forces a new resource to be created.
-func (r *Backend) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Backend) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The protocol used by the backend host. Possible values are `http` or `soap`.
-func (r *Backend) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *Backend) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // A `proxy` block as documented below.
-func (r *Backend) Proxy() *pulumi.Output {
+func (r *Backend) Proxy() pulumi.Output {
 	return r.s.State["proxy"]
 }
 
 // The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Backend) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Backend) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-func (r *Backend) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *Backend) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // A `serviceFabricCluster` block as documented below.
-func (r *Backend) ServiceFabricCluster() *pulumi.Output {
+func (r *Backend) ServiceFabricCluster() pulumi.Output {
 	return r.s.State["serviceFabricCluster"]
 }
 
 // The title of the backend.
-func (r *Backend) Title() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["title"])
+func (r *Backend) Title() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["title"])
 }
 
 // A `tls` block as documented below.
-func (r *Backend) Tls() *pulumi.Output {
+func (r *Backend) Tls() pulumi.Output {
 	return r.s.State["tls"]
 }
 
 // The URL of the backend host.
-func (r *Backend) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Backend) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering Backend resources.

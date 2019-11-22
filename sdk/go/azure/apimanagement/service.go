@@ -116,128 +116,128 @@ func GetService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() *pulumi.URNOutput {
+func (r *Service) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() *pulumi.IDOutput {
+func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `additionalLocation` blocks as defined below.
-func (r *Service) AdditionalLocations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["additionalLocations"])
+func (r *Service) AdditionalLocations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["additionalLocations"])
 }
 
 // One or more (up to 10) `certificate` blocks as defined below.
-func (r *Service) Certificates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["certificates"])
+func (r *Service) Certificates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["certificates"])
 }
 
 // The URL of the Regional Gateway for the API Management Service in the specified region.
-func (r *Service) GatewayRegionalUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayRegionalUrl"])
+func (r *Service) GatewayRegionalUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayRegionalUrl"])
 }
 
 // The URL of the Gateway for the API Management Service.
-func (r *Service) GatewayUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gatewayUrl"])
+func (r *Service) GatewayUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gatewayUrl"])
 }
 
 // A `hostnameConfiguration` block as defined below.
-func (r *Service) HostnameConfiguration() *pulumi.Output {
+func (r *Service) HostnameConfiguration() pulumi.Output {
 	return r.s.State["hostnameConfiguration"]
 }
 
 // An `identity` block is documented below.
-func (r *Service) Identity() *pulumi.Output {
+func (r *Service) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Service) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Service) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The URL for the Management API associated with this API Management service.
-func (r *Service) ManagementApiUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["managementApiUrl"])
+func (r *Service) ManagementApiUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["managementApiUrl"])
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *Service) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Service) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Email address from which the notification will be sent.
-func (r *Service) NotificationSenderEmail() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notificationSenderEmail"])
+func (r *Service) NotificationSenderEmail() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notificationSenderEmail"])
 }
 
 // A `policy` block as defined below.
-func (r *Service) Policy() *pulumi.Output {
+func (r *Service) Policy() pulumi.Output {
 	return r.s.State["policy"]
 }
 
 // The URL for the Publisher Portal associated with this API Management service.
-func (r *Service) PortalUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["portalUrl"])
+func (r *Service) PortalUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["portalUrl"])
 }
 
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-func (r *Service) PublicIpAddresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["publicIpAddresses"])
+func (r *Service) PublicIpAddresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["publicIpAddresses"])
 }
 
 // The email of publisher/company.
-func (r *Service) PublisherEmail() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publisherEmail"])
+func (r *Service) PublisherEmail() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publisherEmail"])
 }
 
 // The name of publisher/company.
-func (r *Service) PublisherName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publisherName"])
+func (r *Service) PublisherName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publisherName"])
 }
 
 // The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-func (r *Service) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Service) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-func (r *Service) ScmUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scmUrl"])
+func (r *Service) ScmUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scmUrl"])
 }
 
 // A `security` block as defined below.
-func (r *Service) Security() *pulumi.Output {
+func (r *Service) Security() pulumi.Output {
 	return r.s.State["security"]
 }
 
 // A `signIn` block as defined below.
-func (r *Service) SignIn() *pulumi.Output {
+func (r *Service) SignIn() pulumi.Output {
 	return r.s.State["signIn"]
 }
 
 // A `signUp` block as defined below.
-func (r *Service) SignUp() *pulumi.Output {
+func (r *Service) SignUp() pulumi.Output {
 	return r.s.State["signUp"]
 }
 
 // A `sku` block as documented below
-func (r *Service) Sku() *pulumi.Output {
+func (r *Service) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-func (r *Service) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *Service) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags assigned to the resource.
-func (r *Service) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Service) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Service resources.

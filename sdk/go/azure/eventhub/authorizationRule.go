@@ -85,72 +85,72 @@ func GetAuthorizationRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AuthorizationRule) URN() *pulumi.URNOutput {
+func (r *AuthorizationRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AuthorizationRule) ID() *pulumi.IDOutput {
+func (r *AuthorizationRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the EventHub. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) EventhubName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubName"])
+func (r *AuthorizationRule) EventhubName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubName"])
 }
 
 // Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
-func (r *AuthorizationRule) Listen() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["listen"])
+func (r *AuthorizationRule) Listen() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["listen"])
 }
 
-func (r *AuthorizationRule) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AuthorizationRule) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-func (r *AuthorizationRule) Manage() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["manage"])
+func (r *AuthorizationRule) Manage() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["manage"])
 }
 
 // Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AuthorizationRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *AuthorizationRule) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The Primary Connection String for the Event Hubs authorization Rule.
-func (r *AuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *AuthorizationRule) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The Primary Key for the Event Hubs authorization Rule.
-func (r *AuthorizationRule) PrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+func (r *AuthorizationRule) PrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
-func (r *AuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AuthorizationRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Connection String for the Event Hubs authorization Rule.
-func (r *AuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *AuthorizationRule) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The Secondary Key for the Event Hubs authorization Rule.
-func (r *AuthorizationRule) SecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
+func (r *AuthorizationRule) SecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
-func (r *AuthorizationRule) Send() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["send"])
+func (r *AuthorizationRule) Send() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["send"])
 }
 
 // Input properties used for looking up and filtering AuthorizationRule resources.

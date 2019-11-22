@@ -98,61 +98,61 @@ func GetNatPool(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NatPool) URN() *pulumi.URNOutput {
+func (r *NatPool) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NatPool) ID() *pulumi.IDOutput {
+func (r *NatPool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-func (r *NatPool) BackendPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["backendPort"])
+func (r *NatPool) BackendPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["backendPort"])
 }
 
-func (r *NatPool) FrontendIpConfigurationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
+func (r *NatPool) FrontendIpConfigurationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
 }
 
 // The name of the frontend IP configuration exposing this rule.
-func (r *NatPool) FrontendIpConfigurationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
+func (r *NatPool) FrontendIpConfigurationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
 }
 
 // The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-func (r *NatPool) FrontendPortEnd() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["frontendPortEnd"])
+func (r *NatPool) FrontendPortEnd() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["frontendPortEnd"])
 }
 
 // The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-func (r *NatPool) FrontendPortStart() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["frontendPortStart"])
+func (r *NatPool) FrontendPortStart() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["frontendPortStart"])
 }
 
 // The ID of the Load Balancer in which to create the NAT pool.
-func (r *NatPool) LoadbalancerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
+func (r *NatPool) LoadbalancerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
 
-func (r *NatPool) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *NatPool) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the NAT pool.
-func (r *NatPool) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NatPool) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
-func (r *NatPool) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *NatPool) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // The name of the resource group in which to create the resource.
-func (r *NatPool) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NatPool) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering NatPool resources.

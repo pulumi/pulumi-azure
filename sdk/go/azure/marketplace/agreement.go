@@ -66,36 +66,36 @@ func GetAgreement(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Agreement) URN() *pulumi.URNOutput {
+func (r *Agreement) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Agreement) ID() *pulumi.IDOutput {
+func (r *Agreement) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Agreement) LicenseTextLink() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["licenseTextLink"])
+func (r *Agreement) LicenseTextLink() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["licenseTextLink"])
 }
 
 // The Offer of the Marketplace Image. Changing this forces a new resource to be created.
-func (r *Agreement) Offer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["offer"])
+func (r *Agreement) Offer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["offer"])
 }
 
 // The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-func (r *Agreement) Plan() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["plan"])
+func (r *Agreement) Plan() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["plan"])
 }
 
-func (r *Agreement) PrivacyPolicyLink() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privacyPolicyLink"])
+func (r *Agreement) PrivacyPolicyLink() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privacyPolicyLink"])
 }
 
 // The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-func (r *Agreement) Publisher() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publisher"])
+func (r *Agreement) Publisher() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publisher"])
 }
 
 // Input properties used for looking up and filtering Agreement resources.

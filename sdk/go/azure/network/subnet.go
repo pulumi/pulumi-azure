@@ -84,58 +84,58 @@ func GetSubnet(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Subnet) URN() *pulumi.URNOutput {
+func (r *Subnet) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Subnet) ID() *pulumi.IDOutput {
+func (r *Subnet) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The address prefix to use for the subnet.
-func (r *Subnet) AddressPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["addressPrefix"])
+func (r *Subnet) AddressPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["addressPrefix"])
 }
 
 // One or more `delegation` blocks as defined below.
-func (r *Subnet) Delegations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["delegations"])
+func (r *Subnet) Delegations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["delegations"])
 }
 
 // The collection of IP Configurations with IPs within this subnet.
-func (r *Subnet) IpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
+func (r *Subnet) IpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
 }
 
 // The name of the subnet. Changing this forces a new resource to be created.
-func (r *Subnet) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Subnet) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the Network Security Group to associate with the subnet.
-func (r *Subnet) NetworkSecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
+func (r *Subnet) NetworkSecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
 }
 
 // The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
-func (r *Subnet) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Subnet) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The ID of the Route Table to associate with the subnet.
-func (r *Subnet) RouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
+func (r *Subnet) RouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
 // The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
-func (r *Subnet) ServiceEndpoints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["serviceEndpoints"])
+func (r *Subnet) ServiceEndpoints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["serviceEndpoints"])
 }
 
 // The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
-func (r *Subnet) VirtualNetworkName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualNetworkName"])
+func (r *Subnet) VirtualNetworkName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualNetworkName"])
 }
 
 // Input properties used for looking up and filtering Subnet resources.

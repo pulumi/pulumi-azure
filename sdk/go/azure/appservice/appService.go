@@ -113,122 +113,122 @@ func GetAppService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AppService) URN() *pulumi.URNOutput {
+func (r *AppService) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AppService) ID() *pulumi.IDOutput {
+func (r *AppService) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the App Service Plan within which to create this App Service.
-func (r *AppService) AppServicePlanId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServicePlanId"])
+func (r *AppService) AppServicePlanId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServicePlanId"])
 }
 
 // A key-value pair of App Settings.
-func (r *AppService) AppSettings() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["appSettings"])
+func (r *AppService) AppSettings() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["appSettings"])
 }
 
 // A `authSettings` block as defined below.
-func (r *AppService) AuthSettings() *pulumi.Output {
+func (r *AppService) AuthSettings() pulumi.Output {
 	return r.s.State["authSettings"]
 }
 
-func (r *AppService) Backup() *pulumi.Output {
+func (r *AppService) Backup() pulumi.Output {
 	return r.s.State["backup"]
 }
 
 // Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-func (r *AppService) ClientAffinityEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
+func (r *AppService) ClientAffinityEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
 }
 
 // Does the App Service require client certificates for incoming requests? Defaults to `false`.
-func (r *AppService) ClientCertEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["clientCertEnabled"])
+func (r *AppService) ClientCertEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["clientCertEnabled"])
 }
 
 // One or more `connectionString` blocks as defined below.
-func (r *AppService) ConnectionStrings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
+func (r *AppService) ConnectionStrings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
 
 // The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-func (r *AppService) DefaultSiteHostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
+func (r *AppService) DefaultSiteHostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
 }
 
 // Is the App Service Enabled?
-func (r *AppService) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *AppService) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Can the App Service only be accessed via HTTPS? Defaults to `false`.
-func (r *AppService) HttpsOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["httpsOnly"])
+func (r *AppService) HttpsOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["httpsOnly"])
 }
 
 // A Managed Service Identity block as defined below.
-func (r *AppService) Identity() *pulumi.Output {
+func (r *AppService) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AppService) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AppService) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // A `logs` block as defined below.
-func (r *AppService) Logs() *pulumi.Output {
+func (r *AppService) Logs() pulumi.Output {
 	return r.s.State["logs"]
 }
 
 // Specifies the name of the App Service. Changing this forces a new resource to be created.
-func (r *AppService) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AppService) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-func (r *AppService) OutboundIpAddresses() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
+func (r *AppService) OutboundIpAddresses() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
 }
 
 // A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-func (r *AppService) PossibleOutboundIpAddresses() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
+func (r *AppService) PossibleOutboundIpAddresses() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
 }
 
 // The name of the resource group in which to create the App Service.
-func (r *AppService) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AppService) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `siteConfig` block as defined below.
-func (r *AppService) SiteConfig() *pulumi.Output {
+func (r *AppService) SiteConfig() pulumi.Output {
 	return r.s.State["siteConfig"]
 }
 
 // A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-func (r *AppService) SiteCredential() *pulumi.Output {
+func (r *AppService) SiteCredential() pulumi.Output {
 	return r.s.State["siteCredential"]
 }
 
 // A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-func (r *AppService) SourceControl() *pulumi.Output {
+func (r *AppService) SourceControl() pulumi.Output {
 	return r.s.State["sourceControl"]
 }
 
 // One or more `storageAccount` blocks as defined below.
-func (r *AppService) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *AppService) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AppService) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AppService) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering AppService resources.

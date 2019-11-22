@@ -65,33 +65,33 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
-func (r *Certificate) CertificateContent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateContent"])
+func (r *Certificate) CertificateContent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateContent"])
 }
 
 // The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-func (r *Certificate) IotDpsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iotDpsName"])
+func (r *Certificate) IotDpsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iotDpsName"])
 }
 
 // Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
-func (r *Certificate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Certificate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

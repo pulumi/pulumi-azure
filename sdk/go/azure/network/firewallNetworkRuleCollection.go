@@ -77,43 +77,43 @@ func GetFirewallNetworkRuleCollection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallNetworkRuleCollection) URN() *pulumi.URNOutput {
+func (r *FirewallNetworkRuleCollection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallNetworkRuleCollection) ID() *pulumi.IDOutput {
+func (r *FirewallNetworkRuleCollection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
-func (r *FirewallNetworkRuleCollection) Action() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["action"])
+func (r *FirewallNetworkRuleCollection) Action() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["action"])
 }
 
 // Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
-func (r *FirewallNetworkRuleCollection) AzureFirewallName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["azureFirewallName"])
+func (r *FirewallNetworkRuleCollection) AzureFirewallName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["azureFirewallName"])
 }
 
 // Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-func (r *FirewallNetworkRuleCollection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FirewallNetworkRuleCollection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
-func (r *FirewallNetworkRuleCollection) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *FirewallNetworkRuleCollection) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-func (r *FirewallNetworkRuleCollection) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FirewallNetworkRuleCollection) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `rule` blocks as defined below.
-func (r *FirewallNetworkRuleCollection) Rules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rules"])
+func (r *FirewallNetworkRuleCollection) Rules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Input properties used for looking up and filtering FirewallNetworkRuleCollection resources.

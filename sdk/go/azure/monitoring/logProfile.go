@@ -73,44 +73,44 @@ func GetLogProfile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LogProfile) URN() *pulumi.URNOutput {
+func (r *LogProfile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LogProfile) ID() *pulumi.IDOutput {
+func (r *LogProfile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of categories of the logs.
-func (r *LogProfile) Categories() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["categories"])
+func (r *LogProfile) Categories() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["categories"])
 }
 
 // List of regions for which Activity Log events are stored or streamed.
-func (r *LogProfile) Locations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["locations"])
+func (r *LogProfile) Locations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["locations"])
 }
 
 // The name of the Log Profile. Changing this forces a
 // new resource to be created.
-func (r *LogProfile) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LogProfile) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
-func (r *LogProfile) RetentionPolicy() *pulumi.Output {
+func (r *LogProfile) RetentionPolicy() pulumi.Output {
 	return r.s.State["retentionPolicy"]
 }
 
 // The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-func (r *LogProfile) ServicebusRuleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["servicebusRuleId"])
+func (r *LogProfile) ServicebusRuleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["servicebusRuleId"])
 }
 
 // The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-func (r *LogProfile) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *LogProfile) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // Input properties used for looking up and filtering LogProfile resources.

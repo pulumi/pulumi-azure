@@ -62,28 +62,28 @@ func GetNetworkInterfaceApplicationSecurityGroupAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) URN() *pulumi.URNOutput {
+func (r *NetworkInterfaceApplicationSecurityGroupAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) ID() *pulumi.IDOutput {
+func (r *NetworkInterfaceApplicationSecurityGroupAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) ApplicationSecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationSecurityGroupId"])
+func (r *NetworkInterfaceApplicationSecurityGroupAssociation) ApplicationSecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationSecurityGroupId"])
 }
 
 // The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) IpConfigurationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipConfigurationName"])
+func (r *NetworkInterfaceApplicationSecurityGroupAssociation) IpConfigurationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipConfigurationName"])
 }
 
 // The ID of the Network Interface. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) NetworkInterfaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+func (r *NetworkInterfaceApplicationSecurityGroupAssociation) NetworkInterfaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceApplicationSecurityGroupAssociation resources.

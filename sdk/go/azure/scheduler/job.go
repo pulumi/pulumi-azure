@@ -85,68 +85,68 @@ func GetJob(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Job) URN() *pulumi.URNOutput {
+func (r *Job) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Job) ID() *pulumi.IDOutput {
+func (r *Job) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
-func (r *Job) ActionStorageQueue() *pulumi.Output {
+func (r *Job) ActionStorageQueue() pulumi.Output {
 	return r.s.State["actionStorageQueue"]
 }
 
 // A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
-func (r *Job) ActionWeb() *pulumi.Output {
+func (r *Job) ActionWeb() pulumi.Output {
 	return r.s.State["actionWeb"]
 }
 
 // A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
-func (r *Job) ErrorActionStorageQueue() *pulumi.Output {
+func (r *Job) ErrorActionStorageQueue() pulumi.Output {
 	return r.s.State["errorActionStorageQueue"]
 }
 
 // A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
-func (r *Job) ErrorActionWeb() *pulumi.Output {
+func (r *Job) ErrorActionWeb() pulumi.Output {
 	return r.s.State["errorActionWeb"]
 }
 
 // Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
-func (r *Job) JobCollectionName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jobCollectionName"])
+func (r *Job) JobCollectionName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jobCollectionName"])
 }
 
 // The name of the Scheduler Job. Changing this forces a new resource to be created.
-func (r *Job) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Job) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `recurrence` block defining a job occurrence schedule.
-func (r *Job) Recurrence() *pulumi.Output {
+func (r *Job) Recurrence() pulumi.Output {
 	return r.s.State["recurrence"]
 }
 
 // The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
-func (r *Job) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Job) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `retry` block defining how to retry as described below.
-func (r *Job) Retry() *pulumi.Output {
+func (r *Job) Retry() pulumi.Output {
 	return r.s.State["retry"]
 }
 
 // The time the first instance of the job is to start running at.
-func (r *Job) StartTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startTime"])
+func (r *Job) StartTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startTime"])
 }
 
 // The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
-func (r *Job) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *Job) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Input properties used for looking up and filtering Job resources.

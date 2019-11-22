@@ -106,93 +106,93 @@ func GetApi(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Api) URN() *pulumi.URNOutput {
+func (r *Api) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Api) ID() *pulumi.IDOutput {
+func (r *Api) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
-func (r *Api) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Api) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // A description of the API Management API, which may include HTML formatting tags.
-func (r *Api) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Api) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The display name of the API.
-func (r *Api) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Api) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // A `import` block as documented below.
-func (r *Api) Import() *pulumi.Output {
+func (r *Api) Import() pulumi.Output {
 	return r.s.State["import"]
 }
 
 // Is this the current API Revision?
-func (r *Api) IsCurrent() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isCurrent"])
+func (r *Api) IsCurrent() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isCurrent"])
 }
 
 // Is this API Revision online/accessible via the Gateway?
-func (r *Api) IsOnline() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isOnline"])
+func (r *Api) IsOnline() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isOnline"])
 }
 
 // The name of the API Management API. Changing this forces a new resource to be created.
-func (r *Api) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Api) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
-func (r *Api) Path() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["path"])
+func (r *Api) Path() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["path"])
 }
 
 // A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
-func (r *Api) Protocols() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["protocols"])
+func (r *Api) Protocols() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["protocols"])
 }
 
 // The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-func (r *Api) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Api) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Revision which used for this API.
-func (r *Api) Revision() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["revision"])
+func (r *Api) Revision() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["revision"])
 }
 
 // Absolute URL of the backend service implementing this API.
-func (r *Api) ServiceUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceUrl"])
+func (r *Api) ServiceUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceUrl"])
 }
 
 // Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-func (r *Api) SoapPassThrough() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["soapPassThrough"])
+func (r *Api) SoapPassThrough() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["soapPassThrough"])
 }
 
 // A `subscriptionKeyParameterNames` block as documented below.
-func (r *Api) SubscriptionKeyParameterNames() *pulumi.Output {
+func (r *Api) SubscriptionKeyParameterNames() pulumi.Output {
 	return r.s.State["subscriptionKeyParameterNames"]
 }
 
 // The Version number of this API, if this API is versioned.
-func (r *Api) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Api) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // The ID of the Version Set which this API is associated with.
-func (r *Api) VersionSetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["versionSetId"])
+func (r *Api) VersionSetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["versionSetId"])
 }
 
 // Input properties used for looking up and filtering Api resources.

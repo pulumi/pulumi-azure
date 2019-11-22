@@ -89,68 +89,68 @@ func GetSharedImage(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SharedImage) URN() *pulumi.URNOutput {
+func (r *SharedImage) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SharedImage) ID() *pulumi.IDOutput {
+func (r *SharedImage) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description of this Shared Image.
-func (r *SharedImage) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SharedImage) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The End User Licence Agreement for the Shared Image.
-func (r *SharedImage) Eula() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eula"])
+func (r *SharedImage) Eula() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eula"])
 }
 
 // Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
-func (r *SharedImage) GalleryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["galleryName"])
+func (r *SharedImage) GalleryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["galleryName"])
 }
 
 // An `identifier` block as defined below.
-func (r *SharedImage) Identifier() *pulumi.Output {
+func (r *SharedImage) Identifier() pulumi.Output {
 	return r.s.State["identifier"]
 }
 
 // Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
-func (r *SharedImage) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *SharedImage) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Shared Image. Changing this forces a new resource to be created.
-func (r *SharedImage) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SharedImage) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
-func (r *SharedImage) OsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["osType"])
+func (r *SharedImage) OsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["osType"])
 }
 
 // The URI containing the Privacy Statement associated with this Shared Image.
-func (r *SharedImage) PrivacyStatementUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privacyStatementUri"])
+func (r *SharedImage) PrivacyStatementUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privacyStatementUri"])
 }
 
 // The URI containing the Release Notes associated with this Shared Image.
-func (r *SharedImage) ReleaseNoteUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["releaseNoteUri"])
+func (r *SharedImage) ReleaseNoteUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["releaseNoteUri"])
 }
 
 // The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-func (r *SharedImage) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SharedImage) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the Shared Image.
-func (r *SharedImage) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SharedImage) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering SharedImage resources.

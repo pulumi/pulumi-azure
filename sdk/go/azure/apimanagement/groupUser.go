@@ -68,33 +68,33 @@ func GetGroupUser(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *GroupUser) URN() *pulumi.URNOutput {
+func (r *GroupUser) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *GroupUser) ID() *pulumi.IDOutput {
+func (r *GroupUser) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *GroupUser) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *GroupUser) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
-func (r *GroupUser) GroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["groupName"])
+func (r *GroupUser) GroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["groupName"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *GroupUser) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *GroupUser) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
-func (r *GroupUser) UserId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userId"])
+func (r *GroupUser) UserId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userId"])
 }
 
 // Input properties used for looking up and filtering GroupUser resources.

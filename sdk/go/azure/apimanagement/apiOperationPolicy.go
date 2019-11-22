@@ -74,42 +74,42 @@ func GetApiOperationPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApiOperationPolicy) URN() *pulumi.URNOutput {
+func (r *ApiOperationPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApiOperationPolicy) ID() *pulumi.IDOutput {
+func (r *ApiOperationPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *ApiOperationPolicy) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *ApiOperationPolicy) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-func (r *ApiOperationPolicy) ApiName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiName"])
+func (r *ApiOperationPolicy) ApiName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiName"])
 }
 
-func (r *ApiOperationPolicy) OperationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["operationId"])
+func (r *ApiOperationPolicy) OperationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["operationId"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ApiOperationPolicy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ApiOperationPolicy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The XML Content for this Policy.
-func (r *ApiOperationPolicy) XmlContent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["xmlContent"])
+func (r *ApiOperationPolicy) XmlContent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["xmlContent"])
 }
 
 // A link to a Policy XML Document, which must be publicly available.
-func (r *ApiOperationPolicy) XmlLink() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["xmlLink"])
+func (r *ApiOperationPolicy) XmlLink() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["xmlLink"])
 }
 
 // Input properties used for looking up and filtering ApiOperationPolicy resources.

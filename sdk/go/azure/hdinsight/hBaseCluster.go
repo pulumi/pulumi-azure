@@ -99,73 +99,73 @@ func GetHBaseCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *HBaseCluster) URN() *pulumi.URNOutput {
+func (r *HBaseCluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *HBaseCluster) ID() *pulumi.IDOutput {
+func (r *HBaseCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *HBaseCluster) ClusterVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterVersion"])
+func (r *HBaseCluster) ClusterVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
 }
 
 // A `componentVersion` block as defined below.
-func (r *HBaseCluster) ComponentVersion() *pulumi.Output {
+func (r *HBaseCluster) ComponentVersion() pulumi.Output {
 	return r.s.State["componentVersion"]
 }
 
 // A `gateway` block as defined below.
-func (r *HBaseCluster) Gateway() *pulumi.Output {
+func (r *HBaseCluster) Gateway() pulumi.Output {
 	return r.s.State["gateway"]
 }
 
 // The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
-func (r *HBaseCluster) HttpsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpsEndpoint"])
+func (r *HBaseCluster) HttpsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
 }
 
 // Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-func (r *HBaseCluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *HBaseCluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-func (r *HBaseCluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *HBaseCluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-func (r *HBaseCluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *HBaseCluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `roles` block as defined below.
-func (r *HBaseCluster) Roles() *pulumi.Output {
+func (r *HBaseCluster) Roles() pulumi.Output {
 	return r.s.State["roles"]
 }
 
 // The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
-func (r *HBaseCluster) SshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
+func (r *HBaseCluster) SshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
 // One or more `storageAccount` block as defined below.
-func (r *HBaseCluster) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *HBaseCluster) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // A map of Tags which should be assigned to this HDInsight HBase Cluster.
-func (r *HBaseCluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *HBaseCluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *HBaseCluster) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *HBaseCluster) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering HBaseCluster resources.

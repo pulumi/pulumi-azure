@@ -79,52 +79,52 @@ func GetEventHub(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventHub) URN() *pulumi.URNOutput {
+func (r *EventHub) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventHub) ID() *pulumi.IDOutput {
+func (r *EventHub) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `captureDescription` block as defined below.
-func (r *EventHub) CaptureDescription() *pulumi.Output {
+func (r *EventHub) CaptureDescription() pulumi.Output {
 	return r.s.State["captureDescription"]
 }
 
-func (r *EventHub) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *EventHub) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
-func (r *EventHub) MessageRetention() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["messageRetention"])
+func (r *EventHub) MessageRetention() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["messageRetention"])
 }
 
 // Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-func (r *EventHub) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventHub) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-func (r *EventHub) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *EventHub) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
-func (r *EventHub) PartitionCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["partitionCount"])
+func (r *EventHub) PartitionCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["partitionCount"])
 }
 
 // The identifiers for partitions created for Event Hubs.
-func (r *EventHub) PartitionIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["partitionIds"])
+func (r *EventHub) PartitionIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["partitionIds"])
 }
 
 // The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-func (r *EventHub) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *EventHub) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering EventHub resources.
