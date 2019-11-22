@@ -67,33 +67,33 @@ func GetContact(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Contact) URN() *pulumi.URNOutput {
+func (r *Contact) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Contact) ID() *pulumi.IDOutput {
+func (r *Contact) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Whether to send security alerts notifications to the security contact.
-func (r *Contact) AlertNotifications() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["alertNotifications"])
+func (r *Contact) AlertNotifications() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["alertNotifications"])
 }
 
 // Whether to send security alerts notifications to subscription admins.
-func (r *Contact) AlertsToAdmins() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["alertsToAdmins"])
+func (r *Contact) AlertsToAdmins() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["alertsToAdmins"])
 }
 
 // The email of the Security Center Contact.
-func (r *Contact) Email() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["email"])
+func (r *Contact) Email() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["email"])
 }
 
 // The phone number of the Security Center Contact.
-func (r *Contact) Phone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["phone"])
+func (r *Contact) Phone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["phone"])
 }
 
 // Input properties used for looking up and filtering Contact resources.

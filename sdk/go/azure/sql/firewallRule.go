@@ -71,39 +71,39 @@ func GetFirewallRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallRule) URN() *pulumi.URNOutput {
+func (r *FirewallRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallRule) ID() *pulumi.IDOutput {
+func (r *FirewallRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ending IP address to allow through the firewall for this rule.
-func (r *FirewallRule) EndIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endIpAddress"])
+func (r *FirewallRule) EndIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
 }
 
 // The name of the firewall rule.
-func (r *FirewallRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FirewallRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the sql server.
-func (r *FirewallRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FirewallRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the SQL Server on which to create the Firewall Rule.
-func (r *FirewallRule) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *FirewallRule) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // The starting IP address to allow through the firewall for this rule.
-func (r *FirewallRule) StartIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startIpAddress"])
+func (r *FirewallRule) StartIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
 }
 
 // Input properties used for looking up and filtering FirewallRule resources.

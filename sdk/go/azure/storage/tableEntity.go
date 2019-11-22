@@ -74,40 +74,40 @@ func GetTableEntity(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TableEntity) URN() *pulumi.URNOutput {
+func (r *TableEntity) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TableEntity) ID() *pulumi.IDOutput {
+func (r *TableEntity) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
-func (r *TableEntity) Entity() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["entity"])
+func (r *TableEntity) Entity() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["entity"])
 }
 
 // The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
-func (r *TableEntity) PartitionKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partitionKey"])
+func (r *TableEntity) PartitionKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partitionKey"])
 }
 
 // The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
-func (r *TableEntity) RowKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rowKey"])
+func (r *TableEntity) RowKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rowKey"])
 }
 
 // Specifies the storage account in which to create the storage table entity.
 // Changing this forces a new resource to be created.
-func (r *TableEntity) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *TableEntity) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // The name of the storage table in which to create the storage table entity. 
 // Changing this forces a new resource to be created.
-func (r *TableEntity) TableName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tableName"])
+func (r *TableEntity) TableName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tableName"])
 }
 
 // Input properties used for looking up and filtering TableEntity resources.

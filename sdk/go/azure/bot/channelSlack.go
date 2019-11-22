@@ -82,48 +82,48 @@ func GetChannelSlack(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ChannelSlack) URN() *pulumi.URNOutput {
+func (r *ChannelSlack) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ChannelSlack) ID() *pulumi.IDOutput {
+func (r *ChannelSlack) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-func (r *ChannelSlack) BotName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["botName"])
+func (r *ChannelSlack) BotName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["botName"])
 }
 
 // The Client ID that will be used to authenticate with Slack.
-func (r *ChannelSlack) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *ChannelSlack) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // The Client Secret that will be used to authenticate with Slack.
-func (r *ChannelSlack) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *ChannelSlack) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // The Slack Landing Page URL.
-func (r *ChannelSlack) LandingPageUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["landingPageUrl"])
+func (r *ChannelSlack) LandingPageUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["landingPageUrl"])
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ChannelSlack) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ChannelSlack) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-func (r *ChannelSlack) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ChannelSlack) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Verification Token that will be used to authenticate with Slack.
-func (r *ChannelSlack) VerificationToken() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["verificationToken"])
+func (r *ChannelSlack) VerificationToken() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["verificationToken"])
 }
 
 // Input properties used for looking up and filtering ChannelSlack resources.

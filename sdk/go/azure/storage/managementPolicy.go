@@ -53,23 +53,23 @@ func GetManagementPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ManagementPolicy) URN() *pulumi.URNOutput {
+func (r *ManagementPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ManagementPolicy) ID() *pulumi.IDOutput {
+func (r *ManagementPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `rule` block as documented below.
-func (r *ManagementPolicy) Rules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rules"])
+func (r *ManagementPolicy) Rules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Specifies the id of the storage account to apply the management policy to.
-func (r *ManagementPolicy) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *ManagementPolicy) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // Input properties used for looking up and filtering ManagementPolicy resources.

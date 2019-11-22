@@ -82,68 +82,68 @@ func GetQueueAuthorizationRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *QueueAuthorizationRule) URN() *pulumi.URNOutput {
+func (r *QueueAuthorizationRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *QueueAuthorizationRule) ID() *pulumi.IDOutput {
+func (r *QueueAuthorizationRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
-func (r *QueueAuthorizationRule) Listen() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["listen"])
+func (r *QueueAuthorizationRule) Listen() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["listen"])
 }
 
 // Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-func (r *QueueAuthorizationRule) Manage() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["manage"])
+func (r *QueueAuthorizationRule) Manage() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["manage"])
 }
 
 // Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *QueueAuthorizationRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *QueueAuthorizationRule) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The Primary Connection String for the Authorization Rule.
-func (r *QueueAuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *QueueAuthorizationRule) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The Primary Key for the Authorization Rule.
-func (r *QueueAuthorizationRule) PrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+func (r *QueueAuthorizationRule) PrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) QueueName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["queueName"])
+func (r *QueueAuthorizationRule) QueueName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["queueName"])
 }
 
 // The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *QueueAuthorizationRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Connection String for the Authorization Rule.
-func (r *QueueAuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *QueueAuthorizationRule) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The Secondary Key for the Authorization Rule.
-func (r *QueueAuthorizationRule) SecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
+func (r *QueueAuthorizationRule) SecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
-func (r *QueueAuthorizationRule) Send() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["send"])
+func (r *QueueAuthorizationRule) Send() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["send"])
 }
 
 // Input properties used for looking up and filtering QueueAuthorizationRule resources.

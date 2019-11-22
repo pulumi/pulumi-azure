@@ -71,38 +71,38 @@ func GetProtectedVM(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectedVM) URN() *pulumi.URNOutput {
+func (r *ProtectedVM) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectedVM) ID() *pulumi.IDOutput {
+func (r *ProtectedVM) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the id of the backup policy to use.
-func (r *ProtectedVM) BackupPolicyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["backupPolicyId"])
+func (r *ProtectedVM) BackupPolicyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["backupPolicyId"])
 }
 
 // Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-func (r *ProtectedVM) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *ProtectedVM) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-func (r *ProtectedVM) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ProtectedVM) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-func (r *ProtectedVM) SourceVmId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceVmId"])
+func (r *ProtectedVM) SourceVmId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceVmId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ProtectedVM) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ProtectedVM) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ProtectedVM resources.

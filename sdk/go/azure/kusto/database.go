@@ -70,48 +70,48 @@ func GetDatabase(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Database) URN() *pulumi.URNOutput {
+func (r *Database) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Database) ID() *pulumi.IDOutput {
+func (r *Database) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
-func (r *Database) ClusterName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterName"])
+func (r *Database) ClusterName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterName"])
 }
 
 // The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-func (r *Database) HotCachePeriod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hotCachePeriod"])
+func (r *Database) HotCachePeriod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hotCachePeriod"])
 }
 
 // The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-func (r *Database) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Database) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Kusto Database to create. Changing this forces a new resource to be created.
-func (r *Database) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Database) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-func (r *Database) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Database) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The size of the database in bytes.
-func (r *Database) Size() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["size"])
+func (r *Database) Size() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["size"])
 }
 
 // The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-func (r *Database) SoftDeletePeriod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["softDeletePeriod"])
+func (r *Database) SoftDeletePeriod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["softDeletePeriod"])
 }
 
 // Input properties used for looking up and filtering Database resources.

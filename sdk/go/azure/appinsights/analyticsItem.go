@@ -80,58 +80,58 @@ func GetAnalyticsItem(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsItem) URN() *pulumi.URNOutput {
+func (r *AnalyticsItem) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsItem) ID() *pulumi.IDOutput {
+func (r *AnalyticsItem) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
-func (r *AnalyticsItem) ApplicationInsightsId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationInsightsId"])
+func (r *AnalyticsItem) ApplicationInsightsId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationInsightsId"])
 }
 
 // The content for the Analytics Item, for example the query text if `type` is `query`.
-func (r *AnalyticsItem) Content() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["content"])
+func (r *AnalyticsItem) Content() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["content"])
 }
 
 // The alias to use for the function. Required when `type` is `function`.
-func (r *AnalyticsItem) FunctionAlias() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["functionAlias"])
+func (r *AnalyticsItem) FunctionAlias() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["functionAlias"])
 }
 
 // Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
-func (r *AnalyticsItem) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AnalyticsItem) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
-func (r *AnalyticsItem) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *AnalyticsItem) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // A string containing the time the Analytics Item was created.
-func (r *AnalyticsItem) TimeCreated() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timeCreated"])
+func (r *AnalyticsItem) TimeCreated() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timeCreated"])
 }
 
 // A string containing the time the Analytics Item was last modified.
-func (r *AnalyticsItem) TimeModified() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timeModified"])
+func (r *AnalyticsItem) TimeModified() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timeModified"])
 }
 
 // The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
-func (r *AnalyticsItem) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *AnalyticsItem) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // A string indicating the version of the query format
-func (r *AnalyticsItem) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *AnalyticsItem) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering AnalyticsItem resources.

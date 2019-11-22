@@ -71,43 +71,43 @@ func GetSqlContainer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SqlContainer) URN() *pulumi.URNOutput {
+func (r *SqlContainer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SqlContainer) ID() *pulumi.IDOutput {
+func (r *SqlContainer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-func (r *SqlContainer) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *SqlContainer) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
-func (r *SqlContainer) DatabaseName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["databaseName"])
+func (r *SqlContainer) DatabaseName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["databaseName"])
 }
 
 // Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-func (r *SqlContainer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SqlContainer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Define a partition key. Changing this forces a new resource to be created.
-func (r *SqlContainer) PartitionKeyPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partitionKeyPath"])
+func (r *SqlContainer) PartitionKeyPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partitionKeyPath"])
 }
 
 // The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-func (r *SqlContainer) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SqlContainer) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
-func (r *SqlContainer) UniqueKeys() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["uniqueKeys"])
+func (r *SqlContainer) UniqueKeys() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["uniqueKeys"])
 }
 
 // Input properties used for looking up and filtering SqlContainer resources.

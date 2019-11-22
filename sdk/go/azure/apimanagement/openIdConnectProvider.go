@@ -86,53 +86,53 @@ func GetOpenIdConnectProvider(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OpenIdConnectProvider) URN() *pulumi.URNOutput {
+func (r *OpenIdConnectProvider) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OpenIdConnectProvider) ID() *pulumi.IDOutput {
+func (r *OpenIdConnectProvider) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
-func (r *OpenIdConnectProvider) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *OpenIdConnectProvider) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The Client ID used for the Client Application.
-func (r *OpenIdConnectProvider) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *OpenIdConnectProvider) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // The Client Secret used for the Client Application.
-func (r *OpenIdConnectProvider) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *OpenIdConnectProvider) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // A description of this OpenID Connect Provider.
-func (r *OpenIdConnectProvider) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *OpenIdConnectProvider) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A user-friendly name for this OpenID Connect Provider.
-func (r *OpenIdConnectProvider) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *OpenIdConnectProvider) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The URI of the Metadata endpoint.
-func (r *OpenIdConnectProvider) MetadataEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metadataEndpoint"])
+func (r *OpenIdConnectProvider) MetadataEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metadataEndpoint"])
 }
 
 // the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
-func (r *OpenIdConnectProvider) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OpenIdConnectProvider) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *OpenIdConnectProvider) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *OpenIdConnectProvider) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering OpenIdConnectProvider resources.

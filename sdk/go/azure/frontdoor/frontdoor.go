@@ -110,78 +110,78 @@ func GetFrontdoor(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Frontdoor) URN() *pulumi.URNOutput {
+func (r *Frontdoor) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Frontdoor) ID() *pulumi.IDOutput {
+func (r *Frontdoor) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `backendPool` block as defined below.
-func (r *Frontdoor) BackendPools() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["backendPools"])
+func (r *Frontdoor) BackendPools() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["backendPools"])
 }
 
 // A `backendPoolHealthProbe` block as defined below.
-func (r *Frontdoor) BackendPoolHealthProbes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["backendPoolHealthProbes"])
+func (r *Frontdoor) BackendPoolHealthProbes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["backendPoolHealthProbes"])
 }
 
 // A `backendPoolLoadBalancing` block as defined below.
-func (r *Frontdoor) BackendPoolLoadBalancings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["backendPoolLoadBalancings"])
+func (r *Frontdoor) BackendPoolLoadBalancings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["backendPoolLoadBalancings"])
 }
 
 // The host that each frontendEndpoint must CNAME to.
-func (r *Frontdoor) Cname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cname"])
+func (r *Frontdoor) Cname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cname"])
 }
 
 // Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
-func (r *Frontdoor) EnforceBackendPoolsCertificateNameCheck() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enforceBackendPoolsCertificateNameCheck"])
+func (r *Frontdoor) EnforceBackendPoolsCertificateNameCheck() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enforceBackendPoolsCertificateNameCheck"])
 }
 
 // A friendly name for the Front Door service.
-func (r *Frontdoor) FriendlyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["friendlyName"])
+func (r *Frontdoor) FriendlyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["friendlyName"])
 }
 
 // A `frontendEndpoint` block as defined below.
-func (r *Frontdoor) FrontendEndpoints() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["frontendEndpoints"])
+func (r *Frontdoor) FrontendEndpoints() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["frontendEndpoints"])
 }
 
 // Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
-func (r *Frontdoor) LoadBalancerEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["loadBalancerEnabled"])
+func (r *Frontdoor) LoadBalancerEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["loadBalancerEnabled"])
 }
 
 // Resource location. Changing this forces a new resource to be created.
-func (r *Frontdoor) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Frontdoor) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
-func (r *Frontdoor) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Frontdoor) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
-func (r *Frontdoor) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Frontdoor) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `routingRule` block as defined below.
-func (r *Frontdoor) RoutingRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["routingRules"])
+func (r *Frontdoor) RoutingRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["routingRules"])
 }
 
 // Resource tags.
-func (r *Frontdoor) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Frontdoor) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Frontdoor resources.

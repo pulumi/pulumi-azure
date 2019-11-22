@@ -66,43 +66,43 @@ func GetBastionHost(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BastionHost) URN() *pulumi.URNOutput {
+func (r *BastionHost) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BastionHost) ID() *pulumi.IDOutput {
+func (r *BastionHost) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The FQDN for the Azure Bastion Host.
-func (r *BastionHost) DnsName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsName"])
+func (r *BastionHost) DnsName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsName"])
 }
 
 // A `ipConfiguration` block as defined below.
-func (r *BastionHost) IpConfiguration() *pulumi.Output {
+func (r *BastionHost) IpConfiguration() pulumi.Output {
 	return r.s.State["ipConfiguration"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *BastionHost) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *BastionHost) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-func (r *BastionHost) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *BastionHost) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Bastion Host.
-func (r *BastionHost) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *BastionHost) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *BastionHost) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *BastionHost) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering BastionHost resources.

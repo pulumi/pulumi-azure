@@ -65,33 +65,33 @@ func GetModule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Module) URN() *pulumi.URNOutput {
+func (r *Module) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Module) ID() *pulumi.IDOutput {
+func (r *Module) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-func (r *Module) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *Module) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The published Module link.
-func (r *Module) ModuleLink() *pulumi.Output {
+func (r *Module) ModuleLink() pulumi.Output {
 	return r.s.State["moduleLink"]
 }
 
 // Specifies the name of the Module. Changing this forces a new resource to be created.
-func (r *Module) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Module) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-func (r *Module) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Module) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Module resources.

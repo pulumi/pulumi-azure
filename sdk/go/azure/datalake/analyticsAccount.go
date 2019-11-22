@@ -68,43 +68,43 @@ func GetAnalyticsAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsAccount) URN() *pulumi.URNOutput {
+func (r *AnalyticsAccount) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsAccount) ID() *pulumi.IDOutput {
+func (r *AnalyticsAccount) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the data lake store to use by default. Changing this forces a new resource to be created.
-func (r *AnalyticsAccount) DefaultStoreAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultStoreAccountName"])
+func (r *AnalyticsAccount) DefaultStoreAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultStoreAccountName"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AnalyticsAccount) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AnalyticsAccount) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Data Lake Analytics Account. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-func (r *AnalyticsAccount) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AnalyticsAccount) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Data Lake Analytics Account.
-func (r *AnalyticsAccount) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AnalyticsAccount) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AnalyticsAccount) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AnalyticsAccount) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The monthly commitment tier for Data Lake Analytics Account. Accepted values are `Consumption`, `Commitment_100000AUHours`, `Commitment_10000AUHours`, `Commitment_1000AUHours`, `Commitment_100AUHours`, `Commitment_500000AUHours`, `Commitment_50000AUHours`, `Commitment_5000AUHours`, or `Commitment_500AUHours`.
-func (r *AnalyticsAccount) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *AnalyticsAccount) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering AnalyticsAccount resources.

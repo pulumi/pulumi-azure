@@ -83,63 +83,63 @@ func GetProtectionPolicyVM(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectionPolicyVM) URN() *pulumi.URNOutput {
+func (r *ProtectionPolicyVM) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectionPolicyVM) ID() *pulumi.IDOutput {
+func (r *ProtectionPolicyVM) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
-func (r *ProtectionPolicyVM) Backup() *pulumi.Output {
+func (r *ProtectionPolicyVM) Backup() pulumi.Output {
 	return r.s.State["backup"]
 }
 
 // Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
-func (r *ProtectionPolicyVM) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProtectionPolicyVM) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-func (r *ProtectionPolicyVM) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *ProtectionPolicyVM) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-func (r *ProtectionPolicyVM) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ProtectionPolicyVM) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
-func (r *ProtectionPolicyVM) RetentionDaily() *pulumi.Output {
+func (r *ProtectionPolicyVM) RetentionDaily() pulumi.Output {
 	return r.s.State["retentionDaily"]
 }
 
 // Configures the policy monthly retention as documented in the `retentionMonthly` block below.
-func (r *ProtectionPolicyVM) RetentionMonthly() *pulumi.Output {
+func (r *ProtectionPolicyVM) RetentionMonthly() pulumi.Output {
 	return r.s.State["retentionMonthly"]
 }
 
 // Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
-func (r *ProtectionPolicyVM) RetentionWeekly() *pulumi.Output {
+func (r *ProtectionPolicyVM) RetentionWeekly() pulumi.Output {
 	return r.s.State["retentionWeekly"]
 }
 
 // Configures the policy yearly retention as documented in the `retentionYearly` block below.
-func (r *ProtectionPolicyVM) RetentionYearly() *pulumi.Output {
+func (r *ProtectionPolicyVM) RetentionYearly() pulumi.Output {
 	return r.s.State["retentionYearly"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ProtectionPolicyVM) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ProtectionPolicyVM) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the timezone. Defaults to `UTC`
-func (r *ProtectionPolicyVM) Timezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timezone"])
+func (r *ProtectionPolicyVM) Timezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // Input properties used for looking up and filtering ProtectionPolicyVM resources.

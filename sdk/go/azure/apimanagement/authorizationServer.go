@@ -125,107 +125,107 @@ func GetAuthorizationServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AuthorizationServer) URN() *pulumi.URNOutput {
+func (r *AuthorizationServer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AuthorizationServer) ID() *pulumi.IDOutput {
+func (r *AuthorizationServer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
-func (r *AuthorizationServer) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *AuthorizationServer) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The OAUTH Authorization Endpoint.
-func (r *AuthorizationServer) AuthorizationEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationEndpoint"])
+func (r *AuthorizationServer) AuthorizationEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationEndpoint"])
 }
 
 // The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
-func (r *AuthorizationServer) AuthorizationMethods() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["authorizationMethods"])
+func (r *AuthorizationServer) AuthorizationMethods() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["authorizationMethods"])
 }
 
 // The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
-func (r *AuthorizationServer) BearerTokenSendingMethods() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["bearerTokenSendingMethods"])
+func (r *AuthorizationServer) BearerTokenSendingMethods() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["bearerTokenSendingMethods"])
 }
 
 // The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
-func (r *AuthorizationServer) ClientAuthenticationMethods() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clientAuthenticationMethods"])
+func (r *AuthorizationServer) ClientAuthenticationMethods() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clientAuthenticationMethods"])
 }
 
 // The Client/App ID registered with this Authorization Server.
-func (r *AuthorizationServer) ClientId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientId"])
+func (r *AuthorizationServer) ClientId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 // The URI of page where Client/App Registration is performed for this Authorization Server.
-func (r *AuthorizationServer) ClientRegistrationEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientRegistrationEndpoint"])
+func (r *AuthorizationServer) ClientRegistrationEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientRegistrationEndpoint"])
 }
 
 // The Client/App Secret registered with this Authorization Server.
-func (r *AuthorizationServer) ClientSecret() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clientSecret"])
+func (r *AuthorizationServer) ClientSecret() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clientSecret"])
 }
 
 // The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
-func (r *AuthorizationServer) DefaultScope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultScope"])
+func (r *AuthorizationServer) DefaultScope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultScope"])
 }
 
 // A description of the Authorization Server, which may contain HTML formatting tags.
-func (r *AuthorizationServer) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *AuthorizationServer) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The user-friendly name of this Authorization Server.
-func (r *AuthorizationServer) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *AuthorizationServer) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
-func (r *AuthorizationServer) GrantTypes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["grantTypes"])
+func (r *AuthorizationServer) GrantTypes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["grantTypes"])
 }
 
 // The name of this Authorization Server. Changing this forces a new resource to be created.
-func (r *AuthorizationServer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AuthorizationServer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *AuthorizationServer) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AuthorizationServer) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The password associated with the Resource Owner.
-func (r *AuthorizationServer) ResourceOwnerPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceOwnerPassword"])
+func (r *AuthorizationServer) ResourceOwnerPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceOwnerPassword"])
 }
 
 // The username associated with the Resource Owner.
-func (r *AuthorizationServer) ResourceOwnerUsername() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceOwnerUsername"])
+func (r *AuthorizationServer) ResourceOwnerUsername() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceOwnerUsername"])
 }
 
 // Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-func (r *AuthorizationServer) SupportState() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["supportState"])
+func (r *AuthorizationServer) SupportState() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["supportState"])
 }
 
-func (r *AuthorizationServer) TokenBodyParameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tokenBodyParameters"])
+func (r *AuthorizationServer) TokenBodyParameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tokenBodyParameters"])
 }
 
 // The OAUTH Token Endpoint.
-func (r *AuthorizationServer) TokenEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tokenEndpoint"])
+func (r *AuthorizationServer) TokenEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tokenEndpoint"])
 }
 
 // Input properties used for looking up and filtering AuthorizationServer resources.

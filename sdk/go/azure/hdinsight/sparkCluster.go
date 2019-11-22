@@ -99,73 +99,73 @@ func GetSparkCluster(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SparkCluster) URN() *pulumi.URNOutput {
+func (r *SparkCluster) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SparkCluster) ID() *pulumi.IDOutput {
+func (r *SparkCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *SparkCluster) ClusterVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterVersion"])
+func (r *SparkCluster) ClusterVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
 }
 
 // A `componentVersion` block as defined below.
-func (r *SparkCluster) ComponentVersion() *pulumi.Output {
+func (r *SparkCluster) ComponentVersion() pulumi.Output {
 	return r.s.State["componentVersion"]
 }
 
 // A `gateway` block as defined below.
-func (r *SparkCluster) Gateway() *pulumi.Output {
+func (r *SparkCluster) Gateway() pulumi.Output {
 	return r.s.State["gateway"]
 }
 
 // The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
-func (r *SparkCluster) HttpsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httpsEndpoint"])
+func (r *SparkCluster) HttpsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
 }
 
 // Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-func (r *SparkCluster) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *SparkCluster) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-func (r *SparkCluster) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SparkCluster) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-func (r *SparkCluster) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SparkCluster) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `roles` block as defined below.
-func (r *SparkCluster) Roles() *pulumi.Output {
+func (r *SparkCluster) Roles() pulumi.Output {
 	return r.s.State["roles"]
 }
 
 // The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
-func (r *SparkCluster) SshEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
+func (r *SparkCluster) SshEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
 // One or more `storageAccount` block as defined below.
-func (r *SparkCluster) StorageAccounts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+func (r *SparkCluster) StorageAccounts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
 // A map of Tags which should be assigned to this HDInsight Spark Cluster.
-func (r *SparkCluster) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SparkCluster) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *SparkCluster) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *SparkCluster) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering SparkCluster resources.

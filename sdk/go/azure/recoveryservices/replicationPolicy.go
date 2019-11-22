@@ -71,38 +71,38 @@ func GetReplicationPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicationPolicy) URN() *pulumi.URNOutput {
+func (r *ReplicationPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicationPolicy) ID() *pulumi.IDOutput {
+func (r *ReplicationPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the frequency(in minutes) at which to create application consistent recovery points.
-func (r *ReplicationPolicy) ApplicationConsistentSnapshotFrequencyInMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["applicationConsistentSnapshotFrequencyInMinutes"])
+func (r *ReplicationPolicy) ApplicationConsistentSnapshotFrequencyInMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["applicationConsistentSnapshotFrequencyInMinutes"])
 }
 
 // The name of the network mapping.
-func (r *ReplicationPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ReplicationPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Retain the recovery points for given time in minutes.
-func (r *ReplicationPolicy) RecoveryPointRetentionInMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["recoveryPointRetentionInMinutes"])
+func (r *ReplicationPolicy) RecoveryPointRetentionInMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["recoveryPointRetentionInMinutes"])
 }
 
 // The name of the vault that should be updated.
-func (r *ReplicationPolicy) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *ReplicationPolicy) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // Name of the resource group where the vault that should be updated is located.
-func (r *ReplicationPolicy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ReplicationPolicy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ReplicationPolicy resources.

@@ -98,98 +98,98 @@ func GetSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Subscription) URN() *pulumi.URNOutput {
+func (r *Subscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Subscription) ID() *pulumi.IDOutput {
+func (r *Subscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The idle interval after which the
 // Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 // TimeSpan format.
-func (r *Subscription) AutoDeleteOnIdle() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
+func (r *Subscription) AutoDeleteOnIdle() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
 }
 
-func (r *Subscription) DeadLetteringOnFilterEvaluationExceptions() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deadLetteringOnFilterEvaluationExceptions"])
+func (r *Subscription) DeadLetteringOnFilterEvaluationExceptions() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deadLetteringOnFilterEvaluationExceptions"])
 }
 
 // Boolean flag which controls
 // whether the Subscription has dead letter support when a message expires. Defaults
 // to false.
-func (r *Subscription) DeadLetteringOnMessageExpiration() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deadLetteringOnMessageExpiration"])
+func (r *Subscription) DeadLetteringOnMessageExpiration() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deadLetteringOnMessageExpiration"])
 }
 
 // The TTL of messages sent to this Subscription
 // if no TTL value is set on the message itself. Provided in the TimeSpan
 // format.
-func (r *Subscription) DefaultMessageTtl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
+func (r *Subscription) DefaultMessageTtl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
 }
 
 // Boolean flag which controls whether the
 // Subscription supports batched operations. Defaults to false.
-func (r *Subscription) EnableBatchedOperations() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
+func (r *Subscription) EnableBatchedOperations() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
 }
 
 // The name of a Queue or Topic to automatically forward 
 // messages to.
-func (r *Subscription) ForwardTo() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["forwardTo"])
+func (r *Subscription) ForwardTo() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["forwardTo"])
 }
 
 // Specifies the supported Azure location where the resource exists.
 // Changing this forces a new resource to be created.
-func (r *Subscription) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Subscription) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The lock duration for the subscription, maximum
 // supported value is 5 minutes. Defaults to 1 minute.
-func (r *Subscription) LockDuration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["lockDuration"])
+func (r *Subscription) LockDuration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["lockDuration"])
 }
 
 // The maximum number of deliveries.
-func (r *Subscription) MaxDeliveryCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxDeliveryCount"])
+func (r *Subscription) MaxDeliveryCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxDeliveryCount"])
 }
 
 // Specifies the name of the ServiceBus Subscription resource.
 // Changing this forces a new resource to be created.
-func (r *Subscription) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Subscription) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the ServiceBus Namespace to create
 // this Subscription in. Changing this forces a new resource to be created.
-func (r *Subscription) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *Subscription) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // Boolean flag which controls whether this Subscription
 // supports the concept of a session. Defaults to false. Changing this forces a
 // new resource to be created.
-func (r *Subscription) RequiresSession() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["requiresSession"])
+func (r *Subscription) RequiresSession() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["requiresSession"])
 }
 
 // The name of the resource group in which to
 // create the namespace. Changing this forces a new resource to be created.
-func (r *Subscription) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Subscription) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the ServiceBus Topic to create
 // this Subscription in. Changing this forces a new resource to be created.
-func (r *Subscription) TopicName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topicName"])
+func (r *Subscription) TopicName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topicName"])
 }
 
 // Input properties used for looking up and filtering Subscription resources.

@@ -79,68 +79,68 @@ func GetSharedAccessPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SharedAccessPolicy) URN() *pulumi.URNOutput {
+func (r *SharedAccessPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SharedAccessPolicy) ID() *pulumi.IDOutput {
+func (r *SharedAccessPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
-func (r *SharedAccessPolicy) DeviceConnect() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["deviceConnect"])
+func (r *SharedAccessPolicy) DeviceConnect() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["deviceConnect"])
 }
 
 // The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
-func (r *SharedAccessPolicy) IothubName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iothubName"])
+func (r *SharedAccessPolicy) IothubName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iothubName"])
 }
 
 // Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
-func (r *SharedAccessPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SharedAccessPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The primary connection string of the Shared Access Policy.
-func (r *SharedAccessPolicy) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *SharedAccessPolicy) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The primary key used to create the authentication token.
-func (r *SharedAccessPolicy) PrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+func (r *SharedAccessPolicy) PrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
-func (r *SharedAccessPolicy) RegistryRead() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["registryRead"])
+func (r *SharedAccessPolicy) RegistryRead() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["registryRead"])
 }
 
 // Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
-func (r *SharedAccessPolicy) RegistryWrite() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["registryWrite"])
+func (r *SharedAccessPolicy) RegistryWrite() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["registryWrite"])
 }
 
 // The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
-func (r *SharedAccessPolicy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SharedAccessPolicy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The secondary connection string of the Shared Access Policy.
-func (r *SharedAccessPolicy) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *SharedAccessPolicy) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The secondary key used to create the authentication token.
-func (r *SharedAccessPolicy) SecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
+func (r *SharedAccessPolicy) SecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-func (r *SharedAccessPolicy) ServiceConnect() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["serviceConnect"])
+func (r *SharedAccessPolicy) ServiceConnect() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["serviceConnect"])
 }
 
 // Input properties used for looking up and filtering SharedAccessPolicy resources.

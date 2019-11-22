@@ -138,115 +138,115 @@ func GetCache(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Cache) URN() *pulumi.URNOutput {
+func (r *Cache) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Cache) ID() *pulumi.IDOutput {
+func (r *Cache) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
-func (r *Cache) Capacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["capacity"])
+func (r *Cache) Capacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["capacity"])
 }
 
 // Enable the non-SSL port (6379) - disabled by default.
-func (r *Cache) EnableNonSslPort() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableNonSslPort"])
+func (r *Cache) EnableNonSslPort() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableNonSslPort"])
 }
 
 // The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-func (r *Cache) Family() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["family"])
+func (r *Cache) Family() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["family"])
 }
 
 // The Hostname of the Redis Instance
-func (r *Cache) Hostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostname"])
+func (r *Cache) Hostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostname"])
 }
 
 // The location of the resource group.
-func (r *Cache) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Cache) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The minimum TLS version.  Defaults to `1.0`.
-func (r *Cache) MinimumTlsVersion() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["minimumTlsVersion"])
+func (r *Cache) MinimumTlsVersion() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["minimumTlsVersion"])
 }
 
 // The name of the Redis instance. Changing this forces a
 // new resource to be created.
-func (r *Cache) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Cache) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
-func (r *Cache) PatchSchedules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["patchSchedules"])
+func (r *Cache) PatchSchedules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["patchSchedules"])
 }
 
 // The non-SSL Port of the Redis Instance
-func (r *Cache) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *Cache) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // The Primary Access Key for the Redis Instance
-func (r *Cache) PrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+func (r *Cache) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
 // The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
-func (r *Cache) PrivateStaticIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateStaticIpAddress"])
+func (r *Cache) PrivateStaticIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateStaticIpAddress"])
 }
 
 // A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
-func (r *Cache) RedisConfiguration() *pulumi.Output {
+func (r *Cache) RedisConfiguration() pulumi.Output {
 	return r.s.State["redisConfiguration"]
 }
 
 // The name of the resource group in which to
 // create the Redis instance.
-func (r *Cache) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Cache) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Access Key for the Redis Instance
-func (r *Cache) SecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+func (r *Cache) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
-func (r *Cache) ShardCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["shardCount"])
+func (r *Cache) ShardCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["shardCount"])
 }
 
 // The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
-func (r *Cache) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *Cache) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // The SSL Port of the Redis Instance
-func (r *Cache) SslPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["sslPort"])
+func (r *Cache) SslPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["sslPort"])
 }
 
 // *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
-func (r *Cache) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *Cache) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Cache) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Cache) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
-func (r *Cache) Zones() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zones"])
+func (r *Cache) Zones() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering Cache resources.

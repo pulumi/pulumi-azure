@@ -81,73 +81,73 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallPolicy) URN() *pulumi.URNOutput {
+func (r *FirewallPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallPolicy) ID() *pulumi.IDOutput {
+func (r *FirewallPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-func (r *FirewallPolicy) CustomBlockResponseBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["customBlockResponseBody"])
+func (r *FirewallPolicy) CustomBlockResponseBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["customBlockResponseBody"])
 }
 
 // If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-func (r *FirewallPolicy) CustomBlockResponseStatusCode() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["customBlockResponseStatusCode"])
+func (r *FirewallPolicy) CustomBlockResponseStatusCode() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["customBlockResponseStatusCode"])
 }
 
 // One or more `customRule` blocks as defined below.
-func (r *FirewallPolicy) CustomRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customRules"])
+func (r *FirewallPolicy) CustomRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customRules"])
 }
 
 // Is the policy a enabled state or disabled state. Defaults to `true`.
-func (r *FirewallPolicy) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *FirewallPolicy) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
-func (r *FirewallPolicy) FrontendEndpointIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["frontendEndpointIds"])
+func (r *FirewallPolicy) FrontendEndpointIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["frontendEndpointIds"])
 }
 
 // Resource location.
-func (r *FirewallPolicy) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *FirewallPolicy) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // One or more `managedRule` blocks as defined below.
-func (r *FirewallPolicy) ManagedRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["managedRules"])
+func (r *FirewallPolicy) ManagedRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["managedRules"])
 }
 
 // The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
-func (r *FirewallPolicy) Mode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mode"])
+func (r *FirewallPolicy) Mode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mode"])
 }
 
 // The name of the policy. Changing this forces a new resource to be created.
-func (r *FirewallPolicy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FirewallPolicy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // If action type is redirect, this field represents redirect URL for the client.
-func (r *FirewallPolicy) RedirectUrl() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["redirectUrl"])
+func (r *FirewallPolicy) RedirectUrl() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["redirectUrl"])
 }
 
 // The name of the resource group. Changing this forces a new resource to be created.
-func (r *FirewallPolicy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FirewallPolicy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the Web Application Firewall Policy.
-func (r *FirewallPolicy) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *FirewallPolicy) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering FirewallPolicy resources.

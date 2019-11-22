@@ -71,43 +71,43 @@ func GetRoleDefinition(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *RoleDefinition) URN() *pulumi.URNOutput {
+func (r *RoleDefinition) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *RoleDefinition) ID() *pulumi.IDOutput {
+func (r *RoleDefinition) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
-func (r *RoleDefinition) AssignableScopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["assignableScopes"])
+func (r *RoleDefinition) AssignableScopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["assignableScopes"])
 }
 
 // A description of the Role Definition.
-func (r *RoleDefinition) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *RoleDefinition) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The name of the Role Definition. Changing this forces a new resource to be created.
-func (r *RoleDefinition) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *RoleDefinition) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `permissions` block as defined below.
-func (r *RoleDefinition) Permissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["permissions"])
+func (r *RoleDefinition) Permissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["permissions"])
 }
 
 // A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-func (r *RoleDefinition) RoleDefinitionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["roleDefinitionId"])
+func (r *RoleDefinition) RoleDefinitionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["roleDefinitionId"])
 }
 
 // The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
-func (r *RoleDefinition) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *RoleDefinition) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // Input properties used for looking up and filtering RoleDefinition resources.

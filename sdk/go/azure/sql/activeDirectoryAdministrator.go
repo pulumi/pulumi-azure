@@ -74,38 +74,38 @@ func GetActiveDirectoryAdministrator(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActiveDirectoryAdministrator) URN() *pulumi.URNOutput {
+func (r *ActiveDirectoryAdministrator) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActiveDirectoryAdministrator) ID() *pulumi.IDOutput {
+func (r *ActiveDirectoryAdministrator) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The login name of the principal to set as the server administrator
-func (r *ActiveDirectoryAdministrator) Login() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["login"])
+func (r *ActiveDirectoryAdministrator) Login() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["login"])
 }
 
 // The ID of the principal to set as the server administrator
-func (r *ActiveDirectoryAdministrator) ObjectId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectId"])
+func (r *ActiveDirectoryAdministrator) ObjectId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectId"])
 }
 
 // The name of the resource group for the SQL server. Changing this forces a new resource to be created.
-func (r *ActiveDirectoryAdministrator) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ActiveDirectoryAdministrator) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
-func (r *ActiveDirectoryAdministrator) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *ActiveDirectoryAdministrator) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // The Azure Tenant ID
-func (r *ActiveDirectoryAdministrator) TenantId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tenantId"])
+func (r *ActiveDirectoryAdministrator) TenantId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tenantId"])
 }
 
 // Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.

@@ -68,42 +68,42 @@ func GetBackendAddressPool(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BackendAddressPool) URN() *pulumi.URNOutput {
+func (r *BackendAddressPool) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BackendAddressPool) ID() *pulumi.IDOutput {
+func (r *BackendAddressPool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Backend IP Configurations associated with this Backend Address Pool.
-func (r *BackendAddressPool) BackendIpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["backendIpConfigurations"])
+func (r *BackendAddressPool) BackendIpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["backendIpConfigurations"])
 }
 
 // The Load Balancing Rules associated with this Backend Address Pool.
-func (r *BackendAddressPool) LoadBalancingRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["loadBalancingRules"])
+func (r *BackendAddressPool) LoadBalancingRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["loadBalancingRules"])
 }
 
 // The ID of the Load Balancer in which to create the Backend Address Pool.
-func (r *BackendAddressPool) LoadbalancerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
+func (r *BackendAddressPool) LoadbalancerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
 
-func (r *BackendAddressPool) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *BackendAddressPool) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Backend Address Pool.
-func (r *BackendAddressPool) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *BackendAddressPool) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the resource.
-func (r *BackendAddressPool) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *BackendAddressPool) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering BackendAddressPool resources.

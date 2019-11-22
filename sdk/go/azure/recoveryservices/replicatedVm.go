@@ -107,72 +107,72 @@ func GetReplicatedVm(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicatedVm) URN() *pulumi.URNOutput {
+func (r *ReplicatedVm) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicatedVm) ID() *pulumi.IDOutput {
+func (r *ReplicatedVm) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `managedDisk` block.
-func (r *ReplicatedVm) ManagedDisks() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["managedDisks"])
+func (r *ReplicatedVm) ManagedDisks() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["managedDisks"])
 }
 
 // The name of the network mapping.
-func (r *ReplicatedVm) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ReplicatedVm) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-func (r *ReplicatedVm) RecoveryReplicationPolicyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryReplicationPolicyId"])
+func (r *ReplicatedVm) RecoveryReplicationPolicyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryReplicationPolicyId"])
 }
 
 // The name of the vault that should be updated.
-func (r *ReplicatedVm) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *ReplicatedVm) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // Name of the resource group where the vault that should be updated is located.
-func (r *ReplicatedVm) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ReplicatedVm) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Name of fabric that should contains this replication.
-func (r *ReplicatedVm) SourceRecoveryFabricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceRecoveryFabricName"])
+func (r *ReplicatedVm) SourceRecoveryFabricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceRecoveryFabricName"])
 }
 
 // Name of the protection container to use.
-func (r *ReplicatedVm) SourceRecoveryProtectionContainerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceRecoveryProtectionContainerName"])
+func (r *ReplicatedVm) SourceRecoveryProtectionContainerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceRecoveryProtectionContainerName"])
 }
 
 // Id of the VM to replicate
-func (r *ReplicatedVm) SourceVmId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceVmId"])
+func (r *ReplicatedVm) SourceVmId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceVmId"])
 }
 
 // Id of availability set that the new VM should belong to when a failover is done.
-func (r *ReplicatedVm) TargetAvailabilitySetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetAvailabilitySetId"])
+func (r *ReplicatedVm) TargetAvailabilitySetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetAvailabilitySetId"])
 }
 
 // Id of fabric where the VM replication should be handled when a failover is done.
-func (r *ReplicatedVm) TargetRecoveryFabricId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetRecoveryFabricId"])
+func (r *ReplicatedVm) TargetRecoveryFabricId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetRecoveryFabricId"])
 }
 
 // Id of protection container where the VM replication should be created when a failover is done.
-func (r *ReplicatedVm) TargetRecoveryProtectionContainerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetRecoveryProtectionContainerId"])
+func (r *ReplicatedVm) TargetRecoveryProtectionContainerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetRecoveryProtectionContainerId"])
 }
 
 // Id of resource group where the VM should be created when a failover is done.
-func (r *ReplicatedVm) TargetResourceGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetResourceGroupId"])
+func (r *ReplicatedVm) TargetResourceGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceGroupId"])
 }
 
 // Input properties used for looking up and filtering ReplicatedVm resources.

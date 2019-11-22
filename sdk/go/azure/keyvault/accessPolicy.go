@@ -84,76 +84,76 @@ func GetAccessPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AccessPolicy) URN() *pulumi.URNOutput {
+func (r *AccessPolicy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AccessPolicy) ID() *pulumi.IDOutput {
+func (r *AccessPolicy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The object ID of an Application in Azure Active Directory.
-func (r *AccessPolicy) ApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationId"])
+func (r *AccessPolicy) ApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationId"])
 }
 
 // List of certificate permissions, must be one or more from
 // the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
 // `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-func (r *AccessPolicy) CertificatePermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["certificatePermissions"])
+func (r *AccessPolicy) CertificatePermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["certificatePermissions"])
 }
 
 // List of key permissions, must be one or more from
 // the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 // `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-func (r *AccessPolicy) KeyPermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["keyPermissions"])
+func (r *AccessPolicy) KeyPermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["keyPermissions"])
 }
 
 // Specifies the id of the Key Vault resource. Changing this
 // forces a new resource to be created.
-func (r *AccessPolicy) KeyVaultId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+func (r *AccessPolicy) KeyVaultId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
 // The object ID of a user, service principal or security
 // group in the Azure Active Directory tenant for the vault. The object ID must
 // be unique for the list of access policies. Changing this forces a new resource
 // to be created.
-func (r *AccessPolicy) ObjectId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["objectId"])
+func (r *AccessPolicy) ObjectId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["objectId"])
 }
 
 // The name of the resource group in which to
 // create the namespace. Changing this forces a new resource to be created.
-func (r *AccessPolicy) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AccessPolicy) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // List of secret permissions, must be one or more
 // from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-func (r *AccessPolicy) SecretPermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["secretPermissions"])
+func (r *AccessPolicy) SecretPermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["secretPermissions"])
 }
 
 // List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-func (r *AccessPolicy) StoragePermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["storagePermissions"])
+func (r *AccessPolicy) StoragePermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["storagePermissions"])
 }
 
 // The Azure Active Directory tenant ID that should be used
 // for authenticating requests to the key vault. Changing this forces a new resource
 // to be created.
-func (r *AccessPolicy) TenantId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tenantId"])
+func (r *AccessPolicy) TenantId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tenantId"])
 }
 
 // Specifies the name of the Key Vault resource. Changing this
 // forces a new resource to be created.
-func (r *AccessPolicy) VaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vaultName"])
+func (r *AccessPolicy) VaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vaultName"])
 }
 
 // Input properties used for looking up and filtering AccessPolicy resources.

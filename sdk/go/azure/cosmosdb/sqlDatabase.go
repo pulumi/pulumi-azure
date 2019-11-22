@@ -59,28 +59,28 @@ func GetSqlDatabase(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SqlDatabase) URN() *pulumi.URNOutput {
+func (r *SqlDatabase) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SqlDatabase) ID() *pulumi.IDOutput {
+func (r *SqlDatabase) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-func (r *SqlDatabase) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *SqlDatabase) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-func (r *SqlDatabase) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SqlDatabase) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-func (r *SqlDatabase) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SqlDatabase) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering SqlDatabase resources.

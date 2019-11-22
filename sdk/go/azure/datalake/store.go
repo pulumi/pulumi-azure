@@ -76,63 +76,63 @@ func GetStore(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Store) URN() *pulumi.URNOutput {
+func (r *Store) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Store) ID() *pulumi.IDOutput {
+func (r *Store) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
-func (r *Store) EncryptionState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["encryptionState"])
+func (r *Store) EncryptionState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["encryptionState"])
 }
 
 // The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryptionState` is `Enabled` - and must be a blank string when it's Disabled.
-func (r *Store) EncryptionType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["encryptionType"])
+func (r *Store) EncryptionType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["encryptionType"])
 }
 
 // The Endpoint for the Data Lake Store.
-func (r *Store) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Store) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
-func (r *Store) FirewallAllowAzureIps() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["firewallAllowAzureIps"])
+func (r *Store) FirewallAllowAzureIps() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["firewallAllowAzureIps"])
 }
 
 // the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
-func (r *Store) FirewallState() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["firewallState"])
+func (r *Store) FirewallState() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["firewallState"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Store) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Store) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-func (r *Store) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Store) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Data Lake Store.
-func (r *Store) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Store) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Store) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Store) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
-func (r *Store) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *Store) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering Store resources.

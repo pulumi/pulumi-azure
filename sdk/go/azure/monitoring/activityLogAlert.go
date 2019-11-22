@@ -77,53 +77,53 @@ func GetActivityLogAlert(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActivityLogAlert) URN() *pulumi.URNOutput {
+func (r *ActivityLogAlert) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActivityLogAlert) ID() *pulumi.IDOutput {
+func (r *ActivityLogAlert) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `action` blocks as defined below.
-func (r *ActivityLogAlert) Actions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["actions"])
+func (r *ActivityLogAlert) Actions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["actions"])
 }
 
 // A `criteria` block as defined below.
-func (r *ActivityLogAlert) Criteria() *pulumi.Output {
+func (r *ActivityLogAlert) Criteria() pulumi.Output {
 	return r.s.State["criteria"]
 }
 
 // The description of this activity log alert.
-func (r *ActivityLogAlert) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ActivityLogAlert) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Should this Activity Log Alert be enabled? Defaults to `true`.
-func (r *ActivityLogAlert) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *ActivityLogAlert) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The name of the activity log alert. Changing this forces a new resource to be created.
-func (r *ActivityLogAlert) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ActivityLogAlert) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the activity log alert instance.
-func (r *ActivityLogAlert) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ActivityLogAlert) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-func (r *ActivityLogAlert) Scopes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["scopes"])
+func (r *ActivityLogAlert) Scopes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["scopes"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ActivityLogAlert) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ActivityLogAlert) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering ActivityLogAlert resources.

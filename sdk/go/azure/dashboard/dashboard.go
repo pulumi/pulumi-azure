@@ -62,39 +62,39 @@ func GetDashboard(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Dashboard) URN() *pulumi.URNOutput {
+func (r *Dashboard) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Dashboard) ID() *pulumi.IDOutput {
+func (r *Dashboard) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
-func (r *Dashboard) DashboardProperties() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dashboardProperties"])
+func (r *Dashboard) DashboardProperties() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dashboardProperties"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Dashboard) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Dashboard) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-func (r *Dashboard) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Dashboard) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the dashboard.
-func (r *Dashboard) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Dashboard) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Dashboard) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Dashboard) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Dashboard resources.

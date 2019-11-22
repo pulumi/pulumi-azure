@@ -74,53 +74,53 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
-func (r *Certificate) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Certificate) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-func (r *Certificate) Data() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["data"])
+func (r *Certificate) Data() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["data"])
 }
 
 // The Expiration Date of this Certificate, formatted as an RFC3339 string.
-func (r *Certificate) Expiration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expiration"])
+func (r *Certificate) Expiration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expiration"])
 }
 
 // The name of the API Management Certificate. Changing this forces a new resource to be created.
-func (r *Certificate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Certificate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The password used for this certificate. Changing this forces a new resource to be created.
-func (r *Certificate) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *Certificate) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Subject of this Certificate.
-func (r *Certificate) Subject() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subject"])
+func (r *Certificate) Subject() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subject"])
 }
 
 // The Thumbprint of this Certificate.
-func (r *Certificate) Thumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+func (r *Certificate) Thumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

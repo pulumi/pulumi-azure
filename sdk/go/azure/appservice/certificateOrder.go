@@ -95,108 +95,108 @@ func GetCertificateOrder(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CertificateOrder) URN() *pulumi.URNOutput {
+func (r *CertificateOrder) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CertificateOrder) ID() *pulumi.IDOutput {
+func (r *CertificateOrder) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Reasons why App Service Certificate is not renewable at the current moment.
-func (r *CertificateOrder) AppServiceCertificateNotRenewableReasons() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["appServiceCertificateNotRenewableReasons"])
+func (r *CertificateOrder) AppServiceCertificateNotRenewableReasons() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["appServiceCertificateNotRenewableReasons"])
 }
 
 // true if the certificate should be automatically renewed when it expires; otherwise, false.
-func (r *CertificateOrder) AutoRenew() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoRenew"])
+func (r *CertificateOrder) AutoRenew() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoRenew"])
 }
 
 // State of the Key Vault secret. A `certificates` block as defined below.
-func (r *CertificateOrder) Certificates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["certificates"])
+func (r *CertificateOrder) Certificates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["certificates"])
 }
 
 // Last CSR that was created for this order.
-func (r *CertificateOrder) Csr() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["csr"])
+func (r *CertificateOrder) Csr() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["csr"])
 }
 
 // The Distinguished Name for the App Service Certificate Order.
-func (r *CertificateOrder) DistinguishedName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["distinguishedName"])
+func (r *CertificateOrder) DistinguishedName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["distinguishedName"])
 }
 
 // Domain verification token.
-func (r *CertificateOrder) DomainVerificationToken() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["domainVerificationToken"])
+func (r *CertificateOrder) DomainVerificationToken() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["domainVerificationToken"])
 }
 
 // Certificate expiration time.
-func (r *CertificateOrder) ExpirationTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expirationTime"])
+func (r *CertificateOrder) ExpirationTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expirationTime"])
 }
 
 // Certificate thumbprint intermediate certificate.
-func (r *CertificateOrder) IntermediateThumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["intermediateThumbprint"])
+func (r *CertificateOrder) IntermediateThumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["intermediateThumbprint"])
 }
 
 // Whether the private key is external or not.
-func (r *CertificateOrder) IsPrivateKeyExternal() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isPrivateKeyExternal"])
+func (r *CertificateOrder) IsPrivateKeyExternal() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isPrivateKeyExternal"])
 }
 
 // Certificate key size.
-func (r *CertificateOrder) KeySize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["keySize"])
+func (r *CertificateOrder) KeySize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["keySize"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *CertificateOrder) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *CertificateOrder) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the certificate. Changing this forces a new resource to be created.
-func (r *CertificateOrder) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *CertificateOrder) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Certificate product type, such as `Standard` or `WildCard`.
-func (r *CertificateOrder) ProductType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productType"])
+func (r *CertificateOrder) ProductType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productType"])
 }
 
 // The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-func (r *CertificateOrder) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *CertificateOrder) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Certificate thumbprint for root certificate.
-func (r *CertificateOrder) RootThumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rootThumbprint"])
+func (r *CertificateOrder) RootThumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rootThumbprint"])
 }
 
 // Certificate thumbprint for signed certificate.
-func (r *CertificateOrder) SignedCertificateThumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["signedCertificateThumbprint"])
+func (r *CertificateOrder) SignedCertificateThumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["signedCertificateThumbprint"])
 }
 
 // Current order status.
-func (r *CertificateOrder) Status() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["status"])
+func (r *CertificateOrder) Status() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["status"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *CertificateOrder) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CertificateOrder) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Duration in years (must be between 1 and 3).
-func (r *CertificateOrder) ValidityInYears() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["validityInYears"])
+func (r *CertificateOrder) ValidityInYears() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["validityInYears"])
 }
 
 // Input properties used for looking up and filtering CertificateOrder resources.

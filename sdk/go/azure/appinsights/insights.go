@@ -69,50 +69,50 @@ func GetInsights(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Insights) URN() *pulumi.URNOutput {
+func (r *Insights) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Insights) ID() *pulumi.IDOutput {
+func (r *Insights) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The App ID associated with this Application Insights component.
-func (r *Insights) AppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appId"])
+func (r *Insights) AppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appId"])
 }
 
 // Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
-func (r *Insights) ApplicationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationType"])
+func (r *Insights) ApplicationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationType"])
 }
 
 // The Instrumentation Key for this Application Insights component.
-func (r *Insights) InstrumentationKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["instrumentationKey"])
+func (r *Insights) InstrumentationKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["instrumentationKey"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Insights) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Insights) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Application Insights component. Changing this forces a
 // new resource to be created.
-func (r *Insights) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Insights) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the Application Insights component.
-func (r *Insights) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Insights) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Insights) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Insights) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Insights resources.

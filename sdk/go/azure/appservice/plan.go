@@ -88,76 +88,76 @@ func GetPlan(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Plan) URN() *pulumi.URNOutput {
+func (r *Plan) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Plan) ID() *pulumi.IDOutput {
+func (r *Plan) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-func (r *Plan) AppServiceEnvironmentId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServiceEnvironmentId"])
+func (r *Plan) AppServiceEnvironmentId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServiceEnvironmentId"])
 }
 
-func (r *Plan) IsXenon() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isXenon"])
+func (r *Plan) IsXenon() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isXenon"])
 }
 
 // The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-func (r *Plan) Kind() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["kind"])
+func (r *Plan) Kind() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["kind"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Plan) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Plan) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-func (r *Plan) MaximumElasticWorkerCount() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maximumElasticWorkerCount"])
+func (r *Plan) MaximumElasticWorkerCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumElasticWorkerCount"])
 }
 
 // The maximum number of workers supported with the App Service Plan's sku.
-func (r *Plan) MaximumNumberOfWorkers() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maximumNumberOfWorkers"])
+func (r *Plan) MaximumNumberOfWorkers() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumNumberOfWorkers"])
 }
 
 // Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-func (r *Plan) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Plan) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-func (r *Plan) PerSiteScaling() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["perSiteScaling"])
+func (r *Plan) PerSiteScaling() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["perSiteScaling"])
 }
 
-func (r *Plan) Properties() *pulumi.Output {
+func (r *Plan) Properties() pulumi.Output {
 	return r.s.State["properties"]
 }
 
 // Is this App Service Plan `Reserved`. Defaults to `false`.
-func (r *Plan) Reserved() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["reserved"])
+func (r *Plan) Reserved() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["reserved"])
 }
 
 // The name of the resource group in which to create the App Service Plan component.
-func (r *Plan) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Plan) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `sku` block as documented below.
-func (r *Plan) Sku() *pulumi.Output {
+func (r *Plan) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Plan) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Plan) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Plan resources.

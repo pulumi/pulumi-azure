@@ -86,58 +86,58 @@ func GetSubscriptionRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SubscriptionRule) URN() *pulumi.URNOutput {
+func (r *SubscriptionRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SubscriptionRule) ID() *pulumi.IDOutput {
+func (r *SubscriptionRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-func (r *SubscriptionRule) Action() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["action"])
+func (r *SubscriptionRule) Action() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["action"])
 }
 
 // A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
-func (r *SubscriptionRule) CorrelationFilter() *pulumi.Output {
+func (r *SubscriptionRule) CorrelationFilter() pulumi.Output {
 	return r.s.State["correlationFilter"]
 }
 
 // Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
-func (r *SubscriptionRule) FilterType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["filterType"])
+func (r *SubscriptionRule) FilterType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["filterType"])
 }
 
 // Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SubscriptionRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *SubscriptionRule) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SubscriptionRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-func (r *SubscriptionRule) SqlFilter() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sqlFilter"])
+func (r *SubscriptionRule) SqlFilter() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sqlFilter"])
 }
 
 // The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) SubscriptionName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subscriptionName"])
+func (r *SubscriptionRule) SubscriptionName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subscriptionName"])
 }
 
 // The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) TopicName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topicName"])
+func (r *SubscriptionRule) TopicName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topicName"])
 }
 
 // Input properties used for looking up and filtering SubscriptionRule resources.

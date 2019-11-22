@@ -66,38 +66,38 @@ func GetServicePrincipalPassword(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ServicePrincipalPassword) URN() *pulumi.URNOutput {
+func (r *ServicePrincipalPassword) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ServicePrincipalPassword) ID() *pulumi.IDOutput {
+func (r *ServicePrincipalPassword) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) EndDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endDate"])
+func (r *ServicePrincipalPassword) EndDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endDate"])
 }
 
 // A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) KeyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyId"])
+func (r *ServicePrincipalPassword) KeyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyId"])
 }
 
 // The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) ServicePrincipalId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["servicePrincipalId"])
+func (r *ServicePrincipalPassword) ServicePrincipalId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["servicePrincipalId"])
 }
 
 // The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) StartDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startDate"])
+func (r *ServicePrincipalPassword) StartDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startDate"])
 }
 
 // The Password for this Service Principal.
-func (r *ServicePrincipalPassword) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *ServicePrincipalPassword) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering ServicePrincipalPassword resources.

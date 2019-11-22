@@ -86,56 +86,56 @@ func GetSubscription(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Subscription) URN() *pulumi.URNOutput {
+func (r *Subscription) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Subscription) ID() *pulumi.IDOutput {
+func (r *Subscription) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
-func (r *Subscription) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Subscription) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The display name of this Subscription.
-func (r *Subscription) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Subscription) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
-func (r *Subscription) PrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+func (r *Subscription) PrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-func (r *Subscription) ProductId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["productId"])
+func (r *Subscription) ProductId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["productId"])
 }
 
 // The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Subscription) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Subscription) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-func (r *Subscription) SecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
+func (r *Subscription) SecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
-func (r *Subscription) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *Subscription) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
-func (r *Subscription) SubscriptionId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subscriptionId"])
+func (r *Subscription) SubscriptionId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subscriptionId"])
 }
 
 // The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-func (r *Subscription) UserId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userId"])
+func (r *Subscription) UserId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userId"])
 }
 
 // Input properties used for looking up and filtering Subscription resources.

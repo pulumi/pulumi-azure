@@ -69,53 +69,53 @@ func GetLoadBalancer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LoadBalancer) URN() *pulumi.URNOutput {
+func (r *LoadBalancer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LoadBalancer) ID() *pulumi.IDOutput {
+func (r *LoadBalancer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or multiple `frontendIpConfiguration` blocks as documented below.
-func (r *LoadBalancer) FrontendIpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
+func (r *LoadBalancer) FrontendIpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
 
 // Specifies the supported Azure Region where the Load Balancer should be created.
-func (r *LoadBalancer) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *LoadBalancer) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the frontend ip configuration.
-func (r *LoadBalancer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LoadBalancer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
-func (r *LoadBalancer) PrivateIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateIpAddress"])
+func (r *LoadBalancer) PrivateIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
 }
 
 // The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
-func (r *LoadBalancer) PrivateIpAddresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
+func (r *LoadBalancer) PrivateIpAddresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
 }
 
 // The name of the Resource Group in which to create the Load Balancer.
-func (r *LoadBalancer) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *LoadBalancer) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-func (r *LoadBalancer) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *LoadBalancer) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *LoadBalancer) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LoadBalancer) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering LoadBalancer resources.

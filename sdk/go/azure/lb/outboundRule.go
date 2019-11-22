@@ -85,58 +85,58 @@ func GetOutboundRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OutboundRule) URN() *pulumi.URNOutput {
+func (r *OutboundRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OutboundRule) ID() *pulumi.IDOutput {
+func (r *OutboundRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The number of outbound ports to be used for NAT.
-func (r *OutboundRule) AllocatedOutboundPorts() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["allocatedOutboundPorts"])
+func (r *OutboundRule) AllocatedOutboundPorts() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["allocatedOutboundPorts"])
 }
 
 // The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-func (r *OutboundRule) BackendAddressPoolId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["backendAddressPoolId"])
+func (r *OutboundRule) BackendAddressPoolId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["backendAddressPoolId"])
 }
 
 // Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-func (r *OutboundRule) EnableTcpReset() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableTcpReset"])
+func (r *OutboundRule) EnableTcpReset() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableTcpReset"])
 }
 
 // One or more `frontendIpConfiguration` blocks as defined below.
-func (r *OutboundRule) FrontendIpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
+func (r *OutboundRule) FrontendIpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
 
 // The timeout for the TCP idle connection
-func (r *OutboundRule) IdleTimeoutInMinutes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["idleTimeoutInMinutes"])
+func (r *OutboundRule) IdleTimeoutInMinutes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["idleTimeoutInMinutes"])
 }
 
 // The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
-func (r *OutboundRule) LoadbalancerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
+func (r *OutboundRule) LoadbalancerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
 
 // Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
-func (r *OutboundRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OutboundRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-func (r *OutboundRule) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *OutboundRule) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-func (r *OutboundRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *OutboundRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering OutboundRule resources.

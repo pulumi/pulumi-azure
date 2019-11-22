@@ -70,48 +70,48 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetwork) URN() *pulumi.URNOutput {
+func (r *VirtualNetwork) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetwork) ID() *pulumi.IDOutput {
+func (r *VirtualNetwork) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description for the Virtual Network.
-func (r *VirtualNetwork) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *VirtualNetwork) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
-func (r *VirtualNetwork) LabName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["labName"])
+func (r *VirtualNetwork) LabName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["labName"])
 }
 
 // Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-func (r *VirtualNetwork) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualNetwork) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-func (r *VirtualNetwork) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *VirtualNetwork) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `subnet` block as defined below.
-func (r *VirtualNetwork) Subnet() *pulumi.Output {
+func (r *VirtualNetwork) Subnet() pulumi.Output {
 	return r.s.State["subnet"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *VirtualNetwork) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *VirtualNetwork) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The unique immutable identifier of the Dev Test Virtual Network.
-func (r *VirtualNetwork) UniqueIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
+func (r *VirtualNetwork) UniqueIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
 }
 
 // Input properties used for looking up and filtering VirtualNetwork resources.

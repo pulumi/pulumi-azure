@@ -64,48 +64,48 @@ func GetZone(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Zone) URN() *pulumi.URNOutput {
+func (r *Zone) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Zone) ID() *pulumi.IDOutput {
+func (r *Zone) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The maximum number of record sets that can be created in this Private DNS zone.
-func (r *Zone) MaxNumberOfRecordSets() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
+func (r *Zone) MaxNumberOfRecordSets() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
 }
 
 // The maximum number of virtual networks that can be linked to this Private DNS zone.
-func (r *Zone) MaxNumberOfVirtualNetworkLinks() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxNumberOfVirtualNetworkLinks"])
+func (r *Zone) MaxNumberOfVirtualNetworkLinks() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxNumberOfVirtualNetworkLinks"])
 }
 
 // The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
-func (r *Zone) MaxNumberOfVirtualNetworkLinksWithRegistration() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxNumberOfVirtualNetworkLinksWithRegistration"])
+func (r *Zone) MaxNumberOfVirtualNetworkLinksWithRegistration() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxNumberOfVirtualNetworkLinksWithRegistration"])
 }
 
 // The name of the Private DNS Zone. Must be a valid domain name.
-func (r *Zone) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Zone) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The current number of record sets in this Private DNS zone.
-func (r *Zone) NumberOfRecordSets() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
+func (r *Zone) NumberOfRecordSets() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *Zone) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Zone) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Zone) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Zone) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Zone resources.

@@ -75,68 +75,68 @@ func GetNamespace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() *pulumi.URNOutput {
+func (r *Namespace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() *pulumi.IDOutput {
+func (r *Namespace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
-func (r *Namespace) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Namespace) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The Identifier for Azure Insights metrics.
-func (r *Namespace) MetricId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricId"])
+func (r *Namespace) MetricId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricId"])
 }
 
 // Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-func (r *Namespace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Namespace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The primary connection string for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *Namespace) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) PrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+func (r *Namespace) PrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // The name of the resource group in which to create the Azure Relay Namespace.
-func (r *Namespace) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Namespace) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *Namespace) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) SecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
+func (r *Namespace) SecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // ) A `sku` block as described below.
-func (r *Namespace) Sku() *pulumi.Output {
+func (r *Namespace) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // The name of the SKU to use. At this time the only supported value is `Standard`.
-func (r *Namespace) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *Namespace) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Namespace) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Namespace) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Namespace resources.

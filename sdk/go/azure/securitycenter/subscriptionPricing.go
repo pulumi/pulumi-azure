@@ -54,18 +54,18 @@ func GetSubscriptionPricing(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SubscriptionPricing) URN() *pulumi.URNOutput {
+func (r *SubscriptionPricing) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SubscriptionPricing) ID() *pulumi.IDOutput {
+func (r *SubscriptionPricing) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The pricing tier to use. Possible values are `Free` and `Standard`.
-func (r *SubscriptionPricing) Tier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tier"])
+func (r *SubscriptionPricing) Tier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tier"])
 }
 
 // Input properties used for looking up and filtering SubscriptionPricing resources.

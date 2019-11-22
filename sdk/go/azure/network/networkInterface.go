@@ -96,92 +96,92 @@ func GetNetworkInterface(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterface) URN() *pulumi.URNOutput {
+func (r *NetworkInterface) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterface) ID() *pulumi.IDOutput {
+func (r *NetworkInterface) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
-func (r *NetworkInterface) AppliedDnsServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["appliedDnsServers"])
+func (r *NetworkInterface) AppliedDnsServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["appliedDnsServers"])
 }
 
 // List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
-func (r *NetworkInterface) DnsServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsServers"])
+func (r *NetworkInterface) DnsServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsServers"])
 }
 
 // Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
-func (r *NetworkInterface) EnableAcceleratedNetworking() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableAcceleratedNetworking"])
+func (r *NetworkInterface) EnableAcceleratedNetworking() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableAcceleratedNetworking"])
 }
 
 // Enables IP Forwarding on the NIC. Defaults to `false`.
-func (r *NetworkInterface) EnableIpForwarding() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableIpForwarding"])
+func (r *NetworkInterface) EnableIpForwarding() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableIpForwarding"])
 }
 
 // Relative DNS name for this NIC used for internal communications between VMs in the same VNet
-func (r *NetworkInterface) InternalDnsNameLabel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["internalDnsNameLabel"])
+func (r *NetworkInterface) InternalDnsNameLabel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["internalDnsNameLabel"])
 }
 
-func (r *NetworkInterface) InternalFqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["internalFqdn"])
+func (r *NetworkInterface) InternalFqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["internalFqdn"])
 }
 
 // One or more `ipConfiguration` associated with this NIC as documented below.
-func (r *NetworkInterface) IpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
+func (r *NetworkInterface) IpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
 }
 
 // The location/region where the network interface is created. Changing this forces a new resource to be created.
-func (r *NetworkInterface) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *NetworkInterface) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The media access control (MAC) address of the network interface.
-func (r *NetworkInterface) MacAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["macAddress"])
+func (r *NetworkInterface) MacAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["macAddress"])
 }
 
 // The name of the network interface. Changing this forces a new resource to be created.
-func (r *NetworkInterface) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NetworkInterface) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the Network Security Group to associate with the network interface.
-func (r *NetworkInterface) NetworkSecurityGroupId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
+func (r *NetworkInterface) NetworkSecurityGroupId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
 }
 
 // The first private IP address of the network interface.
-func (r *NetworkInterface) PrivateIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateIpAddress"])
+func (r *NetworkInterface) PrivateIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
 }
 
 // The private IP addresses of the network interface.
-func (r *NetworkInterface) PrivateIpAddresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
+func (r *NetworkInterface) PrivateIpAddresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
 }
 
 // The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
-func (r *NetworkInterface) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NetworkInterface) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *NetworkInterface) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NetworkInterface) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Reference to a VM with which this NIC has been associated.
-func (r *NetworkInterface) VirtualMachineId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualMachineId"])
+func (r *NetworkInterface) VirtualMachineId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualMachineId"])
 }
 
 // Input properties used for looking up and filtering NetworkInterface resources.

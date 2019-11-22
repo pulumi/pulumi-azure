@@ -77,53 +77,53 @@ func GetAutoscaleSetting(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *AutoscaleSetting) URN() *pulumi.URNOutput {
+func (r *AutoscaleSetting) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *AutoscaleSetting) ID() *pulumi.IDOutput {
+func (r *AutoscaleSetting) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
-func (r *AutoscaleSetting) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *AutoscaleSetting) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
-func (r *AutoscaleSetting) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *AutoscaleSetting) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the AutoScale Setting. Changing this forces a new resource to be created.
-func (r *AutoscaleSetting) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *AutoscaleSetting) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies a `notification` block as defined below.
-func (r *AutoscaleSetting) Notification() *pulumi.Output {
+func (r *AutoscaleSetting) Notification() pulumi.Output {
 	return r.s.State["notification"]
 }
 
 // Specifies one or more (up to 20) `profile` blocks as defined below.
-func (r *AutoscaleSetting) Profiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["profiles"])
+func (r *AutoscaleSetting) Profiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["profiles"])
 }
 
 // The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-func (r *AutoscaleSetting) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *AutoscaleSetting) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *AutoscaleSetting) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *AutoscaleSetting) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the resource ID of the resource that the autoscale setting should be added to.
-func (r *AutoscaleSetting) TargetResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetResourceId"])
+func (r *AutoscaleSetting) TargetResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
 }
 
 // Input properties used for looking up and filtering AutoscaleSetting resources.

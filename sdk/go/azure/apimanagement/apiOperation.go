@@ -98,68 +98,68 @@ func GetApiOperation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApiOperation) URN() *pulumi.URNOutput {
+func (r *ApiOperation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApiOperation) ID() *pulumi.IDOutput {
+func (r *ApiOperation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
-func (r *ApiOperation) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *ApiOperation) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
-func (r *ApiOperation) ApiName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiName"])
+func (r *ApiOperation) ApiName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiName"])
 }
 
 // A description for this API Operation, which may include HTML formatting tags.
-func (r *ApiOperation) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *ApiOperation) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The Display Name for this API Management Operation.
-func (r *ApiOperation) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *ApiOperation) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
-func (r *ApiOperation) Method() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["method"])
+func (r *ApiOperation) Method() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["method"])
 }
 
 // A unique identifier for this API Operation. Changing this forces a new resource to be created.
-func (r *ApiOperation) OperationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["operationId"])
+func (r *ApiOperation) OperationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["operationId"])
 }
 
 // A `request` block as defined below.
-func (r *ApiOperation) Request() *pulumi.Output {
+func (r *ApiOperation) Request() pulumi.Output {
 	return r.s.State["request"]
 }
 
 // The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ApiOperation) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ApiOperation) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `response` blocks as defined below.
-func (r *ApiOperation) Responses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["responses"])
+func (r *ApiOperation) Responses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["responses"])
 }
 
 // One or more `templateParameter` blocks as defined below.
-func (r *ApiOperation) TemplateParameters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["templateParameters"])
+func (r *ApiOperation) TemplateParameters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["templateParameters"])
 }
 
 // The relative URL Template identifying the target resource for this operation, which may include parameters.
-func (r *ApiOperation) UrlTemplate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["urlTemplate"])
+func (r *ApiOperation) UrlTemplate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["urlTemplate"])
 }
 
 // Input properties used for looking up and filtering ApiOperation resources.

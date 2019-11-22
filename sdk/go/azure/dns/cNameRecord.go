@@ -74,42 +74,42 @@ func GetCNameRecord(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *CNameRecord) URN() *pulumi.URNOutput {
+func (r *CNameRecord) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *CNameRecord) ID() *pulumi.IDOutput {
+func (r *CNameRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the DNS CNAME Record.
-func (r *CNameRecord) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *CNameRecord) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The target of the CNAME.
-func (r *CNameRecord) Record() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["record"])
+func (r *CNameRecord) Record() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["record"])
 }
 
 // Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *CNameRecord) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *CNameRecord) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *CNameRecord) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *CNameRecord) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *CNameRecord) Ttl() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ttl"])
+func (r *CNameRecord) Ttl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
 
 // Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (r *CNameRecord) ZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneName"])
+func (r *CNameRecord) ZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneName"])
 }
 
 // Input properties used for looking up and filtering CNameRecord resources.

@@ -97,18 +97,18 @@ func GetEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Endpoint) URN() *pulumi.URNOutput {
+func (r *Endpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Endpoint) ID() *pulumi.IDOutput {
+func (r *Endpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `customHeader` blocks as defined below
-func (r *Endpoint) CustomHeaders() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customHeaders"])
+func (r *Endpoint) CustomHeaders() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customHeaders"])
 }
 
 // Specifies the Azure location of the Endpoint,
@@ -116,23 +116,23 @@ func (r *Endpoint) CustomHeaders() *pulumi.ArrayOutput {
 // if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
 // For Endpoints of type `azureEndpoints` the value will be taken from the
 // location of the Azure target resource.
-func (r *Endpoint) EndpointLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpointLocation"])
+func (r *Endpoint) EndpointLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpointLocation"])
 }
 
-func (r *Endpoint) EndpointMonitorStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpointMonitorStatus"])
+func (r *Endpoint) EndpointMonitorStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpointMonitorStatus"])
 }
 
 // The status of the Endpoint, can be set to
 // either `Enabled` or `Disabled`. Defaults to `Enabled`.
-func (r *Endpoint) EndpointStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpointStatus"])
+func (r *Endpoint) EndpointStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpointStatus"])
 }
 
 // A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
-func (r *Endpoint) GeoMappings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["geoMappings"])
+func (r *Endpoint) GeoMappings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["geoMappings"])
 }
 
 // This argument specifies the minimum number
@@ -140,68 +140,68 @@ func (r *Endpoint) GeoMappings() *pulumi.ArrayOutput {
 // parent profile to direct traffic to any of the endpoints in that child
 // profile. This argument only applies to Endpoints of type `nestedEndpoints`
 // and defaults to `1`.
-func (r *Endpoint) MinChildEndpoints() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["minChildEndpoints"])
+func (r *Endpoint) MinChildEndpoints() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["minChildEndpoints"])
 }
 
 // The name of the Traffic Manager endpoint. Changing this forces a
 // new resource to be created.
-func (r *Endpoint) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Endpoint) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the priority of this Endpoint, this must be
 // specified for Profiles using the `Priority` traffic routing method. Supports
 // values between 1 and 1000, with no Endpoints sharing the same value. If
 // omitted the value will be computed in order of creation.
-func (r *Endpoint) Priority() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["priority"])
+func (r *Endpoint) Priority() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["priority"])
 }
 
 // The name of the Traffic Manager Profile to attach
 // create the Traffic Manager endpoint.
-func (r *Endpoint) ProfileName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profileName"])
+func (r *Endpoint) ProfileName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profileName"])
 }
 
 // The name of the resource group in which to
 // create the Traffic Manager endpoint.
-func (r *Endpoint) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Endpoint) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `subnet` blocks as defined below
-func (r *Endpoint) Subnets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["subnets"])
+func (r *Endpoint) Subnets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["subnets"])
 }
 
 // The FQDN DNS name of the target. This argument must be
 // provided for an endpoint of type `externalEndpoints`, for other types it
 // will be computed.
-func (r *Endpoint) Target() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["target"])
+func (r *Endpoint) Target() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["target"])
 }
 
 // The resource id of an Azure resource to
 // target. This argument must be provided for an endpoint of type
 // `azureEndpoints` or `nestedEndpoints`.
-func (r *Endpoint) TargetResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetResourceId"])
+func (r *Endpoint) TargetResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
 }
 
 // The Endpoint type, must be one of:
 // - `azureEndpoints`
 // - `externalEndpoints`
 // - `nestedEndpoints`
-func (r *Endpoint) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *Endpoint) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Specifies how much traffic should be distributed to this
 // endpoint, this must be specified for Profiles using the  `Weighted` traffic
 // routing method. Supports values between 1 and 1000.
-func (r *Endpoint) Weight() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["weight"])
+func (r *Endpoint) Weight() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["weight"])
 }
 
 // Input properties used for looking up and filtering Endpoint resources.

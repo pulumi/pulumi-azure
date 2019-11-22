@@ -107,82 +107,82 @@ func GetMetricAlertRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *MetricAlertRule) URN() *pulumi.URNOutput {
+func (r *MetricAlertRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *MetricAlertRule) ID() *pulumi.IDOutput {
+func (r *MetricAlertRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
-func (r *MetricAlertRule) Aggregation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["aggregation"])
+func (r *MetricAlertRule) Aggregation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["aggregation"])
 }
 
 // A verbose description of the alert rule that will be included in the alert email.
-func (r *MetricAlertRule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *MetricAlertRule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // A `emailAction` block as defined below.
-func (r *MetricAlertRule) EmailAction() *pulumi.Output {
+func (r *MetricAlertRule) EmailAction() pulumi.Output {
 	return r.s.State["emailAction"]
 }
 
 // If `true`, the alert rule is enabled. Defaults to `true`.
-func (r *MetricAlertRule) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *MetricAlertRule) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *MetricAlertRule) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *MetricAlertRule) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The metric that defines what the rule monitors.
-func (r *MetricAlertRule) MetricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["metricName"])
+func (r *MetricAlertRule) MetricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["metricName"])
 }
 
 // Specifies the name of the alert rule. Changing this forces a new resource to be created.
-func (r *MetricAlertRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *MetricAlertRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
-func (r *MetricAlertRule) Operator() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["operator"])
+func (r *MetricAlertRule) Operator() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["operator"])
 }
 
 // The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
-func (r *MetricAlertRule) Period() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["period"])
+func (r *MetricAlertRule) Period() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["period"])
 }
 
 // The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
-func (r *MetricAlertRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *MetricAlertRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The ID of the resource monitored by the alert rule.
-func (r *MetricAlertRule) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *MetricAlertRule) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-func (r *MetricAlertRule) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *MetricAlertRule) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The threshold value that activates the alert.
-func (r *MetricAlertRule) Threshold() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["threshold"])
+func (r *MetricAlertRule) Threshold() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["threshold"])
 }
 
 // A `webhookAction` block as defined below.
-func (r *MetricAlertRule) WebhookAction() *pulumi.Output {
+func (r *MetricAlertRule) WebhookAction() pulumi.Output {
 	return r.s.State["webhookAction"]
 }
 

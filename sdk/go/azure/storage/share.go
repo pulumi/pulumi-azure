@@ -67,50 +67,50 @@ func GetShare(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Share) URN() *pulumi.URNOutput {
+func (r *Share) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Share) ID() *pulumi.IDOutput {
+func (r *Share) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `acl` blocks as defined below.
-func (r *Share) Acls() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["acls"])
+func (r *Share) Acls() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["acls"])
 }
 
 // A mapping of MetaData for this File Share.
-func (r *Share) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *Share) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The name of the share. Must be unique within the storage account where the share is located.
-func (r *Share) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Share) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
-func (r *Share) Quota() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["quota"])
+func (r *Share) Quota() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["quota"])
 }
 
 // The name of the resource group in which to
 // create the share. Changing this forces a new resource to be created.
-func (r *Share) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Share) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the storage account in which to create the share.
 // Changing this forces a new resource to be created.
-func (r *Share) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *Share) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // The URL of the File Share
-func (r *Share) Url() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["url"])
+func (r *Share) Url() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["url"])
 }
 
 // Input properties used for looking up and filtering Share resources.

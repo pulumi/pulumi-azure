@@ -68,47 +68,47 @@ func GetFactory(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Factory) URN() *pulumi.URNOutput {
+func (r *Factory) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Factory) ID() *pulumi.IDOutput {
+func (r *Factory) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `githubConfiguration` block as defined below.
-func (r *Factory) GithubConfiguration() *pulumi.Output {
+func (r *Factory) GithubConfiguration() pulumi.Output {
 	return r.s.State["githubConfiguration"]
 }
 
 // An `identity` block as defined below.
-func (r *Factory) Identity() *pulumi.Output {
+func (r *Factory) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Factory) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Factory) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *Factory) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Factory) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Data Factory.
-func (r *Factory) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Factory) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Factory) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Factory) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A `vstsConfiguration` block as defined below.
-func (r *Factory) VstsConfiguration() *pulumi.Output {
+func (r *Factory) VstsConfiguration() pulumi.Output {
 	return r.s.State["vstsConfiguration"]
 }
 

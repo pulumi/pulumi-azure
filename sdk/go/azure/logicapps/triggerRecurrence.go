@@ -65,33 +65,33 @@ func GetTriggerRecurrence(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerRecurrence) URN() *pulumi.URNOutput {
+func (r *TriggerRecurrence) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerRecurrence) ID() *pulumi.IDOutput {
+func (r *TriggerRecurrence) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
-func (r *TriggerRecurrence) Frequency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["frequency"])
+func (r *TriggerRecurrence) Frequency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["frequency"])
 }
 
 // Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
-func (r *TriggerRecurrence) Interval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["interval"])
+func (r *TriggerRecurrence) Interval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["interval"])
 }
 
 // Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerRecurrence) LogicAppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logicAppId"])
+func (r *TriggerRecurrence) LogicAppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logicAppId"])
 }
 
 // Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerRecurrence) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TriggerRecurrence) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering TriggerRecurrence resources.

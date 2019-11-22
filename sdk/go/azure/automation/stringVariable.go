@@ -68,43 +68,43 @@ func GetStringVariable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StringVariable) URN() *pulumi.URNOutput {
+func (r *StringVariable) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StringVariable) ID() *pulumi.IDOutput {
+func (r *StringVariable) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
-func (r *StringVariable) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *StringVariable) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The description of the Automation Variable.
-func (r *StringVariable) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *StringVariable) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies if the Automation Variable is encrypted. Defaults to `false`.
-func (r *StringVariable) Encrypted() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["encrypted"])
+func (r *StringVariable) Encrypted() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["encrypted"])
 }
 
 // The name of the Automation Variable. Changing this forces a new resource to be created.
-func (r *StringVariable) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *StringVariable) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-func (r *StringVariable) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *StringVariable) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The value of the Automation Variable as a `string`.
-func (r *StringVariable) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *StringVariable) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering StringVariable resources.

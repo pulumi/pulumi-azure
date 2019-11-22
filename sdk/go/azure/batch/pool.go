@@ -101,82 +101,82 @@ func GetPool(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Pool) URN() *pulumi.URNOutput {
+func (r *Pool) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Pool) ID() *pulumi.IDOutput {
+func (r *Pool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-func (r *Pool) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *Pool) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // A `autoScale` block that describes the scale settings when using auto scale.
-func (r *Pool) AutoScale() *pulumi.Output {
+func (r *Pool) AutoScale() pulumi.Output {
 	return r.s.State["autoScale"]
 }
 
 // One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
-func (r *Pool) Certificates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["certificates"])
+func (r *Pool) Certificates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["certificates"])
 }
 
 // The container configuration used in the pool's VMs.
-func (r *Pool) ContainerConfiguration() *pulumi.Output {
+func (r *Pool) ContainerConfiguration() pulumi.Output {
 	return r.s.State["containerConfiguration"]
 }
 
 // Specifies the display name of the Batch pool.
-func (r *Pool) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Pool) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // A `fixedScale` block that describes the scale settings when using fixed scale.
-func (r *Pool) FixedScale() *pulumi.Output {
+func (r *Pool) FixedScale() pulumi.Output {
 	return r.s.State["fixedScale"]
 }
 
 // Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
-func (r *Pool) MaxTasksPerNode() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxTasksPerNode"])
+func (r *Pool) MaxTasksPerNode() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxTasksPerNode"])
 }
 
 // Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-func (r *Pool) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Pool) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Sku of the node agents that will be created in the Batch pool.
-func (r *Pool) NodeAgentSkuId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nodeAgentSkuId"])
+func (r *Pool) NodeAgentSkuId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nodeAgentSkuId"])
 }
 
 // The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-func (r *Pool) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Pool) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `startTask` block that describes the start task settings for the Batch pool.
-func (r *Pool) StartTask() *pulumi.Output {
+func (r *Pool) StartTask() pulumi.Output {
 	return r.s.State["startTask"]
 }
 
-func (r *Pool) StopPendingResizeOperation() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["stopPendingResizeOperation"])
+func (r *Pool) StopPendingResizeOperation() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["stopPendingResizeOperation"])
 }
 
 // A `storageImageReference` for the virtual machines that will compose the Batch pool.
-func (r *Pool) StorageImageReference() *pulumi.Output {
+func (r *Pool) StorageImageReference() pulumi.Output {
 	return r.s.State["storageImageReference"]
 }
 
 // Specifies the size of the VM created in the Batch pool.
-func (r *Pool) VmSize() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vmSize"])
+func (r *Pool) VmSize() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vmSize"])
 }
 
 // Input properties used for looking up and filtering Pool resources.

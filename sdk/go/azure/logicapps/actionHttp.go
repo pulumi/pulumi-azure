@@ -71,43 +71,43 @@ func GetActionHttp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActionHttp) URN() *pulumi.URNOutput {
+func (r *ActionHttp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActionHttp) ID() *pulumi.IDOutput {
+func (r *ActionHttp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
-func (r *ActionHttp) Body() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["body"])
+func (r *ActionHttp) Body() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["body"])
 }
 
 // Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
-func (r *ActionHttp) Headers() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["headers"])
+func (r *ActionHttp) Headers() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["headers"])
 }
 
 // Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *ActionHttp) LogicAppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logicAppId"])
+func (r *ActionHttp) LogicAppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logicAppId"])
 }
 
 // Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
-func (r *ActionHttp) Method() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["method"])
+func (r *ActionHttp) Method() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["method"])
 }
 
 // Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *ActionHttp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ActionHttp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the URI which will be called when this HTTP Action is triggered.
-func (r *ActionHttp) Uri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uri"])
+func (r *ActionHttp) Uri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uri"])
 }
 
 // Input properties used for looking up and filtering ActionHttp resources.

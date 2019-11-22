@@ -88,67 +88,67 @@ func GetElasticPool(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ElasticPool) URN() *pulumi.URNOutput {
+func (r *ElasticPool) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ElasticPool) ID() *pulumi.IDOutput {
+func (r *ElasticPool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *ElasticPool) ElasticPoolProperties() *pulumi.Output {
+func (r *ElasticPool) ElasticPoolProperties() pulumi.Output {
 	return r.s.State["elasticPoolProperties"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ElasticPool) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ElasticPool) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-func (r *ElasticPool) MaxSizeBytes() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxSizeBytes"])
+func (r *ElasticPool) MaxSizeBytes() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxSizeBytes"])
 }
 
 // The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
-func (r *ElasticPool) MaxSizeGb() *pulumi.Float64Output {
-	return (*pulumi.Float64Output)(r.s.State["maxSizeGb"])
+func (r *ElasticPool) MaxSizeGb() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["maxSizeGb"])
 }
 
 // Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
-func (r *ElasticPool) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ElasticPool) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `perDatabaseSettings` block as defined below.
-func (r *ElasticPool) PerDatabaseSettings() *pulumi.Output {
+func (r *ElasticPool) PerDatabaseSettings() pulumi.Output {
 	return r.s.State["perDatabaseSettings"]
 }
 
 // The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-func (r *ElasticPool) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ElasticPool) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-func (r *ElasticPool) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *ElasticPool) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // A `sku` block as defined below.
-func (r *ElasticPool) Sku() *pulumi.Output {
+func (r *ElasticPool) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ElasticPool) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ElasticPool) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-func (r *ElasticPool) ZoneRedundant() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["zoneRedundant"])
+func (r *ElasticPool) ZoneRedundant() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["zoneRedundant"])
 }
 
 // Input properties used for looking up and filtering ElasticPool resources.

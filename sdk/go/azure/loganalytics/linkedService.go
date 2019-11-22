@@ -70,48 +70,48 @@ func GetLinkedService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LinkedService) URN() *pulumi.URNOutput {
+func (r *LinkedService) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LinkedService) ID() *pulumi.IDOutput {
+func (r *LinkedService) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
-func (r *LinkedService) LinkedServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["linkedServiceName"])
+func (r *LinkedService) LinkedServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["linkedServiceName"])
 }
 
 // A `linkedServiceProperties` block as defined below.
-func (r *LinkedService) LinkedServiceProperties() *pulumi.Output {
+func (r *LinkedService) LinkedServiceProperties() pulumi.Output {
 	return r.s.State["linkedServiceProperties"]
 }
 
 // The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
-func (r *LinkedService) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LinkedService) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
-func (r *LinkedService) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *LinkedService) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
-func (r *LinkedService) ResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceId"])
+func (r *LinkedService) ResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *LinkedService) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *LinkedService) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
-func (r *LinkedService) WorkspaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workspaceName"])
+func (r *LinkedService) WorkspaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workspaceName"])
 }
 
 // Input properties used for looking up and filtering LinkedService resources.

@@ -58,23 +58,23 @@ func GetSubnetRouteTableAssociation(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SubnetRouteTableAssociation) URN() *pulumi.URNOutput {
+func (r *SubnetRouteTableAssociation) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SubnetRouteTableAssociation) ID() *pulumi.IDOutput {
+func (r *SubnetRouteTableAssociation) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
-func (r *SubnetRouteTableAssociation) RouteTableId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableId"])
+func (r *SubnetRouteTableAssociation) RouteTableId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableId"])
 }
 
 // The ID of the Subnet. Changing this forces a new resource to be created.
-func (r *SubnetRouteTableAssociation) SubnetId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subnetId"])
+func (r *SubnetRouteTableAssociation) SubnetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
 // Input properties used for looking up and filtering SubnetRouteTableAssociation resources.

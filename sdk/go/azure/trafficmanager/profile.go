@@ -83,53 +83,53 @@ func GetProfile(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Profile) URN() *pulumi.URNOutput {
+func (r *Profile) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Profile) ID() *pulumi.IDOutput {
+func (r *Profile) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // This block specifies the DNS configuration of the
 // Profile, it supports the fields documented below.
-func (r *Profile) DnsConfigs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["dnsConfigs"])
+func (r *Profile) DnsConfigs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["dnsConfigs"])
 }
 
 // The FQDN of the created Profile.
-func (r *Profile) Fqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+func (r *Profile) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // This block specifies the Endpoint monitoring
 // configuration for the Profile, it supports the fields documented below.
-func (r *Profile) MonitorConfigs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["monitorConfigs"])
+func (r *Profile) MonitorConfigs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["monitorConfigs"])
 }
 
 // The name of the virtual network. Changing this forces a
 // new resource to be created.
-func (r *Profile) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Profile) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The status of the profile, can be set to either
 // `Enabled` or `Disabled`. Defaults to `Enabled`.
-func (r *Profile) ProfileStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profileStatus"])
+func (r *Profile) ProfileStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profileStatus"])
 }
 
 // The name of the resource group in which to
 // create the virtual network.
-func (r *Profile) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Profile) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Profile) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Profile) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Specifies the algorithm used to route traffic, possible values are:
@@ -139,8 +139,8 @@ func (r *Profile) Tags() *pulumi.MapOutput {
 // - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
 // - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
 // - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
-func (r *Profile) TrafficRoutingMethod() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["trafficRoutingMethod"])
+func (r *Profile) TrafficRoutingMethod() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["trafficRoutingMethod"])
 }
 
 // Input properties used for looking up and filtering Profile resources.

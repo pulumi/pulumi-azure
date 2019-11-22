@@ -104,97 +104,97 @@ func GetSlot(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Slot) URN() *pulumi.URNOutput {
+func (r *Slot) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Slot) ID() *pulumi.IDOutput {
+func (r *Slot) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
-func (r *Slot) AppServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServiceName"])
+func (r *Slot) AppServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServiceName"])
 }
 
 // The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
-func (r *Slot) AppServicePlanId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServicePlanId"])
+func (r *Slot) AppServicePlanId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServicePlanId"])
 }
 
 // A key-value pair of App Settings.
-func (r *Slot) AppSettings() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["appSettings"])
+func (r *Slot) AppSettings() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["appSettings"])
 }
 
 // A `authSettings` block as defined below.
-func (r *Slot) AuthSettings() *pulumi.Output {
+func (r *Slot) AuthSettings() pulumi.Output {
 	return r.s.State["authSettings"]
 }
 
 // Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-func (r *Slot) ClientAffinityEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
+func (r *Slot) ClientAffinityEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
 }
 
 // An `connectionString` block as defined below.
-func (r *Slot) ConnectionStrings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
+func (r *Slot) ConnectionStrings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
 
 // The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
-func (r *Slot) DefaultSiteHostname() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
+func (r *Slot) DefaultSiteHostname() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
 }
 
 // Is the App Service Slot Enabled?
-func (r *Slot) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *Slot) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-func (r *Slot) HttpsOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["httpsOnly"])
+func (r *Slot) HttpsOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["httpsOnly"])
 }
 
 // A Managed Service Identity block as defined below.
-func (r *Slot) Identity() *pulumi.Output {
+func (r *Slot) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Slot) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Slot) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
-func (r *Slot) Logs() *pulumi.Output {
+func (r *Slot) Logs() pulumi.Output {
 	return r.s.State["logs"]
 }
 
 // The name of the Connection String.
-func (r *Slot) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Slot) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the App Service Slot component.
-func (r *Slot) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Slot) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `siteConfig` object as defined below.
-func (r *Slot) SiteConfig() *pulumi.Output {
+func (r *Slot) SiteConfig() pulumi.Output {
 	return r.s.State["siteConfig"]
 }
 
 // A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-func (r *Slot) SiteCredential() *pulumi.Output {
+func (r *Slot) SiteCredential() pulumi.Output {
 	return r.s.State["siteCredential"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Slot) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Slot) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Slot resources.

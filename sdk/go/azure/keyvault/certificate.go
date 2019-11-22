@@ -73,62 +73,62 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `certificate` block as defined below, used to Import an existing certificate.
-func (r *Certificate) Certificate() *pulumi.Output {
+func (r *Certificate) Certificate() pulumi.Output {
 	return r.s.State["certificate"]
 }
 
 // The raw Key Vault Certificate data represented as a hexadecimal string.
-func (r *Certificate) CertificateData() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["certificateData"])
+func (r *Certificate) CertificateData() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["certificateData"])
 }
 
 // A `certificatePolicy` block as defined below.
-func (r *Certificate) CertificatePolicy() *pulumi.Output {
+func (r *Certificate) CertificatePolicy() pulumi.Output {
 	return r.s.State["certificatePolicy"]
 }
 
 // The ID of the Key Vault where the Certificate should be created.
-func (r *Certificate) KeyVaultId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+func (r *Certificate) KeyVaultId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
 // The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
-func (r *Certificate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Certificate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the associated Key Vault Secret.
-func (r *Certificate) SecretId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secretId"])
+func (r *Certificate) SecretId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secretId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Certificate) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Certificate) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
-func (r *Certificate) Thumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+func (r *Certificate) Thumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
-func (r *Certificate) VaultUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
+func (r *Certificate) VaultUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vaultUri"])
 }
 
 // The current version of the Key Vault Certificate.
-func (r *Certificate) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *Certificate) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

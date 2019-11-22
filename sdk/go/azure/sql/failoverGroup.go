@@ -84,63 +84,63 @@ func GetFailoverGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FailoverGroup) URN() *pulumi.URNOutput {
+func (r *FailoverGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FailoverGroup) ID() *pulumi.IDOutput {
+func (r *FailoverGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A list of database ids to add to the failover group
-func (r *FailoverGroup) Databases() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["databases"])
+func (r *FailoverGroup) Databases() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["databases"])
 }
 
 // the location of the failover group.
-func (r *FailoverGroup) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *FailoverGroup) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the failover group. Changing this forces a new resource to be created.
-func (r *FailoverGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *FailoverGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A list of secondary servers as documented below
-func (r *FailoverGroup) PartnerServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["partnerServers"])
+func (r *FailoverGroup) PartnerServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["partnerServers"])
 }
 
 // A read/write policy as documented below
-func (r *FailoverGroup) ReadWriteEndpointFailoverPolicy() *pulumi.Output {
+func (r *FailoverGroup) ReadWriteEndpointFailoverPolicy() pulumi.Output {
 	return r.s.State["readWriteEndpointFailoverPolicy"]
 }
 
 // a read-only policy as documented below
-func (r *FailoverGroup) ReadonlyEndpointFailoverPolicy() *pulumi.Output {
+func (r *FailoverGroup) ReadonlyEndpointFailoverPolicy() pulumi.Output {
 	return r.s.State["readonlyEndpointFailoverPolicy"]
 }
 
 // The name of the resource group containing the SQL server
-func (r *FailoverGroup) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *FailoverGroup) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // local replication role of the failover group instance.
-func (r *FailoverGroup) Role() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["role"])
+func (r *FailoverGroup) Role() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["role"])
 }
 
 // The name of the primary SQL server. Changing this forces a new resource to be created.
-func (r *FailoverGroup) ServerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serverName"])
+func (r *FailoverGroup) ServerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serverName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *FailoverGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *FailoverGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering FailoverGroup resources.

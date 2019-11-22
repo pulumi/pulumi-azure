@@ -92,78 +92,78 @@ func GetWebApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *WebApp) URN() *pulumi.URNOutput {
+func (r *WebApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *WebApp) ID() *pulumi.IDOutput {
+func (r *WebApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Application Insights API Key to associate with the Web App Bot.
-func (r *WebApp) DeveloperAppInsightsApiKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["developerAppInsightsApiKey"])
+func (r *WebApp) DeveloperAppInsightsApiKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["developerAppInsightsApiKey"])
 }
 
 // The Application Insights Application ID to associate with the Web App Bot.
-func (r *WebApp) DeveloperAppInsightsApplicationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["developerAppInsightsApplicationId"])
+func (r *WebApp) DeveloperAppInsightsApplicationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["developerAppInsightsApplicationId"])
 }
 
 // The Application Insights Key to associate with the Web App Bot.
-func (r *WebApp) DeveloperAppInsightsKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["developerAppInsightsKey"])
+func (r *WebApp) DeveloperAppInsightsKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["developerAppInsightsKey"])
 }
 
 // The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
-func (r *WebApp) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *WebApp) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The Web App Bot endpoint.
-func (r *WebApp) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *WebApp) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *WebApp) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *WebApp) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // A list of LUIS App IDs to associate with the Web App Bot.
-func (r *WebApp) LuisAppIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["luisAppIds"])
+func (r *WebApp) LuisAppIds() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["luisAppIds"])
 }
 
 // The LUIS key to associate with the Web App Bot.
-func (r *WebApp) LuisKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["luisKey"])
+func (r *WebApp) LuisKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["luisKey"])
 }
 
 // The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
-func (r *WebApp) MicrosoftAppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["microsoftAppId"])
+func (r *WebApp) MicrosoftAppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["microsoftAppId"])
 }
 
 // Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
-func (r *WebApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *WebApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
-func (r *WebApp) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *WebApp) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-func (r *WebApp) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *WebApp) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *WebApp) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *WebApp) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering WebApp resources.

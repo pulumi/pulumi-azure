@@ -71,43 +71,43 @@ func GetZoneVirtualNetworkLink(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ZoneVirtualNetworkLink) URN() *pulumi.URNOutput {
+func (r *ZoneVirtualNetworkLink) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ZoneVirtualNetworkLink) ID() *pulumi.IDOutput {
+func (r *ZoneVirtualNetworkLink) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ZoneVirtualNetworkLink) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) PrivateDnsZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privateDnsZoneName"])
+func (r *ZoneVirtualNetworkLink) PrivateDnsZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateDnsZoneName"])
 }
 
 // Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
-func (r *ZoneVirtualNetworkLink) RegistrationEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["registrationEnabled"])
+func (r *ZoneVirtualNetworkLink) RegistrationEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["registrationEnabled"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ZoneVirtualNetworkLink) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ZoneVirtualNetworkLink) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ZoneVirtualNetworkLink) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) VirtualNetworkId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["virtualNetworkId"])
+func (r *ZoneVirtualNetworkLink) VirtualNetworkId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualNetworkId"])
 }
 
 // Input properties used for looking up and filtering ZoneVirtualNetworkLink resources.

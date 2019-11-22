@@ -98,95 +98,95 @@ func GetManagedDisk(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ManagedDisk) URN() *pulumi.URNOutput {
+func (r *ManagedDisk) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ManagedDisk) ID() *pulumi.IDOutput {
+func (r *ManagedDisk) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The method to use when creating the managed disk. Possible values include:
-func (r *ManagedDisk) CreateOption() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createOption"])
+func (r *ManagedDisk) CreateOption() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createOption"])
 }
 
 // The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-func (r *ManagedDisk) DiskIopsReadWrite() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["diskIopsReadWrite"])
+func (r *ManagedDisk) DiskIopsReadWrite() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["diskIopsReadWrite"])
 }
 
 // The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
-func (r *ManagedDisk) DiskMbpsReadWrite() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["diskMbpsReadWrite"])
+func (r *ManagedDisk) DiskMbpsReadWrite() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["diskMbpsReadWrite"])
 }
 
 // Specifies the size of the managed disk to create in gigabytes.
 // If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
-func (r *ManagedDisk) DiskSizeGb() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["diskSizeGb"])
+func (r *ManagedDisk) DiskSizeGb() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["diskSizeGb"])
 }
 
 // an `encryptionSettings` block as defined below.
-func (r *ManagedDisk) EncryptionSettings() *pulumi.Output {
+func (r *ManagedDisk) EncryptionSettings() pulumi.Output {
 	return r.s.State["encryptionSettings"]
 }
 
 // ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
-func (r *ManagedDisk) ImageReferenceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["imageReferenceId"])
+func (r *ManagedDisk) ImageReferenceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["imageReferenceId"])
 }
 
 // Specified the supported Azure location where the resource exists.
 // Changing this forces a new resource to be created.
-func (r *ManagedDisk) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ManagedDisk) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the managed disk. Changing this forces a
 // new resource to be created.
-func (r *ManagedDisk) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ManagedDisk) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specify a value when the source of an `Import` or `Copy`
 // operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
-func (r *ManagedDisk) OsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["osType"])
+func (r *ManagedDisk) OsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["osType"])
 }
 
 // The name of the resource group in which to create
 // the managed disk.
-func (r *ManagedDisk) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ManagedDisk) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // ID of an existing managed disk to copy `createOption` is `Copy`
 // or the recovery point to restore when `createOption` is `Restore`
-func (r *ManagedDisk) SourceResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceResourceId"])
+func (r *ManagedDisk) SourceResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceResourceId"])
 }
 
 // URI to a valid VHD file to be used when `createOption` is `Import`.
-func (r *ManagedDisk) SourceUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
+func (r *ManagedDisk) SourceUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceUri"])
 }
 
 // The type of storage to use for the managed disk.
 // Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
-func (r *ManagedDisk) StorageAccountType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountType"])
+func (r *ManagedDisk) StorageAccountType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountType"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ManagedDisk) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ManagedDisk) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A collection containing the availability zone to allocate the Managed Disk in.
-func (r *ManagedDisk) Zones() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zones"])
+func (r *ManagedDisk) Zones() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering ManagedDisk resources.

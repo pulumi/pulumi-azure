@@ -76,63 +76,63 @@ func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NamespaceAuthorizationRule) URN() *pulumi.URNOutput {
+func (r *NamespaceAuthorizationRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NamespaceAuthorizationRule) ID() *pulumi.IDOutput {
+func (r *NamespaceAuthorizationRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Grants listen access to this this Authorization Rule. Defaults to `false`.
-func (r *NamespaceAuthorizationRule) Listen() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["listen"])
+func (r *NamespaceAuthorizationRule) Listen() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["listen"])
 }
 
 // Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-func (r *NamespaceAuthorizationRule) Manage() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["manage"])
+func (r *NamespaceAuthorizationRule) Manage() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["manage"])
 }
 
 // Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-func (r *NamespaceAuthorizationRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NamespaceAuthorizationRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-func (r *NamespaceAuthorizationRule) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *NamespaceAuthorizationRule) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The Primary Connection String for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *NamespaceAuthorizationRule) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The Primary Key for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) PrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+func (r *NamespaceAuthorizationRule) PrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-func (r *NamespaceAuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NamespaceAuthorizationRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Connection String for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *NamespaceAuthorizationRule) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The Secondary Key for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) SecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
+func (r *NamespaceAuthorizationRule) SecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Grants send access to this this Authorization Rule. Defaults to `false`.
-func (r *NamespaceAuthorizationRule) Send() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["send"])
+func (r *NamespaceAuthorizationRule) Send() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["send"])
 }
 
 // Input properties used for looking up and filtering NamespaceAuthorizationRule resources.

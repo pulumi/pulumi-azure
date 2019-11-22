@@ -152,149 +152,149 @@ func GetApplicationGateway(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApplicationGateway) URN() *pulumi.URNOutput {
+func (r *ApplicationGateway) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApplicationGateway) ID() *pulumi.IDOutput {
+func (r *ApplicationGateway) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `authenticationCertificate` blocks as defined below.
-func (r *ApplicationGateway) AuthenticationCertificates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["authenticationCertificates"])
+func (r *ApplicationGateway) AuthenticationCertificates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["authenticationCertificates"])
 }
 
 // A `autoscaleConfiguration` block as defined below.
-func (r *ApplicationGateway) AutoscaleConfiguration() *pulumi.Output {
+func (r *ApplicationGateway) AutoscaleConfiguration() pulumi.Output {
 	return r.s.State["autoscaleConfiguration"]
 }
 
 // One or more `backendAddressPool` blocks as defined below.
-func (r *ApplicationGateway) BackendAddressPools() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["backendAddressPools"])
+func (r *ApplicationGateway) BackendAddressPools() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["backendAddressPools"])
 }
 
 // One or more `backendHttpSettings` blocks as defined below.
-func (r *ApplicationGateway) BackendHttpSettings() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["backendHttpSettings"])
+func (r *ApplicationGateway) BackendHttpSettings() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["backendHttpSettings"])
 }
 
 // One or more `customErrorConfiguration` blocks as defined below.
-func (r *ApplicationGateway) CustomErrorConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["customErrorConfigurations"])
+func (r *ApplicationGateway) CustomErrorConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["customErrorConfigurations"])
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 // > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-func (r *ApplicationGateway) DisabledSslProtocols() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
+func (r *ApplicationGateway) DisabledSslProtocols() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
 }
 
 // Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-func (r *ApplicationGateway) EnableHttp2() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableHttp2"])
+func (r *ApplicationGateway) EnableHttp2() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableHttp2"])
 }
 
 // One or more `frontendIpConfiguration` blocks as defined below.
-func (r *ApplicationGateway) FrontendIpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
+func (r *ApplicationGateway) FrontendIpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
 
 // One or more `frontendPort` blocks as defined below.
-func (r *ApplicationGateway) FrontendPorts() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["frontendPorts"])
+func (r *ApplicationGateway) FrontendPorts() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["frontendPorts"])
 }
 
 // One or more `gatewayIpConfiguration` blocks as defined below.
-func (r *ApplicationGateway) GatewayIpConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["gatewayIpConfigurations"])
+func (r *ApplicationGateway) GatewayIpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["gatewayIpConfigurations"])
 }
 
 // One or more `httpListener` blocks as defined below.
-func (r *ApplicationGateway) HttpListeners() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["httpListeners"])
+func (r *ApplicationGateway) HttpListeners() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["httpListeners"])
 }
 
 // A `identity` block.
-func (r *ApplicationGateway) Identity() *pulumi.Output {
+func (r *ApplicationGateway) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
-func (r *ApplicationGateway) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ApplicationGateway) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the Application Gateway. Changing this forces a new resource to be created.
-func (r *ApplicationGateway) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ApplicationGateway) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // One or more `probe` blocks as defined below.
-func (r *ApplicationGateway) Probes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["probes"])
+func (r *ApplicationGateway) Probes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["probes"])
 }
 
 // A `redirectConfiguration` block as defined below.
-func (r *ApplicationGateway) RedirectConfigurations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["redirectConfigurations"])
+func (r *ApplicationGateway) RedirectConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["redirectConfigurations"])
 }
 
 // One or more `requestRoutingRule` blocks as defined below.
-func (r *ApplicationGateway) RequestRoutingRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["requestRoutingRules"])
+func (r *ApplicationGateway) RequestRoutingRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["requestRoutingRules"])
 }
 
 // The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-func (r *ApplicationGateway) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ApplicationGateway) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
-func (r *ApplicationGateway) RewriteRuleSets() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rewriteRuleSets"])
+func (r *ApplicationGateway) RewriteRuleSets() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rewriteRuleSets"])
 }
 
 // A `sku` block as defined below.
-func (r *ApplicationGateway) Sku() *pulumi.Output {
+func (r *ApplicationGateway) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // One or more `sslCertificate` blocks as defined below.
-func (r *ApplicationGateway) SslCertificates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sslCertificates"])
+func (r *ApplicationGateway) SslCertificates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sslCertificates"])
 }
 
 // a `ssl policy` block as defined below.
-func (r *ApplicationGateway) SslPolicies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sslPolicies"])
+func (r *ApplicationGateway) SslPolicies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["sslPolicies"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ApplicationGateway) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ApplicationGateway) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // One or more `trustedRootCertificate` blocks as defined below.
-func (r *ApplicationGateway) TrustedRootCertificates() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["trustedRootCertificates"])
+func (r *ApplicationGateway) TrustedRootCertificates() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["trustedRootCertificates"])
 }
 
 // One or more `urlPathMap` blocks as defined below.
-func (r *ApplicationGateway) UrlPathMaps() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["urlPathMaps"])
+func (r *ApplicationGateway) UrlPathMaps() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["urlPathMaps"])
 }
 
 // A `wafConfiguration` block as defined below.
-func (r *ApplicationGateway) WafConfiguration() *pulumi.Output {
+func (r *ApplicationGateway) WafConfiguration() pulumi.Output {
 	return r.s.State["wafConfiguration"]
 }
 
 // A collection of availability zones to spread the Application Gateway over.
-func (r *ApplicationGateway) Zones() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["zones"])
+func (r *ApplicationGateway) Zones() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering ApplicationGateway resources.

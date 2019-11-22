@@ -70,53 +70,53 @@ func GetPublicIpPrefix(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PublicIpPrefix) URN() *pulumi.URNOutput {
+func (r *PublicIpPrefix) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PublicIpPrefix) ID() *pulumi.IDOutput {
+func (r *PublicIpPrefix) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The IP address prefix value that was allocated.
-func (r *PublicIpPrefix) IpPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipPrefix"])
+func (r *PublicIpPrefix) IpPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipPrefix"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *PublicIpPrefix) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PublicIpPrefix) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) PrefixLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["prefixLength"])
+func (r *PublicIpPrefix) PrefixLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["prefixLength"])
 }
 
 // The name of the resource group in which to create the public IP.
-func (r *PublicIpPrefix) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *PublicIpPrefix) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *PublicIpPrefix) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *PublicIpPrefix) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *PublicIpPrefix) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // A collection containing the availability zone to allocate the Public IP in.
-func (r *PublicIpPrefix) Zones() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zones"])
+func (r *PublicIpPrefix) Zones() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering PublicIpPrefix resources.

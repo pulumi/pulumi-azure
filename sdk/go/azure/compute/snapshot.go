@@ -80,62 +80,62 @@ func GetSnapshot(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Snapshot) URN() *pulumi.URNOutput {
+func (r *Snapshot) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Snapshot) ID() *pulumi.IDOutput {
+func (r *Snapshot) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
-func (r *Snapshot) CreateOption() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["createOption"])
+func (r *Snapshot) CreateOption() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["createOption"])
 }
 
 // The size of the Snapshotted Disk in GB.
-func (r *Snapshot) DiskSizeGb() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["diskSizeGb"])
+func (r *Snapshot) DiskSizeGb() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["diskSizeGb"])
 }
 
-func (r *Snapshot) EncryptionSettings() *pulumi.Output {
+func (r *Snapshot) EncryptionSettings() pulumi.Output {
 	return r.s.State["encryptionSettings"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Snapshot) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Snapshot) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
-func (r *Snapshot) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Snapshot) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-func (r *Snapshot) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Snapshot) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
-func (r *Snapshot) SourceResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceResourceId"])
+func (r *Snapshot) SourceResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceResourceId"])
 }
 
 // Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
-func (r *Snapshot) SourceUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
+func (r *Snapshot) SourceUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceUri"])
 }
 
 // Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
-func (r *Snapshot) StorageAccountId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
+func (r *Snapshot) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Snapshot) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Snapshot) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Snapshot resources.

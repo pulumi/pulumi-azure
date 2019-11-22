@@ -73,48 +73,48 @@ func GetJobCollection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *JobCollection) URN() *pulumi.URNOutput {
+func (r *JobCollection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *JobCollection) ID() *pulumi.IDOutput {
+func (r *JobCollection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *JobCollection) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *JobCollection) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
-func (r *JobCollection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *JobCollection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Configures the Job collection quotas as documented in the `quota` block below. 
-func (r *JobCollection) Quota() *pulumi.Output {
+func (r *JobCollection) Quota() pulumi.Output {
 	return r.s.State["quota"]
 }
 
 // The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
-func (r *JobCollection) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *JobCollection) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
-func (r *JobCollection) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *JobCollection) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.
-func (r *JobCollection) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *JobCollection) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *JobCollection) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *JobCollection) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering JobCollection resources.

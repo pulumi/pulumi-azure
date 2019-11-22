@@ -68,43 +68,43 @@ func GetDps(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Dps) URN() *pulumi.URNOutput {
+func (r *Dps) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Dps) ID() *pulumi.IDOutput {
+func (r *Dps) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `linkedHub` block as defined below.
-func (r *Dps) LinkedHubs() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["linkedHubs"])
+func (r *Dps) LinkedHubs() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["linkedHubs"])
 }
 
 // Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-func (r *Dps) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Dps) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-func (r *Dps) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Dps) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
-func (r *Dps) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Dps) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `sku` block as defined below.
-func (r *Dps) Sku() *pulumi.Output {
+func (r *Dps) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Dps) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Dps) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Dps resources.

@@ -174,268 +174,268 @@ func GetAccount(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() *pulumi.URNOutput {
+func (r *Account) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() *pulumi.IDOutput {
+func (r *Account) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-func (r *Account) AccessTier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accessTier"])
+func (r *Account) AccessTier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accessTier"])
 }
 
 // The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-func (r *Account) AccountEncryptionSource() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountEncryptionSource"])
+func (r *Account) AccountEncryptionSource() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountEncryptionSource"])
 }
 
 // Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
-func (r *Account) AccountKind() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountKind"])
+func (r *Account) AccountKind() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountKind"])
 }
 
 // Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
-func (r *Account) AccountReplicationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountReplicationType"])
+func (r *Account) AccountReplicationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountReplicationType"])
 }
 
 // Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-func (r *Account) AccountTier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountTier"])
+func (r *Account) AccountTier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountTier"])
 }
 
-func (r *Account) AccountType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountType"])
+func (r *Account) AccountType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountType"])
 }
 
 // A `customDomain` block as documented below.
-func (r *Account) CustomDomain() *pulumi.Output {
+func (r *Account) CustomDomain() pulumi.Output {
 	return r.s.State["customDomain"]
 }
 
 // Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-func (r *Account) EnableAdvancedThreatProtection() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableAdvancedThreatProtection"])
+func (r *Account) EnableAdvancedThreatProtection() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableAdvancedThreatProtection"])
 }
 
 // Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-func (r *Account) EnableBlobEncryption() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableBlobEncryption"])
+func (r *Account) EnableBlobEncryption() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableBlobEncryption"])
 }
 
 // Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-func (r *Account) EnableFileEncryption() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableFileEncryption"])
+func (r *Account) EnableFileEncryption() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableFileEncryption"])
 }
 
 // Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 // for more information.
-func (r *Account) EnableHttpsTrafficOnly() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableHttpsTrafficOnly"])
+func (r *Account) EnableHttpsTrafficOnly() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableHttpsTrafficOnly"])
 }
 
 // A `identity` block as defined below.
-func (r *Account) Identity() *pulumi.Output {
+func (r *Account) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
-func (r *Account) IsHnsEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isHnsEnabled"])
+func (r *Account) IsHnsEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isHnsEnabled"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Account) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-func (r *Account) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Account) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `networkRules` block as documented below.
-func (r *Account) NetworkRules() *pulumi.Output {
+func (r *Account) NetworkRules() pulumi.Output {
 	return r.s.State["networkRules"]
 }
 
 // The primary access key for the storage account.
-func (r *Account) PrimaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
 // The connection string associated with the primary blob location.
-func (r *Account) PrimaryBlobConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryBlobConnectionString"])
+func (r *Account) PrimaryBlobConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryBlobConnectionString"])
 }
 
 // The endpoint URL for blob storage in the primary location.
-func (r *Account) PrimaryBlobEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryBlobEndpoint"])
+func (r *Account) PrimaryBlobEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryBlobEndpoint"])
 }
 
 // The hostname with port if applicable for blob storage in the primary location.
-func (r *Account) PrimaryBlobHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryBlobHost"])
+func (r *Account) PrimaryBlobHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryBlobHost"])
 }
 
 // The connection string associated with the primary location.
-func (r *Account) PrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+func (r *Account) PrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The endpoint URL for DFS storage in the primary location.
-func (r *Account) PrimaryDfsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryDfsEndpoint"])
+func (r *Account) PrimaryDfsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryDfsEndpoint"])
 }
 
 // The hostname with port if applicable for DFS storage in the primary location.
-func (r *Account) PrimaryDfsHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryDfsHost"])
+func (r *Account) PrimaryDfsHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryDfsHost"])
 }
 
 // The endpoint URL for file storage in the primary location.
-func (r *Account) PrimaryFileEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryFileEndpoint"])
+func (r *Account) PrimaryFileEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryFileEndpoint"])
 }
 
 // The hostname with port if applicable for file storage in the primary location.
-func (r *Account) PrimaryFileHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryFileHost"])
+func (r *Account) PrimaryFileHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryFileHost"])
 }
 
 // The primary location of the storage account.
-func (r *Account) PrimaryLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryLocation"])
+func (r *Account) PrimaryLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryLocation"])
 }
 
 // The endpoint URL for queue storage in the primary location.
-func (r *Account) PrimaryQueueEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryQueueEndpoint"])
+func (r *Account) PrimaryQueueEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryQueueEndpoint"])
 }
 
 // The hostname with port if applicable for queue storage in the primary location.
-func (r *Account) PrimaryQueueHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryQueueHost"])
+func (r *Account) PrimaryQueueHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryQueueHost"])
 }
 
 // The endpoint URL for table storage in the primary location.
-func (r *Account) PrimaryTableEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryTableEndpoint"])
+func (r *Account) PrimaryTableEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryTableEndpoint"])
 }
 
 // The hostname with port if applicable for table storage in the primary location.
-func (r *Account) PrimaryTableHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryTableHost"])
+func (r *Account) PrimaryTableHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryTableHost"])
 }
 
 // The endpoint URL for web storage in the primary location.
-func (r *Account) PrimaryWebEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryWebEndpoint"])
+func (r *Account) PrimaryWebEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryWebEndpoint"])
 }
 
 // The hostname with port if applicable for web storage in the primary location.
-func (r *Account) PrimaryWebHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["primaryWebHost"])
+func (r *Account) PrimaryWebHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryWebHost"])
 }
 
 // A `queueProperties` block as defined below.
-func (r *Account) QueueProperties() *pulumi.Output {
+func (r *Account) QueueProperties() pulumi.Output {
 	return r.s.State["queueProperties"]
 }
 
 // The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Account) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The secondary access key for the storage account.
-func (r *Account) SecondaryAccessKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // The connection string associated with the secondary blob location.
-func (r *Account) SecondaryBlobConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryBlobConnectionString"])
+func (r *Account) SecondaryBlobConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryBlobConnectionString"])
 }
 
 // The endpoint URL for blob storage in the secondary location.
-func (r *Account) SecondaryBlobEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryBlobEndpoint"])
+func (r *Account) SecondaryBlobEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryBlobEndpoint"])
 }
 
 // The hostname with port if applicable for blob storage in the secondary location.
-func (r *Account) SecondaryBlobHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryBlobHost"])
+func (r *Account) SecondaryBlobHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryBlobHost"])
 }
 
 // The connection string associated with the secondary location.
-func (r *Account) SecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+func (r *Account) SecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The endpoint URL for DFS storage in the secondary location.
-func (r *Account) SecondaryDfsEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryDfsEndpoint"])
+func (r *Account) SecondaryDfsEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryDfsEndpoint"])
 }
 
 // The hostname with port if applicable for DFS storage in the secondary location.
-func (r *Account) SecondaryDfsHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryDfsHost"])
+func (r *Account) SecondaryDfsHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryDfsHost"])
 }
 
 // The endpoint URL for file storage in the secondary location.
-func (r *Account) SecondaryFileEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryFileEndpoint"])
+func (r *Account) SecondaryFileEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryFileEndpoint"])
 }
 
 // The hostname with port if applicable for file storage in the secondary location.
-func (r *Account) SecondaryFileHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryFileHost"])
+func (r *Account) SecondaryFileHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryFileHost"])
 }
 
 // The secondary location of the storage account.
-func (r *Account) SecondaryLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryLocation"])
+func (r *Account) SecondaryLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryLocation"])
 }
 
 // The endpoint URL for queue storage in the secondary location.
-func (r *Account) SecondaryQueueEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryQueueEndpoint"])
+func (r *Account) SecondaryQueueEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryQueueEndpoint"])
 }
 
 // The hostname with port if applicable for queue storage in the secondary location.
-func (r *Account) SecondaryQueueHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryQueueHost"])
+func (r *Account) SecondaryQueueHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryQueueHost"])
 }
 
 // The endpoint URL for table storage in the secondary location.
-func (r *Account) SecondaryTableEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryTableEndpoint"])
+func (r *Account) SecondaryTableEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryTableEndpoint"])
 }
 
 // The hostname with port if applicable for table storage in the secondary location.
-func (r *Account) SecondaryTableHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryTableHost"])
+func (r *Account) SecondaryTableHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryTableHost"])
 }
 
 // The endpoint URL for web storage in the secondary location.
-func (r *Account) SecondaryWebEndpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryWebEndpoint"])
+func (r *Account) SecondaryWebEndpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryWebEndpoint"])
 }
 
 // The hostname with port if applicable for web storage in the secondary location.
-func (r *Account) SecondaryWebHost() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["secondaryWebHost"])
+func (r *Account) SecondaryWebHost() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryWebHost"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Account) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Account) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Account resources.

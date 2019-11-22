@@ -62,33 +62,33 @@ func GetShareDirectory(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ShareDirectory) URN() *pulumi.URNOutput {
+func (r *ShareDirectory) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ShareDirectory) ID() *pulumi.IDOutput {
+func (r *ShareDirectory) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A mapping of metadata to assign to this Directory.
-func (r *ShareDirectory) Metadata() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["metadata"])
+func (r *ShareDirectory) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-func (r *ShareDirectory) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ShareDirectory) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-func (r *ShareDirectory) ShareName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shareName"])
+func (r *ShareDirectory) ShareName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shareName"])
 }
 
 // The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-func (r *ShareDirectory) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *ShareDirectory) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // Input properties used for looking up and filtering ShareDirectory resources.

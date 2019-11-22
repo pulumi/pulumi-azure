@@ -60,23 +60,23 @@ func GetWorkspace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Workspace) URN() *pulumi.URNOutput {
+func (r *Workspace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Workspace) ID() *pulumi.IDOutput {
+func (r *Workspace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
-func (r *Workspace) Scope() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scope"])
+func (r *Workspace) Scope() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scope"])
 }
 
 // The ID of the Log Analytics Workspace to save the data in.
-func (r *Workspace) WorkspaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["workspaceId"])
+func (r *Workspace) WorkspaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["workspaceId"])
 }
 
 // Input properties used for looking up and filtering Workspace resources.

@@ -65,38 +65,38 @@ func GetTriggerHttpRequest(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerHttpRequest) URN() *pulumi.URNOutput {
+func (r *TriggerHttpRequest) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerHttpRequest) ID() *pulumi.IDOutput {
+func (r *TriggerHttpRequest) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerHttpRequest) LogicAppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logicAppId"])
+func (r *TriggerHttpRequest) LogicAppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logicAppId"])
 }
 
 // Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
-func (r *TriggerHttpRequest) Method() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["method"])
+func (r *TriggerHttpRequest) Method() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["method"])
 }
 
 // Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerHttpRequest) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TriggerHttpRequest) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Relative Path used for this Request.
-func (r *TriggerHttpRequest) RelativePath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["relativePath"])
+func (r *TriggerHttpRequest) RelativePath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["relativePath"])
 }
 
 // A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
-func (r *TriggerHttpRequest) Schema() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["schema"])
+func (r *TriggerHttpRequest) Schema() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["schema"])
 }
 
 // Input properties used for looking up and filtering TriggerHttpRequest resources.

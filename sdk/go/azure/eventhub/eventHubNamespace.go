@@ -88,85 +88,85 @@ func GetEventHubNamespace(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventHubNamespace) URN() *pulumi.URNOutput {
+func (r *EventHubNamespace) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventHubNamespace) ID() *pulumi.IDOutput {
+func (r *EventHubNamespace) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Is Auto Inflate enabled for the EventHub Namespace?
-func (r *EventHubNamespace) AutoInflateEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoInflateEnabled"])
+func (r *EventHubNamespace) AutoInflateEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoInflateEnabled"])
 }
 
 // Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
-func (r *EventHubNamespace) Capacity() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["capacity"])
+func (r *EventHubNamespace) Capacity() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["capacity"])
 }
 
 // The primary connection string for the authorization
 // rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultPrimaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
+func (r *EventHubNamespace) DefaultPrimaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
 }
 
 // The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultPrimaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
+func (r *EventHubNamespace) DefaultPrimaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
 }
 
 // The secondary connection string for the
 // authorization rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultSecondaryConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
+func (r *EventHubNamespace) DefaultSecondaryConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
 }
 
 // The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultSecondaryKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
+func (r *EventHubNamespace) DefaultSecondaryKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
 }
 
 // Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) KafkaEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["kafkaEnabled"])
+func (r *EventHubNamespace) KafkaEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["kafkaEnabled"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *EventHubNamespace) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-func (r *EventHubNamespace) MaximumThroughputUnits() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maximumThroughputUnits"])
+func (r *EventHubNamespace) MaximumThroughputUnits() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumThroughputUnits"])
 }
 
 // Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventHubNamespace) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `networkRulesets` block as defined below.
-func (r *EventHubNamespace) NetworkRulesets() *pulumi.Output {
+func (r *EventHubNamespace) NetworkRulesets() pulumi.Output {
 	return r.s.State["networkRulesets"]
 }
 
 // The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *EventHubNamespace) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Defines which tier to use. Valid options are `Basic` and `Standard`.
-func (r *EventHubNamespace) Sku() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sku"])
+func (r *EventHubNamespace) Sku() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *EventHubNamespace) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *EventHubNamespace) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering EventHubNamespace resources.

@@ -68,38 +68,38 @@ func GetEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventhubNamespaceDisasterRecoveryConfig) URN() *pulumi.URNOutput {
+func (r *EventhubNamespaceDisasterRecoveryConfig) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventhubNamespaceDisasterRecoveryConfig) ID() *pulumi.IDOutput {
+func (r *EventhubNamespaceDisasterRecoveryConfig) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
-func (r *EventhubNamespaceDisasterRecoveryConfig) AlternateName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["alternateName"])
+func (r *EventhubNamespaceDisasterRecoveryConfig) AlternateName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["alternateName"])
 }
 
 // Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
-func (r *EventhubNamespaceDisasterRecoveryConfig) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventhubNamespaceDisasterRecoveryConfig) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
-func (r *EventhubNamespaceDisasterRecoveryConfig) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *EventhubNamespaceDisasterRecoveryConfig) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The ID of the EventHub Namespace to replicate to.
-func (r *EventhubNamespaceDisasterRecoveryConfig) PartnerNamespaceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partnerNamespaceId"])
+func (r *EventhubNamespaceDisasterRecoveryConfig) PartnerNamespaceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partnerNamespaceId"])
 }
 
 // The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
-func (r *EventhubNamespaceDisasterRecoveryConfig) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *EventhubNamespaceDisasterRecoveryConfig) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.

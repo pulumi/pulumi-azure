@@ -89,77 +89,77 @@ func GetSchedule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Schedule) URN() *pulumi.URNOutput {
+func (r *Schedule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Schedule) ID() *pulumi.IDOutput {
+func (r *Schedule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *Schedule) AccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["accountName"])
+func (r *Schedule) AccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
 
 // The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-func (r *Schedule) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *Schedule) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // A description for this Schedule.
-func (r *Schedule) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Schedule) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The end time of the schedule.
-func (r *Schedule) ExpiryTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expiryTime"])
+func (r *Schedule) ExpiryTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expiryTime"])
 }
 
 // The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-func (r *Schedule) Frequency() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["frequency"])
+func (r *Schedule) Frequency() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["frequency"])
 }
 
 // The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-func (r *Schedule) Interval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["interval"])
+func (r *Schedule) Interval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["interval"])
 }
 
 // List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-func (r *Schedule) MonthDays() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["monthDays"])
+func (r *Schedule) MonthDays() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["monthDays"])
 }
 
 // List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
-func (r *Schedule) MonthlyOccurrences() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["monthlyOccurrences"])
+func (r *Schedule) MonthlyOccurrences() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["monthlyOccurrences"])
 }
 
 // Specifies the name of the Schedule. Changing this forces a new resource to be created.
-func (r *Schedule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Schedule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
-func (r *Schedule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Schedule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-func (r *Schedule) StartTime() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["startTime"])
+func (r *Schedule) StartTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startTime"])
 }
 
 // The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
-func (r *Schedule) Timezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timezone"])
+func (r *Schedule) Timezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // List of days of the week that the job should execute on. Only valid when frequency is `Week`.
-func (r *Schedule) WeekDays() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["weekDays"])
+func (r *Schedule) WeekDays() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["weekDays"])
 }
 
 // Input properties used for looking up and filtering Schedule resources.

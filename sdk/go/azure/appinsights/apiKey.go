@@ -61,39 +61,39 @@ func GetApiKey(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ApiKey) URN() *pulumi.URNOutput {
+func (r *ApiKey) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ApiKey) ID() *pulumi.IDOutput {
+func (r *ApiKey) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The API Key secret (Sensitive).
-func (r *ApiKey) ApiKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiKey"])
+func (r *ApiKey) ApiKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiKey"])
 }
 
 // The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-func (r *ApiKey) ApplicationInsightsId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["applicationInsightsId"])
+func (r *ApiKey) ApplicationInsightsId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["applicationInsightsId"])
 }
 
 // Specifies the name of the Application Insights API key. Changing this forces a
 // new resource to be created.
-func (r *ApiKey) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ApiKey) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
-func (r *ApiKey) ReadPermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["readPermissions"])
+func (r *ApiKey) ReadPermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["readPermissions"])
 }
 
 // Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-func (r *ApiKey) WritePermissions() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["writePermissions"])
+func (r *ApiKey) WritePermissions() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["writePermissions"])
 }
 
 // Input properties used for looking up and filtering ApiKey resources.

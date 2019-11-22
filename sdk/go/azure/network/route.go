@@ -78,43 +78,43 @@ func GetRoute(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() *pulumi.URNOutput {
+func (r *Route) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() *pulumi.IDOutput {
+func (r *Route) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The destination CIDR to which the route applies, such as `10.1.0.0/16`
-func (r *Route) AddressPrefix() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["addressPrefix"])
+func (r *Route) AddressPrefix() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["addressPrefix"])
 }
 
 // The name of the route. Changing this forces a new resource to be created.
-func (r *Route) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Route) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-func (r *Route) NextHopInIpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nextHopInIpAddress"])
+func (r *Route) NextHopInIpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nextHopInIpAddress"])
 }
 
 // The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
-func (r *Route) NextHopType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["nextHopType"])
+func (r *Route) NextHopType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["nextHopType"])
 }
 
 // The name of the resource group in which to create the route. Changing this forces a new resource to be created.
-func (r *Route) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Route) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The name of the route table within which create the route. Changing this forces a new resource to be created.
-func (r *Route) RouteTableName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["routeTableName"])
+func (r *Route) RouteTableName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["routeTableName"])
 }
 
 // Input properties used for looking up and filtering Route resources.

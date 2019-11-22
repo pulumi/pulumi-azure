@@ -64,43 +64,43 @@ func GetSharedImageGallery(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SharedImageGallery) URN() *pulumi.URNOutput {
+func (r *SharedImageGallery) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SharedImageGallery) ID() *pulumi.IDOutput {
+func (r *SharedImageGallery) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A description for this Shared Image Gallery.
-func (r *SharedImageGallery) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SharedImageGallery) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *SharedImageGallery) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *SharedImageGallery) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
-func (r *SharedImageGallery) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SharedImageGallery) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
-func (r *SharedImageGallery) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *SharedImageGallery) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the Shared Image Gallery.
-func (r *SharedImageGallery) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *SharedImageGallery) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Unique Name for this Shared Image Gallery.
-func (r *SharedImageGallery) UniqueName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueName"])
+func (r *SharedImageGallery) UniqueName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueName"])
 }
 
 // Input properties used for looking up and filtering SharedImageGallery resources.

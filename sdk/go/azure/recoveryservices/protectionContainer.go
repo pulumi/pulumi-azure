@@ -65,33 +65,33 @@ func GetProtectionContainer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectionContainer) URN() *pulumi.URNOutput {
+func (r *ProtectionContainer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectionContainer) ID() *pulumi.IDOutput {
+func (r *ProtectionContainer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the network mapping.
-func (r *ProtectionContainer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProtectionContainer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of fabric that should contain this protection container.
-func (r *ProtectionContainer) RecoveryFabricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryFabricName"])
+func (r *ProtectionContainer) RecoveryFabricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryFabricName"])
 }
 
 // The name of the vault that should be updated.
-func (r *ProtectionContainer) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *ProtectionContainer) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // Name of the resource group where the vault that should be updated is located.
-func (r *ProtectionContainer) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ProtectionContainer) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ProtectionContainer resources.

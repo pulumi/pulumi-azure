@@ -89,53 +89,53 @@ func GetOutputServicebusTopic(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OutputServicebusTopic) URN() *pulumi.URNOutput {
+func (r *OutputServicebusTopic) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OutputServicebusTopic) ID() *pulumi.IDOutput {
+func (r *OutputServicebusTopic) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Stream Output. Changing this forces a new resource to be created.
-func (r *OutputServicebusTopic) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OutputServicebusTopic) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *OutputServicebusTopic) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *OutputServicebusTopic) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `serialization` block as defined below.
-func (r *OutputServicebusTopic) Serialization() *pulumi.Output {
+func (r *OutputServicebusTopic) Serialization() pulumi.Output {
 	return r.s.State["serialization"]
 }
 
 // The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
-func (r *OutputServicebusTopic) ServicebusNamespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["servicebusNamespace"])
+func (r *OutputServicebusTopic) ServicebusNamespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["servicebusNamespace"])
 }
 
 // The shared access policy key for the specified shared access policy.
-func (r *OutputServicebusTopic) SharedAccessPolicyKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedAccessPolicyKey"])
+func (r *OutputServicebusTopic) SharedAccessPolicyKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedAccessPolicyKey"])
 }
 
 // The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-func (r *OutputServicebusTopic) SharedAccessPolicyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedAccessPolicyName"])
+func (r *OutputServicebusTopic) SharedAccessPolicyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedAccessPolicyName"])
 }
 
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *OutputServicebusTopic) StreamAnalyticsJobName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+func (r *OutputServicebusTopic) StreamAnalyticsJobName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
 }
 
 // The name of the Service Bus Topic.
-func (r *OutputServicebusTopic) TopicName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["topicName"])
+func (r *OutputServicebusTopic) TopicName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["topicName"])
 }
 
 // Input properties used for looking up and filtering OutputServicebusTopic resources.

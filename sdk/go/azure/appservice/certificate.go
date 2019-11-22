@@ -82,82 +82,82 @@ func GetCertificate(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The expiration date for the certificate.
-func (r *Certificate) ExpirationDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expirationDate"])
+func (r *Certificate) ExpirationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expirationDate"])
 }
 
 // The friendly name of the certificate.
-func (r *Certificate) FriendlyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["friendlyName"])
+func (r *Certificate) FriendlyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["friendlyName"])
 }
 
 // List of host names the certificate applies to.
-func (r *Certificate) HostNames() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["hostNames"])
+func (r *Certificate) HostNames() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["hostNames"])
 }
 
 // The issue date for the certificate.
-func (r *Certificate) IssueDate() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issueDate"])
+func (r *Certificate) IssueDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issueDate"])
 }
 
 // The name of the certificate issuer.
-func (r *Certificate) Issuer() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["issuer"])
+func (r *Certificate) Issuer() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["issuer"])
 }
 
 // The ID of the Key Vault secret. Changing this forces a new resource to be created.
-func (r *Certificate) KeyVaultSecretId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keyVaultSecretId"])
+func (r *Certificate) KeyVaultSecretId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keyVaultSecretId"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Certificate) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Certificate) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the certificate. Changing this forces a new resource to be created.
-func (r *Certificate) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Certificate) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The password to access the certificate's private key. Changing this forces a new resource to be created.
-func (r *Certificate) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *Certificate) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
-func (r *Certificate) PfxBlob() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pfxBlob"])
+func (r *Certificate) PfxBlob() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pfxBlob"])
 }
 
 // The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The subject name of the certificate.
-func (r *Certificate) SubjectName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["subjectName"])
+func (r *Certificate) SubjectName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["subjectName"])
 }
 
-func (r *Certificate) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Certificate) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The thumbprint for the certificate.
-func (r *Certificate) Thumbprint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+func (r *Certificate) Thumbprint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
 // Input properties used for looking up and filtering Certificate resources.

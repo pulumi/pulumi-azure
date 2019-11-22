@@ -96,88 +96,88 @@ func GetGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Group) URN() *pulumi.URNOutput {
+func (r *Group) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Group) ID() *pulumi.IDOutput {
+func (r *Group) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-func (r *Group) Containers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["containers"])
+func (r *Group) Containers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["containers"])
 }
 
 // A `diagnostics` block as documented below.
-func (r *Group) Diagnostics() *pulumi.Output {
+func (r *Group) Diagnostics() pulumi.Output {
 	return r.s.State["diagnostics"]
 }
 
 // The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
-func (r *Group) DnsNameLabel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dnsNameLabel"])
+func (r *Group) DnsNameLabel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dnsNameLabel"])
 }
 
 // The FQDN of the container group derived from `dnsNameLabel`.
-func (r *Group) Fqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+func (r *Group) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // An `identity` block as defined below.
-func (r *Group) Identity() *pulumi.Output {
+func (r *Group) Identity() pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
-func (r *Group) ImageRegistryCredentials() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
+func (r *Group) ImageRegistryCredentials() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
 }
 
 // The IP address allocated to the container group.
-func (r *Group) IpAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+func (r *Group) IpAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
 // Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
-func (r *Group) IpAddressType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipAddressType"])
+func (r *Group) IpAddressType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipAddressType"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Group) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Group) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
-func (r *Group) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Group) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Network profile ID for deploying to virtual network.
-func (r *Group) NetworkProfileId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkProfileId"])
+func (r *Group) NetworkProfileId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkProfileId"])
 }
 
 // The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-func (r *Group) OsType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["osType"])
+func (r *Group) OsType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["osType"])
 }
 
 // The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-func (r *Group) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Group) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-func (r *Group) RestartPolicy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["restartPolicy"])
+func (r *Group) RestartPolicy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["restartPolicy"])
 }
 
 // A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-func (r *Group) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Group) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Group resources.

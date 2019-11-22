@@ -83,48 +83,48 @@ func GetProtectionContainerMapping(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectionContainerMapping) URN() *pulumi.URNOutput {
+func (r *ProtectionContainerMapping) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectionContainerMapping) ID() *pulumi.IDOutput {
+func (r *ProtectionContainerMapping) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the network mapping.
-func (r *ProtectionContainerMapping) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProtectionContainerMapping) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Name of fabric that should contains the protection container to map.
-func (r *ProtectionContainerMapping) RecoveryFabricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryFabricName"])
+func (r *ProtectionContainerMapping) RecoveryFabricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryFabricName"])
 }
 
 // Id of the policy to use for this mapping.
-func (r *ProtectionContainerMapping) RecoveryReplicationPolicyId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryReplicationPolicyId"])
+func (r *ProtectionContainerMapping) RecoveryReplicationPolicyId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryReplicationPolicyId"])
 }
 
 // Name of the protection container to map.
-func (r *ProtectionContainerMapping) RecoverySourceProtectionContainerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoverySourceProtectionContainerName"])
+func (r *ProtectionContainerMapping) RecoverySourceProtectionContainerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoverySourceProtectionContainerName"])
 }
 
 // Id of protection container to map to.
-func (r *ProtectionContainerMapping) RecoveryTargetProtectionContainerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryTargetProtectionContainerId"])
+func (r *ProtectionContainerMapping) RecoveryTargetProtectionContainerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryTargetProtectionContainerId"])
 }
 
 // The name of the vault that should be updated.
-func (r *ProtectionContainerMapping) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *ProtectionContainerMapping) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // Name of the resource group where the vault that should be updated is located.
-func (r *ProtectionContainerMapping) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ProtectionContainerMapping) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ProtectionContainerMapping resources.

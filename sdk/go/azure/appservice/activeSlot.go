@@ -64,28 +64,28 @@ func GetActiveSlot(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActiveSlot) URN() *pulumi.URNOutput {
+func (r *ActiveSlot) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActiveSlot) ID() *pulumi.IDOutput {
+func (r *ActiveSlot) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
-func (r *ActiveSlot) AppServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServiceName"])
+func (r *ActiveSlot) AppServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServiceName"])
 }
 
 // The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
-func (r *ActiveSlot) AppServiceSlotName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appServiceSlotName"])
+func (r *ActiveSlot) AppServiceSlotName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appServiceSlotName"])
 }
 
 // The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-func (r *ActiveSlot) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ActiveSlot) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ActiveSlot resources.

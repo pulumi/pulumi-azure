@@ -67,37 +67,37 @@ func GetDscNodeConfiguration(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DscNodeConfiguration) URN() *pulumi.URNOutput {
+func (r *DscNodeConfiguration) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DscNodeConfiguration) ID() *pulumi.IDOutput {
+func (r *DscNodeConfiguration) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
-func (r *DscNodeConfiguration) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *DscNodeConfiguration) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
-func (r *DscNodeConfiguration) ConfigurationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configurationName"])
+func (r *DscNodeConfiguration) ConfigurationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configurationName"])
 }
 
 // The PowerShell DSC Node Configuration (mof content).
-func (r *DscNodeConfiguration) ContentEmbedded() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["contentEmbedded"])
+func (r *DscNodeConfiguration) ContentEmbedded() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["contentEmbedded"])
 }
 
 // Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
-func (r *DscNodeConfiguration) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DscNodeConfiguration) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
-func (r *DscNodeConfiguration) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *DscNodeConfiguration) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering DscNodeConfiguration resources.

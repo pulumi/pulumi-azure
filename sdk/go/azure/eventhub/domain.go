@@ -70,53 +70,53 @@ func GetDomain(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() *pulumi.URNOutput {
+func (r *Domain) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() *pulumi.IDOutput {
+func (r *Domain) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Endpoint associated with the EventGrid Domain.
-func (r *Domain) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *Domain) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // A `inputMappingDefaultValues` block as defined below.
-func (r *Domain) InputMappingDefaultValues() *pulumi.Output {
+func (r *Domain) InputMappingDefaultValues() pulumi.Output {
 	return r.s.State["inputMappingDefaultValues"]
 }
 
 // A `inputMappingFields` block as defined below.
-func (r *Domain) InputMappingFields() *pulumi.Output {
+func (r *Domain) InputMappingFields() pulumi.Output {
 	return r.s.State["inputMappingFields"]
 }
 
 // Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
-func (r *Domain) InputSchema() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inputSchema"])
+func (r *Domain) InputSchema() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inputSchema"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Domain) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Domain) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
-func (r *Domain) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Domain) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
-func (r *Domain) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Domain) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Domain) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Domain) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Domain resources.

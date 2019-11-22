@@ -101,63 +101,63 @@ func GetOutputBlob(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *OutputBlob) URN() *pulumi.URNOutput {
+func (r *OutputBlob) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *OutputBlob) ID() *pulumi.IDOutput {
+func (r *OutputBlob) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
-func (r *OutputBlob) DateFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dateFormat"])
+func (r *OutputBlob) DateFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dateFormat"])
 }
 
 // The name of the Stream Output. Changing this forces a new resource to be created.
-func (r *OutputBlob) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *OutputBlob) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
-func (r *OutputBlob) PathPattern() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pathPattern"])
+func (r *OutputBlob) PathPattern() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pathPattern"])
 }
 
 // The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *OutputBlob) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *OutputBlob) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `serialization` block as defined below.
-func (r *OutputBlob) Serialization() *pulumi.Output {
+func (r *OutputBlob) Serialization() pulumi.Output {
 	return r.s.State["serialization"]
 }
 
 // The Access Key which should be used to connect to this Storage Account.
-func (r *OutputBlob) StorageAccountKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountKey"])
+func (r *OutputBlob) StorageAccountKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountKey"])
 }
 
 // The name of the Storage Account.
-func (r *OutputBlob) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *OutputBlob) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // The name of the Container within the Storage Account.
-func (r *OutputBlob) StorageContainerName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageContainerName"])
+func (r *OutputBlob) StorageContainerName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageContainerName"])
 }
 
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *OutputBlob) StreamAnalyticsJobName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+func (r *OutputBlob) StreamAnalyticsJobName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
 }
 
 // The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
-func (r *OutputBlob) TimeFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timeFormat"])
+func (r *OutputBlob) TimeFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timeFormat"])
 }
 
 // Input properties used for looking up and filtering OutputBlob resources.

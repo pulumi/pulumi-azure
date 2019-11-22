@@ -86,68 +86,68 @@ func GetDatasetPostgresql(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DatasetPostgresql) URN() *pulumi.URNOutput {
+func (r *DatasetPostgresql) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DatasetPostgresql) ID() *pulumi.IDOutput {
+func (r *DatasetPostgresql) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
-func (r *DatasetPostgresql) AdditionalProperties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
+func (r *DatasetPostgresql) AdditionalProperties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
-func (r *DatasetPostgresql) Annotations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
+func (r *DatasetPostgresql) Annotations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-func (r *DatasetPostgresql) DataFactoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
+func (r *DatasetPostgresql) DataFactoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Dataset PostgreSQL.
-func (r *DatasetPostgresql) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *DatasetPostgresql) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-func (r *DatasetPostgresql) Folder() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["folder"])
+func (r *DatasetPostgresql) Folder() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["folder"])
 }
 
 // The Data Factory Linked Service name in which to associate the Dataset with.
-func (r *DatasetPostgresql) LinkedServiceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["linkedServiceName"])
+func (r *DatasetPostgresql) LinkedServiceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["linkedServiceName"])
 }
 
 // Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *DatasetPostgresql) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DatasetPostgresql) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Dataset PostgreSQL.
-func (r *DatasetPostgresql) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *DatasetPostgresql) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
-func (r *DatasetPostgresql) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *DatasetPostgresql) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `schemaColumn` block as defined below.
-func (r *DatasetPostgresql) SchemaColumns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["schemaColumns"])
+func (r *DatasetPostgresql) SchemaColumns() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["schemaColumns"])
 }
 
 // The table name of the Data Factory Dataset PostgreSQL.
-func (r *DatasetPostgresql) TableName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tableName"])
+func (r *DatasetPostgresql) TableName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tableName"])
 }
 
 // Input properties used for looking up and filtering DatasetPostgresql resources.

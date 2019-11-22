@@ -95,58 +95,58 @@ func GetStreamInputIotHub(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *StreamInputIotHub) URN() *pulumi.URNOutput {
+func (r *StreamInputIotHub) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *StreamInputIotHub) ID() *pulumi.IDOutput {
+func (r *StreamInputIotHub) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
-func (r *StreamInputIotHub) Endpoint() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["endpoint"])
+func (r *StreamInputIotHub) Endpoint() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
-func (r *StreamInputIotHub) EventhubConsumerGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubConsumerGroupName"])
+func (r *StreamInputIotHub) EventhubConsumerGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubConsumerGroupName"])
 }
 
 // The name or the URI of the IoT Hub.
-func (r *StreamInputIotHub) IothubNamespace() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iothubNamespace"])
+func (r *StreamInputIotHub) IothubNamespace() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iothubNamespace"])
 }
 
 // The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
-func (r *StreamInputIotHub) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *StreamInputIotHub) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *StreamInputIotHub) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *StreamInputIotHub) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `serialization` block as defined below.
-func (r *StreamInputIotHub) Serialization() *pulumi.Output {
+func (r *StreamInputIotHub) Serialization() pulumi.Output {
 	return r.s.State["serialization"]
 }
 
 // The shared access policy key for the specified shared access policy.
-func (r *StreamInputIotHub) SharedAccessPolicyKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedAccessPolicyKey"])
+func (r *StreamInputIotHub) SharedAccessPolicyKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedAccessPolicyKey"])
 }
 
 // The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-func (r *StreamInputIotHub) SharedAccessPolicyName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharedAccessPolicyName"])
+func (r *StreamInputIotHub) SharedAccessPolicyName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharedAccessPolicyName"])
 }
 
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
-func (r *StreamInputIotHub) StreamAnalyticsJobName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+func (r *StreamInputIotHub) StreamAnalyticsJobName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
 }
 
 // Input properties used for looking up and filtering StreamInputIotHub resources.

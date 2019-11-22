@@ -103,97 +103,97 @@ func GetEndpoint(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Endpoint) URN() *pulumi.URNOutput {
+func (r *Endpoint) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Endpoint) ID() *pulumi.IDOutput {
+func (r *Endpoint) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-func (r *Endpoint) ContentTypesToCompresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["contentTypesToCompresses"])
+func (r *Endpoint) ContentTypesToCompresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["contentTypesToCompresses"])
 }
 
 // A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
-func (r *Endpoint) GeoFilters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["geoFilters"])
+func (r *Endpoint) GeoFilters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["geoFilters"])
 }
 
-func (r *Endpoint) HostName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hostName"])
+func (r *Endpoint) HostName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hostName"])
 }
 
 // Indicates whether compression is to be enabled. Defaults to false.
-func (r *Endpoint) IsCompressionEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isCompressionEnabled"])
+func (r *Endpoint) IsCompressionEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isCompressionEnabled"])
 }
 
 // Defaults to `true`.
-func (r *Endpoint) IsHttpAllowed() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isHttpAllowed"])
+func (r *Endpoint) IsHttpAllowed() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isHttpAllowed"])
 }
 
 // Defaults to `true`.
-func (r *Endpoint) IsHttpsAllowed() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["isHttpsAllowed"])
+func (r *Endpoint) IsHttpsAllowed() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["isHttpsAllowed"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Endpoint) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Endpoint) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-func (r *Endpoint) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Endpoint) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-func (r *Endpoint) OptimizationType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["optimizationType"])
+func (r *Endpoint) OptimizationType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["optimizationType"])
 }
 
 // The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-func (r *Endpoint) Origins() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["origins"])
+func (r *Endpoint) Origins() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
 // The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
-func (r *Endpoint) OriginHostHeader() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["originHostHeader"])
+func (r *Endpoint) OriginHostHeader() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["originHostHeader"])
 }
 
 // The path used at for origin requests.
-func (r *Endpoint) OriginPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["originPath"])
+func (r *Endpoint) OriginPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["originPath"])
 }
 
 // the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
-func (r *Endpoint) ProbePath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["probePath"])
+func (r *Endpoint) ProbePath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["probePath"])
 }
 
 // The CDN Profile to which to attach the CDN Endpoint.
-func (r *Endpoint) ProfileName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["profileName"])
+func (r *Endpoint) ProfileName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["profileName"])
 }
 
 // Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
-func (r *Endpoint) QuerystringCachingBehaviour() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["querystringCachingBehaviour"])
+func (r *Endpoint) QuerystringCachingBehaviour() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["querystringCachingBehaviour"])
 }
 
 // The name of the resource group in which to create the CDN Endpoint.
-func (r *Endpoint) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Endpoint) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Endpoint) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Endpoint) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Endpoint resources.

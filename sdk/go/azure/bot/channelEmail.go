@@ -73,38 +73,38 @@ func GetChannelEmail(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ChannelEmail) URN() *pulumi.URNOutput {
+func (r *ChannelEmail) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ChannelEmail) ID() *pulumi.IDOutput {
+func (r *ChannelEmail) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-func (r *ChannelEmail) BotName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["botName"])
+func (r *ChannelEmail) BotName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["botName"])
 }
 
 // The email address that the Bot will authenticate with.
-func (r *ChannelEmail) EmailAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["emailAddress"])
+func (r *ChannelEmail) EmailAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["emailAddress"])
 }
 
 // The email password that the the Bot will authenticate with.
-func (r *ChannelEmail) EmailPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["emailPassword"])
+func (r *ChannelEmail) EmailPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["emailPassword"])
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ChannelEmail) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *ChannelEmail) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-func (r *ChannelEmail) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ChannelEmail) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ChannelEmail resources.

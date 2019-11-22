@@ -83,48 +83,48 @@ func GetNetworkMapping(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkMapping) URN() *pulumi.URNOutput {
+func (r *NetworkMapping) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkMapping) ID() *pulumi.IDOutput {
+func (r *NetworkMapping) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the network mapping.
-func (r *NetworkMapping) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NetworkMapping) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the vault that should be updated.
-func (r *NetworkMapping) RecoveryVaultName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["recoveryVaultName"])
+func (r *NetworkMapping) RecoveryVaultName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
 }
 
 // Name of the resource group where the vault that should be updated is located.
-func (r *NetworkMapping) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NetworkMapping) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The id of the primary network.
-func (r *NetworkMapping) SourceNetworkId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceNetworkId"])
+func (r *NetworkMapping) SourceNetworkId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceNetworkId"])
 }
 
 // Specifies the ASR fabric where mapping should be created.
-func (r *NetworkMapping) SourceRecoveryFabricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceRecoveryFabricName"])
+func (r *NetworkMapping) SourceRecoveryFabricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceRecoveryFabricName"])
 }
 
 // The id of the recovery network.
-func (r *NetworkMapping) TargetNetworkId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetNetworkId"])
+func (r *NetworkMapping) TargetNetworkId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetNetworkId"])
 }
 
 // The Azure Site Recovery fabric object corresponding to the recovery Azure region.
-func (r *NetworkMapping) TargetRecoveryFabricName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetRecoveryFabricName"])
+func (r *NetworkMapping) TargetRecoveryFabricName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetRecoveryFabricName"])
 }
 
 // Input properties used for looking up and filtering NetworkMapping resources.

@@ -74,53 +74,53 @@ func GetActionGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ActionGroup) URN() *pulumi.URNOutput {
+func (r *ActionGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ActionGroup) ID() *pulumi.IDOutput {
+func (r *ActionGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `emailReceiver` blocks as defined below.
-func (r *ActionGroup) EmailReceivers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["emailReceivers"])
+func (r *ActionGroup) EmailReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["emailReceivers"])
 }
 
 // Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-func (r *ActionGroup) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *ActionGroup) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-func (r *ActionGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ActionGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the Action Group instance.
-func (r *ActionGroup) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ActionGroup) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The short name of the action group. This will be used in SMS messages.
-func (r *ActionGroup) ShortName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["shortName"])
+func (r *ActionGroup) ShortName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["shortName"])
 }
 
 // One or more `smsReceiver ` blocks as defined below.
-func (r *ActionGroup) SmsReceivers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["smsReceivers"])
+func (r *ActionGroup) SmsReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["smsReceivers"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ActionGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ActionGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // One or more `webhookReceiver ` blocks as defined below.
-func (r *ActionGroup) WebhookReceivers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["webhookReceivers"])
+func (r *ActionGroup) WebhookReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["webhookReceivers"])
 }
 
 // Input properties used for looking up and filtering ActionGroup resources.

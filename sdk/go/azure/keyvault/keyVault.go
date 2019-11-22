@@ -90,78 +90,78 @@ func GetKeyVault(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *KeyVault) URN() *pulumi.URNOutput {
+func (r *KeyVault) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *KeyVault) ID() *pulumi.IDOutput {
+func (r *KeyVault) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
-func (r *KeyVault) AccessPolicies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["accessPolicies"])
+func (r *KeyVault) AccessPolicies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["accessPolicies"])
 }
 
 // Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-func (r *KeyVault) EnabledForDeployment() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabledForDeployment"])
+func (r *KeyVault) EnabledForDeployment() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabledForDeployment"])
 }
 
 // Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-func (r *KeyVault) EnabledForDiskEncryption() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabledForDiskEncryption"])
+func (r *KeyVault) EnabledForDiskEncryption() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabledForDiskEncryption"])
 }
 
 // Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
-func (r *KeyVault) EnabledForTemplateDeployment() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabledForTemplateDeployment"])
+func (r *KeyVault) EnabledForTemplateDeployment() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabledForTemplateDeployment"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *KeyVault) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *KeyVault) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-func (r *KeyVault) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *KeyVault) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A `networkAcls` block as defined below.
-func (r *KeyVault) NetworkAcls() *pulumi.Output {
+func (r *KeyVault) NetworkAcls() pulumi.Output {
 	return r.s.State["networkAcls"]
 }
 
 // The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-func (r *KeyVault) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *KeyVault) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // ) A `sku` block as described below.
-func (r *KeyVault) Sku() *pulumi.Output {
+func (r *KeyVault) Sku() pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-func (r *KeyVault) SkuName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["skuName"])
+func (r *KeyVault) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *KeyVault) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *KeyVault) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-func (r *KeyVault) TenantId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tenantId"])
+func (r *KeyVault) TenantId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tenantId"])
 }
 
 // The URI of the Key Vault, used for performing operations on keys and secrets.
-func (r *KeyVault) VaultUri() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
+func (r *KeyVault) VaultUri() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vaultUri"])
 }
 
 // Input properties used for looking up and filtering KeyVault resources.

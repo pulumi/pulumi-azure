@@ -59,28 +59,28 @@ func GetTriggerCustom(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerCustom) URN() *pulumi.URNOutput {
+func (r *TriggerCustom) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerCustom) ID() *pulumi.IDOutput {
+func (r *TriggerCustom) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the JSON Blob defining the Body of this Custom Trigger.
-func (r *TriggerCustom) Body() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["body"])
+func (r *TriggerCustom) Body() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["body"])
 }
 
 // Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerCustom) LogicAppId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["logicAppId"])
+func (r *TriggerCustom) LogicAppId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["logicAppId"])
 }
 
 // Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerCustom) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TriggerCustom) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering TriggerCustom resources.

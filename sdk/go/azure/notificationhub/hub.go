@@ -68,43 +68,43 @@ func GetHub(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Hub) URN() *pulumi.URNOutput {
+func (r *Hub) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Hub) ID() *pulumi.IDOutput {
+func (r *Hub) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `apnsCredential` block as defined below.
-func (r *Hub) ApnsCredential() *pulumi.Output {
+func (r *Hub) ApnsCredential() pulumi.Output {
 	return r.s.State["apnsCredential"]
 }
 
 // A `gcmCredential` block as defined below.
-func (r *Hub) GcmCredential() *pulumi.Output {
+func (r *Hub) GcmCredential() pulumi.Output {
 	return r.s.State["gcmCredential"]
 }
 
 // The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
-func (r *Hub) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Hub) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name to use for this Notification Hub. Changing this forces a new resource to be created.
-func (r *Hub) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Hub) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
-func (r *Hub) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *Hub) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-func (r *Hub) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Hub) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering Hub resources.

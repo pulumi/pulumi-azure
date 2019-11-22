@@ -89,63 +89,63 @@ func GetEventhubDataConnection(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventhubDataConnection) URN() *pulumi.URNOutput {
+func (r *EventhubDataConnection) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventhubDataConnection) ID() *pulumi.IDOutput {
+func (r *EventhubDataConnection) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) ClusterName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["clusterName"])
+func (r *EventhubDataConnection) ClusterName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["clusterName"])
 }
 
 // Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) ConsumerGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["consumerGroup"])
+func (r *EventhubDataConnection) ConsumerGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["consumerGroup"])
 }
 
 // Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
-func (r *EventhubDataConnection) DataFormat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataFormat"])
+func (r *EventhubDataConnection) DataFormat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataFormat"])
 }
 
 // Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) DatabaseName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["databaseName"])
+func (r *EventhubDataConnection) DatabaseName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["databaseName"])
 }
 
 // Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) EventhubId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubId"])
+func (r *EventhubDataConnection) EventhubId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubId"])
 }
 
 // The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *EventhubDataConnection) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
-func (r *EventhubDataConnection) MappingRuleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mappingRuleName"])
+func (r *EventhubDataConnection) MappingRuleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mappingRuleName"])
 }
 
 // The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventhubDataConnection) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *EventhubDataConnection) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the target table name used for the message ingestion. Table must exist before resource is created.
-func (r *EventhubDataConnection) TableName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["tableName"])
+func (r *EventhubDataConnection) TableName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["tableName"])
 }
 
 // Input properties used for looking up and filtering EventhubDataConnection resources.

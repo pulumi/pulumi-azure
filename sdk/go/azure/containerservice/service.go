@@ -99,63 +99,63 @@ func GetService(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() *pulumi.URNOutput {
+func (r *Service) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() *pulumi.IDOutput {
+func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A Agent Pool Profile's block as documented below.
-func (r *Service) AgentPoolProfile() *pulumi.Output {
+func (r *Service) AgentPoolProfile() pulumi.Output {
 	return r.s.State["agentPoolProfile"]
 }
 
 // A VM Diagnostics Profile block as documented below.
-func (r *Service) DiagnosticsProfile() *pulumi.Output {
+func (r *Service) DiagnosticsProfile() pulumi.Output {
 	return r.s.State["diagnosticsProfile"]
 }
 
 // A Linux Profile block as documented below.
-func (r *Service) LinuxProfile() *pulumi.Output {
+func (r *Service) LinuxProfile() pulumi.Output {
 	return r.s.State["linuxProfile"]
 }
 
 // The location where the Container Service instance should be created. Changing this forces a new resource to be created.
-func (r *Service) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *Service) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // A Master Profile block as documented below.
-func (r *Service) MasterProfile() *pulumi.Output {
+func (r *Service) MasterProfile() pulumi.Output {
 	return r.s.State["masterProfile"]
 }
 
 // Unique name of the agent pool profile in the context of the subscription and resource group.
-func (r *Service) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Service) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the Container Orchestration Platform to use. Currently can be either `DCOS`, `Kubernetes` or `Swarm`. Changing this forces a new resource to be created.
-func (r *Service) OrchestrationPlatform() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["orchestrationPlatform"])
+func (r *Service) OrchestrationPlatform() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["orchestrationPlatform"])
 }
 
 // Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *Service) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Service) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A Service Principal block as documented below.
-func (r *Service) ServicePrincipal() *pulumi.Output {
+func (r *Service) ServicePrincipal() pulumi.Output {
 	return r.s.State["servicePrincipal"]
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Service) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *Service) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Service resources.

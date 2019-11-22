@@ -123,103 +123,103 @@ func GetWindowsVirtualMachine(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *WindowsVirtualMachine) URN() *pulumi.URNOutput {
+func (r *WindowsVirtualMachine) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *WindowsVirtualMachine) ID() *pulumi.IDOutput {
+func (r *WindowsVirtualMachine) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Can this Virtual Machine be claimed by users? Defaults to `true`.
-func (r *WindowsVirtualMachine) AllowClaim() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["allowClaim"])
+func (r *WindowsVirtualMachine) AllowClaim() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["allowClaim"])
 }
 
 // Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) DisallowPublicIpAddress() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["disallowPublicIpAddress"])
+func (r *WindowsVirtualMachine) DisallowPublicIpAddress() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["disallowPublicIpAddress"])
 }
 
 // The FQDN of the Virtual Machine.
-func (r *WindowsVirtualMachine) Fqdn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+func (r *WindowsVirtualMachine) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // A `galleryImageReference` block as defined below.
-func (r *WindowsVirtualMachine) GalleryImageReference() *pulumi.Output {
+func (r *WindowsVirtualMachine) GalleryImageReference() pulumi.Output {
 	return r.s.State["galleryImageReference"]
 }
 
 // One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) InboundNatRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["inboundNatRules"])
+func (r *WindowsVirtualMachine) InboundNatRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["inboundNatRules"])
 }
 
 // Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) LabName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["labName"])
+func (r *WindowsVirtualMachine) LabName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["labName"])
 }
 
 // The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) LabSubnetName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["labSubnetName"])
+func (r *WindowsVirtualMachine) LabSubnetName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["labSubnetName"])
 }
 
 // The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) LabVirtualNetworkId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["labVirtualNetworkId"])
+func (r *WindowsVirtualMachine) LabVirtualNetworkId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["labVirtualNetworkId"])
 }
 
 // Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *WindowsVirtualMachine) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *WindowsVirtualMachine) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Any notes about the Virtual Machine.
-func (r *WindowsVirtualMachine) Notes() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["notes"])
+func (r *WindowsVirtualMachine) Notes() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notes"])
 }
 
 // The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *WindowsVirtualMachine) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *WindowsVirtualMachine) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Size() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["size"])
+func (r *WindowsVirtualMachine) Size() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["size"])
 }
 
 // The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-func (r *WindowsVirtualMachine) StorageType() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageType"])
+func (r *WindowsVirtualMachine) StorageType() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageType"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *WindowsVirtualMachine) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *WindowsVirtualMachine) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The unique immutable identifier of the Virtual Machine.
-func (r *WindowsVirtualMachine) UniqueIdentifier() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
+func (r *WindowsVirtualMachine) UniqueIdentifier() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
 }
 
 // The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *WindowsVirtualMachine) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // Input properties used for looking up and filtering WindowsVirtualMachine resources.

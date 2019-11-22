@@ -83,58 +83,58 @@ func GetNetworkPacketCapture(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkPacketCapture) URN() *pulumi.URNOutput {
+func (r *NetworkPacketCapture) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkPacketCapture) ID() *pulumi.IDOutput {
+func (r *NetworkPacketCapture) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) Filters() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["filters"])
+func (r *NetworkPacketCapture) Filters() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["filters"])
 }
 
 // The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) MaximumBytesPerPacket() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maximumBytesPerPacket"])
+func (r *NetworkPacketCapture) MaximumBytesPerPacket() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumBytesPerPacket"])
 }
 
 // Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) MaximumBytesPerSession() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maximumBytesPerSession"])
+func (r *NetworkPacketCapture) MaximumBytesPerSession() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumBytesPerSession"])
 }
 
 // The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) MaximumCaptureDuration() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maximumCaptureDuration"])
+func (r *NetworkPacketCapture) MaximumCaptureDuration() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maximumCaptureDuration"])
 }
 
 // The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NetworkPacketCapture) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Network Watcher. Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) NetworkWatcherName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkWatcherName"])
+func (r *NetworkPacketCapture) NetworkWatcherName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkWatcherName"])
 }
 
 // The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NetworkPacketCapture) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `storageLocation` block as defined below. Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) StorageLocation() *pulumi.Output {
+func (r *NetworkPacketCapture) StorageLocation() pulumi.Output {
 	return r.s.State["storageLocation"]
 }
 
 // The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
-func (r *NetworkPacketCapture) TargetResourceId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["targetResourceId"])
+func (r *NetworkPacketCapture) TargetResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
 }
 
 // Input properties used for looking up and filtering NetworkPacketCapture resources.

@@ -74,42 +74,42 @@ func GetARecord(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ARecord) URN() *pulumi.URNOutput {
+func (r *ARecord) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ARecord) ID() *pulumi.IDOutput {
+func (r *ARecord) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the DNS A Record.
-func (r *ARecord) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ARecord) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // List of IPv4 Addresses.
-func (r *ARecord) Records() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["records"])
+func (r *ARecord) Records() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["records"])
 }
 
 // Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *ARecord) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ARecord) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *ARecord) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *ARecord) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-func (r *ARecord) Ttl() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ttl"])
+func (r *ARecord) Ttl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
 
 // Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (r *ARecord) ZoneName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["zoneName"])
+func (r *ARecord) ZoneName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["zoneName"])
 }
 
 // Input properties used for looking up and filtering ARecord resources.

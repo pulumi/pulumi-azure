@@ -71,42 +71,42 @@ func GetEventHubConsumerGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventHubConsumerGroup) URN() *pulumi.URNOutput {
+func (r *EventHubConsumerGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventHubConsumerGroup) ID() *pulumi.IDOutput {
+func (r *EventHubConsumerGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the name of the EventHub. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) EventhubName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["eventhubName"])
+func (r *EventHubConsumerGroup) EventhubName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["eventhubName"])
 }
 
-func (r *EventHubConsumerGroup) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *EventHubConsumerGroup) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *EventHubConsumerGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) NamespaceName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
+func (r *EventHubConsumerGroup) NamespaceName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *EventHubConsumerGroup) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the user metadata.
-func (r *EventHubConsumerGroup) UserMetadata() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["userMetadata"])
+func (r *EventHubConsumerGroup) UserMetadata() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["userMetadata"])
 }
 
 // Input properties used for looking up and filtering EventHubConsumerGroup resources.

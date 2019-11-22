@@ -71,48 +71,48 @@ func GetPipeline(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Pipeline) URN() *pulumi.URNOutput {
+func (r *Pipeline) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Pipeline) ID() *pulumi.IDOutput {
+func (r *Pipeline) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of tags that can be used for describing the Data Factory Pipeline.
-func (r *Pipeline) Annotations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
+func (r *Pipeline) Annotations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
-func (r *Pipeline) DataFactoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
+func (r *Pipeline) DataFactoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Pipeline.
-func (r *Pipeline) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Pipeline) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *Pipeline) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Pipeline) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Pipeline.
-func (r *Pipeline) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *Pipeline) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
-func (r *Pipeline) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Pipeline) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A map of variables to associate with the Data Factory Pipeline.
-func (r *Pipeline) Variables() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["variables"])
+func (r *Pipeline) Variables() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["variables"])
 }
 
 // Input properties used for looking up and filtering Pipeline resources.

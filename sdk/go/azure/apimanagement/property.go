@@ -77,48 +77,48 @@ func GetProperty(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Property) URN() *pulumi.URNOutput {
+func (r *Property) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Property) ID() *pulumi.IDOutput {
+func (r *Property) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
-func (r *Property) ApiManagementName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
+func (r *Property) ApiManagementName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
 // The display name of this API Management Property.
-func (r *Property) DisplayName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["displayName"])
+func (r *Property) DisplayName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["displayName"])
 }
 
 // The name of the API Management Property. Changing this forces a new resource to be created.
-func (r *Property) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Property) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
-func (r *Property) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Property) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
-func (r *Property) Secret() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["secret"])
+func (r *Property) Secret() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["secret"])
 }
 
 // A list of tags to be applied to the API Management Property.
-func (r *Property) Tags() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tags"])
+func (r *Property) Tags() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tags"])
 }
 
 // The value of this API Management Property.
-func (r *Property) Value() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["value"])
+func (r *Property) Value() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["value"])
 }
 
 // Input properties used for looking up and filtering Property resources.

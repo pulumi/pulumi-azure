@@ -78,52 +78,52 @@ func GetTemplateDeployment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *TemplateDeployment) URN() *pulumi.URNOutput {
+func (r *TemplateDeployment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *TemplateDeployment) ID() *pulumi.IDOutput {
+func (r *TemplateDeployment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
 // Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 // specified within the template, and this provider will not be aware of this.
-func (r *TemplateDeployment) DeploymentMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deploymentMode"])
+func (r *TemplateDeployment) DeploymentMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deploymentMode"])
 }
 
 // Specifies the name of the template deployment. Changing this forces a
 // new resource to be created.
-func (r *TemplateDeployment) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *TemplateDeployment) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
-func (r *TemplateDeployment) Outputs() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["outputs"])
+func (r *TemplateDeployment) Outputs() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["outputs"])
 }
 
 // Specifies the name and value pairs that define the deployment parameters for the template.
-func (r *TemplateDeployment) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *TemplateDeployment) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-func (r *TemplateDeployment) ParametersBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parametersBody"])
+func (r *TemplateDeployment) ParametersBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parametersBody"])
 }
 
 // The name of the resource group in which to
 // create the template deployment.
-func (r *TemplateDeployment) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *TemplateDeployment) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the JSON definition for the template.
-func (r *TemplateDeployment) TemplateBody() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["templateBody"])
+func (r *TemplateDeployment) TemplateBody() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["templateBody"])
 }
 
 // Input properties used for looking up and filtering TemplateDeployment resources.

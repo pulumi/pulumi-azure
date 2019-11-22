@@ -63,40 +63,40 @@ func GetExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ExpressRouteCircuitAuthorization) URN() *pulumi.URNOutput {
+func (r *ExpressRouteCircuitAuthorization) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ExpressRouteCircuitAuthorization) ID() *pulumi.IDOutput {
+func (r *ExpressRouteCircuitAuthorization) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Authorization Key.
-func (r *ExpressRouteCircuitAuthorization) AuthorizationKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationKey"])
+func (r *ExpressRouteCircuitAuthorization) AuthorizationKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationKey"])
 }
 
 // The authorization use status.
-func (r *ExpressRouteCircuitAuthorization) AuthorizationUseStatus() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authorizationUseStatus"])
+func (r *ExpressRouteCircuitAuthorization) AuthorizationUseStatus() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authorizationUseStatus"])
 }
 
 // The name of the Express Route Circuit in which to create the Authorization.
-func (r *ExpressRouteCircuitAuthorization) ExpressRouteCircuitName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expressRouteCircuitName"])
+func (r *ExpressRouteCircuitAuthorization) ExpressRouteCircuitName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expressRouteCircuitName"])
 }
 
 // The name of the ExpressRoute circuit. Changing this forces a
 // new resource to be created.
-func (r *ExpressRouteCircuitAuthorization) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ExpressRouteCircuitAuthorization) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to
 // create the ExpressRoute circuit. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuitAuthorization) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *ExpressRouteCircuitAuthorization) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering ExpressRouteCircuitAuthorization resources.

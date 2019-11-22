@@ -97,65 +97,65 @@ func GetNatRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NatRule) URN() *pulumi.URNOutput {
+func (r *NatRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NatRule) ID() *pulumi.IDOutput {
+func (r *NatRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *NatRule) BackendIpConfigurationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["backendIpConfigurationId"])
+func (r *NatRule) BackendIpConfigurationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["backendIpConfigurationId"])
 }
 
 // The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-func (r *NatRule) BackendPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["backendPort"])
+func (r *NatRule) BackendPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["backendPort"])
 }
 
 // Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
-func (r *NatRule) EnableFloatingIp() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableFloatingIp"])
+func (r *NatRule) EnableFloatingIp() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableFloatingIp"])
 }
 
-func (r *NatRule) FrontendIpConfigurationId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
+func (r *NatRule) FrontendIpConfigurationId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
 }
 
 // The name of the frontend IP configuration exposing this rule.
-func (r *NatRule) FrontendIpConfigurationName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
+func (r *NatRule) FrontendIpConfigurationName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
 }
 
 // The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
-func (r *NatRule) FrontendPort() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["frontendPort"])
+func (r *NatRule) FrontendPort() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["frontendPort"])
 }
 
 // The ID of the Load Balancer in which to create the NAT Rule.
-func (r *NatRule) LoadbalancerId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
+func (r *NatRule) LoadbalancerId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
 
-func (r *NatRule) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *NatRule) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the NAT Rule.
-func (r *NatRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NatRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-func (r *NatRule) Protocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["protocol"])
+func (r *NatRule) Protocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["protocol"])
 }
 
 // The name of the resource group in which to create the resource.
-func (r *NatRule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NatRule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering NatRule resources.

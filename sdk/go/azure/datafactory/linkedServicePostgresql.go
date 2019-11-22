@@ -82,58 +82,58 @@ func GetLinkedServicePostgresql(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *LinkedServicePostgresql) URN() *pulumi.URNOutput {
+func (r *LinkedServicePostgresql) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *LinkedServicePostgresql) ID() *pulumi.IDOutput {
+func (r *LinkedServicePostgresql) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
-func (r *LinkedServicePostgresql) AdditionalProperties() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
+func (r *LinkedServicePostgresql) AdditionalProperties() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Linked Service PostgreSQL.
-func (r *LinkedServicePostgresql) Annotations() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
+func (r *LinkedServicePostgresql) Annotations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The connection string in which to authenticate with PostgreSQL.
-func (r *LinkedServicePostgresql) ConnectionString() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["connectionString"])
+func (r *LinkedServicePostgresql) ConnectionString() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionString"])
 }
 
 // The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-func (r *LinkedServicePostgresql) DataFactoryName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
+func (r *LinkedServicePostgresql) DataFactoryName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Linked Service PostgreSQL.
-func (r *LinkedServicePostgresql) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *LinkedServicePostgresql) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
-func (r *LinkedServicePostgresql) IntegrationRuntimeName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["integrationRuntimeName"])
+func (r *LinkedServicePostgresql) IntegrationRuntimeName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["integrationRuntimeName"])
 }
 
 // Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *LinkedServicePostgresql) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *LinkedServicePostgresql) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
-func (r *LinkedServicePostgresql) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *LinkedServicePostgresql) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
-func (r *LinkedServicePostgresql) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *LinkedServicePostgresql) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Input properties used for looking up and filtering LinkedServicePostgresql resources.

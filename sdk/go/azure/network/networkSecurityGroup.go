@@ -66,38 +66,38 @@ func GetNetworkSecurityGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkSecurityGroup) URN() *pulumi.URNOutput {
+func (r *NetworkSecurityGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkSecurityGroup) ID() *pulumi.IDOutput {
+func (r *NetworkSecurityGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *NetworkSecurityGroup) Location() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["location"])
+func (r *NetworkSecurityGroup) Location() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the security rule.
-func (r *NetworkSecurityGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *NetworkSecurityGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-func (r *NetworkSecurityGroup) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *NetworkSecurityGroup) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
-func (r *NetworkSecurityGroup) SecurityRules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["securityRules"])
+func (r *NetworkSecurityGroup) SecurityRules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["securityRules"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *NetworkSecurityGroup) Tags() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["tags"])
+func (r *NetworkSecurityGroup) Tags() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering NetworkSecurityGroup resources.

@@ -77,47 +77,47 @@ func GetJobSchedule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *JobSchedule) URN() *pulumi.URNOutput {
+func (r *JobSchedule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *JobSchedule) ID() *pulumi.IDOutput {
+func (r *JobSchedule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-func (r *JobSchedule) AutomationAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
+func (r *JobSchedule) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The UUID identifying the Automation Job Schedule.
-func (r *JobSchedule) JobScheduleId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jobScheduleId"])
+func (r *JobSchedule) JobScheduleId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jobScheduleId"])
 }
 
 // A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
-func (r *JobSchedule) Parameters() *pulumi.MapOutput {
-	return (*pulumi.MapOutput)(r.s.State["parameters"])
+func (r *JobSchedule) Parameters() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
-func (r *JobSchedule) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *JobSchedule) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
-func (r *JobSchedule) RunOn() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runOn"])
+func (r *JobSchedule) RunOn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runOn"])
 }
 
 // The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-func (r *JobSchedule) RunbookName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["runbookName"])
+func (r *JobSchedule) RunbookName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["runbookName"])
 }
 
-func (r *JobSchedule) ScheduleName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["scheduleName"])
+func (r *JobSchedule) ScheduleName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["scheduleName"])
 }
 
 // Input properties used for looking up and filtering JobSchedule resources.

@@ -59,34 +59,34 @@ func GetTable(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Table) URN() *pulumi.URNOutput {
+func (r *Table) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Table) ID() *pulumi.IDOutput {
+func (r *Table) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `acl` blocks as defined below.
-func (r *Table) Acls() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["acls"])
+func (r *Table) Acls() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["acls"])
 }
 
 // The name of the storage table. Must be unique within the storage account the table is located.
-func (r *Table) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Table) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The name of the resource group in which to create the storage table.
-func (r *Table) ResourceGroupName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+func (r *Table) ResourceGroupName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the storage account in which to create the storage table.
 // Changing this forces a new resource to be created.
-func (r *Table) StorageAccountName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["storageAccountName"])
+func (r *Table) StorageAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
 }
 
 // Input properties used for looking up and filtering Table resources.
