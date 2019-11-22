@@ -305,19 +305,10 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             throw new Error("[subscription] must be specified in combination with [topic]");
         }
 
-        let namespaceName;
-        if (args.queue && args.queue.namespaceName) {
-            namespaceName = pulumi.all([args.queue.namespaceName, args.queue.id]).apply(([ns]) => ns);
-        } else {
-            namespaceName = pulumi.all([args.topic!.namespaceName, args.topic!.id]).apply(([ns]) => ns);
-        }
-
-        let resourceGroupName;
-        if (args.queue && args.queue.resourceGroupName) {
-            resourceGroupName = pulumi.all([args.queue.resourceGroupName, args.queue.id]).apply(([rg]) => rg);
-        } else {
-            resourceGroupName = pulumi.all([args.topic!.resourceGroupName, args.topic!.id]).apply(([rg]) => rg);
-        }
+        const namespaceName = (args.queue && args.queue.namespaceName) || args.topic!.namespaceName;
+        const namespaceId = (args.queue && args.queue.namespaceName) ? args.queue.id : args.topic!.id;
+        const resourceGroupName = (args.queue && args.queue.resourceGroupName) || args.topic!.resourceGroupName;
+        const resourceGroupId = (args.queue && args.queue.resourceGroupName) ? args.queue.id : args.topic!.id;
 
         // The binding does not store the Service Bus connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
@@ -334,7 +325,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             connection: bindingConnectionKey,
         } as ServiceBusBindingDefinition;
 
-        const namespace = pulumi.all([namespaceName, resourceGroupName])
+        const namespace = pulumi.all([namespaceName, resourceGroupName, namespaceId, resourceGroupId])
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getNamespace({ name: namespaceName, resourceGroupName }));
 
