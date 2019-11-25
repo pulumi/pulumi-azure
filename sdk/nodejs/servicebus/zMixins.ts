@@ -305,6 +305,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             throw new Error("[subscription] must be specified in combination with [topic]");
         }
 
+        const queueOrTopicId = (args.queue && args.queue.id) || args.topic!.id;
         const namespaceName = (args.queue && args.queue.namespaceName) || args.topic!.namespaceName;
         const resourceGroupName = (args.queue && args.queue.resourceGroupName) || args.topic!.resourceGroupName;
 
@@ -323,7 +324,8 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             connection: bindingConnectionKey,
         } as ServiceBusBindingDefinition;
 
-        const namespace = pulumi.all([namespaceName, resourceGroupName])
+        // Fold the queue/topic ID into the all so we don't attempt to fetch the namespace until we're sure it has been created.
+        const namespace = pulumi.all([namespaceName, resourceGroupName, queueOrTopicId])
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getNamespace({ name: namespaceName, resourceGroupName }));
 
