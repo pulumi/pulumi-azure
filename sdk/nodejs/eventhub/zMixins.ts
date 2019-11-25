@@ -214,6 +214,7 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
             connection: bindingConnectionKey,
         } as EventHubBindingDefinition;
 
+        // Fold the event hub ID into the all so we don't attempt to fetch the namespace until we're sure it has been created.
         const namespace = pulumi.all([args.eventHub.namespaceName, args.eventHub.resourceGroupName, args.eventHub.id])
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getEventhubNamespace({ name: namespaceName, resourceGroupName }));
