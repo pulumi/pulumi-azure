@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPublicIpPrefix = new azure.network.PublicIpPrefix("test", {
- *     location: testResourceGroup.location,
+ * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("example", {
+ *     location: exampleResourceGroup.location,
  *     prefixLength: 31,
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "Production",
  *     },

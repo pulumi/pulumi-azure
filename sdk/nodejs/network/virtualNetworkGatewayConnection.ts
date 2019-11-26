@@ -20,51 +20,51 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.1.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
  * const onpremiseLocalNetworkGateway = new azure.network.LocalNetworkGateway("onpremise", {
  *     addressSpaces: ["10.1.1.0/24"],
  *     gatewayAddress: "168.62.225.23",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Dynamic",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("test", {
+ * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
  *     activeActive: false,
  *     enableBgp: false,
  *     ipConfigurations: [{
  *         privateIpAddressAllocation: "Dynamic",
- *         publicIpAddressId: testPublicIp.id,
- *         subnetId: testSubnet.id,
+ *         publicIpAddressId: examplePublicIp.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Basic",
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  * });
  * const onpremiseVirtualNetworkGatewayConnection = new azure.network.VirtualNetworkGatewayConnection("onpremise", {
  *     localNetworkGatewayId: onpremiseLocalNetworkGateway.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  *     type: "IPsec",
- *     virtualNetworkGatewayId: testVirtualNetworkGateway.id,
+ *     virtualNetworkGatewayId: exampleVirtualNetworkGateway.id,
  * });
  * ```
  * 

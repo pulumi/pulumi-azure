@@ -22,27 +22,27 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testCache = new azure.redis.Cache("test", {
+ * const exampleCache = new azure.redis.Cache("example", {
  *     capacity: 1,
  *     enableNonSslPort: false,
  *     family: "P",
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     redisConfiguration: {
  *         maxclients: 256,
  *         maxmemoryDelta: 2,
  *         maxmemoryPolicy: "allkeys-lru",
  *         maxmemoryReserved: 2,
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Premium",
  * });
- * const testFirewallRule = new azure.redis.FirewallRule("test", {
+ * const exampleFirewallRule = new azure.redis.FirewallRule("example", {
  *     endIp: "2.3.4.5",
- *     redisCacheName: testCache.name,
- *     resourceGroupName: testResourceGroup.name,
+ *     redisCacheName: exampleCache.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     startIp: "1.2.3.4",
  * });
  * ```

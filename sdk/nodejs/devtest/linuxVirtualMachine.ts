@@ -16,37 +16,37 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as fs from "fs";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testLab = new azure.devtest.Lab("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleLab = new azure.devtest.Lab("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         Sydney: "Australia",
  *     },
  * });
- * const testVirtualNetwork = new azure.devtest.VirtualNetwork("test", {
- *     labName: testLab.name,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
+ *     labName: exampleLab.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     subnet: {
  *         useInVirtualMachineCreation: "Allow",
  *         usePublicIpAddress: "Allow",
  *     },
  * });
- * const testLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("test", {
+ * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("example", {
  *     galleryImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
  *         sku: "18.04-LTS",
  *         version: "latest",
  *     },
- *     labName: testLab.name,
- *     labSubnetName: testVirtualNetwork.subnet.apply(subnet => subnet.name),
- *     labVirtualNetworkId: testVirtualNetwork.id,
- *     location: testResourceGroup.location,
+ *     labName: exampleLab.name,
+ *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     labVirtualNetworkId: exampleVirtualNetwork.id,
+ *     location: exampleResourceGroup.location,
  *     notes: "Some notes about this Virtual Machine.",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     size: "Standard_DS2",
  *     sshKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
  *     storageType: "Premium",

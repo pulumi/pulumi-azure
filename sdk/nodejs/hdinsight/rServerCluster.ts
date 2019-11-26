@@ -143,7 +143,7 @@ export class RServerCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.RServerClusterStorageAccount[]>;
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.RServerClusterStorageAccount[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight RServer Cluster.
      */
@@ -194,9 +194,6 @@ export class RServerCluster extends pulumi.CustomResource {
             }
             if (!args || args.rstudio === undefined) {
                 throw new Error("Missing required property 'rstudio'");
-            }
-            if (!args || args.storageAccounts === undefined) {
-                throw new Error("Missing required property 'storageAccounts'");
             }
             if (!args || args.tier === undefined) {
                 throw new Error("Missing required property 'tier'");
@@ -319,7 +316,7 @@ export interface RServerClusterArgs {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.hdinsight.RServerClusterStorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.RServerClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight RServer Cluster.
      */

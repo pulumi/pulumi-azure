@@ -16,26 +16,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testService = azure.apimanagement.getService({
+ * const exampleService = azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-resources",
  * });
- * const testProduct = azure.apimanagement.getProduct({
- *     apiManagementName: testService.name,
+ * const exampleProduct = azure.apimanagement.getProduct({
+ *     apiManagementName: exampleService.name,
  *     productId: "00000000-0000-0000-0000-000000000000",
- *     resourceGroupName: testService.resourceGroupName,
+ *     resourceGroupName: exampleService.resourceGroupName,
  * });
- * const testUser = azure.apimanagement.getUser({
- *     apiManagementName: testService.name,
- *     resourceGroupName: testService.resourceGroupName,
+ * const exampleUser = azure.apimanagement.getUser({
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: exampleService.resourceGroupName,
  *     userId: "11111111-1111-1111-1111-111111111111",
  * });
- * const testSubscription = new azure.apimanagement.Subscription("test", {
- *     apiManagementName: testService.name,
+ * const exampleSubscription = new azure.apimanagement.Subscription("example", {
+ *     apiManagementName: exampleService.name,
  *     displayName: "Parser API",
- *     productId: testProduct.id,
- *     resourceGroupName: testService.resourceGroupName,
- *     userId: testUser.id,
+ *     productId: exampleProduct.id,
+ *     resourceGroupName: exampleService.resourceGroupName,
+ *     userId: exampleUser.id,
  * });
  * ```
  *

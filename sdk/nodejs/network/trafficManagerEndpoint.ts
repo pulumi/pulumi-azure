@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testTrafficManagerProfile = new azure.network.TrafficManagerProfile("test", {
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
  *     dnsConfigs: [{
  *         relativeName: server.hex,
  *         ttl: 100,
@@ -38,16 +38,15 @@ import * as utilities from "../utilities";
  *         timeoutInSeconds: 9,
  *         toleratedNumberOfFailures: 3,
  *     }],
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "Production",
  *     },
  *     trafficRoutingMethod: "Weighted",
  * });
- * const testTrafficManagerEndpoint = new azure.network.TrafficManagerEndpoint("test", {
- *     profileName: testTrafficManagerProfile.name,
- *     resourceGroupName: testResourceGroup.name,
- *     target: "example.com",
+ * const exampleTrafficManagerEndpoint = new azure.network.TrafficManagerEndpoint("example", {
+ *     profileName: exampleTrafficManagerProfile.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     type: "externalEndpoints",
  *     weight: 100,
  * });

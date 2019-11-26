@@ -5,6 +5,7 @@ CHANGELOG
 * Upgrade to support go 1.13.x
 * Allow service principle credentials to be specified via environment variables prefixed with `AZURE_` as per the documented standard in addition to those with the prefix `ARM_`.
 * Upgrade to v1.4.2 of pulumi-terraform-bridge
+* Upgrade to v1.37.0 of the AzureRM Terraform Provider
 
 ---
 

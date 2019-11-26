@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.logicapps.getWorkflow({
+ * const example = azure.logicapps.getWorkflow({
  *     name: "workflow1",
  *     resourceGroupName: "my-resource-group",
  * });
  * 
- * export const accessEndpoint = test.accessEndpoint;
+ * export const accessEndpoint = example.accessEndpoint;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.

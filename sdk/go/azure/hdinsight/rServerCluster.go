@@ -33,9 +33,6 @@ func NewRServerCluster(ctx *pulumi.Context,
 	if args == nil || args.Rstudio == nil {
 		return nil, errors.New("missing required argument 'Rstudio'")
 	}
-	if args == nil || args.StorageAccounts == nil {
-		return nil, errors.New("missing required argument 'StorageAccounts'")
-	}
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}

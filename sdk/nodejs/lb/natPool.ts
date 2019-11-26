@@ -19,30 +19,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Static",
  *     location: "West US",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
- *         publicIpAddressId: testPublicIp.id,
+ *         publicIpAddressId: examplePublicIp.id,
  *     }],
  *     location: "West US",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testNatPool = new azure.lb.NatPool("test", {
+ * const exampleNatPool = new azure.lb.NatPool("example", {
  *     backendPort: 8080,
  *     frontendIpConfigurationName: "PublicIPAddress",
  *     frontendPortEnd: 81,
  *     frontendPortStart: 80,
- *     loadbalancerId: testLoadBalancer.id,
+ *     loadbalancerId: exampleLoadBalancer.id,
  *     protocol: "Tcp",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

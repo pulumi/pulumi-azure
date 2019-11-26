@@ -8,7 +8,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot
 {
     /// <summary>
-    /// Manages an IoT Device Provisioning Service Certificate.
+    /// Manages an IotHub Device Provisioning Service Certificate.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps_certificate.html.markdown.
     /// </summary>

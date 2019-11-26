@@ -586,6 +586,7 @@ export namespace appservice {
     export interface AppServiceSiteConfig {
         alwaysOn?: boolean;
         appCommandLine?: string;
+        autoSwapSlotName?: string;
         cors: outputs.appservice.AppServiceSiteConfigCors;
         defaultDocuments?: string[];
         dotnetFrameworkVersion?: string;
@@ -1081,7 +1082,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
          */
         type: string;
         /**
@@ -1095,7 +1096,7 @@ export namespace appservice {
         principalId: string;
         tenantId: string;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
          */
         type: string;
     }
@@ -1140,6 +1141,10 @@ export namespace appservice {
          */
         appCommandLine?: string;
         /**
+         * The name of the swap to automatically swap to during deployment
+         */
+        autoSwapSlotName?: string;
+        /**
          * A `cors` block as defined below.
          */
         cors: outputs.appservice.SlotSiteConfigCors;
@@ -1169,7 +1174,7 @@ export namespace appservice {
          */
         javaContainerVersion?: string;
         /**
-         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
          */
         javaVersion?: string;
         linuxFxVersion: string;
@@ -1186,7 +1191,7 @@ export namespace appservice {
          */
         minTlsVersion: string;
         /**
-         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
          */
         phpVersion?: string;
         /**
@@ -1198,11 +1203,11 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: boolean;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
          */
         remoteDebuggingVersion: string;
         /**
-         * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+         * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
         scmType?: string;
         /**
@@ -2458,6 +2463,7 @@ export namespace containerservice {
          * If the auto-scaler is enabled.
          */
         enableAutoScaling: boolean;
+        enableNodePublicIp?: boolean;
         /**
          * Maximum number of nodes for auto-scaling
          */
@@ -2783,6 +2789,7 @@ export namespace containerservice {
          */
         dnsPrefix: string;
         enableAutoScaling?: boolean;
+        enableNodePublicIp?: boolean;
         /**
          * The FQDN of the Azure Kubernetes Managed Cluster.
          */
@@ -2797,6 +2804,25 @@ export namespace containerservice {
         nodeTaints?: string[];
         osDiskSizeGb: number;
         osType?: string;
+        type?: string;
+        vmSize: string;
+        vnetSubnetId?: string;
+    }
+
+    export interface KubernetesClusterDefaultNodePool {
+        availabilityZones?: string[];
+        enableAutoScaling?: boolean;
+        enableNodePublicIp?: boolean;
+        maxCount?: number;
+        maxPods: number;
+        minCount?: number;
+        /**
+         * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+         */
+        name: string;
+        nodeCount: number;
+        nodeTaints?: string[];
+        osDiskSizeGb: number;
         type?: string;
         vmSize: string;
         vnetSubnetId?: string;
@@ -3071,7 +3097,7 @@ export namespace core {
 export namespace cosmosdb {
     export interface AccountCapability {
         /**
-         * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
          */
         name: string;
     }
@@ -4017,6 +4043,13 @@ export namespace hdinsight {
         storageContainerId: string;
     }
 
+    export interface HBaseClusterStorageAccountGen2 {
+        filesystemId: string;
+        isDefault: boolean;
+        managedIdentityResourceId: string;
+        storageResourceId: string;
+    }
+
     export interface HadoopClusterComponentVersion {
         hadoop: string;
     }
@@ -4028,9 +4061,24 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterRoles {
+        edgeNode?: outputs.hdinsight.HadoopClusterRolesEdgeNode;
         headNode: outputs.hdinsight.HadoopClusterRolesHeadNode;
         workerNode: outputs.hdinsight.HadoopClusterRolesWorkerNode;
         zookeeperNode: outputs.hdinsight.HadoopClusterRolesZookeeperNode;
+    }
+
+    export interface HadoopClusterRolesEdgeNode {
+        installScriptActions: outputs.hdinsight.HadoopClusterRolesEdgeNodeInstallScriptAction[];
+        targetInstanceCount: number;
+        vmSize: string;
+    }
+
+    export interface HadoopClusterRolesEdgeNodeInstallScriptAction {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: string;
+        uri: string;
     }
 
     export interface HadoopClusterRolesHeadNode {
@@ -4066,6 +4114,13 @@ export namespace hdinsight {
         isDefault: boolean;
         storageAccountKey: string;
         storageContainerId: string;
+    }
+
+    export interface HadoopClusterStorageAccountGen2 {
+        filesystemId: string;
+        isDefault: boolean;
+        managedIdentityResourceId: string;
+        storageResourceId: string;
     }
 
     export interface InteractiveQueryClusterComponentVersion {
@@ -4119,6 +4174,13 @@ export namespace hdinsight {
         storageContainerId: string;
     }
 
+    export interface InteractiveQueryClusterStorageAccountGen2 {
+        filesystemId: string;
+        isDefault: boolean;
+        managedIdentityResourceId: string;
+        storageResourceId: string;
+    }
+
     export interface KafkaClusterComponentVersion {
         kafka: string;
     }
@@ -4169,6 +4231,13 @@ export namespace hdinsight {
         isDefault: boolean;
         storageAccountKey: string;
         storageContainerId: string;
+    }
+
+    export interface KafkaClusterStorageAccountGen2 {
+        filesystemId: string;
+        isDefault: boolean;
+        managedIdentityResourceId: string;
+        storageResourceId: string;
     }
 
     export interface MLServicesClusterGateway {
@@ -4334,6 +4403,13 @@ export namespace hdinsight {
         isDefault: boolean;
         storageAccountKey: string;
         storageContainerId: string;
+    }
+
+    export interface SparkClusterStorageAccountGen2 {
+        filesystemId: string;
+        isDefault: boolean;
+        managedIdentityResourceId: string;
+        storageResourceId: string;
     }
 
     export interface StormClusterComponentVersion {
@@ -4546,6 +4622,26 @@ export namespace iot {
         capacity: number;
         /**
          * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+         */
+        name: string;
+        tier: string;
+    }
+
+    export interface IotHubDpsLinkedHub {
+        allocationWeight?: number;
+        applyAllocationPolicy?: boolean;
+        connectionString: string;
+        hostname: string;
+        /**
+         * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+         */
+        location: string;
+    }
+
+    export interface IotHubDpsSku {
+        capacity: number;
+        /**
+         * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
          */
         name: string;
         tier: string;
@@ -4914,6 +5010,10 @@ export namespace lb {
 
     export interface GetLBFrontendIpConfiguration {
         /**
+         * The id of the Frontend IP Configuration.
+         */
+        id: string;
+        /**
          * Specifies the name of the Load Balancer.
          */
         name: string;
@@ -4940,6 +5040,10 @@ export namespace lb {
     }
 
     export interface LoadBalancerFrontendIpConfiguration {
+        /**
+         * The id of the Frontend IP Configuration.
+         */
+        id: string;
         inboundNatRules: string[];
         loadBalancerRules: string[];
         /**
@@ -5024,7 +5128,53 @@ export namespace mediaservices {
 }
 
 export namespace monitoring {
-    export interface ActionGroupEmailReceiver {
+    export interface ActionGroupArmRoleReceiver {
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The arm role id.
+         */
+        roleId: string;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
+    export interface ActionGroupAutomationRunbookReceiver {
+        /**
+         * The automation account ID which holds this runbook and authenticates to Azure resources.
+         */
+        automationAccountId: string;
+        /**
+         * Indicates whether this instance is global runbook.
+         */
+        isGlobalRunbook: boolean;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The name for this runbook.
+         */
+        runbookName: string;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri: string;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+        /**
+         * The resource id for webhook linked to this runbook.
+         */
+        webhookResourceId: string;
+    }
+
+    export interface ActionGroupAzureAppPushReceiver {
         /**
          * The email address of this receiver.
          */
@@ -5035,9 +5185,86 @@ export namespace monitoring {
         name: string;
     }
 
+    export interface ActionGroupAzureFunctionReceiver {
+        functionAppResourceId: string;
+        /**
+         * The function name in the function app.
+         */
+        functionName: string;
+        /**
+         * The http trigger url where http request sent to.
+         */
+        httpTriggerUrl: string;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
+    export interface ActionGroupEmailReceiver {
+        /**
+         * The email address of this receiver.
+         */
+        emailAddress: string;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
+    export interface ActionGroupItsmReceiver {
+        /**
+         * The unique connection identifier of the ITSM connection.
+         */
+        connectionId: string;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The region of the workspace.
+         */
+        region: string;
+        /**
+         * A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+         */
+        ticketConfiguration: string;
+        /**
+         * The Azure Log Analytics workspace ID where this connection is defined.
+         */
+        workspaceId: string;
+    }
+
+    export interface ActionGroupLogicAppReceiver {
+        /**
+         * The callback url where http request sent to.
+         */
+        callbackUrl: string;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The Azure resource ID of the logic app.
+         */
+        resourceId: string;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+
     export interface ActionGroupSmsReceiver {
         /**
-         * The country code of the SMS receiver.
+         * The country code of the voice receiver.
          */
         countryCode: string;
         /**
@@ -5045,7 +5272,22 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * The phone number of the SMS receiver.
+         * The phone number of the voice receiver.
+         */
+        phoneNumber: string;
+    }
+
+    export interface ActionGroupVoiceReceiver {
+        /**
+         * The country code of the voice receiver.
+         */
+        countryCode: string;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: string;
+        /**
+         * The phone number of the voice receiver.
          */
         phoneNumber: string;
     }
@@ -5196,7 +5438,53 @@ export namespace monitoring {
         enabled: boolean;
     }
 
-    export interface GetActionGroupEmailReceiver {
+    export interface GetActionGroupArmRoleReceiver {
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The arm role id.
+         */
+        roleId: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    export interface GetActionGroupAutomationRunbookReceiver {
+        /**
+         * The automation account ID which holds this runbook and authenticates to Azure resources.
+         */
+        automationAccountId: string;
+        /**
+         * Indicates whether this instance is global runbook.
+         */
+        isGlobalRunbook: boolean;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The name for this runbook.
+         */
+        runbookName: string;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+        /**
+         * The resource id for webhook linked to this runbook.
+         */
+        webhookResourceId: string;
+    }
+
+    export interface GetActionGroupAzureAppPushReceiver {
         /**
          * The email address of this receiver.
          */
@@ -5207,9 +5495,86 @@ export namespace monitoring {
         name: string;
     }
 
+    export interface GetActionGroupAzureFunctionReceiver {
+        functionAppResourceId: string;
+        /**
+         * The function name in the function app.
+         */
+        functionName: string;
+        /**
+         * The http trigger url where http request sent to.
+         */
+        httpTriggerUrl: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    export interface GetActionGroupEmailReceiver {
+        /**
+         * The email address of this receiver.
+         */
+        emailAddress: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
+    export interface GetActionGroupItsmReceiver {
+        /**
+         * The unique connection identifier of the ITSM connection.
+         */
+        connectionId: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The region of the workspace.
+         */
+        region: string;
+        /**
+         * A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+         */
+        ticketConfiguration: string;
+        /**
+         * The Azure Log Analytics workspace ID where this connection is defined.
+         */
+        workspaceId: string;
+    }
+
+    export interface GetActionGroupLogicAppReceiver {
+        /**
+         * The callback url where http request sent to.
+         */
+        callbackUrl: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The Azure resource ID of the logic app.
+         */
+        resourceId: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema: boolean;
+    }
+
     export interface GetActionGroupSmsReceiver {
         /**
-         * The country code of the SMS receiver.
+         * The country code of the voice receiver.
          */
         countryCode: string;
         /**
@@ -5217,7 +5582,22 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * The phone number of the SMS receiver.
+         * The phone number of the voice receiver.
+         */
+        phoneNumber: string;
+    }
+
+    export interface GetActionGroupVoiceReceiver {
+        /**
+         * The country code of the voice receiver.
+         */
+        countryCode: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The phone number of the voice receiver.
          */
         phoneNumber: string;
     }
@@ -5231,6 +5611,9 @@ export namespace monitoring {
          * The URI where webhooks should be sent.
          */
         serviceUri: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
         useCommonAlertSchema?: boolean;
     }
 
@@ -5379,6 +5762,17 @@ export namespace mysql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
          */
         storageMb: number;
+    }
+}
+
+export namespace netapp {
+    export interface AccountActiveDirectory {
+        dnsServers: string[];
+        domain: string;
+        organizationalUnit?: string;
+        password: string;
+        smbServerName: string;
+        username: string;
     }
 }
 
@@ -5866,7 +6260,7 @@ export namespace network {
          */
         privateIpAddress: string;
         publicIpAddressId: string;
-        subnetId: string;
+        subnetId?: string;
     }
 
     export interface FirewallNatRuleCollectionRule {
@@ -6293,7 +6687,7 @@ export namespace network {
         /**
          * The first private IP address of the network interface.
          */
-        privateIpAddress?: string;
+        privateIpAddress: string;
         privateIpAddressAllocation: string;
         privateIpAddressVersion?: string;
         publicIpAddressId?: string;
@@ -6684,6 +7078,82 @@ export namespace postgresql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
          */
         storageMb: number;
+    }
+}
+
+export namespace privatedns {
+    export interface LinkServiceNatIpConfiguration {
+        /**
+         * The name of the private link service. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary: boolean;
+        privateIpAddress?: string;
+        privateIpAddressVersion?: string;
+        subnetId: string;
+    }
+
+    export interface SRVRecordRecord {
+        port: number;
+        priority: number;
+        target: string;
+        weight: number;
+    }
+}
+
+export namespace privatelink {
+    export interface GetServiceEndpointConnectionsPrivateEndpointConnection {
+        /**
+         * A message indicating if changes on the service provider require any updates or not.
+         */
+        actionRequired: string;
+        /**
+         * The resource id of the private link service connection between the private link service and the private link endpoint.
+         */
+        connectionId: string;
+        /**
+         * The name of the connection between the private link service and the private link endpoint.
+         */
+        connectionName: string;
+        /**
+         * The request for approval message or the reason for rejection message.
+         */
+        description: string;
+        /**
+         * The resource id of the private link endpoint.
+         */
+        privateEndpointId: string;
+        /**
+         * The name of the private link endpoint.
+         */
+        privateEndpointName: string;
+        /**
+         * Indicates the state of the connection between the private link service and the private link endpoint, possible values are `Pending`, `Approved` or `Rejected`.
+         */
+        status: string;
+    }
+
+    export interface GetServiceNatIpConfiguration {
+        /**
+         * The name of the private link service.
+         */
+        name: string;
+        /**
+         * Value that indicates if the IP configuration is the primary configuration or not.
+         */
+        primary: boolean;
+        /**
+         * The private IP address of the NAT IP configuration.
+         */
+        privateIpAddress: string;
+        /**
+         * The ip address version of the `ipConfiguration`.
+         */
+        privateIpAddressVersion: string;
+        /**
+         * The resource ID of the subnet to be used by the service.
+         */
+        subnetId: string;
     }
 }
 
@@ -7115,6 +7585,15 @@ export namespace servicefabric {
 }
 
 export namespace signalr {
+    export interface ServiceCor {
+        allowedOrigins: string[];
+    }
+
+    export interface ServiceFeature {
+        flag: string;
+        value: string;
+    }
+
     export interface ServiceSku {
         capacity: number;
         /**
@@ -7222,6 +7701,33 @@ export namespace sql {
          * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
          */
         mode: string;
+    }
+
+    export interface GetServerIdentity {
+        /**
+         * The ID of the Principal (Client) in Azure Active Directory.
+         */
+        principalId: string;
+        /**
+         * The ID of the Azure Active Directory Tenant.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the SQL Server.
+         */
+        type: string;
+    }
+
+    export interface SqlServerIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        tenantId: string;
+        type: string;
     }
 }
 

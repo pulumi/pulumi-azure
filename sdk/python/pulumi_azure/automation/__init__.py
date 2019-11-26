@@ -15,6 +15,7 @@ from .bool_variable import *
 from .date_time_variable import *
 from .int_variable import *
 from .string_variable import *
+from .get_account import *
 from .get_bool_variable import *
 from .get_date_time_variable import *
 from .get_int_variable import *

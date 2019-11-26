@@ -2,7 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./aAAARecord";
 export * from "./aRecord";
 export * from "./cnameRecord";
+export * from "./linkService";
+export * from "./pTRRecord";
+export * from "./sRVRecord";
 export * from "./zone";
 export * from "./zoneVirtualNetworkLink";

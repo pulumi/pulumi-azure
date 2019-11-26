@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.compute.getSharedImageGallery({
+ * const example = azure.compute.getSharedImageGallery({
  *     name: "my-image-gallery",
  *     resourceGroupName: "example-resources",
  * });

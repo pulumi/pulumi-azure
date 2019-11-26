@@ -15,35 +15,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const frontend = new azure.network.Subnet("frontend", {
  *     addressPrefix: "10.254.0.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
  * const backend = new azure.network.Subnet("backend", {
  *     addressPrefix: "10.254.2.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Dynamic",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const backendAddressPoolName = pulumi.interpolate`${testVirtualNetwork.name}-beap`;
- * const frontendPortName = pulumi.interpolate`${testVirtualNetwork.name}-feport`;
- * const frontendIpConfigurationName = pulumi.interpolate`${testVirtualNetwork.name}-feip`;
- * const httpSettingName = pulumi.interpolate`${testVirtualNetwork.name}-be-htst`;
- * const listenerName = pulumi.interpolate`${testVirtualNetwork.name}-httplstn`;
- * const requestRoutingRuleName = pulumi.interpolate`${testVirtualNetwork.name}-rqrt`;
+ * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
+ * const frontendPortName = pulumi.interpolate`${exampleVirtualNetwork.name}-feport`;
+ * const frontendIpConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-feip`;
+ * const httpSettingName = pulumi.interpolate`${exampleVirtualNetwork.name}-be-htst`;
+ * const listenerName = pulumi.interpolate`${exampleVirtualNetwork.name}-httplstn`;
+ * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
  * const network = new azure.network.ApplicationGateway("network", {
  *     backendAddressPools: [{
  *         name: backendAddressPoolName,
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     }],
  *     frontendIpConfigurations: [{
  *         name: frontendIpConfigurationName,
- *         publicIpAddressId: testPublicIp.id,
+ *         publicIpAddressId: examplePublicIp.id,
  *     }],
  *     frontendPorts: [{
  *         name: frontendPortName,
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *         name: listenerName,
  *         protocol: "Http",
  *     }],
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     requestRoutingRules: [{
  *         backendAddressPoolName: backendAddressPoolName,
  *         backendHttpSettingsName: httpSettingName,
@@ -81,26 +81,26 @@ import * as utilities from "../utilities";
  *         name: requestRoutingRuleName,
  *         ruleType: "Basic",
  *     }],
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         name: "Standard_Small",
  *         tier: "Standard",
  *     },
  * });
- * const testNetworkInterface = new azure.network.NetworkInterface("test", {
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
  *         subnetId: frontend.id,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("test", {
+ * const exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("example", {
  *     backendAddressPoolId: network.backendAddressPools[0].id,
  *     ipConfigurationName: "testconfiguration1",
- *     networkInterfaceId: testNetworkInterface.id,
+ *     networkInterfaceId: exampleNetworkInterface.id,
  * });
  * ```
  *

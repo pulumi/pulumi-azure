@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.containerservice.getRegistry({
+ * const example = azure.containerservice.getRegistry({
  *     name: "testacr",
  *     resourceGroupName: "test",
  * });
  * 
- * export const loginServer = test.loginServer;
+ * export const loginServer = example.loginServer;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.html.markdown.

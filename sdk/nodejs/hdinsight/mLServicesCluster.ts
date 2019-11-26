@@ -143,7 +143,7 @@ export class MLServicesCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.MLServicesClusterStorageAccount[]>;
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.MLServicesClusterStorageAccount[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight ML Services Cluster.
      */
@@ -194,9 +194,6 @@ export class MLServicesCluster extends pulumi.CustomResource {
             }
             if (!args || args.rstudio === undefined) {
                 throw new Error("Missing required property 'rstudio'");
-            }
-            if (!args || args.storageAccounts === undefined) {
-                throw new Error("Missing required property 'storageAccounts'");
             }
             if (!args || args.tier === undefined) {
                 throw new Error("Missing required property 'tier'");
@@ -319,7 +316,7 @@ export interface MLServicesClusterArgs {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.hdinsight.MLServicesClusterStorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.MLServicesClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight ML Services Cluster.
      */

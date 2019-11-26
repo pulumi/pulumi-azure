@@ -17,35 +17,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleNetworkWatcher = new azure.network.NetworkWatcher("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testNetworkInterface = new azure.network.NetworkInterface("test", {
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: testSubnet.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
- *     location: testResourceGroup.location,
- *     networkInterfaceIds: [testNetworkInterface.id],
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
+ *     location: exampleResourceGroup.location,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
@@ -69,29 +69,29 @@ import * as utilities from "../utilities";
  *     },
  *     vmSize: "Standard_F2",
  * });
- * const testExtension = new azure.compute.Extension("test", {
+ * const exampleExtension = new azure.compute.Extension("example", {
  *     autoUpgradeMinorVersion: true,
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     publisher: "Microsoft.Azure.NetworkWatcher",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     type: "NetworkWatcherAgentLinux",
  *     typeHandlerVersion: "1.4",
- *     virtualMachineName: testVirtualMachine.name,
+ *     virtualMachineName: exampleVirtualMachine.name,
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testPacketCapture = new azure.network.PacketCapture("test", {
- *     networkWatcherName: testNetworkWatcher.name,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePacketCapture = new azure.network.PacketCapture("example", {
+ *     networkWatcherName: exampleNetworkWatcher.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageLocation: {
- *         storageAccountId: testAccount.id,
+ *         storageAccountId: exampleAccount.id,
  *     },
- *     targetResourceId: testVirtualMachine.id,
- * }, {dependsOn: [testExtension]});
+ *     targetResourceId: exampleVirtualMachine.id,
+ * }, {dependsOn: [exampleExtension]});
  * ```
  * 
  * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azure.compute.Extension` resource.

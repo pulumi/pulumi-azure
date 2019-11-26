@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.apimanagement.getUser({
+ * const example = azure.apimanagement.getUser({
  *     apiManagementName: "example-apim",
  *     resourceGroupName: "search-service",
  *     userId: "my-user",
  * });
  * 
- * export const notes = test.notes;
+ * export const notes = example.notes;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.

@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azurerm_key_vault_existing.id.apply(id => azure.keyvault.getKey({
+ * const example = azurerm_key_vault_existing.id.apply(id => azure.keyvault.getKey({
  *     keyVaultId: id,
  *     name: "secret-sauce",
  * }));
  * 
- * export const keyType = azurerm_key_vault_secret_test.keyType;
+ * export const keyType = azurerm_key_vault_secret_example.keyType;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.

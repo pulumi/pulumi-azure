@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.network.getRouteTable({
+ * const example = azure.network.getRouteTable({
  *     name: "myroutetable",
  *     resourceGroupName: "some-resource-group",
  * });

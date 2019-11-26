@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testDefinition = new azure.policy.Definition("test", {
+ * const exampleDefinition = new azure.policy.Definition("example", {
  *     displayName: "my-policy-definition",
  *     mode: "All",
  *     parameters: `	{
@@ -43,10 +43,10 @@ import * as utilities from "../utilities";
  * `,
  *     policyType: "Custom",
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testAssignment = new azure.policy.Assignment("test", {
+ * const exampleAssignment = new azure.policy.Assignment("example", {
  *     description: "Policy Assignment created via an Acceptance Test",
  *     displayName: "My Example Policy Assignment",
  *     parameters: `{
@@ -55,8 +55,8 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     policyDefinitionId: testDefinition.id,
- *     scope: testResourceGroup.id,
+ *     policyDefinitionId: exampleDefinition.id,
+ *     scope: exampleResourceGroup.id,
  * });
  * ```
  *

@@ -149,6 +149,7 @@ class AppService(pulumi.CustomResource):
     
       * `alwaysOn` (`bool`)
       * `appCommandLine` (`str`)
+      * `autoSwapSlotName` (`str`)
       * `cors` (`dict`)
     
         * `allowedOrigins` (`list`)
@@ -329,6 +330,7 @@ class AppService(pulumi.CustomResource):
         
           * `alwaysOn` (`pulumi.Input[bool]`)
           * `appCommandLine` (`pulumi.Input[str]`)
+          * `autoSwapSlotName` (`pulumi.Input[str]`)
           * `cors` (`pulumi.Input[dict]`)
         
             * `allowedOrigins` (`pulumi.Input[list]`)
@@ -546,6 +548,7 @@ class AppService(pulumi.CustomResource):
         
           * `alwaysOn` (`pulumi.Input[bool]`)
           * `appCommandLine` (`pulumi.Input[str]`)
+          * `autoSwapSlotName` (`pulumi.Input[str]`)
           * `cors` (`pulumi.Input[dict]`)
         
             * `allowedOrigins` (`pulumi.Input[list]`)

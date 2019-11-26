@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.storage.getAccount({
+ * const example = azure.storage.getAccount({
  *     name: "packerimages",
  *     resourceGroupName: "packer-storage",
  * });
  * 
- * export const storageAccountTier = test.accountTier;
+ * export const storageAccountTier = example.accountTier;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.

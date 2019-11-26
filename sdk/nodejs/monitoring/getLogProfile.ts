@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.monitoring.getLogProfile({
+ * const example = azure.monitoring.getLogProfile({
  *     name: "test-logprofile",
  * });
  * 
- * export const logProfileStorageAccountId = test.storageAccountId;
+ * export const logProfileStorageAccountId = example.storageAccountId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.

@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  *     location: "West US",
  * });
  * const exampleService = new azure.signalr.Service("example", {
+ *     cors: [{
+ *         allowedOrigins: ["http://www.example.com"],
+ *     }],
+ *     features: [{
+ *         flag: "ServiceMode",
+ *         value: "Default",
+ *     }],
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
@@ -57,6 +64,14 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * A `cors` block as documented below.
+     */
+    public readonly cors!: pulumi.Output<outputs.signalr.ServiceCor[]>;
+    /**
+     * A `features` block as documented below.
+     */
+    public readonly features!: pulumi.Output<outputs.signalr.ServiceFeature[]>;
     /**
      * The FQDN of the SignalR service.
      */
@@ -122,6 +137,8 @@ export class Service extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ServiceState | undefined;
+            inputs["cors"] = state ? state.cors : undefined;
+            inputs["features"] = state ? state.features : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -143,6 +160,8 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["cors"] = args ? args.cors : undefined;
+            inputs["features"] = args ? args.features : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -172,6 +191,14 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
+    /**
+     * A `cors` block as documented below.
+     */
+    readonly cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    /**
+     * A `features` block as documented below.
+     */
+    readonly features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * The FQDN of the SignalR service.
      */
@@ -230,6 +257,14 @@ export interface ServiceState {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * A `cors` block as documented below.
+     */
+    readonly cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    /**
+     * A `features` block as documented below.
+     */
+    readonly features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */

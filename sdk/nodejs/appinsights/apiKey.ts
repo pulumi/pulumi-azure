@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testInsights = new azure.appinsights.Insights("test", {
+ * const exampleInsights = new azure.appinsights.Insights("example", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
- *     applicationInsightsId: testInsights.id,
+ *     applicationInsightsId: exampleInsights.id,
  *     readPermissions: [
  *         "aggregate",
  *         "api",
@@ -32,15 +32,15 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
- *     applicationInsightsId: testInsights.id,
+ *     applicationInsightsId: exampleInsights.id,
  *     writePermissions: ["annotations"],
  * });
  * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannel", {
- *     applicationInsightsId: testInsights.id,
+ *     applicationInsightsId: exampleInsights.id,
  *     readPermissions: ["agentconfig"],
  * });
  * const fullPermissions = new azure.appinsights.ApiKey("fullPermissions", {
- *     applicationInsightsId: testInsights.id,
+ *     applicationInsightsId: exampleInsights.id,
  *     readPermissions: [
  *         "agentconfig",
  *         "aggregate",

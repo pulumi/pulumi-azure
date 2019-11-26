@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.streamanalytics.getJob({
+ * const example = azure.streamanalytics.getJob({
  *     name: "example-job",
  *     resourceGroupName: "example-resources",
  * });
  * 
- * export const jobId = test.jobId;
+ * export const jobId = example.jobId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.

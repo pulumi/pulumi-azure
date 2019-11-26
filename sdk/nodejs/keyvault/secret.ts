@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as random from "@pulumi/random";
  * 
  * const current = azure.core.getClientConfig();
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
  * const server = new random.RandomId("server", {
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         ami_id: 1,
  *     },
  * });
- * const testKeyVault = new azure.keyvault.KeyVault("test", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     accessPolicies: [{
  *         keyPermissions: [
  *             "create",
@@ -43,16 +43,16 @@ import * as utilities from "../utilities";
  *         ],
  *         tenantId: current.tenantId,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "premium",
  *     tags: {
  *         environment: "Production",
  *     },
  *     tenantId: current.tenantId,
  * });
- * const testSecret = new azure.keyvault.Secret("test", {
- *     keyVaultId: testKeyVault.id,
+ * const exampleSecret = new azure.keyvault.Secret("example", {
+ *     keyVaultId: exampleKeyVault.id,
  *     tags: {
  *         environment: "Production",
  *     },
@@ -94,6 +94,10 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Key Vault where the Secret should be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
@@ -101,6 +105,10 @@ export class Secret extends pulumi.CustomResource {
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    public readonly notBeforeDate!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -128,8 +136,10 @@ export class Secret extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as SecretState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
+            inputs["expirationDate"] = state ? state.expirationDate : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
@@ -140,8 +150,10 @@ export class Secret extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             inputs["contentType"] = args ? args.contentType : undefined;
+            inputs["expirationDate"] = args ? args.expirationDate : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
             inputs["vaultUri"] = args ? args.vaultUri : undefined;
@@ -167,6 +179,10 @@ export interface SecretState {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly expirationDate?: pulumi.Input<string>;
+    /**
      * The ID of the Key Vault where the Secret should be created.
      */
     readonly keyVaultId?: pulumi.Input<string>;
@@ -174,6 +190,10 @@ export interface SecretState {
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly notBeforeDate?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -198,6 +218,10 @@ export interface SecretArgs {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly expirationDate?: pulumi.Input<string>;
+    /**
      * The ID of the Key Vault where the Secret should be created.
      */
     readonly keyVaultId?: pulumi.Input<string>;
@@ -205,6 +229,10 @@ export interface SecretArgs {
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly notBeforeDate?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

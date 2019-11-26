@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testInsights = new azure.appinsights.Insights("test", {
+ * const exampleInsights = new azure.appinsights.Insights("example", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * 
- * export const instrumentationKey = testInsights.instrumentationKey;
- * export const appId = testInsights.appId;
+ * export const instrumentationKey = exampleInsights.instrumentationKey;
+ * export const appId = exampleInsights.appId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
@@ -82,6 +82,10 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     */
+    public readonly samplingPercentage!: pulumi.Output<number | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
@@ -104,6 +108,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as InsightsArgs | undefined;
@@ -117,6 +122,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["appId"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
@@ -163,6 +169,10 @@ export interface InsightsState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
@@ -190,6 +200,10 @@ export interface InsightsArgs {
      * create the Application Insights component.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */

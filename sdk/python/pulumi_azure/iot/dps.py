@@ -46,7 +46,7 @@ class Dps(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, linked_hubs=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an IoT Device Provisioning Service.
+        Manages an IotHub Device Provisioning Service.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

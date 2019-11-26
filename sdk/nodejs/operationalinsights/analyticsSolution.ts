@@ -16,31 +16,31 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westeurope",
  * });
  * const workspace = new random.RandomId("workspace", {
  *     byteLength: 8,
  *     keepers: {
  *         // Generate a new id each time we switch to a new resource group
- *         group_name: testResourceGroup.name,
+ *         group_name: exampleResourceGroup.name,
  *     },
  * });
- * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const testAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("test", {
- *     location: testResourceGroup.location,
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
+ *     location: exampleResourceGroup.location,
  *     plan: {
  *         product: "OMSGallery/ContainerInsights",
  *         publisher: "Microsoft",
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     solutionName: "ContainerInsights",
- *     workspaceName: testAnalyticsWorkspace.name,
- *     workspaceResourceId: testAnalyticsWorkspace.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
  *

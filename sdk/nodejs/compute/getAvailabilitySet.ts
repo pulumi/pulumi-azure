@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.compute.getAvailabilitySet({
+ * const example = azure.compute.getAvailabilitySet({
  *     name: "tf-appsecuritygroup",
  *     resourceGroupName: "my-resource-group",
  * });
  * 
- * export const availabilitySetId = test.id;
+ * export const availabilitySetId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.

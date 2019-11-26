@@ -20,45 +20,45 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testNetworkInterface = new azure.network.NetworkInterface("test", {
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: testSubnet.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const testContainer = new azure.storage.Container("test", {
+ * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
- *     resourceGroupName: testResourceGroup.name,
- *     storageAccountName: testAccount.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountName: exampleAccount.name,
  * });
- * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
- *     location: testResourceGroup.location,
- *     networkInterfaceIds: [testNetworkInterface.id],
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
+ *     location: exampleResourceGroup.location,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
@@ -78,17 +78,17 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         name: "myosdisk1",
- *         vhdUri: pulumi.interpolate`${testAccount.primaryBlobEndpoint}${testContainer.name}/myosdisk1.vhd`,
+ *         vhdUri: pulumi.interpolate`${exampleAccount.primaryBlobEndpoint}${exampleContainer.name}/myosdisk1.vhd`,
  *     },
  *     tags: {
  *         environment: "staging",
  *     },
  *     vmSize: "Standard_F2",
  * });
- * const testExtension = new azure.compute.Extension("test", {
- *     location: testResourceGroup.location,
+ * const exampleExtension = new azure.compute.Extension("example", {
+ *     location: exampleResourceGroup.location,
  *     publisher: "Microsoft.Azure.Extensions",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     settings: `	{
  * 		"commandToExecute": "hostname && uptime"
  * 	}
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *     },
  *     type: "CustomScript",
  *     typeHandlerVersion: "2.0",
- *     virtualMachineName: testVirtualMachine.name,
+ *     virtualMachineName: exampleVirtualMachine.name,
  * });
  * ```
  *

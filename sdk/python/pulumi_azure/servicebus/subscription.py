@@ -34,10 +34,13 @@ class Subscription(pulumi.CustomResource):
     Boolean flag which controls whether the
     Subscription supports batched operations. Defaults to false.
     """
+    forward_dead_lettered_messages_to: pulumi.Output[str]
+    """
+    The name of a Queue or Topic to automatically forward Dead Letter messages to.
+    """
     forward_to: pulumi.Output[str]
     """
-    The name of a Queue or Topic to automatically forward 
-    messages to.
+    The name of a Queue or Topic to automatically forward messages to.
     """
     location: pulumi.Output[str]
     """
@@ -79,7 +82,7 @@ class Subscription(pulumi.CustomResource):
     The name of the ServiceBus Topic to create
     this Subscription in. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_to=None, location=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, location=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription.
         
@@ -96,8 +99,8 @@ class Subscription(pulumi.CustomResource):
                format.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the
                Subscription supports batched operations. Defaults to false.
-        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward 
-               messages to.
+        :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription, maximum
@@ -139,6 +142,7 @@ class Subscription(pulumi.CustomResource):
             __props__['dead_lettering_on_message_expiration'] = dead_lettering_on_message_expiration
             __props__['default_message_ttl'] = default_message_ttl
             __props__['enable_batched_operations'] = enable_batched_operations
+            __props__['forward_dead_lettered_messages_to'] = forward_dead_lettered_messages_to
             __props__['forward_to'] = forward_to
             __props__['location'] = location
             __props__['lock_duration'] = lock_duration
@@ -165,7 +169,7 @@ class Subscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_to=None, location=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None):
+    def get(resource_name, id, opts=None, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, location=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None):
         """
         Get an existing Subscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -184,8 +188,8 @@ class Subscription(pulumi.CustomResource):
                format.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the
                Subscription supports batched operations. Defaults to false.
-        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward 
-               messages to.
+        :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription, maximum
@@ -213,6 +217,7 @@ class Subscription(pulumi.CustomResource):
         __props__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
         __props__["default_message_ttl"] = default_message_ttl
         __props__["enable_batched_operations"] = enable_batched_operations
+        __props__["forward_dead_lettered_messages_to"] = forward_dead_lettered_messages_to
         __props__["forward_to"] = forward_to
         __props__["location"] = location
         __props__["lock_duration"] = lock_duration

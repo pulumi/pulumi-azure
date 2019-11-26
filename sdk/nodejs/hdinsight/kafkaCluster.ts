@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleKafkaCluster = new azure.hdinsight.KafkaCluster("example", {
- *     clusterVersion: "3.6",
+ *     clusterVersion: "4.0",
  *     componentVersion: {
- *         kafka: "2.3",
+ *         kafka: "2.1",
  *     },
  *     gateway: {
  *         enabled: true,
@@ -137,7 +137,11 @@ export class KafkaCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.KafkaClusterStorageAccount[]>;
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.KafkaClusterStorageAccount[] | undefined>;
+    /**
+     * A `storageAccountGen2` block as defined below.
+     */
+    public readonly storageAccountGen2!: pulumi.Output<outputs.hdinsight.KafkaClusterStorageAccountGen2 | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      */
@@ -169,6 +173,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["roles"] = state ? state.roles : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
+            inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tier"] = state ? state.tier : undefined;
         } else {
@@ -188,9 +193,6 @@ export class KafkaCluster extends pulumi.CustomResource {
             if (!args || args.roles === undefined) {
                 throw new Error("Missing required property 'roles'");
             }
-            if (!args || args.storageAccounts === undefined) {
-                throw new Error("Missing required property 'storageAccounts'");
-            }
             if (!args || args.tier === undefined) {
                 throw new Error("Missing required property 'tier'");
             }
@@ -202,6 +204,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["httpsEndpoint"] = undefined /*out*/;
@@ -263,6 +266,10 @@ export interface KafkaClusterState {
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
     /**
+     * A `storageAccountGen2` block as defined below.
+     */
+    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccountGen2>;
+    /**
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
@@ -307,7 +314,11 @@ export interface KafkaClusterArgs {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
+    /**
+     * A `storageAccountGen2` block as defined below.
+     */
+    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccountGen2>;
     /**
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      */

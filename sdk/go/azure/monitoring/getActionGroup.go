@@ -21,12 +21,19 @@ func LookupActionGroup(ctx *pulumi.Context, args *GetActionGroupArgs) (*GetActio
 		return nil, err
 	}
 	return &GetActionGroupResult{
+		ArmRoleReceivers: outputs["armRoleReceivers"],
+		AutomationRunbookReceivers: outputs["automationRunbookReceivers"],
+		AzureAppPushReceivers: outputs["azureAppPushReceivers"],
+		AzureFunctionReceivers: outputs["azureFunctionReceivers"],
 		EmailReceivers: outputs["emailReceivers"],
 		Enabled: outputs["enabled"],
+		ItsmReceivers: outputs["itsmReceivers"],
+		LogicAppReceivers: outputs["logicAppReceivers"],
 		Name: outputs["name"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		ShortName: outputs["shortName"],
 		SmsReceivers: outputs["smsReceivers"],
+		VoiceReceivers: outputs["voiceReceivers"],
 		WebhookReceivers: outputs["webhookReceivers"],
 		Id: outputs["id"],
 	}, nil
@@ -42,18 +49,32 @@ type GetActionGroupArgs struct {
 
 // A collection of values returned by getActionGroup.
 type GetActionGroupResult struct {
+	// One or more `armRoleReceiver` blocks as defined below.
+	ArmRoleReceivers interface{}
+	// One or more `automationRunbookReceiver` blocks as defined below.
+	AutomationRunbookReceivers interface{}
+	// One or more `azureAppPushReceiver` blocks as defined below.
+	AzureAppPushReceivers interface{}
+	// One or more `azureFunctionReceiver` blocks as defined below.
+	AzureFunctionReceivers interface{}
 	// One or more `emailReceiver` blocks as defined below.
 	EmailReceivers interface{}
 	// Whether this action group is enabled.
 	Enabled interface{}
-	// The name of the webhook receiver. 
+	// One or more `itsmReceiver` blocks as defined below.
+	ItsmReceivers interface{}
+	// One or more `logicAppReceiver` blocks as defined below.
+	LogicAppReceivers interface{}
+	// The name of the webhook receiver.
 	Name interface{}
 	ResourceGroupName interface{}
 	// The short name of the action group.
 	ShortName interface{}
-	// One or more `smsReceiver ` blocks as defined below.
+	// One or more `smsReceiver` blocks as defined below.
 	SmsReceivers interface{}
-	// One or more `webhookReceiver ` blocks as defined below.
+	// One or more `voiceReceiver` blocks as defined below.
+	VoiceReceivers interface{}
+	// One or more `webhookReceiver` blocks as defined below.
 	WebhookReceivers interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

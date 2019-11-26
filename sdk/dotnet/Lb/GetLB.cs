@@ -105,6 +105,10 @@ namespace Pulumi.Azure.Lb
     public sealed class GetLBFrontendIpConfigurationsResult
     {
         /// <summary>
+        /// The id of the Frontend IP Configuration.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the name of the Load Balancer.
         /// </summary>
         public readonly string Name;
@@ -131,6 +135,7 @@ namespace Pulumi.Azure.Lb
 
         [OutputConstructor]
         private GetLBFrontendIpConfigurationsResult(
+            string id,
             string name,
             string privateIpAddress,
             string privateIpAddressAllocation,
@@ -138,6 +143,7 @@ namespace Pulumi.Azure.Lb
             string subnetId,
             ImmutableArray<string> zones)
         {
+            Id = id;
             Name = name;
             PrivateIpAddress = privateIpAddress;
             PrivateIpAddressAllocation = privateIpAddressAllocation;

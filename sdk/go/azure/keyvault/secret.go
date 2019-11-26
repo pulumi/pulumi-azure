@@ -27,15 +27,19 @@ func NewSecret(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["contentType"] = nil
+		inputs["expirationDate"] = nil
 		inputs["keyVaultId"] = nil
 		inputs["name"] = nil
+		inputs["notBeforeDate"] = nil
 		inputs["tags"] = nil
 		inputs["value"] = nil
 		inputs["vaultUri"] = nil
 	} else {
 		inputs["contentType"] = args.ContentType
+		inputs["expirationDate"] = args.ExpirationDate
 		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["name"] = args.Name
+		inputs["notBeforeDate"] = args.NotBeforeDate
 		inputs["tags"] = args.Tags
 		inputs["value"] = args.Value
 		inputs["vaultUri"] = args.VaultUri
@@ -55,8 +59,10 @@ func GetSecret(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["contentType"] = state.ContentType
+		inputs["expirationDate"] = state.ExpirationDate
 		inputs["keyVaultId"] = state.KeyVaultId
 		inputs["name"] = state.Name
+		inputs["notBeforeDate"] = state.NotBeforeDate
 		inputs["tags"] = state.Tags
 		inputs["value"] = state.Value
 		inputs["vaultUri"] = state.VaultUri
@@ -84,6 +90,11 @@ func (r *Secret) ContentType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["contentType"])
 }
 
+// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+func (r *Secret) ExpirationDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expirationDate"])
+}
+
 // The ID of the Key Vault where the Secret should be created.
 func (r *Secret) KeyVaultId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
@@ -92,6 +103,11 @@ func (r *Secret) KeyVaultId() pulumi.StringOutput {
 // Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 func (r *Secret) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
+}
+
+// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+func (r *Secret) NotBeforeDate() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["notBeforeDate"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -117,10 +133,14 @@ func (r *Secret) Version() pulumi.StringOutput {
 type SecretState struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType interface{}
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate interface{}
 	// The ID of the Key Vault where the Secret should be created.
 	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name interface{}
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the value of the Key Vault Secret.
@@ -134,10 +154,14 @@ type SecretState struct {
 type SecretArgs struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType interface{}
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate interface{}
 	// The ID of the Key Vault where the Secret should be created.
 	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name interface{}
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the value of the Key Vault Secret.

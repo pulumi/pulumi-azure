@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.compute.getPlatformImage({
+ * const example = azure.compute.getPlatformImage({
  *     location: "West Europe",
  *     offer: "UbuntuServer",
  *     publisher: "Canonical",
  *     sku: "16.04-LTS",
  * });
  * 
- * export const version = test.version;
+ * export const version = example.version;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.

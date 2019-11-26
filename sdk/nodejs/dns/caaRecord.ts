@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testZone = new azure.dns.Zone("test", {
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testCaaRecord = new azure.dns.CaaRecord("test", {
+ * const exampleCaaRecord = new azure.dns.CaaRecord("example", {
  *     records: [
  *         {
  *             flags: 0,
@@ -44,12 +44,12 @@ import * as utilities from "../utilities";
  *             value: "mailto:user@nonexisting.tld",
  *         },
  *     ],
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         Environment: "Production",
  *     },
  *     ttl: 300,
- *     zoneName: testZone.name,
+ *     zoneName: exampleZone.name,
  * });
  * ```
  *

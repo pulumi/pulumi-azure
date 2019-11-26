@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("example", {
  *     dataFactoryName: exampleFactory.name,
- *     linkedServiceName: azurerm_data_factory_linked_service_sql_server_test.name,
+ *     linkedServiceName: exampleLinkedServiceSqlServer.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

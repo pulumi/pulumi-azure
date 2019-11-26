@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.appservice.getCertificateOrder({
+ * const example = azure.appservice.getCertificateOrder({
  *     name: "example-cert-order",
  *     resourceGroupName: "example-resources",
  * });
  * 
- * export const certificateOrderId = test.id;
+ * export const certificateOrderId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.

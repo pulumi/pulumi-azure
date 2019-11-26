@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const test = new azure.monitoring.MetricAlert("test", {
+ * const example = new azure.monitoring.MetricAlert("example", {
  *     actions: [{
  *         actionGroupId: mainActionGroup.id,
  *     }],

@@ -15,15 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testExpressRouteCircuit = new azure.network.ExpressRouteCircuit("test", {
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
  *     allowClassicOperations: false,
  *     bandwidthInMbps: 50,
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     peeringLocation: "Silicon Valley",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     serviceProviderName: "Equinix",
  *     sku: {
  *         family: "MeteredData",
@@ -33,15 +33,15 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const testExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("test", {
- *     expressRouteCircuitName: testExpressRouteCircuit.name,
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     microsoftPeeringConfig: {
  *         advertisedPublicPrefixes: ["123.1.0.0/24"],
  *     },
  *     peerAsn: 100,
  *     peeringType: "MicrosoftPeering",
  *     primaryPeerAddressPrefix: "123.0.0.0/30",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",
  *     vlanId: 300,
  * });

@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.datalake.getStore({
+ * const example = azure.datalake.getStore({
  *     name: "testdatalake",
  *     resourceGroupName: "testdatalake",
  * });
  * 
- * export const dataLakeStoreId = test.id;
+ * export const dataLakeStoreId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.

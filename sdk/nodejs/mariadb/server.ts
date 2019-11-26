@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testServer = new azure.mariadb.Server("test", {
+ * const exampleServer = new azure.mariadb.Server("example", {
  *     administratorLogin: "mariadbadmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen5",

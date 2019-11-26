@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US 2",
  * });
- * const testDomain = new azure.eventgrid.Domain("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleDomain = new azure.eventgrid.Domain("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "Production",
  *     },
@@ -81,9 +81,17 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The Primary Shared Access Key associated with the EventGrid Domain.
+     */
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The Secondary Shared Access Key associated with the EventGrid Domain.
+     */
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -107,7 +115,9 @@ export class Domain extends pulumi.CustomResource {
             inputs["inputSchema"] = state ? state.inputSchema : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
@@ -122,6 +132,8 @@ export class Domain extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["primaryAccessKey"] = undefined /*out*/;
+            inputs["secondaryAccessKey"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -163,9 +175,17 @@ export interface DomainState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * The Primary Shared Access Key associated with the EventGrid Domain.
+     */
+    readonly primaryAccessKey?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Secondary Shared Access Key associated with the EventGrid Domain.
+     */
+    readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -234,6 +234,18 @@ namespace Pulumi.Azure.ApiManagement
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.ApiSubscriptionKeyParameterNamesArgs>? SubscriptionKeyParameterNames { get; set; }
 
+        /// <summary>
+        /// The Version number of this API, if this API is versioned.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The ID of the Version Set which this API is associated with.
+        /// </summary>
+        [Input("versionSetId")]
+        public Input<string>? VersionSetId { get; set; }
+
         public ApiArgs()
         {
         }

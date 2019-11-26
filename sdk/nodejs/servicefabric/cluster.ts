@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testCluster = new azure.servicefabric.Cluster("test", {
+ * const exampleCluster = new azure.servicefabric.Cluster("example", {
  *     clusterCodeVersion: "6.3.176.9494",
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     managementEndpoint: "https://example:80",
  *     nodeTypes: [{
  *         clientEndpointPort: 2020,
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         name: "first",
  *     }],
  *     reliabilityLevel: "Bronze",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     upgradeMode: "Manual",
  *     vmImage: "Windows",
  * });

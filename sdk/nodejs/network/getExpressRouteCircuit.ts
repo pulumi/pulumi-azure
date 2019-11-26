@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.all([azurerm_express_route_circuit_test.name, azurerm_resource_group_test.name]).apply(([azurerm_express_route_circuit_testName, azurerm_resource_group_testName]) => azure.network.getExpressRouteCircuit({
- *     name: azurerm_express_route_circuit_testName,
- *     resourceGroupName: azurerm_resource_group_testName,
+ * const example = pulumi.all([azurerm_express_route_circuit_example.name, azurerm_resource_group_example.name]).apply(([azurerm_express_route_circuit_exampleName, azurerm_resource_group_exampleName]) => azure.network.getExpressRouteCircuit({
+ *     name: azurerm_express_route_circuit_exampleName,
+ *     resourceGroupName: azurerm_resource_group_exampleName,
  * }));
  * 
- * export const expressRouteCircuitId = test.id;
- * export const serviceKey = test.serviceKey;
+ * export const expressRouteCircuitId = example.id;
+ * export const serviceKey = example.serviceKey;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.

@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = azure.core.getClientConfig();
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testKeyVault = new azure.keyvault.KeyVault("test", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     accessPolicies: [{
  *         certificatePermissions: [
  *             "create",
@@ -66,15 +66,15 @@ import * as utilities from "../utilities";
  *         ],
  *         tenantId: current.tenantId,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "standard",
  *     tags: {
  *         environment: "Production",
  *     },
  *     tenantId: current.tenantId,
  * });
- * const testCertificate = new azure.keyvault.Certificate("test", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -118,7 +118,7 @@ import * as utilities from "../utilities";
  *             validityInMonths: 12,
  *         },
  *     },
- *     keyVaultId: testKeyVault.id,
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * ```
  *

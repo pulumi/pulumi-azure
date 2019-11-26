@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     name: "existing-image",
  *     resourceGroupName: "existing-resources",
  * });
- * const test = new azure.compute.SharedImageVersion("test", {
+ * const example = new azure.compute.SharedImageVersion("example", {
  *     galleryName: existingSharedImage.galleryName,
  *     imageName: existingSharedImage.name,
  *     location: existingSharedImage.location,

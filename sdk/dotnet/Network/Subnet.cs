@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.SubnetDelegations>> Delegations { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+        /// </summary>
+        [Output("enforcePrivateLinkServiceNetworkPolicies")]
+        public Output<bool?> EnforcePrivateLinkServiceNetworkPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// The collection of IP Configurations with IPs within this subnet.
         /// </summary>
         [Output("ipConfigurations")]
@@ -136,6 +142,12 @@ namespace Pulumi.Azure.Network
             set => _delegations = value;
         }
 
+        /// <summary>
+        /// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+        /// </summary>
+        [Input("enforcePrivateLinkServiceNetworkPolicies")]
+        public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
+
         [Input("ipConfigurations")]
         private InputList<string>? _ipConfigurations;
 
@@ -214,6 +226,12 @@ namespace Pulumi.Azure.Network
             get => _delegations ?? (_delegations = new InputList<Inputs.SubnetDelegationsGetArgs>());
             set => _delegations = value;
         }
+
+        /// <summary>
+        /// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+        /// </summary>
+        [Input("enforcePrivateLinkServiceNetworkPolicies")]
+        public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
 
         [Input("ipConfigurations")]
         private InputList<string>? _ipConfigurations;

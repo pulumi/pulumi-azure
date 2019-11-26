@@ -19,15 +19,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.1.0/24",
  *     delegations: [{
  *         name: "acctestdelegation",
@@ -39,8 +39,8 @@ import * as utilities from "../utilities";
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *         },
  *     }],
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
  * ```
  *
@@ -81,6 +81,10 @@ export class Subnet extends pulumi.CustomResource {
      * One or more `delegation` blocks as defined below.
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
+    /**
+     * Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+     */
+    public readonly enforcePrivateLinkServiceNetworkPolicies!: pulumi.Output<boolean | undefined>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */
@@ -124,6 +128,7 @@ export class Subnet extends pulumi.CustomResource {
             const state = argsOrState as SubnetState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["delegations"] = state ? state.delegations : undefined;
+            inputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
@@ -144,6 +149,7 @@ export class Subnet extends pulumi.CustomResource {
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["delegations"] = args ? args.delegations : undefined;
+            inputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
@@ -175,6 +181,10 @@ export interface SubnetState {
      * One or more `delegation` blocks as defined below.
      */
     readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    /**
+     * Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+     */
+    readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */
@@ -217,6 +227,10 @@ export interface SubnetArgs {
      * One or more `delegation` blocks as defined below.
      */
     readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    /**
+     * Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+     */
+    readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */

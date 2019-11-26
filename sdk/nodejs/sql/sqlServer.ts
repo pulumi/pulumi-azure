@@ -18,14 +18,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testSqlServer = new azure.sql.SqlServer("test", {
+ * const exampleSqlServer = new azure.sql.SqlServer("example", {
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "production",
  *     },
@@ -75,6 +75,10 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.sql.SqlServerIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -131,6 +136,7 @@ export class SqlServer extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -166,6 +172,10 @@ export interface SqlServerState {
      */
     readonly fullyQualifiedDomainName?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.sql.SqlServerIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -199,6 +209,10 @@ export interface SqlServerArgs {
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.sql.SqlServerIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

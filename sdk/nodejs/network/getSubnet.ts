@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.network.getSubnet({
+ * const example = azure.network.getSubnet({
  *     name: "backend",
  *     resourceGroupName: "networking",
  *     virtualNetworkName: "production",
  * });
  * 
- * export const subnetId = test.id;
+ * export const subnetId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
@@ -69,6 +69,10 @@ export interface GetSubnetResult {
      * The address prefix used for the subnet.
      */
     readonly addressPrefix: string;
+    /**
+     * Enable or Disable network policies on private link service in the subnet.
+     */
+    readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */

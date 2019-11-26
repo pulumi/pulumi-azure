@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.batch.getAccount({
+ * const example = azure.batch.getAccount({
  *     name: "testbatchaccount",
  *     resourceGroupName: "test",
  * });
  * 
- * export const poolAllocationMode = test.poolAllocationMode;
+ * export const poolAllocationMode = example.poolAllocationMode;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.

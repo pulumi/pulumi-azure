@@ -53,6 +53,12 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        /// </summary>
+        [Output("samplingPercentage")]
+        public Output<double?> SamplingPercentage { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -130,6 +136,12 @@ namespace Pulumi.Azure.AppInsights
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        /// </summary>
+        [Input("samplingPercentage")]
+        public Input<double>? SamplingPercentage { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -186,6 +198,12 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        /// </summary>
+        [Input("samplingPercentage")]
+        public Input<double>? SamplingPercentage { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;

@@ -547,7 +547,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The first private IP address of the network interface.
         /// </summary>
-        public readonly string? PrivateIpAddress;
+        public readonly string PrivateIpAddress;
         public readonly string PrivateIpAddressAllocation;
         public readonly string? PrivateIpAddressVersion;
         public readonly string? PublicIpAddressId;
@@ -561,7 +561,7 @@ namespace Pulumi.Azure.Network
             ImmutableArray<string> loadBalancerInboundNatRulesIds,
             string name,
             bool primary,
-            string? privateIpAddress,
+            string privateIpAddress,
             string privateIpAddressAllocation,
             string? privateIpAddressVersion,
             string? publicIpAddressId,

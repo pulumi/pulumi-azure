@@ -20,9 +20,6 @@ type KubernetesCluster struct {
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesCluster(ctx *pulumi.Context,
 	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOpt) (*KubernetesCluster, error) {
-	if args == nil || args.AgentPoolProfiles == nil {
-		return nil, errors.New("missing required argument 'AgentPoolProfiles'")
-	}
 	if args == nil || args.DnsPrefix == nil {
 		return nil, errors.New("missing required argument 'DnsPrefix'")
 	}
@@ -37,6 +34,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = nil
 		inputs["agentPoolProfiles"] = nil
 		inputs["apiServerAuthorizedIpRanges"] = nil
+		inputs["defaultNodePool"] = nil
 		inputs["dnsPrefix"] = nil
 		inputs["enablePodSecurityPolicy"] = nil
 		inputs["kubernetesVersion"] = nil
@@ -54,6 +52,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfiles"] = args.AgentPoolProfiles
 		inputs["apiServerAuthorizedIpRanges"] = args.ApiServerAuthorizedIpRanges
+		inputs["defaultNodePool"] = args.DefaultNodePool
 		inputs["dnsPrefix"] = args.DnsPrefix
 		inputs["enablePodSecurityPolicy"] = args.EnablePodSecurityPolicy
 		inputs["kubernetesVersion"] = args.KubernetesVersion
@@ -89,6 +88,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = state.AddonProfile
 		inputs["agentPoolProfiles"] = state.AgentPoolProfiles
 		inputs["apiServerAuthorizedIpRanges"] = state.ApiServerAuthorizedIpRanges
+		inputs["defaultNodePool"] = state.DefaultNodePool
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["enablePodSecurityPolicy"] = state.EnablePodSecurityPolicy
 		inputs["fqdn"] = state.Fqdn
@@ -136,6 +136,11 @@ func (r *KubernetesCluster) AgentPoolProfiles() pulumi.ArrayOutput {
 
 func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
+}
+
+// A `defaultNodePool` block as defined below.
+func (r *KubernetesCluster) DefaultNodePool() pulumi.Output {
+	return r.s.State["defaultNodePool"]
 }
 
 // DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -227,6 +232,8 @@ type KubernetesClusterState struct {
 	// One or more `agentPoolProfile` blocks as defined below.
 	AgentPoolProfiles interface{}
 	ApiServerAuthorizedIpRanges interface{}
+	// A `defaultNodePool` block as defined below.
+	DefaultNodePool interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
 	EnablePodSecurityPolicy interface{}
@@ -264,6 +271,8 @@ type KubernetesClusterArgs struct {
 	// One or more `agentPoolProfile` blocks as defined below.
 	AgentPoolProfiles interface{}
 	ApiServerAuthorizedIpRanges interface{}
+	// A `defaultNodePool` block as defined below.
+	DefaultNodePool interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
 	EnablePodSecurityPolicy interface{}

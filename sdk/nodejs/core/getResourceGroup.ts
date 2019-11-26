@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = azure.core.getResourceGroup({
+ * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "dsrgTest",
  * });
- * const testManagedDisk = new azure.compute.ManagedDisk("test", {
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
  *     createOption: "Empty",
  *     diskSizeGb: 1,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  * });
  * ```

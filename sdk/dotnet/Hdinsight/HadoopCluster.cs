@@ -75,6 +75,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<ImmutableArray<Outputs.HadoopClusterStorageAccounts>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
+        /// A `storage_account_gen2` block as defined below.
+        /// </summary>
+        [Output("storageAccountGen2")]
+        public Output<Outputs.HadoopClusterStorageAccountGen2?> StorageAccountGen2 { get; private set; } = null!;
+
+        /// <summary>
         /// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         /// </summary>
         [Output("tags")]
@@ -174,7 +180,7 @@ namespace Pulumi.Azure.HDInsight
         [Input("roles", required: true)]
         public Input<Inputs.HadoopClusterRolesArgs> Roles { get; set; } = null!;
 
-        [Input("storageAccounts", required: true)]
+        [Input("storageAccounts")]
         private InputList<Inputs.HadoopClusterStorageAccountsArgs>? _storageAccounts;
 
         /// <summary>
@@ -185,6 +191,12 @@ namespace Pulumi.Azure.HDInsight
             get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.HadoopClusterStorageAccountsArgs>());
             set => _storageAccounts = value;
         }
+
+        /// <summary>
+        /// A `storage_account_gen2` block as defined below.
+        /// </summary>
+        [Input("storageAccountGen2")]
+        public Input<Inputs.HadoopClusterStorageAccountGen2Args>? StorageAccountGen2 { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -277,6 +289,12 @@ namespace Pulumi.Azure.HDInsight
             set => _storageAccounts = value;
         }
 
+        /// <summary>
+        /// A `storage_account_gen2` block as defined below.
+        /// </summary>
+        [Input("storageAccountGen2")]
+        public Input<Inputs.HadoopClusterStorageAccountGen2GetArgs>? StorageAccountGen2 { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -357,6 +375,9 @@ namespace Pulumi.Azure.HDInsight
 
     public sealed class HadoopClusterRolesArgs : Pulumi.ResourceArgs
     {
+        [Input("edgeNode")]
+        public Input<HadoopClusterRolesEdgeNodeArgs>? EdgeNode { get; set; }
+
         [Input("headNode", required: true)]
         public Input<HadoopClusterRolesHeadNodeArgs> HeadNode { get; set; } = null!;
 
@@ -371,8 +392,85 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
+    public sealed class HadoopClusterRolesEdgeNodeArgs : Pulumi.ResourceArgs
+    {
+        [Input("installScriptActions", required: true)]
+        private InputList<HadoopClusterRolesEdgeNodeInstallScriptActionsArgs>? _installScriptActions;
+        public InputList<HadoopClusterRolesEdgeNodeInstallScriptActionsArgs> InstallScriptActions
+        {
+            get => _installScriptActions ?? (_installScriptActions = new InputList<HadoopClusterRolesEdgeNodeInstallScriptActionsArgs>());
+            set => _installScriptActions = value;
+        }
+
+        [Input("targetInstanceCount", required: true)]
+        public Input<int> TargetInstanceCount { get; set; } = null!;
+
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
+
+        public HadoopClusterRolesEdgeNodeArgs()
+        {
+        }
+    }
+
+    public sealed class HadoopClusterRolesEdgeNodeGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("installScriptActions", required: true)]
+        private InputList<HadoopClusterRolesEdgeNodeInstallScriptActionsGetArgs>? _installScriptActions;
+        public InputList<HadoopClusterRolesEdgeNodeInstallScriptActionsGetArgs> InstallScriptActions
+        {
+            get => _installScriptActions ?? (_installScriptActions = new InputList<HadoopClusterRolesEdgeNodeInstallScriptActionsGetArgs>());
+            set => _installScriptActions = value;
+        }
+
+        [Input("targetInstanceCount", required: true)]
+        public Input<int> TargetInstanceCount { get; set; } = null!;
+
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
+
+        public HadoopClusterRolesEdgeNodeGetArgs()
+        {
+        }
+    }
+
+    public sealed class HadoopClusterRolesEdgeNodeInstallScriptActionsArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("uri", required: true)]
+        public Input<string> Uri { get; set; } = null!;
+
+        public HadoopClusterRolesEdgeNodeInstallScriptActionsArgs()
+        {
+        }
+    }
+
+    public sealed class HadoopClusterRolesEdgeNodeInstallScriptActionsGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("uri", required: true)]
+        public Input<string> Uri { get; set; } = null!;
+
+        public HadoopClusterRolesEdgeNodeInstallScriptActionsGetArgs()
+        {
+        }
+    }
+
     public sealed class HadoopClusterRolesGetArgs : Pulumi.ResourceArgs
     {
+        [Input("edgeNode")]
+        public Input<HadoopClusterRolesEdgeNodeGetArgs>? EdgeNode { get; set; }
+
         [Input("headNode", required: true)]
         public Input<HadoopClusterRolesHeadNodeGetArgs> HeadNode { get; set; } = null!;
 
@@ -579,6 +677,44 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
+    public sealed class HadoopClusterStorageAccountGen2Args : Pulumi.ResourceArgs
+    {
+        [Input("filesystemId", required: true)]
+        public Input<string> FilesystemId { get; set; } = null!;
+
+        [Input("isDefault", required: true)]
+        public Input<bool> IsDefault { get; set; } = null!;
+
+        [Input("managedIdentityResourceId", required: true)]
+        public Input<string> ManagedIdentityResourceId { get; set; } = null!;
+
+        [Input("storageResourceId", required: true)]
+        public Input<string> StorageResourceId { get; set; } = null!;
+
+        public HadoopClusterStorageAccountGen2Args()
+        {
+        }
+    }
+
+    public sealed class HadoopClusterStorageAccountGen2GetArgs : Pulumi.ResourceArgs
+    {
+        [Input("filesystemId", required: true)]
+        public Input<string> FilesystemId { get; set; } = null!;
+
+        [Input("isDefault", required: true)]
+        public Input<bool> IsDefault { get; set; } = null!;
+
+        [Input("managedIdentityResourceId", required: true)]
+        public Input<string> ManagedIdentityResourceId { get; set; } = null!;
+
+        [Input("storageResourceId", required: true)]
+        public Input<string> StorageResourceId { get; set; } = null!;
+
+        public HadoopClusterStorageAccountGen2GetArgs()
+        {
+        }
+    }
+
     public sealed class HadoopClusterStorageAccountsArgs : Pulumi.ResourceArgs
     {
         [Input("isDefault", required: true)]
@@ -649,19 +785,60 @@ namespace Pulumi.Azure.HDInsight
     [OutputType]
     public sealed class HadoopClusterRoles
     {
+        public readonly HadoopClusterRolesEdgeNode? EdgeNode;
         public readonly HadoopClusterRolesHeadNode HeadNode;
         public readonly HadoopClusterRolesWorkerNode WorkerNode;
         public readonly HadoopClusterRolesZookeeperNode ZookeeperNode;
 
         [OutputConstructor]
         private HadoopClusterRoles(
+            HadoopClusterRolesEdgeNode? edgeNode,
             HadoopClusterRolesHeadNode headNode,
             HadoopClusterRolesWorkerNode workerNode,
             HadoopClusterRolesZookeeperNode zookeeperNode)
         {
+            EdgeNode = edgeNode;
             HeadNode = headNode;
             WorkerNode = workerNode;
             ZookeeperNode = zookeeperNode;
+        }
+    }
+
+    [OutputType]
+    public sealed class HadoopClusterRolesEdgeNode
+    {
+        public readonly ImmutableArray<HadoopClusterRolesEdgeNodeInstallScriptActions> InstallScriptActions;
+        public readonly int TargetInstanceCount;
+        public readonly string VmSize;
+
+        [OutputConstructor]
+        private HadoopClusterRolesEdgeNode(
+            ImmutableArray<HadoopClusterRolesEdgeNodeInstallScriptActions> installScriptActions,
+            int targetInstanceCount,
+            string vmSize)
+        {
+            InstallScriptActions = installScriptActions;
+            TargetInstanceCount = targetInstanceCount;
+            VmSize = vmSize;
+        }
+    }
+
+    [OutputType]
+    public sealed class HadoopClusterRolesEdgeNodeInstallScriptActions
+    {
+        /// <summary>
+        /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+        public readonly string Uri;
+
+        [OutputConstructor]
+        private HadoopClusterRolesEdgeNodeInstallScriptActions(
+            string name,
+            string uri)
+        {
+            Name = name;
+            Uri = uri;
         }
     }
 
@@ -752,6 +929,28 @@ namespace Pulumi.Azure.HDInsight
             Username = username;
             VirtualNetworkId = virtualNetworkId;
             VmSize = vmSize;
+        }
+    }
+
+    [OutputType]
+    public sealed class HadoopClusterStorageAccountGen2
+    {
+        public readonly string FilesystemId;
+        public readonly bool IsDefault;
+        public readonly string ManagedIdentityResourceId;
+        public readonly string StorageResourceId;
+
+        [OutputConstructor]
+        private HadoopClusterStorageAccountGen2(
+            string filesystemId,
+            bool isDefault,
+            string managedIdentityResourceId,
+            string storageResourceId)
+        {
+            FilesystemId = filesystemId;
+            IsDefault = isDefault;
+            ManagedIdentityResourceId = managedIdentityResourceId;
+            StorageResourceId = storageResourceId;
         }
     }
 

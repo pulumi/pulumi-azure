@@ -15,24 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 1,
  *     kafkaEnabled: false,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const testEventHub = new azure.eventhub.EventHub("test", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
  *     messageRetention: 1,
- *     namespaceName: testEventHubNamespace.name,
+ *     namespaceName: exampleEventHubNamespace.name,
  *     partitionCount: 2,
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "East US",
  * });
- * const test = new azure.kusto.Cluster("test", {
+ * const example = new azure.kusto.Cluster("example", {
  *     location: rg.location,
  *     resourceGroupName: rg.name,
  *     sku: {

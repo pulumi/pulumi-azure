@@ -21,7 +21,7 @@ func LookupFirewall(ctx *pulumi.Context, args *GetFirewallArgs) (*GetFirewallRes
 		return nil, err
 	}
 	return &GetFirewallResult{
-		IpConfiguration: outputs["ipConfiguration"],
+		IpConfigurations: outputs["ipConfigurations"],
 		Location: outputs["location"],
 		Name: outputs["name"],
 		ResourceGroupName: outputs["resourceGroupName"],
@@ -41,7 +41,7 @@ type GetFirewallArgs struct {
 // A collection of values returned by getFirewall.
 type GetFirewallResult struct {
 	// A `ipConfiguration` block as defined below.
-	IpConfiguration interface{}
+	IpConfigurations interface{}
 	Location interface{}
 	Name interface{}
 	ResourceGroupName interface{}

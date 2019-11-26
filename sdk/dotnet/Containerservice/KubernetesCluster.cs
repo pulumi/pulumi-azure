@@ -29,6 +29,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
 
         /// <summary>
+        /// A `default_node_pool` block as defined below.
+        /// </summary>
+        [Output("defaultNodePool")]
+        public Output<Outputs.KubernetesClusterDefaultNodePool?> DefaultNodePool { get; private set; } = null!;
+
+        /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsPrefix")]
@@ -164,7 +170,7 @@ namespace Pulumi.Azure.ContainerService
         [Input("addonProfile")]
         public Input<Inputs.KubernetesClusterAddonProfileArgs>? AddonProfile { get; set; }
 
-        [Input("agentPoolProfiles", required: true)]
+        [Input("agentPoolProfiles")]
         private InputList<Inputs.KubernetesClusterAgentPoolProfilesArgs>? _agentPoolProfiles;
 
         /// <summary>
@@ -183,6 +189,12 @@ namespace Pulumi.Azure.ContainerService
             get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
             set => _apiServerAuthorizedIpRanges = value;
         }
+
+        /// <summary>
+        /// A `default_node_pool` block as defined below.
+        /// </summary>
+        [Input("defaultNodePool")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolArgs>? DefaultNodePool { get; set; }
 
         /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -275,6 +287,12 @@ namespace Pulumi.Azure.ContainerService
             get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
             set => _apiServerAuthorizedIpRanges = value;
         }
+
+        /// <summary>
+        /// A `default_node_pool` block as defined below.
+        /// </summary>
+        [Input("defaultNodePool")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolGetArgs>? DefaultNodePool { get; set; }
 
         /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -572,6 +590,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
         /// <summary>
         /// The FQDN of the Azure Kubernetes Managed Cluster.
         /// </summary>
@@ -643,6 +664,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
         /// <summary>
         /// The FQDN of the Azure Kubernetes Managed Cluster.
         /// </summary>
@@ -688,6 +712,124 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? VnetSubnetId { get; set; }
 
         public KubernetesClusterAgentPoolProfilesGetArgs()
+        {
+        }
+    }
+
+    public sealed class KubernetesClusterDefaultNodePoolArgs : Pulumi.ResourceArgs
+    {
+        [Input("availabilityZones")]
+        private InputList<string>? _availabilityZones;
+        public InputList<string> AvailabilityZones
+        {
+            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
+            set => _availabilityZones = value;
+        }
+
+        [Input("enableAutoScaling")]
+        public Input<bool>? EnableAutoScaling { get; set; }
+
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
+        [Input("maxCount")]
+        public Input<int>? MaxCount { get; set; }
+
+        [Input("maxPods")]
+        public Input<int>? MaxPods { get; set; }
+
+        [Input("minCount")]
+        public Input<int>? MinCount { get; set; }
+
+        /// <summary>
+        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("nodeCount")]
+        public Input<int>? NodeCount { get; set; }
+
+        [Input("nodeTaints")]
+        private InputList<string>? _nodeTaints;
+        public InputList<string> NodeTaints
+        {
+            get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
+            set => _nodeTaints = value;
+        }
+
+        [Input("osDiskSizeGb")]
+        public Input<int>? OsDiskSizeGb { get; set; }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
+
+        [Input("vnetSubnetId")]
+        public Input<string>? VnetSubnetId { get; set; }
+
+        public KubernetesClusterDefaultNodePoolArgs()
+        {
+        }
+    }
+
+    public sealed class KubernetesClusterDefaultNodePoolGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("availabilityZones")]
+        private InputList<string>? _availabilityZones;
+        public InputList<string> AvailabilityZones
+        {
+            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
+            set => _availabilityZones = value;
+        }
+
+        [Input("enableAutoScaling")]
+        public Input<bool>? EnableAutoScaling { get; set; }
+
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
+        [Input("maxCount")]
+        public Input<int>? MaxCount { get; set; }
+
+        [Input("maxPods")]
+        public Input<int>? MaxPods { get; set; }
+
+        [Input("minCount")]
+        public Input<int>? MinCount { get; set; }
+
+        /// <summary>
+        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("nodeCount")]
+        public Input<int>? NodeCount { get; set; }
+
+        [Input("nodeTaints")]
+        private InputList<string>? _nodeTaints;
+        public InputList<string> NodeTaints
+        {
+            get => _nodeTaints ?? (_nodeTaints = new InputList<string>());
+            set => _nodeTaints = value;
+        }
+
+        [Input("osDiskSizeGb")]
+        public Input<int>? OsDiskSizeGb { get; set; }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
+
+        [Input("vnetSubnetId")]
+        public Input<string>? VnetSubnetId { get; set; }
+
+        public KubernetesClusterDefaultNodePoolGetArgs()
         {
         }
     }
@@ -1113,6 +1255,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string DnsPrefix;
         public readonly bool? EnableAutoScaling;
+        public readonly bool? EnableNodePublicIp;
         /// <summary>
         /// The FQDN of the Azure Kubernetes Managed Cluster.
         /// </summary>
@@ -1137,6 +1280,7 @@ namespace Pulumi.Azure.ContainerService
             int? count,
             string dnsPrefix,
             bool? enableAutoScaling,
+            bool? enableNodePublicIp,
             string fqdn,
             int? maxCount,
             int maxPods,
@@ -1153,6 +1297,7 @@ namespace Pulumi.Azure.ContainerService
             Count = count;
             DnsPrefix = dnsPrefix;
             EnableAutoScaling = enableAutoScaling;
+            EnableNodePublicIp = enableNodePublicIp;
             Fqdn = fqdn;
             MaxCount = maxCount;
             MaxPods = maxPods;
@@ -1161,6 +1306,58 @@ namespace Pulumi.Azure.ContainerService
             NodeTaints = nodeTaints;
             OsDiskSizeGb = osDiskSizeGb;
             OsType = osType;
+            Type = type;
+            VmSize = vmSize;
+            VnetSubnetId = vnetSubnetId;
+        }
+    }
+
+    [OutputType]
+    public sealed class KubernetesClusterDefaultNodePool
+    {
+        public readonly ImmutableArray<string> AvailabilityZones;
+        public readonly bool? EnableAutoScaling;
+        public readonly bool? EnableNodePublicIp;
+        public readonly int? MaxCount;
+        public readonly int MaxPods;
+        public readonly int? MinCount;
+        /// <summary>
+        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+        public readonly int NodeCount;
+        public readonly ImmutableArray<string> NodeTaints;
+        public readonly int OsDiskSizeGb;
+        public readonly string? Type;
+        public readonly string VmSize;
+        public readonly string? VnetSubnetId;
+
+        [OutputConstructor]
+        private KubernetesClusterDefaultNodePool(
+            ImmutableArray<string> availabilityZones,
+            bool? enableAutoScaling,
+            bool? enableNodePublicIp,
+            int? maxCount,
+            int maxPods,
+            int? minCount,
+            string name,
+            int nodeCount,
+            ImmutableArray<string> nodeTaints,
+            int osDiskSizeGb,
+            string? type,
+            string vmSize,
+            string? vnetSubnetId)
+        {
+            AvailabilityZones = availabilityZones;
+            EnableAutoScaling = enableAutoScaling;
+            EnableNodePublicIp = enableNodePublicIp;
+            MaxCount = maxCount;
+            MaxPods = maxPods;
+            MinCount = minCount;
+            Name = name;
+            NodeCount = nodeCount;
+            NodeTaints = nodeTaints;
+            OsDiskSizeGb = osDiskSizeGb;
             Type = type;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;

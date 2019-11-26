@@ -99,7 +99,7 @@ class Job(pulumi.CustomResource):
     A `recurrence` block defining a job occurrence schedule.
     
       * `count` (`float`)
-      * `endTime` (`str`)
+      * `end_time` (`str`)
       * `frequency` (`str`)
       * `hours` (`list`)
       * `interval` (`float`)
@@ -222,7 +222,7 @@ class Job(pulumi.CustomResource):
         The **recurrence** object supports the following:
         
           * `count` (`pulumi.Input[float]`)
-          * `endTime` (`pulumi.Input[str]`)
+          * `end_time` (`pulumi.Input[str]`)
           * `frequency` (`pulumi.Input[str]`)
           * `hours` (`pulumi.Input[list]`)
           * `interval` (`pulumi.Input[float]`)
@@ -372,7 +372,7 @@ class Job(pulumi.CustomResource):
         The **recurrence** object supports the following:
         
           * `count` (`pulumi.Input[float]`)
-          * `endTime` (`pulumi.Input[str]`)
+          * `end_time` (`pulumi.Input[str]`)
           * `frequency` (`pulumi.Input[str]`)
           * `hours` (`pulumi.Input[list]`)
           * `interval` (`pulumi.Input[float]`)

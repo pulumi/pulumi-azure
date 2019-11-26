@@ -17,25 +17,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.7.29.0/29"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
  *     addressPrefix: "10.7.29.0/29",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     serviceEndpoints: ["Microsoft.Sql"],
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testServer = new azure.postgresql.Server("test", {
+ * const exampleServer = new azure.postgresql.Server("example", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen5",
@@ -50,10 +50,10 @@ import * as utilities from "../utilities";
  *     },
  *     version: "9.5",
  * });
- * const testVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("test", {
+ * const exampleVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("example", {
  *     ignoreMissingVnetServiceEndpoint: true,
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testServer.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
  *     subnetId: internal.id,
  * });
  * ```

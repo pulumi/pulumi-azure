@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
  * });
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 2,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
  *         environment: "Production",
@@ -85,9 +85,9 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
-     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
      */
-    public readonly kafkaEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly kafkaEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -208,7 +208,7 @@ export interface EventHubNamespaceState {
      */
     readonly defaultSecondaryKey?: pulumi.Input<string>;
     /**
-     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
      */
     readonly kafkaEnabled?: pulumi.Input<boolean>;
     /**
@@ -254,7 +254,7 @@ export interface EventHubNamespaceArgs {
      */
     readonly capacity?: pulumi.Input<number>;
     /**
-     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
      */
     readonly kafkaEnabled?: pulumi.Input<boolean>;
     /**

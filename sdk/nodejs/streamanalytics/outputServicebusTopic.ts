@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const test = new azure.streamanalytics.OutputServicebusTopic("test", {
+ * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("example", {
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         format: "Avro",

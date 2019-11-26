@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testServer = new azure.postgresql.Server("test", {});
- * const testFirewallRule = new azure.postgresql.FirewallRule("test", {
+ * const exampleServer = new azure.postgresql.Server("example", {});
+ * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
  *     endIpAddress: "40.112.8.12",
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testServer.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
  *     startIpAddress: "40.112.8.12",
  * });
  * ```
@@ -31,14 +31,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testServer = new azure.postgresql.Server("test", {});
- * const testFirewallRule = new azure.postgresql.FirewallRule("test", {
+ * const exampleServer = new azure.postgresql.Server("example", {});
+ * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
  *     endIpAddress: "40.112.255.255",
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testServer.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
  *     startIpAddress: "40.112.0.0",
  * });
  * ```

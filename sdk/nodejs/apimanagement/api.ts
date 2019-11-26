@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testService = new azure.apimanagement.Service("test", {
- *     location: testResourceGroup.location,
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     location: exampleResourceGroup.location,
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Developer_1",
  * });
- * const testApi = new azure.apimanagement.Api("test", {
- *     apiManagementName: testService.name,
+ * const exampleApi = new azure.apimanagement.Api("example", {
+ *     apiManagementName: exampleService.name,
  *     displayName: "Example API",
  *     import: {
  *         contentFormat: "swagger-link-json",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     },
  *     path: "example",
  *     protocols: ["https"],
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     revision: "1",
  * });
  * ```
@@ -127,11 +127,11 @@ export class Api extends pulumi.CustomResource {
     /**
      * The Version number of this API, if this API is versioned.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
     /**
      * The ID of the Version Set which this API is associated with.
      */
-    public /*out*/ readonly versionSetId!: pulumi.Output<string>;
+    public readonly versionSetId!: pulumi.Output<string>;
 
     /**
      * Create a Api resource with the given unique name, arguments, and options.
@@ -193,10 +193,10 @@ export class Api extends pulumi.CustomResource {
             inputs["serviceUrl"] = args ? args.serviceUrl : undefined;
             inputs["soapPassThrough"] = args ? args.soapPassThrough : undefined;
             inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
+            inputs["version"] = args ? args.version : undefined;
+            inputs["versionSetId"] = args ? args.versionSetId : undefined;
             inputs["isCurrent"] = undefined /*out*/;
             inputs["isOnline"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionSetId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -331,4 +331,12 @@ export interface ApiArgs {
      * A `subscriptionKeyParameterNames` block as documented below.
      */
     readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    /**
+     * The Version number of this API, if this API is versioned.
+     */
+    readonly version?: pulumi.Input<string>;
+    /**
+     * The ID of the Version Set which this API is associated with.
+     */
+    readonly versionSetId?: pulumi.Input<string>;
 }

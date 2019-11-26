@@ -18,22 +18,22 @@ type Firewall struct {
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
 func NewFirewall(ctx *pulumi.Context,
 	name string, args *FirewallArgs, opts ...pulumi.ResourceOpt) (*Firewall, error) {
-	if args == nil || args.IpConfiguration == nil {
-		return nil, errors.New("missing required argument 'IpConfiguration'")
+	if args == nil || args.IpConfigurations == nil {
+		return nil, errors.New("missing required argument 'IpConfigurations'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["ipConfiguration"] = nil
+		inputs["ipConfigurations"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
 		inputs["zones"] = nil
 	} else {
-		inputs["ipConfiguration"] = args.IpConfiguration
+		inputs["ipConfigurations"] = args.IpConfigurations
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -53,7 +53,7 @@ func GetFirewall(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *FirewallState, opts ...pulumi.ResourceOpt) (*Firewall, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["ipConfiguration"] = state.IpConfiguration
+		inputs["ipConfigurations"] = state.IpConfigurations
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -78,8 +78,8 @@ func (r *Firewall) ID() pulumi.IDOutput {
 }
 
 // A `ipConfiguration` block as documented below.
-func (r *Firewall) IpConfiguration() pulumi.Output {
-	return r.s.State["ipConfiguration"]
+func (r *Firewall) IpConfigurations() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -110,7 +110,7 @@ func (r *Firewall) Zones() pulumi.ArrayOutput {
 // Input properties used for looking up and filtering Firewall resources.
 type FirewallState struct {
 	// A `ipConfiguration` block as documented below.
-	IpConfiguration interface{}
+	IpConfigurations interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
@@ -126,7 +126,7 @@ type FirewallState struct {
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
 	// A `ipConfiguration` block as documented below.
-	IpConfiguration interface{}
+	IpConfigurations interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.

@@ -17,12 +17,12 @@ import {Kind} from "./kind";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
@@ -36,13 +36,13 @@ import {Kind} from "./kind";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
+ * const examplePlan = new azure.appservice.Plan("example", {
  *     kind: "FunctionApp",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "Y1",
  *         tier: "Dynamic",
@@ -56,14 +56,14 @@ import {Kind} from "./kind";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
+ * const examplePlan = new azure.appservice.Plan("example", {
  *     kind: "Linux",
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     reserved: true,
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
@@ -77,14 +77,14 @@ import {Kind} from "./kind";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
+ * const examplePlan = new azure.appservice.Plan("example", {
  *     isXenon: true,
  *     kind: "xenon",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "PC2",
  *         tier: "PremiumContainer",

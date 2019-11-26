@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.compute.getSnapshot({
+ * const example = azure.compute.getSnapshot({
  *     name: "my-snapshot",
  *     resourceGroupName: "my-resource-group",
  * });

@@ -49,6 +49,10 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServerIdentitiesResult> Identities;
+        /// <summary>
         /// The location of the Resource Group in which the SQL Server exists.
         /// </summary>
         public readonly string Location;
@@ -71,6 +75,7 @@ namespace Pulumi.Azure.Sql
         private GetServerResult(
             string administratorLogin,
             string fqdn,
+            ImmutableArray<Outputs.GetServerIdentitiesResult> identities,
             string location,
             string name,
             string resourceGroupName,
@@ -80,6 +85,7 @@ namespace Pulumi.Azure.Sql
         {
             AdministratorLogin = administratorLogin;
             Fqdn = fqdn;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
@@ -87,5 +93,37 @@ namespace Pulumi.Azure.Sql
             Version = version;
             Id = id;
         }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class GetServerIdentitiesResult
+    {
+        /// <summary>
+        /// The ID of the Principal (Client) in Azure Active Directory.
+        /// </summary>
+        public readonly string PrincipalId;
+        /// <summary>
+        /// The ID of the Azure Active Directory Tenant.
+        /// </summary>
+        public readonly string TenantId;
+        /// <summary>
+        /// The identity type of the SQL Server.
+        /// </summary>
+        public readonly string Type;
+
+        [OutputConstructor]
+        private GetServerIdentitiesResult(
+            string principalId,
+            string tenantId,
+            string type)
+        {
+            PrincipalId = principalId;
+            TenantId = tenantId;
+            Type = type;
+        }
+    }
     }
 }

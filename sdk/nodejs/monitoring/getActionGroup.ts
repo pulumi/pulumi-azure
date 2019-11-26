@@ -60,6 +60,22 @@ export interface GetActionGroupArgs {
  */
 export interface GetActionGroupResult {
     /**
+     * One or more `armRoleReceiver` blocks as defined below.
+     */
+    readonly armRoleReceivers: outputs.monitoring.GetActionGroupArmRoleReceiver[];
+    /**
+     * One or more `automationRunbookReceiver` blocks as defined below.
+     */
+    readonly automationRunbookReceivers: outputs.monitoring.GetActionGroupAutomationRunbookReceiver[];
+    /**
+     * One or more `azureAppPushReceiver` blocks as defined below.
+     */
+    readonly azureAppPushReceivers: outputs.monitoring.GetActionGroupAzureAppPushReceiver[];
+    /**
+     * One or more `azureFunctionReceiver` blocks as defined below.
+     */
+    readonly azureFunctionReceivers: outputs.monitoring.GetActionGroupAzureFunctionReceiver[];
+    /**
      * One or more `emailReceiver` blocks as defined below.
      */
     readonly emailReceivers: outputs.monitoring.GetActionGroupEmailReceiver[];
@@ -68,7 +84,15 @@ export interface GetActionGroupResult {
      */
     readonly enabled: boolean;
     /**
-     * The name of the webhook receiver. 
+     * One or more `itsmReceiver` blocks as defined below.
+     */
+    readonly itsmReceivers: outputs.monitoring.GetActionGroupItsmReceiver[];
+    /**
+     * One or more `logicAppReceiver` blocks as defined below.
+     */
+    readonly logicAppReceivers: outputs.monitoring.GetActionGroupLogicAppReceiver[];
+    /**
+     * The name of the webhook receiver.
      */
     readonly name: string;
     readonly resourceGroupName: string;
@@ -77,11 +101,15 @@ export interface GetActionGroupResult {
      */
     readonly shortName: string;
     /**
-     * One or more `smsReceiver ` blocks as defined below.
+     * One or more `smsReceiver` blocks as defined below.
      */
     readonly smsReceivers: outputs.monitoring.GetActionGroupSmsReceiver[];
     /**
-     * One or more `webhookReceiver ` blocks as defined below.
+     * One or more `voiceReceiver` blocks as defined below.
+     */
+    readonly voiceReceivers: outputs.monitoring.GetActionGroupVoiceReceiver[];
+    /**
+     * One or more `webhookReceiver` blocks as defined below.
      */
     readonly webhookReceivers: outputs.monitoring.GetActionGroupWebhookReceiver[];
     /**

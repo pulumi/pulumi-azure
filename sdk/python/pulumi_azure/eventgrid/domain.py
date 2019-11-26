@@ -45,9 +45,17 @@ class Domain(pulumi.CustomResource):
     """
     Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
     """
+    primary_access_key: pulumi.Output[str]
+    """
+    The Primary Shared Access Key associated with the EventGrid Domain.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+    """
+    secondary_access_key: pulumi.Output[str]
+    """
+    The Secondary Shared Access Key associated with the EventGrid Domain.
     """
     tags: pulumi.Output[dict]
     """
@@ -111,6 +119,8 @@ class Domain(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['endpoint'] = None
+            __props__['primary_access_key'] = None
+            __props__['secondary_access_key'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/domain:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
@@ -120,7 +130,7 @@ class Domain(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoint=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, endpoint=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, tags=None):
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -134,7 +144,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_access_key: The Primary Shared Access Key associated with the EventGrid Domain.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Domain.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **input_mapping_default_values** object supports the following:
@@ -163,7 +175,9 @@ class Domain(pulumi.CustomResource):
         __props__["input_schema"] = input_schema
         __props__["location"] = location
         __props__["name"] = name
+        __props__["primary_access_key"] = primary_access_key
         __props__["resource_group_name"] = resource_group_name
+        __props__["secondary_access_key"] = secondary_access_key
         __props__["tags"] = tags
         return Domain(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

@@ -123,7 +123,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -298,7 +298,7 @@ export interface AccountState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -385,7 +385,7 @@ export interface AccountArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     readonly name?: pulumi.Input<string>;
     /**

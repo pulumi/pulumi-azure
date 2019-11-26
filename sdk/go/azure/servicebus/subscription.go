@@ -37,6 +37,7 @@ func NewSubscription(ctx *pulumi.Context,
 		inputs["deadLetteringOnMessageExpiration"] = nil
 		inputs["defaultMessageTtl"] = nil
 		inputs["enableBatchedOperations"] = nil
+		inputs["forwardDeadLetteredMessagesTo"] = nil
 		inputs["forwardTo"] = nil
 		inputs["location"] = nil
 		inputs["lockDuration"] = nil
@@ -52,6 +53,7 @@ func NewSubscription(ctx *pulumi.Context,
 		inputs["deadLetteringOnMessageExpiration"] = args.DeadLetteringOnMessageExpiration
 		inputs["defaultMessageTtl"] = args.DefaultMessageTtl
 		inputs["enableBatchedOperations"] = args.EnableBatchedOperations
+		inputs["forwardDeadLetteredMessagesTo"] = args.ForwardDeadLetteredMessagesTo
 		inputs["forwardTo"] = args.ForwardTo
 		inputs["location"] = args.Location
 		inputs["lockDuration"] = args.LockDuration
@@ -80,6 +82,7 @@ func GetSubscription(ctx *pulumi.Context,
 		inputs["deadLetteringOnMessageExpiration"] = state.DeadLetteringOnMessageExpiration
 		inputs["defaultMessageTtl"] = state.DefaultMessageTtl
 		inputs["enableBatchedOperations"] = state.EnableBatchedOperations
+		inputs["forwardDeadLetteredMessagesTo"] = state.ForwardDeadLetteredMessagesTo
 		inputs["forwardTo"] = state.ForwardTo
 		inputs["location"] = state.Location
 		inputs["lockDuration"] = state.LockDuration
@@ -138,8 +141,12 @@ func (r *Subscription) EnableBatchedOperations() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
 }
 
-// The name of a Queue or Topic to automatically forward 
-// messages to.
+// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+func (r *Subscription) ForwardDeadLetteredMessagesTo() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["forwardDeadLetteredMessagesTo"])
+}
+
+// The name of a Queue or Topic to automatically forward messages to.
 func (r *Subscription) ForwardTo() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["forwardTo"])
 }
@@ -210,8 +217,9 @@ type SubscriptionState struct {
 	// Boolean flag which controls whether the
 	// Subscription supports batched operations. Defaults to false.
 	EnableBatchedOperations interface{}
-	// The name of a Queue or Topic to automatically forward 
-	// messages to.
+	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+	ForwardDeadLetteredMessagesTo interface{}
+	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo interface{}
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
@@ -257,8 +265,9 @@ type SubscriptionArgs struct {
 	// Boolean flag which controls whether the
 	// Subscription supports batched operations. Defaults to false.
 	EnableBatchedOperations interface{}
-	// The name of a Queue or Topic to automatically forward 
-	// messages to.
+	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+	ForwardDeadLetteredMessagesTo interface{}
+	// The name of a Queue or Topic to automatically forward messages to.
 	ForwardTo interface{}
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.

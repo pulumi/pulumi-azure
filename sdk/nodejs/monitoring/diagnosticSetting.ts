@@ -15,18 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testAccount = testResourceGroup.name.apply(name => azure.storage.getAccount({
+ * const exampleAccount = exampleResourceGroup.name.apply(name => azure.storage.getAccount({
  *     name: "examplestoracc",
  *     resourceGroupName: name,
  * }));
- * const testKeyVault = testResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
+ * const exampleKeyVault = exampleResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
  *     name: "example-vault",
  *     resourceGroupName: name,
  * }));
- * const testDiagnosticSetting = new azure.monitoring.DiagnosticSetting("test", {
+ * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("example", {
  *     logs: [{
  *         category: "AuditEvent",
  *         enabled: false,
@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  *             enabled: false,
  *         },
  *     }],
- *     storageAccountId: testAccount.id,
- *     targetResourceId: testKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
+ *     targetResourceId: exampleKeyVault.id,
  * });
  * ```
  *

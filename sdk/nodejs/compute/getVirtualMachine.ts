@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.compute.getVirtualMachine({
+ * const example = azure.compute.getVirtualMachine({
  *     name: "production",
  *     resourceGroupName: "networking",
  * });
  * 
- * export const virtualMachineId = test.id;
+ * export const virtualMachineId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.

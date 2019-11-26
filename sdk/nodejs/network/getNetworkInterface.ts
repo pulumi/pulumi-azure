@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.network.getNetworkInterface({
+ * const example = azure.network.getNetworkInterface({
  *     name: "acctest-nic",
  *     resourceGroupName: "networking",
  * });
  * 
- * export const networkInterfaceId = test.id;
+ * export const networkInterfaceId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.

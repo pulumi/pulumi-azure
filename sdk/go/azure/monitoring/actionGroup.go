@@ -26,22 +26,36 @@ func NewActionGroup(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["armRoleReceivers"] = nil
+		inputs["automationRunbookReceivers"] = nil
+		inputs["azureAppPushReceivers"] = nil
+		inputs["azureFunctionReceivers"] = nil
 		inputs["emailReceivers"] = nil
 		inputs["enabled"] = nil
+		inputs["itsmReceivers"] = nil
+		inputs["logicAppReceivers"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["shortName"] = nil
 		inputs["smsReceivers"] = nil
 		inputs["tags"] = nil
+		inputs["voiceReceivers"] = nil
 		inputs["webhookReceivers"] = nil
 	} else {
+		inputs["armRoleReceivers"] = args.ArmRoleReceivers
+		inputs["automationRunbookReceivers"] = args.AutomationRunbookReceivers
+		inputs["azureAppPushReceivers"] = args.AzureAppPushReceivers
+		inputs["azureFunctionReceivers"] = args.AzureFunctionReceivers
 		inputs["emailReceivers"] = args.EmailReceivers
 		inputs["enabled"] = args.Enabled
+		inputs["itsmReceivers"] = args.ItsmReceivers
+		inputs["logicAppReceivers"] = args.LogicAppReceivers
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["shortName"] = args.ShortName
 		inputs["smsReceivers"] = args.SmsReceivers
 		inputs["tags"] = args.Tags
+		inputs["voiceReceivers"] = args.VoiceReceivers
 		inputs["webhookReceivers"] = args.WebhookReceivers
 	}
 	s, err := ctx.RegisterResource("azure:monitoring/actionGroup:ActionGroup", name, true, inputs, opts...)
@@ -57,13 +71,20 @@ func GetActionGroup(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ActionGroupState, opts ...pulumi.ResourceOpt) (*ActionGroup, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["armRoleReceivers"] = state.ArmRoleReceivers
+		inputs["automationRunbookReceivers"] = state.AutomationRunbookReceivers
+		inputs["azureAppPushReceivers"] = state.AzureAppPushReceivers
+		inputs["azureFunctionReceivers"] = state.AzureFunctionReceivers
 		inputs["emailReceivers"] = state.EmailReceivers
 		inputs["enabled"] = state.Enabled
+		inputs["itsmReceivers"] = state.ItsmReceivers
+		inputs["logicAppReceivers"] = state.LogicAppReceivers
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["shortName"] = state.ShortName
 		inputs["smsReceivers"] = state.SmsReceivers
 		inputs["tags"] = state.Tags
+		inputs["voiceReceivers"] = state.VoiceReceivers
 		inputs["webhookReceivers"] = state.WebhookReceivers
 	}
 	s, err := ctx.ReadResource("azure:monitoring/actionGroup:ActionGroup", name, id, inputs, opts...)
@@ -83,6 +104,26 @@ func (r *ActionGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// One or more `armRoleReceiver` blocks as defined below.
+func (r *ActionGroup) ArmRoleReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["armRoleReceivers"])
+}
+
+// One or more `automationRunbookReceiver` blocks as defined below.
+func (r *ActionGroup) AutomationRunbookReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["automationRunbookReceivers"])
+}
+
+// One or more `azureAppPushReceiver` blocks as defined below.
+func (r *ActionGroup) AzureAppPushReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["azureAppPushReceivers"])
+}
+
+// One or more `azureFunctionReceiver` blocks as defined below.
+func (r *ActionGroup) AzureFunctionReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["azureFunctionReceivers"])
+}
+
 // One or more `emailReceiver` blocks as defined below.
 func (r *ActionGroup) EmailReceivers() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["emailReceivers"])
@@ -91,6 +132,16 @@ func (r *ActionGroup) EmailReceivers() pulumi.ArrayOutput {
 // Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 func (r *ActionGroup) Enabled() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enabled"])
+}
+
+// One or more `itsmReceiver` blocks as defined below.
+func (r *ActionGroup) ItsmReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["itsmReceivers"])
+}
+
+// One or more `logicAppReceiver` blocks as defined below.
+func (r *ActionGroup) LogicAppReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["logicAppReceivers"])
 }
 
 // The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
@@ -108,7 +159,7 @@ func (r *ActionGroup) ShortName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["shortName"])
 }
 
-// One or more `smsReceiver ` blocks as defined below.
+// One or more `smsReceiver` blocks as defined below.
 func (r *ActionGroup) SmsReceivers() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["smsReceivers"])
 }
@@ -118,47 +169,80 @@ func (r *ActionGroup) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// One or more `webhookReceiver ` blocks as defined below.
+// One or more `voiceReceiver` blocks as defined below.
+func (r *ActionGroup) VoiceReceivers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["voiceReceivers"])
+}
+
+// One or more `webhookReceiver` blocks as defined below.
 func (r *ActionGroup) WebhookReceivers() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["webhookReceivers"])
 }
 
 // Input properties used for looking up and filtering ActionGroup resources.
 type ActionGroupState struct {
+	// One or more `armRoleReceiver` blocks as defined below.
+	ArmRoleReceivers interface{}
+	// One or more `automationRunbookReceiver` blocks as defined below.
+	AutomationRunbookReceivers interface{}
+	// One or more `azureAppPushReceiver` blocks as defined below.
+	AzureAppPushReceivers interface{}
+	// One or more `azureFunctionReceiver` blocks as defined below.
+	AzureFunctionReceivers interface{}
 	// One or more `emailReceiver` blocks as defined below.
 	EmailReceivers interface{}
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled interface{}
+	// One or more `itsmReceiver` blocks as defined below.
+	ItsmReceivers interface{}
+	// One or more `logicAppReceiver` blocks as defined below.
+	LogicAppReceivers interface{}
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name interface{}
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName interface{}
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName interface{}
-	// One or more `smsReceiver ` blocks as defined below.
+	// One or more `smsReceiver` blocks as defined below.
 	SmsReceivers interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// One or more `webhookReceiver ` blocks as defined below.
+	// One or more `voiceReceiver` blocks as defined below.
+	VoiceReceivers interface{}
+	// One or more `webhookReceiver` blocks as defined below.
 	WebhookReceivers interface{}
 }
 
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
+	// One or more `armRoleReceiver` blocks as defined below.
+	ArmRoleReceivers interface{}
+	// One or more `automationRunbookReceiver` blocks as defined below.
+	AutomationRunbookReceivers interface{}
+	// One or more `azureAppPushReceiver` blocks as defined below.
+	AzureAppPushReceivers interface{}
+	// One or more `azureFunctionReceiver` blocks as defined below.
+	AzureFunctionReceivers interface{}
 	// One or more `emailReceiver` blocks as defined below.
 	EmailReceivers interface{}
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled interface{}
+	// One or more `itsmReceiver` blocks as defined below.
+	ItsmReceivers interface{}
+	// One or more `logicAppReceiver` blocks as defined below.
+	LogicAppReceivers interface{}
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name interface{}
 	// The name of the resource group in which to create the Action Group instance.
 	ResourceGroupName interface{}
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName interface{}
-	// One or more `smsReceiver ` blocks as defined below.
+	// One or more `smsReceiver` blocks as defined below.
 	SmsReceivers interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// One or more `webhookReceiver ` blocks as defined below.
+	// One or more `voiceReceiver` blocks as defined below.
+	VoiceReceivers interface{}
+	// One or more `webhookReceiver` blocks as defined below.
 	WebhookReceivers interface{}
 }

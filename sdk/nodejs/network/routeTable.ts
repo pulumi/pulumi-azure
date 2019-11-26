@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testRouteTable = new azure.network.RouteTable("test", {
+ * const exampleRouteTable = new azure.network.RouteTable("example", {
  *     disableBgpRoutePropagation: false,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     routes: [{
  *         addressPrefix: "10.1.0.0/16",
  *         name: "route1",

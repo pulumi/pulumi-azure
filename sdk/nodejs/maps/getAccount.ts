@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.maps.getAccount({
+ * const example = azure.maps.getAccount({
  *     name: "production",
  *     resourceGroupName: "maps",
  * });
  * 
- * export const mapsAccountId = test.id;
+ * export const mapsAccountId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.

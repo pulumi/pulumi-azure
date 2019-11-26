@@ -15,25 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westeurope",
  * });
- * const testSqlServer = new azure.sql.SqlServer("test", {
+ * const exampleSqlServer = new azure.sql.SqlServer("example", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
  * });
- * const testElasticPool = new azure.mssql.ElasticPool("test", {
- *     location: testResourceGroup.location,
+ * const exampleElasticPool = new azure.mssql.ElasticPool("example", {
+ *     location: exampleResourceGroup.location,
  *     maxSizeGb: 756,
  *     perDatabaseSettings: {
  *         maxCapacity: 4,
  *         minCapacity: 0.25,
  *     },
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testSqlServer.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleSqlServer.name,
  *     sku: {
  *         capacity: 4,
  *         family: "Gen5",

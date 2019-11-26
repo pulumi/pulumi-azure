@@ -22,26 +22,26 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const testAppService = new azure.appservice.AppService("test", {
- *     appServicePlanId: testPlan.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     appServicePlanId: examplePlan.id,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("test", {
- *     appServiceName: testAppService.name,
+ * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
+ *     appServiceName: exampleAppService.name,
  *     hostname: "www.mywebsite.com",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

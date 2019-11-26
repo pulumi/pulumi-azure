@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.monitoring.MetricAlertRule("test", {
+ * const example = new azure.monitoring.MetricAlertRule("example", {
  *     aggregation: "Average",
  *     description: "An alert rule to watch the metric Percentage CPU",
  *     emailAction: {
@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  *         sendToServiceOwners: false,
  *     },
  *     enabled: true,
- *     location: azurerm_resource_group_test.location,
+ *     location: azurerm_resource_group_example.location,
  *     metricName: "Percentage CPU",
  *     operator: "GreaterThan",
  *     period: "PT5M",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     resourceId: azurerm_virtual_machine_test.id,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     resourceId: azurerm_virtual_machine_example.id,
  *     threshold: 75,
  *     webhookAction: {
  *         properties: {
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.monitoring.MetricAlertRule("test", {
+ * const example = new azure.monitoring.MetricAlertRule("example", {
  *     aggregation: "Maximum",
  *     description: "An alert rule to watch the metric Storage",
  *     emailAction: {
@@ -54,12 +54,12 @@ import * as utilities from "../utilities";
  *         sendToServiceOwners: false,
  *     },
  *     enabled: true,
- *     location: azurerm_resource_group_test.location,
+ *     location: azurerm_resource_group_example.location,
  *     metricName: "storage",
  *     operator: "GreaterThan",
  *     period: "PT10M",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     resourceId: azurerm_sql_database_test.id,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     resourceId: azurerm_sql_database_example.id,
  *     threshold: 1073741824,
  *     webhookAction: {
  *         properties: {

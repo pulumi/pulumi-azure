@@ -75,6 +75,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<ImmutableArray<Outputs.KafkaClusterStorageAccounts>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
+        /// A `storage_account_gen2` block as defined below.
+        /// </summary>
+        [Output("storageAccountGen2")]
+        public Output<Outputs.KafkaClusterStorageAccountGen2?> StorageAccountGen2 { get; private set; } = null!;
+
+        /// <summary>
         /// A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         /// </summary>
         [Output("tags")]
@@ -174,7 +180,7 @@ namespace Pulumi.Azure.HDInsight
         [Input("roles", required: true)]
         public Input<Inputs.KafkaClusterRolesArgs> Roles { get; set; } = null!;
 
-        [Input("storageAccounts", required: true)]
+        [Input("storageAccounts")]
         private InputList<Inputs.KafkaClusterStorageAccountsArgs>? _storageAccounts;
 
         /// <summary>
@@ -185,6 +191,12 @@ namespace Pulumi.Azure.HDInsight
             get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.KafkaClusterStorageAccountsArgs>());
             set => _storageAccounts = value;
         }
+
+        /// <summary>
+        /// A `storage_account_gen2` block as defined below.
+        /// </summary>
+        [Input("storageAccountGen2")]
+        public Input<Inputs.KafkaClusterStorageAccountGen2Args>? StorageAccountGen2 { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -276,6 +288,12 @@ namespace Pulumi.Azure.HDInsight
             get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.KafkaClusterStorageAccountsGetArgs>());
             set => _storageAccounts = value;
         }
+
+        /// <summary>
+        /// A `storage_account_gen2` block as defined below.
+        /// </summary>
+        [Input("storageAccountGen2")]
+        public Input<Inputs.KafkaClusterStorageAccountGen2GetArgs>? StorageAccountGen2 { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -585,6 +603,44 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
+    public sealed class KafkaClusterStorageAccountGen2Args : Pulumi.ResourceArgs
+    {
+        [Input("filesystemId", required: true)]
+        public Input<string> FilesystemId { get; set; } = null!;
+
+        [Input("isDefault", required: true)]
+        public Input<bool> IsDefault { get; set; } = null!;
+
+        [Input("managedIdentityResourceId", required: true)]
+        public Input<string> ManagedIdentityResourceId { get; set; } = null!;
+
+        [Input("storageResourceId", required: true)]
+        public Input<string> StorageResourceId { get; set; } = null!;
+
+        public KafkaClusterStorageAccountGen2Args()
+        {
+        }
+    }
+
+    public sealed class KafkaClusterStorageAccountGen2GetArgs : Pulumi.ResourceArgs
+    {
+        [Input("filesystemId", required: true)]
+        public Input<string> FilesystemId { get; set; } = null!;
+
+        [Input("isDefault", required: true)]
+        public Input<bool> IsDefault { get; set; } = null!;
+
+        [Input("managedIdentityResourceId", required: true)]
+        public Input<string> ManagedIdentityResourceId { get; set; } = null!;
+
+        [Input("storageResourceId", required: true)]
+        public Input<string> StorageResourceId { get; set; } = null!;
+
+        public KafkaClusterStorageAccountGen2GetArgs()
+        {
+        }
+    }
+
     public sealed class KafkaClusterStorageAccountsArgs : Pulumi.ResourceArgs
     {
         [Input("isDefault", required: true)]
@@ -761,6 +817,28 @@ namespace Pulumi.Azure.HDInsight
             Username = username;
             VirtualNetworkId = virtualNetworkId;
             VmSize = vmSize;
+        }
+    }
+
+    [OutputType]
+    public sealed class KafkaClusterStorageAccountGen2
+    {
+        public readonly string FilesystemId;
+        public readonly bool IsDefault;
+        public readonly string ManagedIdentityResourceId;
+        public readonly string StorageResourceId;
+
+        [OutputConstructor]
+        private KafkaClusterStorageAccountGen2(
+            string filesystemId,
+            bool isDefault,
+            string managedIdentityResourceId,
+            string storageResourceId)
+        {
+            FilesystemId = filesystemId;
+            IsDefault = isDefault;
+            ManagedIdentityResourceId = managedIdentityResourceId;
+            StorageResourceId = storageResourceId;
         }
     }
 

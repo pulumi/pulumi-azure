@@ -47,6 +47,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.KubernetesClusterAgentPoolProfile[]>;
     public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
+     * A `defaultNodePool` block as defined below.
+     */
+    public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool | undefined>;
+    /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     public readonly dnsPrefix!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["agentPoolProfiles"] = state ? state.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
+            inputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
@@ -133,9 +138,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["windowsProfile"] = state ? state.windowsProfile : undefined;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
-            if (!args || args.agentPoolProfiles === undefined) {
-                throw new Error("Missing required property 'agentPoolProfiles'");
-            }
             if (!args || args.dnsPrefix === undefined) {
                 throw new Error("Missing required property 'dnsPrefix'");
             }
@@ -148,6 +150,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
+            inputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -188,6 +191,10 @@ export interface KubernetesClusterState {
      */
     readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
     readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `defaultNodePool` block as defined below.
+     */
+    readonly defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -249,8 +256,12 @@ export interface KubernetesClusterArgs {
     /**
      * One or more `agentPoolProfile` blocks as defined below.
      */
-    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAgentPoolProfile>[]>;
     readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `defaultNodePool` block as defined below.
+     */
+    readonly defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */

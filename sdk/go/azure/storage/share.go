@@ -91,7 +91,7 @@ func (r *Share) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
 func (r *Share) Quota() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["quota"])
 }
@@ -121,7 +121,7 @@ type ShareState struct {
 	Metadata interface{}
 	// The name of the share. Must be unique within the storage account where the share is located.
 	Name interface{}
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
 	Quota interface{}
 	// The name of the resource group in which to
 	// create the share. Changing this forces a new resource to be created.
@@ -141,7 +141,7 @@ type ShareArgs struct {
 	Metadata interface{}
 	// The name of the share. Must be unique within the storage account where the share is located.
 	Name interface{}
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
 	Quota interface{}
 	// The name of the resource group in which to
 	// create the share. Changing this forces a new resource to be created.

@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "mykeyvault",
  *     resourceGroupName: "some-resource-group",
  * });
  * 
- * export const vaultUri = test.vaultUri;
+ * export const vaultUri = example.vaultUri;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.

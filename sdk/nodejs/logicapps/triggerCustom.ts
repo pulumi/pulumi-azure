@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "East US",
  * });
- * const testWorkflow = new azure.logicapps.Workflow("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleWorkflow = new azure.logicapps.Workflow("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testTriggerCustom = new azure.logicapps.TriggerCustom("test", {
+ * const exampleTriggerCustom = new azure.logicapps.TriggerCustom("example", {
  *     body: `{
  *   "recurrence": {
  *     "frequency": "Day",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *   "type": "Recurrence"
  * }
  * `,
- *     logicAppId: testWorkflow.id,
+ *     logicAppId: exampleWorkflow.id,
  * });
  * ```
  *

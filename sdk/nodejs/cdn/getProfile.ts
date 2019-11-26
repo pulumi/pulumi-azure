@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.cdn.getProfile({
+ * const example = azure.cdn.getProfile({
  *     name: "myfirstcdnprofile",
  *     resourceGroupName: "example-resources",
  * });
  * 
- * export const cdnProfileId = test.id;
+ * export const cdnProfileId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.

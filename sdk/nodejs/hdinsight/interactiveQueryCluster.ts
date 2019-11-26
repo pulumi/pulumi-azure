@@ -136,7 +136,11 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterStorageAccount[]>;
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterStorageAccount[] | undefined>;
+    /**
+     * A `storageAccountGen2` block as defined below.
+     */
+    public readonly storageAccountGen2!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterStorageAccountGen2 | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      */
@@ -168,6 +172,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             inputs["roles"] = state ? state.roles : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
+            inputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tier"] = state ? state.tier : undefined;
         } else {
@@ -187,9 +192,6 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             if (!args || args.roles === undefined) {
                 throw new Error("Missing required property 'roles'");
             }
-            if (!args || args.storageAccounts === undefined) {
-                throw new Error("Missing required property 'storageAccounts'");
-            }
             if (!args || args.tier === undefined) {
                 throw new Error("Missing required property 'tier'");
             }
@@ -201,6 +203,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["httpsEndpoint"] = undefined /*out*/;
@@ -262,6 +265,10 @@ export interface InteractiveQueryClusterState {
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccount>[]>;
     /**
+     * A `storageAccountGen2` block as defined below.
+     */
+    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccountGen2>;
+    /**
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
@@ -306,7 +313,11 @@ export interface InteractiveQueryClusterArgs {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccount>[]>;
+    /**
+     * A `storageAccountGen2` block as defined below.
+     */
+    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccountGen2>;
     /**
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      */

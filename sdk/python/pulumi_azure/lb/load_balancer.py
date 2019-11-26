@@ -14,6 +14,7 @@ class LoadBalancer(pulumi.CustomResource):
     """
     One or multiple `frontend_ip_configuration` blocks as documented below.
     
+      * `id` (`str`) - The id of the Frontend IP Configuration.
       * `inbound_nat_rules` (`list`)
       * `load_balancer_rules` (`list`)
       * `name` (`str`) - Specifies the name of the frontend ip configuration.
@@ -68,6 +69,7 @@ class LoadBalancer(pulumi.CustomResource):
         
         The **frontend_ip_configurations** object supports the following:
         
+          * `id` (`pulumi.Input[str]`) - The id of the Frontend IP Configuration.
           * `inbound_nat_rules` (`pulumi.Input[list]`)
           * `load_balancer_rules` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the frontend ip configuration.
@@ -134,6 +136,7 @@ class LoadBalancer(pulumi.CustomResource):
         
         The **frontend_ip_configurations** object supports the following:
         
+          * `id` (`pulumi.Input[str]`) - The id of the Frontend IP Configuration.
           * `inbound_nat_rules` (`pulumi.Input[list]`)
           * `load_balancer_rules` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the frontend ip configuration.

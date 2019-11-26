@@ -15,38 +15,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testLab = new azure.devtest.Lab("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleLab = new azure.devtest.Lab("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         Sydney: "Australia",
  *     },
  * });
- * const testVirtualNetwork = new azure.devtest.VirtualNetwork("test", {
- *     labName: testLab.name,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
+ *     labName: exampleLab.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     subnet: {
  *         useInVirtualMachineCreation: "Allow",
  *         usePublicIpAddress: "Allow",
  *     },
  * });
- * const testWindowsVirtualMachine = new azure.devtest.WindowsVirtualMachine("test", {
+ * const exampleWindowsVirtualMachine = new azure.devtest.WindowsVirtualMachine("example", {
  *     galleryImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
  *         sku: "18.04-LTS",
  *         version: "latest",
  *     },
- *     labName: testLab.name,
- *     labSubnetName: testVirtualNetwork.subnet.apply(subnet => subnet.name),
- *     labVirtualNetworkId: testVirtualNetwork.id,
- *     location: testResourceGroup.location,
+ *     labName: exampleLab.name,
+ *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     labVirtualNetworkId: exampleVirtualNetwork.id,
+ *     location: exampleResourceGroup.location,
  *     notes: "Some notes about this Virtual Machine.",
  *     password: "Pa$w0rd1234!",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     size: "Standard_DS2",
  *     storageType: "Premium",
  *     username: "exampleuser99",

@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.network.getGatewayConnection({
+ * const example = azure.network.getGatewayConnection({
  *     name: "production",
  *     resourceGroupName: "networking",
  * });
  * 
- * export const virtualNetworkGatewayConnectionId = test.id;
+ * export const virtualNetworkGatewayConnectionId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.

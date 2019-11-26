@@ -33,9 +33,6 @@ func NewStormCluster(ctx *pulumi.Context,
 	if args == nil || args.Roles == nil {
 		return nil, errors.New("missing required argument 'Roles'")
 	}
-	if args == nil || args.StorageAccounts == nil {
-		return nil, errors.New("missing required argument 'StorageAccounts'")
-	}
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}

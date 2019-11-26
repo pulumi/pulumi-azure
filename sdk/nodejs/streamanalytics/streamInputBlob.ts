@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     storageAccountName: exampleAccount.name,
  * });
- * const test = new azure.streamanalytics.StreamInputBlob("test", {
+ * const exampleStreamInputBlob = new azure.streamanalytics.StreamInputBlob("example", {
  *     dateFormat: "yyyy/MM/dd",
  *     pathPattern: "some-random-pattern",
  *     resourceGroupName: exampleJob.resourceGroupName,

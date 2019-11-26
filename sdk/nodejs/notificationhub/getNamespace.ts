@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.notificationhub.getNamespace({
+ * const example = azure.notificationhub.getNamespace({
  *     name: "my-namespace",
  *     resourceGroupName: "my-resource-group",
  * });
  * 
- * export const servicebusEndpoint = test.servicebusEndpoint;
+ * export const servicebusEndpoint = example.servicebusEndpoint;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.

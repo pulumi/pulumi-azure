@@ -23,6 +23,7 @@ func LookupServer(ctx *pulumi.Context, args *GetServerArgs) (*GetServerResult, e
 	return &GetServerResult{
 		AdministratorLogin: outputs["administratorLogin"],
 		Fqdn: outputs["fqdn"],
+		Identities: outputs["identities"],
 		Location: outputs["location"],
 		Name: outputs["name"],
 		ResourceGroupName: outputs["resourceGroupName"],
@@ -46,6 +47,8 @@ type GetServerResult struct {
 	AdministratorLogin interface{}
 	// The fully qualified domain name of the SQL Server.
 	Fqdn interface{}
+	// An `identity` block as defined below.
+	Identities interface{}
 	// The location of the Resource Group in which the SQL Server exists.
 	Location interface{}
 	Name interface{}

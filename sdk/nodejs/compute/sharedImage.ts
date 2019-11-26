@@ -15,28 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testSharedImageGallery = new azure.compute.SharedImageGallery("test", {
+ * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
  *     description: "Shared images and things.",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         Hello: "There",
  *         World: "Example",
  *     },
  * });
- * const testSharedImage = new azure.compute.SharedImage("test", {
- *     galleryName: testSharedImageGallery.name,
+ * const exampleSharedImage = new azure.compute.SharedImage("example", {
+ *     galleryName: exampleSharedImageGallery.name,
  *     identifier: {
  *         offer: "OfferName",
  *         publisher: "PublisherName",
  *         sku: "ExampleSku",
  *     },
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     osType: "Linux",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

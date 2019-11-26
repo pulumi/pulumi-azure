@@ -49,8 +49,13 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a Queue or Topic to automatically forward 
-        /// messages to.
+        /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        /// </summary>
+        [Output("forwardDeadLetteredMessagesTo")]
+        public Output<string?> ForwardDeadLetteredMessagesTo { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of a Queue or Topic to automatically forward messages to.
         /// </summary>
         [Output("forwardTo")]
         public Output<string?> ForwardTo { get; private set; } = null!;
@@ -192,8 +197,13 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnableBatchedOperations { get; set; }
 
         /// <summary>
-        /// The name of a Queue or Topic to automatically forward 
-        /// messages to.
+        /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        /// </summary>
+        [Input("forwardDeadLetteredMessagesTo")]
+        public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
+
+        /// <summary>
+        /// The name of a Queue or Topic to automatically forward messages to.
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
@@ -296,8 +306,13 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? EnableBatchedOperations { get; set; }
 
         /// <summary>
-        /// The name of a Queue or Topic to automatically forward 
-        /// messages to.
+        /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        /// </summary>
+        [Input("forwardDeadLetteredMessagesTo")]
+        public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
+
+        /// <summary>
+        /// The name of a Queue or Topic to automatically forward messages to.
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }

@@ -15,25 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testContainer = new azure.storage.Container("test", {
+ * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
- *     resourceGroupName: testResourceGroup.name,
- *     storageAccountName: testAccount.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountName: exampleAccount.name,
  * });
- * const testBlob = new azure.storage.Blob("test", {
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleBlob = new azure.storage.Blob("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
  *     source: "some-local-file.zip",
- *     storageAccountName: testAccount.name,
- *     storageContainerName: testContainer.name,
+ *     storageAccountName: exampleAccount.name,
+ *     storageContainerName: exampleContainer.name,
  *     type: "Block",
  * });
  * ```

@@ -19,28 +19,28 @@ import * as utilities from "../utilities";
  *     name: "testManagedDisk",
  *     resourceGroupName: "acctestRG",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: "West US 2",
  *     resourceGroupName: "acctestRG",
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.2.0/24",
  *     resourceGroupName: "acctestRG",
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testNetworkInterface = new azure.network.NetworkInterface("test", {
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: testSubnet.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
  *     location: "West US 2",
  *     resourceGroupName: "acctestRG",
  * });
- * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     location: "West US 2",
- *     networkInterfaceIds: [testNetworkInterface.id],
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",

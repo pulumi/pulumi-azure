@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  *     partitionCount: 2,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testConsumerGroup = new azure.eventhub.ConsumerGroup("test", {
- *     eventhubName: azurerm_eventhub_test.name,
- *     namespaceName: azurerm_eventhub_namespace_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     eventhubName: exampleEventHub.name,
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("test", {
- *     eventhubConsumerGroupName: azurerm_eventhub_consumer_group_example.name,
+ * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("example", {
+ *     eventhubConsumerGroupName: exampleConsumerGroup.name,
  *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {

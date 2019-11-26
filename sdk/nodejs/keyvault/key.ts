@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as random from "@pulumi/random";
  * 
  * const current = azure.core.getClientConfig();
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
  * const server = new random.RandomId("server", {
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         ami_id: 1,
  *     },
  * });
- * const testKeyVault = new azure.keyvault.KeyVault("test", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     accessPolicies: [{
  *         keyPermissions: [
  *             "create",
@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  *         secretPermissions: ["set"],
  *         tenantId: current.tenantId,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "premium",
  *     tags: {
  *         environment: "Production",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     ],
  *     keySize: 2048,
  *     keyType: "RSA",
- *     keyVaultId: testKeyVault.id,
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * ```
  *

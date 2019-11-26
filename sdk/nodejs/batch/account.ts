@@ -15,20 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westeurope",
  * });
- * const testStorageAccount = new azure.storage.Account("test", {
+ * const exampleStorageAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testAccount = new azure.batch.Account("test", {
- *     location: testResourceGroup.location,
+ * const exampleAccount = new azure.batch.Account("example", {
+ *     location: exampleResourceGroup.location,
  *     poolAllocationMode: "BatchService",
- *     resourceGroupName: testResourceGroup.name,
- *     storageAccountId: testStorageAccount.id,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageAccountId: exampleStorageAccount.id,
  *     tags: {
  *         env: "test",
  *     },

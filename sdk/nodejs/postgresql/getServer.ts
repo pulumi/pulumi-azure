@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.postgresql.getServer({
+ * const example = azure.postgresql.getServer({
  *     name: "postgresql-server-1",
  *     resourceGroupName: "api-rg-pro",
  * });
  * 
- * export const postgresqlServerId = test.id;
+ * export const postgresqlServerId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.

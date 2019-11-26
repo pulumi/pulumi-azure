@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.network.getFirewall({
+ * const example = azure.network.getFirewall({
  *     name: "firewall1",
  *     resourceGroupName: "firewall-RG",
  * });
  * 
- * export const firewallPrivateIp = test.ipConfiguration.privateIpAddress;
+ * export const firewallPrivateIp = example.ipConfigurations[0].privateIpAddress;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
@@ -62,7 +62,7 @@ export interface GetFirewallResult {
     /**
      * A `ipConfiguration` block as defined below.
      */
-    readonly ipConfiguration: outputs.network.GetFirewallIpConfiguration;
+    readonly ipConfigurations: outputs.network.GetFirewallIpConfiguration[];
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;

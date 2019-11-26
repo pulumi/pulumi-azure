@@ -26,12 +26,16 @@ func NewService(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["cors"] = nil
+		inputs["features"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["cors"] = args.Cors
+		inputs["features"] = args.Features
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -59,6 +63,8 @@ func GetService(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["cors"] = state.Cors
+		inputs["features"] = state.Features
 		inputs["hostname"] = state.Hostname
 		inputs["ipAddress"] = state.IpAddress
 		inputs["location"] = state.Location
@@ -88,6 +94,16 @@ func (r *Service) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Service) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// A `cors` block as documented below.
+func (r *Service) Cors() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["cors"])
+}
+
+// A `features` block as documented below.
+func (r *Service) Features() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["features"])
 }
 
 // The FQDN of the SignalR service.
@@ -157,6 +173,10 @@ func (r *Service) Tags() pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
+	// A `cors` block as documented below.
+	Cors interface{}
+	// A `features` block as documented below.
+	Features interface{}
 	// The FQDN of the SignalR service.
 	Hostname interface{}
 	// The publicly accessible IP of the SignalR service.
@@ -187,6 +207,10 @@ type ServiceState struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// A `cors` block as documented below.
+	Cors interface{}
+	// A `features` block as documented below.
+	Features interface{}
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the SignalR service. Changing this forces a new resource to be created.

@@ -40,6 +40,8 @@ func NewDomain(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["endpoint"] = nil
+	inputs["primaryAccessKey"] = nil
+	inputs["secondaryAccessKey"] = nil
 	s, err := ctx.RegisterResource("azure:eventhub/domain:Domain", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,7 +61,9 @@ func GetDomain(ctx *pulumi.Context,
 		inputs["inputSchema"] = state.InputSchema
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["primaryAccessKey"] = state.PrimaryAccessKey
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:eventhub/domain:Domain", name, id, inputs, opts...)
@@ -109,9 +113,19 @@ func (r *Domain) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The Primary Shared Access Key associated with the EventGrid Domain.
+func (r *Domain) PrimaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+}
+
 // The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 func (r *Domain) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+}
+
+// The Secondary Shared Access Key associated with the EventGrid Domain.
+func (r *Domain) SecondaryAccessKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -133,8 +147,12 @@ type DomainState struct {
 	Location interface{}
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
 	Name interface{}
+	// The Primary Shared Access Key associated with the EventGrid Domain.
+	PrimaryAccessKey interface{}
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The Secondary Shared Access Key associated with the EventGrid Domain.
+	SecondaryAccessKey interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

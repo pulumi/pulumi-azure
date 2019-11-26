@@ -87,6 +87,7 @@ const (
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSSQL               = "mssql"               // MS Sql
 	azureMySQL               = "mysql"               // MySql
+	azureNetapp              = "netapp"              // NetApp
 	azureNetwork             = "network"             // Networking
 	azureNotificationHub     = "notificationhub"     // Notification Hub
 	azureOperationalInsights = "operationalinsights" // Operational Insights
@@ -94,6 +95,7 @@ const (
 	azurePolicy              = "policy"              // Policy
 	azureProximity           = "proximity"           // Proximity
 	azurePrivateDNS          = "privatedns"          // Private DNS
+	azurePrivateLink         = "privatelink"         // PrivateLink
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
@@ -502,6 +504,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"azurerm_kubernetes_cluster_node_pool": {
+				Tok: azureResource(azureContainerService, "KubernetesClusterNodePool"),
+			},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
@@ -608,6 +613,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_sql_server":   {Tok: azureResource(azureDataFactory, "LinkedServiceSqlServer")},
 			"azurerm_data_factory_pipeline":                    {Tok: azureResource(azureDataFactory, "Pipeline")},
 			"azurerm_data_factory_integration_runtime_managed": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeManaged")},
+			"azurerm_data_factory_trigger_schedule":            {Tok: azureResource(azureDataFactory, "TriggerSchedule")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -671,15 +677,32 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// IoT Resources
-			"azurerm_iot_dps":             {Tok: azureResource(azureIot, "Dps")},
-			"azurerm_iot_dps_certificate": {Tok: azureResource(azureIot, "Certificate")},
+			"azurerm_iot_dps": {
+				Tok: azureResource(azureIot, "Dps"),
+				Docs: &tfbridge.DocInfo{
+					Source: "iothub_dps.html.markdown",
+				},
+			},
+			"azurerm_iot_dps_certificate": {
+				Tok: azureResource(azureIot, "Certificate"),
+				Docs: &tfbridge.DocInfo{
+					Source: "iothub_dps_certificate.html.markdown",
+				},
+			},
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
 				Docs: &tfbridge.DocInfo{
 					Source: "iothub.html.markdown",
 				},
 			},
-			"azurerm_iothub_consumer_group":       {Tok: azureResource(azureIot, "ConsumerGroup")},
-			"azurerm_iothub_shared_access_policy": {Tok: azureResource(azureIot, "SharedAccessPolicy")},
+			"azurerm_iothub_consumer_group":             {Tok: azureResource(azureIot, "ConsumerGroup")},
+			"azurerm_iothub_shared_access_policy":       {Tok: azureResource(azureIot, "SharedAccessPolicy")},
+			"azurerm_iothub_endpoint_eventhub":          {Tok: azureResource(azureIot, "EndpointEventhub")},
+			"azurerm_iothub_endpoint_servicebus_queue":  {Tok: azureResource(azureIot, "EndpointServicebusQueue")},
+			"azurerm_iothub_endpoint_servicebus_topic":  {Tok: azureResource(azureIot, "EndpointServicebusTopic")},
+			"azurerm_iothub_endpoint_storage_container": {Tok: azureResource(azureIot, "EndpointStorageContainer")},
+			"azurerm_iothub_route":                      {Tok: azureResource(azureIot, "Route")},
+			"azurerm_iothub_dps":                        {Tok: azureResource(azureIot, "IotHubDps")},
+			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
 
 			// KeyVault
 			"azurerm_key_vault": {
@@ -828,6 +851,18 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_dns_zone":         {Tok: azureResource(azurePrivateDNS, "Zone")},
 			"azurerm_private_dns_zone_virtual_network_link": {
 				Tok: azureResource(azurePrivateDNS, "ZoneVirtualNetworkLink"),
+			},
+			"azurerm_private_dns_aaaa_record": {
+				Tok: azureResource(azurePrivateDNS, "AAAARecord"),
+			},
+			"azurerm_private_dns_ptr_record": {
+				Tok: azureResource(azurePrivateDNS, "PTRRecord"),
+			},
+			"azurerm_private_dns_srv_record": {
+				Tok: azureResource(azurePrivateDNS, "SRVRecord"),
+			},
+			"azurerm_private_link_service": {
+				Tok: azureResource(azurePrivateDNS, "LinkService"),
 			},
 
 			// SQL
@@ -1013,7 +1048,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
 
 			// Relay
-			"azurerm_relay_namespace": {Tok: azureResource(azureRelay, "Namespace")},
+			"azurerm_relay_namespace":         {Tok: azureResource(azureRelay, "Namespace")},
+			"azurerm_relay_hybrid_connection": {Tok: azureResource(azureRelay, "HybridConnection")},
 
 			// Scheduler
 			"azurerm_scheduler_job":            {Tok: azureResource(azureScheduler, "Job")},
@@ -1151,6 +1187,10 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Healthcare
 			"azurerm_healthcare_service": {Tok: azureResource(azureHealthcare, "Service")},
+
+			// NetApp
+			"azurerm_netapp_account": {Tok: azureResource(azureNetapp, "Account")},
+			"azurerm_netapp_pool":    {Tok: azureResource(azureNetapp, "Pool")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1185,6 +1225,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_variable_datetime": {Tok: azureDataSource(azureAutomation, "getDateTimeVariable")},
 			"azurerm_automation_variable_int":      {Tok: azureDataSource(azureAutomation, "getIntVariable")},
 			"azurerm_automation_variable_string":   {Tok: azureDataSource(azureAutomation, "getStringVariable")},
+			"azurerm_automation_account":           {Tok: azureDataSource(azureAutomation, "getAccount")},
 			"azurerm_availability_set":             {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
 			"azurerm_batch_account":                {Tok: azureDataSource(azureBatch, "getAccount")},
 			"azurerm_batch_certificate":            {Tok: azureDataSource(azureBatch, "getCertificate")},
@@ -1300,6 +1341,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_healthcare_service":                      {Tok: azureDataSource(azureHealthcare, "getService")},
 			"azurerm_postgresql_server":                       {Tok: azureDataSource(azurePostgresql, "getServer")},
 			"azurerm_resources":                               {Tok: azureDataSource(azureCore, "getResources")},
+			"azurerm_netapp_account":                          {Tok: azureDataSource(azureNetapp, "getAccount")},
+			"azurerm_netapp_pool":                             {Tok: azureDataSource(azureNetapp, "getPool")},
+			"azurerm_private_link_service":                    {Tok: azureDataSource(azurePrivateLink, "getService")},
+			"azurerm_private_link_service_endpoint_connections": {
+				Tok: azureDataSource(azurePrivateLink, "getServiceEndpointConnections"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
@@ -1410,10 +1457,12 @@ func Provider() tfbridge.ProviderInfo {
 				"mediaservices":       "MediaServices",
 				"mssql":               "MSSql",
 				"mysql":               "MySql",
+				"netapp":              "NetApp",
 				"notificationhub":     "NotificationHub",
 				"operationalinsights": "OperationalInsights",
 				"postgresql":          "PostgreSql",
 				"privatedns":          "PrivateDns",
+				"privatelink":         "PrivateLink",
 				"recoveryservices":    "RecoveryServices",
 				"securitycenter":      "SecurityCenter",
 				"servicebus":          "ServiceBus",
