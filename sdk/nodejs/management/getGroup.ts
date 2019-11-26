@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.management.getGroup({
+ * const example = azure.management.getGroup({
  *     groupId: "00000000-0000-0000-0000-000000000000",
  * });
  * 
- * export const displayName = test.displayName;
+ * export const displayName = example.displayName;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.

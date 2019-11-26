@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         /// </summary>
         [Output("quota")]
         public Output<int?> Quota { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+        /// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = azure.core.getSubscription();
- * const test = new azure.authorization.RoleDefinition("test", {
+ * const example = new azure.authorization.RoleDefinition("example", {
  *     assignableScopes: [primary.id],
  *     description: "This is a custom role",
  *     permissions: [{

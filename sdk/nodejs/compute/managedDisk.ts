@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US 2",
  * });
- * const testManagedDisk = new azure.compute.ManagedDisk("test", {
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  *     location: "West US 2",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     tags: {
  *         environment: "staging",
@@ -36,14 +36,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.core.ResourceGroup("test", {
+ * const example = new azure.core.ResourceGroup("example", {
  *     location: "West US 2",
  * });
  * const source = new azure.compute.ManagedDisk("source", {
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  *     location: "West US 2",
- *     resourceGroupName: test.name,
+ *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     tags: {
  *         environment: "staging",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     createOption: "Copy",
  *     diskSizeGb: 1,
  *     location: "West US 2",
- *     resourceGroupName: test.name,
+ *     resourceGroupName: example.name,
  *     sourceResourceId: source.id,
  *     storageAccountType: "Standard_LRS",
  *     tags: {

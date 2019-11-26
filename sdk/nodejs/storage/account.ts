@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -35,33 +35,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     serviceEndpoints: [
  *         "Microsoft.Sql",
  *         "Microsoft.Storage",
  *     ],
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testsa = new azure.storage.Account("testsa", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["100.0.0.1"],
- *         virtualNetworkSubnetIds: [testSubnet.id],
+ *         virtualNetworkSubnetIds: [exampleSubnet.id],
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },

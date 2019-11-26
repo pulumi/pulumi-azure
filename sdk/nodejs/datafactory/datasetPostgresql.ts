@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleDatasetPostgresql = new azure.datafactory.DatasetPostgresql("example", {
  *     dataFactoryName: exampleFactory.name,
- *     linkedServiceName: azurerm_data_factory_linked_service_postgresql_test.name,
+ *     linkedServiceName: exampleLinkedServicePostgresql.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

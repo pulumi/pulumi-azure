@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * // Get Resources with specific Tags
- * const test = azure.core.getResources({
+ * const example = azure.core.getResources({
  *     requiredTags: {
  *         environment: "production",
  *         role: "webserver",

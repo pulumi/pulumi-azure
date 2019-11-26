@@ -1156,6 +1156,9 @@ namespace Pulumi.Azure.AppService
         [Input("appCommandLine")]
         public Input<string>? AppCommandLine { get; set; }
 
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
+
         [Input("cors")]
         public Input<AppServiceSiteConfigCorsArgs>? Cors { get; set; }
 
@@ -1280,6 +1283,9 @@ namespace Pulumi.Azure.AppService
 
         [Input("appCommandLine")]
         public Input<string>? AppCommandLine { get; set; }
+
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
 
         [Input("cors")]
         public Input<AppServiceSiteConfigCorsGetArgs>? Cors { get; set; }
@@ -1842,6 +1848,7 @@ namespace Pulumi.Azure.AppService
     {
         public readonly bool? AlwaysOn;
         public readonly string? AppCommandLine;
+        public readonly string? AutoSwapSlotName;
         public readonly AppServiceSiteConfigCors Cors;
         public readonly ImmutableArray<string> DefaultDocuments;
         public readonly string? DotnetFrameworkVersion;
@@ -1869,6 +1876,7 @@ namespace Pulumi.Azure.AppService
         private AppServiceSiteConfig(
             bool? alwaysOn,
             string? appCommandLine,
+            string? autoSwapSlotName,
             AppServiceSiteConfigCors cors,
             ImmutableArray<string> defaultDocuments,
             string? dotnetFrameworkVersion,
@@ -1894,6 +1902,7 @@ namespace Pulumi.Azure.AppService
         {
             AlwaysOn = alwaysOn;
             AppCommandLine = appCommandLine;
+            AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
             DefaultDocuments = defaultDocuments;
             DotnetFrameworkVersion = dotnetFrameworkVersion;

@@ -13,12 +13,18 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, id=None):
+    def __init__(__self__, address_prefix=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, id=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         __self__.address_prefix = address_prefix
         """
         The address prefix used for the subnet.
+        """
+        if enforce_private_link_service_network_policies and not isinstance(enforce_private_link_service_network_policies, bool):
+            raise TypeError("Expected argument 'enforce_private_link_service_network_policies' to be a bool")
+        __self__.enforce_private_link_service_network_policies = enforce_private_link_service_network_policies
+        """
+        Enable or Disable network policies on private link service in the subnet.
         """
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
@@ -66,6 +72,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             yield self
         return GetSubnetResult(
             address_prefix=self.address_prefix,
+            enforce_private_link_service_network_policies=self.enforce_private_link_service_network_policies,
             ip_configurations=self.ip_configurations,
             name=self.name,
             network_security_group_id=self.network_security_group_id,
@@ -98,6 +105,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
 
     return AwaitableGetSubnetResult(
         address_prefix=__ret__.get('addressPrefix'),
+        enforce_private_link_service_network_policies=__ret__.get('enforcePrivateLinkServiceNetworkPolicies'),
         ip_configurations=__ret__.get('ipConfigurations'),
         name=__ret__.get('name'),
         network_security_group_id=__ret__.get('networkSecurityGroupId'),

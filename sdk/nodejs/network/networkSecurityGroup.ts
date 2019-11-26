@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     securityRules: [{
  *         access: "Allow",
  *         destinationAddressPrefix: "*",

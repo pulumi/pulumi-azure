@@ -84,7 +84,7 @@ class Api(pulumi.CustomResource):
     """
     The ID of the Version Set which this API is associated with.
     """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, version=None, version_set_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API within an API Management Service.
         
@@ -102,6 +102,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
+        :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
         
         The **import_** object supports the following:
         
@@ -160,10 +162,10 @@ class Api(pulumi.CustomResource):
             __props__['service_url'] = service_url
             __props__['soap_pass_through'] = soap_pass_through
             __props__['subscription_key_parameter_names'] = subscription_key_parameter_names
+            __props__['version'] = version
+            __props__['version_set_id'] = version_set_id
             __props__['is_current'] = None
             __props__['is_online'] = None
-            __props__['version'] = None
-            __props__['version_set_id'] = None
         super(Api, __self__).__init__(
             'azure:apimanagement/api:Api',
             resource_name,

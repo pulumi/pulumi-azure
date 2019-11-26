@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.devtest.getVirtualNetwork({
+ * const example = azure.devtest.getVirtualNetwork({
  *     labName: "examplelab",
  *     name: "example-network",
  *     resourceGroupName: "example-resource",
  * });
  * 
- * export const labSubnetName = test.allowedSubnets[0].labSubnetName;
+ * export const labSubnetName = example.allowedSubnets[0].labSubnetName;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.

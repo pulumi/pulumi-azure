@@ -15,39 +15,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "North Europe",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.1.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Static",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const testFirewall = new azure.network.Firewall("test", {
- *     ipConfiguration: {
+ * const exampleFirewall = new azure.network.Firewall("example", {
+ *     ipConfigurations: [{
  *         name: "configuration",
- *         publicIpAddressId: testPublicIp.id,
- *         subnetId: testSubnet.id,
- *     },
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *         publicIpAddressId: examplePublicIp.id,
+ *         subnetId: exampleSubnet.id,
+ *     }],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testFirewallNatRuleCollection = new azure.network.FirewallNatRuleCollection("test", {
+ * const exampleFirewallNatRuleCollection = new azure.network.FirewallNatRuleCollection("example", {
  *     action: "Dnat",
- *     azureFirewallName: testFirewall.name,
+ *     azureFirewallName: exampleFirewall.name,
  *     priority: 100,
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     rules: [{
  *         destinationAddresses: [
  *             "8.8.8.8",

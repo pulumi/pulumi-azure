@@ -14,12 +14,12 @@ class IoTHub(pulumi.CustomResource):
     """
     An `endpoint` block as defined below.
     
-      * `batchFrequencyInSeconds` (`float`)
+      * `batch_frequency_in_seconds` (`float`)
       * `connection_string` (`str`)
-      * `containerName` (`str`)
+      * `container_name` (`str`)
       * `encoding` (`str`)
-      * `fileNameFormat` (`str`)
-      * `maxChunkSizeInBytes` (`float`)
+      * `file_name_format` (`str`)
+      * `max_chunk_size_in_bytes` (`float`)
       * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
       * `type` (`str`)
     """
@@ -45,7 +45,7 @@ class IoTHub(pulumi.CustomResource):
     
       * `condition` (`str`)
       * `enabled` (`bool`)
-      * `endpointNames` (`list`)
+      * `endpoint_names` (`list`)
       * `source` (`str`)
     """
     file_upload: pulumi.Output[dict]
@@ -53,7 +53,7 @@ class IoTHub(pulumi.CustomResource):
     A `file_upload` block as defined below.
     
       * `connection_string` (`str`)
-      * `containerName` (`str`)
+      * `container_name` (`str`)
       * `defaultTtl` (`str`)
       * `lock_duration` (`str`)
       * `max_delivery_count` (`float`)
@@ -90,7 +90,7 @@ class IoTHub(pulumi.CustomResource):
     
       * `condition` (`str`)
       * `enabled` (`bool`)
-      * `endpointNames` (`list`)
+      * `endpoint_names` (`list`)
       * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
       * `source` (`str`)
     """
@@ -120,6 +120,10 @@ class IoTHub(pulumi.CustomResource):
         """
         Manages an IotHub
         
+        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        
+        > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] endpoints: An `endpoint` block as defined below.
@@ -135,12 +139,12 @@ class IoTHub(pulumi.CustomResource):
         
         The **endpoints** object supports the following:
         
-          * `batchFrequencyInSeconds` (`pulumi.Input[float]`)
+          * `batch_frequency_in_seconds` (`pulumi.Input[float]`)
           * `connection_string` (`pulumi.Input[str]`)
-          * `containerName` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`)
           * `encoding` (`pulumi.Input[str]`)
-          * `fileNameFormat` (`pulumi.Input[str]`)
-          * `maxChunkSizeInBytes` (`pulumi.Input[float]`)
+          * `file_name_format` (`pulumi.Input[str]`)
+          * `max_chunk_size_in_bytes` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
           * `type` (`pulumi.Input[str]`)
         
@@ -148,13 +152,13 @@ class IoTHub(pulumi.CustomResource):
         
           * `condition` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`)
-          * `endpointNames` (`pulumi.Input[list]`)
+          * `endpoint_names` (`pulumi.Input[list]`)
           * `source` (`pulumi.Input[str]`)
         
         The **file_upload** object supports the following:
         
           * `connection_string` (`pulumi.Input[str]`)
-          * `containerName` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`)
           * `defaultTtl` (`pulumi.Input[str]`)
           * `lock_duration` (`pulumi.Input[str]`)
           * `max_delivery_count` (`pulumi.Input[float]`)
@@ -171,7 +175,7 @@ class IoTHub(pulumi.CustomResource):
         
           * `condition` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`)
-          * `endpointNames` (`pulumi.Input[list]`)
+          * `endpoint_names` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
           * `source` (`pulumi.Input[str]`)
         
@@ -255,12 +259,12 @@ class IoTHub(pulumi.CustomResource):
         
         The **endpoints** object supports the following:
         
-          * `batchFrequencyInSeconds` (`pulumi.Input[float]`)
+          * `batch_frequency_in_seconds` (`pulumi.Input[float]`)
           * `connection_string` (`pulumi.Input[str]`)
-          * `containerName` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`)
           * `encoding` (`pulumi.Input[str]`)
-          * `fileNameFormat` (`pulumi.Input[str]`)
-          * `maxChunkSizeInBytes` (`pulumi.Input[float]`)
+          * `file_name_format` (`pulumi.Input[str]`)
+          * `max_chunk_size_in_bytes` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
           * `type` (`pulumi.Input[str]`)
         
@@ -268,13 +272,13 @@ class IoTHub(pulumi.CustomResource):
         
           * `condition` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`)
-          * `endpointNames` (`pulumi.Input[list]`)
+          * `endpoint_names` (`pulumi.Input[list]`)
           * `source` (`pulumi.Input[str]`)
         
         The **file_upload** object supports the following:
         
           * `connection_string` (`pulumi.Input[str]`)
-          * `containerName` (`pulumi.Input[str]`)
+          * `container_name` (`pulumi.Input[str]`)
           * `defaultTtl` (`pulumi.Input[str]`)
           * `lock_duration` (`pulumi.Input[str]`)
           * `max_delivery_count` (`pulumi.Input[float]`)
@@ -291,7 +295,7 @@ class IoTHub(pulumi.CustomResource):
         
           * `condition` (`pulumi.Input[str]`)
           * `enabled` (`pulumi.Input[bool]`)
-          * `endpointNames` (`pulumi.Input[list]`)
+          * `endpoint_names` (`pulumi.Input[list]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
           * `source` (`pulumi.Input[str]`)
         

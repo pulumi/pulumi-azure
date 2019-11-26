@@ -182,7 +182,7 @@ func (r *Account) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 func (r *Account) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
@@ -262,7 +262,7 @@ type AccountState struct {
 	Kind interface{}
 	// The name of the Azure region to host replicated data.
 	Location interface{}
-	// The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Name interface{}
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType interface{}
@@ -307,7 +307,7 @@ type AccountArgs struct {
 	Kind interface{}
 	// The name of the Azure region to host replicated data.
 	Location interface{}
-	// The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Name interface{}
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType interface{}

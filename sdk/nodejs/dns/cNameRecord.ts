@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testZone = new azure.dns.Zone("test", {
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testCNameRecord = new azure.dns.CNameRecord("test", {
+ * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
  *     record: "contoso.com",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     ttl: 300,
- *     zoneName: testZone.name,
+ *     zoneName: exampleZone.name,
  * });
  * ```
  *

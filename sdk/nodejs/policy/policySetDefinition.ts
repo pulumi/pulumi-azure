@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.policy.PolicySetDefinition("test", {
+ * const example = new azure.policy.PolicySetDefinition("example", {
  *     displayName: "Test Policy Set",
  *     parameters: `    {
  *         "allowedLocations": {

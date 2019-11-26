@@ -14,6 +14,10 @@ class Secret(pulumi.CustomResource):
     """
     Specifies the content type for the Key Vault Secret.
     """
+    expiration_date: pulumi.Output[str]
+    """
+    Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+    """
     key_vault_id: pulumi.Output[str]
     """
     The ID of the Key Vault where the Secret should be created.
@@ -21,6 +25,10 @@ class Secret(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
+    """
+    not_before_date: pulumi.Output[str]
+    """
+    Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
     """
     tags: pulumi.Output[dict]
     """
@@ -35,7 +43,7 @@ class Secret(pulumi.CustomResource):
     """
     The current version of the Key Vault Secret.
     """
-    def __init__(__self__, resource_name, opts=None, content_type=None, key_vault_id=None, name=None, tags=None, value=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Secret.
         
@@ -45,8 +53,10 @@ class Secret(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
 
@@ -70,8 +80,10 @@ class Secret(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['content_type'] = content_type
+            __props__['expiration_date'] = expiration_date
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
+            __props__['not_before_date'] = not_before_date
             __props__['tags'] = tags
             if value is None:
                 raise TypeError("Missing required property 'value'")
@@ -85,7 +97,7 @@ class Secret(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, content_type=None, key_vault_id=None, name=None, tags=None, value=None, vault_uri=None, version=None):
+    def get(resource_name, id, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, vault_uri=None, version=None):
         """
         Get an existing Secret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,8 +106,10 @@ class Secret(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
@@ -106,8 +120,10 @@ class Secret(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["content_type"] = content_type
+        __props__["expiration_date"] = expiration_date
         __props__["key_vault_id"] = key_vault_id
         __props__["name"] = name
+        __props__["not_before_date"] = not_before_date
         __props__["tags"] = tags
         __props__["value"] = value
         __props__["vault_uri"] = vault_uri

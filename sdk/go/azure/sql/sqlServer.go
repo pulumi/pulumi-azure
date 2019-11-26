@@ -37,6 +37,7 @@ func NewSqlServer(ctx *pulumi.Context,
 	if args == nil {
 		inputs["administratorLogin"] = nil
 		inputs["administratorLoginPassword"] = nil
+		inputs["identity"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
@@ -45,6 +46,7 @@ func NewSqlServer(ctx *pulumi.Context,
 	} else {
 		inputs["administratorLogin"] = args.AdministratorLogin
 		inputs["administratorLoginPassword"] = args.AdministratorLoginPassword
+		inputs["identity"] = args.Identity
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -68,6 +70,7 @@ func GetSqlServer(ctx *pulumi.Context,
 		inputs["administratorLogin"] = state.AdministratorLogin
 		inputs["administratorLoginPassword"] = state.AdministratorLoginPassword
 		inputs["fullyQualifiedDomainName"] = state.FullyQualifiedDomainName
+		inputs["identity"] = state.Identity
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -106,6 +109,11 @@ func (r *SqlServer) FullyQualifiedDomainName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["fullyQualifiedDomainName"])
 }
 
+// An `identity` block as defined below.
+func (r *SqlServer) Identity() pulumi.Output {
+	return r.s.State["identity"]
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *SqlServer) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
@@ -139,6 +147,8 @@ type SqlServerState struct {
 	AdministratorLoginPassword interface{}
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName interface{}
+	// An `identity` block as defined below.
+	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the SQL Server. This needs to be globally unique within Azure.
@@ -157,6 +167,8 @@ type SqlServerArgs struct {
 	AdministratorLogin interface{}
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword interface{}
+	// An `identity` block as defined below.
+	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the SQL Server. This needs to be globally unique within Azure.

@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.core.ResourceGroup("test", {
+ * const example = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
  * const resourceGroupLevel = new azure.management.Lock("resource-group-level", {
  *     lockLevel: "ReadOnly",
  *     notes: "This Resource Group is Read-Only",
- *     scope: test.id,
+ *     scope: example.id,
  * });
  * ```
  * 
@@ -43,19 +43,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Static",
  *     idleTimeoutInMinutes: 30,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const publicIp = new azure.management.Lock("public-ip", {
  *     lockLevel: "CanNotDelete",
  *     notes: "Locked because it's needed by a third-party",
- *     scope: testPublicIp.id,
+ *     scope: examplePublicIp.id,
  * });
  * ```
  *

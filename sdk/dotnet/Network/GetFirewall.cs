@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A `ip_configuration` block as defined below.
         /// </summary>
-        public readonly Outputs.GetFirewallIpConfigurationResult IpConfiguration;
+        public readonly ImmutableArray<Outputs.GetFirewallIpConfigurationsResult> IpConfigurations;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
@@ -55,14 +55,14 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetFirewallResult(
-            Outputs.GetFirewallIpConfigurationResult ipConfiguration,
+            ImmutableArray<Outputs.GetFirewallIpConfigurationsResult> ipConfigurations,
             string location,
             string name,
             string resourceGroupName,
             ImmutableDictionary<string, string> tags,
             string id)
         {
-            IpConfiguration = ipConfiguration;
+            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Network
     {
 
     [OutputType]
-    public sealed class GetFirewallIpConfigurationResult
+    public sealed class GetFirewallIpConfigurationsResult
     {
         public readonly string InternalPublicIpAddressId;
         /// <summary>
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Network
         public readonly string SubnetId;
 
         [OutputConstructor]
-        private GetFirewallIpConfigurationResult(
+        private GetFirewallIpConfigurationsResult(
             string internalPublicIpAddressId,
             string name,
             string privateIpAddress,

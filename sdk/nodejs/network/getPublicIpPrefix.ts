@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.network.getPublicIpPrefix({
+ * const example = azure.network.getPublicIpPrefix({
  *     name: "nameOfPublicIp",
  *     resourceGroupName: "nameOfResourceGroup",
  * });
  * 
- * export const publicIpPrefix = test.ipPrefix;
+ * export const publicIpPrefix = example.ipPrefix;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.

@@ -174,7 +174,7 @@ namespace Pulumi.Azure.HDInsight
         [Input("roles", required: true)]
         public Input<Inputs.StormClusterRolesArgs> Roles { get; set; } = null!;
 
-        [Input("storageAccounts", required: true)]
+        [Input("storageAccounts")]
         private InputList<Inputs.StormClusterStorageAccountsArgs>? _storageAccounts;
 
         /// <summary>

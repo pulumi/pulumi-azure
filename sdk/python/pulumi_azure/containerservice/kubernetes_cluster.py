@@ -15,23 +15,42 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     One or more `agent_pool_profile` blocks as defined below.
     
-      * `availabilityZones` (`list`)
+      * `availability_zones` (`list`)
       * `count` (`float`)
       * `dns_prefix` (`str`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-      * `enableAutoScaling` (`bool`)
+      * `enable_auto_scaling` (`bool`)
+      * `enable_node_public_ip` (`bool`)
       * `fqdn` (`str`) - The FQDN of the Azure Kubernetes Managed Cluster.
-      * `maxCount` (`float`)
-      * `maxPods` (`float`)
-      * `minCount` (`float`)
+      * `max_count` (`float`)
+      * `max_pods` (`float`)
+      * `min_count` (`float`)
       * `name` (`str`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-      * `nodeTaints` (`list`)
-      * `osDiskSizeGb` (`float`)
+      * `node_taints` (`list`)
+      * `os_disk_size_gb` (`float`)
       * `os_type` (`str`)
       * `type` (`str`)
       * `vm_size` (`str`)
-      * `vnetSubnetId` (`str`)
+      * `vnet_subnet_id` (`str`)
     """
     api_server_authorized_ip_ranges: pulumi.Output[list]
+    default_node_pool: pulumi.Output[dict]
+    """
+    A `default_node_pool` block as defined below.
+    
+      * `availability_zones` (`list`)
+      * `enable_auto_scaling` (`bool`)
+      * `enable_node_public_ip` (`bool`)
+      * `max_count` (`float`)
+      * `max_pods` (`float`)
+      * `min_count` (`float`)
+      * `name` (`str`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+      * `node_count` (`float`)
+      * `node_taints` (`list`)
+      * `os_disk_size_gb` (`float`)
+      * `type` (`str`)
+      * `vm_size` (`str`)
+      * `vnet_subnet_id` (`str`)
+    """
     dns_prefix: pulumi.Output[str]
     """
     DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -100,7 +119,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     tags: pulumi.Output[dict]
     windows_profile: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, enable_pod_security_policy=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
         
@@ -109,6 +128,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] agent_pool_profiles: One or more `agent_pool_profile` blocks as defined below.
+        :param pulumi.Input[dict] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
@@ -143,21 +163,38 @@ class KubernetesCluster(pulumi.CustomResource):
         
         The **agent_pool_profiles** object supports the following:
         
-          * `availabilityZones` (`pulumi.Input[list]`)
+          * `availability_zones` (`pulumi.Input[list]`)
           * `count` (`pulumi.Input[float]`)
           * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-          * `enableAutoScaling` (`pulumi.Input[bool]`)
+          * `enable_auto_scaling` (`pulumi.Input[bool]`)
+          * `enable_node_public_ip` (`pulumi.Input[bool]`)
           * `fqdn` (`pulumi.Input[str]`) - The FQDN of the Azure Kubernetes Managed Cluster.
-          * `maxCount` (`pulumi.Input[float]`)
-          * `maxPods` (`pulumi.Input[float]`)
-          * `minCount` (`pulumi.Input[float]`)
+          * `max_count` (`pulumi.Input[float]`)
+          * `max_pods` (`pulumi.Input[float]`)
+          * `min_count` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-          * `nodeTaints` (`pulumi.Input[list]`)
-          * `osDiskSizeGb` (`pulumi.Input[float]`)
+          * `node_taints` (`pulumi.Input[list]`)
+          * `os_disk_size_gb` (`pulumi.Input[float]`)
           * `os_type` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
           * `vm_size` (`pulumi.Input[str]`)
-          * `vnetSubnetId` (`pulumi.Input[str]`)
+          * `vnet_subnet_id` (`pulumi.Input[str]`)
+        
+        The **default_node_pool** object supports the following:
+        
+          * `availability_zones` (`pulumi.Input[list]`)
+          * `enable_auto_scaling` (`pulumi.Input[bool]`)
+          * `enable_node_public_ip` (`pulumi.Input[bool]`)
+          * `max_count` (`pulumi.Input[float]`)
+          * `max_pods` (`pulumi.Input[float]`)
+          * `min_count` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+          * `node_count` (`pulumi.Input[float]`)
+          * `node_taints` (`pulumi.Input[list]`)
+          * `os_disk_size_gb` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`)
+          * `vm_size` (`pulumi.Input[str]`)
+          * `vnet_subnet_id` (`pulumi.Input[str]`)
         
         The **linux_profile** object supports the following:
         
@@ -217,10 +254,9 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['addon_profile'] = addon_profile
-            if agent_pool_profiles is None:
-                raise TypeError("Missing required property 'agent_pool_profiles'")
             __props__['agent_pool_profiles'] = agent_pool_profiles
             __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
+            __props__['default_node_pool'] = default_node_pool
             if dns_prefix is None:
                 raise TypeError("Missing required property 'dns_prefix'")
             __props__['dns_prefix'] = dns_prefix
@@ -252,7 +288,7 @@ class KubernetesCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, kube_admin_config=None, kube_admin_config_raw=None, kube_config=None, kube_config_raw=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
+    def get(resource_name, id, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, kube_admin_config=None, kube_admin_config_raw=None, kube_config=None, kube_config_raw=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -261,6 +297,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] agent_pool_profiles: One or more `agent_pool_profile` blocks as defined below.
+        :param pulumi.Input[dict] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[dict] kube_admin_config: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -300,21 +337,38 @@ class KubernetesCluster(pulumi.CustomResource):
         
         The **agent_pool_profiles** object supports the following:
         
-          * `availabilityZones` (`pulumi.Input[list]`)
+          * `availability_zones` (`pulumi.Input[list]`)
           * `count` (`pulumi.Input[float]`)
           * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-          * `enableAutoScaling` (`pulumi.Input[bool]`)
+          * `enable_auto_scaling` (`pulumi.Input[bool]`)
+          * `enable_node_public_ip` (`pulumi.Input[bool]`)
           * `fqdn` (`pulumi.Input[str]`) - The FQDN of the Azure Kubernetes Managed Cluster.
-          * `maxCount` (`pulumi.Input[float]`)
-          * `maxPods` (`pulumi.Input[float]`)
-          * `minCount` (`pulumi.Input[float]`)
+          * `max_count` (`pulumi.Input[float]`)
+          * `max_pods` (`pulumi.Input[float]`)
+          * `min_count` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-          * `nodeTaints` (`pulumi.Input[list]`)
-          * `osDiskSizeGb` (`pulumi.Input[float]`)
+          * `node_taints` (`pulumi.Input[list]`)
+          * `os_disk_size_gb` (`pulumi.Input[float]`)
           * `os_type` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
           * `vm_size` (`pulumi.Input[str]`)
-          * `vnetSubnetId` (`pulumi.Input[str]`)
+          * `vnet_subnet_id` (`pulumi.Input[str]`)
+        
+        The **default_node_pool** object supports the following:
+        
+          * `availability_zones` (`pulumi.Input[list]`)
+          * `enable_auto_scaling` (`pulumi.Input[bool]`)
+          * `enable_node_public_ip` (`pulumi.Input[bool]`)
+          * `max_count` (`pulumi.Input[float]`)
+          * `max_pods` (`pulumi.Input[float]`)
+          * `min_count` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+          * `node_count` (`pulumi.Input[float]`)
+          * `node_taints` (`pulumi.Input[list]`)
+          * `os_disk_size_gb` (`pulumi.Input[float]`)
+          * `type` (`pulumi.Input[str]`)
+          * `vm_size` (`pulumi.Input[str]`)
+          * `vnet_subnet_id` (`pulumi.Input[str]`)
         
         The **kube_admin_config** object supports the following:
         
@@ -380,6 +434,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["addon_profile"] = addon_profile
         __props__["agent_pool_profiles"] = agent_pool_profiles
         __props__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
+        __props__["default_node_pool"] = default_node_pool
         __props__["dns_prefix"] = dns_prefix
         __props__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__["fqdn"] = fqdn

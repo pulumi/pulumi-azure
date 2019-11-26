@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: name,
  * }));
- * const testIoTHub = new azure.iot.IoTHub("test", {
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
  *     location: azurerm_resource_group_example.location,
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     sku: {
@@ -31,16 +31,16 @@ import * as utilities from "../utilities";
  *         tier: "Standard",
  *     },
  * });
- * const testStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("test", {
+ * const exampleStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("example", {
  *     endpoint: "messages/events",
  *     eventhubConsumerGroupName: "$Default",
- *     iothubNamespace: azurerm_iothub_example.name,
+ *     iothubNamespace: exampleIoTHub.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",
  *         type: "Json",
  *     },
- *     sharedAccessPolicyKey: azurerm_iothub_example.sharedAccessPolicy.0.primaryKey,
+ *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies[0].primaryKey,
  *     sharedAccessPolicyName: "iothubowner",
  *     streamAnalyticsJobName: exampleJob.name,
  * });

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const test = new azure.streamanalytics.OutputServiceBusQueue("test", {
+ * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("example", {
  *     queueName: exampleQueue.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {

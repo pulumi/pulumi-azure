@@ -13,14 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testServer = new azure.postgresql.Server("test", {
+ * const exampleServer = new azure.postgresql.Server("example", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen5",
@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *     },
  *     version: "9.5",
  * });
- * const testDatabase = new azure.postgresql.Database("test", {
+ * const exampleDatabase = new azure.postgresql.Database("example", {
  *     charset: "UTF8",
  *     collation: "English_United States.1252",
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testServer.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
  * });
  * ```
  *

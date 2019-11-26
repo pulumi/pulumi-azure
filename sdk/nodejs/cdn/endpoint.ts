@@ -22,22 +22,22 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testProfile = new azure.cdn.Profile("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleProfile = new azure.cdn.Profile("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard_Verizon",
  * });
- * const testEndpoint = new azure.cdn.Endpoint("test", {
- *     location: testResourceGroup.location,
+ * const exampleEndpoint = new azure.cdn.Endpoint("example", {
+ *     location: exampleResourceGroup.location,
  *     origins: [{
  *         hostName: "www.example.com",
  *         name: "exampleCdnOrigin",
  *     }],
- *     profileName: testProfile.name,
- *     resourceGroupName: testResourceGroup.name,
+ *     profileName: exampleProfile.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

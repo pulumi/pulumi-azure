@@ -38,7 +38,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     kafka_enabled: pulumi.Output[bool]
     """
-    Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+    Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
     """
     location: pulumi.Output[str]
     """
@@ -87,7 +87,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
-        :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -169,7 +169,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the
                authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.

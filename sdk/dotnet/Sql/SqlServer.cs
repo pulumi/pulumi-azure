@@ -36,6 +36,12 @@ namespace Pulumi.Azure.Sql
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.SqlServerIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -124,6 +130,12 @@ namespace Pulumi.Azure.Sql
         public Input<string> AdministratorLoginPassword { get; set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SqlServerIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -185,6 +197,12 @@ namespace Pulumi.Azure.Sql
         public Input<string>? FullyQualifiedDomainName { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SqlServerIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -223,5 +241,82 @@ namespace Pulumi.Azure.Sql
         public SqlServerState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class SqlServerIdentityArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public SqlServerIdentityArgs()
+        {
+        }
+    }
+
+    public sealed class SqlServerIdentityGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public SqlServerIdentityGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class SqlServerIdentity
+    {
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        /// </summary>
+        public readonly string PrincipalId;
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        /// </summary>
+        public readonly string TenantId;
+        public readonly string Type;
+
+        [OutputConstructor]
+        private SqlServerIdentity(
+            string principalId,
+            string tenantId,
+            string type)
+        {
+            PrincipalId = principalId;
+            TenantId = tenantId;
+            Type = type;
+        }
+    }
     }
 }

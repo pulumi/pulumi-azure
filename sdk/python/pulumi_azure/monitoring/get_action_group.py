@@ -13,7 +13,31 @@ class GetActionGroupResult:
     """
     A collection of values returned by getActionGroup.
     """
-    def __init__(__self__, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, webhook_receivers=None, id=None):
+    def __init__(__self__, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, itsm_receivers=None, logic_app_receivers=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, voice_receivers=None, webhook_receivers=None, id=None):
+        if arm_role_receivers and not isinstance(arm_role_receivers, list):
+            raise TypeError("Expected argument 'arm_role_receivers' to be a list")
+        __self__.arm_role_receivers = arm_role_receivers
+        """
+        One or more `arm_role_receiver` blocks as defined below.
+        """
+        if automation_runbook_receivers and not isinstance(automation_runbook_receivers, list):
+            raise TypeError("Expected argument 'automation_runbook_receivers' to be a list")
+        __self__.automation_runbook_receivers = automation_runbook_receivers
+        """
+        One or more `automation_runbook_receiver` blocks as defined below.
+        """
+        if azure_app_push_receivers and not isinstance(azure_app_push_receivers, list):
+            raise TypeError("Expected argument 'azure_app_push_receivers' to be a list")
+        __self__.azure_app_push_receivers = azure_app_push_receivers
+        """
+        One or more `azure_app_push_receiver` blocks as defined below.
+        """
+        if azure_function_receivers and not isinstance(azure_function_receivers, list):
+            raise TypeError("Expected argument 'azure_function_receivers' to be a list")
+        __self__.azure_function_receivers = azure_function_receivers
+        """
+        One or more `azure_function_receiver` blocks as defined below.
+        """
         if email_receivers and not isinstance(email_receivers, list):
             raise TypeError("Expected argument 'email_receivers' to be a list")
         __self__.email_receivers = email_receivers
@@ -26,11 +50,23 @@ class GetActionGroupResult:
         """
         Whether this action group is enabled.
         """
+        if itsm_receivers and not isinstance(itsm_receivers, list):
+            raise TypeError("Expected argument 'itsm_receivers' to be a list")
+        __self__.itsm_receivers = itsm_receivers
+        """
+        One or more `itsm_receiver` blocks as defined below.
+        """
+        if logic_app_receivers and not isinstance(logic_app_receivers, list):
+            raise TypeError("Expected argument 'logic_app_receivers' to be a list")
+        __self__.logic_app_receivers = logic_app_receivers
+        """
+        One or more `logic_app_receiver` blocks as defined below.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        The name of the webhook receiver. 
+        The name of the webhook receiver.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -45,13 +81,19 @@ class GetActionGroupResult:
             raise TypeError("Expected argument 'sms_receivers' to be a list")
         __self__.sms_receivers = sms_receivers
         """
-        One or more `sms_receiver ` blocks as defined below.
+        One or more `sms_receiver` blocks as defined below.
+        """
+        if voice_receivers and not isinstance(voice_receivers, list):
+            raise TypeError("Expected argument 'voice_receivers' to be a list")
+        __self__.voice_receivers = voice_receivers
+        """
+        One or more `voice_receiver` blocks as defined below.
         """
         if webhook_receivers and not isinstance(webhook_receivers, list):
             raise TypeError("Expected argument 'webhook_receivers' to be a list")
         __self__.webhook_receivers = webhook_receivers
         """
-        One or more `webhook_receiver ` blocks as defined below.
+        One or more `webhook_receiver` blocks as defined below.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -65,12 +107,19 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
         if False:
             yield self
         return GetActionGroupResult(
+            arm_role_receivers=self.arm_role_receivers,
+            automation_runbook_receivers=self.automation_runbook_receivers,
+            azure_app_push_receivers=self.azure_app_push_receivers,
+            azure_function_receivers=self.azure_function_receivers,
             email_receivers=self.email_receivers,
             enabled=self.enabled,
+            itsm_receivers=self.itsm_receivers,
+            logic_app_receivers=self.logic_app_receivers,
             name=self.name,
             resource_group_name=self.resource_group_name,
             short_name=self.short_name,
             sms_receivers=self.sms_receivers,
+            voice_receivers=self.voice_receivers,
             webhook_receivers=self.webhook_receivers,
             id=self.id)
 
@@ -94,11 +143,18 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getActionGroup:getActionGroup', __args__, opts=opts).value
 
     return AwaitableGetActionGroupResult(
+        arm_role_receivers=__ret__.get('armRoleReceivers'),
+        automation_runbook_receivers=__ret__.get('automationRunbookReceivers'),
+        azure_app_push_receivers=__ret__.get('azureAppPushReceivers'),
+        azure_function_receivers=__ret__.get('azureFunctionReceivers'),
         email_receivers=__ret__.get('emailReceivers'),
         enabled=__ret__.get('enabled'),
+        itsm_receivers=__ret__.get('itsmReceivers'),
+        logic_app_receivers=__ret__.get('logicAppReceivers'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         short_name=__ret__.get('shortName'),
         sms_receivers=__ret__.get('smsReceivers'),
+        voice_receivers=__ret__.get('voiceReceivers'),
         webhook_receivers=__ret__.get('webhookReceivers'),
         id=__ret__.get('id'))

@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testAccount = new azure.automation.Account("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Basic",
  *     },
@@ -28,16 +28,16 @@ import * as utilities from "../utilities";
  *         environment: "development",
  *     },
  * });
- * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     retentionInDays: 30,
  *     sku: "PerGB2018",
  * });
- * const testLinkedService = new azure.loganalytics.LinkedService("test", {
- *     resourceGroupName: testResourceGroup.name,
- *     resourceId: testAccount.id,
- *     workspaceName: testAnalyticsWorkspace.name,
+ * const exampleLinkedService = new azure.loganalytics.LinkedService("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceId: exampleAccount.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
  * });
  * ```
  *

@@ -32,7 +32,7 @@ class Share(pulumi.CustomResource):
     """
     quota: pulumi.Output[float]
     """
-    The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+    The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -57,7 +57,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
-        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
@@ -119,7 +119,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
-        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
+        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.

@@ -13,7 +13,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, administrator_login=None, fqdn=None, location=None, name=None, resource_group_name=None, tags=None, version=None, id=None):
+    def __init__(__self__, administrator_login=None, fqdn=None, identities=None, location=None, name=None, resource_group_name=None, tags=None, version=None, id=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         __self__.administrator_login = administrator_login
@@ -25,6 +25,12 @@ class GetServerResult:
         __self__.fqdn = fqdn
         """
         The fully qualified domain name of the SQL Server.
+        """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        An `identity` block as defined below.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -64,6 +70,7 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             administrator_login=self.administrator_login,
             fqdn=self.fqdn,
+            identities=self.identities,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -93,6 +100,7 @@ def get_server(name=None,resource_group_name=None,opts=None):
     return AwaitableGetServerResult(
         administrator_login=__ret__.get('administratorLogin'),
         fqdn=__ret__.get('fqdn'),
+        identities=__ret__.get('identities'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

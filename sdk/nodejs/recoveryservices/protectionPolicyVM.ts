@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const test = new azure.recoveryservices.ProtectionPolicyVM("test", {
+ * const exampleProtectionPolicyVM = new azure.recoveryservices.ProtectionPolicyVM("example", {
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",

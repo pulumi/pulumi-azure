@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.appinsights.getInsights({
+ * const example = azure.appinsights.getInsights({
  *     name: "production",
  *     resourceGroupName: "networking",
  * });
  * 
- * export const applicationInsightsInstrumentationKey = test.instrumentationKey;
+ * export const applicationInsightsInstrumentationKey = example.instrumentationKey;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.

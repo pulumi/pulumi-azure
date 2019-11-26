@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.lb.getLB({
+ * const example = azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * });
  * 
- * export const loadbalancerId = test.id;
+ * export const loadbalancerId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.

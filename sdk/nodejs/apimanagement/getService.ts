@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "search-api",
  *     resourceGroupName: "search-service",
  * });
  * 
- * export const apiManagementId = test.id;
+ * export const apiManagementId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.

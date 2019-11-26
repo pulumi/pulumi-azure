@@ -20,19 +20,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testrg = new azure.core.ResourceGroup("testrg", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus",
  * });
- * const testsa = new azure.storage.Account("testsa", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: "westus",
- *     resourceGroupName: testrg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const test = testsa.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
+ * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
  *     connectionString: primaryConnectionString,
  *     expiry: "2020-03-21",
  *     httpsOnly: true,
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     start: "2018-03-21",
  * }));
  * 
- * export const sasUrlQueryString = test.sas;
+ * export const sasUrlQueryString = exampleAccountSAS.sas;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.

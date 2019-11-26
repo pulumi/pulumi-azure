@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("example", {
  *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

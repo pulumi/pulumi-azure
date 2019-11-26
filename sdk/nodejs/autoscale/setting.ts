@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testScaleSet = new azure.compute.ScaleSet("test", {});
- * const testSetting = new azure.autoscale.Setting("test", {
- *     location: testResourceGroup.location,
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {});
+ * const exampleSetting = new azure.autoscale.Setting("example", {
+ *     location: exampleResourceGroup.location,
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: testScaleSet.id,
+ *                     metricResourceId: exampleScaleSet.id,
  *                     operator: "GreaterThan",
  *                     statistic: "Average",
  *                     threshold: 75,
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: testScaleSet.id,
+ *                     metricResourceId: exampleScaleSet.id,
  *                     operator: "LessThan",
  *                     statistic: "Average",
  *                     threshold: 25,
@@ -76,8 +76,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     resourceGroupName: testResourceGroup.name,
- *     targetResourceId: testScaleSet.id,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     targetResourceId: exampleScaleSet.id,
  * });
  * ```
  * 
@@ -87,12 +87,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testScaleSet = new azure.compute.ScaleSet("test", {});
- * const testSetting = new azure.autoscale.Setting("test", {
- *     location: testResourceGroup.location,
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {});
+ * const exampleSetting = new azure.autoscale.Setting("example", {
+ *     location: exampleResourceGroup.location,
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: testScaleSet.id,
+ *                     metricResourceId: exampleScaleSet.id,
  *                     operator: "GreaterThan",
  *                     statistic: "Average",
  *                     threshold: 90,
@@ -139,7 +139,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: testScaleSet.id,
+ *                     metricResourceId: exampleScaleSet.id,
  *                     operator: "LessThan",
  *                     statistic: "Average",
  *                     threshold: 10,
@@ -156,8 +156,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     resourceGroupName: testResourceGroup.name,
- *     targetResourceId: testScaleSet.id,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     targetResourceId: exampleScaleSet.id,
  * });
  * ```
  * 
@@ -167,13 +167,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testScaleSet = new azure.compute.ScaleSet("test", {});
- * const testSetting = new azure.autoscale.Setting("test", {
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {});
+ * const exampleSetting = new azure.autoscale.Setting("example", {
  *     enabled: true,
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -197,7 +197,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: testScaleSet.id,
+ *                     metricResourceId: exampleScaleSet.id,
  *                     operator: "GreaterThan",
  *                     statistic: "Average",
  *                     threshold: 90,
@@ -215,7 +215,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: testScaleSet.id,
+ *                     metricResourceId: exampleScaleSet.id,
  *                     operator: "LessThan",
  *                     statistic: "Average",
  *                     threshold: 10,
@@ -232,8 +232,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
- *     resourceGroupName: testResourceGroup.name,
- *     targetResourceId: testScaleSet.id,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     targetResourceId: exampleScaleSet.id,
  * });
  * ```
  *

@@ -93,8 +93,11 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of a Queue or Topic to automatically forward 
-     * messages to.
+     * The name of a Queue or Topic to automatically forward Dead Letter messages to.
+     */
+    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    /**
+     * The name of a Queue or Topic to automatically forward messages to.
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
@@ -155,6 +158,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
+            inputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
             inputs["forwardTo"] = state ? state.forwardTo : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["lockDuration"] = state ? state.lockDuration : undefined;
@@ -183,6 +187,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
             inputs["forwardTo"] = args ? args.forwardTo : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
@@ -233,8 +238,11 @@ export interface SubscriptionState {
      */
     readonly enableBatchedOperations?: pulumi.Input<boolean>;
     /**
-     * The name of a Queue or Topic to automatically forward 
-     * messages to.
+     * The name of a Queue or Topic to automatically forward Dead Letter messages to.
+     */
+    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    /**
+     * The name of a Queue or Topic to automatically forward messages to.
      */
     readonly forwardTo?: pulumi.Input<string>;
     /**
@@ -308,8 +316,11 @@ export interface SubscriptionArgs {
      */
     readonly enableBatchedOperations?: pulumi.Input<boolean>;
     /**
-     * The name of a Queue or Topic to automatically forward 
-     * messages to.
+     * The name of a Queue or Topic to automatically forward Dead Letter messages to.
+     */
+    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    /**
+     * The name of a Queue or Topic to automatically forward messages to.
      */
     readonly forwardTo?: pulumi.Input<string>;
     /**

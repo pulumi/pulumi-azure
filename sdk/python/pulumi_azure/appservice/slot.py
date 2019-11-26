@@ -74,7 +74,7 @@ class Slot(pulumi.CustomResource):
     An `connection_string` block as defined below.
     
       * `name` (`str`) - The name of the Connection String.
-      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
       * `value` (`str`) - The value for the Connection String.
     """
     default_site_hostname: pulumi.Output[str]
@@ -96,7 +96,7 @@ class Slot(pulumi.CustomResource):
       * `identityIds` (`list`)
       * `principalId` (`str`)
       * `tenantId` (`str`)
-      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
     """
     location: pulumi.Output[str]
     """
@@ -117,6 +117,7 @@ class Slot(pulumi.CustomResource):
     
       * `alwaysOn` (`bool`) - Should the app be loaded at all times? Defaults to `false`.
       * `appCommandLine` (`str`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+      * `autoSwapSlotName` (`str`) - The name of the swap to automatically swap to during deployment
       * `cors` (`dict`) - A `cors` block as defined below.
     
         * `allowedOrigins` (`list`)
@@ -134,16 +135,16 @@ class Slot(pulumi.CustomResource):
     
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
       * `javaContainerVersion` (`str`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
-      * `javaVersion` (`str`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+      * `javaVersion` (`str`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
       * `linuxFxVersion` (`str`)
       * `localMysqlEnabled` (`bool`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
       * `managedPipelineMode` (`str`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
       * `minTlsVersion` (`str`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-      * `phpVersion` (`str`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+      * `phpVersion` (`str`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
       * `pythonVersion` (`str`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
       * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
-      * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
-      * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+      * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+      * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
       * `use32BitWorkerProcess` (`bool`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
       * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service Slot should be attached to.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
@@ -227,7 +228,7 @@ class Slot(pulumi.CustomResource):
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
-          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
         
         The **identity** object supports the following:
@@ -235,7 +236,7 @@ class Slot(pulumi.CustomResource):
           * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`)
           * `tenantId` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         
         The **logs** object supports the following:
         
@@ -263,6 +264,7 @@ class Slot(pulumi.CustomResource):
         
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
           * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the swap to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
         
             * `allowedOrigins` (`pulumi.Input[list]`)
@@ -280,16 +282,16 @@ class Slot(pulumi.CustomResource):
         
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
-          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
           * `linuxFxVersion` (`pulumi.Input[str]`)
           * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
           * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
-          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
-          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
           * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
@@ -413,7 +415,7 @@ class Slot(pulumi.CustomResource):
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
-          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
         
         The **identity** object supports the following:
@@ -421,7 +423,7 @@ class Slot(pulumi.CustomResource):
           * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`)
           * `tenantId` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         
         The **logs** object supports the following:
         
@@ -449,6 +451,7 @@ class Slot(pulumi.CustomResource):
         
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
           * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the swap to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
         
             * `allowedOrigins` (`pulumi.Input[list]`)
@@ -466,16 +469,16 @@ class Slot(pulumi.CustomResource):
         
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
-          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
           * `linuxFxVersion` (`pulumi.Input[str]`)
           * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
           * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
-          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
-          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
-          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
           * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?

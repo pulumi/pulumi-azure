@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.operationalinsights.getAnalyticsWorkspace({
+ * const example = azure.operationalinsights.getAnalyticsWorkspace({
  *     name: "acctest-01",
  *     resourceGroupName: "acctest",
  * });
  * 
- * export const logAnalyticsWorkspaceId = test.workspaceId;
+ * export const logAnalyticsWorkspaceId = example.workspaceId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.

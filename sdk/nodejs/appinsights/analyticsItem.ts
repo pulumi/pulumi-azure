@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testInsights = new azure.appinsights.Insights("test", {
+ * const exampleInsights = new azure.appinsights.Insights("example", {
  *     applicationType: "web",
  *     location: "West Europe",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testAnalyticsItem = new azure.appinsights.AnalyticsItem("test", {
- *     applicationInsightsId: testInsights.id,
+ * const exampleAnalyticsItem = new azure.appinsights.AnalyticsItem("example", {
+ *     applicationInsightsId: exampleInsights.id,
  *     content: "requests //simple example query",
  *     scope: "shared",
  *     type: "query",

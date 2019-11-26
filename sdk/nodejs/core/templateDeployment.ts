@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testTemplateDeployment = new azure.core.TemplateDeployment("test", {
+ * const exampleTemplateDeployment = new azure.core.TemplateDeployment("example", {
  *     deploymentMode: "Incremental",
  *     // these key-value pairs are passed into the ARM Template's `parameters` block
  *     parameters: {
  *         storageAccountType: "Standard_GRS",
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     templateBody: `{
  *   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",
@@ -87,7 +87,7 @@ import * as utilities from "../utilities";
  * `,
  * });
  * 
- * export const storageAccountName = testTemplateDeployment.outputs.apply(outputs => (<any>outputs)["storageAccountName"]);
+ * export const storageAccountName = exampleTemplateDeployment.outputs.apply(outputs => (<any>outputs)["storageAccountName"]);
  * ```
  * 
  * ## Note

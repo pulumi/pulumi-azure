@@ -466,6 +466,7 @@ export namespace appservice {
     export interface AppServiceSiteConfig {
         alwaysOn?: pulumi.Input<boolean>;
         appCommandLine?: pulumi.Input<string>;
+        autoSwapSlotName?: pulumi.Input<string>;
         cors?: pulumi.Input<inputs.appservice.AppServiceSiteConfigCors>;
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         dotnetFrameworkVersion?: pulumi.Input<string>;
@@ -765,7 +766,7 @@ export namespace appservice {
          */
         name: pulumi.Input<string>;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
          */
         type: pulumi.Input<string>;
         /**
@@ -779,7 +780,7 @@ export namespace appservice {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
          */
         type: pulumi.Input<string>;
     }
@@ -824,6 +825,10 @@ export namespace appservice {
          */
         appCommandLine?: pulumi.Input<string>;
         /**
+         * The name of the swap to automatically swap to during deployment
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
+        /**
          * A `cors` block as defined below.
          */
         cors?: pulumi.Input<inputs.appservice.SlotSiteConfigCors>;
@@ -853,7 +858,7 @@ export namespace appservice {
          */
         javaContainerVersion?: pulumi.Input<string>;
         /**
-         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+         * The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
          */
         javaVersion?: pulumi.Input<string>;
         linuxFxVersion?: pulumi.Input<string>;
@@ -870,7 +875,7 @@ export namespace appservice {
          */
         minTlsVersion?: pulumi.Input<string>;
         /**
-         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+         * The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
          */
         phpVersion?: pulumi.Input<string>;
         /**
@@ -882,11 +887,11 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
-         * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+         * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
         scmType?: pulumi.Input<string>;
         /**
@@ -2015,6 +2020,7 @@ export namespace containerservice {
          */
         dnsPrefix?: pulumi.Input<string>;
         enableAutoScaling?: pulumi.Input<boolean>;
+        enableNodePublicIp?: pulumi.Input<boolean>;
         /**
          * The FQDN of the Azure Kubernetes Managed Cluster.
          */
@@ -2029,6 +2035,25 @@ export namespace containerservice {
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         osDiskSizeGb?: pulumi.Input<number>;
         osType?: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+        vmSize: pulumi.Input<string>;
+        vnetSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterDefaultNodePool {
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+        enableAutoScaling?: pulumi.Input<boolean>;
+        enableNodePublicIp?: pulumi.Input<boolean>;
+        maxCount?: pulumi.Input<number>;
+        maxPods?: pulumi.Input<number>;
+        minCount?: pulumi.Input<number>;
+        /**
+         * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        nodeCount?: pulumi.Input<number>;
+        nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
+        osDiskSizeGb?: pulumi.Input<number>;
         type?: pulumi.Input<string>;
         vmSize: pulumi.Input<string>;
         vnetSubnetId?: pulumi.Input<string>;
@@ -2250,7 +2275,7 @@ export namespace core {
 export namespace cosmosdb {
     export interface AccountCapability {
         /**
-         * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
+         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
          */
         name: pulumi.Input<string>;
     }
@@ -3040,6 +3065,13 @@ export namespace hdinsight {
         storageContainerId: pulumi.Input<string>;
     }
 
+    export interface HBaseClusterStorageAccountGen2 {
+        filesystemId: pulumi.Input<string>;
+        isDefault: pulumi.Input<boolean>;
+        managedIdentityResourceId: pulumi.Input<string>;
+        storageResourceId: pulumi.Input<string>;
+    }
+
     export interface HadoopClusterComponentVersion {
         hadoop: pulumi.Input<string>;
     }
@@ -3051,9 +3083,24 @@ export namespace hdinsight {
     }
 
     export interface HadoopClusterRoles {
+        edgeNode?: pulumi.Input<inputs.hdinsight.HadoopClusterRolesEdgeNode>;
         headNode: pulumi.Input<inputs.hdinsight.HadoopClusterRolesHeadNode>;
         workerNode: pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNode>;
         zookeeperNode: pulumi.Input<inputs.hdinsight.HadoopClusterRolesZookeeperNode>;
+    }
+
+    export interface HadoopClusterRolesEdgeNode {
+        installScriptActions: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesEdgeNodeInstallScriptAction>[]>;
+        targetInstanceCount: pulumi.Input<number>;
+        vmSize: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterRolesEdgeNodeInstallScriptAction {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
     }
 
     export interface HadoopClusterRolesHeadNode {
@@ -3089,6 +3136,13 @@ export namespace hdinsight {
         isDefault: pulumi.Input<boolean>;
         storageAccountKey: pulumi.Input<string>;
         storageContainerId: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterStorageAccountGen2 {
+        filesystemId: pulumi.Input<string>;
+        isDefault: pulumi.Input<boolean>;
+        managedIdentityResourceId: pulumi.Input<string>;
+        storageResourceId: pulumi.Input<string>;
     }
 
     export interface InteractiveQueryClusterComponentVersion {
@@ -3142,6 +3196,13 @@ export namespace hdinsight {
         storageContainerId: pulumi.Input<string>;
     }
 
+    export interface InteractiveQueryClusterStorageAccountGen2 {
+        filesystemId: pulumi.Input<string>;
+        isDefault: pulumi.Input<boolean>;
+        managedIdentityResourceId: pulumi.Input<string>;
+        storageResourceId: pulumi.Input<string>;
+    }
+
     export interface KafkaClusterComponentVersion {
         kafka: pulumi.Input<string>;
     }
@@ -3192,6 +3253,13 @@ export namespace hdinsight {
         isDefault: pulumi.Input<boolean>;
         storageAccountKey: pulumi.Input<string>;
         storageContainerId: pulumi.Input<string>;
+    }
+
+    export interface KafkaClusterStorageAccountGen2 {
+        filesystemId: pulumi.Input<string>;
+        isDefault: pulumi.Input<boolean>;
+        managedIdentityResourceId: pulumi.Input<string>;
+        storageResourceId: pulumi.Input<string>;
     }
 
     export interface MLServicesClusterGateway {
@@ -3357,6 +3425,13 @@ export namespace hdinsight {
         isDefault: pulumi.Input<boolean>;
         storageAccountKey: pulumi.Input<string>;
         storageContainerId: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterStorageAccountGen2 {
+        filesystemId: pulumi.Input<string>;
+        isDefault: pulumi.Input<boolean>;
+        managedIdentityResourceId: pulumi.Input<string>;
+        storageResourceId: pulumi.Input<string>;
     }
 
     export interface StormClusterComponentVersion {
@@ -3531,6 +3606,26 @@ export namespace iot {
         capacity: pulumi.Input<number>;
         /**
          * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        tier: pulumi.Input<string>;
+    }
+
+    export interface IotHubDpsLinkedHub {
+        allocationWeight?: pulumi.Input<number>;
+        applyAllocationPolicy?: pulumi.Input<boolean>;
+        connectionString: pulumi.Input<string>;
+        hostname?: pulumi.Input<string>;
+        /**
+         * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+         */
+        location: pulumi.Input<string>;
+    }
+
+    export interface IotHubDpsSku {
+        capacity: pulumi.Input<number>;
+        /**
+         * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         tier: pulumi.Input<string>;
@@ -3846,6 +3941,10 @@ export namespace kusto {
 
 export namespace lb {
     export interface LoadBalancerFrontendIpConfiguration {
+        /**
+         * The id of the Frontend IP Configuration.
+         */
+        id?: pulumi.Input<string>;
         inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>;
         loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -3930,7 +4029,53 @@ export namespace mediaservices {
 }
 
 export namespace monitoring {
-    export interface ActionGroupEmailReceiver {
+    export interface ActionGroupArmRoleReceiver {
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The arm role id.
+         */
+        roleId: pulumi.Input<string>;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface ActionGroupAutomationRunbookReceiver {
+        /**
+         * The automation account ID which holds this runbook and authenticates to Azure resources.
+         */
+        automationAccountId: pulumi.Input<string>;
+        /**
+         * Indicates whether this instance is global runbook.
+         */
+        isGlobalRunbook: pulumi.Input<boolean>;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name for this runbook.
+         */
+        runbookName: pulumi.Input<string>;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri: pulumi.Input<string>;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+        /**
+         * The resource id for webhook linked to this runbook.
+         */
+        webhookResourceId: pulumi.Input<string>;
+    }
+
+    export interface ActionGroupAzureAppPushReceiver {
         /**
          * The email address of this receiver.
          */
@@ -3941,9 +4086,86 @@ export namespace monitoring {
         name: pulumi.Input<string>;
     }
 
+    export interface ActionGroupAzureFunctionReceiver {
+        functionAppResourceId: pulumi.Input<string>;
+        /**
+         * The function name in the function app.
+         */
+        functionName: pulumi.Input<string>;
+        /**
+         * The http trigger url where http request sent to.
+         */
+        httpTriggerUrl: pulumi.Input<string>;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface ActionGroupEmailReceiver {
+        /**
+         * The email address of this receiver.
+         */
+        emailAddress: pulumi.Input<string>;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface ActionGroupItsmReceiver {
+        /**
+         * The unique connection identifier of the ITSM connection.
+         */
+        connectionId: pulumi.Input<string>;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The region of the workspace.
+         */
+        region: pulumi.Input<string>;
+        /**
+         * A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+         */
+        ticketConfiguration: pulumi.Input<string>;
+        /**
+         * The Azure Log Analytics workspace ID where this connection is defined.
+         */
+        workspaceId: pulumi.Input<string>;
+    }
+
+    export interface ActionGroupLogicAppReceiver {
+        /**
+         * The callback url where http request sent to.
+         */
+        callbackUrl: pulumi.Input<string>;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Azure resource ID of the logic app.
+         */
+        resourceId: pulumi.Input<string>;
+        /**
+         * Enables or disables the common alert schema.
+         */
+        useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
     export interface ActionGroupSmsReceiver {
         /**
-         * The country code of the SMS receiver.
+         * The country code of the voice receiver.
          */
         countryCode: pulumi.Input<string>;
         /**
@@ -3951,7 +4173,22 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         /**
-         * The phone number of the SMS receiver.
+         * The phone number of the voice receiver.
+         */
+        phoneNumber: pulumi.Input<string>;
+    }
+
+    export interface ActionGroupVoiceReceiver {
+        /**
+         * The country code of the voice receiver.
+         */
+        countryCode: pulumi.Input<string>;
+        /**
+         * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The phone number of the voice receiver.
          */
         phoneNumber: pulumi.Input<string>;
     }
@@ -4236,6 +4473,17 @@ export namespace mysql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
          */
         storageMb: pulumi.Input<number>;
+    }
+}
+
+export namespace netapp {
+    export interface AccountActiveDirectory {
+        dnsServers: pulumi.Input<pulumi.Input<string>[]>;
+        domain: pulumi.Input<string>;
+        organizationalUnit?: pulumi.Input<string>;
+        password: pulumi.Input<string>;
+        smbServerName: pulumi.Input<string>;
+        username: pulumi.Input<string>;
     }
 }
 
@@ -4723,7 +4971,7 @@ export namespace network {
          */
         privateIpAddress?: pulumi.Input<string>;
         publicIpAddressId?: pulumi.Input<string>;
-        subnetId: pulumi.Input<string>;
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface FirewallNatRuleCollectionRule {
@@ -5150,6 +5398,29 @@ export namespace postgresql {
     }
 }
 
+export namespace privatedns {
+    export interface LinkServiceNatIpConfiguration {
+        /**
+         * The name of the private link service. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        primary: pulumi.Input<boolean>;
+        privateIpAddress?: pulumi.Input<string>;
+        privateIpAddressVersion?: pulumi.Input<string>;
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface SRVRecordRecord {
+        port: pulumi.Input<number>;
+        priority: pulumi.Input<number>;
+        target: pulumi.Input<string>;
+        weight: pulumi.Input<number>;
+    }
+}
+
+export namespace privatelink {
+}
+
 export namespace recoveryservices {
     export interface ProtectionPolicyVMBackup {
         frequency: pulumi.Input<string>;
@@ -5475,6 +5746,15 @@ export namespace servicefabric {
 }
 
 export namespace signalr {
+    export interface ServiceCor {
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ServiceFeature {
+        flag: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface ServiceSku {
         capacity: pulumi.Input<number>;
         /**
@@ -5582,6 +5862,18 @@ export namespace sql {
          * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
          */
         mode: pulumi.Input<string>;
+    }
+
+    export interface SqlServerIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 }
 

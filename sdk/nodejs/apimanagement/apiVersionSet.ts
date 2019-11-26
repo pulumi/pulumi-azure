@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an API Version Set within a API Management Service.
+ * Manages an API Version Set within an API Management Service.
  * 
  * ## Example Usage
  * 
@@ -23,15 +23,11 @@ import * as utilities from "../utilities";
  *     publisherEmail: "pub1@email.com",
  *     publisherName: "pub1",
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
+ *     skuName: "Developer_1",
  * });
- * const exampleApiManagementVersionSet = new azure.ApiManagementVersionSet("example", {
+ * const exampleApiVersionSet = new azure.apimanagement.ApiVersionSet("example", {
  *     apiManagementName: exampleService.name,
  *     displayName: "ExampleAPIVersionSet",
- *     name: "example-apimapi-1.0.0",
  *     resourceGroupName: exampleResourceGroup.name,
  *     versioningScheme: "Segment",
  * });

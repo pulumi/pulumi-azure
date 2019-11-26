@@ -33,9 +33,6 @@ func NewHadoopCluster(ctx *pulumi.Context,
 	if args == nil || args.Roles == nil {
 		return nil, errors.New("missing required argument 'Roles'")
 	}
-	if args == nil || args.StorageAccounts == nil {
-		return nil, errors.New("missing required argument 'StorageAccounts'")
-	}
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
@@ -49,6 +46,7 @@ func NewHadoopCluster(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["roles"] = nil
 		inputs["storageAccounts"] = nil
+		inputs["storageAccountGen2"] = nil
 		inputs["tags"] = nil
 		inputs["tier"] = nil
 	} else {
@@ -60,6 +58,7 @@ func NewHadoopCluster(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["roles"] = args.Roles
 		inputs["storageAccounts"] = args.StorageAccounts
+		inputs["storageAccountGen2"] = args.StorageAccountGen2
 		inputs["tags"] = args.Tags
 		inputs["tier"] = args.Tier
 	}
@@ -88,6 +87,7 @@ func GetHadoopCluster(ctx *pulumi.Context,
 		inputs["roles"] = state.Roles
 		inputs["sshEndpoint"] = state.SshEndpoint
 		inputs["storageAccounts"] = state.StorageAccounts
+		inputs["storageAccountGen2"] = state.StorageAccountGen2
 		inputs["tags"] = state.Tags
 		inputs["tier"] = state.Tier
 	}
@@ -158,6 +158,11 @@ func (r *HadoopCluster) StorageAccounts() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
 
+// A `storageAccountGen2` block as defined below.
+func (r *HadoopCluster) StorageAccountGen2() pulumi.Output {
+	return r.s.State["storageAccountGen2"]
+}
+
 // A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 func (r *HadoopCluster) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
@@ -190,6 +195,8 @@ type HadoopClusterState struct {
 	SshEndpoint interface{}
 	// One or more `storageAccount` block as defined below.
 	StorageAccounts interface{}
+	// A `storageAccountGen2` block as defined below.
+	StorageAccountGen2 interface{}
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags interface{}
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
@@ -214,6 +221,8 @@ type HadoopClusterArgs struct {
 	Roles interface{}
 	// One or more `storageAccount` block as defined below.
 	StorageAccounts interface{}
+	// A `storageAccountGen2` block as defined below.
+	StorageAccountGen2 interface{}
 	// A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
 	Tags interface{}
 	// Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.

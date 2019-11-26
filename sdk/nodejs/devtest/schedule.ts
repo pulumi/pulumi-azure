@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     location: "West US",
  * });
  * const sampleLab = new azure.devtest.Lab("sample", {
- *     location: azurerm_resource_group_test.location,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: azurerm_resource_group_example.location,
+ *     resourceGroupName: azurerm_resource_group_example.name,
  * });
  * const sampleSchedule = new azure.devtest.Schedule("sample", {
- *     labName: azurerm_dev_test_lab_test.name,
- *     location: azurerm_resource_group_test.location,
+ *     labName: azurerm_dev_test_lab_example.name,
+ *     location: azurerm_resource_group_example.location,
  *     notificationSettings: {},
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
  *     tags: {
  *         environment: "Production",
  *     },

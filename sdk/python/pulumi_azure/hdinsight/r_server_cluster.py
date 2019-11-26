@@ -213,8 +213,6 @@ class RServerCluster(pulumi.CustomResource):
             if rstudio is None:
                 raise TypeError("Missing required property 'rstudio'")
             __props__['rstudio'] = rstudio
-            if storage_accounts is None:
-                raise TypeError("Missing required property 'storage_accounts'")
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
             if tier is None:

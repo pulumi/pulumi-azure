@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     location: mainResourceGroup.location,
  *     resourceGroupName: mainResourceGroup.name,
  * });
- * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     location: mainResourceGroup.location,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     osProfile: {
@@ -71,18 +71,18 @@ import * as utilities from "../utilities";
  *     },
  *     vmSize: "Standard_F2",
  * });
- * const testManagedDisk = new azure.compute.ManagedDisk("test", {
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
  *     createOption: "Empty",
  *     diskSizeGb: 10,
  *     location: mainResourceGroup.location,
  *     resourceGroupName: mainResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  * });
- * const testDataDiskAttachment = new azure.compute.DataDiskAttachment("test", {
+ * const exampleDataDiskAttachment = new azure.compute.DataDiskAttachment("example", {
  *     caching: "ReadWrite",
  *     lun: 10,
- *     managedDiskId: testManagedDisk.id,
- *     virtualMachineId: testVirtualMachine.id,
+ *     managedDiskId: exampleManagedDisk.id,
+ *     virtualMachineId: exampleVirtualMachine.id,
  * });
  * ```
  *

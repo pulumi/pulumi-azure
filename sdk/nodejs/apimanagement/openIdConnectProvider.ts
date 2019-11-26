@@ -15,25 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testService = new azure.apimanagement.Service("test", {
- *     location: testResourceGroup.location,
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     location: exampleResourceGroup.location,
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Developer_1",
  * });
- * const testOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("test", {
- *     apiManagementName: testService.name,
+ * const exampleOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("example", {
+ *     apiManagementName: exampleService.name,
  *     clientId: "00001111-2222-3333-4444-555566667777",
  *     displayName: "Example Provider",
  *     metadataEndpoint: "https://example.com/example",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

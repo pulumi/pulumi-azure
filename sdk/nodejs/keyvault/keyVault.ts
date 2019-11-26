@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testKeyVault = new azure.keyvault.KeyVault("test", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     accessPolicies: [{
  *         keyPermissions: ["get"],
  *         objectId: "d746815a-0433-4a21-b95d-fc437d2d475b",
@@ -29,12 +29,12 @@ import * as utilities from "../utilities";
  *         tenantId: "d6e396d0-5584-41dc-9fc0-268df99bc610",
  *     }],
  *     enabledForDiskEncryption: true,
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     networkAcls: {
  *         bypass: "AzureServices",
  *         defaultAction: "Deny",
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "standard",
  *     tags: {
  *         environment: "Production",

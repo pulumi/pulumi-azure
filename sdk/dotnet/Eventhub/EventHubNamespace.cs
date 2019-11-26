@@ -53,10 +53,10 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         /// </summary>
         [Output("kafkaEnabled")]
-        public Output<bool?> KafkaEnabled { get; private set; } = null!;
+        public Output<bool> KafkaEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         /// </summary>
         [Input("kafkaEnabled")]
         public Input<bool>? KafkaEnabled { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultSecondaryKey { get; set; }
 
         /// <summary>
-        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         /// </summary>
         [Input("kafkaEnabled")]
         public Input<bool>? KafkaEnabled { get; set; }

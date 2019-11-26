@@ -35,6 +35,7 @@ func NewSubnet(ctx *pulumi.Context,
 	if args == nil {
 		inputs["addressPrefix"] = nil
 		inputs["delegations"] = nil
+		inputs["enforcePrivateLinkServiceNetworkPolicies"] = nil
 		inputs["ipConfigurations"] = nil
 		inputs["name"] = nil
 		inputs["networkSecurityGroupId"] = nil
@@ -45,6 +46,7 @@ func NewSubnet(ctx *pulumi.Context,
 	} else {
 		inputs["addressPrefix"] = args.AddressPrefix
 		inputs["delegations"] = args.Delegations
+		inputs["enforcePrivateLinkServiceNetworkPolicies"] = args.EnforcePrivateLinkServiceNetworkPolicies
 		inputs["ipConfigurations"] = args.IpConfigurations
 		inputs["name"] = args.Name
 		inputs["networkSecurityGroupId"] = args.NetworkSecurityGroupId
@@ -68,6 +70,7 @@ func GetSubnet(ctx *pulumi.Context,
 	if state != nil {
 		inputs["addressPrefix"] = state.AddressPrefix
 		inputs["delegations"] = state.Delegations
+		inputs["enforcePrivateLinkServiceNetworkPolicies"] = state.EnforcePrivateLinkServiceNetworkPolicies
 		inputs["ipConfigurations"] = state.IpConfigurations
 		inputs["name"] = state.Name
 		inputs["networkSecurityGroupId"] = state.NetworkSecurityGroupId
@@ -101,6 +104,11 @@ func (r *Subnet) AddressPrefix() pulumi.StringOutput {
 // One or more `delegation` blocks as defined below.
 func (r *Subnet) Delegations() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["delegations"])
+}
+
+// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+func (r *Subnet) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enforcePrivateLinkServiceNetworkPolicies"])
 }
 
 // The collection of IP Configurations with IPs within this subnet.
@@ -144,6 +152,8 @@ type SubnetState struct {
 	AddressPrefix interface{}
 	// One or more `delegation` blocks as defined below.
 	Delegations interface{}
+	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+	EnforcePrivateLinkServiceNetworkPolicies interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}
 	// The name of the subnet. Changing this forces a new resource to be created.
@@ -166,6 +176,8 @@ type SubnetArgs struct {
 	AddressPrefix interface{}
 	// One or more `delegation` blocks as defined below.
 	Delegations interface{}
+	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+	EnforcePrivateLinkServiceNetworkPolicies interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}
 	// The name of the subnet. Changing this forces a new resource to be created.

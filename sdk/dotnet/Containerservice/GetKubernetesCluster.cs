@@ -297,6 +297,7 @@ namespace Pulumi.Azure.ContainerService
         /// If the auto-scaler is enabled.
         /// </summary>
         public readonly bool EnableAutoScaling;
+        public readonly bool? EnableNodePublicIp;
         /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
@@ -344,6 +345,7 @@ namespace Pulumi.Azure.ContainerService
             int count,
             string dnsPrefix,
             bool enableAutoScaling,
+            bool? enableNodePublicIp,
             int maxCount,
             int maxPods,
             int minCount,
@@ -359,6 +361,7 @@ namespace Pulumi.Azure.ContainerService
             Count = count;
             DnsPrefix = dnsPrefix;
             EnableAutoScaling = enableAutoScaling;
+            EnableNodePublicIp = enableNodePublicIp;
             MaxCount = maxCount;
             MaxPods = maxPods;
             MinCount = minCount;

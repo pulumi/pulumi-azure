@@ -25,19 +25,19 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const testAppService = new azure.appservice.AppService("test", {
- *     appServicePlanId: testPlan.id,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     appServicePlanId: examplePlan.id,
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
@@ -46,15 +46,15 @@ import * as utilities from "../utilities";
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *     },
  * });
- * const testSlot = new azure.appservice.Slot("test", {
- *     appServiceName: testAppService.name,
- *     appServicePlanId: testPlan.id,
+ * const exampleSlot = new azure.appservice.Slot("example", {
+ *     appServiceName: exampleAppService.name,
+ *     appServicePlanId: examplePlan.id,
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
@@ -63,8 +63,8 @@ import * as utilities from "../utilities";
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *     },
@@ -84,32 +84,32 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testPlan = new azure.appservice.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const testAppService = new azure.appservice.AppService("test", {
- *     appServicePlanId: testPlan.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     appServicePlanId: examplePlan.id,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     siteConfig: {
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",
  *         javaVersion: "1.8",
  *     },
  * });
- * const testSlot = new azure.appservice.Slot("test", {
- *     appServiceName: testAppService.name,
- *     appServicePlanId: testPlan.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleSlot = new azure.appservice.Slot("example", {
+ *     appServiceName: exampleAppService.name,
+ *     appServicePlanId: examplePlan.id,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     siteConfig: {
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",

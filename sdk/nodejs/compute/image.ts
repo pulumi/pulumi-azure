@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testImage = new azure.compute.Image("test", {
+ * const exampleImage = new azure.compute.Image("example", {
  *     location: "West US",
  *     osDisk: {
  *         blobUri: "{blob_uri}",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         osType: "Linux",
  *         sizeGb: 30,
  *     },
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  * 
@@ -36,12 +36,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testImage = new azure.compute.Image("test", {
+ * const exampleImage = new azure.compute.Image("example", {
  *     location: "West US",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sourceVirtualMachineId: "{vm_id}",
  * });
  * ```

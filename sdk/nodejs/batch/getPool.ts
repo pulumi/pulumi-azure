@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.batch.getPool({
+ * const example = azure.batch.getPool({
  *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
  *     resourceGroupName: "test",

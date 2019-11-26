@@ -15,37 +15,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.1.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testNetworkInterface = new azure.network.NetworkInterface("test", {
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
  *     ipConfigurations: [{
- *         applicationSecurityGroupIds: [testApplicationSecurityGroup.id],
+ *         applicationSecurityGroupIds: [exampleApplicationSecurityGroup.id],
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: testSubnet.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testNetworkInterfaceApplicationSecurityGroupAssociation = new azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("test", {
- *     applicationSecurityGroupId: testApplicationSecurityGroup.id,
+ * const exampleNetworkInterfaceApplicationSecurityGroupAssociation = new azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("example", {
+ *     applicationSecurityGroupId: exampleApplicationSecurityGroup.id,
  *     ipConfigurationName: "testconfiguration1",
- *     networkInterfaceId: testNetworkInterface.id,
+ *     networkInterfaceId: exampleNetworkInterface.id,
  * });
  * ```
  *

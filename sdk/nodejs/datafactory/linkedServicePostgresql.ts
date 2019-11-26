@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("example", {
  *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

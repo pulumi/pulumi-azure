@@ -17,22 +17,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "eastus",
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 2,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const testLogProfile = new azure.monitoring.LogProfile("test", {
+ * const exampleLogProfile = new azure.monitoring.LogProfile("example", {
  *     categories: [
  *         "Action",
  *         "Delete",
@@ -46,8 +46,8 @@ import * as utilities from "../utilities";
  *         days: 7,
  *         enabled: true,
  *     },
- *     servicebusRuleId: pulumi.interpolate`${testEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
- *     storageAccountId: testAccount.id,
+ *     servicebusRuleId: pulumi.interpolate`${exampleEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

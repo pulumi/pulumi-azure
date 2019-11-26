@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: rg.name,
  *     storageAccountName: storage.name,
  * });
- * const test = pulumi.all([storage.primaryConnectionString, container.name]).apply(([primaryConnectionString, name]) => azure.storage.getAccountBlobContainerSAS({
+ * const example = pulumi.all([storage.primaryConnectionString, container.name]).apply(([primaryConnectionString, name]) => azure.storage.getAccountBlobContainerSAS({
  *     cacheControl: "max-age=5",
  *     connectionString: primaryConnectionString,
  *     containerName: name,
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     start: "2018-03-21",
  * }));
  * 
- * export const sasUrlQueryString = test.sas;
+ * export const sasUrlQueryString = example.sas;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.

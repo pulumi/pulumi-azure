@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testrg = new azure.core.ResourceGroup("testrg", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus",
  * });
- * const testsa = new azure.storage.Account("testsa", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountKind: "BlobStorage",
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testrg.location,
- *     resourceGroupName: testrg.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testpolicy = new azure.storage.ManagementPolicy("testpolicy", {
+ * const exampleManagementPolicy = new azure.storage.ManagementPolicy("example", {
  *     rules: [
  *         {
  *             actions: {
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *             name: "rule2",
  *         },
  *     ],
- *     storageAccountId: testsa.id,
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

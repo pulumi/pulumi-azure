@@ -14,21 +14,21 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = azure.core.getClientConfig();
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testSqlServer = new azure.sql.SqlServer("test", {
+ * const exampleSqlServer = new azure.sql.SqlServer("example", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
  * });
- * const testActiveDirectoryAdministrator = new azure.sql.ActiveDirectoryAdministrator("test", {
+ * const exampleActiveDirectoryAdministrator = new azure.sql.ActiveDirectoryAdministrator("example", {
  *     login: "sqladmin",
- *     objectId: current.servicePrincipalObjectId,
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testSqlServer.name,
+ *     objectId: current.objectId,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleSqlServer.name,
  *     tenantId: current.tenantId,
  * });
  * ```

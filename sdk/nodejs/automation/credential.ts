@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleCredential = new azure.automation.Credential("example", {
- *     accountName: exampleAccount.name,
+ *     automationAccountName: exampleAccount.name,
  *     description: "This is an example credential",
  *     password: "examplePwd",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -63,10 +63,11 @@ export class Credential extends pulumi.CustomResource {
         return obj['__pulumiType'] === Credential.__pulumiType;
     }
 
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * The description associated with this Automation Credential.
      */
@@ -101,6 +102,7 @@ export class Credential extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as CredentialState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["password"] = state ? state.password : undefined;
@@ -108,9 +110,6 @@ export class Credential extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as CredentialArgs | undefined;
-            if (!args || args.accountName === undefined) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if (!args || args.password === undefined) {
                 throw new Error("Missing required property 'password'");
             }
@@ -121,6 +120,7 @@ export class Credential extends pulumi.CustomResource {
                 throw new Error("Missing required property 'username'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
@@ -142,10 +142,11 @@ export class Credential extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Credential resources.
  */
 export interface CredentialState {
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * The description associated with this Automation Credential.
      */
@@ -172,10 +173,11 @@ export interface CredentialState {
  * The set of arguments for constructing a Credential resource.
  */
 export interface CredentialArgs {
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * The description associated with this Automation Credential.
      */

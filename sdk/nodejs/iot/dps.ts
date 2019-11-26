@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an IoT Device Provisioning Service.
+ * Manages an IotHub Device Provisioning Service.
  * 
  * ## Example Usage
  * 
@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const exampleDps = new azure.iot.Dps("example", {
+ * const exampleIotHubDps = new azure.iot.IotHubDps("example", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {

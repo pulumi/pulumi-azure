@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 2,
- *     location: azurerm_resource_group_test.location,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Basic",
  *     tags: {
  *         environment: "Production",
@@ -30,8 +30,8 @@ import * as utilities from "../utilities";
  * const exampleEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
- *     namespaceName: azurerm_eventhub_namespace_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     send: false,
  * });
  * ```

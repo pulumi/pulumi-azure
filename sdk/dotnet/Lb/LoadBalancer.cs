@@ -239,6 +239,12 @@ namespace Pulumi.Azure.Lb
 
     public sealed class LoadBalancerFrontendIpConfigurationsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The id of the Frontend IP Configuration.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         [Input("inboundNatRules")]
         private InputList<string>? _inboundNatRules;
         public InputList<string> InboundNatRules
@@ -312,6 +318,12 @@ namespace Pulumi.Azure.Lb
 
     public sealed class LoadBalancerFrontendIpConfigurationsGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The id of the Frontend IP Configuration.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         [Input("inboundNatRules")]
         private InputList<string>? _inboundNatRules;
         public InputList<string> InboundNatRules
@@ -390,6 +402,10 @@ namespace Pulumi.Azure.Lb
     [OutputType]
     public sealed class LoadBalancerFrontendIpConfigurations
     {
+        /// <summary>
+        /// The id of the Frontend IP Configuration.
+        /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<string> InboundNatRules;
         public readonly ImmutableArray<string> LoadBalancerRules;
         /// <summary>
@@ -424,6 +440,7 @@ namespace Pulumi.Azure.Lb
 
         [OutputConstructor]
         private LoadBalancerFrontendIpConfigurations(
+            string id,
             ImmutableArray<string> inboundNatRules,
             ImmutableArray<string> loadBalancerRules,
             string name,
@@ -435,6 +452,7 @@ namespace Pulumi.Azure.Lb
             string subnetId,
             string? zones)
         {
+            Id = id;
             InboundNatRules = inboundNatRules;
             LoadBalancerRules = loadBalancerRules;
             Name = name;

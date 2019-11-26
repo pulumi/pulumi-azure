@@ -24,6 +24,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string?> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Key Vault where the Secret should be created.
         /// </summary>
         [Output("keyVaultId")]
@@ -34,6 +40,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Output("notBeforeDate")]
+        public Output<string?> NotBeforeDate { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -109,6 +121,12 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault where the Secret should be created.
         /// </summary>
         [Input("keyVaultId")]
@@ -119,6 +137,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("notBeforeDate")]
+        public Input<string>? NotBeforeDate { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -155,6 +179,12 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault where the Secret should be created.
         /// </summary>
         [Input("keyVaultId")]
@@ -165,6 +195,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("notBeforeDate")]
+        public Input<string>? NotBeforeDate { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;

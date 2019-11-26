@@ -18,9 +18,6 @@ type Credential struct {
 // NewCredential registers a new resource with the given unique name, arguments, and options.
 func NewCredential(ctx *pulumi.Context,
 	name string, args *CredentialArgs, opts ...pulumi.ResourceOpt) (*Credential, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
 	}
@@ -33,6 +30,7 @@ func NewCredential(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["accountName"] = nil
+		inputs["automationAccountName"] = nil
 		inputs["description"] = nil
 		inputs["name"] = nil
 		inputs["password"] = nil
@@ -40,6 +38,7 @@ func NewCredential(ctx *pulumi.Context,
 		inputs["username"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
+		inputs["automationAccountName"] = args.AutomationAccountName
 		inputs["description"] = args.Description
 		inputs["name"] = args.Name
 		inputs["password"] = args.Password
@@ -60,6 +59,7 @@ func GetCredential(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["accountName"] = state.AccountName
+		inputs["automationAccountName"] = state.AutomationAccountName
 		inputs["description"] = state.Description
 		inputs["name"] = state.Name
 		inputs["password"] = state.Password
@@ -83,9 +83,13 @@ func (r *Credential) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 func (r *Credential) AccountName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["accountName"])
+}
+
+// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
+func (r *Credential) AutomationAccountName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // The description associated with this Automation Credential.
@@ -115,8 +119,9 @@ func (r *Credential) Username() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Credential resources.
 type CredentialState struct {
-	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 	AccountName interface{}
+	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
+	AutomationAccountName interface{}
 	// The description associated with this Automation Credential.
 	Description interface{}
 	// Specifies the name of the Credential. Changing this forces a new resource to be created.
@@ -131,8 +136,9 @@ type CredentialState struct {
 
 // The set of arguments for constructing a Credential resource.
 type CredentialArgs struct {
-	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
 	AccountName interface{}
+	// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
+	AutomationAccountName interface{}
 	// The description associated with this Automation Credential.
 	Description interface{}
 	// Specifies the name of the Credential. Changing this forces a new resource to be created.

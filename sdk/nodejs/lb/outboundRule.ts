@@ -17,34 +17,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Static",
  *     location: "West US",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
- *         publicIpAddressId: testPublicIp.id,
+ *         publicIpAddressId: examplePublicIp.id,
  *     }],
  *     location: "West US",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testBackendAddressPool = new azure.lb.BackendAddressPool("test", {
- *     loadbalancerId: testLoadBalancer.id,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testOutboundRule = new azure.lb.OutboundRule("test", {
- *     backendAddressPoolId: testBackendAddressPool.id,
+ * const exampleOutboundRule = new azure.lb.OutboundRule("example", {
+ *     backendAddressPoolId: exampleBackendAddressPool.id,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *     }],
- *     loadbalancerId: testLoadBalancer.id,
+ *     loadbalancerId: exampleLoadBalancer.id,
  *     protocol: "Tcp",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *

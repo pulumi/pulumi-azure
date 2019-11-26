@@ -15,33 +15,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "North Europe",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.1.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testPublicIp = new azure.network.PublicIp("test", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
  *     allocationMethod: "Static",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const testFirewall = new azure.network.Firewall("test", {
- *     ipConfiguration: {
+ * const exampleFirewall = new azure.network.Firewall("example", {
+ *     ipConfigurations: [{
  *         name: "configuration",
- *         publicIpAddressId: testPublicIp.id,
- *         subnetId: testSubnet.id,
- *     },
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *         publicIpAddressId: examplePublicIp.id,
+ *         subnetId: exampleSubnet.id,
+ *     }],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  *
@@ -77,7 +77,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A `ipConfiguration` block as documented below.
      */
-    public readonly ipConfiguration!: pulumi.Output<outputs.network.FirewallIpConfiguration>;
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.FirewallIpConfiguration[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -111,7 +111,7 @@ export class Firewall extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as FirewallState | undefined;
-            inputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
+            inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -119,13 +119,13 @@ export class Firewall extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            if (!args || args.ipConfiguration === undefined) {
-                throw new Error("Missing required property 'ipConfiguration'");
+            if (!args || args.ipConfigurations === undefined) {
+                throw new Error("Missing required property 'ipConfigurations'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -150,7 +150,7 @@ export interface FirewallState {
     /**
      * A `ipConfiguration` block as documented below.
      */
-    readonly ipConfiguration?: pulumi.Input<inputs.network.FirewallIpConfiguration>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -180,7 +180,7 @@ export interface FirewallArgs {
     /**
      * A `ipConfiguration` block as documented below.
      */
-    readonly ipConfiguration: pulumi.Input<inputs.network.FirewallIpConfiguration>;
+    readonly ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

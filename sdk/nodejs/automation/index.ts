@@ -8,6 +8,7 @@ export * from "./credential";
 export * from "./dateTimeVariable";
 export * from "./dscConfiguration";
 export * from "./dscNodeConfiguration";
+export * from "./getAccount";
 export * from "./getBoolVariable";
 export * from "./getDateTimeVariable";
 export * from "./getIntVariable";

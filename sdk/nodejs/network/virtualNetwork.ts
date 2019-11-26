@@ -20,29 +20,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testPlan = new azure.ddosprotection.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePlan = new azure.ddosprotection.Plan("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     ddosProtectionPlan: {
  *         enable: true,
- *         id: testPlan.id,
+ *         id: examplePlan.id,
  *     },
  *     dnsServers: [
  *         "10.0.0.4",
  *         "10.0.0.5",
  *     ],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     subnets: [
  *         {
  *             addressPrefix: "10.0.1.0/24",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *         {
  *             addressPrefix: "10.0.3.0/24",
  *             name: "subnet3",
- *             securityGroup: testNetworkSecurityGroup.id,
+ *             securityGroup: exampleNetworkSecurityGroup.id,
  *         },
  *     ],
  *     tags: {

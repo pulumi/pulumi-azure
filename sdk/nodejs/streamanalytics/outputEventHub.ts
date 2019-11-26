@@ -22,27 +22,27 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: name,
  * }));
- * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 1,
  *     kafkaEnabled: false,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const testEventHub = new azure.eventhub.EventHub("test", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
  *     messageRetention: 1,
- *     namespaceName: azurerm_eventhub_namespace_example.name,
+ *     namespaceName: exampleEventHubNamespace.name,
  *     partitionCount: 2,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("example", {
- *     eventhubName: azurerm_eventhub_example.name,
+ *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         type: "Avro",
  *     },
- *     servicebusNamespace: azurerm_eventhub_namespace_example.name,
- *     sharedAccessPolicyKey: azurerm_eventhub_namespace_example.defaultPrimaryKey,
+ *     servicebusNamespace: exampleEventHubNamespace.name,
+ *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
  *     streamAnalyticsJobName: exampleJob.name,
  * });

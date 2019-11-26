@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.appservice.getAppServicePlan({
+ * const example = azure.appservice.getAppServicePlan({
  *     name: "search-app-service-plan",
  *     resourceGroupName: "search-service",
  * });
  * 
- * export const appServicePlanId = test.id;
+ * export const appServicePlanId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.

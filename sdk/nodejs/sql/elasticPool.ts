@@ -17,25 +17,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const testSqlServer = new azure.sql.SqlServer("test", {
+ * const exampleSqlServer = new azure.sql.SqlServer("example", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     version: "12.0",
  * });
- * const testElasticPool = new azure.sql.ElasticPool("test", {
+ * const exampleElasticPool = new azure.sql.ElasticPool("example", {
  *     dbDtuMax: 5,
  *     dbDtuMin: 0,
  *     dtu: 50,
  *     edition: "Basic",
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     poolSize: 5000,
- *     resourceGroupName: testResourceGroup.name,
- *     serverName: testSqlServer.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleSqlServer.name,
  * });
  * ```
  * 

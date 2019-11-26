@@ -51,10 +51,22 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Primary Shared Access Key associated with the EventGrid Domain.
+        /// </summary>
+        [Output("primaryAccessKey")]
+        public Output<string> PrimaryAccessKey { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Secondary Shared Access Key associated with the EventGrid Domain.
+        /// </summary>
+        [Output("secondaryAccessKey")]
+        public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -200,10 +212,22 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The Primary Shared Access Key associated with the EventGrid Domain.
+        /// </summary>
+        [Input("primaryAccessKey")]
+        public Input<string>? PrimaryAccessKey { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The Secondary Shared Access Key associated with the EventGrid Domain.
+        /// </summary>
+        [Input("secondaryAccessKey")]
+        public Input<string>? SecondaryAccessKey { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;

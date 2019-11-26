@@ -26,8 +26,8 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getClientConfig();
  * const exampleLinkedServiceDataLakeStorageGen2 = new azure.datafactory.LinkedServiceDataLakeStorageGen2("example", {
- *     dataFactoryName: azurerm_data_factory_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     dataFactoryName: exampleFactory.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     servicePrincipalId: current.clientId,
  *     servicePrincipalKey: "exampleKey",
  *     tenant: "11111111-1111-1111-1111-111111111111",

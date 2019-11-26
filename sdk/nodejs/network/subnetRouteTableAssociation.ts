@@ -17,17 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testRouteTable = new azure.network.RouteTable("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleRouteTable = new azure.network.RouteTable("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     routes: [{
  *         addressPrefix: "10.100.0.0/14",
  *         name: "example",
@@ -35,15 +35,15 @@ import * as utilities from "../utilities";
  *         nextHopType: "VirtualAppliance",
  *     }],
  * });
- * const testSubnet = new azure.network.Subnet("test", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
  *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: testResourceGroup.name,
- *     routeTableId: testRouteTable.id,
- *     virtualNetworkName: testVirtualNetwork.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     routeTableId: exampleRouteTable.id,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
  * });
- * const testSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("test", {
- *     routeTableId: testRouteTable.id,
- *     subnetId: testSubnet.id,
+ * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
+ *     routeTableId: exampleRouteTable.id,
+ *     subnetId: exampleSubnet.id,
  * });
  * ```
  *

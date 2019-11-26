@@ -15,28 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus2",
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testPlan = new azure.appservice.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const testFunctionApp = new azure.appservice.FunctionApp("test", {
- *     appServicePlanId: testPlan.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     storageConnectionString: testAccount.primaryConnectionString,
+ * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ *     appServicePlanId: examplePlan.id,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
  * ## Example Usage (in a Consumption Plan)
@@ -45,29 +45,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus2",
  * });
- * const testAccount = new azure.storage.Account("test", {
+ * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const testPlan = new azure.appservice.Plan("test", {
+ * const examplePlan = new azure.appservice.Plan("example", {
  *     kind: "FunctionApp",
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         size: "Y1",
  *         tier: "Dynamic",
  *     },
  * });
- * const testFunctionApp = new azure.appservice.FunctionApp("test", {
- *     appServicePlanId: testPlan.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     storageConnectionString: testAccount.primaryConnectionString,
+ * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ *     appServicePlanId: examplePlan.id,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     storageConnectionString: exampleAccount.primaryConnectionString,
  * });
  * ```
  *

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * 
- * export const sqlServerId = azurerm_sql_server_test.id;
+ * export const sqlServerId = example.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
@@ -67,6 +67,10 @@ export interface GetServerResult {
      * The fully qualified domain name of the SQL Server.
      */
     readonly fqdn: string;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identities: outputs.sql.GetServerIdentity[];
     /**
      * The location of the Resource Group in which the SQL Server exists.
      */

@@ -48,6 +48,16 @@ class HadoopCluster(pulumi.CustomResource):
     """
     A `roles` block as defined below.
     
+      * `edgeNode` (`dict`)
+    
+        * `installScriptActions` (`list`)
+    
+          * `name` (`str`) - Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+          * `uri` (`str`)
+    
+        * `targetInstanceCount` (`float`)
+        * `vm_size` (`str`)
+    
       * `headNode` (`dict`)
     
         * `password` (`str`)
@@ -89,6 +99,15 @@ class HadoopCluster(pulumi.CustomResource):
       * `storageAccountKey` (`str`)
       * `storageContainerId` (`str`)
     """
+    storage_account_gen2: pulumi.Output[dict]
+    """
+    A `storage_account_gen2` block as defined below.
+    
+      * `filesystemId` (`str`)
+      * `isDefault` (`bool`)
+      * `managedIdentityResourceId` (`str`)
+      * `storageResourceId` (`str`)
+    """
     tags: pulumi.Output[dict]
     """
     A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
@@ -97,7 +116,7 @@ class HadoopCluster(pulumi.CustomResource):
     """
     Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_accounts=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_accounts=None, storage_account_gen2=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight Hadoop Cluster.
         
@@ -111,6 +130,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[dict] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         
@@ -125,6 +145,16 @@ class HadoopCluster(pulumi.CustomResource):
           * `username` (`pulumi.Input[str]`)
         
         The **roles** object supports the following:
+        
+          * `edgeNode` (`pulumi.Input[dict]`)
+        
+            * `installScriptActions` (`pulumi.Input[list]`)
+        
+              * `name` (`pulumi.Input[str]`) - Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+              * `uri` (`pulumi.Input[str]`)
+        
+            * `targetInstanceCount` (`pulumi.Input[float]`)
+            * `vm_size` (`pulumi.Input[str]`)
         
           * `headNode` (`pulumi.Input[dict]`)
         
@@ -154,6 +184,13 @@ class HadoopCluster(pulumi.CustomResource):
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
+        
+        The **storage_account_gen2** object supports the following:
+        
+          * `filesystemId` (`pulumi.Input[str]`)
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `managedIdentityResourceId` (`pulumi.Input[str]`)
+          * `storageResourceId` (`pulumi.Input[str]`)
         
         The **storage_accounts** object supports the following:
         
@@ -197,9 +234,8 @@ class HadoopCluster(pulumi.CustomResource):
             if roles is None:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
-            if storage_accounts is None:
-                raise TypeError("Missing required property 'storage_accounts'")
             __props__['storage_accounts'] = storage_accounts
+            __props__['storage_account_gen2'] = storage_account_gen2
             __props__['tags'] = tags
             if tier is None:
                 raise TypeError("Missing required property 'tier'")
@@ -213,7 +249,7 @@ class HadoopCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_accounts=None, tags=None, tier=None):
+    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_accounts=None, storage_account_gen2=None, tags=None, tier=None):
         """
         Get an existing HadoopCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -231,6 +267,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[dict] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         
@@ -245,6 +282,16 @@ class HadoopCluster(pulumi.CustomResource):
           * `username` (`pulumi.Input[str]`)
         
         The **roles** object supports the following:
+        
+          * `edgeNode` (`pulumi.Input[dict]`)
+        
+            * `installScriptActions` (`pulumi.Input[list]`)
+        
+              * `name` (`pulumi.Input[str]`) - Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+              * `uri` (`pulumi.Input[str]`)
+        
+            * `targetInstanceCount` (`pulumi.Input[float]`)
+            * `vm_size` (`pulumi.Input[str]`)
         
           * `headNode` (`pulumi.Input[dict]`)
         
@@ -275,6 +322,13 @@ class HadoopCluster(pulumi.CustomResource):
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
         
+        The **storage_account_gen2** object supports the following:
+        
+          * `filesystemId` (`pulumi.Input[str]`)
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `managedIdentityResourceId` (`pulumi.Input[str]`)
+          * `storageResourceId` (`pulumi.Input[str]`)
+        
         The **storage_accounts** object supports the following:
         
           * `isDefault` (`pulumi.Input[bool]`)
@@ -296,6 +350,7 @@ class HadoopCluster(pulumi.CustomResource):
         __props__["roles"] = roles
         __props__["ssh_endpoint"] = ssh_endpoint
         __props__["storage_accounts"] = storage_accounts
+        __props__["storage_account_gen2"] = storage_account_gen2
         __props__["tags"] = tags
         __props__["tier"] = tier
         return HadoopCluster(resource_name, opts=opts, __props__=__props__)

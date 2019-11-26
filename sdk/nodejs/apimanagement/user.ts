@@ -15,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  * });
- * const testService = new azure.apimanagement.Service("test", {
- *     location: testResourceGroup.location,
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     location: exampleResourceGroup.location,
  *     publisherEmail: "company@exmaple.com",
  *     publisherName: "My Company",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Developer_1",
  * });
- * const testUser = new azure.apimanagement.User("test", {
- *     apiManagementName: testService.name,
+ * const exampleUser = new azure.apimanagement.User("example", {
+ *     apiManagementName: exampleService.name,
  *     email: "user@example.com",
  *     firstName: "Example",
  *     lastName: "User",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     state: "active",
  *     userId: "5931a75ae4bbd512288c680b",
  * });

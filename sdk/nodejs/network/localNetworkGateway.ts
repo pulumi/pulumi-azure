@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.core.ResourceGroup("test", {
+ * const example = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
  * const home = new azure.network.LocalNetworkGateway("home", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     gatewayAddress: "12.13.14.15",
- *     location: test.location,
- *     resourceGroupName: test.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

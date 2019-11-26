@@ -197,8 +197,6 @@ class StormCluster(pulumi.CustomResource):
             if roles is None:
                 raise TypeError("Missing required property 'roles'")
             __props__['roles'] = roles
-            if storage_accounts is None:
-                raise TypeError("Missing required property 'storage_accounts'")
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
             if tier is None:

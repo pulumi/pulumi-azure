@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.scheduler.getJobCollection({
+ * const example = azure.scheduler.getJobCollection({
  *     name: "tfex-job-collection",
  *     resourceGroupName: "tfex-job-collection-rg",
  * });

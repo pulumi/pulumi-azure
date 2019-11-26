@@ -30,12 +30,14 @@ func NewInsights(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["samplingPercentage"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["applicationType"] = args.ApplicationType
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["samplingPercentage"] = args.SamplingPercentage
 		inputs["tags"] = args.Tags
 	}
 	inputs["appId"] = nil
@@ -59,6 +61,7 @@ func GetInsights(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["samplingPercentage"] = state.SamplingPercentage
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:appinsights/insights:Insights", name, id, inputs, opts...)
@@ -110,6 +113,11 @@ func (r *Insights) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+func (r *Insights) SamplingPercentage() pulumi.Float64Output {
+	return (pulumi.Float64Output)(r.s.State["samplingPercentage"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *Insights) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
@@ -131,6 +139,8 @@ type InsightsState struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName interface{}
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	SamplingPercentage interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -147,6 +157,8 @@ type InsightsArgs struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName interface{}
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	SamplingPercentage interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

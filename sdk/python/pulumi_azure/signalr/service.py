@@ -10,6 +10,19 @@ from typing import Union
 from .. import utilities, tables
 
 class Service(pulumi.CustomResource):
+    cors: pulumi.Output[list]
+    """
+    A `cors` block as documented below.
+    
+      * `allowedOrigins` (`list`)
+    """
+    features: pulumi.Output[list]
+    """
+    A `features` block as documented below.
+    
+      * `flag` (`str`)
+      * `value` (`str`)
+    """
     hostname: pulumi.Output[str]
     """
     The FQDN of the SignalR service.
@@ -65,17 +78,28 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cors=None, features=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure SignalR service.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] cors: A `cors` block as documented below.
+        :param pulumi.Input[list] features: A `features` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **cors** object supports the following:
+        
+          * `allowedOrigins` (`pulumi.Input[list]`)
+        
+        The **features** object supports the following:
+        
+          * `flag` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
         
         The **sku** object supports the following:
         
@@ -101,6 +125,8 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cors'] = cors
+            __props__['features'] = features
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
@@ -125,7 +151,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, hostname=None, ip_address=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, cors=None, features=None, hostname=None, ip_address=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, sku=None, tags=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -133,6 +159,8 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] cors: A `cors` block as documented below.
+        :param pulumi.Input[list] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -147,6 +175,15 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
+        The **cors** object supports the following:
+        
+          * `allowedOrigins` (`pulumi.Input[list]`)
+        
+        The **features** object supports the following:
+        
+          * `flag` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
+        
         The **sku** object supports the following:
         
           * `capacity` (`pulumi.Input[float]`)
@@ -157,6 +194,8 @@ class Service(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["cors"] = cors
+        __props__["features"] = features
         __props__["hostname"] = hostname
         __props__["ip_address"] = ip_address
         __props__["location"] = location

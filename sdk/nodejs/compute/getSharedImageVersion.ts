@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.compute.getSharedImageVersion({
+ * const example = azure.compute.getSharedImageVersion({
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",
  *     name: "1.0.0",

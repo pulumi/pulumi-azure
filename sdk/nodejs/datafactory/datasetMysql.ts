@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleDatasetMysql = new azure.datafactory.DatasetMysql("example", {
  *     dataFactoryName: exampleFactory.name,
- *     linkedServiceName: azurerm_data_factory_linked_service_mysql_test.name,
+ *     linkedServiceName: exampleLinkedServiceMysql.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.mariadb.FirewallRule("test", {
+ * const example = new azure.mariadb.FirewallRule("example", {
  *     endIpAddress: "40.112.8.12",
  *     resourceGroupName: "test-rg",
  *     serverName: "test-server",
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.mariadb.FirewallRule("test", {
+ * const example = new azure.mariadb.FirewallRule("example", {
  *     endIpAddress: "40.112.255.255",
  *     resourceGroupName: "test-rg",
  *     serverName: "test-server",

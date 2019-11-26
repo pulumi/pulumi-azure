@@ -725,7 +725,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -750,7 +750,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -783,7 +783,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -810,7 +810,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -991,6 +991,12 @@ namespace Pulumi.Azure.AppService
         public Input<string>? AppCommandLine { get; set; }
 
         /// <summary>
+        /// The name of the swap to automatically swap to during deployment
+        /// </summary>
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]
@@ -1048,7 +1054,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? JavaContainerVersion { get; set; }
 
         /// <summary>
-        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
@@ -1075,7 +1081,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
-        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
@@ -1093,13 +1099,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
-        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
         /// </summary>
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
         /// <summary>
-        /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+        /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
@@ -1181,6 +1187,12 @@ namespace Pulumi.Azure.AppService
         public Input<string>? AppCommandLine { get; set; }
 
         /// <summary>
+        /// The name of the swap to automatically swap to during deployment
+        /// </summary>
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]
@@ -1238,7 +1250,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? JavaContainerVersion { get; set; }
 
         /// <summary>
-        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
@@ -1265,7 +1277,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
-        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
@@ -1283,13 +1295,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
-        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
         /// </summary>
         [Input("remoteDebuggingVersion")]
         public Input<string>? RemoteDebuggingVersion { get; set; }
 
         /// <summary>
-        /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+        /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
@@ -1530,7 +1542,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -1557,7 +1569,7 @@ namespace Pulumi.Azure.AppService
         public readonly string PrincipalId;
         public readonly string TenantId;
         /// <summary>
-        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        /// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
         /// </summary>
         public readonly string Type;
 
@@ -1682,6 +1694,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string? AppCommandLine;
         /// <summary>
+        /// The name of the swap to automatically swap to during deployment
+        /// </summary>
+        public readonly string? AutoSwapSlotName;
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         public readonly SlotSiteConfigCors Cors;
@@ -1711,7 +1727,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string? JavaContainerVersion;
         /// <summary>
-        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
         /// </summary>
         public readonly string? JavaVersion;
         public readonly string LinuxFxVersion;
@@ -1728,7 +1744,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string MinTlsVersion;
         /// <summary>
-        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+        /// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>
@@ -1740,11 +1756,11 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
-        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+        /// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
         /// </summary>
         public readonly string RemoteDebuggingVersion;
         /// <summary>
-        /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+        /// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
@@ -1765,6 +1781,7 @@ namespace Pulumi.Azure.AppService
         private SlotSiteConfig(
             bool? alwaysOn,
             string? appCommandLine,
+            string? autoSwapSlotName,
             SlotSiteConfigCors cors,
             ImmutableArray<string> defaultDocuments,
             string? dotnetFrameworkVersion,
@@ -1790,6 +1807,7 @@ namespace Pulumi.Azure.AppService
         {
             AlwaysOn = alwaysOn;
             AppCommandLine = appCommandLine;
+            AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
             DefaultDocuments = defaultDocuments;
             DotnetFrameworkVersion = dotnetFrameworkVersion;

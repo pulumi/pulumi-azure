@@ -13,3 +13,4 @@ export * from "./linkedServiceMysql";
 export * from "./linkedServicePostgresql";
 export * from "./linkedServiceSqlServer";
 export * from "./pipeline";
+export * from "./triggerSchedule";

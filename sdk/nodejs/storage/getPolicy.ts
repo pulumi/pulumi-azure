@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = azure.storage.getAccount({
+ * const exampleAccount = azure.storage.getAccount({
  *     name: "storageaccountname",
  *     resourceGroupName: "resourcegroupname",
  * });
- * const testpolicy = azurerm_storage_account_test.id.apply(id => azure.storage.getPolicy({
+ * const examplePolicy = azurerm_storage_account_example.id.apply(id => azure.storage.getPolicy({
  *     storageAccountId: id,
  * }));
  * ```

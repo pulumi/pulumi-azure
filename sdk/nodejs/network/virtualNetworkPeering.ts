@@ -16,28 +16,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.core.ResourceGroup("test", {
+ * const example = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  * });
- * const test1VirtualNetwork = new azure.network.VirtualNetwork("test1", {
+ * const example_1VirtualNetwork = new azure.network.VirtualNetwork("example-1", {
  *     addressSpaces: ["10.0.1.0/24"],
  *     location: "West US",
- *     resourceGroupName: test.name,
+ *     resourceGroupName: example.name,
  * });
- * const test2VirtualNetwork = new azure.network.VirtualNetwork("test2", {
+ * const example_2VirtualNetwork = new azure.network.VirtualNetwork("example-2", {
  *     addressSpaces: ["10.0.2.0/24"],
  *     location: "West US",
- *     resourceGroupName: test.name,
+ *     resourceGroupName: example.name,
  * });
- * const test1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("test1", {
- *     remoteVirtualNetworkId: test2VirtualNetwork.id,
- *     resourceGroupName: test.name,
- *     virtualNetworkName: test1VirtualNetwork.name,
+ * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1", {
+ *     remoteVirtualNetworkId: example_2VirtualNetwork.id,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: example_1VirtualNetwork.name,
  * });
- * const test2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("test2", {
- *     remoteVirtualNetworkId: test1VirtualNetwork.id,
- *     resourceGroupName: test.name,
- *     virtualNetworkName: test2VirtualNetwork.name,
+ * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2", {
+ *     remoteVirtualNetworkId: example_1VirtualNetwork.id,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: example_2VirtualNetwork.name,
  * });
  * ```
  * 

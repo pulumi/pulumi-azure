@@ -50,6 +50,8 @@ func NewApi(ctx *pulumi.Context,
 		inputs["serviceUrl"] = nil
 		inputs["soapPassThrough"] = nil
 		inputs["subscriptionKeyParameterNames"] = nil
+		inputs["version"] = nil
+		inputs["versionSetId"] = nil
 	} else {
 		inputs["apiManagementName"] = args.ApiManagementName
 		inputs["description"] = args.Description
@@ -63,11 +65,11 @@ func NewApi(ctx *pulumi.Context,
 		inputs["serviceUrl"] = args.ServiceUrl
 		inputs["soapPassThrough"] = args.SoapPassThrough
 		inputs["subscriptionKeyParameterNames"] = args.SubscriptionKeyParameterNames
+		inputs["version"] = args.Version
+		inputs["versionSetId"] = args.VersionSetId
 	}
 	inputs["isCurrent"] = nil
 	inputs["isOnline"] = nil
-	inputs["version"] = nil
-	inputs["versionSetId"] = nil
 	s, err := ctx.RegisterResource("azure:apimanagement/api:Api", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -257,4 +259,8 @@ type ApiArgs struct {
 	SoapPassThrough interface{}
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames interface{}
+	// The Version number of this API, if this API is versioned.
+	Version interface{}
+	// The ID of the Version Set which this API is associated with.
+	VersionSetId interface{}
 }

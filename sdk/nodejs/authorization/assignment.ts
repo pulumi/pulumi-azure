@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = azure.core.getSubscription();
- * const testClientConfig = azure.core.getClientConfig();
- * const testAssignment = new azure.authorization.Assignment("test", {
- *     principalId: testClientConfig.servicePrincipalObjectId,
+ * const exampleClientConfig = azure.core.getClientConfig();
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     principalId: exampleClientConfig.servicePrincipalObjectId,
  *     roleDefinitionName: "Reader",
  *     scope: primary.id,
  * });
@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = azure.core.getSubscription();
- * const testClientConfig = azure.core.getClientConfig();
- * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
+ * const exampleClientConfig = azure.core.getClientConfig();
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
  *     assignableScopes: [primary.id],
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
@@ -39,10 +39,10 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const testAssignment = new azure.authorization.Assignment("test", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: testClientConfig.servicePrincipalObjectId,
- *     roleDefinitionId: testRoleDefinition.id,
+ *     principalId: exampleClientConfig.servicePrincipalObjectId,
+ *     roleDefinitionId: exampleRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
@@ -54,8 +54,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = azure.core.getSubscription();
- * const testClientConfig = azure.core.getClientConfig();
- * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
+ * const exampleClientConfig = azure.core.getClientConfig();
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
  *     assignableScopes: [primary.id],
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
@@ -64,10 +64,10 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const testAssignment = new azure.authorization.Assignment("test", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: testClientConfig.clientId,
- *     roleDefinitionId: testRoleDefinition.id,
+ *     principalId: exampleClientConfig.clientId,
+ *     roleDefinitionId: exampleRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
@@ -79,9 +79,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = azure.core.getSubscription();
- * const testClientConfig = azure.core.getClientConfig();
- * const testGroup = azure.management.getGroup();
- * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
+ * const exampleClientConfig = azure.core.getClientConfig();
+ * const exampleGroup = azure.management.getGroup();
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
  *     assignableScopes: [primary.id],
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
@@ -90,10 +90,10 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const testAssignment = new azure.authorization.Assignment("test", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: testClientConfig.clientId,
- *     roleDefinitionId: testRoleDefinition.id,
+ *     principalId: exampleClientConfig.clientId,
+ *     roleDefinitionId: exampleRoleDefinition.id,
  *     scope: azurerm_management_group_primary.id,
  * });
  * ```

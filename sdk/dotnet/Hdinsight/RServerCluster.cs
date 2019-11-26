@@ -180,7 +180,7 @@ namespace Pulumi.Azure.HDInsight
         [Input("rstudio", required: true)]
         public Input<bool> Rstudio { get; set; } = null!;
 
-        [Input("storageAccounts", required: true)]
+        [Input("storageAccounts")]
         private InputList<Inputs.RServerClusterStorageAccountsArgs>? _storageAccounts;
 
         /// <summary>

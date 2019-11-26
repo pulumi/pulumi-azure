@@ -136,7 +136,7 @@ export class StormCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.StormClusterStorageAccount[]>;
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.StormClusterStorageAccount[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */
@@ -186,9 +186,6 @@ export class StormCluster extends pulumi.CustomResource {
             }
             if (!args || args.roles === undefined) {
                 throw new Error("Missing required property 'roles'");
-            }
-            if (!args || args.storageAccounts === undefined) {
-                throw new Error("Missing required property 'storageAccounts'");
             }
             if (!args || args.tier === undefined) {
                 throw new Error("Missing required property 'tier'");
@@ -306,7 +303,7 @@ export interface StormClusterArgs {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.hdinsight.StormClusterStorageAccount>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.StormClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */

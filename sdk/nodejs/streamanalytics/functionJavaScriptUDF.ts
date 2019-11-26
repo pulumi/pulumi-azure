@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: name,
  * }));
- * const test = new azure.streamanalytics.FunctionJavaScriptUDF("test", {
+ * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("example", {
  *     inputs: [{
  *         type: "bigint",
  *     }],
