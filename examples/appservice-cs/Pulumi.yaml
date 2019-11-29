@@ -1,0 +1,3 @@
+name: appservice-cs
+description: Creates Azure App Service serving a static file
+runtime: dotnet

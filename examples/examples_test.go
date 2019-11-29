@@ -288,6 +288,18 @@ func TestAccMultiCallback(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccAppServiceCs(t *testing.T) {
+	test := getCSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           path.Join(getCwd(t), "appservice-cs"),
+			ExtraRuntimeValidation: validateAPITest(func(body string) {
+				assert.Equal(t, body, "Hello Pulumi")
+			}),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func skipIfShort(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping long-running test in short mode")
@@ -354,6 +366,17 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	})
 
 	return pythonBase
+}
+
+func getCSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	base := getBaseOptions(t)
+	baseJS := base.With(integration.ProgramTestOptions{
+		Dependencies: []string{
+			"Pulumi.Azure",
+		},
+	})
+
+	return baseJS
 }
 
 func validateAPITest(isValid func(body string)) func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
