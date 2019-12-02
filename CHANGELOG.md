@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.4.3 of pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 1.6.0 (2019-12-02)
+* Upgrade to v1.4.3 of pulumi-terraform-bridge
 
 ## 1.5.0 (2019-11-27)
 * Upgrade to support go 1.13.x
