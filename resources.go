@@ -132,22 +132,29 @@ func azureType(mod string, typ string) tokens.Type {
 	return tokens.Type(azureMember(mod, typ))
 }
 
+// azureSubType manufactures a type token for the Azure package and the given module, submodule, and type.
+func azureSubType(moduleTitle, sub, typ string) tokens.Type {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
+	return azureType(moduleName + "/" + sub, typ)
+}
+
 // azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the
 // Azure package and names the file by simply lower casing the data source's first character.
-func azureDataSource(title string, res string) tokens.ModuleMember {
-	name := strings.ToLower(title)
-	namespaceMap[name] = title
+func azureDataSource(moduleTitle string, res string) tokens.ModuleMember {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return azureMember(name+"/"+fn, res)
+	return azureMember(moduleName+"/"+fn, res)
 }
 
 // azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the
 // Azure package and names the file by simply lower casing the resource's first character.
-func azureResource(title string, res string) tokens.Type {
-	name := strings.ToLower(title)
-	namespaceMap[name] = title
+func azureResource(moduleTitle string, res string) tokens.Type {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return azureType(name+"/"+fn, res)
+	return azureType(moduleName+"/"+fn, res)
 }
 
 // boolRef returns a reference to the bool argument.
@@ -419,7 +426,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 					"kind": {
 						Type:     "string",
-						AltTypes: []tokens.Type{azureType(azureAppService+"/kind", "Kind")},
+						AltTypes: []tokens.Type{azureSubType(azureAppService, "kind", "Kind")},
 					},
 				}},
 			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
