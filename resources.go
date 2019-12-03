@@ -44,79 +44,83 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
-	azureAD                  = "ad"                  // Active Directory (AAD)
-	azureAnalysisServices    = "analysisservices"    // Analysis Services
-	azureAPIManagement       = "apimanagement"       // API Management
-	azureAppInsights         = "appinsights"         // AppInsights
-	azureAppService          = "appservice"          // App Service
-	azureAutomation          = "automation"          // Automatio
-	azureAuthorization       = "authorization"       // Authorization
-	azureAutoscale           = "autoscale"           // Autoscale
-	azureBatch               = "batch"               // Batch
-	azureBot                 = "bot"                 // Bot
-	azureCDN                 = "cdn"                 // CDN
-	azureCognitive           = "cognitive"           // Cognitive
-	azureCompute             = "compute"             // Virtual Machines
-	azureContainerService    = "containerservice"    // Azure Container Service
-	azureCore                = "core"                // Base Resources
-	azureCosmosDB            = "cosmosdb"            // Cosmos DB
-	azureDashboard           = "dashboard"           // Dashboard
-	azureDataFactory         = "datafactory"         // Data Factory
-	azureDatalake            = "datalake"            // Data Lake
-	azureDataBricks          = "databricks"          // DataBricks
-	azureDdosProtection      = "ddosprotection"      // DDOS Protection
-	azureDevSpace            = "devspace"            // DevSpace
-	azureDevTest             = "devtest"             // Dev Test Labs
-	azureDNS                 = "dns"                 // DNS
-	azureFrontdoor           = "frontdoor"           // Frontdoor
-	azureHdInsight           = "hdinsight"           // nolint:misspell // HDInsight
-	azureHealthcare          = "healthcare"          // HealthCare
-	azureIot                 = "iot"                 // IoT resource
-	azureKeyVault            = "keyvault"            // Key Vault
-	azureKusto               = "kusto"               // Kusto
-	azureLogAnalytics        = "loganalytics"        // Log Analytics
-	azureLogicApps           = "logicapps"           // Logic Apps
-	azureLB                  = "lb"                  // Load Balancer
-	azureMariaDB             = "mariadb"             // MariaDB
-	azureEventGrid           = "eventgrid"           // Event Grid
-	azureEventHub            = "eventhub"            // Event Hub
-	azureManagement          = "management"          // Management Resources
-	azureMaps                = "maps"                // Maps
-	azureMarketPlace         = "marketplace"         // Marketplace
-	azureMediaServices       = "mediaservices"       // Media Services
-	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
-	azureMSSQL               = "mssql"               // MS Sql
-	azureMySQL               = "mysql"               // MySql
-	azureNetapp              = "netapp"              // NetApp
-	azureNetwork             = "network"             // Networking
-	azureNotificationHub     = "notificationhub"     // Notification Hub
-	azureOperationalInsights = "operationalinsights" // Operational Insights
-	azurePostgresql          = "postgresql"          // Postgress SQL
-	azurePolicy              = "policy"              // Policy
-	azureProximity           = "proximity"           // Proximity
-	azurePrivateDNS          = "privatedns"          // Private DNS
-	azurePrivateLink         = "privatelink"         // PrivateLink
-	azureRecoveryServices    = "recoveryservices"    // Recovery Services
-	azureRedis               = "redis"               // RedisCache
-	azureRelay               = "relay"               // Relay
-	azureScheduler           = "scheduler"           // Scheduler
-	azureSecurityCenter      = "securitycenter"      // Security Center
-	azureServiceBus          = "servicebus"          // ServiceBus
-	azureServiceFabric       = "servicefabric"       // Service Fabric
-	azureSearch              = "search"              // Search
-	azureSignalr             = "signalr"             // SignalR
-	azureSQL                 = "sql"                 // SQL
-	azureStorage             = "storage"             // Storage
-	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
-	azureWaf                 = "waf"                 // WAF
+	azureAD                  = "AD"                  // Active Directory (AAD)
+	azureAnalysisServices    = "AnalysisServices"    // Analysis Services
+	azureAPIManagement       = "ApiManagement"       // API Management
+	azureAppInsights         = "AppInsights"         // AppInsights
+	azureAppService          = "AppService"          // App Service
+	azureAutomation          = "Automation"          // Automation
+	azureAuthorization       = "Authorization"       // Authorization
+	azureAutoscale           = "Autoscale"           // Autoscale
+	azureBatch               = "Batch"               // Batch
+	azureBot                 = "Bot"                 // Bot
+	azureCDN                 = "Cdn"                 // CDN
+	azureCognitive           = "Cognitive"           // Cognitive
+	azureCompute             = "Compute"             // Virtual Machines
+	azureContainerService    = "ContainerService"    // Azure Container Service
+	azureCore                = "Core"                // Base Resources
+	azureCosmosDB            = "CosmosDB"            // Cosmos DB
+	azureDashboard           = "Dashboard"           // Dashboard
+	azureDataFactory         = "DataFactory"         // Data Factory
+	azureDatalake            = "DataLake"            // Data Lake
+	azureDataBricks          = "DataBricks"          // DataBricks
+	azureDdosProtection      = "DdosProtection"      // DDOS Protection
+	azureDevSpace            = "DevSpace"            // DevSpace
+	azureDevTest             = "DevTest"             // Dev Test Labs
+	azureDNS                 = "Dns"                 // DNS
+	azureFrontdoor           = "FrontDoor"           // Frontdoor
+	azureHdInsight           = "HDInsight"           // nolint:misspell // HDInsight
+	azureHealthcare          = "Healthcare"          // HealthCare
+	azureIot                 = "Iot"                 // IoT resource
+	azureKeyVault            = "KeyVault"            // Key Vault
+	azureKusto               = "Kusto"               // Kusto
+	azureLogAnalytics        = "LogAnalytics"        // Log Analytics
+	azureLogicApps           = "LogicApps"           // Logic Apps
+	azureLB                  = "Lb"                  // Load Balancer
+	azureMariaDB             = "MariaDB"             // MariaDB
+	azureEventGrid           = "EventGrid"           // Event Grid
+	azureEventHub            = "EventHub"            // Event Hub
+	azureManagement          = "Management"          // Management Resources
+	azureMaps                = "Maps"                // Maps
+	azureMarketPlace         = "Marketplace"         // Marketplace
+	azureMediaServices       = "MediaServices"       // Media Services
+	azureMonitoring          = "Monitoring"          // Metrics/monitoring resources
+	azureMSSQL               = "MSSql"               // MS Sql
+	azureMySQL               = "MySql"               // MySql
+	azureNetapp              = "NetApp"              // NetApp
+	azureNetwork             = "Network"             // Networking
+	azureNotificationHub     = "NotificationHub"     // Notification Hub
+	azureOperationalInsights = "OperationalInsights" // Operational Insights
+	azurePostgresql          = "PostgreSql"          // Postgress SQL
+	azurePolicy              = "Policy"              // Policy
+	azureProximity           = "Proximity"           // Proximity
+	azurePrivateDNS          = "PrivateDns"          // Private DNS
+	azurePrivateLink         = "PrivateLink"         // PrivateLink
+	azureRecoveryServices    = "RecoveryServices"    // Recovery Services
+	azureRedis               = "Redis"               // RedisCache
+	azureRelay               = "Relay"               // Relay
+	azureScheduler           = "Scheduler"           // Scheduler
+	azureSecurityCenter      = "SecurityCenter"      // Security Center
+	azureServiceBus          = "ServiceBus"          // ServiceBus
+	azureServiceFabric       = "ServiceFabric"       // Service Fabric
+	azureSearch              = "Search"              // Search
+	azureSignalr             = "SignalR"             // SignalR
+	azureSQL                 = "Sql"                 // SQL
+	azureStorage             = "Storage"             // Storage
+	azureStreamAnalytics     = "StreamAnalytics"     // StreamAnalytics
+	azureWaf                 = "Waf"                 // WAF
 
 	// Legacy Module Names
-	azureLegacyRole             = "role"               // Azure Role (Legacy)
-	azureLegacyMSI              = "msi"                // Managed Service Identity / MSI (Legacy)
-	azureLegacyManagementGroups = "managementgroups"   // Management Groups (Legacy)
-	azureLegacyMgmtResource     = "managementresource" // Management Resource (Legacy)
-	azureLegacyTrafficManager   = "trafficmanager"     // Traffic Manager (Legacy)
+	azureLegacyRole             = "Role"               // Azure Role (Legacy)
+	azureLegacyMSI              = "Msi"                // Managed Service Identity / MSI (Legacy)
+	azureLegacyManagementGroups = "ManagementGroups"   // Management Groups (Legacy)
+	azureLegacyMgmtResource     = "ManagementResource" // Management Resource (Legacy)
+	azureLegacyTrafficManager   = "TrafficManager"     // Traffic Manager (Legacy)
 )
+
+var namespaceMap = map[string]string {
+	"azure": "Azure",
+}
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
 func azureMember(mod string, mem string) tokens.ModuleMember {
@@ -130,16 +134,20 @@ func azureType(mod string, typ string) tokens.Type {
 
 // azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the
 // Azure package and names the file by simply lower casing the data source's first character.
-func azureDataSource(mod string, res string) tokens.ModuleMember {
+func azureDataSource(title string, res string) tokens.ModuleMember {
+	name := strings.ToLower(title)
+	namespaceMap[name] = title
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return azureMember(mod+"/"+fn, res)
+	return azureMember(name+"/"+fn, res)
 }
 
 // azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the
 // Azure package and names the file by simply lower casing the resource's first character.
-func azureResource(mod string, res string) tokens.Type {
+func azureResource(title string, res string) tokens.Type {
+	name := strings.ToLower(title)
+	namespaceMap[name] = title
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return azureType(mod+"/"+fn, res)
+	return azureType(name+"/"+fn, res)
 }
 
 // boolRef returns a reference to the bool argument.
@@ -1432,48 +1440,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			Namespaces: map[string]string{
-				"ad":                  "AD",
-				"analysisservices":    "AnalysisServices",
-				"apimanagement":       "ApiManagement",
-				"appinsights":         "AppInsights",
-				"appservice":          "AppService",
-				"containerservice":    "ContainerService",
-				"cosmosdb":            "CosmosDB",
-				"datafactory":         "DataFactory",
-				"datalake":            "DataLake",
-				"databricks":          "DataBricks",
-				"ddosprotection":      "DdosProtection",
-				"devspace":            "DevSpace",
-				"devtest":             "DevTest",
-				"frontdoor":           "FrontDoor",
-				"hdinsight":           "HDInsight",
-				"keyvault":            "KeyVault",
-				"loganalytics":        "LogAnalytics",
-				"logicapps":           "LogicApps",
-				"mariadb":             "MariaDB",
-				"eventgrid":           "EventGrid",
-				"eventhub":            "EventHub",
-				"mediaservices":       "MediaServices",
-				"mssql":               "MSSql",
-				"mysql":               "MySql",
-				"netapp":              "NetApp",
-				"notificationhub":     "NotificationHub",
-				"operationalinsights": "OperationalInsights",
-				"postgresql":          "PostgreSql",
-				"privatedns":          "PrivateDns",
-				"privatelink":         "PrivateLink",
-				"recoveryservices":    "RecoveryServices",
-				"securitycenter":      "SecurityCenter",
-				"servicebus":          "ServiceBus",
-				"servicefabric":       "ServiceFabric",
-				"signalr":             "SignalR",
-				"streamanalytics":     "StreamAnalytics",
-				// legacy
-				"managementgroups":   "ManagementGroups",
-				"managementresource": "ManagementResource",
-				"trafficmanager":     "TrafficManager",
-			},
+			Namespaces: namespaceMap,
 		},
 	}
 
