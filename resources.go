@@ -118,7 +118,7 @@ const (
 	azureLegacyTrafficManager   = "TrafficManager"     // Traffic Manager (Legacy)
 )
 
-var namespaceMap = map[string]string {
+var namespaceMap = map[string]string{
 	"azure": "Azure",
 }
 
@@ -136,7 +136,7 @@ func azureType(mod string, typ string) tokens.Type {
 func azureSubType(moduleTitle, sub, typ string) tokens.Type {
 	moduleName := strings.ToLower(moduleTitle)
 	namespaceMap[moduleName] = moduleTitle
-	return azureType(moduleName + "/" + sub, typ)
+	return azureType(moduleName+"/"+sub, typ)
 }
 
 // azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the
