@@ -123,38 +123,29 @@ var namespaceMap = map[string]string{
 }
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
-func azureMember(mod string, mem string) tokens.ModuleMember {
-	return tokens.ModuleMember(azurePkg + ":" + mod + ":" + mem)
+func azureMember(moduleTitle, mem string) tokens.ModuleMember {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
+	fn := string(unicode.ToLower(rune(mem[0]))) + mem[1:]
+	token := moduleName + "/" + fn
+	return tokens.ModuleMember(azurePkg + ":" + token + ":" + mem)
 }
 
 // azureType manufactures a type token for the Azure package and the given module and type.
-func azureType(mod string, typ string) tokens.Type {
+func azureType(mod, typ string) tokens.Type {
 	return tokens.Type(azureMember(mod, typ))
-}
-
-// azureSubType manufactures a type token for the Azure package and the given module, submodule, and type.
-func azureSubType(moduleTitle, sub, typ string) tokens.Type {
-	moduleName := strings.ToLower(moduleTitle)
-	namespaceMap[moduleName] = moduleTitle
-	return azureType(moduleName+"/"+sub, typ)
 }
 
 // azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the
 // Azure package and names the file by simply lower casing the data source's first character.
-func azureDataSource(moduleTitle string, res string) tokens.ModuleMember {
-	moduleName := strings.ToLower(moduleTitle)
-	namespaceMap[moduleName] = moduleTitle
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return azureMember(moduleName+"/"+fn, res)
+func azureDataSource(mod string, res string) tokens.ModuleMember {
+	return azureMember(mod, res)
 }
 
 // azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the
 // Azure package and names the file by simply lower casing the resource's first character.
-func azureResource(moduleTitle string, res string) tokens.Type {
-	moduleName := strings.ToLower(moduleTitle)
-	namespaceMap[moduleName] = moduleTitle
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return azureType(moduleName+"/"+fn, res)
+func azureResource(mod string, res string) tokens.Type {
+	return azureType(mod, res)
 }
 
 // boolRef returns a reference to the bool argument.
@@ -426,7 +417,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 					"kind": {
 						Type:     "string",
-						AltTypes: []tokens.Type{azureSubType(azureAppService, "kind", "Kind")},
+						AltTypes: []tokens.Type{azureType(azureAppService, "Kind")},
 					},
 				}},
 			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
