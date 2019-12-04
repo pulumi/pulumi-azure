@@ -122,7 +122,8 @@ var namespaceMap = map[string]string{
 	"azure": "Azure",
 }
 
-// azureMember manufactures a type token for the Azure package and the given module and type.
+// azureMember manufactures a member for the Azure package and the given module and type. It automatically
+// names the file by simply lower casing the member's first character.
 func azureMember(moduleTitle, mem string) tokens.ModuleMember {
 	moduleName := strings.ToLower(moduleTitle)
 	namespaceMap[moduleName] = moduleTitle
@@ -132,18 +133,16 @@ func azureMember(moduleTitle, mem string) tokens.ModuleMember {
 }
 
 // azureType manufactures a type token for the Azure package and the given module and type.
-func azureType(mod, typ string) tokens.Type {
+func azureType(mod string, typ string) tokens.Type {
 	return tokens.Type(azureMember(mod, typ))
 }
 
-// azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the
-// Azure package and names the file by simply lower casing the data source's first character.
+// azureDataSource manufactures a standard member given a module and data source name.
 func azureDataSource(mod string, res string) tokens.ModuleMember {
 	return azureMember(mod, res)
 }
 
-// azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the
-// Azure package and names the file by simply lower casing the resource's first character.
+// azureResource manufactures a standard resource token given a module and resource name.
 func azureResource(mod string, res string) tokens.Type {
 	return azureType(mod, res)
 }
