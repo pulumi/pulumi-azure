@@ -14,12 +14,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_slack.html.markdown.
 type ChannelSlack struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+	BotName pulumi.StringOutput `pulumi:"botName"`
+
+	// The Client ID that will be used to authenticate with Slack.
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+
+	// The Client Secret that will be used to authenticate with Slack.
+	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
+
+	// The Slack Landing Page URL.
+	LandingPageUrl pulumi.StringOutput `pulumi:"landingPageUrl"`
+
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Verification Token that will be used to authenticate with Slack.
+	VerificationToken pulumi.StringOutput `pulumi:"verificationToken"`
 }
 
 // NewChannelSlack registers a new resource with the given unique name, arguments, and options.
 func NewChannelSlack(ctx *pulumi.Context,
-	name string, args *ChannelSlackArgs, opts ...pulumi.ResourceOpt) (*ChannelSlack, error) {
+	name string, args *ChannelSlackArgs, opts ...pulumi.ResourceOption) (*ChannelSlack, error) {
 	if args == nil || args.BotName == nil {
 		return nil, errors.New("missing required argument 'BotName'")
 	}
@@ -35,129 +56,78 @@ func NewChannelSlack(ctx *pulumi.Context,
 	if args == nil || args.VerificationToken == nil {
 		return nil, errors.New("missing required argument 'VerificationToken'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["botName"] = nil
-		inputs["clientId"] = nil
-		inputs["clientSecret"] = nil
-		inputs["landingPageUrl"] = nil
-		inputs["location"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["verificationToken"] = nil
-	} else {
-		inputs["botName"] = args.BotName
-		inputs["clientId"] = args.ClientId
-		inputs["clientSecret"] = args.ClientSecret
-		inputs["landingPageUrl"] = args.LandingPageUrl
-		inputs["location"] = args.Location
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["verificationToken"] = args.VerificationToken
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BotName; i != nil { inputs["botName"] = i.ToStringOutput() }
+		if i := args.ClientId; i != nil { inputs["clientId"] = i.ToStringOutput() }
+		if i := args.ClientSecret; i != nil { inputs["clientSecret"] = i.ToStringOutput() }
+		if i := args.LandingPageUrl; i != nil { inputs["landingPageUrl"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.VerificationToken; i != nil { inputs["verificationToken"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:bot/channelSlack:ChannelSlack", name, true, inputs, opts...)
+	var resource ChannelSlack
+	err := ctx.RegisterResource("azure:bot/channelSlack:ChannelSlack", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ChannelSlack{s: s}, nil
+	return &resource, nil
 }
 
 // GetChannelSlack gets an existing ChannelSlack resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetChannelSlack(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ChannelSlackState, opts ...pulumi.ResourceOpt) (*ChannelSlack, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ChannelSlackState, opts ...pulumi.ResourceOption) (*ChannelSlack, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["botName"] = state.BotName
-		inputs["clientId"] = state.ClientId
-		inputs["clientSecret"] = state.ClientSecret
-		inputs["landingPageUrl"] = state.LandingPageUrl
-		inputs["location"] = state.Location
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["verificationToken"] = state.VerificationToken
+		if i := state.BotName; i != nil { inputs["botName"] = i.ToStringOutput() }
+		if i := state.ClientId; i != nil { inputs["clientId"] = i.ToStringOutput() }
+		if i := state.ClientSecret; i != nil { inputs["clientSecret"] = i.ToStringOutput() }
+		if i := state.LandingPageUrl; i != nil { inputs["landingPageUrl"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.VerificationToken; i != nil { inputs["verificationToken"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:bot/channelSlack:ChannelSlack", name, id, inputs, opts...)
+	var resource ChannelSlack
+	err := ctx.ReadResource("azure:bot/channelSlack:ChannelSlack", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ChannelSlack{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ChannelSlack) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ChannelSlack) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-func (r *ChannelSlack) BotName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["botName"])
-}
-
-// The Client ID that will be used to authenticate with Slack.
-func (r *ChannelSlack) ClientId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientId"])
-}
-
-// The Client Secret that will be used to authenticate with Slack.
-func (r *ChannelSlack) ClientSecret() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientSecret"])
-}
-
-// The Slack Landing Page URL.
-func (r *ChannelSlack) LandingPageUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["landingPageUrl"])
-}
-
-// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ChannelSlack) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-func (r *ChannelSlack) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Verification Token that will be used to authenticate with Slack.
-func (r *ChannelSlack) VerificationToken() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["verificationToken"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ChannelSlack resources.
 type ChannelSlackState struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-	BotName interface{}
+	BotName pulumi.StringInput `pulumi:"botName"`
 	// The Client ID that will be used to authenticate with Slack.
-	ClientId interface{}
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The Client Secret that will be used to authenticate with Slack.
-	ClientSecret interface{}
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 	// The Slack Landing Page URL.
-	LandingPageUrl interface{}
+	LandingPageUrl pulumi.StringInput `pulumi:"landingPageUrl"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Verification Token that will be used to authenticate with Slack.
-	VerificationToken interface{}
+	VerificationToken pulumi.StringInput `pulumi:"verificationToken"`
 }
 
 // The set of arguments for constructing a ChannelSlack resource.
 type ChannelSlackArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-	BotName interface{}
+	BotName pulumi.StringInput `pulumi:"botName"`
 	// The Client ID that will be used to authenticate with Slack.
-	ClientId interface{}
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The Client Secret that will be used to authenticate with Slack.
-	ClientSecret interface{}
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 	// The Slack Landing Page URL.
-	LandingPageUrl interface{}
+	LandingPageUrl pulumi.StringInput `pulumi:"landingPageUrl"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Verification Token that will be used to authenticate with Slack.
-	VerificationToken interface{}
+	VerificationToken pulumi.StringInput `pulumi:"verificationToken"`
 }

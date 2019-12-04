@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
 type ActivityLogAlert struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `action` blocks as defined below.
+	Actions ActivityLogAlertActionsArrayOutput `pulumi:"actions"`
+
+	// A `criteria` block as defined below.
+	Criteria ActivityLogAlertCriteriaOutput `pulumi:"criteria"`
+
+	// The description of this activity log alert.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Should this Activity Log Alert be enabled? Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The name of the activity log alert. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the activity log alert instance.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewActivityLogAlert registers a new resource with the given unique name, arguments, and options.
 func NewActivityLogAlert(ctx *pulumi.Context,
-	name string, args *ActivityLogAlertArgs, opts ...pulumi.ResourceOpt) (*ActivityLogAlert, error) {
+	name string, args *ActivityLogAlertArgs, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
 	if args == nil || args.Criteria == nil {
 		return nil, errors.New("missing required argument 'Criteria'")
 	}
@@ -27,141 +53,309 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args == nil || args.Scopes == nil {
 		return nil, errors.New("missing required argument 'Scopes'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["actions"] = nil
-		inputs["criteria"] = nil
-		inputs["description"] = nil
-		inputs["enabled"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["scopes"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["actions"] = args.Actions
-		inputs["criteria"] = args.Criteria
-		inputs["description"] = args.Description
-		inputs["enabled"] = args.Enabled
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["scopes"] = args.Scopes
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Actions; i != nil { inputs["actions"] = i.ToActivityLogAlertActionsArrayOutput() }
+		if i := args.Criteria; i != nil { inputs["criteria"] = i.ToActivityLogAlertCriteriaOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Scopes; i != nil { inputs["scopes"] = i.ToStringArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/activityLogAlert:ActivityLogAlert", name, true, inputs, opts...)
+	var resource ActivityLogAlert
+	err := ctx.RegisterResource("azure:monitoring/activityLogAlert:ActivityLogAlert", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ActivityLogAlert{s: s}, nil
+	return &resource, nil
 }
 
 // GetActivityLogAlert gets an existing ActivityLogAlert resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetActivityLogAlert(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ActivityLogAlertState, opts ...pulumi.ResourceOpt) (*ActivityLogAlert, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ActivityLogAlertState, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["actions"] = state.Actions
-		inputs["criteria"] = state.Criteria
-		inputs["description"] = state.Description
-		inputs["enabled"] = state.Enabled
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["scopes"] = state.Scopes
-		inputs["tags"] = state.Tags
+		if i := state.Actions; i != nil { inputs["actions"] = i.ToActivityLogAlertActionsArrayOutput() }
+		if i := state.Criteria; i != nil { inputs["criteria"] = i.ToActivityLogAlertCriteriaOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Scopes; i != nil { inputs["scopes"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/activityLogAlert:ActivityLogAlert", name, id, inputs, opts...)
+	var resource ActivityLogAlert
+	err := ctx.ReadResource("azure:monitoring/activityLogAlert:ActivityLogAlert", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ActivityLogAlert{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ActivityLogAlert) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ActivityLogAlert) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `action` blocks as defined below.
-func (r *ActivityLogAlert) Actions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["actions"])
-}
-
-// A `criteria` block as defined below.
-func (r *ActivityLogAlert) Criteria() pulumi.Output {
-	return r.s.State["criteria"]
-}
-
-// The description of this activity log alert.
-func (r *ActivityLogAlert) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Should this Activity Log Alert be enabled? Defaults to `true`.
-func (r *ActivityLogAlert) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The name of the activity log alert. Changing this forces a new resource to be created.
-func (r *ActivityLogAlert) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the activity log alert instance.
-func (r *ActivityLogAlert) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-func (r *ActivityLogAlert) Scopes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["scopes"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ActivityLogAlert) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ActivityLogAlert resources.
 type ActivityLogAlertState struct {
 	// One or more `action` blocks as defined below.
-	Actions interface{}
+	Actions ActivityLogAlertActionsArrayInput `pulumi:"actions"`
 	// A `criteria` block as defined below.
-	Criteria interface{}
+	Criteria ActivityLogAlertCriteriaInput `pulumi:"criteria"`
 	// The description of this activity log alert.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-	Scopes interface{}
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ActivityLogAlert resource.
 type ActivityLogAlertArgs struct {
 	// One or more `action` blocks as defined below.
-	Actions interface{}
+	Actions ActivityLogAlertActionsArrayInput `pulumi:"actions"`
 	// A `criteria` block as defined below.
-	Criteria interface{}
+	Criteria ActivityLogAlertCriteriaInput `pulumi:"criteria"`
 	// The description of this activity log alert.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the activity log alert instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-	Scopes interface{}
+	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ActivityLogAlertActions struct {
+	ActionGroupId string `pulumi:"actionGroupId"`
+	WebhookProperties *map[string]string `pulumi:"webhookProperties"`
+}
+var activityLogAlertActionsType = reflect.TypeOf((*ActivityLogAlertActions)(nil)).Elem()
+
+type ActivityLogAlertActionsInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertActionsOutput() ActivityLogAlertActionsOutput
+	ToActivityLogAlertActionsOutputWithContext(ctx context.Context) ActivityLogAlertActionsOutput
+}
+
+type ActivityLogAlertActionsArgs struct {
+	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
+}
+
+func (ActivityLogAlertActionsArgs) ElementType() reflect.Type {
+	return activityLogAlertActionsType
+}
+
+func (a ActivityLogAlertActionsArgs) ToActivityLogAlertActionsOutput() ActivityLogAlertActionsOutput {
+	return pulumi.ToOutput(a).(ActivityLogAlertActionsOutput)
+}
+
+func (a ActivityLogAlertActionsArgs) ToActivityLogAlertActionsOutputWithContext(ctx context.Context) ActivityLogAlertActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActivityLogAlertActionsOutput)
+}
+
+type ActivityLogAlertActionsOutput struct { *pulumi.OutputState }
+
+func (o ActivityLogAlertActionsOutput) ActionGroupId() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertActions) string {
+		return v.ActionGroupId
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertActionsOutput) WebhookProperties() pulumi.StringMapOutput {
+	return o.Apply(func(v ActivityLogAlertActions) map[string]string {
+		if v.WebhookProperties == nil { return *new(map[string]string) } else { return *v.WebhookProperties }
+	}).(pulumi.StringMapOutput)
+}
+
+func (ActivityLogAlertActionsOutput) ElementType() reflect.Type {
+	return activityLogAlertActionsType
+}
+
+func (o ActivityLogAlertActionsOutput) ToActivityLogAlertActionsOutput() ActivityLogAlertActionsOutput {
+	return o
+}
+
+func (o ActivityLogAlertActionsOutput) ToActivityLogAlertActionsOutputWithContext(ctx context.Context) ActivityLogAlertActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActivityLogAlertActionsOutput{}) }
+
+var activityLogAlertActionsArrayType = reflect.TypeOf((*[]ActivityLogAlertActions)(nil)).Elem()
+
+type ActivityLogAlertActionsArrayInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertActionsArrayOutput() ActivityLogAlertActionsArrayOutput
+	ToActivityLogAlertActionsArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionsArrayOutput
+}
+
+type ActivityLogAlertActionsArrayArgs []ActivityLogAlertActionsInput
+
+func (ActivityLogAlertActionsArrayArgs) ElementType() reflect.Type {
+	return activityLogAlertActionsArrayType
+}
+
+func (a ActivityLogAlertActionsArrayArgs) ToActivityLogAlertActionsArrayOutput() ActivityLogAlertActionsArrayOutput {
+	return pulumi.ToOutput(a).(ActivityLogAlertActionsArrayOutput)
+}
+
+func (a ActivityLogAlertActionsArrayArgs) ToActivityLogAlertActionsArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActivityLogAlertActionsArrayOutput)
+}
+
+type ActivityLogAlertActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ActivityLogAlertActionsArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActivityLogAlertActions {
+		return vs[0].([]ActivityLogAlertActions)[vs[1].(int)]
+	}).(ActivityLogAlertActionsOutput)
+}
+
+func (ActivityLogAlertActionsArrayOutput) ElementType() reflect.Type {
+	return activityLogAlertActionsArrayType
+}
+
+func (o ActivityLogAlertActionsArrayOutput) ToActivityLogAlertActionsArrayOutput() ActivityLogAlertActionsArrayOutput {
+	return o
+}
+
+func (o ActivityLogAlertActionsArrayOutput) ToActivityLogAlertActionsArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActivityLogAlertActionsArrayOutput{}) }
+
+type ActivityLogAlertCriteria struct {
+	Caller *string `pulumi:"caller"`
+	Category string `pulumi:"category"`
+	Level *string `pulumi:"level"`
+	OperationName *string `pulumi:"operationName"`
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	ResourceId *string `pulumi:"resourceId"`
+	ResourceProvider *string `pulumi:"resourceProvider"`
+	ResourceType *string `pulumi:"resourceType"`
+	Status *string `pulumi:"status"`
+	SubStatus *string `pulumi:"subStatus"`
+}
+var activityLogAlertCriteriaType = reflect.TypeOf((*ActivityLogAlertCriteria)(nil)).Elem()
+
+type ActivityLogAlertCriteriaInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertCriteriaOutput() ActivityLogAlertCriteriaOutput
+	ToActivityLogAlertCriteriaOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaOutput
+}
+
+type ActivityLogAlertCriteriaArgs struct {
+	Caller pulumi.StringInput `pulumi:"caller"`
+	Category pulumi.StringInput `pulumi:"category"`
+	Level pulumi.StringInput `pulumi:"level"`
+	OperationName pulumi.StringInput `pulumi:"operationName"`
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	ResourceProvider pulumi.StringInput `pulumi:"resourceProvider"`
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	Status pulumi.StringInput `pulumi:"status"`
+	SubStatus pulumi.StringInput `pulumi:"subStatus"`
+}
+
+func (ActivityLogAlertCriteriaArgs) ElementType() reflect.Type {
+	return activityLogAlertCriteriaType
+}
+
+func (a ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaOutput() ActivityLogAlertCriteriaOutput {
+	return pulumi.ToOutput(a).(ActivityLogAlertCriteriaOutput)
+}
+
+func (a ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActivityLogAlertCriteriaOutput)
+}
+
+type ActivityLogAlertCriteriaOutput struct { *pulumi.OutputState }
+
+func (o ActivityLogAlertCriteriaOutput) Caller() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.Caller == nil { return *new(string) } else { return *v.Caller }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) Category() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		return v.Category
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) Level() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.Level == nil { return *new(string) } else { return *v.Level }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) OperationName() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.OperationName == nil { return *new(string) } else { return *v.OperationName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) ResourceGroup() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.ResourceGroup == nil { return *new(string) } else { return *v.ResourceGroup }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) ResourceId() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.ResourceId == nil { return *new(string) } else { return *v.ResourceId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) ResourceProvider() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.ResourceProvider == nil { return *new(string) } else { return *v.ResourceProvider }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) ResourceType() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.ResourceType == nil { return *new(string) } else { return *v.ResourceType }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) Status() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.Status == nil { return *new(string) } else { return *v.Status }
+	}).(pulumi.StringOutput)
+}
+
+func (o ActivityLogAlertCriteriaOutput) SubStatus() pulumi.StringOutput {
+	return o.Apply(func(v ActivityLogAlertCriteria) string {
+		if v.SubStatus == nil { return *new(string) } else { return *v.SubStatus }
+	}).(pulumi.StringOutput)
+}
+
+func (ActivityLogAlertCriteriaOutput) ElementType() reflect.Type {
+	return activityLogAlertCriteriaType
+}
+
+func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaOutput() ActivityLogAlertCriteriaOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActivityLogAlertCriteriaOutput{}) }
+

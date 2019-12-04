@@ -4,6 +4,8 @@
 package storage
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,165 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
+
+	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
+	AccountEncryptionSource pulumi.StringOutput `pulumi:"accountEncryptionSource"`
+
+	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+	AccountKind pulumi.StringOutput `pulumi:"accountKind"`
+
+	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
+	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
+
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
+
+	AccountType pulumi.StringOutput `pulumi:"accountType"`
+
+	// A `customDomain` block as documented below.
+	CustomDomain AccountCustomDomainOutput `pulumi:"customDomain"`
+
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection pulumi.BoolOutput `pulumi:"enableAdvancedThreatProtection"`
+
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableBlobEncryption pulumi.BoolOutput `pulumi:"enableBlobEncryption"`
+
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
+	EnableFileEncryption pulumi.BoolOutput `pulumi:"enableFileEncryption"`
+
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+	// for more information.
+	EnableHttpsTrafficOnly pulumi.BoolOutput `pulumi:"enableHttpsTrafficOnly"`
+
+	// A `identity` block as defined below.
+	Identity AccountIdentityOutput `pulumi:"identity"`
+
+	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+	IsHnsEnabled pulumi.BoolOutput `pulumi:"isHnsEnabled"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `networkRules` block as documented below.
+	NetworkRules AccountNetworkRulesOutput `pulumi:"networkRules"`
+
+	// The primary access key for the storage account.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The connection string associated with the primary blob location.
+	PrimaryBlobConnectionString pulumi.StringOutput `pulumi:"primaryBlobConnectionString"`
+
+	// The endpoint URL for blob storage in the primary location.
+	PrimaryBlobEndpoint pulumi.StringOutput `pulumi:"primaryBlobEndpoint"`
+
+	// The hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobHost pulumi.StringOutput `pulumi:"primaryBlobHost"`
+
+	// The connection string associated with the primary location.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+
+	// The endpoint URL for DFS storage in the primary location.
+	PrimaryDfsEndpoint pulumi.StringOutput `pulumi:"primaryDfsEndpoint"`
+
+	// The hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsHost pulumi.StringOutput `pulumi:"primaryDfsHost"`
+
+	// The endpoint URL for file storage in the primary location.
+	PrimaryFileEndpoint pulumi.StringOutput `pulumi:"primaryFileEndpoint"`
+
+	// The hostname with port if applicable for file storage in the primary location.
+	PrimaryFileHost pulumi.StringOutput `pulumi:"primaryFileHost"`
+
+	// The primary location of the storage account.
+	PrimaryLocation pulumi.StringOutput `pulumi:"primaryLocation"`
+
+	// The endpoint URL for queue storage in the primary location.
+	PrimaryQueueEndpoint pulumi.StringOutput `pulumi:"primaryQueueEndpoint"`
+
+	// The hostname with port if applicable for queue storage in the primary location.
+	PrimaryQueueHost pulumi.StringOutput `pulumi:"primaryQueueHost"`
+
+	// The endpoint URL for table storage in the primary location.
+	PrimaryTableEndpoint pulumi.StringOutput `pulumi:"primaryTableEndpoint"`
+
+	// The hostname with port if applicable for table storage in the primary location.
+	PrimaryTableHost pulumi.StringOutput `pulumi:"primaryTableHost"`
+
+	// The endpoint URL for web storage in the primary location.
+	PrimaryWebEndpoint pulumi.StringOutput `pulumi:"primaryWebEndpoint"`
+
+	// The hostname with port if applicable for web storage in the primary location.
+	PrimaryWebHost pulumi.StringOutput `pulumi:"primaryWebHost"`
+
+	// A `queueProperties` block as defined below.
+	QueueProperties AccountQueuePropertiesOutput `pulumi:"queueProperties"`
+
+	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The secondary access key for the storage account.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// The connection string associated with the secondary blob location.
+	SecondaryBlobConnectionString pulumi.StringOutput `pulumi:"secondaryBlobConnectionString"`
+
+	// The endpoint URL for blob storage in the secondary location.
+	SecondaryBlobEndpoint pulumi.StringOutput `pulumi:"secondaryBlobEndpoint"`
+
+	// The hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobHost pulumi.StringOutput `pulumi:"secondaryBlobHost"`
+
+	// The connection string associated with the secondary location.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+
+	// The endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsEndpoint pulumi.StringOutput `pulumi:"secondaryDfsEndpoint"`
+
+	// The hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsHost pulumi.StringOutput `pulumi:"secondaryDfsHost"`
+
+	// The endpoint URL for file storage in the secondary location.
+	SecondaryFileEndpoint pulumi.StringOutput `pulumi:"secondaryFileEndpoint"`
+
+	// The hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileHost pulumi.StringOutput `pulumi:"secondaryFileHost"`
+
+	// The secondary location of the storage account.
+	SecondaryLocation pulumi.StringOutput `pulumi:"secondaryLocation"`
+
+	// The endpoint URL for queue storage in the secondary location.
+	SecondaryQueueEndpoint pulumi.StringOutput `pulumi:"secondaryQueueEndpoint"`
+
+	// The hostname with port if applicable for queue storage in the secondary location.
+	SecondaryQueueHost pulumi.StringOutput `pulumi:"secondaryQueueHost"`
+
+	// The endpoint URL for table storage in the secondary location.
+	SecondaryTableEndpoint pulumi.StringOutput `pulumi:"secondaryTableEndpoint"`
+
+	// The hostname with port if applicable for table storage in the secondary location.
+	SecondaryTableHost pulumi.StringOutput `pulumi:"secondaryTableHost"`
+
+	// The endpoint URL for web storage in the secondary location.
+	SecondaryWebEndpoint pulumi.StringOutput `pulumi:"secondaryWebEndpoint"`
+
+	// The hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebHost pulumi.StringOutput `pulumi:"secondaryWebHost"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.AccountReplicationType == nil {
 		return nil, errors.New("missing required argument 'AccountReplicationType'")
 	}
@@ -27,561 +182,884 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accessTier"] = nil
-		inputs["accountEncryptionSource"] = nil
-		inputs["accountKind"] = nil
-		inputs["accountReplicationType"] = nil
-		inputs["accountTier"] = nil
-		inputs["accountType"] = nil
-		inputs["customDomain"] = nil
-		inputs["enableAdvancedThreatProtection"] = nil
-		inputs["enableBlobEncryption"] = nil
-		inputs["enableFileEncryption"] = nil
-		inputs["enableHttpsTrafficOnly"] = nil
-		inputs["identity"] = nil
-		inputs["isHnsEnabled"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkRules"] = nil
-		inputs["queueProperties"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["accessTier"] = args.AccessTier
-		inputs["accountEncryptionSource"] = args.AccountEncryptionSource
-		inputs["accountKind"] = args.AccountKind
-		inputs["accountReplicationType"] = args.AccountReplicationType
-		inputs["accountTier"] = args.AccountTier
-		inputs["accountType"] = args.AccountType
-		inputs["customDomain"] = args.CustomDomain
-		inputs["enableAdvancedThreatProtection"] = args.EnableAdvancedThreatProtection
-		inputs["enableBlobEncryption"] = args.EnableBlobEncryption
-		inputs["enableFileEncryption"] = args.EnableFileEncryption
-		inputs["enableHttpsTrafficOnly"] = args.EnableHttpsTrafficOnly
-		inputs["identity"] = args.Identity
-		inputs["isHnsEnabled"] = args.IsHnsEnabled
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkRules"] = args.NetworkRules
-		inputs["queueProperties"] = args.QueueProperties
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccessTier; i != nil { inputs["accessTier"] = i.ToStringOutput() }
+		if i := args.AccountEncryptionSource; i != nil { inputs["accountEncryptionSource"] = i.ToStringOutput() }
+		if i := args.AccountKind; i != nil { inputs["accountKind"] = i.ToStringOutput() }
+		if i := args.AccountReplicationType; i != nil { inputs["accountReplicationType"] = i.ToStringOutput() }
+		if i := args.AccountTier; i != nil { inputs["accountTier"] = i.ToStringOutput() }
+		if i := args.AccountType; i != nil { inputs["accountType"] = i.ToStringOutput() }
+		if i := args.CustomDomain; i != nil { inputs["customDomain"] = i.ToAccountCustomDomainOutput() }
+		if i := args.EnableAdvancedThreatProtection; i != nil { inputs["enableAdvancedThreatProtection"] = i.ToBoolOutput() }
+		if i := args.EnableBlobEncryption; i != nil { inputs["enableBlobEncryption"] = i.ToBoolOutput() }
+		if i := args.EnableFileEncryption; i != nil { inputs["enableFileEncryption"] = i.ToBoolOutput() }
+		if i := args.EnableHttpsTrafficOnly; i != nil { inputs["enableHttpsTrafficOnly"] = i.ToBoolOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToAccountIdentityOutput() }
+		if i := args.IsHnsEnabled; i != nil { inputs["isHnsEnabled"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkRules; i != nil { inputs["networkRules"] = i.ToAccountNetworkRulesOutput() }
+		if i := args.QueueProperties; i != nil { inputs["queueProperties"] = i.ToAccountQueuePropertiesOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	inputs["primaryAccessKey"] = nil
-	inputs["primaryBlobConnectionString"] = nil
-	inputs["primaryBlobEndpoint"] = nil
-	inputs["primaryBlobHost"] = nil
-	inputs["primaryConnectionString"] = nil
-	inputs["primaryDfsEndpoint"] = nil
-	inputs["primaryDfsHost"] = nil
-	inputs["primaryFileEndpoint"] = nil
-	inputs["primaryFileHost"] = nil
-	inputs["primaryLocation"] = nil
-	inputs["primaryQueueEndpoint"] = nil
-	inputs["primaryQueueHost"] = nil
-	inputs["primaryTableEndpoint"] = nil
-	inputs["primaryTableHost"] = nil
-	inputs["primaryWebEndpoint"] = nil
-	inputs["primaryWebHost"] = nil
-	inputs["secondaryAccessKey"] = nil
-	inputs["secondaryBlobConnectionString"] = nil
-	inputs["secondaryBlobEndpoint"] = nil
-	inputs["secondaryBlobHost"] = nil
-	inputs["secondaryConnectionString"] = nil
-	inputs["secondaryDfsEndpoint"] = nil
-	inputs["secondaryDfsHost"] = nil
-	inputs["secondaryFileEndpoint"] = nil
-	inputs["secondaryFileHost"] = nil
-	inputs["secondaryLocation"] = nil
-	inputs["secondaryQueueEndpoint"] = nil
-	inputs["secondaryQueueHost"] = nil
-	inputs["secondaryTableEndpoint"] = nil
-	inputs["secondaryTableHost"] = nil
-	inputs["secondaryWebEndpoint"] = nil
-	inputs["secondaryWebHost"] = nil
-	s, err := ctx.RegisterResource("azure:storage/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:storage/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessTier"] = state.AccessTier
-		inputs["accountEncryptionSource"] = state.AccountEncryptionSource
-		inputs["accountKind"] = state.AccountKind
-		inputs["accountReplicationType"] = state.AccountReplicationType
-		inputs["accountTier"] = state.AccountTier
-		inputs["accountType"] = state.AccountType
-		inputs["customDomain"] = state.CustomDomain
-		inputs["enableAdvancedThreatProtection"] = state.EnableAdvancedThreatProtection
-		inputs["enableBlobEncryption"] = state.EnableBlobEncryption
-		inputs["enableFileEncryption"] = state.EnableFileEncryption
-		inputs["enableHttpsTrafficOnly"] = state.EnableHttpsTrafficOnly
-		inputs["identity"] = state.Identity
-		inputs["isHnsEnabled"] = state.IsHnsEnabled
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkRules"] = state.NetworkRules
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["primaryBlobConnectionString"] = state.PrimaryBlobConnectionString
-		inputs["primaryBlobEndpoint"] = state.PrimaryBlobEndpoint
-		inputs["primaryBlobHost"] = state.PrimaryBlobHost
-		inputs["primaryConnectionString"] = state.PrimaryConnectionString
-		inputs["primaryDfsEndpoint"] = state.PrimaryDfsEndpoint
-		inputs["primaryDfsHost"] = state.PrimaryDfsHost
-		inputs["primaryFileEndpoint"] = state.PrimaryFileEndpoint
-		inputs["primaryFileHost"] = state.PrimaryFileHost
-		inputs["primaryLocation"] = state.PrimaryLocation
-		inputs["primaryQueueEndpoint"] = state.PrimaryQueueEndpoint
-		inputs["primaryQueueHost"] = state.PrimaryQueueHost
-		inputs["primaryTableEndpoint"] = state.PrimaryTableEndpoint
-		inputs["primaryTableHost"] = state.PrimaryTableHost
-		inputs["primaryWebEndpoint"] = state.PrimaryWebEndpoint
-		inputs["primaryWebHost"] = state.PrimaryWebHost
-		inputs["queueProperties"] = state.QueueProperties
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["secondaryBlobConnectionString"] = state.SecondaryBlobConnectionString
-		inputs["secondaryBlobEndpoint"] = state.SecondaryBlobEndpoint
-		inputs["secondaryBlobHost"] = state.SecondaryBlobHost
-		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
-		inputs["secondaryDfsEndpoint"] = state.SecondaryDfsEndpoint
-		inputs["secondaryDfsHost"] = state.SecondaryDfsHost
-		inputs["secondaryFileEndpoint"] = state.SecondaryFileEndpoint
-		inputs["secondaryFileHost"] = state.SecondaryFileHost
-		inputs["secondaryLocation"] = state.SecondaryLocation
-		inputs["secondaryQueueEndpoint"] = state.SecondaryQueueEndpoint
-		inputs["secondaryQueueHost"] = state.SecondaryQueueHost
-		inputs["secondaryTableEndpoint"] = state.SecondaryTableEndpoint
-		inputs["secondaryTableHost"] = state.SecondaryTableHost
-		inputs["secondaryWebEndpoint"] = state.SecondaryWebEndpoint
-		inputs["secondaryWebHost"] = state.SecondaryWebHost
-		inputs["tags"] = state.Tags
+		if i := state.AccessTier; i != nil { inputs["accessTier"] = i.ToStringOutput() }
+		if i := state.AccountEncryptionSource; i != nil { inputs["accountEncryptionSource"] = i.ToStringOutput() }
+		if i := state.AccountKind; i != nil { inputs["accountKind"] = i.ToStringOutput() }
+		if i := state.AccountReplicationType; i != nil { inputs["accountReplicationType"] = i.ToStringOutput() }
+		if i := state.AccountTier; i != nil { inputs["accountTier"] = i.ToStringOutput() }
+		if i := state.AccountType; i != nil { inputs["accountType"] = i.ToStringOutput() }
+		if i := state.CustomDomain; i != nil { inputs["customDomain"] = i.ToAccountCustomDomainOutput() }
+		if i := state.EnableAdvancedThreatProtection; i != nil { inputs["enableAdvancedThreatProtection"] = i.ToBoolOutput() }
+		if i := state.EnableBlobEncryption; i != nil { inputs["enableBlobEncryption"] = i.ToBoolOutput() }
+		if i := state.EnableFileEncryption; i != nil { inputs["enableFileEncryption"] = i.ToBoolOutput() }
+		if i := state.EnableHttpsTrafficOnly; i != nil { inputs["enableHttpsTrafficOnly"] = i.ToBoolOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToAccountIdentityOutput() }
+		if i := state.IsHnsEnabled; i != nil { inputs["isHnsEnabled"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkRules; i != nil { inputs["networkRules"] = i.ToAccountNetworkRulesOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.PrimaryBlobConnectionString; i != nil { inputs["primaryBlobConnectionString"] = i.ToStringOutput() }
+		if i := state.PrimaryBlobEndpoint; i != nil { inputs["primaryBlobEndpoint"] = i.ToStringOutput() }
+		if i := state.PrimaryBlobHost; i != nil { inputs["primaryBlobHost"] = i.ToStringOutput() }
+		if i := state.PrimaryConnectionString; i != nil { inputs["primaryConnectionString"] = i.ToStringOutput() }
+		if i := state.PrimaryDfsEndpoint; i != nil { inputs["primaryDfsEndpoint"] = i.ToStringOutput() }
+		if i := state.PrimaryDfsHost; i != nil { inputs["primaryDfsHost"] = i.ToStringOutput() }
+		if i := state.PrimaryFileEndpoint; i != nil { inputs["primaryFileEndpoint"] = i.ToStringOutput() }
+		if i := state.PrimaryFileHost; i != nil { inputs["primaryFileHost"] = i.ToStringOutput() }
+		if i := state.PrimaryLocation; i != nil { inputs["primaryLocation"] = i.ToStringOutput() }
+		if i := state.PrimaryQueueEndpoint; i != nil { inputs["primaryQueueEndpoint"] = i.ToStringOutput() }
+		if i := state.PrimaryQueueHost; i != nil { inputs["primaryQueueHost"] = i.ToStringOutput() }
+		if i := state.PrimaryTableEndpoint; i != nil { inputs["primaryTableEndpoint"] = i.ToStringOutput() }
+		if i := state.PrimaryTableHost; i != nil { inputs["primaryTableHost"] = i.ToStringOutput() }
+		if i := state.PrimaryWebEndpoint; i != nil { inputs["primaryWebEndpoint"] = i.ToStringOutput() }
+		if i := state.PrimaryWebHost; i != nil { inputs["primaryWebHost"] = i.ToStringOutput() }
+		if i := state.QueueProperties; i != nil { inputs["queueProperties"] = i.ToAccountQueuePropertiesOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.SecondaryBlobConnectionString; i != nil { inputs["secondaryBlobConnectionString"] = i.ToStringOutput() }
+		if i := state.SecondaryBlobEndpoint; i != nil { inputs["secondaryBlobEndpoint"] = i.ToStringOutput() }
+		if i := state.SecondaryBlobHost; i != nil { inputs["secondaryBlobHost"] = i.ToStringOutput() }
+		if i := state.SecondaryConnectionString; i != nil { inputs["secondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.SecondaryDfsEndpoint; i != nil { inputs["secondaryDfsEndpoint"] = i.ToStringOutput() }
+		if i := state.SecondaryDfsHost; i != nil { inputs["secondaryDfsHost"] = i.ToStringOutput() }
+		if i := state.SecondaryFileEndpoint; i != nil { inputs["secondaryFileEndpoint"] = i.ToStringOutput() }
+		if i := state.SecondaryFileHost; i != nil { inputs["secondaryFileHost"] = i.ToStringOutput() }
+		if i := state.SecondaryLocation; i != nil { inputs["secondaryLocation"] = i.ToStringOutput() }
+		if i := state.SecondaryQueueEndpoint; i != nil { inputs["secondaryQueueEndpoint"] = i.ToStringOutput() }
+		if i := state.SecondaryQueueHost; i != nil { inputs["secondaryQueueHost"] = i.ToStringOutput() }
+		if i := state.SecondaryTableEndpoint; i != nil { inputs["secondaryTableEndpoint"] = i.ToStringOutput() }
+		if i := state.SecondaryTableHost; i != nil { inputs["secondaryTableHost"] = i.ToStringOutput() }
+		if i := state.SecondaryWebEndpoint; i != nil { inputs["secondaryWebEndpoint"] = i.ToStringOutput() }
+		if i := state.SecondaryWebHost; i != nil { inputs["secondaryWebHost"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:storage/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-func (r *Account) AccessTier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accessTier"])
-}
-
-// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-func (r *Account) AccountEncryptionSource() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountEncryptionSource"])
-}
-
-// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
-func (r *Account) AccountKind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountKind"])
-}
-
-// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
-func (r *Account) AccountReplicationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountReplicationType"])
-}
-
-// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-func (r *Account) AccountTier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountTier"])
-}
-
-func (r *Account) AccountType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountType"])
-}
-
-// A `customDomain` block as documented below.
-func (r *Account) CustomDomain() pulumi.Output {
-	return r.s.State["customDomain"]
-}
-
-// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-func (r *Account) EnableAdvancedThreatProtection() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableAdvancedThreatProtection"])
-}
-
-// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-func (r *Account) EnableBlobEncryption() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBlobEncryption"])
-}
-
-// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-func (r *Account) EnableFileEncryption() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableFileEncryption"])
-}
-
-// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-// for more information.
-func (r *Account) EnableHttpsTrafficOnly() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableHttpsTrafficOnly"])
-}
-
-// A `identity` block as defined below.
-func (r *Account) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
-func (r *Account) IsHnsEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isHnsEnabled"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `networkRules` block as documented below.
-func (r *Account) NetworkRules() pulumi.Output {
-	return r.s.State["networkRules"]
-}
-
-// The primary access key for the storage account.
-func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The connection string associated with the primary blob location.
-func (r *Account) PrimaryBlobConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryBlobConnectionString"])
-}
-
-// The endpoint URL for blob storage in the primary location.
-func (r *Account) PrimaryBlobEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryBlobEndpoint"])
-}
-
-// The hostname with port if applicable for blob storage in the primary location.
-func (r *Account) PrimaryBlobHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryBlobHost"])
-}
-
-// The connection string associated with the primary location.
-func (r *Account) PrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
-}
-
-// The endpoint URL for DFS storage in the primary location.
-func (r *Account) PrimaryDfsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryDfsEndpoint"])
-}
-
-// The hostname with port if applicable for DFS storage in the primary location.
-func (r *Account) PrimaryDfsHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryDfsHost"])
-}
-
-// The endpoint URL for file storage in the primary location.
-func (r *Account) PrimaryFileEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryFileEndpoint"])
-}
-
-// The hostname with port if applicable for file storage in the primary location.
-func (r *Account) PrimaryFileHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryFileHost"])
-}
-
-// The primary location of the storage account.
-func (r *Account) PrimaryLocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryLocation"])
-}
-
-// The endpoint URL for queue storage in the primary location.
-func (r *Account) PrimaryQueueEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryQueueEndpoint"])
-}
-
-// The hostname with port if applicable for queue storage in the primary location.
-func (r *Account) PrimaryQueueHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryQueueHost"])
-}
-
-// The endpoint URL for table storage in the primary location.
-func (r *Account) PrimaryTableEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryTableEndpoint"])
-}
-
-// The hostname with port if applicable for table storage in the primary location.
-func (r *Account) PrimaryTableHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryTableHost"])
-}
-
-// The endpoint URL for web storage in the primary location.
-func (r *Account) PrimaryWebEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryWebEndpoint"])
-}
-
-// The hostname with port if applicable for web storage in the primary location.
-func (r *Account) PrimaryWebHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryWebHost"])
-}
-
-// A `queueProperties` block as defined below.
-func (r *Account) QueueProperties() pulumi.Output {
-	return r.s.State["queueProperties"]
-}
-
-// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The secondary access key for the storage account.
-func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// The connection string associated with the secondary blob location.
-func (r *Account) SecondaryBlobConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryBlobConnectionString"])
-}
-
-// The endpoint URL for blob storage in the secondary location.
-func (r *Account) SecondaryBlobEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryBlobEndpoint"])
-}
-
-// The hostname with port if applicable for blob storage in the secondary location.
-func (r *Account) SecondaryBlobHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryBlobHost"])
-}
-
-// The connection string associated with the secondary location.
-func (r *Account) SecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
-}
-
-// The endpoint URL for DFS storage in the secondary location.
-func (r *Account) SecondaryDfsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryDfsEndpoint"])
-}
-
-// The hostname with port if applicable for DFS storage in the secondary location.
-func (r *Account) SecondaryDfsHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryDfsHost"])
-}
-
-// The endpoint URL for file storage in the secondary location.
-func (r *Account) SecondaryFileEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryFileEndpoint"])
-}
-
-// The hostname with port if applicable for file storage in the secondary location.
-func (r *Account) SecondaryFileHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryFileHost"])
-}
-
-// The secondary location of the storage account.
-func (r *Account) SecondaryLocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryLocation"])
-}
-
-// The endpoint URL for queue storage in the secondary location.
-func (r *Account) SecondaryQueueEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryQueueEndpoint"])
-}
-
-// The hostname with port if applicable for queue storage in the secondary location.
-func (r *Account) SecondaryQueueHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryQueueHost"])
-}
-
-// The endpoint URL for table storage in the secondary location.
-func (r *Account) SecondaryTableEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryTableEndpoint"])
-}
-
-// The hostname with port if applicable for table storage in the secondary location.
-func (r *Account) SecondaryTableHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryTableHost"])
-}
-
-// The endpoint URL for web storage in the secondary location.
-func (r *Account) SecondaryWebEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryWebEndpoint"])
-}
-
-// The hostname with port if applicable for web storage in the secondary location.
-func (r *Account) SecondaryWebHost() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryWebHost"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Account) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-	AccessTier interface{}
+	AccessTier pulumi.StringInput `pulumi:"accessTier"`
 	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-	AccountEncryptionSource interface{}
+	AccountEncryptionSource pulumi.StringInput `pulumi:"accountEncryptionSource"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
-	AccountKind interface{}
+	AccountKind pulumi.StringInput `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
-	AccountReplicationType interface{}
+	AccountReplicationType pulumi.StringInput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-	AccountTier interface{}
-	AccountType interface{}
+	AccountTier pulumi.StringInput `pulumi:"accountTier"`
+	AccountType pulumi.StringInput `pulumi:"accountType"`
 	// A `customDomain` block as documented below.
-	CustomDomain interface{}
+	CustomDomain AccountCustomDomainInput `pulumi:"customDomain"`
 	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-	EnableAdvancedThreatProtection interface{}
+	EnableAdvancedThreatProtection pulumi.BoolInput `pulumi:"enableAdvancedThreatProtection"`
 	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-	EnableBlobEncryption interface{}
+	EnableBlobEncryption pulumi.BoolInput `pulumi:"enableBlobEncryption"`
 	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-	EnableFileEncryption interface{}
+	EnableFileEncryption pulumi.BoolInput `pulumi:"enableFileEncryption"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
-	EnableHttpsTrafficOnly interface{}
+	EnableHttpsTrafficOnly pulumi.BoolInput `pulumi:"enableHttpsTrafficOnly"`
 	// A `identity` block as defined below.
-	Identity interface{}
+	Identity AccountIdentityInput `pulumi:"identity"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
-	IsHnsEnabled interface{}
+	IsHnsEnabled pulumi.BoolInput `pulumi:"isHnsEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkRules` block as documented below.
-	NetworkRules interface{}
+	NetworkRules AccountNetworkRulesInput `pulumi:"networkRules"`
 	// The primary access key for the storage account.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The connection string associated with the primary blob location.
-	PrimaryBlobConnectionString interface{}
+	PrimaryBlobConnectionString pulumi.StringInput `pulumi:"primaryBlobConnectionString"`
 	// The endpoint URL for blob storage in the primary location.
-	PrimaryBlobEndpoint interface{}
+	PrimaryBlobEndpoint pulumi.StringInput `pulumi:"primaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the primary location.
-	PrimaryBlobHost interface{}
+	PrimaryBlobHost pulumi.StringInput `pulumi:"primaryBlobHost"`
 	// The connection string associated with the primary location.
-	PrimaryConnectionString interface{}
+	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
 	// The endpoint URL for DFS storage in the primary location.
-	PrimaryDfsEndpoint interface{}
+	PrimaryDfsEndpoint pulumi.StringInput `pulumi:"primaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the primary location.
-	PrimaryDfsHost interface{}
+	PrimaryDfsHost pulumi.StringInput `pulumi:"primaryDfsHost"`
 	// The endpoint URL for file storage in the primary location.
-	PrimaryFileEndpoint interface{}
+	PrimaryFileEndpoint pulumi.StringInput `pulumi:"primaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the primary location.
-	PrimaryFileHost interface{}
+	PrimaryFileHost pulumi.StringInput `pulumi:"primaryFileHost"`
 	// The primary location of the storage account.
-	PrimaryLocation interface{}
+	PrimaryLocation pulumi.StringInput `pulumi:"primaryLocation"`
 	// The endpoint URL for queue storage in the primary location.
-	PrimaryQueueEndpoint interface{}
+	PrimaryQueueEndpoint pulumi.StringInput `pulumi:"primaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the primary location.
-	PrimaryQueueHost interface{}
+	PrimaryQueueHost pulumi.StringInput `pulumi:"primaryQueueHost"`
 	// The endpoint URL for table storage in the primary location.
-	PrimaryTableEndpoint interface{}
+	PrimaryTableEndpoint pulumi.StringInput `pulumi:"primaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the primary location.
-	PrimaryTableHost interface{}
+	PrimaryTableHost pulumi.StringInput `pulumi:"primaryTableHost"`
 	// The endpoint URL for web storage in the primary location.
-	PrimaryWebEndpoint interface{}
+	PrimaryWebEndpoint pulumi.StringInput `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
-	PrimaryWebHost interface{}
+	PrimaryWebHost pulumi.StringInput `pulumi:"primaryWebHost"`
 	// A `queueProperties` block as defined below.
-	QueueProperties interface{}
+	QueueProperties AccountQueuePropertiesInput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The secondary access key for the storage account.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location.
-	SecondaryBlobConnectionString interface{}
+	SecondaryBlobConnectionString pulumi.StringInput `pulumi:"secondaryBlobConnectionString"`
 	// The endpoint URL for blob storage in the secondary location.
-	SecondaryBlobEndpoint interface{}
+	SecondaryBlobEndpoint pulumi.StringInput `pulumi:"secondaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the secondary location.
-	SecondaryBlobHost interface{}
+	SecondaryBlobHost pulumi.StringInput `pulumi:"secondaryBlobHost"`
 	// The connection string associated with the secondary location.
-	SecondaryConnectionString interface{}
+	SecondaryConnectionString pulumi.StringInput `pulumi:"secondaryConnectionString"`
 	// The endpoint URL for DFS storage in the secondary location.
-	SecondaryDfsEndpoint interface{}
+	SecondaryDfsEndpoint pulumi.StringInput `pulumi:"secondaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the secondary location.
-	SecondaryDfsHost interface{}
+	SecondaryDfsHost pulumi.StringInput `pulumi:"secondaryDfsHost"`
 	// The endpoint URL for file storage in the secondary location.
-	SecondaryFileEndpoint interface{}
+	SecondaryFileEndpoint pulumi.StringInput `pulumi:"secondaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the secondary location.
-	SecondaryFileHost interface{}
+	SecondaryFileHost pulumi.StringInput `pulumi:"secondaryFileHost"`
 	// The secondary location of the storage account.
-	SecondaryLocation interface{}
+	SecondaryLocation pulumi.StringInput `pulumi:"secondaryLocation"`
 	// The endpoint URL for queue storage in the secondary location.
-	SecondaryQueueEndpoint interface{}
+	SecondaryQueueEndpoint pulumi.StringInput `pulumi:"secondaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the secondary location.
-	SecondaryQueueHost interface{}
+	SecondaryQueueHost pulumi.StringInput `pulumi:"secondaryQueueHost"`
 	// The endpoint URL for table storage in the secondary location.
-	SecondaryTableEndpoint interface{}
+	SecondaryTableEndpoint pulumi.StringInput `pulumi:"secondaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the secondary location.
-	SecondaryTableHost interface{}
+	SecondaryTableHost pulumi.StringInput `pulumi:"secondaryTableHost"`
 	// The endpoint URL for web storage in the secondary location.
-	SecondaryWebEndpoint interface{}
+	SecondaryWebEndpoint pulumi.StringInput `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost interface{}
+	SecondaryWebHost pulumi.StringInput `pulumi:"secondaryWebHost"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-	AccessTier interface{}
+	AccessTier pulumi.StringInput `pulumi:"accessTier"`
 	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-	AccountEncryptionSource interface{}
+	AccountEncryptionSource pulumi.StringInput `pulumi:"accountEncryptionSource"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
-	AccountKind interface{}
+	AccountKind pulumi.StringInput `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
-	AccountReplicationType interface{}
+	AccountReplicationType pulumi.StringInput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
-	AccountTier interface{}
-	AccountType interface{}
+	AccountTier pulumi.StringInput `pulumi:"accountTier"`
+	AccountType pulumi.StringInput `pulumi:"accountType"`
 	// A `customDomain` block as documented below.
-	CustomDomain interface{}
+	CustomDomain AccountCustomDomainInput `pulumi:"customDomain"`
 	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-	EnableAdvancedThreatProtection interface{}
+	EnableAdvancedThreatProtection pulumi.BoolInput `pulumi:"enableAdvancedThreatProtection"`
 	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-	EnableBlobEncryption interface{}
+	EnableBlobEncryption pulumi.BoolInput `pulumi:"enableBlobEncryption"`
 	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-	EnableFileEncryption interface{}
+	EnableFileEncryption pulumi.BoolInput `pulumi:"enableFileEncryption"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
-	EnableHttpsTrafficOnly interface{}
+	EnableHttpsTrafficOnly pulumi.BoolInput `pulumi:"enableHttpsTrafficOnly"`
 	// A `identity` block as defined below.
-	Identity interface{}
+	Identity AccountIdentityInput `pulumi:"identity"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
-	IsHnsEnabled interface{}
+	IsHnsEnabled pulumi.BoolInput `pulumi:"isHnsEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkRules` block as documented below.
-	NetworkRules interface{}
+	NetworkRules AccountNetworkRulesInput `pulumi:"networkRules"`
 	// A `queueProperties` block as defined below.
-	QueueProperties interface{}
+	QueueProperties AccountQueuePropertiesInput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
+type AccountCustomDomain struct {
+	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	Name string `pulumi:"name"`
+	UseSubdomain *bool `pulumi:"useSubdomain"`
+}
+var accountCustomDomainType = reflect.TypeOf((*AccountCustomDomain)(nil)).Elem()
+
+type AccountCustomDomainInput interface {
+	pulumi.Input
+
+	ToAccountCustomDomainOutput() AccountCustomDomainOutput
+	ToAccountCustomDomainOutputWithContext(ctx context.Context) AccountCustomDomainOutput
+}
+
+type AccountCustomDomainArgs struct {
+	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	Name pulumi.StringInput `pulumi:"name"`
+	UseSubdomain pulumi.BoolInput `pulumi:"useSubdomain"`
+}
+
+func (AccountCustomDomainArgs) ElementType() reflect.Type {
+	return accountCustomDomainType
+}
+
+func (a AccountCustomDomainArgs) ToAccountCustomDomainOutput() AccountCustomDomainOutput {
+	return pulumi.ToOutput(a).(AccountCustomDomainOutput)
+}
+
+func (a AccountCustomDomainArgs) ToAccountCustomDomainOutputWithContext(ctx context.Context) AccountCustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountCustomDomainOutput)
+}
+
+type AccountCustomDomainOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+func (o AccountCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AccountCustomDomain) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountCustomDomainOutput) UseSubdomain() pulumi.BoolOutput {
+	return o.Apply(func(v AccountCustomDomain) bool {
+		if v.UseSubdomain == nil { return *new(bool) } else { return *v.UseSubdomain }
+	}).(pulumi.BoolOutput)
+}
+
+func (AccountCustomDomainOutput) ElementType() reflect.Type {
+	return accountCustomDomainType
+}
+
+func (o AccountCustomDomainOutput) ToAccountCustomDomainOutput() AccountCustomDomainOutput {
+	return o
+}
+
+func (o AccountCustomDomainOutput) ToAccountCustomDomainOutputWithContext(ctx context.Context) AccountCustomDomainOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountCustomDomainOutput{}) }
+
+type AccountIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+	TenantId *string `pulumi:"tenantId"`
+	Type string `pulumi:"type"`
+}
+var accountIdentityType = reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+
+type AccountIdentityInput interface {
+	pulumi.Input
+
+	ToAccountIdentityOutput() AccountIdentityOutput
+	ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput
+}
+
+type AccountIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountIdentityArgs) ElementType() reflect.Type {
+	return accountIdentityType
+}
+
+func (a AccountIdentityArgs) ToAccountIdentityOutput() AccountIdentityOutput {
+	return pulumi.ToOutput(a).(AccountIdentityOutput)
+}
+
+func (a AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountIdentityOutput)
+}
+
+type AccountIdentityOutput struct { *pulumi.OutputState }
+
+// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+func (o AccountIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v AccountIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+func (o AccountIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v AccountIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v AccountIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (AccountIdentityOutput) ElementType() reflect.Type {
+	return accountIdentityType
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutput() AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountIdentityOutput{}) }
+
+type AccountNetworkRules struct {
+	Bypasses *[]string `pulumi:"bypasses"`
+	DefaultAction string `pulumi:"defaultAction"`
+	IpRules *[]string `pulumi:"ipRules"`
+	VirtualNetworkSubnetIds *[]string `pulumi:"virtualNetworkSubnetIds"`
+}
+var accountNetworkRulesType = reflect.TypeOf((*AccountNetworkRules)(nil)).Elem()
+
+type AccountNetworkRulesInput interface {
+	pulumi.Input
+
+	ToAccountNetworkRulesOutput() AccountNetworkRulesOutput
+	ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput
+}
+
+type AccountNetworkRulesArgs struct {
+	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
+}
+
+func (AccountNetworkRulesArgs) ElementType() reflect.Type {
+	return accountNetworkRulesType
+}
+
+func (a AccountNetworkRulesArgs) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
+	return pulumi.ToOutput(a).(AccountNetworkRulesOutput)
+}
+
+func (a AccountNetworkRulesArgs) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountNetworkRulesOutput)
+}
+
+type AccountNetworkRulesOutput struct { *pulumi.OutputState }
+
+func (o AccountNetworkRulesOutput) Bypasses() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountNetworkRules) []string {
+		if v.Bypasses == nil { return *new([]string) } else { return *v.Bypasses }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountNetworkRulesOutput) DefaultAction() pulumi.StringOutput {
+	return o.Apply(func(v AccountNetworkRules) string {
+		return v.DefaultAction
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountNetworkRulesOutput) IpRules() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountNetworkRules) []string {
+		if v.IpRules == nil { return *new([]string) } else { return *v.IpRules }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountNetworkRulesOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountNetworkRules) []string {
+		if v.VirtualNetworkSubnetIds == nil { return *new([]string) } else { return *v.VirtualNetworkSubnetIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (AccountNetworkRulesOutput) ElementType() reflect.Type {
+	return accountNetworkRulesType
+}
+
+func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutput() AccountNetworkRulesOutput {
+	return o
+}
+
+func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountNetworkRulesOutput{}) }
+
+type AccountQueueProperties struct {
+	CorsRules *[]AccountQueuePropertiesCorsRules `pulumi:"corsRules"`
+	HourMetrics *AccountQueuePropertiesHourMetrics `pulumi:"hourMetrics"`
+	Logging *AccountQueuePropertiesLogging `pulumi:"logging"`
+	MinuteMetrics *AccountQueuePropertiesMinuteMetrics `pulumi:"minuteMetrics"`
+}
+var accountQueuePropertiesType = reflect.TypeOf((*AccountQueueProperties)(nil)).Elem()
+
+type AccountQueuePropertiesInput interface {
+	pulumi.Input
+
+	ToAccountQueuePropertiesOutput() AccountQueuePropertiesOutput
+	ToAccountQueuePropertiesOutputWithContext(ctx context.Context) AccountQueuePropertiesOutput
+}
+
+type AccountQueuePropertiesArgs struct {
+	CorsRules AccountQueuePropertiesCorsRulesArrayInput `pulumi:"corsRules"`
+	HourMetrics AccountQueuePropertiesHourMetricsInput `pulumi:"hourMetrics"`
+	Logging AccountQueuePropertiesLoggingInput `pulumi:"logging"`
+	MinuteMetrics AccountQueuePropertiesMinuteMetricsInput `pulumi:"minuteMetrics"`
+}
+
+func (AccountQueuePropertiesArgs) ElementType() reflect.Type {
+	return accountQueuePropertiesType
+}
+
+func (a AccountQueuePropertiesArgs) ToAccountQueuePropertiesOutput() AccountQueuePropertiesOutput {
+	return pulumi.ToOutput(a).(AccountQueuePropertiesOutput)
+}
+
+func (a AccountQueuePropertiesArgs) ToAccountQueuePropertiesOutputWithContext(ctx context.Context) AccountQueuePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountQueuePropertiesOutput)
+}
+
+type AccountQueuePropertiesOutput struct { *pulumi.OutputState }
+
+func (o AccountQueuePropertiesOutput) CorsRules() AccountQueuePropertiesCorsRulesArrayOutput {
+	return o.Apply(func(v AccountQueueProperties) []AccountQueuePropertiesCorsRules {
+		if v.CorsRules == nil { return *new([]AccountQueuePropertiesCorsRules) } else { return *v.CorsRules }
+	}).(AccountQueuePropertiesCorsRulesArrayOutput)
+}
+
+func (o AccountQueuePropertiesOutput) HourMetrics() AccountQueuePropertiesHourMetricsOutput {
+	return o.Apply(func(v AccountQueueProperties) AccountQueuePropertiesHourMetrics {
+		if v.HourMetrics == nil { return *new(AccountQueuePropertiesHourMetrics) } else { return *v.HourMetrics }
+	}).(AccountQueuePropertiesHourMetricsOutput)
+}
+
+func (o AccountQueuePropertiesOutput) Logging() AccountQueuePropertiesLoggingOutput {
+	return o.Apply(func(v AccountQueueProperties) AccountQueuePropertiesLogging {
+		if v.Logging == nil { return *new(AccountQueuePropertiesLogging) } else { return *v.Logging }
+	}).(AccountQueuePropertiesLoggingOutput)
+}
+
+func (o AccountQueuePropertiesOutput) MinuteMetrics() AccountQueuePropertiesMinuteMetricsOutput {
+	return o.Apply(func(v AccountQueueProperties) AccountQueuePropertiesMinuteMetrics {
+		if v.MinuteMetrics == nil { return *new(AccountQueuePropertiesMinuteMetrics) } else { return *v.MinuteMetrics }
+	}).(AccountQueuePropertiesMinuteMetricsOutput)
+}
+
+func (AccountQueuePropertiesOutput) ElementType() reflect.Type {
+	return accountQueuePropertiesType
+}
+
+func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesOutput() AccountQueuePropertiesOutput {
+	return o
+}
+
+func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesOutputWithContext(ctx context.Context) AccountQueuePropertiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountQueuePropertiesOutput{}) }
+
+type AccountQueuePropertiesCorsRules struct {
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+var accountQueuePropertiesCorsRulesType = reflect.TypeOf((*AccountQueuePropertiesCorsRules)(nil)).Elem()
+
+type AccountQueuePropertiesCorsRulesInput interface {
+	pulumi.Input
+
+	ToAccountQueuePropertiesCorsRulesOutput() AccountQueuePropertiesCorsRulesOutput
+	ToAccountQueuePropertiesCorsRulesOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRulesOutput
+}
+
+type AccountQueuePropertiesCorsRulesArgs struct {
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (AccountQueuePropertiesCorsRulesArgs) ElementType() reflect.Type {
+	return accountQueuePropertiesCorsRulesType
+}
+
+func (a AccountQueuePropertiesCorsRulesArgs) ToAccountQueuePropertiesCorsRulesOutput() AccountQueuePropertiesCorsRulesOutput {
+	return pulumi.ToOutput(a).(AccountQueuePropertiesCorsRulesOutput)
+}
+
+func (a AccountQueuePropertiesCorsRulesArgs) ToAccountQueuePropertiesCorsRulesOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountQueuePropertiesCorsRulesOutput)
+}
+
+type AccountQueuePropertiesCorsRulesOutput struct { *pulumi.OutputState }
+
+func (o AccountQueuePropertiesCorsRulesOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountQueuePropertiesCorsRules) []string {
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountQueuePropertiesCorsRulesOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountQueuePropertiesCorsRules) []string {
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountQueuePropertiesCorsRulesOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountQueuePropertiesCorsRules) []string {
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountQueuePropertiesCorsRulesOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountQueuePropertiesCorsRules) []string {
+		return v.ExposedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountQueuePropertiesCorsRulesOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v AccountQueuePropertiesCorsRules) int {
+		return v.MaxAgeInSeconds
+	}).(pulumi.IntOutput)
+}
+
+func (AccountQueuePropertiesCorsRulesOutput) ElementType() reflect.Type {
+	return accountQueuePropertiesCorsRulesType
+}
+
+func (o AccountQueuePropertiesCorsRulesOutput) ToAccountQueuePropertiesCorsRulesOutput() AccountQueuePropertiesCorsRulesOutput {
+	return o
+}
+
+func (o AccountQueuePropertiesCorsRulesOutput) ToAccountQueuePropertiesCorsRulesOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountQueuePropertiesCorsRulesOutput{}) }
+
+var accountQueuePropertiesCorsRulesArrayType = reflect.TypeOf((*[]AccountQueuePropertiesCorsRules)(nil)).Elem()
+
+type AccountQueuePropertiesCorsRulesArrayInput interface {
+	pulumi.Input
+
+	ToAccountQueuePropertiesCorsRulesArrayOutput() AccountQueuePropertiesCorsRulesArrayOutput
+	ToAccountQueuePropertiesCorsRulesArrayOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRulesArrayOutput
+}
+
+type AccountQueuePropertiesCorsRulesArrayArgs []AccountQueuePropertiesCorsRulesInput
+
+func (AccountQueuePropertiesCorsRulesArrayArgs) ElementType() reflect.Type {
+	return accountQueuePropertiesCorsRulesArrayType
+}
+
+func (a AccountQueuePropertiesCorsRulesArrayArgs) ToAccountQueuePropertiesCorsRulesArrayOutput() AccountQueuePropertiesCorsRulesArrayOutput {
+	return pulumi.ToOutput(a).(AccountQueuePropertiesCorsRulesArrayOutput)
+}
+
+func (a AccountQueuePropertiesCorsRulesArrayArgs) ToAccountQueuePropertiesCorsRulesArrayOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountQueuePropertiesCorsRulesArrayOutput)
+}
+
+type AccountQueuePropertiesCorsRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o AccountQueuePropertiesCorsRulesArrayOutput) Index(i pulumi.IntInput) AccountQueuePropertiesCorsRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AccountQueuePropertiesCorsRules {
+		return vs[0].([]AccountQueuePropertiesCorsRules)[vs[1].(int)]
+	}).(AccountQueuePropertiesCorsRulesOutput)
+}
+
+func (AccountQueuePropertiesCorsRulesArrayOutput) ElementType() reflect.Type {
+	return accountQueuePropertiesCorsRulesArrayType
+}
+
+func (o AccountQueuePropertiesCorsRulesArrayOutput) ToAccountQueuePropertiesCorsRulesArrayOutput() AccountQueuePropertiesCorsRulesArrayOutput {
+	return o
+}
+
+func (o AccountQueuePropertiesCorsRulesArrayOutput) ToAccountQueuePropertiesCorsRulesArrayOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountQueuePropertiesCorsRulesArrayOutput{}) }
+
+type AccountQueuePropertiesHourMetrics struct {
+	Enabled bool `pulumi:"enabled"`
+	IncludeApis *bool `pulumi:"includeApis"`
+	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
+	Version string `pulumi:"version"`
+}
+var accountQueuePropertiesHourMetricsType = reflect.TypeOf((*AccountQueuePropertiesHourMetrics)(nil)).Elem()
+
+type AccountQueuePropertiesHourMetricsInput interface {
+	pulumi.Input
+
+	ToAccountQueuePropertiesHourMetricsOutput() AccountQueuePropertiesHourMetricsOutput
+	ToAccountQueuePropertiesHourMetricsOutputWithContext(ctx context.Context) AccountQueuePropertiesHourMetricsOutput
+}
+
+type AccountQueuePropertiesHourMetricsArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	IncludeApis pulumi.BoolInput `pulumi:"includeApis"`
+	RetentionPolicyDays pulumi.IntInput `pulumi:"retentionPolicyDays"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (AccountQueuePropertiesHourMetricsArgs) ElementType() reflect.Type {
+	return accountQueuePropertiesHourMetricsType
+}
+
+func (a AccountQueuePropertiesHourMetricsArgs) ToAccountQueuePropertiesHourMetricsOutput() AccountQueuePropertiesHourMetricsOutput {
+	return pulumi.ToOutput(a).(AccountQueuePropertiesHourMetricsOutput)
+}
+
+func (a AccountQueuePropertiesHourMetricsArgs) ToAccountQueuePropertiesHourMetricsOutputWithContext(ctx context.Context) AccountQueuePropertiesHourMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountQueuePropertiesHourMetricsOutput)
+}
+
+type AccountQueuePropertiesHourMetricsOutput struct { *pulumi.OutputState }
+
+func (o AccountQueuePropertiesHourMetricsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesHourMetrics) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o AccountQueuePropertiesHourMetricsOutput) IncludeApis() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesHourMetrics) bool {
+		if v.IncludeApis == nil { return *new(bool) } else { return *v.IncludeApis }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AccountQueuePropertiesHourMetricsOutput) RetentionPolicyDays() pulumi.IntOutput {
+	return o.Apply(func(v AccountQueuePropertiesHourMetrics) int {
+		if v.RetentionPolicyDays == nil { return *new(int) } else { return *v.RetentionPolicyDays }
+	}).(pulumi.IntOutput)
+}
+
+func (o AccountQueuePropertiesHourMetricsOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v AccountQueuePropertiesHourMetrics) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (AccountQueuePropertiesHourMetricsOutput) ElementType() reflect.Type {
+	return accountQueuePropertiesHourMetricsType
+}
+
+func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMetricsOutput() AccountQueuePropertiesHourMetricsOutput {
+	return o
+}
+
+func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMetricsOutputWithContext(ctx context.Context) AccountQueuePropertiesHourMetricsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountQueuePropertiesHourMetricsOutput{}) }
+
+type AccountQueuePropertiesLogging struct {
+	Delete bool `pulumi:"delete"`
+	Read bool `pulumi:"read"`
+	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
+	Version string `pulumi:"version"`
+	Write bool `pulumi:"write"`
+}
+var accountQueuePropertiesLoggingType = reflect.TypeOf((*AccountQueuePropertiesLogging)(nil)).Elem()
+
+type AccountQueuePropertiesLoggingInput interface {
+	pulumi.Input
+
+	ToAccountQueuePropertiesLoggingOutput() AccountQueuePropertiesLoggingOutput
+	ToAccountQueuePropertiesLoggingOutputWithContext(ctx context.Context) AccountQueuePropertiesLoggingOutput
+}
+
+type AccountQueuePropertiesLoggingArgs struct {
+	Delete pulumi.BoolInput `pulumi:"delete"`
+	Read pulumi.BoolInput `pulumi:"read"`
+	RetentionPolicyDays pulumi.IntInput `pulumi:"retentionPolicyDays"`
+	Version pulumi.StringInput `pulumi:"version"`
+	Write pulumi.BoolInput `pulumi:"write"`
+}
+
+func (AccountQueuePropertiesLoggingArgs) ElementType() reflect.Type {
+	return accountQueuePropertiesLoggingType
+}
+
+func (a AccountQueuePropertiesLoggingArgs) ToAccountQueuePropertiesLoggingOutput() AccountQueuePropertiesLoggingOutput {
+	return pulumi.ToOutput(a).(AccountQueuePropertiesLoggingOutput)
+}
+
+func (a AccountQueuePropertiesLoggingArgs) ToAccountQueuePropertiesLoggingOutputWithContext(ctx context.Context) AccountQueuePropertiesLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountQueuePropertiesLoggingOutput)
+}
+
+type AccountQueuePropertiesLoggingOutput struct { *pulumi.OutputState }
+
+func (o AccountQueuePropertiesLoggingOutput) Delete() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesLogging) bool {
+		return v.Delete
+	}).(pulumi.BoolOutput)
+}
+
+func (o AccountQueuePropertiesLoggingOutput) Read() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesLogging) bool {
+		return v.Read
+	}).(pulumi.BoolOutput)
+}
+
+func (o AccountQueuePropertiesLoggingOutput) RetentionPolicyDays() pulumi.IntOutput {
+	return o.Apply(func(v AccountQueuePropertiesLogging) int {
+		if v.RetentionPolicyDays == nil { return *new(int) } else { return *v.RetentionPolicyDays }
+	}).(pulumi.IntOutput)
+}
+
+func (o AccountQueuePropertiesLoggingOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v AccountQueuePropertiesLogging) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountQueuePropertiesLoggingOutput) Write() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesLogging) bool {
+		return v.Write
+	}).(pulumi.BoolOutput)
+}
+
+func (AccountQueuePropertiesLoggingOutput) ElementType() reflect.Type {
+	return accountQueuePropertiesLoggingType
+}
+
+func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingOutput() AccountQueuePropertiesLoggingOutput {
+	return o
+}
+
+func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingOutputWithContext(ctx context.Context) AccountQueuePropertiesLoggingOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountQueuePropertiesLoggingOutput{}) }
+
+type AccountQueuePropertiesMinuteMetrics struct {
+	Enabled bool `pulumi:"enabled"`
+	IncludeApis *bool `pulumi:"includeApis"`
+	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
+	Version string `pulumi:"version"`
+}
+var accountQueuePropertiesMinuteMetricsType = reflect.TypeOf((*AccountQueuePropertiesMinuteMetrics)(nil)).Elem()
+
+type AccountQueuePropertiesMinuteMetricsInput interface {
+	pulumi.Input
+
+	ToAccountQueuePropertiesMinuteMetricsOutput() AccountQueuePropertiesMinuteMetricsOutput
+	ToAccountQueuePropertiesMinuteMetricsOutputWithContext(ctx context.Context) AccountQueuePropertiesMinuteMetricsOutput
+}
+
+type AccountQueuePropertiesMinuteMetricsArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	IncludeApis pulumi.BoolInput `pulumi:"includeApis"`
+	RetentionPolicyDays pulumi.IntInput `pulumi:"retentionPolicyDays"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (AccountQueuePropertiesMinuteMetricsArgs) ElementType() reflect.Type {
+	return accountQueuePropertiesMinuteMetricsType
+}
+
+func (a AccountQueuePropertiesMinuteMetricsArgs) ToAccountQueuePropertiesMinuteMetricsOutput() AccountQueuePropertiesMinuteMetricsOutput {
+	return pulumi.ToOutput(a).(AccountQueuePropertiesMinuteMetricsOutput)
+}
+
+func (a AccountQueuePropertiesMinuteMetricsArgs) ToAccountQueuePropertiesMinuteMetricsOutputWithContext(ctx context.Context) AccountQueuePropertiesMinuteMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountQueuePropertiesMinuteMetricsOutput)
+}
+
+type AccountQueuePropertiesMinuteMetricsOutput struct { *pulumi.OutputState }
+
+func (o AccountQueuePropertiesMinuteMetricsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesMinuteMetrics) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o AccountQueuePropertiesMinuteMetricsOutput) IncludeApis() pulumi.BoolOutput {
+	return o.Apply(func(v AccountQueuePropertiesMinuteMetrics) bool {
+		if v.IncludeApis == nil { return *new(bool) } else { return *v.IncludeApis }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AccountQueuePropertiesMinuteMetricsOutput) RetentionPolicyDays() pulumi.IntOutput {
+	return o.Apply(func(v AccountQueuePropertiesMinuteMetrics) int {
+		if v.RetentionPolicyDays == nil { return *new(int) } else { return *v.RetentionPolicyDays }
+	}).(pulumi.IntOutput)
+}
+
+func (o AccountQueuePropertiesMinuteMetricsOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v AccountQueuePropertiesMinuteMetrics) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (AccountQueuePropertiesMinuteMetricsOutput) ElementType() reflect.Type {
+	return accountQueuePropertiesMinuteMetricsType
+}
+
+func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinuteMetricsOutput() AccountQueuePropertiesMinuteMetricsOutput {
+	return o
+}
+
+func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinuteMetricsOutputWithContext(ctx context.Context) AccountQueuePropertiesMinuteMetricsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsOutput{}) }
+

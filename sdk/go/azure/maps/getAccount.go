@@ -10,51 +10,37 @@ import (
 // Use this data source to access information about an existing Azure Maps Account.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/maps_account.html.markdown.
-func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("azure:maps/getAccount:getAccount", inputs)
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.InvokeOption) (*GetAccountResult, error) {
+	var rv GetAccountResult
+	err := ctx.Invoke("azure:maps/getAccount:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccountResult{
-		Name: outputs["name"],
-		PrimaryAccessKey: outputs["primaryAccessKey"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecondaryAccessKey: outputs["secondaryAccessKey"],
-		SkuName: outputs["skuName"],
-		Tags: outputs["tags"],
-		XMsClientId: outputs["xMsClientId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
 	// Specifies the name of the Maps Account.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Maps Account is located.
-	ResourceGroupName interface{}
-	Tags interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The primary key used to authenticate and authorize access to the Maps REST APIs.
-	PrimaryAccessKey interface{}
-	ResourceGroupName interface{}
+	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The primary key used to authenticate and authorize access to the Maps REST APIs. The second key is given to provide seamless key regeneration.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The sku of the Azure Maps Account.
-	SkuName interface{}
-	Tags interface{}
+	SkuName string `pulumi:"skuName"`
+	Tags map[string]string `pulumi:"tags"`
 	// A unique identifier for the Maps Account.
-	XMsClientId interface{}
+	XMsClientId string `pulumi:"xMsClientId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

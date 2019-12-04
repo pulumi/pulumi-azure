@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,31 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
 type LogProfile struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// List of categories of the logs.
+	Categories pulumi.StringArrayOutput `pulumi:"categories"`
+
+	// List of regions for which Activity Log events are stored or streamed.
+	Locations pulumi.StringArrayOutput `pulumi:"locations"`
+
+	// The name of the Log Profile. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+	RetentionPolicy LogProfileRetentionPolicyOutput `pulumi:"retentionPolicy"`
+
+	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
+	ServicebusRuleId pulumi.StringOutput `pulumi:"servicebusRuleId"`
+
+	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
 
 // NewLogProfile registers a new resource with the given unique name, arguments, and options.
 func NewLogProfile(ctx *pulumi.Context,
-	name string, args *LogProfileArgs, opts ...pulumi.ResourceOpt) (*LogProfile, error) {
+	name string, args *LogProfileArgs, opts ...pulumi.ResourceOption) (*LogProfile, error) {
 	if args == nil || args.Categories == nil {
 		return nil, errors.New("missing required argument 'Categories'")
 	}
@@ -29,120 +50,132 @@ func NewLogProfile(ctx *pulumi.Context,
 	if args == nil || args.RetentionPolicy == nil {
 		return nil, errors.New("missing required argument 'RetentionPolicy'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["categories"] = nil
-		inputs["locations"] = nil
-		inputs["name"] = nil
-		inputs["retentionPolicy"] = nil
-		inputs["servicebusRuleId"] = nil
-		inputs["storageAccountId"] = nil
-	} else {
-		inputs["categories"] = args.Categories
-		inputs["locations"] = args.Locations
-		inputs["name"] = args.Name
-		inputs["retentionPolicy"] = args.RetentionPolicy
-		inputs["servicebusRuleId"] = args.ServicebusRuleId
-		inputs["storageAccountId"] = args.StorageAccountId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Categories; i != nil { inputs["categories"] = i.ToStringArrayOutput() }
+		if i := args.Locations; i != nil { inputs["locations"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RetentionPolicy; i != nil { inputs["retentionPolicy"] = i.ToLogProfileRetentionPolicyOutput() }
+		if i := args.ServicebusRuleId; i != nil { inputs["servicebusRuleId"] = i.ToStringOutput() }
+		if i := args.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/logProfile:LogProfile", name, true, inputs, opts...)
+	var resource LogProfile
+	err := ctx.RegisterResource("azure:monitoring/logProfile:LogProfile", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogProfile{s: s}, nil
+	return &resource, nil
 }
 
 // GetLogProfile gets an existing LogProfile resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLogProfile(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LogProfileState, opts ...pulumi.ResourceOpt) (*LogProfile, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LogProfileState, opts ...pulumi.ResourceOption) (*LogProfile, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["categories"] = state.Categories
-		inputs["locations"] = state.Locations
-		inputs["name"] = state.Name
-		inputs["retentionPolicy"] = state.RetentionPolicy
-		inputs["servicebusRuleId"] = state.ServicebusRuleId
-		inputs["storageAccountId"] = state.StorageAccountId
+		if i := state.Categories; i != nil { inputs["categories"] = i.ToStringArrayOutput() }
+		if i := state.Locations; i != nil { inputs["locations"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RetentionPolicy; i != nil { inputs["retentionPolicy"] = i.ToLogProfileRetentionPolicyOutput() }
+		if i := state.ServicebusRuleId; i != nil { inputs["servicebusRuleId"] = i.ToStringOutput() }
+		if i := state.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/logProfile:LogProfile", name, id, inputs, opts...)
+	var resource LogProfile
+	err := ctx.ReadResource("azure:monitoring/logProfile:LogProfile", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LogProfile{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LogProfile) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LogProfile) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// List of categories of the logs.
-func (r *LogProfile) Categories() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["categories"])
-}
-
-// List of regions for which Activity Log events are stored or streamed.
-func (r *LogProfile) Locations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["locations"])
-}
-
-// The name of the Log Profile. Changing this forces a
-// new resource to be created.
-func (r *LogProfile) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
-func (r *LogProfile) RetentionPolicy() pulumi.Output {
-	return r.s.State["retentionPolicy"]
-}
-
-// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-func (r *LogProfile) ServicebusRuleId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["servicebusRuleId"])
-}
-
-// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-func (r *LogProfile) StorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LogProfile resources.
 type LogProfileState struct {
 	// List of categories of the logs.
-	Categories interface{}
+	Categories pulumi.StringArrayInput `pulumi:"categories"`
 	// List of regions for which Activity Log events are stored or streamed.
-	Locations interface{}
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The name of the Log Profile. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
-	RetentionPolicy interface{}
+	RetentionPolicy LogProfileRetentionPolicyInput `pulumi:"retentionPolicy"`
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-	ServicebusRuleId interface{}
+	ServicebusRuleId pulumi.StringInput `pulumi:"servicebusRuleId"`
 	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
 // The set of arguments for constructing a LogProfile resource.
 type LogProfileArgs struct {
 	// List of categories of the logs.
-	Categories interface{}
+	Categories pulumi.StringArrayInput `pulumi:"categories"`
 	// List of regions for which Activity Log events are stored or streamed.
-	Locations interface{}
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// The name of the Log Profile. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
-	RetentionPolicy interface{}
+	RetentionPolicy LogProfileRetentionPolicyInput `pulumi:"retentionPolicy"`
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-	ServicebusRuleId interface{}
+	ServicebusRuleId pulumi.StringInput `pulumi:"servicebusRuleId"`
 	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
+type LogProfileRetentionPolicy struct {
+	Days *int `pulumi:"days"`
+	Enabled bool `pulumi:"enabled"`
+}
+var logProfileRetentionPolicyType = reflect.TypeOf((*LogProfileRetentionPolicy)(nil)).Elem()
+
+type LogProfileRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToLogProfileRetentionPolicyOutput() LogProfileRetentionPolicyOutput
+	ToLogProfileRetentionPolicyOutputWithContext(ctx context.Context) LogProfileRetentionPolicyOutput
+}
+
+type LogProfileRetentionPolicyArgs struct {
+	Days pulumi.IntInput `pulumi:"days"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (LogProfileRetentionPolicyArgs) ElementType() reflect.Type {
+	return logProfileRetentionPolicyType
+}
+
+func (a LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyOutput() LogProfileRetentionPolicyOutput {
+	return pulumi.ToOutput(a).(LogProfileRetentionPolicyOutput)
+}
+
+func (a LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyOutputWithContext(ctx context.Context) LogProfileRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LogProfileRetentionPolicyOutput)
+}
+
+type LogProfileRetentionPolicyOutput struct { *pulumi.OutputState }
+
+func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntOutput {
+	return o.Apply(func(v LogProfileRetentionPolicy) int {
+		if v.Days == nil { return *new(int) } else { return *v.Days }
+	}).(pulumi.IntOutput)
+}
+
+func (o LogProfileRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v LogProfileRetentionPolicy) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (LogProfileRetentionPolicyOutput) ElementType() reflect.Type {
+	return logProfileRetentionPolicyType
+}
+
+func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyOutput() LogProfileRetentionPolicyOutput {
+	return o
+}
+
+func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyOutputWithContext(ctx context.Context) LogProfileRetentionPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LogProfileRetentionPolicyOutput{}) }
+

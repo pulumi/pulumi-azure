@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,73 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
 type VirtualNetworkGateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// If `true`, an active-active Virtual Network Gateway
+	// will be created. An active-active gateway requires a `HighPerformance` or an
+	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+	// Defaults to `false`.
+	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
+
+	BgpSettings VirtualNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+
+	// The ID of the local network gateway
+	// through which outbound Internet traffic from the virtual network in which the
+	// gateway is created will be routed (*forced tunneling*). Refer to the
+	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+	// If not specified, forced tunneling is disabled.
+	DefaultLocalNetworkGatewayId pulumi.StringOutput `pulumi:"defaultLocalNetworkGatewayId"`
+
+	// If `true`, BGP (Border Gateway Protocol) will be enabled
+	// for this Virtual Network Gateway. Defaults to `false`.
+	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
+
+	// One or two `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
+	// an active-active gateway requires exactly two `ipConfiguration` blocks.
+	IpConfigurations VirtualNetworkGatewayIpConfigurationsArrayOutput `pulumi:"ipConfigurations"`
+
+	// The location/region where the Virtual Network Gateway is
+	// located. Changing the location/region forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the Virtual Network Gateway. Changing the resource group name forces
+	// a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Configuration of the size and capacity of the virtual network
+	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
+	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
+	// and depend on the `type` and `vpnType` arguments.
+	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
+	// sku is only supported by an `ExpressRoute` gateway.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The type of the Virtual Network Gateway. Valid options are
+	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// A `vpnClientConfiguration` block which
+	// is documented below. In this block the Virtual Network Gateway can be configured
+	// to accept IPSec point-to-site connections.
+	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationOutput `pulumi:"vpnClientConfiguration"`
+
+	// The routing type of the Virtual Network Gateway. Valid
+	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+	VpnType pulumi.StringOutput `pulumi:"vpnType"`
 }
 
 // NewVirtualNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGateway(ctx *pulumi.Context,
-	name string, args *VirtualNetworkGatewayArgs, opts ...pulumi.ResourceOpt) (*VirtualNetworkGateway, error) {
+	name string, args *VirtualNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGateway, error) {
 	if args == nil || args.IpConfigurations == nil {
 		return nil, errors.New("missing required argument 'IpConfigurations'")
 	}
@@ -32,165 +95,56 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["activeActive"] = nil
-		inputs["bgpSettings"] = nil
-		inputs["defaultLocalNetworkGatewayId"] = nil
-		inputs["enableBgp"] = nil
-		inputs["ipConfigurations"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-		inputs["vpnClientConfiguration"] = nil
-		inputs["vpnType"] = nil
-	} else {
-		inputs["activeActive"] = args.ActiveActive
-		inputs["bgpSettings"] = args.BgpSettings
-		inputs["defaultLocalNetworkGatewayId"] = args.DefaultLocalNetworkGatewayId
-		inputs["enableBgp"] = args.EnableBgp
-		inputs["ipConfigurations"] = args.IpConfigurations
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
-		inputs["vpnClientConfiguration"] = args.VpnClientConfiguration
-		inputs["vpnType"] = args.VpnType
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActiveActive; i != nil { inputs["activeActive"] = i.ToBoolOutput() }
+		if i := args.BgpSettings; i != nil { inputs["bgpSettings"] = i.ToVirtualNetworkGatewayBgpSettingsOutput() }
+		if i := args.DefaultLocalNetworkGatewayId; i != nil { inputs["defaultLocalNetworkGatewayId"] = i.ToStringOutput() }
+		if i := args.EnableBgp; i != nil { inputs["enableBgp"] = i.ToBoolOutput() }
+		if i := args.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToVirtualNetworkGatewayIpConfigurationsArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.VpnClientConfiguration; i != nil { inputs["vpnClientConfiguration"] = i.ToVirtualNetworkGatewayVpnClientConfigurationOutput() }
+		if i := args.VpnType; i != nil { inputs["vpnType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, true, inputs, opts...)
+	var resource VirtualNetworkGateway
+	err := ctx.RegisterResource("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkGateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualNetworkGateway gets an existing VirtualNetworkGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualNetworkGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualNetworkGatewayState, opts ...pulumi.ResourceOpt) (*VirtualNetworkGateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualNetworkGatewayState, opts ...pulumi.ResourceOption) (*VirtualNetworkGateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activeActive"] = state.ActiveActive
-		inputs["bgpSettings"] = state.BgpSettings
-		inputs["defaultLocalNetworkGatewayId"] = state.DefaultLocalNetworkGatewayId
-		inputs["enableBgp"] = state.EnableBgp
-		inputs["ipConfigurations"] = state.IpConfigurations
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
-		inputs["vpnClientConfiguration"] = state.VpnClientConfiguration
-		inputs["vpnType"] = state.VpnType
+		if i := state.ActiveActive; i != nil { inputs["activeActive"] = i.ToBoolOutput() }
+		if i := state.BgpSettings; i != nil { inputs["bgpSettings"] = i.ToVirtualNetworkGatewayBgpSettingsOutput() }
+		if i := state.DefaultLocalNetworkGatewayId; i != nil { inputs["defaultLocalNetworkGatewayId"] = i.ToStringOutput() }
+		if i := state.EnableBgp; i != nil { inputs["enableBgp"] = i.ToBoolOutput() }
+		if i := state.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToVirtualNetworkGatewayIpConfigurationsArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.VpnClientConfiguration; i != nil { inputs["vpnClientConfiguration"] = i.ToVirtualNetworkGatewayVpnClientConfigurationOutput() }
+		if i := state.VpnType; i != nil { inputs["vpnType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, id, inputs, opts...)
+	var resource VirtualNetworkGateway
+	err := ctx.ReadResource("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkGateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkGateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkGateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// If `true`, an active-active Virtual Network Gateway
-// will be created. An active-active gateway requires a `HighPerformance` or an
-// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
-// Defaults to `false`.
-func (r *VirtualNetworkGateway) ActiveActive() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["activeActive"])
-}
-
-func (r *VirtualNetworkGateway) BgpSettings() pulumi.Output {
-	return r.s.State["bgpSettings"]
-}
-
-// The ID of the local network gateway
-// through which outbound Internet traffic from the virtual network in which the
-// gateway is created will be routed (*forced tunneling*). Refer to the
-// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-// If not specified, forced tunneling is disabled.
-func (r *VirtualNetworkGateway) DefaultLocalNetworkGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultLocalNetworkGatewayId"])
-}
-
-// If `true`, BGP (Border Gateway Protocol) will be enabled
-// for this Virtual Network Gateway. Defaults to `false`.
-func (r *VirtualNetworkGateway) EnableBgp() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBgp"])
-}
-
-// One or two `ipConfiguration` blocks documented below.
-// An active-standby gateway requires exactly one `ipConfiguration` block whereas
-// an active-active gateway requires exactly two `ipConfiguration` blocks.
-func (r *VirtualNetworkGateway) IpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
-}
-
-// The location/region where the Virtual Network Gateway is
-// located. Changing the location/region forces a new resource to be created.
-func (r *VirtualNetworkGateway) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Virtual Network Gateway. Changing the name
-// forces a new resource to be created.
-func (r *VirtualNetworkGateway) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the Virtual Network Gateway. Changing the resource group name forces
-// a new resource to be created.
-func (r *VirtualNetworkGateway) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Configuration of the size and capacity of the virtual network
-// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-// and depend on the `type` and `vpnType` arguments.
-// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-// sku is only supported by an `ExpressRoute` gateway.
-func (r *VirtualNetworkGateway) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VirtualNetworkGateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The type of the Virtual Network Gateway. Valid options are
-// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-func (r *VirtualNetworkGateway) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// A `vpnClientConfiguration` block which
-// is documented below. In this block the Virtual Network Gateway can be configured
-// to accept IPSec point-to-site connections.
-func (r *VirtualNetworkGateway) VpnClientConfiguration() pulumi.Output {
-	return r.s.State["vpnClientConfiguration"]
-}
-
-// The routing type of the Virtual Network Gateway. Valid
-// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-func (r *VirtualNetworkGateway) VpnType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vpnType"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualNetworkGateway resources.
@@ -199,50 +153,50 @@ type VirtualNetworkGatewayState struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive interface{}
-	BgpSettings interface{}
+	ActiveActive pulumi.BoolInput `pulumi:"activeActive"`
+	BgpSettings VirtualNetworkGatewayBgpSettingsInput `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
 	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunneling is disabled.
-	DefaultLocalNetworkGatewayId interface{}
+	DefaultLocalNetworkGatewayId pulumi.StringInput `pulumi:"defaultLocalNetworkGatewayId"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
-	EnableBgp interface{}
+	EnableBgp pulumi.BoolInput `pulumi:"enableBgp"`
 	// One or two `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
 	// an active-active gateway requires exactly two `ipConfiguration` blocks.
-	IpConfigurations interface{}
+	IpConfigurations VirtualNetworkGatewayIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Virtual Network Gateway. Changing the name
 	// forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
 	// and depend on the `type` and `vpnType` arguments.
 	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 	// sku is only supported by an `ExpressRoute` gateway.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of the Virtual Network Gateway. Valid options are
 	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
-	VpnClientConfiguration interface{}
+	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationInput `pulumi:"vpnClientConfiguration"`
 	// The routing type of the Virtual Network Gateway. Valid
 	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-	VpnType interface{}
+	VpnType pulumi.StringInput `pulumi:"vpnType"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGateway resource.
@@ -251,48 +205,547 @@ type VirtualNetworkGatewayArgs struct {
 	// will be created. An active-active gateway requires a `HighPerformance` or an
 	// `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
 	// Defaults to `false`.
-	ActiveActive interface{}
-	BgpSettings interface{}
+	ActiveActive pulumi.BoolInput `pulumi:"activeActive"`
+	BgpSettings VirtualNetworkGatewayBgpSettingsInput `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
 	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	// If not specified, forced tunneling is disabled.
-	DefaultLocalNetworkGatewayId interface{}
+	DefaultLocalNetworkGatewayId pulumi.StringInput `pulumi:"defaultLocalNetworkGatewayId"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
-	EnableBgp interface{}
+	EnableBgp pulumi.BoolInput `pulumi:"enableBgp"`
 	// One or two `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
 	// an active-active gateway requires exactly two `ipConfiguration` blocks.
-	IpConfigurations interface{}
+	IpConfigurations VirtualNetworkGatewayIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Virtual Network Gateway. Changing the name
 	// forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
 	// a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
 	// and depend on the `type` and `vpnType` arguments.
 	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 	// sku is only supported by an `ExpressRoute` gateway.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of the Virtual Network Gateway. Valid options are
 	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
-	VpnClientConfiguration interface{}
+	VpnClientConfiguration VirtualNetworkGatewayVpnClientConfigurationInput `pulumi:"vpnClientConfiguration"`
 	// The routing type of the Virtual Network Gateway. Valid
 	// options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-	VpnType interface{}
+	VpnType pulumi.StringInput `pulumi:"vpnType"`
 }
+type VirtualNetworkGatewayBgpSettings struct {
+	Asn *int `pulumi:"asn"`
+	PeerWeight *int `pulumi:"peerWeight"`
+	PeeringAddress *string `pulumi:"peeringAddress"`
+}
+var virtualNetworkGatewayBgpSettingsType = reflect.TypeOf((*VirtualNetworkGatewayBgpSettings)(nil)).Elem()
+
+type VirtualNetworkGatewayBgpSettingsInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayBgpSettingsOutput() VirtualNetworkGatewayBgpSettingsOutput
+	ToVirtualNetworkGatewayBgpSettingsOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsOutput
+}
+
+type VirtualNetworkGatewayBgpSettingsArgs struct {
+	Asn pulumi.IntInput `pulumi:"asn"`
+	PeerWeight pulumi.IntInput `pulumi:"peerWeight"`
+	PeeringAddress pulumi.StringInput `pulumi:"peeringAddress"`
+}
+
+func (VirtualNetworkGatewayBgpSettingsArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayBgpSettingsType
+}
+
+func (a VirtualNetworkGatewayBgpSettingsArgs) ToVirtualNetworkGatewayBgpSettingsOutput() VirtualNetworkGatewayBgpSettingsOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayBgpSettingsOutput)
+}
+
+func (a VirtualNetworkGatewayBgpSettingsArgs) ToVirtualNetworkGatewayBgpSettingsOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayBgpSettingsOutput)
+}
+
+type VirtualNetworkGatewayBgpSettingsOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkGatewayBgpSettingsOutput) Asn() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNetworkGatewayBgpSettings) int {
+		if v.Asn == nil { return *new(int) } else { return *v.Asn }
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualNetworkGatewayBgpSettingsOutput) PeerWeight() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNetworkGatewayBgpSettings) int {
+		if v.PeerWeight == nil { return *new(int) } else { return *v.PeerWeight }
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualNetworkGatewayBgpSettingsOutput) PeeringAddress() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayBgpSettings) string {
+		if v.PeeringAddress == nil { return *new(string) } else { return *v.PeeringAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNetworkGatewayBgpSettingsOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayBgpSettingsType
+}
+
+func (o VirtualNetworkGatewayBgpSettingsOutput) ToVirtualNetworkGatewayBgpSettingsOutput() VirtualNetworkGatewayBgpSettingsOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayBgpSettingsOutput) ToVirtualNetworkGatewayBgpSettingsOutputWithContext(ctx context.Context) VirtualNetworkGatewayBgpSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsOutput{}) }
+
+type VirtualNetworkGatewayIpConfigurations struct {
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	SubnetId string `pulumi:"subnetId"`
+}
+var virtualNetworkGatewayIpConfigurationsType = reflect.TypeOf((*VirtualNetworkGatewayIpConfigurations)(nil)).Elem()
+
+type VirtualNetworkGatewayIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayIpConfigurationsOutput() VirtualNetworkGatewayIpConfigurationsOutput
+	ToVirtualNetworkGatewayIpConfigurationsOutputWithContext(ctx context.Context) VirtualNetworkGatewayIpConfigurationsOutput
+}
+
+type VirtualNetworkGatewayIpConfigurationsArgs struct {
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VirtualNetworkGatewayIpConfigurationsArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayIpConfigurationsType
+}
+
+func (a VirtualNetworkGatewayIpConfigurationsArgs) ToVirtualNetworkGatewayIpConfigurationsOutput() VirtualNetworkGatewayIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayIpConfigurationsOutput)
+}
+
+func (a VirtualNetworkGatewayIpConfigurationsArgs) ToVirtualNetworkGatewayIpConfigurationsOutputWithContext(ctx context.Context) VirtualNetworkGatewayIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayIpConfigurationsOutput)
+}
+
+type VirtualNetworkGatewayIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// The name of the Virtual Network Gateway. Changing the name
+// forces a new resource to be created.
+func (o VirtualNetworkGatewayIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayIpConfigurations) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayIpConfigurations) string {
+		if v.PrivateIpAddressAllocation == nil { return *new(string) } else { return *v.PrivateIpAddressAllocation }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayIpConfigurations) string {
+		if v.PublicIpAddressId == nil { return *new(string) } else { return *v.PublicIpAddressId }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayIpConfigurations) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNetworkGatewayIpConfigurationsOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayIpConfigurationsType
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsOutput) ToVirtualNetworkGatewayIpConfigurationsOutput() VirtualNetworkGatewayIpConfigurationsOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsOutput) ToVirtualNetworkGatewayIpConfigurationsOutputWithContext(ctx context.Context) VirtualNetworkGatewayIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationsOutput{}) }
+
+var virtualNetworkGatewayIpConfigurationsArrayType = reflect.TypeOf((*[]VirtualNetworkGatewayIpConfigurations)(nil)).Elem()
+
+type VirtualNetworkGatewayIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayIpConfigurationsArrayOutput() VirtualNetworkGatewayIpConfigurationsArrayOutput
+	ToVirtualNetworkGatewayIpConfigurationsArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayIpConfigurationsArrayOutput
+}
+
+type VirtualNetworkGatewayIpConfigurationsArrayArgs []VirtualNetworkGatewayIpConfigurationsInput
+
+func (VirtualNetworkGatewayIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayIpConfigurationsArrayType
+}
+
+func (a VirtualNetworkGatewayIpConfigurationsArrayArgs) ToVirtualNetworkGatewayIpConfigurationsArrayOutput() VirtualNetworkGatewayIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayIpConfigurationsArrayOutput)
+}
+
+func (a VirtualNetworkGatewayIpConfigurationsArrayArgs) ToVirtualNetworkGatewayIpConfigurationsArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayIpConfigurationsArrayOutput)
+}
+
+type VirtualNetworkGatewayIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkGatewayIpConfigurationsArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualNetworkGatewayIpConfigurations {
+		return vs[0].([]VirtualNetworkGatewayIpConfigurations)[vs[1].(int)]
+	}).(VirtualNetworkGatewayIpConfigurationsOutput)
+}
+
+func (VirtualNetworkGatewayIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayIpConfigurationsArrayType
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsArrayOutput) ToVirtualNetworkGatewayIpConfigurationsArrayOutput() VirtualNetworkGatewayIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayIpConfigurationsArrayOutput) ToVirtualNetworkGatewayIpConfigurationsArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationsArrayOutput{}) }
+
+type VirtualNetworkGatewayVpnClientConfiguration struct {
+	AddressSpaces []string `pulumi:"addressSpaces"`
+	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
+	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
+	RevokedCertificates *[]VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates `pulumi:"revokedCertificates"`
+	RootCertificates *[]VirtualNetworkGatewayVpnClientConfigurationRootCertificates `pulumi:"rootCertificates"`
+	VpnClientProtocols *[]string `pulumi:"vpnClientProtocols"`
+}
+var virtualNetworkGatewayVpnClientConfigurationType = reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfiguration)(nil)).Elem()
+
+type VirtualNetworkGatewayVpnClientConfigurationInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationOutput() VirtualNetworkGatewayVpnClientConfigurationOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
+	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
+	RadiusServerAddress pulumi.StringInput `pulumi:"radiusServerAddress"`
+	RadiusServerSecret pulumi.StringInput `pulumi:"radiusServerSecret"`
+	RevokedCertificates VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayInput `pulumi:"revokedCertificates"`
+	RootCertificates VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayInput `pulumi:"rootCertificates"`
+	VpnClientProtocols pulumi.StringArrayInput `pulumi:"vpnClientProtocols"`
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationType
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationArgs) ToVirtualNetworkGatewayVpnClientConfigurationOutput() VirtualNetworkGatewayVpnClientConfigurationOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayVpnClientConfigurationOutput)
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationArgs) ToVirtualNetworkGatewayVpnClientConfigurationOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayVpnClientConfigurationOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pulumi.StringArrayOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfiguration) []string {
+		return v.AddressSpaces
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfiguration) string {
+		if v.RadiusServerAddress == nil { return *new(string) } else { return *v.RadiusServerAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfiguration) string {
+		if v.RadiusServerSecret == nil { return *new(string) } else { return *v.RadiusServerSecret }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates {
+		if v.RevokedCertificates == nil { return *new([]VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates) } else { return *v.RevokedCertificates }
+	}).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificates {
+		if v.RootCertificates == nil { return *new([]VirtualNetworkGatewayVpnClientConfigurationRootCertificates) } else { return *v.RootCertificates }
+	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) VpnClientProtocols() pulumi.StringArrayOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfiguration) []string {
+		if v.VpnClientProtocols == nil { return *new([]string) } else { return *v.VpnClientProtocols }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationType
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatewayVpnClientConfigurationOutput() VirtualNetworkGatewayVpnClientConfigurationOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatewayVpnClientConfigurationOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationOutput{}) }
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates struct {
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Thumbprint string `pulumi:"thumbprint"`
+}
+var virtualNetworkGatewayVpnClientConfigurationRevokedCertificatesType = reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates)(nil)).Elem()
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs struct {
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRevokedCertificatesType
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput)
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArgs) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput struct { *pulumi.OutputState }
+
+// The name of the Virtual Network Gateway. Changing the name
+// forces a new resource to be created.
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput) Thumbprint() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates) string {
+		return v.Thumbprint
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRevokedCertificatesType
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput{}) }
+
+var virtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayType = reflect.TypeOf((*[]VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates)(nil)).Elem()
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayArgs []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesInput
+
+func (VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayType
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayArgs) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput)
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayArgs) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates {
+		return vs[0].([]VirtualNetworkGatewayVpnClientConfigurationRevokedCertificates)[vs[1].(int)]
+	}).(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesOutput)
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayType
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificatesArrayOutput{}) }
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificates struct {
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name string `pulumi:"name"`
+	PublicCertData string `pulumi:"publicCertData"`
+}
+var virtualNetworkGatewayVpnClientConfigurationRootCertificatesType = reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRootCertificates)(nil)).Elem()
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificatesInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs struct {
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRootCertificatesType
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput)
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArgs) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput struct { *pulumi.OutputState }
+
+// The name of the Virtual Network Gateway. Changing the name
+// forces a new resource to be created.
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificates) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput) PublicCertData() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayVpnClientConfigurationRootCertificates) string {
+		return v.PublicCertData
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRootCertificatesType
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput{}) }
+
+var virtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayType = reflect.TypeOf((*[]VirtualNetworkGatewayVpnClientConfigurationRootCertificates)(nil)).Elem()
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayArgs []VirtualNetworkGatewayVpnClientConfigurationRootCertificatesInput
+
+func (VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayType
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayArgs) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput)
+}
+
+func (a VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayArgs) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualNetworkGatewayVpnClientConfigurationRootCertificates {
+		return vs[0].([]VirtualNetworkGatewayVpnClientConfigurationRootCertificates)[vs[1].(int)]
+	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesOutput)
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayType
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificatesArrayOutput{}) }
+

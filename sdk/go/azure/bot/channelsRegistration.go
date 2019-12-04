@@ -12,12 +12,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channels_registration.html.markdown.
 type ChannelsRegistration struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Application Insights API Key to associate with the Bot Channels Registration.
+	DeveloperAppInsightsApiKey pulumi.StringOutput `pulumi:"developerAppInsightsApiKey"`
+
+	// The Application Insights Application ID to associate with the Bot Channels Registration.
+	DeveloperAppInsightsApplicationId pulumi.StringOutput `pulumi:"developerAppInsightsApplicationId"`
+
+	// The Application Insights Key to associate with the Bot Channels Registration.
+	DeveloperAppInsightsKey pulumi.StringOutput `pulumi:"developerAppInsightsKey"`
+
+	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The Bot Channels Registration endpoint.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppId pulumi.StringOutput `pulumi:"microsoftAppId"`
+
+	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewChannelsRegistration registers a new resource with the given unique name, arguments, and options.
 func NewChannelsRegistration(ctx *pulumi.Context,
-	name string, args *ChannelsRegistrationArgs, opts ...pulumi.ResourceOpt) (*ChannelsRegistration, error) {
+	name string, args *ChannelsRegistrationArgs, opts ...pulumi.ResourceOption) (*ChannelsRegistration, error) {
 	if args == nil || args.MicrosoftAppId == nil {
 		return nil, errors.New("missing required argument 'MicrosoftAppId'")
 	}
@@ -27,177 +60,102 @@ func NewChannelsRegistration(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["developerAppInsightsApiKey"] = nil
-		inputs["developerAppInsightsApplicationId"] = nil
-		inputs["developerAppInsightsKey"] = nil
-		inputs["displayName"] = nil
-		inputs["endpoint"] = nil
-		inputs["location"] = nil
-		inputs["microsoftAppId"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["developerAppInsightsApiKey"] = args.DeveloperAppInsightsApiKey
-		inputs["developerAppInsightsApplicationId"] = args.DeveloperAppInsightsApplicationId
-		inputs["developerAppInsightsKey"] = args.DeveloperAppInsightsKey
-		inputs["displayName"] = args.DisplayName
-		inputs["endpoint"] = args.Endpoint
-		inputs["location"] = args.Location
-		inputs["microsoftAppId"] = args.MicrosoftAppId
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeveloperAppInsightsApiKey; i != nil { inputs["developerAppInsightsApiKey"] = i.ToStringOutput() }
+		if i := args.DeveloperAppInsightsApplicationId; i != nil { inputs["developerAppInsightsApplicationId"] = i.ToStringOutput() }
+		if i := args.DeveloperAppInsightsKey; i != nil { inputs["developerAppInsightsKey"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MicrosoftAppId; i != nil { inputs["microsoftAppId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:bot/channelsRegistration:ChannelsRegistration", name, true, inputs, opts...)
+	var resource ChannelsRegistration
+	err := ctx.RegisterResource("azure:bot/channelsRegistration:ChannelsRegistration", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ChannelsRegistration{s: s}, nil
+	return &resource, nil
 }
 
 // GetChannelsRegistration gets an existing ChannelsRegistration resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetChannelsRegistration(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ChannelsRegistrationState, opts ...pulumi.ResourceOpt) (*ChannelsRegistration, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ChannelsRegistrationState, opts ...pulumi.ResourceOption) (*ChannelsRegistration, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["developerAppInsightsApiKey"] = state.DeveloperAppInsightsApiKey
-		inputs["developerAppInsightsApplicationId"] = state.DeveloperAppInsightsApplicationId
-		inputs["developerAppInsightsKey"] = state.DeveloperAppInsightsKey
-		inputs["displayName"] = state.DisplayName
-		inputs["endpoint"] = state.Endpoint
-		inputs["location"] = state.Location
-		inputs["microsoftAppId"] = state.MicrosoftAppId
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.DeveloperAppInsightsApiKey; i != nil { inputs["developerAppInsightsApiKey"] = i.ToStringOutput() }
+		if i := state.DeveloperAppInsightsApplicationId; i != nil { inputs["developerAppInsightsApplicationId"] = i.ToStringOutput() }
+		if i := state.DeveloperAppInsightsKey; i != nil { inputs["developerAppInsightsKey"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MicrosoftAppId; i != nil { inputs["microsoftAppId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:bot/channelsRegistration:ChannelsRegistration", name, id, inputs, opts...)
+	var resource ChannelsRegistration
+	err := ctx.ReadResource("azure:bot/channelsRegistration:ChannelsRegistration", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ChannelsRegistration{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ChannelsRegistration) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ChannelsRegistration) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Application Insights API Key to associate with the Bot Channels Registration.
-func (r *ChannelsRegistration) DeveloperAppInsightsApiKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["developerAppInsightsApiKey"])
-}
-
-// The Application Insights Application ID to associate with the Bot Channels Registration.
-func (r *ChannelsRegistration) DeveloperAppInsightsApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["developerAppInsightsApplicationId"])
-}
-
-// The Application Insights Key to associate with the Bot Channels Registration.
-func (r *ChannelsRegistration) DeveloperAppInsightsKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["developerAppInsightsKey"])
-}
-
-// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
-func (r *ChannelsRegistration) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The Bot Channels Registration endpoint.
-func (r *ChannelsRegistration) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ChannelsRegistration) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
-func (r *ChannelsRegistration) MicrosoftAppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["microsoftAppId"])
-}
-
-// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
-func (r *ChannelsRegistration) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
-func (r *ChannelsRegistration) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-func (r *ChannelsRegistration) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ChannelsRegistration) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ChannelsRegistration resources.
 type ChannelsRegistrationState struct {
 	// The Application Insights API Key to associate with the Bot Channels Registration.
-	DeveloperAppInsightsApiKey interface{}
+	DeveloperAppInsightsApiKey pulumi.StringInput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
-	DeveloperAppInsightsApplicationId interface{}
+	DeveloperAppInsightsApplicationId pulumi.StringInput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Bot Channels Registration.
-	DeveloperAppInsightsKey interface{}
+	DeveloperAppInsightsKey pulumi.StringInput `pulumi:"developerAppInsightsKey"`
 	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
-	MicrosoftAppId interface{}
+	MicrosoftAppId pulumi.StringInput `pulumi:"microsoftAppId"`
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ChannelsRegistration resource.
 type ChannelsRegistrationArgs struct {
 	// The Application Insights API Key to associate with the Bot Channels Registration.
-	DeveloperAppInsightsApiKey interface{}
+	DeveloperAppInsightsApiKey pulumi.StringInput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Bot Channels Registration.
-	DeveloperAppInsightsApplicationId interface{}
+	DeveloperAppInsightsApplicationId pulumi.StringInput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Bot Channels Registration.
-	DeveloperAppInsightsKey interface{}
+	DeveloperAppInsightsKey pulumi.StringInput `pulumi:"developerAppInsightsKey"`
 	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
-	MicrosoftAppId interface{}
+	MicrosoftAppId pulumi.StringInput `pulumi:"microsoftAppId"`
 	// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

@@ -4,6 +4,8 @@
 package automation
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
 type Module struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
+	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
+
+	// The published Module link.
+	ModuleLink ModuleModuleLinkOutput `pulumi:"moduleLink"`
+
+	// Specifies the name of the Module. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewModule registers a new resource with the given unique name, arguments, and options.
 func NewModule(ctx *pulumi.Context,
-	name string, args *ModuleArgs, opts ...pulumi.ResourceOpt) (*Module, error) {
+	name string, args *ModuleArgs, opts ...pulumi.ResourceOption) (*Module, error) {
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
@@ -27,93 +41,179 @@ func NewModule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["automationAccountName"] = nil
-		inputs["moduleLink"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["automationAccountName"] = args.AutomationAccountName
-		inputs["moduleLink"] = args.ModuleLink
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := args.ModuleLink; i != nil { inputs["moduleLink"] = i.ToModuleModuleLinkOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:automation/module:Module", name, true, inputs, opts...)
+	var resource Module
+	err := ctx.RegisterResource("azure:automation/module:Module", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Module{s: s}, nil
+	return &resource, nil
 }
 
 // GetModule gets an existing Module resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetModule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ModuleState, opts ...pulumi.ResourceOpt) (*Module, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ModuleState, opts ...pulumi.ResourceOption) (*Module, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["automationAccountName"] = state.AutomationAccountName
-		inputs["moduleLink"] = state.ModuleLink
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := state.ModuleLink; i != nil { inputs["moduleLink"] = i.ToModuleModuleLinkOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:automation/module:Module", name, id, inputs, opts...)
+	var resource Module
+	err := ctx.ReadResource("azure:automation/module:Module", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Module{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Module) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Module) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-func (r *Module) AutomationAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
-}
-
-// The published Module link.
-func (r *Module) ModuleLink() pulumi.Output {
-	return r.s.State["moduleLink"]
-}
-
-// Specifies the name of the Module. Changing this forces a new resource to be created.
-func (r *Module) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-func (r *Module) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Module resources.
 type ModuleState struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// The published Module link.
-	ModuleLink interface{}
+	ModuleLink ModuleModuleLinkInput `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Module resource.
 type ModuleArgs struct {
 	// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// The published Module link.
-	ModuleLink interface{}
+	ModuleLink ModuleModuleLinkInput `pulumi:"moduleLink"`
 	// Specifies the name of the Module. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
+type ModuleModuleLink struct {
+	Hash *ModuleModuleLinkHash `pulumi:"hash"`
+	// The uri of the module content (zip or nupkg).
+	Uri string `pulumi:"uri"`
+}
+var moduleModuleLinkType = reflect.TypeOf((*ModuleModuleLink)(nil)).Elem()
+
+type ModuleModuleLinkInput interface {
+	pulumi.Input
+
+	ToModuleModuleLinkOutput() ModuleModuleLinkOutput
+	ToModuleModuleLinkOutputWithContext(ctx context.Context) ModuleModuleLinkOutput
+}
+
+type ModuleModuleLinkArgs struct {
+	Hash ModuleModuleLinkHashInput `pulumi:"hash"`
+	// The uri of the module content (zip or nupkg).
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ModuleModuleLinkArgs) ElementType() reflect.Type {
+	return moduleModuleLinkType
+}
+
+func (a ModuleModuleLinkArgs) ToModuleModuleLinkOutput() ModuleModuleLinkOutput {
+	return pulumi.ToOutput(a).(ModuleModuleLinkOutput)
+}
+
+func (a ModuleModuleLinkArgs) ToModuleModuleLinkOutputWithContext(ctx context.Context) ModuleModuleLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ModuleModuleLinkOutput)
+}
+
+type ModuleModuleLinkOutput struct { *pulumi.OutputState }
+
+func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashOutput {
+	return o.Apply(func(v ModuleModuleLink) ModuleModuleLinkHash {
+		if v.Hash == nil { return *new(ModuleModuleLinkHash) } else { return *v.Hash }
+	}).(ModuleModuleLinkHashOutput)
+}
+
+// The uri of the module content (zip or nupkg).
+func (o ModuleModuleLinkOutput) Uri() pulumi.StringOutput {
+	return o.Apply(func(v ModuleModuleLink) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+func (ModuleModuleLinkOutput) ElementType() reflect.Type {
+	return moduleModuleLinkType
+}
+
+func (o ModuleModuleLinkOutput) ToModuleModuleLinkOutput() ModuleModuleLinkOutput {
+	return o
+}
+
+func (o ModuleModuleLinkOutput) ToModuleModuleLinkOutputWithContext(ctx context.Context) ModuleModuleLinkOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ModuleModuleLinkOutput{}) }
+
+type ModuleModuleLinkHash struct {
+	Algorithm string `pulumi:"algorithm"`
+	Value string `pulumi:"value"`
+}
+var moduleModuleLinkHashType = reflect.TypeOf((*ModuleModuleLinkHash)(nil)).Elem()
+
+type ModuleModuleLinkHashInput interface {
+	pulumi.Input
+
+	ToModuleModuleLinkHashOutput() ModuleModuleLinkHashOutput
+	ToModuleModuleLinkHashOutputWithContext(ctx context.Context) ModuleModuleLinkHashOutput
+}
+
+type ModuleModuleLinkHashArgs struct {
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModuleModuleLinkHashArgs) ElementType() reflect.Type {
+	return moduleModuleLinkHashType
+}
+
+func (a ModuleModuleLinkHashArgs) ToModuleModuleLinkHashOutput() ModuleModuleLinkHashOutput {
+	return pulumi.ToOutput(a).(ModuleModuleLinkHashOutput)
+}
+
+func (a ModuleModuleLinkHashArgs) ToModuleModuleLinkHashOutputWithContext(ctx context.Context) ModuleModuleLinkHashOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ModuleModuleLinkHashOutput)
+}
+
+type ModuleModuleLinkHashOutput struct { *pulumi.OutputState }
+
+func (o ModuleModuleLinkHashOutput) Algorithm() pulumi.StringOutput {
+	return o.Apply(func(v ModuleModuleLinkHash) string {
+		return v.Algorithm
+	}).(pulumi.StringOutput)
+}
+
+func (o ModuleModuleLinkHashOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ModuleModuleLinkHash) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ModuleModuleLinkHashOutput) ElementType() reflect.Type {
+	return moduleModuleLinkHashType
+}
+
+func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashOutput() ModuleModuleLinkHashOutput {
+	return o
+}
+
+func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashOutputWithContext(ctx context.Context) ModuleModuleLinkHashOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{}) }
+

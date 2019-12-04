@@ -4,6 +4,8 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,62 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
 type Slot struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
+	AppServiceName pulumi.StringOutput `pulumi:"appServiceName"`
+
+	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
+	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
+
+	// A key-value pair of App Settings.
+	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
+
+	// A `authSettings` block as defined below.
+	AuthSettings SlotAuthSettingsOutput `pulumi:"authSettings"`
+
+	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
+	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
+
+	// An `connectionString` block as defined below.
+	ConnectionStrings SlotConnectionStringsArrayOutput `pulumi:"connectionStrings"`
+
+	// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
+	DefaultSiteHostname pulumi.StringOutput `pulumi:"defaultSiteHostname"`
+
+	// Is the App Service Slot Enabled?
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
+	HttpsOnly pulumi.BoolOutput `pulumi:"httpsOnly"`
+
+	// A Managed Service Identity block as defined below.
+	Identity SlotIdentityOutput `pulumi:"identity"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	Logs SlotLogsOutput `pulumi:"logs"`
+
+	// The name of the Connection String.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the App Service Slot component.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `siteConfig` object as defined below.
+	SiteConfig SlotSiteConfigOutput `pulumi:"siteConfig"`
+
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	SiteCredential SlotSiteCredentialOutput `pulumi:"siteCredential"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewSlot registers a new resource with the given unique name, arguments, and options.
 func NewSlot(ctx *pulumi.Context,
-	name string, args *SlotArgs, opts ...pulumi.ResourceOpt) (*Slot, error) {
+	name string, args *SlotArgs, opts ...pulumi.ResourceOption) (*Slot, error) {
 	if args == nil || args.AppServiceName == nil {
 		return nil, errors.New("missing required argument 'AppServiceName'")
 	}
@@ -29,240 +81,1695 @@ func NewSlot(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appServiceName"] = nil
-		inputs["appServicePlanId"] = nil
-		inputs["appSettings"] = nil
-		inputs["authSettings"] = nil
-		inputs["clientAffinityEnabled"] = nil
-		inputs["connectionStrings"] = nil
-		inputs["enabled"] = nil
-		inputs["httpsOnly"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["logs"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["siteConfig"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["appServiceName"] = args.AppServiceName
-		inputs["appServicePlanId"] = args.AppServicePlanId
-		inputs["appSettings"] = args.AppSettings
-		inputs["authSettings"] = args.AuthSettings
-		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
-		inputs["connectionStrings"] = args.ConnectionStrings
-		inputs["enabled"] = args.Enabled
-		inputs["httpsOnly"] = args.HttpsOnly
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["logs"] = args.Logs
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["siteConfig"] = args.SiteConfig
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppServiceName; i != nil { inputs["appServiceName"] = i.ToStringOutput() }
+		if i := args.AppServicePlanId; i != nil { inputs["appServicePlanId"] = i.ToStringOutput() }
+		if i := args.AppSettings; i != nil { inputs["appSettings"] = i.ToStringMapOutput() }
+		if i := args.AuthSettings; i != nil { inputs["authSettings"] = i.ToSlotAuthSettingsOutput() }
+		if i := args.ClientAffinityEnabled; i != nil { inputs["clientAffinityEnabled"] = i.ToBoolOutput() }
+		if i := args.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToSlotConnectionStringsArrayOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.HttpsOnly; i != nil { inputs["httpsOnly"] = i.ToBoolOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToSlotIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Logs; i != nil { inputs["logs"] = i.ToSlotLogsOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SiteConfig; i != nil { inputs["siteConfig"] = i.ToSlotSiteConfigOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["defaultSiteHostname"] = nil
-	inputs["siteCredential"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/slot:Slot", name, true, inputs, opts...)
+	var resource Slot
+	err := ctx.RegisterResource("azure:appservice/slot:Slot", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Slot{s: s}, nil
+	return &resource, nil
 }
 
 // GetSlot gets an existing Slot resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSlot(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SlotState, opts ...pulumi.ResourceOpt) (*Slot, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SlotState, opts ...pulumi.ResourceOption) (*Slot, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServiceName"] = state.AppServiceName
-		inputs["appServicePlanId"] = state.AppServicePlanId
-		inputs["appSettings"] = state.AppSettings
-		inputs["authSettings"] = state.AuthSettings
-		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
-		inputs["connectionStrings"] = state.ConnectionStrings
-		inputs["defaultSiteHostname"] = state.DefaultSiteHostname
-		inputs["enabled"] = state.Enabled
-		inputs["httpsOnly"] = state.HttpsOnly
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["logs"] = state.Logs
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["siteConfig"] = state.SiteConfig
-		inputs["siteCredential"] = state.SiteCredential
-		inputs["tags"] = state.Tags
+		if i := state.AppServiceName; i != nil { inputs["appServiceName"] = i.ToStringOutput() }
+		if i := state.AppServicePlanId; i != nil { inputs["appServicePlanId"] = i.ToStringOutput() }
+		if i := state.AppSettings; i != nil { inputs["appSettings"] = i.ToStringMapOutput() }
+		if i := state.AuthSettings; i != nil { inputs["authSettings"] = i.ToSlotAuthSettingsOutput() }
+		if i := state.ClientAffinityEnabled; i != nil { inputs["clientAffinityEnabled"] = i.ToBoolOutput() }
+		if i := state.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToSlotConnectionStringsArrayOutput() }
+		if i := state.DefaultSiteHostname; i != nil { inputs["defaultSiteHostname"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.HttpsOnly; i != nil { inputs["httpsOnly"] = i.ToBoolOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToSlotIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Logs; i != nil { inputs["logs"] = i.ToSlotLogsOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SiteConfig; i != nil { inputs["siteConfig"] = i.ToSlotSiteConfigOutput() }
+		if i := state.SiteCredential; i != nil { inputs["siteCredential"] = i.ToSlotSiteCredentialOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/slot:Slot", name, id, inputs, opts...)
+	var resource Slot
+	err := ctx.ReadResource("azure:appservice/slot:Slot", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Slot{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Slot) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Slot) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
-func (r *Slot) AppServiceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServiceName"])
-}
-
-// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
-func (r *Slot) AppServicePlanId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServicePlanId"])
-}
-
-// A key-value pair of App Settings.
-func (r *Slot) AppSettings() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["appSettings"])
-}
-
-// A `authSettings` block as defined below.
-func (r *Slot) AuthSettings() pulumi.Output {
-	return r.s.State["authSettings"]
-}
-
-// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-func (r *Slot) ClientAffinityEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
-}
-
-// An `connectionString` block as defined below.
-func (r *Slot) ConnectionStrings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
-}
-
-// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
-func (r *Slot) DefaultSiteHostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
-}
-
-// Is the App Service Slot Enabled?
-func (r *Slot) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-func (r *Slot) HttpsOnly() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["httpsOnly"])
-}
-
-// A Managed Service Identity block as defined below.
-func (r *Slot) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Slot) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-func (r *Slot) Logs() pulumi.Output {
-	return r.s.State["logs"]
-}
-
-// The name of the Connection String.
-func (r *Slot) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the App Service Slot component.
-func (r *Slot) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `siteConfig` object as defined below.
-func (r *Slot) SiteConfig() pulumi.Output {
-	return r.s.State["siteConfig"]
-}
-
-// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-func (r *Slot) SiteCredential() pulumi.Output {
-	return r.s.State["siteCredential"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Slot) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Slot resources.
 type SlotState struct {
 	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
-	AppServiceName interface{}
+	AppServiceName pulumi.StringInput `pulumi:"appServiceName"`
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
-	AppServicePlanId interface{}
+	AppServicePlanId pulumi.StringInput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
-	AppSettings interface{}
+	AppSettings pulumi.StringMapInput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings interface{}
+	AuthSettings SlotAuthSettingsInput `pulumi:"authSettings"`
 	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled pulumi.BoolInput `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings SlotConnectionStringsArrayInput `pulumi:"connectionStrings"`
 	// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
-	DefaultSiteHostname interface{}
+	DefaultSiteHostname pulumi.StringInput `pulumi:"defaultSiteHostname"`
 	// Is the App Service Slot Enabled?
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-	HttpsOnly interface{}
+	HttpsOnly pulumi.BoolInput `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
-	Identity interface{}
+	Identity SlotIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
-	Logs interface{}
+	Location pulumi.StringInput `pulumi:"location"`
+	Logs SlotLogsInput `pulumi:"logs"`
 	// The name of the Connection String.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
-	SiteConfig interface{}
+	SiteConfig SlotSiteConfigInput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential interface{}
+	SiteCredential SlotSiteCredentialInput `pulumi:"siteCredential"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Slot resource.
 type SlotArgs struct {
 	// The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
-	AppServiceName interface{}
+	AppServiceName pulumi.StringInput `pulumi:"appServiceName"`
 	// The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
-	AppServicePlanId interface{}
+	AppServicePlanId pulumi.StringInput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
-	AppSettings interface{}
+	AppSettings pulumi.StringMapInput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings interface{}
+	AuthSettings SlotAuthSettingsInput `pulumi:"authSettings"`
 	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled pulumi.BoolInput `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings SlotConnectionStringsArrayInput `pulumi:"connectionStrings"`
 	// Is the App Service Slot Enabled?
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-	HttpsOnly interface{}
+	HttpsOnly pulumi.BoolInput `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
-	Identity interface{}
+	Identity SlotIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
-	Logs interface{}
+	Location pulumi.StringInput `pulumi:"location"`
+	Logs SlotLogsInput `pulumi:"logs"`
 	// The name of the Connection String.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
-	SiteConfig interface{}
+	SiteConfig SlotSiteConfigInput `pulumi:"siteConfig"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type SlotAuthSettings struct {
+	ActiveDirectory *SlotAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	AdditionalLoginParams *map[string]string `pulumi:"additionalLoginParams"`
+	AllowedExternalRedirectUrls *[]string `pulumi:"allowedExternalRedirectUrls"`
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is the App Service Slot Enabled?
+	Enabled bool `pulumi:"enabled"`
+	Facebook *SlotAuthSettingsFacebook `pulumi:"facebook"`
+	Google *SlotAuthSettingsGoogle `pulumi:"google"`
+	Issuer *string `pulumi:"issuer"`
+	Microsoft *SlotAuthSettingsMicrosoft `pulumi:"microsoft"`
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	Twitter *SlotAuthSettingsTwitter `pulumi:"twitter"`
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
+}
+var slotAuthSettingsType = reflect.TypeOf((*SlotAuthSettings)(nil)).Elem()
+
+type SlotAuthSettingsInput interface {
+	pulumi.Input
+
+	ToSlotAuthSettingsOutput() SlotAuthSettingsOutput
+	ToSlotAuthSettingsOutputWithContext(ctx context.Context) SlotAuthSettingsOutput
+}
+
+type SlotAuthSettingsArgs struct {
+	ActiveDirectory SlotAuthSettingsActiveDirectoryInput `pulumi:"activeDirectory"`
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// Is the App Service Slot Enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Facebook SlotAuthSettingsFacebookInput `pulumi:"facebook"`
+	Google SlotAuthSettingsGoogleInput `pulumi:"google"`
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	Microsoft SlotAuthSettingsMicrosoftInput `pulumi:"microsoft"`
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours pulumi.Float64Input `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	Twitter SlotAuthSettingsTwitterInput `pulumi:"twitter"`
+	UnauthenticatedClientAction pulumi.StringInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (SlotAuthSettingsArgs) ElementType() reflect.Type {
+	return slotAuthSettingsType
+}
+
+func (a SlotAuthSettingsArgs) ToSlotAuthSettingsOutput() SlotAuthSettingsOutput {
+	return pulumi.ToOutput(a).(SlotAuthSettingsOutput)
+}
+
+func (a SlotAuthSettingsArgs) ToSlotAuthSettingsOutputWithContext(ctx context.Context) SlotAuthSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotAuthSettingsOutput)
+}
+
+type SlotAuthSettingsOutput struct { *pulumi.OutputState }
+
+func (o SlotAuthSettingsOutput) ActiveDirectory() SlotAuthSettingsActiveDirectoryOutput {
+	return o.Apply(func(v SlotAuthSettings) SlotAuthSettingsActiveDirectory {
+		if v.ActiveDirectory == nil { return *new(SlotAuthSettingsActiveDirectory) } else { return *v.ActiveDirectory }
+	}).(SlotAuthSettingsActiveDirectoryOutput)
+}
+
+func (o SlotAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
+	return o.Apply(func(v SlotAuthSettings) map[string]string {
+		if v.AdditionalLoginParams == nil { return *new(map[string]string) } else { return *v.AdditionalLoginParams }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o SlotAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotAuthSettings) []string {
+		if v.AllowedExternalRedirectUrls == nil { return *new([]string) } else { return *v.AllowedExternalRedirectUrls }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SlotAuthSettingsOutput) DefaultProvider() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettings) string {
+		if v.DefaultProvider == nil { return *new(string) } else { return *v.DefaultProvider }
+	}).(pulumi.StringOutput)
+}
+
+// Is the App Service Slot Enabled?
+func (o SlotAuthSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v SlotAuthSettings) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o SlotAuthSettingsOutput) Facebook() SlotAuthSettingsFacebookOutput {
+	return o.Apply(func(v SlotAuthSettings) SlotAuthSettingsFacebook {
+		if v.Facebook == nil { return *new(SlotAuthSettingsFacebook) } else { return *v.Facebook }
+	}).(SlotAuthSettingsFacebookOutput)
+}
+
+func (o SlotAuthSettingsOutput) Google() SlotAuthSettingsGoogleOutput {
+	return o.Apply(func(v SlotAuthSettings) SlotAuthSettingsGoogle {
+		if v.Google == nil { return *new(SlotAuthSettingsGoogle) } else { return *v.Google }
+	}).(SlotAuthSettingsGoogleOutput)
+}
+
+func (o SlotAuthSettingsOutput) Issuer() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettings) string {
+		if v.Issuer == nil { return *new(string) } else { return *v.Issuer }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsOutput) Microsoft() SlotAuthSettingsMicrosoftOutput {
+	return o.Apply(func(v SlotAuthSettings) SlotAuthSettingsMicrosoft {
+		if v.Microsoft == nil { return *new(SlotAuthSettingsMicrosoft) } else { return *v.Microsoft }
+	}).(SlotAuthSettingsMicrosoftOutput)
+}
+
+func (o SlotAuthSettingsOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettings) string {
+		if v.RuntimeVersion == nil { return *new(string) } else { return *v.RuntimeVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64Output {
+	return o.Apply(func(v SlotAuthSettings) float64 {
+		if v.TokenRefreshExtensionHours == nil { return *new(float64) } else { return *v.TokenRefreshExtensionHours }
+	}).(pulumi.Float64Output)
+}
+
+func (o SlotAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v SlotAuthSettings) bool {
+		if v.TokenStoreEnabled == nil { return *new(bool) } else { return *v.TokenStoreEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SlotAuthSettingsOutput) Twitter() SlotAuthSettingsTwitterOutput {
+	return o.Apply(func(v SlotAuthSettings) SlotAuthSettingsTwitter {
+		if v.Twitter == nil { return *new(SlotAuthSettingsTwitter) } else { return *v.Twitter }
+	}).(SlotAuthSettingsTwitterOutput)
+}
+
+func (o SlotAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettings) string {
+		if v.UnauthenticatedClientAction == nil { return *new(string) } else { return *v.UnauthenticatedClientAction }
+	}).(pulumi.StringOutput)
+}
+
+func (SlotAuthSettingsOutput) ElementType() reflect.Type {
+	return slotAuthSettingsType
+}
+
+func (o SlotAuthSettingsOutput) ToSlotAuthSettingsOutput() SlotAuthSettingsOutput {
+	return o
+}
+
+func (o SlotAuthSettingsOutput) ToSlotAuthSettingsOutputWithContext(ctx context.Context) SlotAuthSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotAuthSettingsOutput{}) }
+
+type SlotAuthSettingsActiveDirectory struct {
+	AllowedAudiences *[]string `pulumi:"allowedAudiences"`
+	ClientId string `pulumi:"clientId"`
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+var slotAuthSettingsActiveDirectoryType = reflect.TypeOf((*SlotAuthSettingsActiveDirectory)(nil)).Elem()
+
+type SlotAuthSettingsActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToSlotAuthSettingsActiveDirectoryOutput() SlotAuthSettingsActiveDirectoryOutput
+	ToSlotAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) SlotAuthSettingsActiveDirectoryOutput
+}
+
+type SlotAuthSettingsActiveDirectoryArgs struct {
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (SlotAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
+	return slotAuthSettingsActiveDirectoryType
+}
+
+func (a SlotAuthSettingsActiveDirectoryArgs) ToSlotAuthSettingsActiveDirectoryOutput() SlotAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(SlotAuthSettingsActiveDirectoryOutput)
+}
+
+func (a SlotAuthSettingsActiveDirectoryArgs) ToSlotAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) SlotAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotAuthSettingsActiveDirectoryOutput)
+}
+
+type SlotAuthSettingsActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o SlotAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotAuthSettingsActiveDirectory) []string {
+		if v.AllowedAudiences == nil { return *new([]string) } else { return *v.AllowedAudiences }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SlotAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsActiveDirectory) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsActiveDirectory) string {
+		if v.ClientSecret == nil { return *new(string) } else { return *v.ClientSecret }
+	}).(pulumi.StringOutput)
+}
+
+func (SlotAuthSettingsActiveDirectoryOutput) ElementType() reflect.Type {
+	return slotAuthSettingsActiveDirectoryType
+}
+
+func (o SlotAuthSettingsActiveDirectoryOutput) ToSlotAuthSettingsActiveDirectoryOutput() SlotAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func (o SlotAuthSettingsActiveDirectoryOutput) ToSlotAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) SlotAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotAuthSettingsActiveDirectoryOutput{}) }
+
+type SlotAuthSettingsFacebook struct {
+	AppId string `pulumi:"appId"`
+	AppSecret string `pulumi:"appSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var slotAuthSettingsFacebookType = reflect.TypeOf((*SlotAuthSettingsFacebook)(nil)).Elem()
+
+type SlotAuthSettingsFacebookInput interface {
+	pulumi.Input
+
+	ToSlotAuthSettingsFacebookOutput() SlotAuthSettingsFacebookOutput
+	ToSlotAuthSettingsFacebookOutputWithContext(ctx context.Context) SlotAuthSettingsFacebookOutput
+}
+
+type SlotAuthSettingsFacebookArgs struct {
+	AppId pulumi.StringInput `pulumi:"appId"`
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (SlotAuthSettingsFacebookArgs) ElementType() reflect.Type {
+	return slotAuthSettingsFacebookType
+}
+
+func (a SlotAuthSettingsFacebookArgs) ToSlotAuthSettingsFacebookOutput() SlotAuthSettingsFacebookOutput {
+	return pulumi.ToOutput(a).(SlotAuthSettingsFacebookOutput)
+}
+
+func (a SlotAuthSettingsFacebookArgs) ToSlotAuthSettingsFacebookOutputWithContext(ctx context.Context) SlotAuthSettingsFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotAuthSettingsFacebookOutput)
+}
+
+type SlotAuthSettingsFacebookOutput struct { *pulumi.OutputState }
+
+func (o SlotAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsFacebook) string {
+		return v.AppId
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsFacebook) string {
+		return v.AppSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotAuthSettingsFacebook) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (SlotAuthSettingsFacebookOutput) ElementType() reflect.Type {
+	return slotAuthSettingsFacebookType
+}
+
+func (o SlotAuthSettingsFacebookOutput) ToSlotAuthSettingsFacebookOutput() SlotAuthSettingsFacebookOutput {
+	return o
+}
+
+func (o SlotAuthSettingsFacebookOutput) ToSlotAuthSettingsFacebookOutputWithContext(ctx context.Context) SlotAuthSettingsFacebookOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotAuthSettingsFacebookOutput{}) }
+
+type SlotAuthSettingsGoogle struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var slotAuthSettingsGoogleType = reflect.TypeOf((*SlotAuthSettingsGoogle)(nil)).Elem()
+
+type SlotAuthSettingsGoogleInput interface {
+	pulumi.Input
+
+	ToSlotAuthSettingsGoogleOutput() SlotAuthSettingsGoogleOutput
+	ToSlotAuthSettingsGoogleOutputWithContext(ctx context.Context) SlotAuthSettingsGoogleOutput
+}
+
+type SlotAuthSettingsGoogleArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (SlotAuthSettingsGoogleArgs) ElementType() reflect.Type {
+	return slotAuthSettingsGoogleType
+}
+
+func (a SlotAuthSettingsGoogleArgs) ToSlotAuthSettingsGoogleOutput() SlotAuthSettingsGoogleOutput {
+	return pulumi.ToOutput(a).(SlotAuthSettingsGoogleOutput)
+}
+
+func (a SlotAuthSettingsGoogleArgs) ToSlotAuthSettingsGoogleOutputWithContext(ctx context.Context) SlotAuthSettingsGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotAuthSettingsGoogleOutput)
+}
+
+type SlotAuthSettingsGoogleOutput struct { *pulumi.OutputState }
+
+func (o SlotAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsGoogle) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsGoogle) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotAuthSettingsGoogle) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (SlotAuthSettingsGoogleOutput) ElementType() reflect.Type {
+	return slotAuthSettingsGoogleType
+}
+
+func (o SlotAuthSettingsGoogleOutput) ToSlotAuthSettingsGoogleOutput() SlotAuthSettingsGoogleOutput {
+	return o
+}
+
+func (o SlotAuthSettingsGoogleOutput) ToSlotAuthSettingsGoogleOutputWithContext(ctx context.Context) SlotAuthSettingsGoogleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotAuthSettingsGoogleOutput{}) }
+
+type SlotAuthSettingsMicrosoft struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var slotAuthSettingsMicrosoftType = reflect.TypeOf((*SlotAuthSettingsMicrosoft)(nil)).Elem()
+
+type SlotAuthSettingsMicrosoftInput interface {
+	pulumi.Input
+
+	ToSlotAuthSettingsMicrosoftOutput() SlotAuthSettingsMicrosoftOutput
+	ToSlotAuthSettingsMicrosoftOutputWithContext(ctx context.Context) SlotAuthSettingsMicrosoftOutput
+}
+
+type SlotAuthSettingsMicrosoftArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (SlotAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
+	return slotAuthSettingsMicrosoftType
+}
+
+func (a SlotAuthSettingsMicrosoftArgs) ToSlotAuthSettingsMicrosoftOutput() SlotAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutput(a).(SlotAuthSettingsMicrosoftOutput)
+}
+
+func (a SlotAuthSettingsMicrosoftArgs) ToSlotAuthSettingsMicrosoftOutputWithContext(ctx context.Context) SlotAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotAuthSettingsMicrosoftOutput)
+}
+
+type SlotAuthSettingsMicrosoftOutput struct { *pulumi.OutputState }
+
+func (o SlotAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsMicrosoft) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsMicrosoft) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotAuthSettingsMicrosoft) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (SlotAuthSettingsMicrosoftOutput) ElementType() reflect.Type {
+	return slotAuthSettingsMicrosoftType
+}
+
+func (o SlotAuthSettingsMicrosoftOutput) ToSlotAuthSettingsMicrosoftOutput() SlotAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func (o SlotAuthSettingsMicrosoftOutput) ToSlotAuthSettingsMicrosoftOutputWithContext(ctx context.Context) SlotAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotAuthSettingsMicrosoftOutput{}) }
+
+type SlotAuthSettingsTwitter struct {
+	ConsumerKey string `pulumi:"consumerKey"`
+	ConsumerSecret string `pulumi:"consumerSecret"`
+}
+var slotAuthSettingsTwitterType = reflect.TypeOf((*SlotAuthSettingsTwitter)(nil)).Elem()
+
+type SlotAuthSettingsTwitterInput interface {
+	pulumi.Input
+
+	ToSlotAuthSettingsTwitterOutput() SlotAuthSettingsTwitterOutput
+	ToSlotAuthSettingsTwitterOutputWithContext(ctx context.Context) SlotAuthSettingsTwitterOutput
+}
+
+type SlotAuthSettingsTwitterArgs struct {
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+}
+
+func (SlotAuthSettingsTwitterArgs) ElementType() reflect.Type {
+	return slotAuthSettingsTwitterType
+}
+
+func (a SlotAuthSettingsTwitterArgs) ToSlotAuthSettingsTwitterOutput() SlotAuthSettingsTwitterOutput {
+	return pulumi.ToOutput(a).(SlotAuthSettingsTwitterOutput)
+}
+
+func (a SlotAuthSettingsTwitterArgs) ToSlotAuthSettingsTwitterOutputWithContext(ctx context.Context) SlotAuthSettingsTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotAuthSettingsTwitterOutput)
+}
+
+type SlotAuthSettingsTwitterOutput struct { *pulumi.OutputState }
+
+func (o SlotAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsTwitter) string {
+		return v.ConsumerKey
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotAuthSettingsTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.Apply(func(v SlotAuthSettingsTwitter) string {
+		return v.ConsumerSecret
+	}).(pulumi.StringOutput)
+}
+
+func (SlotAuthSettingsTwitterOutput) ElementType() reflect.Type {
+	return slotAuthSettingsTwitterType
+}
+
+func (o SlotAuthSettingsTwitterOutput) ToSlotAuthSettingsTwitterOutput() SlotAuthSettingsTwitterOutput {
+	return o
+}
+
+func (o SlotAuthSettingsTwitterOutput) ToSlotAuthSettingsTwitterOutputWithContext(ctx context.Context) SlotAuthSettingsTwitterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotAuthSettingsTwitterOutput{}) }
+
+type SlotConnectionStrings struct {
+	// The name of the Connection String.
+	Name string `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
+	Value string `pulumi:"value"`
+}
+var slotConnectionStringsType = reflect.TypeOf((*SlotConnectionStrings)(nil)).Elem()
+
+type SlotConnectionStringsInput interface {
+	pulumi.Input
+
+	ToSlotConnectionStringsOutput() SlotConnectionStringsOutput
+	ToSlotConnectionStringsOutputWithContext(ctx context.Context) SlotConnectionStringsOutput
+}
+
+type SlotConnectionStringsArgs struct {
+	// The name of the Connection String.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the Connection String.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SlotConnectionStringsArgs) ElementType() reflect.Type {
+	return slotConnectionStringsType
+}
+
+func (a SlotConnectionStringsArgs) ToSlotConnectionStringsOutput() SlotConnectionStringsOutput {
+	return pulumi.ToOutput(a).(SlotConnectionStringsOutput)
+}
+
+func (a SlotConnectionStringsArgs) ToSlotConnectionStringsOutputWithContext(ctx context.Context) SlotConnectionStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotConnectionStringsOutput)
+}
+
+type SlotConnectionStringsOutput struct { *pulumi.OutputState }
+
+// The name of the Connection String.
+func (o SlotConnectionStringsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v SlotConnectionStrings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+func (o SlotConnectionStringsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v SlotConnectionStrings) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The value for the Connection String.
+func (o SlotConnectionStringsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v SlotConnectionStrings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (SlotConnectionStringsOutput) ElementType() reflect.Type {
+	return slotConnectionStringsType
+}
+
+func (o SlotConnectionStringsOutput) ToSlotConnectionStringsOutput() SlotConnectionStringsOutput {
+	return o
+}
+
+func (o SlotConnectionStringsOutput) ToSlotConnectionStringsOutputWithContext(ctx context.Context) SlotConnectionStringsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotConnectionStringsOutput{}) }
+
+var slotConnectionStringsArrayType = reflect.TypeOf((*[]SlotConnectionStrings)(nil)).Elem()
+
+type SlotConnectionStringsArrayInput interface {
+	pulumi.Input
+
+	ToSlotConnectionStringsArrayOutput() SlotConnectionStringsArrayOutput
+	ToSlotConnectionStringsArrayOutputWithContext(ctx context.Context) SlotConnectionStringsArrayOutput
+}
+
+type SlotConnectionStringsArrayArgs []SlotConnectionStringsInput
+
+func (SlotConnectionStringsArrayArgs) ElementType() reflect.Type {
+	return slotConnectionStringsArrayType
+}
+
+func (a SlotConnectionStringsArrayArgs) ToSlotConnectionStringsArrayOutput() SlotConnectionStringsArrayOutput {
+	return pulumi.ToOutput(a).(SlotConnectionStringsArrayOutput)
+}
+
+func (a SlotConnectionStringsArrayArgs) ToSlotConnectionStringsArrayOutputWithContext(ctx context.Context) SlotConnectionStringsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotConnectionStringsArrayOutput)
+}
+
+type SlotConnectionStringsArrayOutput struct { *pulumi.OutputState }
+
+func (o SlotConnectionStringsArrayOutput) Index(i pulumi.IntInput) SlotConnectionStringsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SlotConnectionStrings {
+		return vs[0].([]SlotConnectionStrings)[vs[1].(int)]
+	}).(SlotConnectionStringsOutput)
+}
+
+func (SlotConnectionStringsArrayOutput) ElementType() reflect.Type {
+	return slotConnectionStringsArrayType
+}
+
+func (o SlotConnectionStringsArrayOutput) ToSlotConnectionStringsArrayOutput() SlotConnectionStringsArrayOutput {
+	return o
+}
+
+func (o SlotConnectionStringsArrayOutput) ToSlotConnectionStringsArrayOutputWithContext(ctx context.Context) SlotConnectionStringsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotConnectionStringsArrayOutput{}) }
+
+type SlotIdentity struct {
+	IdentityIds *[]string `pulumi:"identityIds"`
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId *string `pulumi:"tenantId"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+	Type string `pulumi:"type"`
+}
+var slotIdentityType = reflect.TypeOf((*SlotIdentity)(nil)).Elem()
+
+type SlotIdentityInput interface {
+	pulumi.Input
+
+	ToSlotIdentityOutput() SlotIdentityOutput
+	ToSlotIdentityOutputWithContext(ctx context.Context) SlotIdentityOutput
+}
+
+type SlotIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SlotIdentityArgs) ElementType() reflect.Type {
+	return slotIdentityType
+}
+
+func (a SlotIdentityArgs) ToSlotIdentityOutput() SlotIdentityOutput {
+	return pulumi.ToOutput(a).(SlotIdentityOutput)
+}
+
+func (a SlotIdentityArgs) ToSlotIdentityOutputWithContext(ctx context.Context) SlotIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotIdentityOutput)
+}
+
+type SlotIdentityOutput struct { *pulumi.OutputState }
+
+func (o SlotIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotIdentity) []string {
+		if v.IdentityIds == nil { return *new([]string) } else { return *v.IdentityIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SlotIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v SlotIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v SlotIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and  `SQLServer`.
+func (o SlotIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v SlotIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (SlotIdentityOutput) ElementType() reflect.Type {
+	return slotIdentityType
+}
+
+func (o SlotIdentityOutput) ToSlotIdentityOutput() SlotIdentityOutput {
+	return o
+}
+
+func (o SlotIdentityOutput) ToSlotIdentityOutputWithContext(ctx context.Context) SlotIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotIdentityOutput{}) }
+
+type SlotLogs struct {
+	ApplicationLogs *SlotLogsApplicationLogs `pulumi:"applicationLogs"`
+	HttpLogs *SlotLogsHttpLogs `pulumi:"httpLogs"`
+}
+var slotLogsType = reflect.TypeOf((*SlotLogs)(nil)).Elem()
+
+type SlotLogsInput interface {
+	pulumi.Input
+
+	ToSlotLogsOutput() SlotLogsOutput
+	ToSlotLogsOutputWithContext(ctx context.Context) SlotLogsOutput
+}
+
+type SlotLogsArgs struct {
+	ApplicationLogs SlotLogsApplicationLogsInput `pulumi:"applicationLogs"`
+	HttpLogs SlotLogsHttpLogsInput `pulumi:"httpLogs"`
+}
+
+func (SlotLogsArgs) ElementType() reflect.Type {
+	return slotLogsType
+}
+
+func (a SlotLogsArgs) ToSlotLogsOutput() SlotLogsOutput {
+	return pulumi.ToOutput(a).(SlotLogsOutput)
+}
+
+func (a SlotLogsArgs) ToSlotLogsOutputWithContext(ctx context.Context) SlotLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotLogsOutput)
+}
+
+type SlotLogsOutput struct { *pulumi.OutputState }
+
+func (o SlotLogsOutput) ApplicationLogs() SlotLogsApplicationLogsOutput {
+	return o.Apply(func(v SlotLogs) SlotLogsApplicationLogs {
+		if v.ApplicationLogs == nil { return *new(SlotLogsApplicationLogs) } else { return *v.ApplicationLogs }
+	}).(SlotLogsApplicationLogsOutput)
+}
+
+func (o SlotLogsOutput) HttpLogs() SlotLogsHttpLogsOutput {
+	return o.Apply(func(v SlotLogs) SlotLogsHttpLogs {
+		if v.HttpLogs == nil { return *new(SlotLogsHttpLogs) } else { return *v.HttpLogs }
+	}).(SlotLogsHttpLogsOutput)
+}
+
+func (SlotLogsOutput) ElementType() reflect.Type {
+	return slotLogsType
+}
+
+func (o SlotLogsOutput) ToSlotLogsOutput() SlotLogsOutput {
+	return o
+}
+
+func (o SlotLogsOutput) ToSlotLogsOutputWithContext(ctx context.Context) SlotLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotLogsOutput{}) }
+
+type SlotLogsApplicationLogs struct {
+	AzureBlobStorage *SlotLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
+}
+var slotLogsApplicationLogsType = reflect.TypeOf((*SlotLogsApplicationLogs)(nil)).Elem()
+
+type SlotLogsApplicationLogsInput interface {
+	pulumi.Input
+
+	ToSlotLogsApplicationLogsOutput() SlotLogsApplicationLogsOutput
+	ToSlotLogsApplicationLogsOutputWithContext(ctx context.Context) SlotLogsApplicationLogsOutput
+}
+
+type SlotLogsApplicationLogsArgs struct {
+	AzureBlobStorage SlotLogsApplicationLogsAzureBlobStorageInput `pulumi:"azureBlobStorage"`
+}
+
+func (SlotLogsApplicationLogsArgs) ElementType() reflect.Type {
+	return slotLogsApplicationLogsType
+}
+
+func (a SlotLogsApplicationLogsArgs) ToSlotLogsApplicationLogsOutput() SlotLogsApplicationLogsOutput {
+	return pulumi.ToOutput(a).(SlotLogsApplicationLogsOutput)
+}
+
+func (a SlotLogsApplicationLogsArgs) ToSlotLogsApplicationLogsOutputWithContext(ctx context.Context) SlotLogsApplicationLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotLogsApplicationLogsOutput)
+}
+
+type SlotLogsApplicationLogsOutput struct { *pulumi.OutputState }
+
+func (o SlotLogsApplicationLogsOutput) AzureBlobStorage() SlotLogsApplicationLogsAzureBlobStorageOutput {
+	return o.Apply(func(v SlotLogsApplicationLogs) SlotLogsApplicationLogsAzureBlobStorage {
+		if v.AzureBlobStorage == nil { return *new(SlotLogsApplicationLogsAzureBlobStorage) } else { return *v.AzureBlobStorage }
+	}).(SlotLogsApplicationLogsAzureBlobStorageOutput)
+}
+
+func (SlotLogsApplicationLogsOutput) ElementType() reflect.Type {
+	return slotLogsApplicationLogsType
+}
+
+func (o SlotLogsApplicationLogsOutput) ToSlotLogsApplicationLogsOutput() SlotLogsApplicationLogsOutput {
+	return o
+}
+
+func (o SlotLogsApplicationLogsOutput) ToSlotLogsApplicationLogsOutputWithContext(ctx context.Context) SlotLogsApplicationLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotLogsApplicationLogsOutput{}) }
+
+type SlotLogsApplicationLogsAzureBlobStorage struct {
+	Level string `pulumi:"level"`
+	RetentionInDays int `pulumi:"retentionInDays"`
+	SasUrl string `pulumi:"sasUrl"`
+}
+var slotLogsApplicationLogsAzureBlobStorageType = reflect.TypeOf((*SlotLogsApplicationLogsAzureBlobStorage)(nil)).Elem()
+
+type SlotLogsApplicationLogsAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToSlotLogsApplicationLogsAzureBlobStorageOutput() SlotLogsApplicationLogsAzureBlobStorageOutput
+	ToSlotLogsApplicationLogsAzureBlobStorageOutputWithContext(ctx context.Context) SlotLogsApplicationLogsAzureBlobStorageOutput
+}
+
+type SlotLogsApplicationLogsAzureBlobStorageArgs struct {
+	Level pulumi.StringInput `pulumi:"level"`
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (SlotLogsApplicationLogsAzureBlobStorageArgs) ElementType() reflect.Type {
+	return slotLogsApplicationLogsAzureBlobStorageType
+}
+
+func (a SlotLogsApplicationLogsAzureBlobStorageArgs) ToSlotLogsApplicationLogsAzureBlobStorageOutput() SlotLogsApplicationLogsAzureBlobStorageOutput {
+	return pulumi.ToOutput(a).(SlotLogsApplicationLogsAzureBlobStorageOutput)
+}
+
+func (a SlotLogsApplicationLogsAzureBlobStorageArgs) ToSlotLogsApplicationLogsAzureBlobStorageOutputWithContext(ctx context.Context) SlotLogsApplicationLogsAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotLogsApplicationLogsAzureBlobStorageOutput)
+}
+
+type SlotLogsApplicationLogsAzureBlobStorageOutput struct { *pulumi.OutputState }
+
+func (o SlotLogsApplicationLogsAzureBlobStorageOutput) Level() pulumi.StringOutput {
+	return o.Apply(func(v SlotLogsApplicationLogsAzureBlobStorage) string {
+		return v.Level
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotLogsApplicationLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.Apply(func(v SlotLogsApplicationLogsAzureBlobStorage) int {
+		return v.RetentionInDays
+	}).(pulumi.IntOutput)
+}
+
+func (o SlotLogsApplicationLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.Apply(func(v SlotLogsApplicationLogsAzureBlobStorage) string {
+		return v.SasUrl
+	}).(pulumi.StringOutput)
+}
+
+func (SlotLogsApplicationLogsAzureBlobStorageOutput) ElementType() reflect.Type {
+	return slotLogsApplicationLogsAzureBlobStorageType
+}
+
+func (o SlotLogsApplicationLogsAzureBlobStorageOutput) ToSlotLogsApplicationLogsAzureBlobStorageOutput() SlotLogsApplicationLogsAzureBlobStorageOutput {
+	return o
+}
+
+func (o SlotLogsApplicationLogsAzureBlobStorageOutput) ToSlotLogsApplicationLogsAzureBlobStorageOutputWithContext(ctx context.Context) SlotLogsApplicationLogsAzureBlobStorageOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotLogsApplicationLogsAzureBlobStorageOutput{}) }
+
+type SlotLogsHttpLogs struct {
+	AzureBlobStorage *SlotLogsHttpLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
+	FileSystem *SlotLogsHttpLogsFileSystem `pulumi:"fileSystem"`
+}
+var slotLogsHttpLogsType = reflect.TypeOf((*SlotLogsHttpLogs)(nil)).Elem()
+
+type SlotLogsHttpLogsInput interface {
+	pulumi.Input
+
+	ToSlotLogsHttpLogsOutput() SlotLogsHttpLogsOutput
+	ToSlotLogsHttpLogsOutputWithContext(ctx context.Context) SlotLogsHttpLogsOutput
+}
+
+type SlotLogsHttpLogsArgs struct {
+	AzureBlobStorage SlotLogsHttpLogsAzureBlobStorageInput `pulumi:"azureBlobStorage"`
+	FileSystem SlotLogsHttpLogsFileSystemInput `pulumi:"fileSystem"`
+}
+
+func (SlotLogsHttpLogsArgs) ElementType() reflect.Type {
+	return slotLogsHttpLogsType
+}
+
+func (a SlotLogsHttpLogsArgs) ToSlotLogsHttpLogsOutput() SlotLogsHttpLogsOutput {
+	return pulumi.ToOutput(a).(SlotLogsHttpLogsOutput)
+}
+
+func (a SlotLogsHttpLogsArgs) ToSlotLogsHttpLogsOutputWithContext(ctx context.Context) SlotLogsHttpLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotLogsHttpLogsOutput)
+}
+
+type SlotLogsHttpLogsOutput struct { *pulumi.OutputState }
+
+func (o SlotLogsHttpLogsOutput) AzureBlobStorage() SlotLogsHttpLogsAzureBlobStorageOutput {
+	return o.Apply(func(v SlotLogsHttpLogs) SlotLogsHttpLogsAzureBlobStorage {
+		if v.AzureBlobStorage == nil { return *new(SlotLogsHttpLogsAzureBlobStorage) } else { return *v.AzureBlobStorage }
+	}).(SlotLogsHttpLogsAzureBlobStorageOutput)
+}
+
+func (o SlotLogsHttpLogsOutput) FileSystem() SlotLogsHttpLogsFileSystemOutput {
+	return o.Apply(func(v SlotLogsHttpLogs) SlotLogsHttpLogsFileSystem {
+		if v.FileSystem == nil { return *new(SlotLogsHttpLogsFileSystem) } else { return *v.FileSystem }
+	}).(SlotLogsHttpLogsFileSystemOutput)
+}
+
+func (SlotLogsHttpLogsOutput) ElementType() reflect.Type {
+	return slotLogsHttpLogsType
+}
+
+func (o SlotLogsHttpLogsOutput) ToSlotLogsHttpLogsOutput() SlotLogsHttpLogsOutput {
+	return o
+}
+
+func (o SlotLogsHttpLogsOutput) ToSlotLogsHttpLogsOutputWithContext(ctx context.Context) SlotLogsHttpLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotLogsHttpLogsOutput{}) }
+
+type SlotLogsHttpLogsAzureBlobStorage struct {
+	RetentionInDays int `pulumi:"retentionInDays"`
+	SasUrl string `pulumi:"sasUrl"`
+}
+var slotLogsHttpLogsAzureBlobStorageType = reflect.TypeOf((*SlotLogsHttpLogsAzureBlobStorage)(nil)).Elem()
+
+type SlotLogsHttpLogsAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToSlotLogsHttpLogsAzureBlobStorageOutput() SlotLogsHttpLogsAzureBlobStorageOutput
+	ToSlotLogsHttpLogsAzureBlobStorageOutputWithContext(ctx context.Context) SlotLogsHttpLogsAzureBlobStorageOutput
+}
+
+type SlotLogsHttpLogsAzureBlobStorageArgs struct {
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (SlotLogsHttpLogsAzureBlobStorageArgs) ElementType() reflect.Type {
+	return slotLogsHttpLogsAzureBlobStorageType
+}
+
+func (a SlotLogsHttpLogsAzureBlobStorageArgs) ToSlotLogsHttpLogsAzureBlobStorageOutput() SlotLogsHttpLogsAzureBlobStorageOutput {
+	return pulumi.ToOutput(a).(SlotLogsHttpLogsAzureBlobStorageOutput)
+}
+
+func (a SlotLogsHttpLogsAzureBlobStorageArgs) ToSlotLogsHttpLogsAzureBlobStorageOutputWithContext(ctx context.Context) SlotLogsHttpLogsAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotLogsHttpLogsAzureBlobStorageOutput)
+}
+
+type SlotLogsHttpLogsAzureBlobStorageOutput struct { *pulumi.OutputState }
+
+func (o SlotLogsHttpLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.Apply(func(v SlotLogsHttpLogsAzureBlobStorage) int {
+		return v.RetentionInDays
+	}).(pulumi.IntOutput)
+}
+
+func (o SlotLogsHttpLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.Apply(func(v SlotLogsHttpLogsAzureBlobStorage) string {
+		return v.SasUrl
+	}).(pulumi.StringOutput)
+}
+
+func (SlotLogsHttpLogsAzureBlobStorageOutput) ElementType() reflect.Type {
+	return slotLogsHttpLogsAzureBlobStorageType
+}
+
+func (o SlotLogsHttpLogsAzureBlobStorageOutput) ToSlotLogsHttpLogsAzureBlobStorageOutput() SlotLogsHttpLogsAzureBlobStorageOutput {
+	return o
+}
+
+func (o SlotLogsHttpLogsAzureBlobStorageOutput) ToSlotLogsHttpLogsAzureBlobStorageOutputWithContext(ctx context.Context) SlotLogsHttpLogsAzureBlobStorageOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotLogsHttpLogsAzureBlobStorageOutput{}) }
+
+type SlotLogsHttpLogsFileSystem struct {
+	RetentionInDays int `pulumi:"retentionInDays"`
+	RetentionInMb int `pulumi:"retentionInMb"`
+}
+var slotLogsHttpLogsFileSystemType = reflect.TypeOf((*SlotLogsHttpLogsFileSystem)(nil)).Elem()
+
+type SlotLogsHttpLogsFileSystemInput interface {
+	pulumi.Input
+
+	ToSlotLogsHttpLogsFileSystemOutput() SlotLogsHttpLogsFileSystemOutput
+	ToSlotLogsHttpLogsFileSystemOutputWithContext(ctx context.Context) SlotLogsHttpLogsFileSystemOutput
+}
+
+type SlotLogsHttpLogsFileSystemArgs struct {
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	RetentionInMb pulumi.IntInput `pulumi:"retentionInMb"`
+}
+
+func (SlotLogsHttpLogsFileSystemArgs) ElementType() reflect.Type {
+	return slotLogsHttpLogsFileSystemType
+}
+
+func (a SlotLogsHttpLogsFileSystemArgs) ToSlotLogsHttpLogsFileSystemOutput() SlotLogsHttpLogsFileSystemOutput {
+	return pulumi.ToOutput(a).(SlotLogsHttpLogsFileSystemOutput)
+}
+
+func (a SlotLogsHttpLogsFileSystemArgs) ToSlotLogsHttpLogsFileSystemOutputWithContext(ctx context.Context) SlotLogsHttpLogsFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotLogsHttpLogsFileSystemOutput)
+}
+
+type SlotLogsHttpLogsFileSystemOutput struct { *pulumi.OutputState }
+
+func (o SlotLogsHttpLogsFileSystemOutput) RetentionInDays() pulumi.IntOutput {
+	return o.Apply(func(v SlotLogsHttpLogsFileSystem) int {
+		return v.RetentionInDays
+	}).(pulumi.IntOutput)
+}
+
+func (o SlotLogsHttpLogsFileSystemOutput) RetentionInMb() pulumi.IntOutput {
+	return o.Apply(func(v SlotLogsHttpLogsFileSystem) int {
+		return v.RetentionInMb
+	}).(pulumi.IntOutput)
+}
+
+func (SlotLogsHttpLogsFileSystemOutput) ElementType() reflect.Type {
+	return slotLogsHttpLogsFileSystemType
+}
+
+func (o SlotLogsHttpLogsFileSystemOutput) ToSlotLogsHttpLogsFileSystemOutput() SlotLogsHttpLogsFileSystemOutput {
+	return o
+}
+
+func (o SlotLogsHttpLogsFileSystemOutput) ToSlotLogsHttpLogsFileSystemOutputWithContext(ctx context.Context) SlotLogsHttpLogsFileSystemOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotLogsHttpLogsFileSystemOutput{}) }
+
+type SlotSiteConfig struct {
+	// Should the app be loaded at all times? Defaults to `false`.
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+	AppCommandLine *string `pulumi:"appCommandLine"`
+	// The name of the swap to automatically swap to during deployment
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
+	// A `cors` block as defined below.
+	Cors *SlotSiteConfigCors `pulumi:"cors"`
+	// The ordering of default documents to load, if an address isn't specified.
+	DefaultDocuments *[]string `pulumi:"defaultDocuments"`
+	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
+	FtpsState *string `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions *[]SlotSiteConfigIpRestrictions `pulumi:"ipRestrictions"`
+	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+	JavaContainer *string `pulumi:"javaContainer"`
+	// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
+	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
+	// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+	JavaVersion *string `pulumi:"javaVersion"`
+	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
+	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+	LocalMysqlEnabled *bool `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
+	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	PhpVersion *string `pulumi:"phpVersion"`
+	// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+	PythonVersion *string `pulumi:"pythonVersion"`
+	// Is Remote Debugging Enabled? Defaults to `false`.
+	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
+	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType *string `pulumi:"scmType"`
+	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service Slot should be attached to.
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
+}
+var slotSiteConfigType = reflect.TypeOf((*SlotSiteConfig)(nil)).Elem()
+
+type SlotSiteConfigInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigOutput() SlotSiteConfigOutput
+	ToSlotSiteConfigOutputWithContext(ctx context.Context) SlotSiteConfigOutput
+}
+
+type SlotSiteConfigArgs struct {
+	// Should the app be loaded at all times? Defaults to `false`.
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
+	// The name of the swap to automatically swap to during deployment
+	AutoSwapSlotName pulumi.StringInput `pulumi:"autoSwapSlotName"`
+	// A `cors` block as defined below.
+	Cors SlotSiteConfigCorsInput `pulumi:"cors"`
+	// The ordering of default documents to load, if an address isn't specified.
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+	DotnetFrameworkVersion pulumi.StringInput `pulumi:"dotnetFrameworkVersion"`
+	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions SlotSiteConfigIpRestrictionsArrayInput `pulumi:"ipRestrictions"`
+	// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+	JavaContainer pulumi.StringInput `pulumi:"javaContainer"`
+	// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
+	JavaContainerVersion pulumi.StringInput `pulumi:"javaContainerVersion"`
+	// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+	JavaVersion pulumi.StringInput `pulumi:"javaVersion"`
+	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
+	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+	MinTlsVersion pulumi.StringInput `pulumi:"minTlsVersion"`
+	// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+	PhpVersion pulumi.StringInput `pulumi:"phpVersion"`
+	// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+	PythonVersion pulumi.StringInput `pulumi:"pythonVersion"`
+	// Is Remote Debugging Enabled? Defaults to `false`.
+	RemoteDebuggingEnabled pulumi.BoolInput `pulumi:"remoteDebuggingEnabled"`
+	// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType pulumi.StringInput `pulumi:"scmType"`
+	// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service Slot should be attached to.
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+	WindowsFxVersion pulumi.StringInput `pulumi:"windowsFxVersion"`
+}
+
+func (SlotSiteConfigArgs) ElementType() reflect.Type {
+	return slotSiteConfigType
+}
+
+func (a SlotSiteConfigArgs) ToSlotSiteConfigOutput() SlotSiteConfigOutput {
+	return pulumi.ToOutput(a).(SlotSiteConfigOutput)
+}
+
+func (a SlotSiteConfigArgs) ToSlotSiteConfigOutputWithContext(ctx context.Context) SlotSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotSiteConfigOutput)
+}
+
+type SlotSiteConfigOutput struct { *pulumi.OutputState }
+
+// Should the app be loaded at all times? Defaults to `false`.
+func (o SlotSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfig) bool {
+		if v.AlwaysOn == nil { return *new(bool) } else { return *v.AlwaysOn }
+	}).(pulumi.BoolOutput)
+}
+
+// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+func (o SlotSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.AppCommandLine == nil { return *new(string) } else { return *v.AppCommandLine }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the swap to automatically swap to during deployment
+func (o SlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.AutoSwapSlotName == nil { return *new(string) } else { return *v.AutoSwapSlotName }
+	}).(pulumi.StringOutput)
+}
+
+// A `cors` block as defined below.
+func (o SlotSiteConfigOutput) Cors() SlotSiteConfigCorsOutput {
+	return o.Apply(func(v SlotSiteConfig) SlotSiteConfigCors {
+		if v.Cors == nil { return *new(SlotSiteConfigCors) } else { return *v.Cors }
+	}).(SlotSiteConfigCorsOutput)
+}
+
+// The ordering of default documents to load, if an address isn't specified.
+func (o SlotSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotSiteConfig) []string {
+		if v.DefaultDocuments == nil { return *new([]string) } else { return *v.DefaultDocuments }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+func (o SlotSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.DotnetFrameworkVersion == nil { return *new(string) } else { return *v.DotnetFrameworkVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.FtpsState == nil { return *new(string) } else { return *v.FtpsState }
+	}).(pulumi.StringOutput)
+}
+
+// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+func (o SlotSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfig) bool {
+		if v.Http2Enabled == nil { return *new(bool) } else { return *v.Http2Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o SlotSiteConfigOutput) IpRestrictions() SlotSiteConfigIpRestrictionsArrayOutput {
+	return o.Apply(func(v SlotSiteConfig) []SlotSiteConfigIpRestrictions {
+		if v.IpRestrictions == nil { return *new([]SlotSiteConfigIpRestrictions) } else { return *v.IpRestrictions }
+	}).(SlotSiteConfigIpRestrictionsArrayOutput)
+}
+
+// The Java Container to use. If specified `javaVersion` and `javaContainerVersion` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+func (o SlotSiteConfigOutput) JavaContainer() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.JavaContainer == nil { return *new(string) } else { return *v.JavaContainer }
+	}).(pulumi.StringOutput)
+}
+
+// The version of the Java Container to use. If specified `javaVersion` and `javaContainer` must also be specified.
+func (o SlotSiteConfigOutput) JavaContainerVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.JavaContainerVersion == nil { return *new(string) } else { return *v.JavaContainerVersion }
+	}).(pulumi.StringOutput)
+}
+
+// The version of Java to use. If specified `javaContainer` and `javaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+func (o SlotSiteConfigOutput) JavaVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.JavaVersion == nil { return *new(string) } else { return *v.JavaVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.LinuxFxVersion == nil { return *new(string) } else { return *v.LinuxFxVersion }
+	}).(pulumi.StringOutput)
+}
+
+// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+func (o SlotSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfig) bool {
+		if v.LocalMysqlEnabled == nil { return *new(bool) } else { return *v.LocalMysqlEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+func (o SlotSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.ManagedPipelineMode == nil { return *new(string) } else { return *v.ManagedPipelineMode }
+	}).(pulumi.StringOutput)
+}
+
+// The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+func (o SlotSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.MinTlsVersion == nil { return *new(string) } else { return *v.MinTlsVersion }
+	}).(pulumi.StringOutput)
+}
+
+// The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
+func (o SlotSiteConfigOutput) PhpVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.PhpVersion == nil { return *new(string) } else { return *v.PhpVersion }
+	}).(pulumi.StringOutput)
+}
+
+// The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+func (o SlotSiteConfigOutput) PythonVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.PythonVersion == nil { return *new(string) } else { return *v.PythonVersion }
+	}).(pulumi.StringOutput)
+}
+
+// Is Remote Debugging Enabled? Defaults to `false`.
+func (o SlotSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfig) bool {
+		if v.RemoteDebuggingEnabled == nil { return *new(bool) } else { return *v.RemoteDebuggingEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
+func (o SlotSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.RemoteDebuggingVersion == nil { return *new(string) } else { return *v.RemoteDebuggingVersion }
+	}).(pulumi.StringOutput)
+}
+
+// The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+func (o SlotSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.ScmType == nil { return *new(string) } else { return *v.ScmType }
+	}).(pulumi.StringOutput)
+}
+
+// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+func (o SlotSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfig) bool {
+		if v.Use32BitWorkerProcess == nil { return *new(bool) } else { return *v.Use32BitWorkerProcess }
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the Virtual Network which this App Service Slot should be attached to.
+func (o SlotSiteConfigOutput) VirtualNetworkName() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.VirtualNetworkName == nil { return *new(string) } else { return *v.VirtualNetworkName }
+	}).(pulumi.StringOutput)
+}
+
+// Should WebSockets be enabled?
+func (o SlotSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfig) bool {
+		if v.WebsocketsEnabled == nil { return *new(bool) } else { return *v.WebsocketsEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o SlotSiteConfigOutput) WindowsFxVersion() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfig) string {
+		if v.WindowsFxVersion == nil { return *new(string) } else { return *v.WindowsFxVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (SlotSiteConfigOutput) ElementType() reflect.Type {
+	return slotSiteConfigType
+}
+
+func (o SlotSiteConfigOutput) ToSlotSiteConfigOutput() SlotSiteConfigOutput {
+	return o
+}
+
+func (o SlotSiteConfigOutput) ToSlotSiteConfigOutputWithContext(ctx context.Context) SlotSiteConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotSiteConfigOutput{}) }
+
+type SlotSiteConfigCors struct {
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool `pulumi:"supportCredentials"`
+}
+var slotSiteConfigCorsType = reflect.TypeOf((*SlotSiteConfigCors)(nil)).Elem()
+
+type SlotSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigCorsOutput() SlotSiteConfigCorsOutput
+	ToSlotSiteConfigCorsOutputWithContext(ctx context.Context) SlotSiteConfigCorsOutput
+}
+
+type SlotSiteConfigCorsArgs struct {
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
+}
+
+func (SlotSiteConfigCorsArgs) ElementType() reflect.Type {
+	return slotSiteConfigCorsType
+}
+
+func (a SlotSiteConfigCorsArgs) ToSlotSiteConfigCorsOutput() SlotSiteConfigCorsOutput {
+	return pulumi.ToOutput(a).(SlotSiteConfigCorsOutput)
+}
+
+func (a SlotSiteConfigCorsArgs) ToSlotSiteConfigCorsOutputWithContext(ctx context.Context) SlotSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotSiteConfigCorsOutput)
+}
+
+type SlotSiteConfigCorsOutput struct { *pulumi.OutputState }
+
+func (o SlotSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.Apply(func(v SlotSiteConfigCors) []string {
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SlotSiteConfigCorsOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.Apply(func(v SlotSiteConfigCors) bool {
+		if v.SupportCredentials == nil { return *new(bool) } else { return *v.SupportCredentials }
+	}).(pulumi.BoolOutput)
+}
+
+func (SlotSiteConfigCorsOutput) ElementType() reflect.Type {
+	return slotSiteConfigCorsType
+}
+
+func (o SlotSiteConfigCorsOutput) ToSlotSiteConfigCorsOutput() SlotSiteConfigCorsOutput {
+	return o
+}
+
+func (o SlotSiteConfigCorsOutput) ToSlotSiteConfigCorsOutputWithContext(ctx context.Context) SlotSiteConfigCorsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotSiteConfigCorsOutput{}) }
+
+type SlotSiteConfigIpRestrictions struct {
+	IpAddress *string `pulumi:"ipAddress"`
+	SubnetMask *string `pulumi:"subnetMask"`
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+var slotSiteConfigIpRestrictionsType = reflect.TypeOf((*SlotSiteConfigIpRestrictions)(nil)).Elem()
+
+type SlotSiteConfigIpRestrictionsInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigIpRestrictionsOutput() SlotSiteConfigIpRestrictionsOutput
+	ToSlotSiteConfigIpRestrictionsOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionsOutput
+}
+
+type SlotSiteConfigIpRestrictionsArgs struct {
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	SubnetMask pulumi.StringInput `pulumi:"subnetMask"`
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (SlotSiteConfigIpRestrictionsArgs) ElementType() reflect.Type {
+	return slotSiteConfigIpRestrictionsType
+}
+
+func (a SlotSiteConfigIpRestrictionsArgs) ToSlotSiteConfigIpRestrictionsOutput() SlotSiteConfigIpRestrictionsOutput {
+	return pulumi.ToOutput(a).(SlotSiteConfigIpRestrictionsOutput)
+}
+
+func (a SlotSiteConfigIpRestrictionsArgs) ToSlotSiteConfigIpRestrictionsOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotSiteConfigIpRestrictionsOutput)
+}
+
+type SlotSiteConfigIpRestrictionsOutput struct { *pulumi.OutputState }
+
+func (o SlotSiteConfigIpRestrictionsOutput) IpAddress() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfigIpRestrictions) string {
+		if v.IpAddress == nil { return *new(string) } else { return *v.IpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotSiteConfigIpRestrictionsOutput) SubnetMask() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfigIpRestrictions) string {
+		if v.SubnetMask == nil { return *new(string) } else { return *v.SubnetMask }
+	}).(pulumi.StringOutput)
+}
+
+func (o SlotSiteConfigIpRestrictionsOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteConfigIpRestrictions) string {
+		if v.VirtualNetworkSubnetId == nil { return *new(string) } else { return *v.VirtualNetworkSubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (SlotSiteConfigIpRestrictionsOutput) ElementType() reflect.Type {
+	return slotSiteConfigIpRestrictionsType
+}
+
+func (o SlotSiteConfigIpRestrictionsOutput) ToSlotSiteConfigIpRestrictionsOutput() SlotSiteConfigIpRestrictionsOutput {
+	return o
+}
+
+func (o SlotSiteConfigIpRestrictionsOutput) ToSlotSiteConfigIpRestrictionsOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionsOutput{}) }
+
+var slotSiteConfigIpRestrictionsArrayType = reflect.TypeOf((*[]SlotSiteConfigIpRestrictions)(nil)).Elem()
+
+type SlotSiteConfigIpRestrictionsArrayInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigIpRestrictionsArrayOutput() SlotSiteConfigIpRestrictionsArrayOutput
+	ToSlotSiteConfigIpRestrictionsArrayOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionsArrayOutput
+}
+
+type SlotSiteConfigIpRestrictionsArrayArgs []SlotSiteConfigIpRestrictionsInput
+
+func (SlotSiteConfigIpRestrictionsArrayArgs) ElementType() reflect.Type {
+	return slotSiteConfigIpRestrictionsArrayType
+}
+
+func (a SlotSiteConfigIpRestrictionsArrayArgs) ToSlotSiteConfigIpRestrictionsArrayOutput() SlotSiteConfigIpRestrictionsArrayOutput {
+	return pulumi.ToOutput(a).(SlotSiteConfigIpRestrictionsArrayOutput)
+}
+
+func (a SlotSiteConfigIpRestrictionsArrayArgs) ToSlotSiteConfigIpRestrictionsArrayOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotSiteConfigIpRestrictionsArrayOutput)
+}
+
+type SlotSiteConfigIpRestrictionsArrayOutput struct { *pulumi.OutputState }
+
+func (o SlotSiteConfigIpRestrictionsArrayOutput) Index(i pulumi.IntInput) SlotSiteConfigIpRestrictionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SlotSiteConfigIpRestrictions {
+		return vs[0].([]SlotSiteConfigIpRestrictions)[vs[1].(int)]
+	}).(SlotSiteConfigIpRestrictionsOutput)
+}
+
+func (SlotSiteConfigIpRestrictionsArrayOutput) ElementType() reflect.Type {
+	return slotSiteConfigIpRestrictionsArrayType
+}
+
+func (o SlotSiteConfigIpRestrictionsArrayOutput) ToSlotSiteConfigIpRestrictionsArrayOutput() SlotSiteConfigIpRestrictionsArrayOutput {
+	return o
+}
+
+func (o SlotSiteConfigIpRestrictionsArrayOutput) ToSlotSiteConfigIpRestrictionsArrayOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionsArrayOutput{}) }
+
+type SlotSiteCredential struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password string `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username string `pulumi:"username"`
+}
+var slotSiteCredentialType = reflect.TypeOf((*SlotSiteCredential)(nil)).Elem()
+
+type SlotSiteCredentialInput interface {
+	pulumi.Input
+
+	ToSlotSiteCredentialOutput() SlotSiteCredentialOutput
+	ToSlotSiteCredentialOutputWithContext(ctx context.Context) SlotSiteCredentialOutput
+}
+
+type SlotSiteCredentialArgs struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (SlotSiteCredentialArgs) ElementType() reflect.Type {
+	return slotSiteCredentialType
+}
+
+func (a SlotSiteCredentialArgs) ToSlotSiteCredentialOutput() SlotSiteCredentialOutput {
+	return pulumi.ToOutput(a).(SlotSiteCredentialOutput)
+}
+
+func (a SlotSiteCredentialArgs) ToSlotSiteCredentialOutputWithContext(ctx context.Context) SlotSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SlotSiteCredentialOutput)
+}
+
+type SlotSiteCredentialOutput struct { *pulumi.OutputState }
+
+// The password associated with the username, which can be used to publish to this App Service.
+func (o SlotSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteCredential) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The username which can be used to publish to this App Service
+func (o SlotSiteCredentialOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v SlotSiteCredential) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (SlotSiteCredentialOutput) ElementType() reflect.Type {
+	return slotSiteCredentialType
+}
+
+func (o SlotSiteCredentialOutput) ToSlotSiteCredentialOutput() SlotSiteCredentialOutput {
+	return o
+}
+
+func (o SlotSiteCredentialOutput) ToSlotSiteCredentialOutputWithContext(ctx context.Context) SlotSiteCredentialOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SlotSiteCredentialOutput{}) }
+

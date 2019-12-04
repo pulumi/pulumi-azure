@@ -14,12 +14,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_route.html.markdown.
 type Route struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+	Condition pulumi.StringOutput `pulumi:"condition"`
+
+	// Specifies whether a route is enabled.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+	EndpointNames pulumi.StringOutput `pulumi:"endpointNames"`
+
+	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
+	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+
+	// The name of the route.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+	Source pulumi.StringOutput `pulumi:"source"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
-	name string, args *RouteArgs, opts ...pulumi.ResourceOpt) (*Route, error) {
+	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
 	if args == nil || args.Enabled == nil {
 		return nil, errors.New("missing required argument 'Enabled'")
 	}
@@ -35,129 +56,78 @@ func NewRoute(ctx *pulumi.Context,
 	if args == nil || args.Source == nil {
 		return nil, errors.New("missing required argument 'Source'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["condition"] = nil
-		inputs["enabled"] = nil
-		inputs["endpointNames"] = nil
-		inputs["iothubName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["source"] = nil
-	} else {
-		inputs["condition"] = args.Condition
-		inputs["enabled"] = args.Enabled
-		inputs["endpointNames"] = args.EndpointNames
-		inputs["iothubName"] = args.IothubName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["source"] = args.Source
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Condition; i != nil { inputs["condition"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.EndpointNames; i != nil { inputs["endpointNames"] = i.ToStringOutput() }
+		if i := args.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Source; i != nil { inputs["source"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:iot/route:Route", name, true, inputs, opts...)
+	var resource Route
+	err := ctx.RegisterResource("azure:iot/route:Route", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
+	return &resource, nil
 }
 
 // GetRoute gets an existing Route resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRoute(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteState, opts ...pulumi.ResourceOpt) (*Route, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteState, opts ...pulumi.ResourceOption) (*Route, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["condition"] = state.Condition
-		inputs["enabled"] = state.Enabled
-		inputs["endpointNames"] = state.EndpointNames
-		inputs["iothubName"] = state.IothubName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["source"] = state.Source
+		if i := state.Condition; i != nil { inputs["condition"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.EndpointNames; i != nil { inputs["endpointNames"] = i.ToStringOutput() }
+		if i := state.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Source; i != nil { inputs["source"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/route:Route", name, id, inputs, opts...)
+	var resource Route
+	err := ctx.ReadResource("azure:iot/route:Route", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Route{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
-func (r *Route) Condition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["condition"])
-}
-
-// Specifies whether a route is enabled.
-func (r *Route) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
-func (r *Route) EndpointNames() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpointNames"])
-}
-
-// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
-func (r *Route) IothubName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iothubName"])
-}
-
-// The name of the route.
-func (r *Route) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
-func (r *Route) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
-func (r *Route) Source() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["source"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Route resources.
 type RouteState struct {
 	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
-	Condition interface{}
+	Condition pulumi.StringInput `pulumi:"condition"`
 	// Specifies whether a route is enabled.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
-	EndpointNames interface{}
+	EndpointNames pulumi.StringInput `pulumi:"endpointNames"`
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// The name of the route.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
-	Source interface{}
+	Source pulumi.StringInput `pulumi:"source"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
 	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
-	Condition interface{}
+	Condition pulumi.StringInput `pulumi:"condition"`
 	// Specifies whether a route is enabled.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
-	EndpointNames interface{}
+	EndpointNames pulumi.StringInput `pulumi:"endpointNames"`
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// The name of the route.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
-	Source interface{}
+	Source pulumi.StringInput `pulumi:"source"`
 }

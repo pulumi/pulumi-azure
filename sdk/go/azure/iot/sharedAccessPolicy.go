@@ -12,177 +12,135 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_shared_access_policy.html.markdown.
 type SharedAccessPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+	DeviceConnect pulumi.BoolOutput `pulumi:"deviceConnect"`
+
+	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
+	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+
+	// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The primary connection string of the Shared Access Policy.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+
+	// The primary key used to create the authentication token.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+
+	// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
+	RegistryRead pulumi.BoolOutput `pulumi:"registryRead"`
+
+	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+	RegistryWrite pulumi.BoolOutput `pulumi:"registryWrite"`
+
+	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The secondary connection string of the Shared Access Policy.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+
+	// The secondary key used to create the authentication token.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+
+	// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
+	ServiceConnect pulumi.BoolOutput `pulumi:"serviceConnect"`
 }
 
 // NewSharedAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewSharedAccessPolicy(ctx *pulumi.Context,
-	name string, args *SharedAccessPolicyArgs, opts ...pulumi.ResourceOpt) (*SharedAccessPolicy, error) {
+	name string, args *SharedAccessPolicyArgs, opts ...pulumi.ResourceOption) (*SharedAccessPolicy, error) {
 	if args == nil || args.IothubName == nil {
 		return nil, errors.New("missing required argument 'IothubName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deviceConnect"] = nil
-		inputs["iothubName"] = nil
-		inputs["name"] = nil
-		inputs["registryRead"] = nil
-		inputs["registryWrite"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serviceConnect"] = nil
-	} else {
-		inputs["deviceConnect"] = args.DeviceConnect
-		inputs["iothubName"] = args.IothubName
-		inputs["name"] = args.Name
-		inputs["registryRead"] = args.RegistryRead
-		inputs["registryWrite"] = args.RegistryWrite
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serviceConnect"] = args.ServiceConnect
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeviceConnect; i != nil { inputs["deviceConnect"] = i.ToBoolOutput() }
+		if i := args.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RegistryRead; i != nil { inputs["registryRead"] = i.ToBoolOutput() }
+		if i := args.RegistryWrite; i != nil { inputs["registryWrite"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServiceConnect; i != nil { inputs["serviceConnect"] = i.ToBoolOutput() }
 	}
-	inputs["primaryConnectionString"] = nil
-	inputs["primaryKey"] = nil
-	inputs["secondaryConnectionString"] = nil
-	inputs["secondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, true, inputs, opts...)
+	var resource SharedAccessPolicy
+	err := ctx.RegisterResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedAccessPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetSharedAccessPolicy gets an existing SharedAccessPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSharedAccessPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SharedAccessPolicyState, opts ...pulumi.ResourceOpt) (*SharedAccessPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SharedAccessPolicyState, opts ...pulumi.ResourceOption) (*SharedAccessPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["deviceConnect"] = state.DeviceConnect
-		inputs["iothubName"] = state.IothubName
-		inputs["name"] = state.Name
-		inputs["primaryConnectionString"] = state.PrimaryConnectionString
-		inputs["primaryKey"] = state.PrimaryKey
-		inputs["registryRead"] = state.RegistryRead
-		inputs["registryWrite"] = state.RegistryWrite
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
-		inputs["secondaryKey"] = state.SecondaryKey
-		inputs["serviceConnect"] = state.ServiceConnect
+		if i := state.DeviceConnect; i != nil { inputs["deviceConnect"] = i.ToBoolOutput() }
+		if i := state.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryConnectionString; i != nil { inputs["primaryConnectionString"] = i.ToStringOutput() }
+		if i := state.PrimaryKey; i != nil { inputs["primaryKey"] = i.ToStringOutput() }
+		if i := state.RegistryRead; i != nil { inputs["registryRead"] = i.ToBoolOutput() }
+		if i := state.RegistryWrite; i != nil { inputs["registryWrite"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryConnectionString; i != nil { inputs["secondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.SecondaryKey; i != nil { inputs["secondaryKey"] = i.ToStringOutput() }
+		if i := state.ServiceConnect; i != nil { inputs["serviceConnect"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, id, inputs, opts...)
+	var resource SharedAccessPolicy
+	err := ctx.ReadResource("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedAccessPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SharedAccessPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SharedAccessPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
-func (r *SharedAccessPolicy) DeviceConnect() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deviceConnect"])
-}
-
-// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
-func (r *SharedAccessPolicy) IothubName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iothubName"])
-}
-
-// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
-func (r *SharedAccessPolicy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The primary connection string of the Shared Access Policy.
-func (r *SharedAccessPolicy) PrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
-}
-
-// The primary key used to create the authentication token.
-func (r *SharedAccessPolicy) PrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryKey"])
-}
-
-// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
-func (r *SharedAccessPolicy) RegistryRead() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["registryRead"])
-}
-
-// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
-func (r *SharedAccessPolicy) RegistryWrite() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["registryWrite"])
-}
-
-// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
-func (r *SharedAccessPolicy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The secondary connection string of the Shared Access Policy.
-func (r *SharedAccessPolicy) SecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
-}
-
-// The secondary key used to create the authentication token.
-func (r *SharedAccessPolicy) SecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
-}
-
-// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-func (r *SharedAccessPolicy) ServiceConnect() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["serviceConnect"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SharedAccessPolicy resources.
 type SharedAccessPolicyState struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
-	DeviceConnect interface{}
+	DeviceConnect pulumi.BoolInput `pulumi:"deviceConnect"`
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The primary connection string of the Shared Access Policy.
-	PrimaryConnectionString interface{}
+	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
 	// The primary key used to create the authentication token.
-	PrimaryKey interface{}
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
-	RegistryRead interface{}
+	RegistryRead pulumi.BoolInput `pulumi:"registryRead"`
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
-	RegistryWrite interface{}
+	RegistryWrite pulumi.BoolInput `pulumi:"registryWrite"`
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The secondary connection string of the Shared Access Policy.
-	SecondaryConnectionString interface{}
+	SecondaryConnectionString pulumi.StringInput `pulumi:"secondaryConnectionString"`
 	// The secondary key used to create the authentication token.
-	SecondaryKey interface{}
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-	ServiceConnect interface{}
+	ServiceConnect pulumi.BoolInput `pulumi:"serviceConnect"`
 }
 
 // The set of arguments for constructing a SharedAccessPolicy resource.
 type SharedAccessPolicyArgs struct {
 	// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
-	DeviceConnect interface{}
+	DeviceConnect pulumi.BoolInput `pulumi:"deviceConnect"`
 	// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
-	RegistryRead interface{}
+	RegistryRead pulumi.BoolInput `pulumi:"registryRead"`
 	// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
-	RegistryWrite interface{}
+	RegistryWrite pulumi.BoolInput `pulumi:"registryWrite"`
 	// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-	ServiceConnect interface{}
+	ServiceConnect pulumi.BoolInput `pulumi:"serviceConnect"`
 }

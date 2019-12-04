@@ -4,6 +4,8 @@
 package frontdoor
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -19,12 +21,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor.html.markdown.
 type Frontdoor struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `backendPool` block as defined below.
+	BackendPools FrontdoorBackendPoolsArrayOutput `pulumi:"backendPools"`
+
+	// A `backendPoolHealthProbe` block as defined below.
+	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbesArrayOutput `pulumi:"backendPoolHealthProbes"`
+
+	// A `backendPoolLoadBalancing` block as defined below.
+	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingsArrayOutput `pulumi:"backendPoolLoadBalancings"`
+
+	// The host that each frontendEndpoint must CNAME to.
+	Cname pulumi.StringOutput `pulumi:"cname"`
+
+	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+	EnforceBackendPoolsCertificateNameCheck pulumi.BoolOutput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+
+	// A friendly name for the Front Door service.
+	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
+
+	// A `frontendEndpoint` block as defined below.
+	FrontendEndpoints FrontdoorFrontendEndpointsArrayOutput `pulumi:"frontendEndpoints"`
+
+	// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+	LoadBalancerEnabled pulumi.BoolOutput `pulumi:"loadBalancerEnabled"`
+
+	// Resource location. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `routingRule` block as defined below.
+	RoutingRules FrontdoorRoutingRulesArrayOutput `pulumi:"routingRules"`
+
+	// Resource tags.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewFrontdoor registers a new resource with the given unique name, arguments, and options.
 func NewFrontdoor(ctx *pulumi.Context,
-	name string, args *FrontdoorArgs, opts ...pulumi.ResourceOpt) (*Frontdoor, error) {
+	name string, args *FrontdoorArgs, opts ...pulumi.ResourceOption) (*Frontdoor, error) {
 	if args == nil || args.BackendPools == nil {
 		return nil, errors.New("missing required argument 'BackendPools'")
 	}
@@ -46,198 +87,1238 @@ func NewFrontdoor(ctx *pulumi.Context,
 	if args == nil || args.RoutingRules == nil {
 		return nil, errors.New("missing required argument 'RoutingRules'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["backendPools"] = nil
-		inputs["backendPoolHealthProbes"] = nil
-		inputs["backendPoolLoadBalancings"] = nil
-		inputs["enforceBackendPoolsCertificateNameCheck"] = nil
-		inputs["friendlyName"] = nil
-		inputs["frontendEndpoints"] = nil
-		inputs["loadBalancerEnabled"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["routingRules"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["backendPools"] = args.BackendPools
-		inputs["backendPoolHealthProbes"] = args.BackendPoolHealthProbes
-		inputs["backendPoolLoadBalancings"] = args.BackendPoolLoadBalancings
-		inputs["enforceBackendPoolsCertificateNameCheck"] = args.EnforceBackendPoolsCertificateNameCheck
-		inputs["friendlyName"] = args.FriendlyName
-		inputs["frontendEndpoints"] = args.FrontendEndpoints
-		inputs["loadBalancerEnabled"] = args.LoadBalancerEnabled
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["routingRules"] = args.RoutingRules
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BackendPools; i != nil { inputs["backendPools"] = i.ToFrontdoorBackendPoolsArrayOutput() }
+		if i := args.BackendPoolHealthProbes; i != nil { inputs["backendPoolHealthProbes"] = i.ToFrontdoorBackendPoolHealthProbesArrayOutput() }
+		if i := args.BackendPoolLoadBalancings; i != nil { inputs["backendPoolLoadBalancings"] = i.ToFrontdoorBackendPoolLoadBalancingsArrayOutput() }
+		if i := args.EnforceBackendPoolsCertificateNameCheck; i != nil { inputs["enforceBackendPoolsCertificateNameCheck"] = i.ToBoolOutput() }
+		if i := args.FriendlyName; i != nil { inputs["friendlyName"] = i.ToStringOutput() }
+		if i := args.FrontendEndpoints; i != nil { inputs["frontendEndpoints"] = i.ToFrontdoorFrontendEndpointsArrayOutput() }
+		if i := args.LoadBalancerEnabled; i != nil { inputs["loadBalancerEnabled"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RoutingRules; i != nil { inputs["routingRules"] = i.ToFrontdoorRoutingRulesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["cname"] = nil
-	s, err := ctx.RegisterResource("azure:frontdoor/frontdoor:Frontdoor", name, true, inputs, opts...)
+	var resource Frontdoor
+	err := ctx.RegisterResource("azure:frontdoor/frontdoor:Frontdoor", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Frontdoor{s: s}, nil
+	return &resource, nil
 }
 
 // GetFrontdoor gets an existing Frontdoor resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFrontdoor(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FrontdoorState, opts ...pulumi.ResourceOpt) (*Frontdoor, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FrontdoorState, opts ...pulumi.ResourceOption) (*Frontdoor, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backendPools"] = state.BackendPools
-		inputs["backendPoolHealthProbes"] = state.BackendPoolHealthProbes
-		inputs["backendPoolLoadBalancings"] = state.BackendPoolLoadBalancings
-		inputs["cname"] = state.Cname
-		inputs["enforceBackendPoolsCertificateNameCheck"] = state.EnforceBackendPoolsCertificateNameCheck
-		inputs["friendlyName"] = state.FriendlyName
-		inputs["frontendEndpoints"] = state.FrontendEndpoints
-		inputs["loadBalancerEnabled"] = state.LoadBalancerEnabled
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["routingRules"] = state.RoutingRules
-		inputs["tags"] = state.Tags
+		if i := state.BackendPools; i != nil { inputs["backendPools"] = i.ToFrontdoorBackendPoolsArrayOutput() }
+		if i := state.BackendPoolHealthProbes; i != nil { inputs["backendPoolHealthProbes"] = i.ToFrontdoorBackendPoolHealthProbesArrayOutput() }
+		if i := state.BackendPoolLoadBalancings; i != nil { inputs["backendPoolLoadBalancings"] = i.ToFrontdoorBackendPoolLoadBalancingsArrayOutput() }
+		if i := state.Cname; i != nil { inputs["cname"] = i.ToStringOutput() }
+		if i := state.EnforceBackendPoolsCertificateNameCheck; i != nil { inputs["enforceBackendPoolsCertificateNameCheck"] = i.ToBoolOutput() }
+		if i := state.FriendlyName; i != nil { inputs["friendlyName"] = i.ToStringOutput() }
+		if i := state.FrontendEndpoints; i != nil { inputs["frontendEndpoints"] = i.ToFrontdoorFrontendEndpointsArrayOutput() }
+		if i := state.LoadBalancerEnabled; i != nil { inputs["loadBalancerEnabled"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RoutingRules; i != nil { inputs["routingRules"] = i.ToFrontdoorRoutingRulesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:frontdoor/frontdoor:Frontdoor", name, id, inputs, opts...)
+	var resource Frontdoor
+	err := ctx.ReadResource("azure:frontdoor/frontdoor:Frontdoor", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Frontdoor{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Frontdoor) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Frontdoor) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `backendPool` block as defined below.
-func (r *Frontdoor) BackendPools() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["backendPools"])
-}
-
-// A `backendPoolHealthProbe` block as defined below.
-func (r *Frontdoor) BackendPoolHealthProbes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["backendPoolHealthProbes"])
-}
-
-// A `backendPoolLoadBalancing` block as defined below.
-func (r *Frontdoor) BackendPoolLoadBalancings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["backendPoolLoadBalancings"])
-}
-
-// The host that each frontendEndpoint must CNAME to.
-func (r *Frontdoor) Cname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["cname"])
-}
-
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
-func (r *Frontdoor) EnforceBackendPoolsCertificateNameCheck() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enforceBackendPoolsCertificateNameCheck"])
-}
-
-// A friendly name for the Front Door service.
-func (r *Frontdoor) FriendlyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["friendlyName"])
-}
-
-// A `frontendEndpoint` block as defined below.
-func (r *Frontdoor) FrontendEndpoints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["frontendEndpoints"])
-}
-
-// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
-func (r *Frontdoor) LoadBalancerEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["loadBalancerEnabled"])
-}
-
-// Resource location. Changing this forces a new resource to be created.
-func (r *Frontdoor) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
-func (r *Frontdoor) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
-func (r *Frontdoor) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `routingRule` block as defined below.
-func (r *Frontdoor) RoutingRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["routingRules"])
-}
-
-// Resource tags.
-func (r *Frontdoor) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Frontdoor resources.
 type FrontdoorState struct {
 	// A `backendPool` block as defined below.
-	BackendPools interface{}
+	BackendPools FrontdoorBackendPoolsArrayInput `pulumi:"backendPools"`
 	// A `backendPoolHealthProbe` block as defined below.
-	BackendPoolHealthProbes interface{}
+	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbesArrayInput `pulumi:"backendPoolHealthProbes"`
 	// A `backendPoolLoadBalancing` block as defined below.
-	BackendPoolLoadBalancings interface{}
+	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingsArrayInput `pulumi:"backendPoolLoadBalancings"`
 	// The host that each frontendEndpoint must CNAME to.
-	Cname interface{}
+	Cname pulumi.StringInput `pulumi:"cname"`
 	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck interface{}
+	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 	// A friendly name for the Front Door service.
-	FriendlyName interface{}
+	FriendlyName pulumi.StringInput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
-	FrontendEndpoints interface{}
+	FrontendEndpoints FrontdoorFrontendEndpointsArrayInput `pulumi:"frontendEndpoints"`
 	// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
-	LoadBalancerEnabled interface{}
+	LoadBalancerEnabled pulumi.BoolInput `pulumi:"loadBalancerEnabled"`
 	// Resource location. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `routingRule` block as defined below.
-	RoutingRules interface{}
+	RoutingRules FrontdoorRoutingRulesArrayInput `pulumi:"routingRules"`
 	// Resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Frontdoor resource.
 type FrontdoorArgs struct {
 	// A `backendPool` block as defined below.
-	BackendPools interface{}
+	BackendPools FrontdoorBackendPoolsArrayInput `pulumi:"backendPools"`
 	// A `backendPoolHealthProbe` block as defined below.
-	BackendPoolHealthProbes interface{}
+	BackendPoolHealthProbes FrontdoorBackendPoolHealthProbesArrayInput `pulumi:"backendPoolHealthProbes"`
 	// A `backendPoolLoadBalancing` block as defined below.
-	BackendPoolLoadBalancings interface{}
+	BackendPoolLoadBalancings FrontdoorBackendPoolLoadBalancingsArrayInput `pulumi:"backendPoolLoadBalancings"`
 	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck interface{}
+	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 	// A friendly name for the Front Door service.
-	FriendlyName interface{}
+	FriendlyName pulumi.StringInput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
-	FrontendEndpoints interface{}
+	FrontendEndpoints FrontdoorFrontendEndpointsArrayInput `pulumi:"frontendEndpoints"`
 	// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
-	LoadBalancerEnabled interface{}
+	LoadBalancerEnabled pulumi.BoolInput `pulumi:"loadBalancerEnabled"`
 	// Resource location. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `routingRule` block as defined below.
-	RoutingRules interface{}
+	RoutingRules FrontdoorRoutingRulesArrayInput `pulumi:"routingRules"`
 	// Resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type FrontdoorBackendPoolHealthProbes struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Path *string `pulumi:"path"`
+	Protocol *string `pulumi:"protocol"`
+}
+var frontdoorBackendPoolHealthProbesType = reflect.TypeOf((*FrontdoorBackendPoolHealthProbes)(nil)).Elem()
+
+type FrontdoorBackendPoolHealthProbesInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolHealthProbesOutput() FrontdoorBackendPoolHealthProbesOutput
+	ToFrontdoorBackendPoolHealthProbesOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbesOutput
+}
+
+type FrontdoorBackendPoolHealthProbesArgs struct {
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Path pulumi.StringInput `pulumi:"path"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (FrontdoorBackendPoolHealthProbesArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolHealthProbesType
+}
+
+func (a FrontdoorBackendPoolHealthProbesArgs) ToFrontdoorBackendPoolHealthProbesOutput() FrontdoorBackendPoolHealthProbesOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolHealthProbesOutput)
+}
+
+func (a FrontdoorBackendPoolHealthProbesArgs) ToFrontdoorBackendPoolHealthProbesOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolHealthProbesOutput)
+}
+
+type FrontdoorBackendPoolHealthProbesOutput struct { *pulumi.OutputState }
+
+// Resource ID.
+func (o FrontdoorBackendPoolHealthProbesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolHealthProbes) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolHealthProbesOutput) IntervalInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolHealthProbes) int {
+		if v.IntervalInSeconds == nil { return *new(int) } else { return *v.IntervalInSeconds }
+	}).(pulumi.IntOutput)
+}
+
+// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+func (o FrontdoorBackendPoolHealthProbesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolHealthProbes) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolHealthProbesOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolHealthProbes) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolHealthProbesOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolHealthProbes) string {
+		if v.Protocol == nil { return *new(string) } else { return *v.Protocol }
+	}).(pulumi.StringOutput)
+}
+
+func (FrontdoorBackendPoolHealthProbesOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolHealthProbesType
+}
+
+func (o FrontdoorBackendPoolHealthProbesOutput) ToFrontdoorBackendPoolHealthProbesOutput() FrontdoorBackendPoolHealthProbesOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolHealthProbesOutput) ToFrontdoorBackendPoolHealthProbesOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolHealthProbesOutput{}) }
+
+var frontdoorBackendPoolHealthProbesArrayType = reflect.TypeOf((*[]FrontdoorBackendPoolHealthProbes)(nil)).Elem()
+
+type FrontdoorBackendPoolHealthProbesArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolHealthProbesArrayOutput() FrontdoorBackendPoolHealthProbesArrayOutput
+	ToFrontdoorBackendPoolHealthProbesArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbesArrayOutput
+}
+
+type FrontdoorBackendPoolHealthProbesArrayArgs []FrontdoorBackendPoolHealthProbesInput
+
+func (FrontdoorBackendPoolHealthProbesArrayArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolHealthProbesArrayType
+}
+
+func (a FrontdoorBackendPoolHealthProbesArrayArgs) ToFrontdoorBackendPoolHealthProbesArrayOutput() FrontdoorBackendPoolHealthProbesArrayOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolHealthProbesArrayOutput)
+}
+
+func (a FrontdoorBackendPoolHealthProbesArrayArgs) ToFrontdoorBackendPoolHealthProbesArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolHealthProbesArrayOutput)
+}
+
+type FrontdoorBackendPoolHealthProbesArrayOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolHealthProbesArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolHealthProbesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FrontdoorBackendPoolHealthProbes {
+		return vs[0].([]FrontdoorBackendPoolHealthProbes)[vs[1].(int)]
+	}).(FrontdoorBackendPoolHealthProbesOutput)
+}
+
+func (FrontdoorBackendPoolHealthProbesArrayOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolHealthProbesArrayType
+}
+
+func (o FrontdoorBackendPoolHealthProbesArrayOutput) ToFrontdoorBackendPoolHealthProbesArrayOutput() FrontdoorBackendPoolHealthProbesArrayOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolHealthProbesArrayOutput) ToFrontdoorBackendPoolHealthProbesArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolHealthProbesArrayOutput{}) }
+
+type FrontdoorBackendPoolLoadBalancings struct {
+	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	SampleSize *int `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired *int `pulumi:"successfulSamplesRequired"`
+}
+var frontdoorBackendPoolLoadBalancingsType = reflect.TypeOf((*FrontdoorBackendPoolLoadBalancings)(nil)).Elem()
+
+type FrontdoorBackendPoolLoadBalancingsInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolLoadBalancingsOutput() FrontdoorBackendPoolLoadBalancingsOutput
+	ToFrontdoorBackendPoolLoadBalancingsOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingsOutput
+}
+
+type FrontdoorBackendPoolLoadBalancingsArgs struct {
+	AdditionalLatencyMilliseconds pulumi.IntInput `pulumi:"additionalLatencyMilliseconds"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	SampleSize pulumi.IntInput `pulumi:"sampleSize"`
+	SuccessfulSamplesRequired pulumi.IntInput `pulumi:"successfulSamplesRequired"`
+}
+
+func (FrontdoorBackendPoolLoadBalancingsArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolLoadBalancingsType
+}
+
+func (a FrontdoorBackendPoolLoadBalancingsArgs) ToFrontdoorBackendPoolLoadBalancingsOutput() FrontdoorBackendPoolLoadBalancingsOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolLoadBalancingsOutput)
+}
+
+func (a FrontdoorBackendPoolLoadBalancingsArgs) ToFrontdoorBackendPoolLoadBalancingsOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolLoadBalancingsOutput)
+}
+
+type FrontdoorBackendPoolLoadBalancingsOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolLoadBalancingsOutput) AdditionalLatencyMilliseconds() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolLoadBalancings) int {
+		if v.AdditionalLatencyMilliseconds == nil { return *new(int) } else { return *v.AdditionalLatencyMilliseconds }
+	}).(pulumi.IntOutput)
+}
+
+// Resource ID.
+func (o FrontdoorBackendPoolLoadBalancingsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolLoadBalancings) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+func (o FrontdoorBackendPoolLoadBalancingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolLoadBalancings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolLoadBalancingsOutput) SampleSize() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolLoadBalancings) int {
+		if v.SampleSize == nil { return *new(int) } else { return *v.SampleSize }
+	}).(pulumi.IntOutput)
+}
+
+func (o FrontdoorBackendPoolLoadBalancingsOutput) SuccessfulSamplesRequired() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolLoadBalancings) int {
+		if v.SuccessfulSamplesRequired == nil { return *new(int) } else { return *v.SuccessfulSamplesRequired }
+	}).(pulumi.IntOutput)
+}
+
+func (FrontdoorBackendPoolLoadBalancingsOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolLoadBalancingsType
+}
+
+func (o FrontdoorBackendPoolLoadBalancingsOutput) ToFrontdoorBackendPoolLoadBalancingsOutput() FrontdoorBackendPoolLoadBalancingsOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolLoadBalancingsOutput) ToFrontdoorBackendPoolLoadBalancingsOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolLoadBalancingsOutput{}) }
+
+var frontdoorBackendPoolLoadBalancingsArrayType = reflect.TypeOf((*[]FrontdoorBackendPoolLoadBalancings)(nil)).Elem()
+
+type FrontdoorBackendPoolLoadBalancingsArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolLoadBalancingsArrayOutput() FrontdoorBackendPoolLoadBalancingsArrayOutput
+	ToFrontdoorBackendPoolLoadBalancingsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingsArrayOutput
+}
+
+type FrontdoorBackendPoolLoadBalancingsArrayArgs []FrontdoorBackendPoolLoadBalancingsInput
+
+func (FrontdoorBackendPoolLoadBalancingsArrayArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolLoadBalancingsArrayType
+}
+
+func (a FrontdoorBackendPoolLoadBalancingsArrayArgs) ToFrontdoorBackendPoolLoadBalancingsArrayOutput() FrontdoorBackendPoolLoadBalancingsArrayOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolLoadBalancingsArrayOutput)
+}
+
+func (a FrontdoorBackendPoolLoadBalancingsArrayArgs) ToFrontdoorBackendPoolLoadBalancingsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolLoadBalancingsArrayOutput)
+}
+
+type FrontdoorBackendPoolLoadBalancingsArrayOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolLoadBalancingsArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolLoadBalancingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FrontdoorBackendPoolLoadBalancings {
+		return vs[0].([]FrontdoorBackendPoolLoadBalancings)[vs[1].(int)]
+	}).(FrontdoorBackendPoolLoadBalancingsOutput)
+}
+
+func (FrontdoorBackendPoolLoadBalancingsArrayOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolLoadBalancingsArrayType
+}
+
+func (o FrontdoorBackendPoolLoadBalancingsArrayOutput) ToFrontdoorBackendPoolLoadBalancingsArrayOutput() FrontdoorBackendPoolLoadBalancingsArrayOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolLoadBalancingsArrayOutput) ToFrontdoorBackendPoolLoadBalancingsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolLoadBalancingsArrayOutput{}) }
+
+type FrontdoorBackendPools struct {
+	Backends []FrontdoorBackendPoolsBackends `pulumi:"backends"`
+	HealthProbeName string `pulumi:"healthProbeName"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	LoadBalancingName string `pulumi:"loadBalancingName"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var frontdoorBackendPoolsType = reflect.TypeOf((*FrontdoorBackendPools)(nil)).Elem()
+
+type FrontdoorBackendPoolsInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolsOutput() FrontdoorBackendPoolsOutput
+	ToFrontdoorBackendPoolsOutputWithContext(ctx context.Context) FrontdoorBackendPoolsOutput
+}
+
+type FrontdoorBackendPoolsArgs struct {
+	Backends FrontdoorBackendPoolsBackendsArrayInput `pulumi:"backends"`
+	HealthProbeName pulumi.StringInput `pulumi:"healthProbeName"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	LoadBalancingName pulumi.StringInput `pulumi:"loadBalancingName"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FrontdoorBackendPoolsArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolsType
+}
+
+func (a FrontdoorBackendPoolsArgs) ToFrontdoorBackendPoolsOutput() FrontdoorBackendPoolsOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolsOutput)
+}
+
+func (a FrontdoorBackendPoolsArgs) ToFrontdoorBackendPoolsOutputWithContext(ctx context.Context) FrontdoorBackendPoolsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolsOutput)
+}
+
+type FrontdoorBackendPoolsOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolsOutput) Backends() FrontdoorBackendPoolsBackendsArrayOutput {
+	return o.Apply(func(v FrontdoorBackendPools) []FrontdoorBackendPoolsBackends {
+		return v.Backends
+	}).(FrontdoorBackendPoolsBackendsArrayOutput)
+}
+
+func (o FrontdoorBackendPoolsOutput) HealthProbeName() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPools) string {
+		return v.HealthProbeName
+	}).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o FrontdoorBackendPoolsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPools) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolsOutput) LoadBalancingName() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPools) string {
+		return v.LoadBalancingName
+	}).(pulumi.StringOutput)
+}
+
+// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+func (o FrontdoorBackendPoolsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPools) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (FrontdoorBackendPoolsOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolsType
+}
+
+func (o FrontdoorBackendPoolsOutput) ToFrontdoorBackendPoolsOutput() FrontdoorBackendPoolsOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolsOutput) ToFrontdoorBackendPoolsOutputWithContext(ctx context.Context) FrontdoorBackendPoolsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolsOutput{}) }
+
+var frontdoorBackendPoolsArrayType = reflect.TypeOf((*[]FrontdoorBackendPools)(nil)).Elem()
+
+type FrontdoorBackendPoolsArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolsArrayOutput() FrontdoorBackendPoolsArrayOutput
+	ToFrontdoorBackendPoolsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolsArrayOutput
+}
+
+type FrontdoorBackendPoolsArrayArgs []FrontdoorBackendPoolsInput
+
+func (FrontdoorBackendPoolsArrayArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolsArrayType
+}
+
+func (a FrontdoorBackendPoolsArrayArgs) ToFrontdoorBackendPoolsArrayOutput() FrontdoorBackendPoolsArrayOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolsArrayOutput)
+}
+
+func (a FrontdoorBackendPoolsArrayArgs) ToFrontdoorBackendPoolsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolsArrayOutput)
+}
+
+type FrontdoorBackendPoolsArrayOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolsArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FrontdoorBackendPools {
+		return vs[0].([]FrontdoorBackendPools)[vs[1].(int)]
+	}).(FrontdoorBackendPoolsOutput)
+}
+
+func (FrontdoorBackendPoolsArrayOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolsArrayType
+}
+
+func (o FrontdoorBackendPoolsArrayOutput) ToFrontdoorBackendPoolsArrayOutput() FrontdoorBackendPoolsArrayOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolsArrayOutput) ToFrontdoorBackendPoolsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolsArrayOutput{}) }
+
+type FrontdoorBackendPoolsBackends struct {
+	Address string `pulumi:"address"`
+	Enabled *bool `pulumi:"enabled"`
+	HostHeader string `pulumi:"hostHeader"`
+	HttpPort int `pulumi:"httpPort"`
+	HttpsPort int `pulumi:"httpsPort"`
+	Priority *int `pulumi:"priority"`
+	Weight *int `pulumi:"weight"`
+}
+var frontdoorBackendPoolsBackendsType = reflect.TypeOf((*FrontdoorBackendPoolsBackends)(nil)).Elem()
+
+type FrontdoorBackendPoolsBackendsInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolsBackendsOutput() FrontdoorBackendPoolsBackendsOutput
+	ToFrontdoorBackendPoolsBackendsOutputWithContext(ctx context.Context) FrontdoorBackendPoolsBackendsOutput
+}
+
+type FrontdoorBackendPoolsBackendsArgs struct {
+	Address pulumi.StringInput `pulumi:"address"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	HostHeader pulumi.StringInput `pulumi:"hostHeader"`
+	HttpPort pulumi.IntInput `pulumi:"httpPort"`
+	HttpsPort pulumi.IntInput `pulumi:"httpsPort"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (FrontdoorBackendPoolsBackendsArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolsBackendsType
+}
+
+func (a FrontdoorBackendPoolsBackendsArgs) ToFrontdoorBackendPoolsBackendsOutput() FrontdoorBackendPoolsBackendsOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolsBackendsOutput)
+}
+
+func (a FrontdoorBackendPoolsBackendsArgs) ToFrontdoorBackendPoolsBackendsOutputWithContext(ctx context.Context) FrontdoorBackendPoolsBackendsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolsBackendsOutput)
+}
+
+type FrontdoorBackendPoolsBackendsOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolsBackendsOutput) Address() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) string {
+		return v.Address
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) HostHeader() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) string {
+		return v.HostHeader
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) HttpPort() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) int {
+		return v.HttpPort
+	}).(pulumi.IntOutput)
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) HttpsPort() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) int {
+		return v.HttpsPort
+	}).(pulumi.IntOutput)
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) int {
+		if v.Priority == nil { return *new(int) } else { return *v.Priority }
+	}).(pulumi.IntOutput)
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) Weight() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorBackendPoolsBackends) int {
+		if v.Weight == nil { return *new(int) } else { return *v.Weight }
+	}).(pulumi.IntOutput)
+}
+
+func (FrontdoorBackendPoolsBackendsOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolsBackendsType
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) ToFrontdoorBackendPoolsBackendsOutput() FrontdoorBackendPoolsBackendsOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolsBackendsOutput) ToFrontdoorBackendPoolsBackendsOutputWithContext(ctx context.Context) FrontdoorBackendPoolsBackendsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolsBackendsOutput{}) }
+
+var frontdoorBackendPoolsBackendsArrayType = reflect.TypeOf((*[]FrontdoorBackendPoolsBackends)(nil)).Elem()
+
+type FrontdoorBackendPoolsBackendsArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorBackendPoolsBackendsArrayOutput() FrontdoorBackendPoolsBackendsArrayOutput
+	ToFrontdoorBackendPoolsBackendsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolsBackendsArrayOutput
+}
+
+type FrontdoorBackendPoolsBackendsArrayArgs []FrontdoorBackendPoolsBackendsInput
+
+func (FrontdoorBackendPoolsBackendsArrayArgs) ElementType() reflect.Type {
+	return frontdoorBackendPoolsBackendsArrayType
+}
+
+func (a FrontdoorBackendPoolsBackendsArrayArgs) ToFrontdoorBackendPoolsBackendsArrayOutput() FrontdoorBackendPoolsBackendsArrayOutput {
+	return pulumi.ToOutput(a).(FrontdoorBackendPoolsBackendsArrayOutput)
+}
+
+func (a FrontdoorBackendPoolsBackendsArrayArgs) ToFrontdoorBackendPoolsBackendsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolsBackendsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorBackendPoolsBackendsArrayOutput)
+}
+
+type FrontdoorBackendPoolsBackendsArrayOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorBackendPoolsBackendsArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolsBackendsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FrontdoorBackendPoolsBackends {
+		return vs[0].([]FrontdoorBackendPoolsBackends)[vs[1].(int)]
+	}).(FrontdoorBackendPoolsBackendsOutput)
+}
+
+func (FrontdoorBackendPoolsBackendsArrayOutput) ElementType() reflect.Type {
+	return frontdoorBackendPoolsBackendsArrayType
+}
+
+func (o FrontdoorBackendPoolsBackendsArrayOutput) ToFrontdoorBackendPoolsBackendsArrayOutput() FrontdoorBackendPoolsBackendsArrayOutput {
+	return o
+}
+
+func (o FrontdoorBackendPoolsBackendsArrayOutput) ToFrontdoorBackendPoolsBackendsArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolsBackendsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorBackendPoolsBackendsArrayOutput{}) }
+
+type FrontdoorFrontendEndpoints struct {
+	CustomHttpsConfiguration *FrontdoorFrontendEndpointsCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
+	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
+	HostName string `pulumi:"hostName"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
+	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
+	// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+	WebApplicationFirewallPolicyLinkId *string `pulumi:"webApplicationFirewallPolicyLinkId"`
+}
+var frontdoorFrontendEndpointsType = reflect.TypeOf((*FrontdoorFrontendEndpoints)(nil)).Elem()
+
+type FrontdoorFrontendEndpointsInput interface {
+	pulumi.Input
+
+	ToFrontdoorFrontendEndpointsOutput() FrontdoorFrontendEndpointsOutput
+	ToFrontdoorFrontendEndpointsOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsOutput
+}
+
+type FrontdoorFrontendEndpointsArgs struct {
+	CustomHttpsConfiguration FrontdoorFrontendEndpointsCustomHttpsConfigurationInput `pulumi:"customHttpsConfiguration"`
+	CustomHttpsProvisioningEnabled pulumi.BoolInput `pulumi:"customHttpsProvisioningEnabled"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	SessionAffinityEnabled pulumi.BoolInput `pulumi:"sessionAffinityEnabled"`
+	SessionAffinityTtlSeconds pulumi.IntInput `pulumi:"sessionAffinityTtlSeconds"`
+	// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+	WebApplicationFirewallPolicyLinkId pulumi.StringInput `pulumi:"webApplicationFirewallPolicyLinkId"`
+}
+
+func (FrontdoorFrontendEndpointsArgs) ElementType() reflect.Type {
+	return frontdoorFrontendEndpointsType
+}
+
+func (a FrontdoorFrontendEndpointsArgs) ToFrontdoorFrontendEndpointsOutput() FrontdoorFrontendEndpointsOutput {
+	return pulumi.ToOutput(a).(FrontdoorFrontendEndpointsOutput)
+}
+
+func (a FrontdoorFrontendEndpointsArgs) ToFrontdoorFrontendEndpointsOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorFrontendEndpointsOutput)
+}
+
+type FrontdoorFrontendEndpointsOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorFrontendEndpointsOutput) CustomHttpsConfiguration() FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) FrontdoorFrontendEndpointsCustomHttpsConfiguration {
+		if v.CustomHttpsConfiguration == nil { return *new(FrontdoorFrontendEndpointsCustomHttpsConfiguration) } else { return *v.CustomHttpsConfiguration }
+	}).(FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput)
+}
+
+func (o FrontdoorFrontendEndpointsOutput) CustomHttpsProvisioningEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) bool {
+		return v.CustomHttpsProvisioningEnabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o FrontdoorFrontendEndpointsOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) string {
+		return v.HostName
+	}).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o FrontdoorFrontendEndpointsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+func (o FrontdoorFrontendEndpointsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorFrontendEndpointsOutput) SessionAffinityEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) bool {
+		if v.SessionAffinityEnabled == nil { return *new(bool) } else { return *v.SessionAffinityEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FrontdoorFrontendEndpointsOutput) SessionAffinityTtlSeconds() pulumi.IntOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) int {
+		if v.SessionAffinityTtlSeconds == nil { return *new(int) } else { return *v.SessionAffinityTtlSeconds }
+	}).(pulumi.IntOutput)
+}
+
+// (Optional) The `id` of the `webApplicationFirewallPolicyLink` to use for this Frontend Endpoint."
+func (o FrontdoorFrontendEndpointsOutput) WebApplicationFirewallPolicyLinkId() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpoints) string {
+		if v.WebApplicationFirewallPolicyLinkId == nil { return *new(string) } else { return *v.WebApplicationFirewallPolicyLinkId }
+	}).(pulumi.StringOutput)
+}
+
+func (FrontdoorFrontendEndpointsOutput) ElementType() reflect.Type {
+	return frontdoorFrontendEndpointsType
+}
+
+func (o FrontdoorFrontendEndpointsOutput) ToFrontdoorFrontendEndpointsOutput() FrontdoorFrontendEndpointsOutput {
+	return o
+}
+
+func (o FrontdoorFrontendEndpointsOutput) ToFrontdoorFrontendEndpointsOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorFrontendEndpointsOutput{}) }
+
+var frontdoorFrontendEndpointsArrayType = reflect.TypeOf((*[]FrontdoorFrontendEndpoints)(nil)).Elem()
+
+type FrontdoorFrontendEndpointsArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFrontendEndpointsArrayOutput() FrontdoorFrontendEndpointsArrayOutput
+	ToFrontdoorFrontendEndpointsArrayOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsArrayOutput
+}
+
+type FrontdoorFrontendEndpointsArrayArgs []FrontdoorFrontendEndpointsInput
+
+func (FrontdoorFrontendEndpointsArrayArgs) ElementType() reflect.Type {
+	return frontdoorFrontendEndpointsArrayType
+}
+
+func (a FrontdoorFrontendEndpointsArrayArgs) ToFrontdoorFrontendEndpointsArrayOutput() FrontdoorFrontendEndpointsArrayOutput {
+	return pulumi.ToOutput(a).(FrontdoorFrontendEndpointsArrayOutput)
+}
+
+func (a FrontdoorFrontendEndpointsArrayArgs) ToFrontdoorFrontendEndpointsArrayOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorFrontendEndpointsArrayOutput)
+}
+
+type FrontdoorFrontendEndpointsArrayOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorFrontendEndpointsArrayOutput) Index(i pulumi.IntInput) FrontdoorFrontendEndpointsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FrontdoorFrontendEndpoints {
+		return vs[0].([]FrontdoorFrontendEndpoints)[vs[1].(int)]
+	}).(FrontdoorFrontendEndpointsOutput)
+}
+
+func (FrontdoorFrontendEndpointsArrayOutput) ElementType() reflect.Type {
+	return frontdoorFrontendEndpointsArrayType
+}
+
+func (o FrontdoorFrontendEndpointsArrayOutput) ToFrontdoorFrontendEndpointsArrayOutput() FrontdoorFrontendEndpointsArrayOutput {
+	return o
+}
+
+func (o FrontdoorFrontendEndpointsArrayOutput) ToFrontdoorFrontendEndpointsArrayOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorFrontendEndpointsArrayOutput{}) }
+
+type FrontdoorFrontendEndpointsCustomHttpsConfiguration struct {
+	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
+	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
+	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
+	CertificateSource *string `pulumi:"certificateSource"`
+	// Provisioning state of the Front Door.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Provisioning substate of the Front Door
+	ProvisioningSubstate *string `pulumi:"provisioningSubstate"`
+}
+var frontdoorFrontendEndpointsCustomHttpsConfigurationType = reflect.TypeOf((*FrontdoorFrontendEndpointsCustomHttpsConfiguration)(nil)).Elem()
+
+type FrontdoorFrontendEndpointsCustomHttpsConfigurationInput interface {
+	pulumi.Input
+
+	ToFrontdoorFrontendEndpointsCustomHttpsConfigurationOutput() FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput
+	ToFrontdoorFrontendEndpointsCustomHttpsConfigurationOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput
+}
+
+type FrontdoorFrontendEndpointsCustomHttpsConfigurationArgs struct {
+	AzureKeyVaultCertificateSecretName pulumi.StringInput `pulumi:"azureKeyVaultCertificateSecretName"`
+	AzureKeyVaultCertificateSecretVersion pulumi.StringInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
+	AzureKeyVaultCertificateVaultId pulumi.StringInput `pulumi:"azureKeyVaultCertificateVaultId"`
+	CertificateSource pulumi.StringInput `pulumi:"certificateSource"`
+	// Provisioning state of the Front Door.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Provisioning substate of the Front Door
+	ProvisioningSubstate pulumi.StringInput `pulumi:"provisioningSubstate"`
+}
+
+func (FrontdoorFrontendEndpointsCustomHttpsConfigurationArgs) ElementType() reflect.Type {
+	return frontdoorFrontendEndpointsCustomHttpsConfigurationType
+}
+
+func (a FrontdoorFrontendEndpointsCustomHttpsConfigurationArgs) ToFrontdoorFrontendEndpointsCustomHttpsConfigurationOutput() FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput {
+	return pulumi.ToOutput(a).(FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput)
+}
+
+func (a FrontdoorFrontendEndpointsCustomHttpsConfigurationArgs) ToFrontdoorFrontendEndpointsCustomHttpsConfigurationOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput)
+}
+
+type FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretName() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpointsCustomHttpsConfiguration) string {
+		if v.AzureKeyVaultCertificateSecretName == nil { return *new(string) } else { return *v.AzureKeyVaultCertificateSecretName }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpointsCustomHttpsConfiguration) string {
+		if v.AzureKeyVaultCertificateSecretVersion == nil { return *new(string) } else { return *v.AzureKeyVaultCertificateSecretVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) AzureKeyVaultCertificateVaultId() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpointsCustomHttpsConfiguration) string {
+		if v.AzureKeyVaultCertificateVaultId == nil { return *new(string) } else { return *v.AzureKeyVaultCertificateVaultId }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) CertificateSource() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpointsCustomHttpsConfiguration) string {
+		if v.CertificateSource == nil { return *new(string) } else { return *v.CertificateSource }
+	}).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Front Door.
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpointsCustomHttpsConfiguration) string {
+		if v.ProvisioningState == nil { return *new(string) } else { return *v.ProvisioningState }
+	}).(pulumi.StringOutput)
+}
+
+// Provisioning substate of the Front Door
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) ProvisioningSubstate() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorFrontendEndpointsCustomHttpsConfiguration) string {
+		if v.ProvisioningSubstate == nil { return *new(string) } else { return *v.ProvisioningSubstate }
+	}).(pulumi.StringOutput)
+}
+
+func (FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) ElementType() reflect.Type {
+	return frontdoorFrontendEndpointsCustomHttpsConfigurationType
+}
+
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) ToFrontdoorFrontendEndpointsCustomHttpsConfigurationOutput() FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput {
+	return o
+}
+
+func (o FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput) ToFrontdoorFrontendEndpointsCustomHttpsConfigurationOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorFrontendEndpointsCustomHttpsConfigurationOutput{}) }
+
+type FrontdoorRoutingRules struct {
+	AcceptedProtocols []string `pulumi:"acceptedProtocols"`
+	Enabled *bool `pulumi:"enabled"`
+	ForwardingConfiguration *FrontdoorRoutingRulesForwardingConfiguration `pulumi:"forwardingConfiguration"`
+	FrontendEndpoints []string `pulumi:"frontendEndpoints"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	PatternsToMatches []string `pulumi:"patternsToMatches"`
+	RedirectConfiguration *FrontdoorRoutingRulesRedirectConfiguration `pulumi:"redirectConfiguration"`
+}
+var frontdoorRoutingRulesType = reflect.TypeOf((*FrontdoorRoutingRules)(nil)).Elem()
+
+type FrontdoorRoutingRulesInput interface {
+	pulumi.Input
+
+	ToFrontdoorRoutingRulesOutput() FrontdoorRoutingRulesOutput
+	ToFrontdoorRoutingRulesOutputWithContext(ctx context.Context) FrontdoorRoutingRulesOutput
+}
+
+type FrontdoorRoutingRulesArgs struct {
+	AcceptedProtocols pulumi.StringArrayInput `pulumi:"acceptedProtocols"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	ForwardingConfiguration FrontdoorRoutingRulesForwardingConfigurationInput `pulumi:"forwardingConfiguration"`
+	FrontendEndpoints pulumi.StringArrayInput `pulumi:"frontendEndpoints"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	PatternsToMatches pulumi.StringArrayInput `pulumi:"patternsToMatches"`
+	RedirectConfiguration FrontdoorRoutingRulesRedirectConfigurationInput `pulumi:"redirectConfiguration"`
+}
+
+func (FrontdoorRoutingRulesArgs) ElementType() reflect.Type {
+	return frontdoorRoutingRulesType
+}
+
+func (a FrontdoorRoutingRulesArgs) ToFrontdoorRoutingRulesOutput() FrontdoorRoutingRulesOutput {
+	return pulumi.ToOutput(a).(FrontdoorRoutingRulesOutput)
+}
+
+func (a FrontdoorRoutingRulesArgs) ToFrontdoorRoutingRulesOutputWithContext(ctx context.Context) FrontdoorRoutingRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorRoutingRulesOutput)
+}
+
+type FrontdoorRoutingRulesOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorRoutingRulesOutput) AcceptedProtocols() pulumi.StringArrayOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) []string {
+		return v.AcceptedProtocols
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorRoutingRulesOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FrontdoorRoutingRulesOutput) ForwardingConfiguration() FrontdoorRoutingRulesForwardingConfigurationOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) FrontdoorRoutingRulesForwardingConfiguration {
+		if v.ForwardingConfiguration == nil { return *new(FrontdoorRoutingRulesForwardingConfiguration) } else { return *v.ForwardingConfiguration }
+	}).(FrontdoorRoutingRulesForwardingConfigurationOutput)
+}
+
+func (o FrontdoorRoutingRulesOutput) FrontendEndpoints() pulumi.StringArrayOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) []string {
+		return v.FrontendEndpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Resource ID.
+func (o FrontdoorRoutingRulesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+func (o FrontdoorRoutingRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesOutput) PatternsToMatches() pulumi.StringArrayOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) []string {
+		return v.PatternsToMatches
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorRoutingRulesOutput) RedirectConfiguration() FrontdoorRoutingRulesRedirectConfigurationOutput {
+	return o.Apply(func(v FrontdoorRoutingRules) FrontdoorRoutingRulesRedirectConfiguration {
+		if v.RedirectConfiguration == nil { return *new(FrontdoorRoutingRulesRedirectConfiguration) } else { return *v.RedirectConfiguration }
+	}).(FrontdoorRoutingRulesRedirectConfigurationOutput)
+}
+
+func (FrontdoorRoutingRulesOutput) ElementType() reflect.Type {
+	return frontdoorRoutingRulesType
+}
+
+func (o FrontdoorRoutingRulesOutput) ToFrontdoorRoutingRulesOutput() FrontdoorRoutingRulesOutput {
+	return o
+}
+
+func (o FrontdoorRoutingRulesOutput) ToFrontdoorRoutingRulesOutputWithContext(ctx context.Context) FrontdoorRoutingRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorRoutingRulesOutput{}) }
+
+var frontdoorRoutingRulesArrayType = reflect.TypeOf((*[]FrontdoorRoutingRules)(nil)).Elem()
+
+type FrontdoorRoutingRulesArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRoutingRulesArrayOutput() FrontdoorRoutingRulesArrayOutput
+	ToFrontdoorRoutingRulesArrayOutputWithContext(ctx context.Context) FrontdoorRoutingRulesArrayOutput
+}
+
+type FrontdoorRoutingRulesArrayArgs []FrontdoorRoutingRulesInput
+
+func (FrontdoorRoutingRulesArrayArgs) ElementType() reflect.Type {
+	return frontdoorRoutingRulesArrayType
+}
+
+func (a FrontdoorRoutingRulesArrayArgs) ToFrontdoorRoutingRulesArrayOutput() FrontdoorRoutingRulesArrayOutput {
+	return pulumi.ToOutput(a).(FrontdoorRoutingRulesArrayOutput)
+}
+
+func (a FrontdoorRoutingRulesArrayArgs) ToFrontdoorRoutingRulesArrayOutputWithContext(ctx context.Context) FrontdoorRoutingRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorRoutingRulesArrayOutput)
+}
+
+type FrontdoorRoutingRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorRoutingRulesArrayOutput) Index(i pulumi.IntInput) FrontdoorRoutingRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FrontdoorRoutingRules {
+		return vs[0].([]FrontdoorRoutingRules)[vs[1].(int)]
+	}).(FrontdoorRoutingRulesOutput)
+}
+
+func (FrontdoorRoutingRulesArrayOutput) ElementType() reflect.Type {
+	return frontdoorRoutingRulesArrayType
+}
+
+func (o FrontdoorRoutingRulesArrayOutput) ToFrontdoorRoutingRulesArrayOutput() FrontdoorRoutingRulesArrayOutput {
+	return o
+}
+
+func (o FrontdoorRoutingRulesArrayOutput) ToFrontdoorRoutingRulesArrayOutputWithContext(ctx context.Context) FrontdoorRoutingRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorRoutingRulesArrayOutput{}) }
+
+type FrontdoorRoutingRulesForwardingConfiguration struct {
+	BackendPoolName string `pulumi:"backendPoolName"`
+	CacheQueryParameterStripDirective *string `pulumi:"cacheQueryParameterStripDirective"`
+	CacheUseDynamicCompression *bool `pulumi:"cacheUseDynamicCompression"`
+	CustomForwardingPath *string `pulumi:"customForwardingPath"`
+	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
+}
+var frontdoorRoutingRulesForwardingConfigurationType = reflect.TypeOf((*FrontdoorRoutingRulesForwardingConfiguration)(nil)).Elem()
+
+type FrontdoorRoutingRulesForwardingConfigurationInput interface {
+	pulumi.Input
+
+	ToFrontdoorRoutingRulesForwardingConfigurationOutput() FrontdoorRoutingRulesForwardingConfigurationOutput
+	ToFrontdoorRoutingRulesForwardingConfigurationOutputWithContext(ctx context.Context) FrontdoorRoutingRulesForwardingConfigurationOutput
+}
+
+type FrontdoorRoutingRulesForwardingConfigurationArgs struct {
+	BackendPoolName pulumi.StringInput `pulumi:"backendPoolName"`
+	CacheQueryParameterStripDirective pulumi.StringInput `pulumi:"cacheQueryParameterStripDirective"`
+	CacheUseDynamicCompression pulumi.BoolInput `pulumi:"cacheUseDynamicCompression"`
+	CustomForwardingPath pulumi.StringInput `pulumi:"customForwardingPath"`
+	ForwardingProtocol pulumi.StringInput `pulumi:"forwardingProtocol"`
+}
+
+func (FrontdoorRoutingRulesForwardingConfigurationArgs) ElementType() reflect.Type {
+	return frontdoorRoutingRulesForwardingConfigurationType
+}
+
+func (a FrontdoorRoutingRulesForwardingConfigurationArgs) ToFrontdoorRoutingRulesForwardingConfigurationOutput() FrontdoorRoutingRulesForwardingConfigurationOutput {
+	return pulumi.ToOutput(a).(FrontdoorRoutingRulesForwardingConfigurationOutput)
+}
+
+func (a FrontdoorRoutingRulesForwardingConfigurationArgs) ToFrontdoorRoutingRulesForwardingConfigurationOutputWithContext(ctx context.Context) FrontdoorRoutingRulesForwardingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorRoutingRulesForwardingConfigurationOutput)
+}
+
+type FrontdoorRoutingRulesForwardingConfigurationOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) BackendPoolName() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesForwardingConfiguration) string {
+		return v.BackendPoolName
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) CacheQueryParameterStripDirective() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesForwardingConfiguration) string {
+		if v.CacheQueryParameterStripDirective == nil { return *new(string) } else { return *v.CacheQueryParameterStripDirective }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) CacheUseDynamicCompression() pulumi.BoolOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesForwardingConfiguration) bool {
+		if v.CacheUseDynamicCompression == nil { return *new(bool) } else { return *v.CacheUseDynamicCompression }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) CustomForwardingPath() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesForwardingConfiguration) string {
+		if v.CustomForwardingPath == nil { return *new(string) } else { return *v.CustomForwardingPath }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) ForwardingProtocol() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesForwardingConfiguration) string {
+		if v.ForwardingProtocol == nil { return *new(string) } else { return *v.ForwardingProtocol }
+	}).(pulumi.StringOutput)
+}
+
+func (FrontdoorRoutingRulesForwardingConfigurationOutput) ElementType() reflect.Type {
+	return frontdoorRoutingRulesForwardingConfigurationType
+}
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) ToFrontdoorRoutingRulesForwardingConfigurationOutput() FrontdoorRoutingRulesForwardingConfigurationOutput {
+	return o
+}
+
+func (o FrontdoorRoutingRulesForwardingConfigurationOutput) ToFrontdoorRoutingRulesForwardingConfigurationOutputWithContext(ctx context.Context) FrontdoorRoutingRulesForwardingConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorRoutingRulesForwardingConfigurationOutput{}) }
+
+type FrontdoorRoutingRulesRedirectConfiguration struct {
+	CustomFragment *string `pulumi:"customFragment"`
+	CustomHost *string `pulumi:"customHost"`
+	CustomPath *string `pulumi:"customPath"`
+	CustomQueryString *string `pulumi:"customQueryString"`
+	RedirectProtocol string `pulumi:"redirectProtocol"`
+	RedirectType string `pulumi:"redirectType"`
+}
+var frontdoorRoutingRulesRedirectConfigurationType = reflect.TypeOf((*FrontdoorRoutingRulesRedirectConfiguration)(nil)).Elem()
+
+type FrontdoorRoutingRulesRedirectConfigurationInput interface {
+	pulumi.Input
+
+	ToFrontdoorRoutingRulesRedirectConfigurationOutput() FrontdoorRoutingRulesRedirectConfigurationOutput
+	ToFrontdoorRoutingRulesRedirectConfigurationOutputWithContext(ctx context.Context) FrontdoorRoutingRulesRedirectConfigurationOutput
+}
+
+type FrontdoorRoutingRulesRedirectConfigurationArgs struct {
+	CustomFragment pulumi.StringInput `pulumi:"customFragment"`
+	CustomHost pulumi.StringInput `pulumi:"customHost"`
+	CustomPath pulumi.StringInput `pulumi:"customPath"`
+	CustomQueryString pulumi.StringInput `pulumi:"customQueryString"`
+	RedirectProtocol pulumi.StringInput `pulumi:"redirectProtocol"`
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (FrontdoorRoutingRulesRedirectConfigurationArgs) ElementType() reflect.Type {
+	return frontdoorRoutingRulesRedirectConfigurationType
+}
+
+func (a FrontdoorRoutingRulesRedirectConfigurationArgs) ToFrontdoorRoutingRulesRedirectConfigurationOutput() FrontdoorRoutingRulesRedirectConfigurationOutput {
+	return pulumi.ToOutput(a).(FrontdoorRoutingRulesRedirectConfigurationOutput)
+}
+
+func (a FrontdoorRoutingRulesRedirectConfigurationArgs) ToFrontdoorRoutingRulesRedirectConfigurationOutputWithContext(ctx context.Context) FrontdoorRoutingRulesRedirectConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FrontdoorRoutingRulesRedirectConfigurationOutput)
+}
+
+type FrontdoorRoutingRulesRedirectConfigurationOutput struct { *pulumi.OutputState }
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) CustomFragment() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesRedirectConfiguration) string {
+		if v.CustomFragment == nil { return *new(string) } else { return *v.CustomFragment }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) CustomHost() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesRedirectConfiguration) string {
+		if v.CustomHost == nil { return *new(string) } else { return *v.CustomHost }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) CustomPath() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesRedirectConfiguration) string {
+		if v.CustomPath == nil { return *new(string) } else { return *v.CustomPath }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) CustomQueryString() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesRedirectConfiguration) string {
+		if v.CustomQueryString == nil { return *new(string) } else { return *v.CustomQueryString }
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) RedirectProtocol() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesRedirectConfiguration) string {
+		return v.RedirectProtocol
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) RedirectType() pulumi.StringOutput {
+	return o.Apply(func(v FrontdoorRoutingRulesRedirectConfiguration) string {
+		return v.RedirectType
+	}).(pulumi.StringOutput)
+}
+
+func (FrontdoorRoutingRulesRedirectConfigurationOutput) ElementType() reflect.Type {
+	return frontdoorRoutingRulesRedirectConfigurationType
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) ToFrontdoorRoutingRulesRedirectConfigurationOutput() FrontdoorRoutingRulesRedirectConfigurationOutput {
+	return o
+}
+
+func (o FrontdoorRoutingRulesRedirectConfigurationOutput) ToFrontdoorRoutingRulesRedirectConfigurationOutputWithContext(ctx context.Context) FrontdoorRoutingRulesRedirectConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FrontdoorRoutingRulesRedirectConfigurationOutput{}) }
+

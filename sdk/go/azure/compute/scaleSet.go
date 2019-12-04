@@ -4,18 +4,103 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_scale_set.html.markdown.
 type ScaleSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
+	AutomaticOsUpgrade pulumi.BoolOutput `pulumi:"automaticOsUpgrade"`
+
+	// A boot diagnostics profile block as referenced below.
+	BootDiagnostics ScaleSetBootDiagnosticsOutput `pulumi:"bootDiagnostics"`
+
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	EvictionPolicy pulumi.StringOutput `pulumi:"evictionPolicy"`
+
+	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+	Extensions ScaleSetExtensionsArrayOutput `pulumi:"extensions"`
+
+	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
+	HealthProbeId pulumi.StringOutput `pulumi:"healthProbeId"`
+
+	Identity ScaleSetIdentityOutput `pulumi:"identity"`
+
+	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A collection of network profile block as documented below.
+	NetworkProfiles ScaleSetNetworkProfilesArrayOutput `pulumi:"networkProfiles"`
+
+	// A Virtual Machine OS Profile block as documented below.
+	OsProfile ScaleSetOsProfileOutput `pulumi:"osProfile"`
+
+	// A Linux config block as documented below.
+	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigOutput `pulumi:"osProfileLinuxConfig"`
+
+	// A collection of Secret blocks as documented below.
+	OsProfileSecrets ScaleSetOsProfileSecretsArrayOutput `pulumi:"osProfileSecrets"`
+
+	// A Windows config block as documented below.
+	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigOutput `pulumi:"osProfileWindowsConfig"`
+
+	// Specifies whether the virtual machine scale set should be overprovisioned.
+	Overprovision pulumi.BoolOutput `pulumi:"overprovision"`
+
+	// A plan block as documented below.
+	Plan ScaleSetPlanOutput `pulumi:"plan"`
+
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+	Priority pulumi.StringOutput `pulumi:"priority"`
+
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId pulumi.StringOutput `pulumi:"proximityPlacementGroupId"`
+
+	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
+	RollingUpgradePolicy ScaleSetRollingUpgradePolicyOutput `pulumi:"rollingUpgradePolicy"`
+
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
+
+	// Specifies the SKU of the image used to create the virtual machines.
+	Sku ScaleSetSkuOutput `pulumi:"sku"`
+
+	// A storage profile data disk block as documented below
+	StorageProfileDataDisks ScaleSetStorageProfileDataDisksArrayOutput `pulumi:"storageProfileDataDisks"`
+
+	// A storage profile image reference block as documented below.
+	StorageProfileImageReference ScaleSetStorageProfileImageReferenceOutput `pulumi:"storageProfileImageReference"`
+
+	// A storage profile os disk block as documented below
+	StorageProfileOsDisk ScaleSetStorageProfileOsDiskOutput `pulumi:"storageProfileOsDisk"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
+	UpgradePolicyMode pulumi.StringOutput `pulumi:"upgradePolicyMode"`
+
+	// A collection of availability zones to spread the Virtual Machines over.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewScaleSet registers a new resource with the given unique name, arguments, and options.
 func NewScaleSet(ctx *pulumi.Context,
-	name string, args *ScaleSetArgs, opts ...pulumi.ResourceOpt) (*ScaleSet, error) {
+	name string, args *ScaleSetArgs, opts ...pulumi.ResourceOption) (*ScaleSet, error) {
 	if args == nil || args.NetworkProfiles == nil {
 		return nil, errors.New("missing required argument 'NetworkProfiles'")
 	}
@@ -34,378 +119,2374 @@ func NewScaleSet(ctx *pulumi.Context,
 	if args == nil || args.UpgradePolicyMode == nil {
 		return nil, errors.New("missing required argument 'UpgradePolicyMode'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["automaticOsUpgrade"] = nil
-		inputs["bootDiagnostics"] = nil
-		inputs["evictionPolicy"] = nil
-		inputs["extensions"] = nil
-		inputs["healthProbeId"] = nil
-		inputs["identity"] = nil
-		inputs["licenseType"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkProfiles"] = nil
-		inputs["osProfile"] = nil
-		inputs["osProfileLinuxConfig"] = nil
-		inputs["osProfileSecrets"] = nil
-		inputs["osProfileWindowsConfig"] = nil
-		inputs["overprovision"] = nil
-		inputs["plan"] = nil
-		inputs["priority"] = nil
-		inputs["proximityPlacementGroupId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["rollingUpgradePolicy"] = nil
-		inputs["singlePlacementGroup"] = nil
-		inputs["sku"] = nil
-		inputs["storageProfileDataDisks"] = nil
-		inputs["storageProfileImageReference"] = nil
-		inputs["storageProfileOsDisk"] = nil
-		inputs["tags"] = nil
-		inputs["upgradePolicyMode"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["automaticOsUpgrade"] = args.AutomaticOsUpgrade
-		inputs["bootDiagnostics"] = args.BootDiagnostics
-		inputs["evictionPolicy"] = args.EvictionPolicy
-		inputs["extensions"] = args.Extensions
-		inputs["healthProbeId"] = args.HealthProbeId
-		inputs["identity"] = args.Identity
-		inputs["licenseType"] = args.LicenseType
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkProfiles"] = args.NetworkProfiles
-		inputs["osProfile"] = args.OsProfile
-		inputs["osProfileLinuxConfig"] = args.OsProfileLinuxConfig
-		inputs["osProfileSecrets"] = args.OsProfileSecrets
-		inputs["osProfileWindowsConfig"] = args.OsProfileWindowsConfig
-		inputs["overprovision"] = args.Overprovision
-		inputs["plan"] = args.Plan
-		inputs["priority"] = args.Priority
-		inputs["proximityPlacementGroupId"] = args.ProximityPlacementGroupId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["rollingUpgradePolicy"] = args.RollingUpgradePolicy
-		inputs["singlePlacementGroup"] = args.SinglePlacementGroup
-		inputs["sku"] = args.Sku
-		inputs["storageProfileDataDisks"] = args.StorageProfileDataDisks
-		inputs["storageProfileImageReference"] = args.StorageProfileImageReference
-		inputs["storageProfileOsDisk"] = args.StorageProfileOsDisk
-		inputs["tags"] = args.Tags
-		inputs["upgradePolicyMode"] = args.UpgradePolicyMode
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutomaticOsUpgrade; i != nil { inputs["automaticOsUpgrade"] = i.ToBoolOutput() }
+		if i := args.BootDiagnostics; i != nil { inputs["bootDiagnostics"] = i.ToScaleSetBootDiagnosticsOutput() }
+		if i := args.EvictionPolicy; i != nil { inputs["evictionPolicy"] = i.ToStringOutput() }
+		if i := args.Extensions; i != nil { inputs["extensions"] = i.ToScaleSetExtensionsArrayOutput() }
+		if i := args.HealthProbeId; i != nil { inputs["healthProbeId"] = i.ToStringOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToScaleSetIdentityOutput() }
+		if i := args.LicenseType; i != nil { inputs["licenseType"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkProfiles; i != nil { inputs["networkProfiles"] = i.ToScaleSetNetworkProfilesArrayOutput() }
+		if i := args.OsProfile; i != nil { inputs["osProfile"] = i.ToScaleSetOsProfileOutput() }
+		if i := args.OsProfileLinuxConfig; i != nil { inputs["osProfileLinuxConfig"] = i.ToScaleSetOsProfileLinuxConfigOutput() }
+		if i := args.OsProfileSecrets; i != nil { inputs["osProfileSecrets"] = i.ToScaleSetOsProfileSecretsArrayOutput() }
+		if i := args.OsProfileWindowsConfig; i != nil { inputs["osProfileWindowsConfig"] = i.ToScaleSetOsProfileWindowsConfigOutput() }
+		if i := args.Overprovision; i != nil { inputs["overprovision"] = i.ToBoolOutput() }
+		if i := args.Plan; i != nil { inputs["plan"] = i.ToScaleSetPlanOutput() }
+		if i := args.Priority; i != nil { inputs["priority"] = i.ToStringOutput() }
+		if i := args.ProximityPlacementGroupId; i != nil { inputs["proximityPlacementGroupId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RollingUpgradePolicy; i != nil { inputs["rollingUpgradePolicy"] = i.ToScaleSetRollingUpgradePolicyOutput() }
+		if i := args.SinglePlacementGroup; i != nil { inputs["singlePlacementGroup"] = i.ToBoolOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToScaleSetSkuOutput() }
+		if i := args.StorageProfileDataDisks; i != nil { inputs["storageProfileDataDisks"] = i.ToScaleSetStorageProfileDataDisksArrayOutput() }
+		if i := args.StorageProfileImageReference; i != nil { inputs["storageProfileImageReference"] = i.ToScaleSetStorageProfileImageReferenceOutput() }
+		if i := args.StorageProfileOsDisk; i != nil { inputs["storageProfileOsDisk"] = i.ToScaleSetStorageProfileOsDiskOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.UpgradePolicyMode; i != nil { inputs["upgradePolicyMode"] = i.ToStringOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/scaleSet:ScaleSet", name, true, inputs, opts...)
+	var resource ScaleSet
+	err := ctx.RegisterResource("azure:compute/scaleSet:ScaleSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ScaleSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetScaleSet gets an existing ScaleSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetScaleSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ScaleSetState, opts ...pulumi.ResourceOpt) (*ScaleSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ScaleSetState, opts ...pulumi.ResourceOption) (*ScaleSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["automaticOsUpgrade"] = state.AutomaticOsUpgrade
-		inputs["bootDiagnostics"] = state.BootDiagnostics
-		inputs["evictionPolicy"] = state.EvictionPolicy
-		inputs["extensions"] = state.Extensions
-		inputs["healthProbeId"] = state.HealthProbeId
-		inputs["identity"] = state.Identity
-		inputs["licenseType"] = state.LicenseType
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkProfiles"] = state.NetworkProfiles
-		inputs["osProfile"] = state.OsProfile
-		inputs["osProfileLinuxConfig"] = state.OsProfileLinuxConfig
-		inputs["osProfileSecrets"] = state.OsProfileSecrets
-		inputs["osProfileWindowsConfig"] = state.OsProfileWindowsConfig
-		inputs["overprovision"] = state.Overprovision
-		inputs["plan"] = state.Plan
-		inputs["priority"] = state.Priority
-		inputs["proximityPlacementGroupId"] = state.ProximityPlacementGroupId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["rollingUpgradePolicy"] = state.RollingUpgradePolicy
-		inputs["singlePlacementGroup"] = state.SinglePlacementGroup
-		inputs["sku"] = state.Sku
-		inputs["storageProfileDataDisks"] = state.StorageProfileDataDisks
-		inputs["storageProfileImageReference"] = state.StorageProfileImageReference
-		inputs["storageProfileOsDisk"] = state.StorageProfileOsDisk
-		inputs["tags"] = state.Tags
-		inputs["upgradePolicyMode"] = state.UpgradePolicyMode
-		inputs["zones"] = state.Zones
+		if i := state.AutomaticOsUpgrade; i != nil { inputs["automaticOsUpgrade"] = i.ToBoolOutput() }
+		if i := state.BootDiagnostics; i != nil { inputs["bootDiagnostics"] = i.ToScaleSetBootDiagnosticsOutput() }
+		if i := state.EvictionPolicy; i != nil { inputs["evictionPolicy"] = i.ToStringOutput() }
+		if i := state.Extensions; i != nil { inputs["extensions"] = i.ToScaleSetExtensionsArrayOutput() }
+		if i := state.HealthProbeId; i != nil { inputs["healthProbeId"] = i.ToStringOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToScaleSetIdentityOutput() }
+		if i := state.LicenseType; i != nil { inputs["licenseType"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkProfiles; i != nil { inputs["networkProfiles"] = i.ToScaleSetNetworkProfilesArrayOutput() }
+		if i := state.OsProfile; i != nil { inputs["osProfile"] = i.ToScaleSetOsProfileOutput() }
+		if i := state.OsProfileLinuxConfig; i != nil { inputs["osProfileLinuxConfig"] = i.ToScaleSetOsProfileLinuxConfigOutput() }
+		if i := state.OsProfileSecrets; i != nil { inputs["osProfileSecrets"] = i.ToScaleSetOsProfileSecretsArrayOutput() }
+		if i := state.OsProfileWindowsConfig; i != nil { inputs["osProfileWindowsConfig"] = i.ToScaleSetOsProfileWindowsConfigOutput() }
+		if i := state.Overprovision; i != nil { inputs["overprovision"] = i.ToBoolOutput() }
+		if i := state.Plan; i != nil { inputs["plan"] = i.ToScaleSetPlanOutput() }
+		if i := state.Priority; i != nil { inputs["priority"] = i.ToStringOutput() }
+		if i := state.ProximityPlacementGroupId; i != nil { inputs["proximityPlacementGroupId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RollingUpgradePolicy; i != nil { inputs["rollingUpgradePolicy"] = i.ToScaleSetRollingUpgradePolicyOutput() }
+		if i := state.SinglePlacementGroup; i != nil { inputs["singlePlacementGroup"] = i.ToBoolOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToScaleSetSkuOutput() }
+		if i := state.StorageProfileDataDisks; i != nil { inputs["storageProfileDataDisks"] = i.ToScaleSetStorageProfileDataDisksArrayOutput() }
+		if i := state.StorageProfileImageReference; i != nil { inputs["storageProfileImageReference"] = i.ToScaleSetStorageProfileImageReferenceOutput() }
+		if i := state.StorageProfileOsDisk; i != nil { inputs["storageProfileOsDisk"] = i.ToScaleSetStorageProfileOsDiskOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UpgradePolicyMode; i != nil { inputs["upgradePolicyMode"] = i.ToStringOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/scaleSet:ScaleSet", name, id, inputs, opts...)
+	var resource ScaleSet
+	err := ctx.ReadResource("azure:compute/scaleSet:ScaleSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ScaleSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ScaleSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ScaleSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
-func (r *ScaleSet) AutomaticOsUpgrade() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["automaticOsUpgrade"])
-}
-
-// A boot diagnostics profile block as referenced below.
-func (r *ScaleSet) BootDiagnostics() pulumi.Output {
-	return r.s.State["bootDiagnostics"]
-}
-
-// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-func (r *ScaleSet) EvictionPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["evictionPolicy"])
-}
-
-// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
-func (r *ScaleSet) Extensions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["extensions"])
-}
-
-// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-func (r *ScaleSet) HealthProbeId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["healthProbeId"])
-}
-
-func (r *ScaleSet) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
-func (r *ScaleSet) LicenseType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["licenseType"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ScaleSet) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the image from the marketplace.
-func (r *ScaleSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A collection of network profile block as documented below.
-func (r *ScaleSet) NetworkProfiles() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["networkProfiles"])
-}
-
-// A Virtual Machine OS Profile block as documented below.
-func (r *ScaleSet) OsProfile() pulumi.Output {
-	return r.s.State["osProfile"]
-}
-
-// A Linux config block as documented below.
-func (r *ScaleSet) OsProfileLinuxConfig() pulumi.Output {
-	return r.s.State["osProfileLinuxConfig"]
-}
-
-// A collection of Secret blocks as documented below.
-func (r *ScaleSet) OsProfileSecrets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
-}
-
-// A Windows config block as documented below.
-func (r *ScaleSet) OsProfileWindowsConfig() pulumi.Output {
-	return r.s.State["osProfileWindowsConfig"]
-}
-
-// Specifies whether the virtual machine scale set should be overprovisioned.
-func (r *ScaleSet) Overprovision() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["overprovision"])
-}
-
-// A plan block as documented below.
-func (r *ScaleSet) Plan() pulumi.Output {
-	return r.s.State["plan"]
-}
-
-// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
-func (r *ScaleSet) Priority() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["priority"])
-}
-
-// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-func (r *ScaleSet) ProximityPlacementGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
-}
-
-// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-func (r *ScaleSet) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
-func (r *ScaleSet) RollingUpgradePolicy() pulumi.Output {
-	return r.s.State["rollingUpgradePolicy"]
-}
-
-// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-func (r *ScaleSet) SinglePlacementGroup() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["singlePlacementGroup"])
-}
-
-// Specifies the SKU of the image used to create the virtual machines.
-func (r *ScaleSet) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A storage profile data disk block as documented below
-func (r *ScaleSet) StorageProfileDataDisks() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageProfileDataDisks"])
-}
-
-// A storage profile image reference block as documented below.
-func (r *ScaleSet) StorageProfileImageReference() pulumi.Output {
-	return r.s.State["storageProfileImageReference"]
-}
-
-// A storage profile os disk block as documented below
-func (r *ScaleSet) StorageProfileOsDisk() pulumi.Output {
-	return r.s.State["storageProfileOsDisk"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ScaleSet) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-func (r *ScaleSet) UpgradePolicyMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["upgradePolicyMode"])
-}
-
-// A collection of availability zones to spread the Virtual Machines over.
-func (r *ScaleSet) Zones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ScaleSet resources.
 type ScaleSetState struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
-	AutomaticOsUpgrade interface{}
+	AutomaticOsUpgrade pulumi.BoolInput `pulumi:"automaticOsUpgrade"`
 	// A boot diagnostics profile block as referenced below.
-	BootDiagnostics interface{}
+	BootDiagnostics ScaleSetBootDiagnosticsInput `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-	EvictionPolicy interface{}
+	EvictionPolicy pulumi.StringInput `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
-	Extensions interface{}
+	Extensions ScaleSetExtensionsArrayInput `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-	HealthProbeId interface{}
-	Identity interface{}
+	HealthProbeId pulumi.StringInput `pulumi:"healthProbeId"`
+	Identity ScaleSetIdentityInput `pulumi:"identity"`
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
-	LicenseType interface{}
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the image from the marketplace.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A collection of network profile block as documented below.
-	NetworkProfiles interface{}
+	NetworkProfiles ScaleSetNetworkProfilesArrayInput `pulumi:"networkProfiles"`
 	// A Virtual Machine OS Profile block as documented below.
-	OsProfile interface{}
+	OsProfile ScaleSetOsProfileInput `pulumi:"osProfile"`
 	// A Linux config block as documented below.
-	OsProfileLinuxConfig interface{}
+	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigInput `pulumi:"osProfileLinuxConfig"`
 	// A collection of Secret blocks as documented below.
-	OsProfileSecrets interface{}
+	OsProfileSecrets ScaleSetOsProfileSecretsArrayInput `pulumi:"osProfileSecrets"`
 	// A Windows config block as documented below.
-	OsProfileWindowsConfig interface{}
+	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigInput `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned.
-	Overprovision interface{}
+	Overprovision pulumi.BoolInput `pulumi:"overprovision"`
 	// A plan block as documented below.
-	Plan interface{}
+	Plan ScaleSetPlanInput `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
-	Priority interface{}
+	Priority pulumi.StringInput `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-	ProximityPlacementGroupId interface{}
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
-	RollingUpgradePolicy interface{}
+	RollingUpgradePolicy ScaleSetRollingUpgradePolicyInput `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-	SinglePlacementGroup interface{}
+	SinglePlacementGroup pulumi.BoolInput `pulumi:"singlePlacementGroup"`
 	// Specifies the SKU of the image used to create the virtual machines.
-	Sku interface{}
+	Sku ScaleSetSkuInput `pulumi:"sku"`
 	// A storage profile data disk block as documented below
-	StorageProfileDataDisks interface{}
+	StorageProfileDataDisks ScaleSetStorageProfileDataDisksArrayInput `pulumi:"storageProfileDataDisks"`
 	// A storage profile image reference block as documented below.
-	StorageProfileImageReference interface{}
+	StorageProfileImageReference ScaleSetStorageProfileImageReferenceInput `pulumi:"storageProfileImageReference"`
 	// A storage profile os disk block as documented below
-	StorageProfileOsDisk interface{}
+	StorageProfileOsDisk ScaleSetStorageProfileOsDiskInput `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-	UpgradePolicyMode interface{}
+	UpgradePolicyMode pulumi.StringInput `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over.
-	Zones interface{}
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a ScaleSet resource.
 type ScaleSetArgs struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
-	AutomaticOsUpgrade interface{}
+	AutomaticOsUpgrade pulumi.BoolInput `pulumi:"automaticOsUpgrade"`
 	// A boot diagnostics profile block as referenced below.
-	BootDiagnostics interface{}
+	BootDiagnostics ScaleSetBootDiagnosticsInput `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-	EvictionPolicy interface{}
+	EvictionPolicy pulumi.StringInput `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
-	Extensions interface{}
+	Extensions ScaleSetExtensionsArrayInput `pulumi:"extensions"`
 	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
-	HealthProbeId interface{}
-	Identity interface{}
+	HealthProbeId pulumi.StringInput `pulumi:"healthProbeId"`
+	Identity ScaleSetIdentityInput `pulumi:"identity"`
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
-	LicenseType interface{}
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the image from the marketplace.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A collection of network profile block as documented below.
-	NetworkProfiles interface{}
+	NetworkProfiles ScaleSetNetworkProfilesArrayInput `pulumi:"networkProfiles"`
 	// A Virtual Machine OS Profile block as documented below.
-	OsProfile interface{}
+	OsProfile ScaleSetOsProfileInput `pulumi:"osProfile"`
 	// A Linux config block as documented below.
-	OsProfileLinuxConfig interface{}
+	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigInput `pulumi:"osProfileLinuxConfig"`
 	// A collection of Secret blocks as documented below.
-	OsProfileSecrets interface{}
+	OsProfileSecrets ScaleSetOsProfileSecretsArrayInput `pulumi:"osProfileSecrets"`
 	// A Windows config block as documented below.
-	OsProfileWindowsConfig interface{}
+	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigInput `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned.
-	Overprovision interface{}
+	Overprovision pulumi.BoolInput `pulumi:"overprovision"`
 	// A plan block as documented below.
-	Plan interface{}
+	Plan ScaleSetPlanInput `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
-	Priority interface{}
+	Priority pulumi.StringInput `pulumi:"priority"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-	ProximityPlacementGroupId interface{}
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
-	RollingUpgradePolicy interface{}
+	RollingUpgradePolicy ScaleSetRollingUpgradePolicyInput `pulumi:"rollingUpgradePolicy"`
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-	SinglePlacementGroup interface{}
+	SinglePlacementGroup pulumi.BoolInput `pulumi:"singlePlacementGroup"`
 	// Specifies the SKU of the image used to create the virtual machines.
-	Sku interface{}
+	Sku ScaleSetSkuInput `pulumi:"sku"`
 	// A storage profile data disk block as documented below
-	StorageProfileDataDisks interface{}
+	StorageProfileDataDisks ScaleSetStorageProfileDataDisksArrayInput `pulumi:"storageProfileDataDisks"`
 	// A storage profile image reference block as documented below.
-	StorageProfileImageReference interface{}
+	StorageProfileImageReference ScaleSetStorageProfileImageReferenceInput `pulumi:"storageProfileImageReference"`
 	// A storage profile os disk block as documented below
-	StorageProfileOsDisk interface{}
+	StorageProfileOsDisk ScaleSetStorageProfileOsDiskInput `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-	UpgradePolicyMode interface{}
+	UpgradePolicyMode pulumi.StringInput `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over.
-	Zones interface{}
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
+type ScaleSetBootDiagnostics struct {
+	Enabled *bool `pulumi:"enabled"`
+	StorageUri string `pulumi:"storageUri"`
+}
+var scaleSetBootDiagnosticsType = reflect.TypeOf((*ScaleSetBootDiagnostics)(nil)).Elem()
+
+type ScaleSetBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToScaleSetBootDiagnosticsOutput() ScaleSetBootDiagnosticsOutput
+	ToScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) ScaleSetBootDiagnosticsOutput
+}
+
+type ScaleSetBootDiagnosticsArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	StorageUri pulumi.StringInput `pulumi:"storageUri"`
+}
+
+func (ScaleSetBootDiagnosticsArgs) ElementType() reflect.Type {
+	return scaleSetBootDiagnosticsType
+}
+
+func (a ScaleSetBootDiagnosticsArgs) ToScaleSetBootDiagnosticsOutput() ScaleSetBootDiagnosticsOutput {
+	return pulumi.ToOutput(a).(ScaleSetBootDiagnosticsOutput)
+}
+
+func (a ScaleSetBootDiagnosticsArgs) ToScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) ScaleSetBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetBootDiagnosticsOutput)
+}
+
+type ScaleSetBootDiagnosticsOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetBootDiagnosticsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetBootDiagnostics) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ScaleSetBootDiagnosticsOutput) StorageUri() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetBootDiagnostics) string {
+		return v.StorageUri
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetBootDiagnosticsOutput) ElementType() reflect.Type {
+	return scaleSetBootDiagnosticsType
+}
+
+func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsOutput() ScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func (o ScaleSetBootDiagnosticsOutput) ToScaleSetBootDiagnosticsOutputWithContext(ctx context.Context) ScaleSetBootDiagnosticsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetBootDiagnosticsOutput{}) }
+
+type ScaleSetExtensions struct {
+	// Specifies whether or not to use the latest minor version available.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Specifies the name of the image from the marketplace.
+	Name string `pulumi:"name"`
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+	ProvisionAfterExtensions *[]string `pulumi:"provisionAfterExtensions"`
+	// Specifies the publisher of the image.
+	Publisher string `pulumi:"publisher"`
+	// The settings passed to the extension, these are specified as a JSON object in a string.
+	Settings *string `pulumi:"settings"`
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	Type string `pulumi:"type"`
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+var scaleSetExtensionsType = reflect.TypeOf((*ScaleSetExtensions)(nil)).Elem()
+
+type ScaleSetExtensionsInput interface {
+	pulumi.Input
+
+	ToScaleSetExtensionsOutput() ScaleSetExtensionsOutput
+	ToScaleSetExtensionsOutputWithContext(ctx context.Context) ScaleSetExtensionsOutput
+}
+
+type ScaleSetExtensionsArgs struct {
+	// Specifies whether or not to use the latest minor version available.
+	AutoUpgradeMinorVersion pulumi.BoolInput `pulumi:"autoUpgradeMinorVersion"`
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	ProtectedSettings pulumi.StringInput `pulumi:"protectedSettings"`
+	// Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// Specifies the publisher of the image.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The settings passed to the extension, these are specified as a JSON object in a string.
+	Settings pulumi.StringInput `pulumi:"settings"`
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (ScaleSetExtensionsArgs) ElementType() reflect.Type {
+	return scaleSetExtensionsType
+}
+
+func (a ScaleSetExtensionsArgs) ToScaleSetExtensionsOutput() ScaleSetExtensionsOutput {
+	return pulumi.ToOutput(a).(ScaleSetExtensionsOutput)
+}
+
+func (a ScaleSetExtensionsArgs) ToScaleSetExtensionsOutputWithContext(ctx context.Context) ScaleSetExtensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetExtensionsOutput)
+}
+
+type ScaleSetExtensionsOutput struct { *pulumi.OutputState }
+
+// Specifies whether or not to use the latest minor version available.
+func (o ScaleSetExtensionsOutput) AutoUpgradeMinorVersion() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetExtensions) bool {
+		if v.AutoUpgradeMinorVersion == nil { return *new(bool) } else { return *v.AutoUpgradeMinorVersion }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetExtensionsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetExtensions) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+func (o ScaleSetExtensionsOutput) ProtectedSettings() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetExtensions) string {
+		if v.ProtectedSettings == nil { return *new(string) } else { return *v.ProtectedSettings }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+func (o ScaleSetExtensionsOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetExtensions) []string {
+		if v.ProvisionAfterExtensions == nil { return *new([]string) } else { return *v.ProvisionAfterExtensions }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the publisher of the image.
+func (o ScaleSetExtensionsOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetExtensions) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+// The settings passed to the extension, these are specified as a JSON object in a string.
+func (o ScaleSetExtensionsOutput) Settings() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetExtensions) string {
+		if v.Settings == nil { return *new(string) } else { return *v.Settings }
+	}).(pulumi.StringOutput)
+}
+
+// The type of extension, available types for a publisher can be found using the Azure CLI.
+func (o ScaleSetExtensionsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetExtensions) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+func (o ScaleSetExtensionsOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetExtensions) string {
+		return v.TypeHandlerVersion
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetExtensionsOutput) ElementType() reflect.Type {
+	return scaleSetExtensionsType
+}
+
+func (o ScaleSetExtensionsOutput) ToScaleSetExtensionsOutput() ScaleSetExtensionsOutput {
+	return o
+}
+
+func (o ScaleSetExtensionsOutput) ToScaleSetExtensionsOutputWithContext(ctx context.Context) ScaleSetExtensionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetExtensionsOutput{}) }
+
+var scaleSetExtensionsArrayType = reflect.TypeOf((*[]ScaleSetExtensions)(nil)).Elem()
+
+type ScaleSetExtensionsArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetExtensionsArrayOutput() ScaleSetExtensionsArrayOutput
+	ToScaleSetExtensionsArrayOutputWithContext(ctx context.Context) ScaleSetExtensionsArrayOutput
+}
+
+type ScaleSetExtensionsArrayArgs []ScaleSetExtensionsInput
+
+func (ScaleSetExtensionsArrayArgs) ElementType() reflect.Type {
+	return scaleSetExtensionsArrayType
+}
+
+func (a ScaleSetExtensionsArrayArgs) ToScaleSetExtensionsArrayOutput() ScaleSetExtensionsArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetExtensionsArrayOutput)
+}
+
+func (a ScaleSetExtensionsArrayArgs) ToScaleSetExtensionsArrayOutputWithContext(ctx context.Context) ScaleSetExtensionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetExtensionsArrayOutput)
+}
+
+type ScaleSetExtensionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetExtensionsArrayOutput) Index(i pulumi.IntInput) ScaleSetExtensionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetExtensions {
+		return vs[0].([]ScaleSetExtensions)[vs[1].(int)]
+	}).(ScaleSetExtensionsOutput)
+}
+
+func (ScaleSetExtensionsArrayOutput) ElementType() reflect.Type {
+	return scaleSetExtensionsArrayType
+}
+
+func (o ScaleSetExtensionsArrayOutput) ToScaleSetExtensionsArrayOutput() ScaleSetExtensionsArrayOutput {
+	return o
+}
+
+func (o ScaleSetExtensionsArrayOutput) ToScaleSetExtensionsArrayOutputWithContext(ctx context.Context) ScaleSetExtensionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetExtensionsArrayOutput{}) }
+
+type ScaleSetIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+	IdentityIds *[]string `pulumi:"identityIds"`
+	PrincipalId *string `pulumi:"principalId"`
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	Type string `pulumi:"type"`
+}
+var scaleSetIdentityType = reflect.TypeOf((*ScaleSetIdentity)(nil)).Elem()
+
+type ScaleSetIdentityInput interface {
+	pulumi.Input
+
+	ToScaleSetIdentityOutput() ScaleSetIdentityOutput
+	ToScaleSetIdentityOutputWithContext(ctx context.Context) ScaleSetIdentityOutput
+}
+
+type ScaleSetIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ScaleSetIdentityArgs) ElementType() reflect.Type {
+	return scaleSetIdentityType
+}
+
+func (a ScaleSetIdentityArgs) ToScaleSetIdentityOutput() ScaleSetIdentityOutput {
+	return pulumi.ToOutput(a).(ScaleSetIdentityOutput)
+}
+
+func (a ScaleSetIdentityArgs) ToScaleSetIdentityOutputWithContext(ctx context.Context) ScaleSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetIdentityOutput)
+}
+
+type ScaleSetIdentityOutput struct { *pulumi.OutputState }
+
+// Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+func (o ScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetIdentity) []string {
+		if v.IdentityIds == nil { return *new([]string) } else { return *v.IdentityIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ScaleSetIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The type of extension, available types for a publisher can be found using the Azure CLI.
+func (o ScaleSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetIdentityOutput) ElementType() reflect.Type {
+	return scaleSetIdentityType
+}
+
+func (o ScaleSetIdentityOutput) ToScaleSetIdentityOutput() ScaleSetIdentityOutput {
+	return o
+}
+
+func (o ScaleSetIdentityOutput) ToScaleSetIdentityOutputWithContext(ctx context.Context) ScaleSetIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetIdentityOutput{}) }
+
+type ScaleSetNetworkProfiles struct {
+	// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+	AcceleratedNetworking *bool `pulumi:"acceleratedNetworking"`
+	// A dnsSettings block as documented below.
+	DnsSettings *ScaleSetNetworkProfilesDnsSettings `pulumi:"dnsSettings"`
+	// An ipConfiguration block as documented below.
+	IpConfigurations []ScaleSetNetworkProfilesIpConfigurations `pulumi:"ipConfigurations"`
+	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
+	IpForwarding *bool `pulumi:"ipForwarding"`
+	// Specifies the name of the image from the marketplace.
+	Name string `pulumi:"name"`
+	// Specifies the identifier for the network security group.
+	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
+	// Specifies if this ipConfiguration is the primary one.
+	Primary bool `pulumi:"primary"`
+}
+var scaleSetNetworkProfilesType = reflect.TypeOf((*ScaleSetNetworkProfiles)(nil)).Elem()
+
+type ScaleSetNetworkProfilesInput interface {
+	pulumi.Input
+
+	ToScaleSetNetworkProfilesOutput() ScaleSetNetworkProfilesOutput
+	ToScaleSetNetworkProfilesOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesOutput
+}
+
+type ScaleSetNetworkProfilesArgs struct {
+	// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+	AcceleratedNetworking pulumi.BoolInput `pulumi:"acceleratedNetworking"`
+	// A dnsSettings block as documented below.
+	DnsSettings ScaleSetNetworkProfilesDnsSettingsInput `pulumi:"dnsSettings"`
+	// An ipConfiguration block as documented below.
+	IpConfigurations ScaleSetNetworkProfilesIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
+	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
+	IpForwarding pulumi.BoolInput `pulumi:"ipForwarding"`
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the identifier for the network security group.
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
+	// Specifies if this ipConfiguration is the primary one.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+}
+
+func (ScaleSetNetworkProfilesArgs) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesType
+}
+
+func (a ScaleSetNetworkProfilesArgs) ToScaleSetNetworkProfilesOutput() ScaleSetNetworkProfilesOutput {
+	return pulumi.ToOutput(a).(ScaleSetNetworkProfilesOutput)
+}
+
+func (a ScaleSetNetworkProfilesArgs) ToScaleSetNetworkProfilesOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetNetworkProfilesOutput)
+}
+
+type ScaleSetNetworkProfilesOutput struct { *pulumi.OutputState }
+
+// Specifies whether to enable accelerated networking or not. Defaults to `false`.
+func (o ScaleSetNetworkProfilesOutput) AcceleratedNetworking() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) bool {
+		if v.AcceleratedNetworking == nil { return *new(bool) } else { return *v.AcceleratedNetworking }
+	}).(pulumi.BoolOutput)
+}
+
+// A dnsSettings block as documented below.
+func (o ScaleSetNetworkProfilesOutput) DnsSettings() ScaleSetNetworkProfilesDnsSettingsOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) ScaleSetNetworkProfilesDnsSettings {
+		if v.DnsSettings == nil { return *new(ScaleSetNetworkProfilesDnsSettings) } else { return *v.DnsSettings }
+	}).(ScaleSetNetworkProfilesDnsSettingsOutput)
+}
+
+// An ipConfiguration block as documented below.
+func (o ScaleSetNetworkProfilesOutput) IpConfigurations() ScaleSetNetworkProfilesIpConfigurationsArrayOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) []ScaleSetNetworkProfilesIpConfigurations {
+		return v.IpConfigurations
+	}).(ScaleSetNetworkProfilesIpConfigurationsArrayOutput)
+}
+
+// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
+func (o ScaleSetNetworkProfilesOutput) IpForwarding() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) bool {
+		if v.IpForwarding == nil { return *new(bool) } else { return *v.IpForwarding }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetNetworkProfilesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the identifier for the network security group.
+func (o ScaleSetNetworkProfilesOutput) NetworkSecurityGroupId() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) string {
+		if v.NetworkSecurityGroupId == nil { return *new(string) } else { return *v.NetworkSecurityGroupId }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies if this ipConfiguration is the primary one.
+func (o ScaleSetNetworkProfilesOutput) Primary() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetNetworkProfiles) bool {
+		return v.Primary
+	}).(pulumi.BoolOutput)
+}
+
+func (ScaleSetNetworkProfilesOutput) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesType
+}
+
+func (o ScaleSetNetworkProfilesOutput) ToScaleSetNetworkProfilesOutput() ScaleSetNetworkProfilesOutput {
+	return o
+}
+
+func (o ScaleSetNetworkProfilesOutput) ToScaleSetNetworkProfilesOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetNetworkProfilesOutput{}) }
+
+var scaleSetNetworkProfilesArrayType = reflect.TypeOf((*[]ScaleSetNetworkProfiles)(nil)).Elem()
+
+type ScaleSetNetworkProfilesArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetNetworkProfilesArrayOutput() ScaleSetNetworkProfilesArrayOutput
+	ToScaleSetNetworkProfilesArrayOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesArrayOutput
+}
+
+type ScaleSetNetworkProfilesArrayArgs []ScaleSetNetworkProfilesInput
+
+func (ScaleSetNetworkProfilesArrayArgs) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesArrayType
+}
+
+func (a ScaleSetNetworkProfilesArrayArgs) ToScaleSetNetworkProfilesArrayOutput() ScaleSetNetworkProfilesArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetNetworkProfilesArrayOutput)
+}
+
+func (a ScaleSetNetworkProfilesArrayArgs) ToScaleSetNetworkProfilesArrayOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetNetworkProfilesArrayOutput)
+}
+
+type ScaleSetNetworkProfilesArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetNetworkProfilesArrayOutput) Index(i pulumi.IntInput) ScaleSetNetworkProfilesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetNetworkProfiles {
+		return vs[0].([]ScaleSetNetworkProfiles)[vs[1].(int)]
+	}).(ScaleSetNetworkProfilesOutput)
+}
+
+func (ScaleSetNetworkProfilesArrayOutput) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesArrayType
+}
+
+func (o ScaleSetNetworkProfilesArrayOutput) ToScaleSetNetworkProfilesArrayOutput() ScaleSetNetworkProfilesArrayOutput {
+	return o
+}
+
+func (o ScaleSetNetworkProfilesArrayOutput) ToScaleSetNetworkProfilesArrayOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetNetworkProfilesArrayOutput{}) }
+
+type ScaleSetNetworkProfilesDnsSettings struct {
+	// Specifies an array of dns servers.
+	DnsServers []string `pulumi:"dnsServers"`
+}
+var scaleSetNetworkProfilesDnsSettingsType = reflect.TypeOf((*ScaleSetNetworkProfilesDnsSettings)(nil)).Elem()
+
+type ScaleSetNetworkProfilesDnsSettingsInput interface {
+	pulumi.Input
+
+	ToScaleSetNetworkProfilesDnsSettingsOutput() ScaleSetNetworkProfilesDnsSettingsOutput
+	ToScaleSetNetworkProfilesDnsSettingsOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesDnsSettingsOutput
+}
+
+type ScaleSetNetworkProfilesDnsSettingsArgs struct {
+	// Specifies an array of dns servers.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+}
+
+func (ScaleSetNetworkProfilesDnsSettingsArgs) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesDnsSettingsType
+}
+
+func (a ScaleSetNetworkProfilesDnsSettingsArgs) ToScaleSetNetworkProfilesDnsSettingsOutput() ScaleSetNetworkProfilesDnsSettingsOutput {
+	return pulumi.ToOutput(a).(ScaleSetNetworkProfilesDnsSettingsOutput)
+}
+
+func (a ScaleSetNetworkProfilesDnsSettingsArgs) ToScaleSetNetworkProfilesDnsSettingsOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesDnsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetNetworkProfilesDnsSettingsOutput)
+}
+
+type ScaleSetNetworkProfilesDnsSettingsOutput struct { *pulumi.OutputState }
+
+// Specifies an array of dns servers.
+func (o ScaleSetNetworkProfilesDnsSettingsOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesDnsSettings) []string {
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ScaleSetNetworkProfilesDnsSettingsOutput) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesDnsSettingsType
+}
+
+func (o ScaleSetNetworkProfilesDnsSettingsOutput) ToScaleSetNetworkProfilesDnsSettingsOutput() ScaleSetNetworkProfilesDnsSettingsOutput {
+	return o
+}
+
+func (o ScaleSetNetworkProfilesDnsSettingsOutput) ToScaleSetNetworkProfilesDnsSettingsOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesDnsSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetNetworkProfilesDnsSettingsOutput{}) }
+
+type ScaleSetNetworkProfilesIpConfigurations struct {
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	ApplicationGatewayBackendAddressPoolIds *[]string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// Specifies up to `20` application security group IDs.
+	ApplicationSecurityGroupIds *[]string `pulumi:"applicationSecurityGroupIds"`
+	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+	LoadBalancerBackendAddressPoolIds *[]string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+	LoadBalancerInboundNatRulesIds *[]string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// Specifies the name of the image from the marketplace.
+	Name string `pulumi:"name"`
+	// Specifies if this ipConfiguration is the primary one.
+	Primary bool `pulumi:"primary"`
+	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
+	PublicIpAddressConfiguration *ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration `pulumi:"publicIpAddressConfiguration"`
+	// Specifies the identifier of the subnet.
+	SubnetId string `pulumi:"subnetId"`
+}
+var scaleSetNetworkProfilesIpConfigurationsType = reflect.TypeOf((*ScaleSetNetworkProfilesIpConfigurations)(nil)).Elem()
+
+type ScaleSetNetworkProfilesIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToScaleSetNetworkProfilesIpConfigurationsOutput() ScaleSetNetworkProfilesIpConfigurationsOutput
+	ToScaleSetNetworkProfilesIpConfigurationsOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsOutput
+}
+
+type ScaleSetNetworkProfilesIpConfigurationsArgs struct {
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// Specifies up to `20` application security group IDs.
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies if this ipConfiguration is the primary one.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
+	PublicIpAddressConfiguration ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationInput `pulumi:"publicIpAddressConfiguration"`
+	// Specifies the identifier of the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ScaleSetNetworkProfilesIpConfigurationsArgs) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesIpConfigurationsType
+}
+
+func (a ScaleSetNetworkProfilesIpConfigurationsArgs) ToScaleSetNetworkProfilesIpConfigurationsOutput() ScaleSetNetworkProfilesIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(ScaleSetNetworkProfilesIpConfigurationsOutput)
+}
+
+func (a ScaleSetNetworkProfilesIpConfigurationsArgs) ToScaleSetNetworkProfilesIpConfigurationsOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetNetworkProfilesIpConfigurationsOutput)
+}
+
+type ScaleSetNetworkProfilesIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) []string {
+		if v.ApplicationGatewayBackendAddressPoolIds == nil { return *new([]string) } else { return *v.ApplicationGatewayBackendAddressPoolIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies up to `20` application security group IDs.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) []string {
+		if v.ApplicationSecurityGroupIds == nil { return *new([]string) } else { return *v.ApplicationSecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) []string {
+		if v.LoadBalancerBackendAddressPoolIds == nil { return *new([]string) } else { return *v.LoadBalancerBackendAddressPoolIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) []string {
+		if v.LoadBalancerInboundNatRulesIds == nil { return *new([]string) } else { return *v.LoadBalancerInboundNatRulesIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Specifies if this ipConfiguration is the primary one.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) Primary() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) bool {
+		return v.Primary
+	}).(pulumi.BoolOutput)
+}
+
+// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) PublicIpAddressConfiguration() ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration {
+		if v.PublicIpAddressConfiguration == nil { return *new(ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration) } else { return *v.PublicIpAddressConfiguration }
+	}).(ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput)
+}
+
+// Specifies the identifier of the subnet.
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurations) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetNetworkProfilesIpConfigurationsOutput) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesIpConfigurationsType
+}
+
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) ToScaleSetNetworkProfilesIpConfigurationsOutput() ScaleSetNetworkProfilesIpConfigurationsOutput {
+	return o
+}
+
+func (o ScaleSetNetworkProfilesIpConfigurationsOutput) ToScaleSetNetworkProfilesIpConfigurationsOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetNetworkProfilesIpConfigurationsOutput{}) }
+
+var scaleSetNetworkProfilesIpConfigurationsArrayType = reflect.TypeOf((*[]ScaleSetNetworkProfilesIpConfigurations)(nil)).Elem()
+
+type ScaleSetNetworkProfilesIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetNetworkProfilesIpConfigurationsArrayOutput() ScaleSetNetworkProfilesIpConfigurationsArrayOutput
+	ToScaleSetNetworkProfilesIpConfigurationsArrayOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsArrayOutput
+}
+
+type ScaleSetNetworkProfilesIpConfigurationsArrayArgs []ScaleSetNetworkProfilesIpConfigurationsInput
+
+func (ScaleSetNetworkProfilesIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesIpConfigurationsArrayType
+}
+
+func (a ScaleSetNetworkProfilesIpConfigurationsArrayArgs) ToScaleSetNetworkProfilesIpConfigurationsArrayOutput() ScaleSetNetworkProfilesIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetNetworkProfilesIpConfigurationsArrayOutput)
+}
+
+func (a ScaleSetNetworkProfilesIpConfigurationsArrayArgs) ToScaleSetNetworkProfilesIpConfigurationsArrayOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetNetworkProfilesIpConfigurationsArrayOutput)
+}
+
+type ScaleSetNetworkProfilesIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetNetworkProfilesIpConfigurationsArrayOutput) Index(i pulumi.IntInput) ScaleSetNetworkProfilesIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetNetworkProfilesIpConfigurations {
+		return vs[0].([]ScaleSetNetworkProfilesIpConfigurations)[vs[1].(int)]
+	}).(ScaleSetNetworkProfilesIpConfigurationsOutput)
+}
+
+func (ScaleSetNetworkProfilesIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesIpConfigurationsArrayType
+}
+
+func (o ScaleSetNetworkProfilesIpConfigurationsArrayOutput) ToScaleSetNetworkProfilesIpConfigurationsArrayOutput() ScaleSetNetworkProfilesIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o ScaleSetNetworkProfilesIpConfigurationsArrayOutput) ToScaleSetNetworkProfilesIpConfigurationsArrayOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetNetworkProfilesIpConfigurationsArrayOutput{}) }
+
+type ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration struct {
+	// The domain name label for the dns settings.
+	DomainNameLabel string `pulumi:"domainNameLabel"`
+	// The idle timeout in minutes. This value must be between 4 and 30.
+	IdleTimeout int `pulumi:"idleTimeout"`
+	// Specifies the name of the image from the marketplace.
+	Name string `pulumi:"name"`
+}
+var scaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationType = reflect.TypeOf((*ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration)(nil)).Elem()
+
+type ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationInput interface {
+	pulumi.Input
+
+	ToScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput() ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput
+	ToScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput
+}
+
+type ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationArgs struct {
+	// The domain name label for the dns settings.
+	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
+	// The idle timeout in minutes. This value must be between 4 and 30.
+	IdleTimeout pulumi.IntInput `pulumi:"idleTimeout"`
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationArgs) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationType
+}
+
+func (a ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationArgs) ToScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput() ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput {
+	return pulumi.ToOutput(a).(ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput)
+}
+
+func (a ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationArgs) ToScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput)
+}
+
+type ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput struct { *pulumi.OutputState }
+
+// The domain name label for the dns settings.
+func (o ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput) DomainNameLabel() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
+}
+
+// The idle timeout in minutes. This value must be between 4 and 30.
+func (o ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput) IdleTimeout() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration) int {
+		return v.IdleTimeout
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfiguration) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput) ElementType() reflect.Type {
+	return scaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationType
+}
+
+func (o ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput) ToScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput() ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput {
+	return o
+}
+
+func (o ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput) ToScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutputWithContext(ctx context.Context) ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetNetworkProfilesIpConfigurationsPublicIpAddressConfigurationOutput{}) }
+
+type ScaleSetOsProfile struct {
+	// Specifies the administrator password to use for all the instances of virtual machines in a scale set.
+	AdminPassword *string `pulumi:"adminPassword"`
+	// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
+	AdminUsername string `pulumi:"adminUsername"`
+	// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+	ComputerNamePrefix string `pulumi:"computerNamePrefix"`
+	// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+	CustomData *string `pulumi:"customData"`
+}
+var scaleSetOsProfileType = reflect.TypeOf((*ScaleSetOsProfile)(nil)).Elem()
+
+type ScaleSetOsProfileInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileOutput() ScaleSetOsProfileOutput
+	ToScaleSetOsProfileOutputWithContext(ctx context.Context) ScaleSetOsProfileOutput
+}
+
+type ScaleSetOsProfileArgs struct {
+	// Specifies the administrator password to use for all the instances of virtual machines in a scale set.
+	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
+	// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+	ComputerNamePrefix pulumi.StringInput `pulumi:"computerNamePrefix"`
+	// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+	CustomData pulumi.StringInput `pulumi:"customData"`
+}
+
+func (ScaleSetOsProfileArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileType
+}
+
+func (a ScaleSetOsProfileArgs) ToScaleSetOsProfileOutput() ScaleSetOsProfileOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileOutput)
+}
+
+func (a ScaleSetOsProfileArgs) ToScaleSetOsProfileOutputWithContext(ctx context.Context) ScaleSetOsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileOutput)
+}
+
+type ScaleSetOsProfileOutput struct { *pulumi.OutputState }
+
+// Specifies the administrator password to use for all the instances of virtual machines in a scale set.
+func (o ScaleSetOsProfileOutput) AdminPassword() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfile) string {
+		if v.AdminPassword == nil { return *new(string) } else { return *v.AdminPassword }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
+func (o ScaleSetOsProfileOutput) AdminUsername() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfile) string {
+		return v.AdminUsername
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+func (o ScaleSetOsProfileOutput) ComputerNamePrefix() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfile) string {
+		return v.ComputerNamePrefix
+	}).(pulumi.StringOutput)
+}
+
+// Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+func (o ScaleSetOsProfileOutput) CustomData() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfile) string {
+		if v.CustomData == nil { return *new(string) } else { return *v.CustomData }
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetOsProfileOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileType
+}
+
+func (o ScaleSetOsProfileOutput) ToScaleSetOsProfileOutput() ScaleSetOsProfileOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileOutput) ToScaleSetOsProfileOutputWithContext(ctx context.Context) ScaleSetOsProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileOutput{}) }
+
+type ScaleSetOsProfileLinuxConfig struct {
+	// Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
+	SshKeys *[]ScaleSetOsProfileLinuxConfigSshKeys `pulumi:"sshKeys"`
+}
+var scaleSetOsProfileLinuxConfigType = reflect.TypeOf((*ScaleSetOsProfileLinuxConfig)(nil)).Elem()
+
+type ScaleSetOsProfileLinuxConfigInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileLinuxConfigOutput() ScaleSetOsProfileLinuxConfigOutput
+	ToScaleSetOsProfileLinuxConfigOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigOutput
+}
+
+type ScaleSetOsProfileLinuxConfigArgs struct {
+	// Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+	DisablePasswordAuthentication pulumi.BoolInput `pulumi:"disablePasswordAuthentication"`
+	// Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
+	SshKeys ScaleSetOsProfileLinuxConfigSshKeysArrayInput `pulumi:"sshKeys"`
+}
+
+func (ScaleSetOsProfileLinuxConfigArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileLinuxConfigType
+}
+
+func (a ScaleSetOsProfileLinuxConfigArgs) ToScaleSetOsProfileLinuxConfigOutput() ScaleSetOsProfileLinuxConfigOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileLinuxConfigOutput)
+}
+
+func (a ScaleSetOsProfileLinuxConfigArgs) ToScaleSetOsProfileLinuxConfigOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileLinuxConfigOutput)
+}
+
+type ScaleSetOsProfileLinuxConfigOutput struct { *pulumi.OutputState }
+
+// Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+func (o ScaleSetOsProfileLinuxConfigOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetOsProfileLinuxConfig) bool {
+		if v.DisablePasswordAuthentication == nil { return *new(bool) } else { return *v.DisablePasswordAuthentication }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies a collection of `path` and `keyData` to be placed on the virtual machine.
+func (o ScaleSetOsProfileLinuxConfigOutput) SshKeys() ScaleSetOsProfileLinuxConfigSshKeysArrayOutput {
+	return o.Apply(func(v ScaleSetOsProfileLinuxConfig) []ScaleSetOsProfileLinuxConfigSshKeys {
+		if v.SshKeys == nil { return *new([]ScaleSetOsProfileLinuxConfigSshKeys) } else { return *v.SshKeys }
+	}).(ScaleSetOsProfileLinuxConfigSshKeysArrayOutput)
+}
+
+func (ScaleSetOsProfileLinuxConfigOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileLinuxConfigType
+}
+
+func (o ScaleSetOsProfileLinuxConfigOutput) ToScaleSetOsProfileLinuxConfigOutput() ScaleSetOsProfileLinuxConfigOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileLinuxConfigOutput) ToScaleSetOsProfileLinuxConfigOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileLinuxConfigOutput{}) }
+
+type ScaleSetOsProfileLinuxConfigSshKeys struct {
+	KeyData *string `pulumi:"keyData"`
+	Path string `pulumi:"path"`
+}
+var scaleSetOsProfileLinuxConfigSshKeysType = reflect.TypeOf((*ScaleSetOsProfileLinuxConfigSshKeys)(nil)).Elem()
+
+type ScaleSetOsProfileLinuxConfigSshKeysInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileLinuxConfigSshKeysOutput() ScaleSetOsProfileLinuxConfigSshKeysOutput
+	ToScaleSetOsProfileLinuxConfigSshKeysOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigSshKeysOutput
+}
+
+type ScaleSetOsProfileLinuxConfigSshKeysArgs struct {
+	KeyData pulumi.StringInput `pulumi:"keyData"`
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (ScaleSetOsProfileLinuxConfigSshKeysArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileLinuxConfigSshKeysType
+}
+
+func (a ScaleSetOsProfileLinuxConfigSshKeysArgs) ToScaleSetOsProfileLinuxConfigSshKeysOutput() ScaleSetOsProfileLinuxConfigSshKeysOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileLinuxConfigSshKeysOutput)
+}
+
+func (a ScaleSetOsProfileLinuxConfigSshKeysArgs) ToScaleSetOsProfileLinuxConfigSshKeysOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigSshKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileLinuxConfigSshKeysOutput)
+}
+
+type ScaleSetOsProfileLinuxConfigSshKeysOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysOutput) KeyData() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileLinuxConfigSshKeys) string {
+		if v.KeyData == nil { return *new(string) } else { return *v.KeyData }
+	}).(pulumi.StringOutput)
+}
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileLinuxConfigSshKeys) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetOsProfileLinuxConfigSshKeysOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileLinuxConfigSshKeysType
+}
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysOutput) ToScaleSetOsProfileLinuxConfigSshKeysOutput() ScaleSetOsProfileLinuxConfigSshKeysOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysOutput) ToScaleSetOsProfileLinuxConfigSshKeysOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigSshKeysOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileLinuxConfigSshKeysOutput{}) }
+
+var scaleSetOsProfileLinuxConfigSshKeysArrayType = reflect.TypeOf((*[]ScaleSetOsProfileLinuxConfigSshKeys)(nil)).Elem()
+
+type ScaleSetOsProfileLinuxConfigSshKeysArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileLinuxConfigSshKeysArrayOutput() ScaleSetOsProfileLinuxConfigSshKeysArrayOutput
+	ToScaleSetOsProfileLinuxConfigSshKeysArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigSshKeysArrayOutput
+}
+
+type ScaleSetOsProfileLinuxConfigSshKeysArrayArgs []ScaleSetOsProfileLinuxConfigSshKeysInput
+
+func (ScaleSetOsProfileLinuxConfigSshKeysArrayArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileLinuxConfigSshKeysArrayType
+}
+
+func (a ScaleSetOsProfileLinuxConfigSshKeysArrayArgs) ToScaleSetOsProfileLinuxConfigSshKeysArrayOutput() ScaleSetOsProfileLinuxConfigSshKeysArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileLinuxConfigSshKeysArrayOutput)
+}
+
+func (a ScaleSetOsProfileLinuxConfigSshKeysArrayArgs) ToScaleSetOsProfileLinuxConfigSshKeysArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigSshKeysArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileLinuxConfigSshKeysArrayOutput)
+}
+
+type ScaleSetOsProfileLinuxConfigSshKeysArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileLinuxConfigSshKeysOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetOsProfileLinuxConfigSshKeys {
+		return vs[0].([]ScaleSetOsProfileLinuxConfigSshKeys)[vs[1].(int)]
+	}).(ScaleSetOsProfileLinuxConfigSshKeysOutput)
+}
+
+func (ScaleSetOsProfileLinuxConfigSshKeysArrayOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileLinuxConfigSshKeysArrayType
+}
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysArrayOutput) ToScaleSetOsProfileLinuxConfigSshKeysArrayOutput() ScaleSetOsProfileLinuxConfigSshKeysArrayOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileLinuxConfigSshKeysArrayOutput) ToScaleSetOsProfileLinuxConfigSshKeysArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileLinuxConfigSshKeysArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileLinuxConfigSshKeysArrayOutput{}) }
+
+type ScaleSetOsProfileSecrets struct {
+	// Specifies the key vault to use.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+	// A collection of Vault Certificates as documented below
+	VaultCertificates *[]ScaleSetOsProfileSecretsVaultCertificates `pulumi:"vaultCertificates"`
+}
+var scaleSetOsProfileSecretsType = reflect.TypeOf((*ScaleSetOsProfileSecrets)(nil)).Elem()
+
+type ScaleSetOsProfileSecretsInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileSecretsOutput() ScaleSetOsProfileSecretsOutput
+	ToScaleSetOsProfileSecretsOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsOutput
+}
+
+type ScaleSetOsProfileSecretsArgs struct {
+	// Specifies the key vault to use.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+	// A collection of Vault Certificates as documented below
+	VaultCertificates ScaleSetOsProfileSecretsVaultCertificatesArrayInput `pulumi:"vaultCertificates"`
+}
+
+func (ScaleSetOsProfileSecretsArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsType
+}
+
+func (a ScaleSetOsProfileSecretsArgs) ToScaleSetOsProfileSecretsOutput() ScaleSetOsProfileSecretsOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileSecretsOutput)
+}
+
+func (a ScaleSetOsProfileSecretsArgs) ToScaleSetOsProfileSecretsOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileSecretsOutput)
+}
+
+type ScaleSetOsProfileSecretsOutput struct { *pulumi.OutputState }
+
+// Specifies the key vault to use.
+func (o ScaleSetOsProfileSecretsOutput) SourceVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileSecrets) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+// A collection of Vault Certificates as documented below
+func (o ScaleSetOsProfileSecretsOutput) VaultCertificates() ScaleSetOsProfileSecretsVaultCertificatesArrayOutput {
+	return o.Apply(func(v ScaleSetOsProfileSecrets) []ScaleSetOsProfileSecretsVaultCertificates {
+		if v.VaultCertificates == nil { return *new([]ScaleSetOsProfileSecretsVaultCertificates) } else { return *v.VaultCertificates }
+	}).(ScaleSetOsProfileSecretsVaultCertificatesArrayOutput)
+}
+
+func (ScaleSetOsProfileSecretsOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsType
+}
+
+func (o ScaleSetOsProfileSecretsOutput) ToScaleSetOsProfileSecretsOutput() ScaleSetOsProfileSecretsOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileSecretsOutput) ToScaleSetOsProfileSecretsOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileSecretsOutput{}) }
+
+var scaleSetOsProfileSecretsArrayType = reflect.TypeOf((*[]ScaleSetOsProfileSecrets)(nil)).Elem()
+
+type ScaleSetOsProfileSecretsArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileSecretsArrayOutput() ScaleSetOsProfileSecretsArrayOutput
+	ToScaleSetOsProfileSecretsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsArrayOutput
+}
+
+type ScaleSetOsProfileSecretsArrayArgs []ScaleSetOsProfileSecretsInput
+
+func (ScaleSetOsProfileSecretsArrayArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsArrayType
+}
+
+func (a ScaleSetOsProfileSecretsArrayArgs) ToScaleSetOsProfileSecretsArrayOutput() ScaleSetOsProfileSecretsArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileSecretsArrayOutput)
+}
+
+func (a ScaleSetOsProfileSecretsArrayArgs) ToScaleSetOsProfileSecretsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileSecretsArrayOutput)
+}
+
+type ScaleSetOsProfileSecretsArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetOsProfileSecretsArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileSecretsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetOsProfileSecrets {
+		return vs[0].([]ScaleSetOsProfileSecrets)[vs[1].(int)]
+	}).(ScaleSetOsProfileSecretsOutput)
+}
+
+func (ScaleSetOsProfileSecretsArrayOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsArrayType
+}
+
+func (o ScaleSetOsProfileSecretsArrayOutput) ToScaleSetOsProfileSecretsArrayOutput() ScaleSetOsProfileSecretsArrayOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileSecretsArrayOutput) ToScaleSetOsProfileSecretsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileSecretsArrayOutput{}) }
+
+type ScaleSetOsProfileSecretsVaultCertificates struct {
+	// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+	CertificateStore *string `pulumi:"certificateStore"`
+	// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+	CertificateUrl string `pulumi:"certificateUrl"`
+}
+var scaleSetOsProfileSecretsVaultCertificatesType = reflect.TypeOf((*ScaleSetOsProfileSecretsVaultCertificates)(nil)).Elem()
+
+type ScaleSetOsProfileSecretsVaultCertificatesInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileSecretsVaultCertificatesOutput() ScaleSetOsProfileSecretsVaultCertificatesOutput
+	ToScaleSetOsProfileSecretsVaultCertificatesOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsVaultCertificatesOutput
+}
+
+type ScaleSetOsProfileSecretsVaultCertificatesArgs struct {
+	// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
+	// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+}
+
+func (ScaleSetOsProfileSecretsVaultCertificatesArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsVaultCertificatesType
+}
+
+func (a ScaleSetOsProfileSecretsVaultCertificatesArgs) ToScaleSetOsProfileSecretsVaultCertificatesOutput() ScaleSetOsProfileSecretsVaultCertificatesOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileSecretsVaultCertificatesOutput)
+}
+
+func (a ScaleSetOsProfileSecretsVaultCertificatesArgs) ToScaleSetOsProfileSecretsVaultCertificatesOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsVaultCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileSecretsVaultCertificatesOutput)
+}
+
+type ScaleSetOsProfileSecretsVaultCertificatesOutput struct { *pulumi.OutputState }
+
+// Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+func (o ScaleSetOsProfileSecretsVaultCertificatesOutput) CertificateStore() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileSecretsVaultCertificates) string {
+		if v.CertificateStore == nil { return *new(string) } else { return *v.CertificateStore }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+func (o ScaleSetOsProfileSecretsVaultCertificatesOutput) CertificateUrl() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileSecretsVaultCertificates) string {
+		return v.CertificateUrl
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetOsProfileSecretsVaultCertificatesOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsVaultCertificatesType
+}
+
+func (o ScaleSetOsProfileSecretsVaultCertificatesOutput) ToScaleSetOsProfileSecretsVaultCertificatesOutput() ScaleSetOsProfileSecretsVaultCertificatesOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileSecretsVaultCertificatesOutput) ToScaleSetOsProfileSecretsVaultCertificatesOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsVaultCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileSecretsVaultCertificatesOutput{}) }
+
+var scaleSetOsProfileSecretsVaultCertificatesArrayType = reflect.TypeOf((*[]ScaleSetOsProfileSecretsVaultCertificates)(nil)).Elem()
+
+type ScaleSetOsProfileSecretsVaultCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileSecretsVaultCertificatesArrayOutput() ScaleSetOsProfileSecretsVaultCertificatesArrayOutput
+	ToScaleSetOsProfileSecretsVaultCertificatesArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsVaultCertificatesArrayOutput
+}
+
+type ScaleSetOsProfileSecretsVaultCertificatesArrayArgs []ScaleSetOsProfileSecretsVaultCertificatesInput
+
+func (ScaleSetOsProfileSecretsVaultCertificatesArrayArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsVaultCertificatesArrayType
+}
+
+func (a ScaleSetOsProfileSecretsVaultCertificatesArrayArgs) ToScaleSetOsProfileSecretsVaultCertificatesArrayOutput() ScaleSetOsProfileSecretsVaultCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileSecretsVaultCertificatesArrayOutput)
+}
+
+func (a ScaleSetOsProfileSecretsVaultCertificatesArrayArgs) ToScaleSetOsProfileSecretsVaultCertificatesArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsVaultCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileSecretsVaultCertificatesArrayOutput)
+}
+
+type ScaleSetOsProfileSecretsVaultCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetOsProfileSecretsVaultCertificatesArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileSecretsVaultCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetOsProfileSecretsVaultCertificates {
+		return vs[0].([]ScaleSetOsProfileSecretsVaultCertificates)[vs[1].(int)]
+	}).(ScaleSetOsProfileSecretsVaultCertificatesOutput)
+}
+
+func (ScaleSetOsProfileSecretsVaultCertificatesArrayOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileSecretsVaultCertificatesArrayType
+}
+
+func (o ScaleSetOsProfileSecretsVaultCertificatesArrayOutput) ToScaleSetOsProfileSecretsVaultCertificatesArrayOutput() ScaleSetOsProfileSecretsVaultCertificatesArrayOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileSecretsVaultCertificatesArrayOutput) ToScaleSetOsProfileSecretsVaultCertificatesArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileSecretsVaultCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileSecretsVaultCertificatesArrayOutput{}) }
+
+type ScaleSetOsProfileWindowsConfig struct {
+	// An Additional Unattended Config block as documented below.
+	AdditionalUnattendConfigs *[]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs `pulumi:"additionalUnattendConfigs"`
+	// Indicates whether virtual machines in the scale set are enabled for automatic updates.
+	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
+	// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
+	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
+	// A collection of WinRM configuration blocks as documented below.
+	Winrms *[]ScaleSetOsProfileWindowsConfigWinrms `pulumi:"winrms"`
+}
+var scaleSetOsProfileWindowsConfigType = reflect.TypeOf((*ScaleSetOsProfileWindowsConfig)(nil)).Elem()
+
+type ScaleSetOsProfileWindowsConfigInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileWindowsConfigOutput() ScaleSetOsProfileWindowsConfigOutput
+	ToScaleSetOsProfileWindowsConfigOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigOutput
+}
+
+type ScaleSetOsProfileWindowsConfigArgs struct {
+	// An Additional Unattended Config block as documented below.
+	AdditionalUnattendConfigs ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayInput `pulumi:"additionalUnattendConfigs"`
+	// Indicates whether virtual machines in the scale set are enabled for automatic updates.
+	EnableAutomaticUpgrades pulumi.BoolInput `pulumi:"enableAutomaticUpgrades"`
+	// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
+	ProvisionVmAgent pulumi.BoolInput `pulumi:"provisionVmAgent"`
+	// A collection of WinRM configuration blocks as documented below.
+	Winrms ScaleSetOsProfileWindowsConfigWinrmsArrayInput `pulumi:"winrms"`
+}
+
+func (ScaleSetOsProfileWindowsConfigArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigType
+}
+
+func (a ScaleSetOsProfileWindowsConfigArgs) ToScaleSetOsProfileWindowsConfigOutput() ScaleSetOsProfileWindowsConfigOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileWindowsConfigOutput)
+}
+
+func (a ScaleSetOsProfileWindowsConfigArgs) ToScaleSetOsProfileWindowsConfigOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileWindowsConfigOutput)
+}
+
+type ScaleSetOsProfileWindowsConfigOutput struct { *pulumi.OutputState }
+
+// An Additional Unattended Config block as documented below.
+func (o ScaleSetOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs {
+		if v.AdditionalUnattendConfigs == nil { return *new([]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs) } else { return *v.AdditionalUnattendConfigs }
+	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput)
+}
+
+// Indicates whether virtual machines in the scale set are enabled for automatic updates.
+func (o ScaleSetOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfig) bool {
+		if v.EnableAutomaticUpgrades == nil { return *new(bool) } else { return *v.EnableAutomaticUpgrades }
+	}).(pulumi.BoolOutput)
+}
+
+// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
+func (o ScaleSetOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfig) bool {
+		if v.ProvisionVmAgent == nil { return *new(bool) } else { return *v.ProvisionVmAgent }
+	}).(pulumi.BoolOutput)
+}
+
+// A collection of WinRM configuration blocks as documented below.
+func (o ScaleSetOsProfileWindowsConfigOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmsArrayOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrms {
+		if v.Winrms == nil { return *new([]ScaleSetOsProfileWindowsConfigWinrms) } else { return *v.Winrms }
+	}).(ScaleSetOsProfileWindowsConfigWinrmsArrayOutput)
+}
+
+func (ScaleSetOsProfileWindowsConfigOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigType
+}
+
+func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigOutput() ScaleSetOsProfileWindowsConfigOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileWindowsConfigOutput) ToScaleSetOsProfileWindowsConfigOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileWindowsConfigOutput{}) }
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs struct {
+	// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+	Component string `pulumi:"component"`
+	// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+	Content string `pulumi:"content"`
+	// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+	Pass string `pulumi:"pass"`
+	// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+	SettingName string `pulumi:"settingName"`
+}
+var scaleSetOsProfileWindowsConfigAdditionalUnattendConfigsType = reflect.TypeOf((*ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs)(nil)).Elem()
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput
+	ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput
+}
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArgs struct {
+	// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+	Component pulumi.StringInput `pulumi:"component"`
+	// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+	Content pulumi.StringInput `pulumi:"content"`
+	// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+	Pass pulumi.StringInput `pulumi:"pass"`
+	// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+	SettingName pulumi.StringInput `pulumi:"settingName"`
+}
+
+func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigAdditionalUnattendConfigsType
+}
+
+func (a ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArgs) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput)
+}
+
+func (a ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArgs) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput)
+}
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) Component() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.Component
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) Content() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.Content
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) Pass() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.Pass
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) SettingName() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.SettingName
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigAdditionalUnattendConfigsType
+}
+
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput{}) }
+
+var scaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayType = reflect.TypeOf((*[]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs)(nil)).Elem()
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput
+	ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput
+}
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsInput
+
+func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayType
+}
+
+func (a ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput)
+}
+
+func (a ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput)
+}
+
+type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs {
+		return vs[0].([]ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigs)[vs[1].(int)]
+	}).(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsOutput)
+}
+
+func (ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayType
+}
+
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) ToScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput{}) }
+
+type ScaleSetOsProfileWindowsConfigWinrms struct {
+	// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+	CertificateUrl *string `pulumi:"certificateUrl"`
+	// Specifies the protocol of listener
+	Protocol string `pulumi:"protocol"`
+}
+var scaleSetOsProfileWindowsConfigWinrmsType = reflect.TypeOf((*ScaleSetOsProfileWindowsConfigWinrms)(nil)).Elem()
+
+type ScaleSetOsProfileWindowsConfigWinrmsInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileWindowsConfigWinrmsOutput() ScaleSetOsProfileWindowsConfigWinrmsOutput
+	ToScaleSetOsProfileWindowsConfigWinrmsOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigWinrmsOutput
+}
+
+type ScaleSetOsProfileWindowsConfigWinrmsArgs struct {
+	// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+	// Specifies the protocol of listener
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (ScaleSetOsProfileWindowsConfigWinrmsArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigWinrmsType
+}
+
+func (a ScaleSetOsProfileWindowsConfigWinrmsArgs) ToScaleSetOsProfileWindowsConfigWinrmsOutput() ScaleSetOsProfileWindowsConfigWinrmsOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileWindowsConfigWinrmsOutput)
+}
+
+func (a ScaleSetOsProfileWindowsConfigWinrmsArgs) ToScaleSetOsProfileWindowsConfigWinrmsOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigWinrmsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileWindowsConfigWinrmsOutput)
+}
+
+type ScaleSetOsProfileWindowsConfigWinrmsOutput struct { *pulumi.OutputState }
+
+// Specifies URL of the certificate with which new Virtual Machines is provisioned.
+func (o ScaleSetOsProfileWindowsConfigWinrmsOutput) CertificateUrl() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfigWinrms) string {
+		if v.CertificateUrl == nil { return *new(string) } else { return *v.CertificateUrl }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the protocol of listener
+func (o ScaleSetOsProfileWindowsConfigWinrmsOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetOsProfileWindowsConfigWinrms) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetOsProfileWindowsConfigWinrmsOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigWinrmsType
+}
+
+func (o ScaleSetOsProfileWindowsConfigWinrmsOutput) ToScaleSetOsProfileWindowsConfigWinrmsOutput() ScaleSetOsProfileWindowsConfigWinrmsOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileWindowsConfigWinrmsOutput) ToScaleSetOsProfileWindowsConfigWinrmsOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigWinrmsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileWindowsConfigWinrmsOutput{}) }
+
+var scaleSetOsProfileWindowsConfigWinrmsArrayType = reflect.TypeOf((*[]ScaleSetOsProfileWindowsConfigWinrms)(nil)).Elem()
+
+type ScaleSetOsProfileWindowsConfigWinrmsArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetOsProfileWindowsConfigWinrmsArrayOutput() ScaleSetOsProfileWindowsConfigWinrmsArrayOutput
+	ToScaleSetOsProfileWindowsConfigWinrmsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigWinrmsArrayOutput
+}
+
+type ScaleSetOsProfileWindowsConfigWinrmsArrayArgs []ScaleSetOsProfileWindowsConfigWinrmsInput
+
+func (ScaleSetOsProfileWindowsConfigWinrmsArrayArgs) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigWinrmsArrayType
+}
+
+func (a ScaleSetOsProfileWindowsConfigWinrmsArrayArgs) ToScaleSetOsProfileWindowsConfigWinrmsArrayOutput() ScaleSetOsProfileWindowsConfigWinrmsArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetOsProfileWindowsConfigWinrmsArrayOutput)
+}
+
+func (a ScaleSetOsProfileWindowsConfigWinrmsArrayArgs) ToScaleSetOsProfileWindowsConfigWinrmsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigWinrmsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetOsProfileWindowsConfigWinrmsArrayOutput)
+}
+
+type ScaleSetOsProfileWindowsConfigWinrmsArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetOsProfileWindowsConfigWinrmsArrayOutput) Index(i pulumi.IntInput) ScaleSetOsProfileWindowsConfigWinrmsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetOsProfileWindowsConfigWinrms {
+		return vs[0].([]ScaleSetOsProfileWindowsConfigWinrms)[vs[1].(int)]
+	}).(ScaleSetOsProfileWindowsConfigWinrmsOutput)
+}
+
+func (ScaleSetOsProfileWindowsConfigWinrmsArrayOutput) ElementType() reflect.Type {
+	return scaleSetOsProfileWindowsConfigWinrmsArrayType
+}
+
+func (o ScaleSetOsProfileWindowsConfigWinrmsArrayOutput) ToScaleSetOsProfileWindowsConfigWinrmsArrayOutput() ScaleSetOsProfileWindowsConfigWinrmsArrayOutput {
+	return o
+}
+
+func (o ScaleSetOsProfileWindowsConfigWinrmsArrayOutput) ToScaleSetOsProfileWindowsConfigWinrmsArrayOutputWithContext(ctx context.Context) ScaleSetOsProfileWindowsConfigWinrmsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetOsProfileWindowsConfigWinrmsArrayOutput{}) }
+
+type ScaleSetPlan struct {
+	// Specifies the name of the image from the marketplace.
+	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace.
+	Product string `pulumi:"product"`
+	// Specifies the publisher of the image.
+	Publisher string `pulumi:"publisher"`
+}
+var scaleSetPlanType = reflect.TypeOf((*ScaleSetPlan)(nil)).Elem()
+
+type ScaleSetPlanInput interface {
+	pulumi.Input
+
+	ToScaleSetPlanOutput() ScaleSetPlanOutput
+	ToScaleSetPlanOutputWithContext(ctx context.Context) ScaleSetPlanOutput
+}
+
+type ScaleSetPlanArgs struct {
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace.
+	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the publisher of the image.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (ScaleSetPlanArgs) ElementType() reflect.Type {
+	return scaleSetPlanType
+}
+
+func (a ScaleSetPlanArgs) ToScaleSetPlanOutput() ScaleSetPlanOutput {
+	return pulumi.ToOutput(a).(ScaleSetPlanOutput)
+}
+
+func (a ScaleSetPlanArgs) ToScaleSetPlanOutputWithContext(ctx context.Context) ScaleSetPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetPlanOutput)
+}
+
+type ScaleSetPlanOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetPlanOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetPlan) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the product of the image from the marketplace.
+func (o ScaleSetPlanOutput) Product() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetPlan) string {
+		return v.Product
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the publisher of the image.
+func (o ScaleSetPlanOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetPlan) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetPlanOutput) ElementType() reflect.Type {
+	return scaleSetPlanType
+}
+
+func (o ScaleSetPlanOutput) ToScaleSetPlanOutput() ScaleSetPlanOutput {
+	return o
+}
+
+func (o ScaleSetPlanOutput) ToScaleSetPlanOutputWithContext(ctx context.Context) ScaleSetPlanOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetPlanOutput{}) }
+
+type ScaleSetRollingUpgradePolicy struct {
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
+	MaxBatchInstancePercent *int `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
+	MaxUnhealthyInstancePercent *int `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
+	MaxUnhealthyUpgradedInstancePercent *int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+	PauseTimeBetweenBatches *string `pulumi:"pauseTimeBetweenBatches"`
+}
+var scaleSetRollingUpgradePolicyType = reflect.TypeOf((*ScaleSetRollingUpgradePolicy)(nil)).Elem()
+
+type ScaleSetRollingUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToScaleSetRollingUpgradePolicyOutput() ScaleSetRollingUpgradePolicyOutput
+	ToScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) ScaleSetRollingUpgradePolicyOutput
+}
+
+type ScaleSetRollingUpgradePolicyArgs struct {
+	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
+	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
+	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
+	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
+	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
+	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
+}
+
+func (ScaleSetRollingUpgradePolicyArgs) ElementType() reflect.Type {
+	return scaleSetRollingUpgradePolicyType
+}
+
+func (a ScaleSetRollingUpgradePolicyArgs) ToScaleSetRollingUpgradePolicyOutput() ScaleSetRollingUpgradePolicyOutput {
+	return pulumi.ToOutput(a).(ScaleSetRollingUpgradePolicyOutput)
+}
+
+func (a ScaleSetRollingUpgradePolicyArgs) ToScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) ScaleSetRollingUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetRollingUpgradePolicyOutput)
+}
+
+type ScaleSetRollingUpgradePolicyOutput struct { *pulumi.OutputState }
+
+// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
+func (o ScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetRollingUpgradePolicy) int {
+		if v.MaxBatchInstancePercent == nil { return *new(int) } else { return *v.MaxBatchInstancePercent }
+	}).(pulumi.IntOutput)
+}
+
+// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
+func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyInstancePercent() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetRollingUpgradePolicy) int {
+		if v.MaxUnhealthyInstancePercent == nil { return *new(int) } else { return *v.MaxUnhealthyInstancePercent }
+	}).(pulumi.IntOutput)
+}
+
+// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
+func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetRollingUpgradePolicy) int {
+		if v.MaxUnhealthyUpgradedInstancePercent == nil { return *new(int) } else { return *v.MaxUnhealthyUpgradedInstancePercent }
+	}).(pulumi.IntOutput)
+}
+
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
+func (o ScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetRollingUpgradePolicy) string {
+		if v.PauseTimeBetweenBatches == nil { return *new(string) } else { return *v.PauseTimeBetweenBatches }
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetRollingUpgradePolicyOutput) ElementType() reflect.Type {
+	return scaleSetRollingUpgradePolicyType
+}
+
+func (o ScaleSetRollingUpgradePolicyOutput) ToScaleSetRollingUpgradePolicyOutput() ScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func (o ScaleSetRollingUpgradePolicyOutput) ToScaleSetRollingUpgradePolicyOutputWithContext(ctx context.Context) ScaleSetRollingUpgradePolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetRollingUpgradePolicyOutput{}) }
+
+type ScaleSetSku struct {
+	// Specifies the number of virtual machines in the scale set.
+	Capacity int `pulumi:"capacity"`
+	// Specifies the name of the image from the marketplace.
+	Name string `pulumi:"name"`
+	// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
+	Tier *string `pulumi:"tier"`
+}
+var scaleSetSkuType = reflect.TypeOf((*ScaleSetSku)(nil)).Elem()
+
+type ScaleSetSkuInput interface {
+	pulumi.Input
+
+	ToScaleSetSkuOutput() ScaleSetSkuOutput
+	ToScaleSetSkuOutputWithContext(ctx context.Context) ScaleSetSkuOutput
+}
+
+type ScaleSetSkuArgs struct {
+	// Specifies the number of virtual machines in the scale set.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (ScaleSetSkuArgs) ElementType() reflect.Type {
+	return scaleSetSkuType
+}
+
+func (a ScaleSetSkuArgs) ToScaleSetSkuOutput() ScaleSetSkuOutput {
+	return pulumi.ToOutput(a).(ScaleSetSkuOutput)
+}
+
+func (a ScaleSetSkuArgs) ToScaleSetSkuOutputWithContext(ctx context.Context) ScaleSetSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetSkuOutput)
+}
+
+type ScaleSetSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the number of virtual machines in the scale set.
+func (o ScaleSetSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetSku) int {
+		return v.Capacity
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
+func (o ScaleSetSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetSku) string {
+		if v.Tier == nil { return *new(string) } else { return *v.Tier }
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetSkuOutput) ElementType() reflect.Type {
+	return scaleSetSkuType
+}
+
+func (o ScaleSetSkuOutput) ToScaleSetSkuOutput() ScaleSetSkuOutput {
+	return o
+}
+
+func (o ScaleSetSkuOutput) ToScaleSetSkuOutputWithContext(ctx context.Context) ScaleSetSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetSkuOutput{}) }
+
+type ScaleSetStorageProfileDataDisks struct {
+	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
+	Caching *string `pulumi:"caching"`
+	// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+	CreateOption string `pulumi:"createOption"`
+	// Specifies the size of the disk in GB. This element is required when creating an empty disk.
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
+	Lun int `pulumi:"lun"`
+	// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+	ManagedDiskType *string `pulumi:"managedDiskType"`
+}
+var scaleSetStorageProfileDataDisksType = reflect.TypeOf((*ScaleSetStorageProfileDataDisks)(nil)).Elem()
+
+type ScaleSetStorageProfileDataDisksInput interface {
+	pulumi.Input
+
+	ToScaleSetStorageProfileDataDisksOutput() ScaleSetStorageProfileDataDisksOutput
+	ToScaleSetStorageProfileDataDisksOutputWithContext(ctx context.Context) ScaleSetStorageProfileDataDisksOutput
+}
+
+type ScaleSetStorageProfileDataDisksArgs struct {
+	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
+	Caching pulumi.StringInput `pulumi:"caching"`
+	// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Specifies the size of the disk in GB. This element is required when creating an empty disk.
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	// Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+	ManagedDiskType pulumi.StringInput `pulumi:"managedDiskType"`
+}
+
+func (ScaleSetStorageProfileDataDisksArgs) ElementType() reflect.Type {
+	return scaleSetStorageProfileDataDisksType
+}
+
+func (a ScaleSetStorageProfileDataDisksArgs) ToScaleSetStorageProfileDataDisksOutput() ScaleSetStorageProfileDataDisksOutput {
+	return pulumi.ToOutput(a).(ScaleSetStorageProfileDataDisksOutput)
+}
+
+func (a ScaleSetStorageProfileDataDisksArgs) ToScaleSetStorageProfileDataDisksOutputWithContext(ctx context.Context) ScaleSetStorageProfileDataDisksOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetStorageProfileDataDisksOutput)
+}
+
+type ScaleSetStorageProfileDataDisksOutput struct { *pulumi.OutputState }
+
+// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
+func (o ScaleSetStorageProfileDataDisksOutput) Caching() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileDataDisks) string {
+		if v.Caching == nil { return *new(string) } else { return *v.Caching }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+func (o ScaleSetStorageProfileDataDisksOutput) CreateOption() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileDataDisks) string {
+		return v.CreateOption
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the size of the disk in GB. This element is required when creating an empty disk.
+func (o ScaleSetStorageProfileDataDisksOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetStorageProfileDataDisks) int {
+		if v.DiskSizeGb == nil { return *new(int) } else { return *v.DiskSizeGb }
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
+func (o ScaleSetStorageProfileDataDisksOutput) Lun() pulumi.IntOutput {
+	return o.Apply(func(v ScaleSetStorageProfileDataDisks) int {
+		return v.Lun
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+func (o ScaleSetStorageProfileDataDisksOutput) ManagedDiskType() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileDataDisks) string {
+		if v.ManagedDiskType == nil { return *new(string) } else { return *v.ManagedDiskType }
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetStorageProfileDataDisksOutput) ElementType() reflect.Type {
+	return scaleSetStorageProfileDataDisksType
+}
+
+func (o ScaleSetStorageProfileDataDisksOutput) ToScaleSetStorageProfileDataDisksOutput() ScaleSetStorageProfileDataDisksOutput {
+	return o
+}
+
+func (o ScaleSetStorageProfileDataDisksOutput) ToScaleSetStorageProfileDataDisksOutputWithContext(ctx context.Context) ScaleSetStorageProfileDataDisksOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetStorageProfileDataDisksOutput{}) }
+
+var scaleSetStorageProfileDataDisksArrayType = reflect.TypeOf((*[]ScaleSetStorageProfileDataDisks)(nil)).Elem()
+
+type ScaleSetStorageProfileDataDisksArrayInput interface {
+	pulumi.Input
+
+	ToScaleSetStorageProfileDataDisksArrayOutput() ScaleSetStorageProfileDataDisksArrayOutput
+	ToScaleSetStorageProfileDataDisksArrayOutputWithContext(ctx context.Context) ScaleSetStorageProfileDataDisksArrayOutput
+}
+
+type ScaleSetStorageProfileDataDisksArrayArgs []ScaleSetStorageProfileDataDisksInput
+
+func (ScaleSetStorageProfileDataDisksArrayArgs) ElementType() reflect.Type {
+	return scaleSetStorageProfileDataDisksArrayType
+}
+
+func (a ScaleSetStorageProfileDataDisksArrayArgs) ToScaleSetStorageProfileDataDisksArrayOutput() ScaleSetStorageProfileDataDisksArrayOutput {
+	return pulumi.ToOutput(a).(ScaleSetStorageProfileDataDisksArrayOutput)
+}
+
+func (a ScaleSetStorageProfileDataDisksArrayArgs) ToScaleSetStorageProfileDataDisksArrayOutputWithContext(ctx context.Context) ScaleSetStorageProfileDataDisksArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetStorageProfileDataDisksArrayOutput)
+}
+
+type ScaleSetStorageProfileDataDisksArrayOutput struct { *pulumi.OutputState }
+
+func (o ScaleSetStorageProfileDataDisksArrayOutput) Index(i pulumi.IntInput) ScaleSetStorageProfileDataDisksOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScaleSetStorageProfileDataDisks {
+		return vs[0].([]ScaleSetStorageProfileDataDisks)[vs[1].(int)]
+	}).(ScaleSetStorageProfileDataDisksOutput)
+}
+
+func (ScaleSetStorageProfileDataDisksArrayOutput) ElementType() reflect.Type {
+	return scaleSetStorageProfileDataDisksArrayType
+}
+
+func (o ScaleSetStorageProfileDataDisksArrayOutput) ToScaleSetStorageProfileDataDisksArrayOutput() ScaleSetStorageProfileDataDisksArrayOutput {
+	return o
+}
+
+func (o ScaleSetStorageProfileDataDisksArrayOutput) ToScaleSetStorageProfileDataDisksArrayOutputWithContext(ctx context.Context) ScaleSetStorageProfileDataDisksArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetStorageProfileDataDisksArrayOutput{}) }
+
+type ScaleSetStorageProfileImageReference struct {
+	// Specifies the ID of the (custom) image to use to create the virtual
+	// machine scale set, as in the example below.
+	Id *string `pulumi:"id"`
+	// Specifies the offer of the image used to create the virtual machines.
+	Offer *string `pulumi:"offer"`
+	// Specifies the publisher of the image.
+	Publisher *string `pulumi:"publisher"`
+	// Specifies the SKU of the image used to create the virtual machines.
+	Sku *string `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machines.
+	Version *string `pulumi:"version"`
+}
+var scaleSetStorageProfileImageReferenceType = reflect.TypeOf((*ScaleSetStorageProfileImageReference)(nil)).Elem()
+
+type ScaleSetStorageProfileImageReferenceInput interface {
+	pulumi.Input
+
+	ToScaleSetStorageProfileImageReferenceOutput() ScaleSetStorageProfileImageReferenceOutput
+	ToScaleSetStorageProfileImageReferenceOutputWithContext(ctx context.Context) ScaleSetStorageProfileImageReferenceOutput
+}
+
+type ScaleSetStorageProfileImageReferenceArgs struct {
+	// Specifies the ID of the (custom) image to use to create the virtual
+	// machine scale set, as in the example below.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the offer of the image used to create the virtual machines.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// Specifies the publisher of the image.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// Specifies the SKU of the image used to create the virtual machines.
+	Sku pulumi.StringInput `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machines.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ScaleSetStorageProfileImageReferenceArgs) ElementType() reflect.Type {
+	return scaleSetStorageProfileImageReferenceType
+}
+
+func (a ScaleSetStorageProfileImageReferenceArgs) ToScaleSetStorageProfileImageReferenceOutput() ScaleSetStorageProfileImageReferenceOutput {
+	return pulumi.ToOutput(a).(ScaleSetStorageProfileImageReferenceOutput)
+}
+
+func (a ScaleSetStorageProfileImageReferenceArgs) ToScaleSetStorageProfileImageReferenceOutputWithContext(ctx context.Context) ScaleSetStorageProfileImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetStorageProfileImageReferenceOutput)
+}
+
+type ScaleSetStorageProfileImageReferenceOutput struct { *pulumi.OutputState }
+
+// Specifies the ID of the (custom) image to use to create the virtual
+// machine scale set, as in the example below.
+func (o ScaleSetStorageProfileImageReferenceOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileImageReference) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the offer of the image used to create the virtual machines.
+func (o ScaleSetStorageProfileImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileImageReference) string {
+		if v.Offer == nil { return *new(string) } else { return *v.Offer }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the publisher of the image.
+func (o ScaleSetStorageProfileImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileImageReference) string {
+		if v.Publisher == nil { return *new(string) } else { return *v.Publisher }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the SKU of the image used to create the virtual machines.
+func (o ScaleSetStorageProfileImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileImageReference) string {
+		if v.Sku == nil { return *new(string) } else { return *v.Sku }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the version of the image used to create the virtual machines.
+func (o ScaleSetStorageProfileImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileImageReference) string {
+		if v.Version == nil { return *new(string) } else { return *v.Version }
+	}).(pulumi.StringOutput)
+}
+
+func (ScaleSetStorageProfileImageReferenceOutput) ElementType() reflect.Type {
+	return scaleSetStorageProfileImageReferenceType
+}
+
+func (o ScaleSetStorageProfileImageReferenceOutput) ToScaleSetStorageProfileImageReferenceOutput() ScaleSetStorageProfileImageReferenceOutput {
+	return o
+}
+
+func (o ScaleSetStorageProfileImageReferenceOutput) ToScaleSetStorageProfileImageReferenceOutputWithContext(ctx context.Context) ScaleSetStorageProfileImageReferenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetStorageProfileImageReferenceOutput{}) }
+
+type ScaleSetStorageProfileOsDisk struct {
+	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
+	Caching *string `pulumi:"caching"`
+	// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+	CreateOption string `pulumi:"createOption"`
+	// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+	// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
+	// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
+	Image *string `pulumi:"image"`
+	// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+	ManagedDiskType *string `pulumi:"managedDiskType"`
+	// Specifies the name of the image from the marketplace.
+	Name *string `pulumi:"name"`
+	// Specifies the operating system Type, valid values are windows, linux.
+	OsType *string `pulumi:"osType"`
+	// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+	VhdContainers *[]string `pulumi:"vhdContainers"`
+}
+var scaleSetStorageProfileOsDiskType = reflect.TypeOf((*ScaleSetStorageProfileOsDisk)(nil)).Elem()
+
+type ScaleSetStorageProfileOsDiskInput interface {
+	pulumi.Input
+
+	ToScaleSetStorageProfileOsDiskOutput() ScaleSetStorageProfileOsDiskOutput
+	ToScaleSetStorageProfileOsDiskOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskOutput
+}
+
+type ScaleSetStorageProfileOsDiskArgs struct {
+	// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
+	Caching pulumi.StringInput `pulumi:"caching"`
+	// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+	// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
+	// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+	ManagedDiskType pulumi.StringInput `pulumi:"managedDiskType"`
+	// Specifies the name of the image from the marketplace.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the operating system Type, valid values are windows, linux.
+	OsType pulumi.StringInput `pulumi:"osType"`
+	// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+	VhdContainers pulumi.StringArrayInput `pulumi:"vhdContainers"`
+}
+
+func (ScaleSetStorageProfileOsDiskArgs) ElementType() reflect.Type {
+	return scaleSetStorageProfileOsDiskType
+}
+
+func (a ScaleSetStorageProfileOsDiskArgs) ToScaleSetStorageProfileOsDiskOutput() ScaleSetStorageProfileOsDiskOutput {
+	return pulumi.ToOutput(a).(ScaleSetStorageProfileOsDiskOutput)
+}
+
+func (a ScaleSetStorageProfileOsDiskArgs) ToScaleSetStorageProfileOsDiskOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScaleSetStorageProfileOsDiskOutput)
+}
+
+type ScaleSetStorageProfileOsDiskOutput struct { *pulumi.OutputState }
+
+// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
+func (o ScaleSetStorageProfileOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) string {
+		if v.Caching == nil { return *new(string) } else { return *v.Caching }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
+func (o ScaleSetStorageProfileOsDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) string {
+		return v.CreateOption
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
+// Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
+// When setting this field `osType` needs to be specified. Cannot be used when `vhdContainers`, `managedDiskType` or `storageProfileImageReference` are specified.
+func (o ScaleSetStorageProfileOsDiskOutput) Image() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) string {
+		if v.Image == nil { return *new(string) } else { return *v.Image }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+func (o ScaleSetStorageProfileOsDiskOutput) ManagedDiskType() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) string {
+		if v.ManagedDiskType == nil { return *new(string) } else { return *v.ManagedDiskType }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the image from the marketplace.
+func (o ScaleSetStorageProfileOsDiskOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the operating system Type, valid values are windows, linux.
+func (o ScaleSetStorageProfileOsDiskOutput) OsType() pulumi.StringOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) string {
+		if v.OsType == nil { return *new(string) } else { return *v.OsType }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the vhd uri. Cannot be used when `image` or `managedDiskType` is specified.
+func (o ScaleSetStorageProfileOsDiskOutput) VhdContainers() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScaleSetStorageProfileOsDisk) []string {
+		if v.VhdContainers == nil { return *new([]string) } else { return *v.VhdContainers }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ScaleSetStorageProfileOsDiskOutput) ElementType() reflect.Type {
+	return scaleSetStorageProfileOsDiskType
+}
+
+func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskOutput() ScaleSetStorageProfileOsDiskOutput {
+	return o
+}
+
+func (o ScaleSetStorageProfileOsDiskOutput) ToScaleSetStorageProfileOsDiskOutputWithContext(ctx context.Context) ScaleSetStorageProfileOsDiskOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScaleSetStorageProfileOsDiskOutput{}) }
+

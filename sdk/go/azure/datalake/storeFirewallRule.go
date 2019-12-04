@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_firewall_rule.html.markdown.
 type StoreFirewallRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The End IP Address for the firewall rule.
+	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
+
+	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Data Lake Store.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Start IP address for the firewall rule.
+	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 }
 
 // NewStoreFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewStoreFirewallRule(ctx *pulumi.Context,
-	name string, args *StoreFirewallRuleArgs, opts ...pulumi.ResourceOpt) (*StoreFirewallRule, error) {
+	name string, args *StoreFirewallRuleArgs, opts ...pulumi.ResourceOption) (*StoreFirewallRule, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -30,105 +45,66 @@ func NewStoreFirewallRule(ctx *pulumi.Context,
 	if args == nil || args.StartIpAddress == nil {
 		return nil, errors.New("missing required argument 'StartIpAddress'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["endIpAddress"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["startIpAddress"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["endIpAddress"] = args.EndIpAddress
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["startIpAddress"] = args.StartIpAddress
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datalake/storeFirewallRule:StoreFirewallRule", name, true, inputs, opts...)
+	var resource StoreFirewallRule
+	err := ctx.RegisterResource("azure:datalake/storeFirewallRule:StoreFirewallRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StoreFirewallRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetStoreFirewallRule gets an existing StoreFirewallRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStoreFirewallRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StoreFirewallRuleState, opts ...pulumi.ResourceOpt) (*StoreFirewallRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StoreFirewallRuleState, opts ...pulumi.ResourceOption) (*StoreFirewallRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["endIpAddress"] = state.EndIpAddress
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["startIpAddress"] = state.StartIpAddress
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datalake/storeFirewallRule:StoreFirewallRule", name, id, inputs, opts...)
+	var resource StoreFirewallRule
+	err := ctx.ReadResource("azure:datalake/storeFirewallRule:StoreFirewallRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StoreFirewallRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StoreFirewallRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StoreFirewallRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
-func (r *StoreFirewallRule) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The End IP Address for the firewall rule.
-func (r *StoreFirewallRule) EndIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
-}
-
-// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-func (r *StoreFirewallRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Data Lake Store.
-func (r *StoreFirewallRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Start IP address for the firewall rule.
-func (r *StoreFirewallRule) StartIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StoreFirewallRule resources.
 type StoreFirewallRuleState struct {
 	// Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The End IP Address for the firewall rule.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Data Lake Store.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Start IP address for the firewall rule.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a StoreFirewallRule resource.
 type StoreFirewallRuleArgs struct {
 	// Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The End IP Address for the firewall rule.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Data Lake Store.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Start IP address for the firewall rule.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }

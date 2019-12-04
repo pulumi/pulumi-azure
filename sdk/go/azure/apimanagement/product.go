@@ -12,12 +12,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
 type Product struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// Do subscribers need to be approved prior to being able to use the Product?
+	ApprovalRequired pulumi.BoolOutput `pulumi:"approvalRequired"`
+
+	// A description of this Product, which may include HTML formatting tags.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The Display Name for this API Management Product.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+	ProductId pulumi.StringOutput `pulumi:"productId"`
+
+	// Is this Product Published?
+	Published pulumi.BoolOutput `pulumi:"published"`
+
+	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Is a Subscription required to access API's included in this Product?
+	SubscriptionRequired pulumi.BoolOutput `pulumi:"subscriptionRequired"`
+
+	// The number of subscriptions a user can have to this Product at the same time.
+	SubscriptionsLimit pulumi.IntOutput `pulumi:"subscriptionsLimit"`
+
+	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
+	Terms pulumi.StringOutput `pulumi:"terms"`
 }
 
 // NewProduct registers a new resource with the given unique name, arguments, and options.
 func NewProduct(ctx *pulumi.Context,
-	name string, args *ProductArgs, opts ...pulumi.ResourceOpt) (*Product, error) {
+	name string, args *ProductArgs, opts ...pulumi.ResourceOption) (*Product, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -36,165 +66,96 @@ func NewProduct(ctx *pulumi.Context,
 	if args == nil || args.SubscriptionRequired == nil {
 		return nil, errors.New("missing required argument 'SubscriptionRequired'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["approvalRequired"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["productId"] = nil
-		inputs["published"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["subscriptionRequired"] = nil
-		inputs["subscriptionsLimit"] = nil
-		inputs["terms"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["approvalRequired"] = args.ApprovalRequired
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["productId"] = args.ProductId
-		inputs["published"] = args.Published
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["subscriptionRequired"] = args.SubscriptionRequired
-		inputs["subscriptionsLimit"] = args.SubscriptionsLimit
-		inputs["terms"] = args.Terms
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.ApprovalRequired; i != nil { inputs["approvalRequired"] = i.ToBoolOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.ProductId; i != nil { inputs["productId"] = i.ToStringOutput() }
+		if i := args.Published; i != nil { inputs["published"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SubscriptionRequired; i != nil { inputs["subscriptionRequired"] = i.ToBoolOutput() }
+		if i := args.SubscriptionsLimit; i != nil { inputs["subscriptionsLimit"] = i.ToIntOutput() }
+		if i := args.Terms; i != nil { inputs["terms"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/product:Product", name, true, inputs, opts...)
+	var resource Product
+	err := ctx.RegisterResource("azure:apimanagement/product:Product", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Product{s: s}, nil
+	return &resource, nil
 }
 
 // GetProduct gets an existing Product resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProduct(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProductState, opts ...pulumi.ResourceOpt) (*Product, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProductState, opts ...pulumi.ResourceOption) (*Product, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["approvalRequired"] = state.ApprovalRequired
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["productId"] = state.ProductId
-		inputs["published"] = state.Published
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["subscriptionRequired"] = state.SubscriptionRequired
-		inputs["subscriptionsLimit"] = state.SubscriptionsLimit
-		inputs["terms"] = state.Terms
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.ApprovalRequired; i != nil { inputs["approvalRequired"] = i.ToBoolOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.ProductId; i != nil { inputs["productId"] = i.ToStringOutput() }
+		if i := state.Published; i != nil { inputs["published"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SubscriptionRequired; i != nil { inputs["subscriptionRequired"] = i.ToBoolOutput() }
+		if i := state.SubscriptionsLimit; i != nil { inputs["subscriptionsLimit"] = i.ToIntOutput() }
+		if i := state.Terms; i != nil { inputs["terms"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/product:Product", name, id, inputs, opts...)
+	var resource Product
+	err := ctx.ReadResource("azure:apimanagement/product:Product", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Product{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Product) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Product) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *Product) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// Do subscribers need to be approved prior to being able to use the Product?
-func (r *Product) ApprovalRequired() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["approvalRequired"])
-}
-
-// A description of this Product, which may include HTML formatting tags.
-func (r *Product) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The Display Name for this API Management Product.
-func (r *Product) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-func (r *Product) ProductId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["productId"])
-}
-
-// Is this Product Published?
-func (r *Product) Published() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["published"])
-}
-
-// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-func (r *Product) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Is a Subscription required to access API's included in this Product?
-func (r *Product) SubscriptionRequired() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["subscriptionRequired"])
-}
-
-// The number of subscriptions a user can have to this Product at the same time.
-func (r *Product) SubscriptionsLimit() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["subscriptionsLimit"])
-}
-
-// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-func (r *Product) Terms() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["terms"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Product resources.
 type ProductState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// Do subscribers need to be approved prior to being able to use the Product?
-	ApprovalRequired interface{}
+	ApprovalRequired pulumi.BoolInput `pulumi:"approvalRequired"`
 	// A description of this Product, which may include HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Display Name for this API Management Product.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-	ProductId interface{}
+	ProductId pulumi.StringInput `pulumi:"productId"`
 	// Is this Product Published?
-	Published interface{}
+	Published pulumi.BoolInput `pulumi:"published"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Is a Subscription required to access API's included in this Product?
-	SubscriptionRequired interface{}
+	SubscriptionRequired pulumi.BoolInput `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
-	SubscriptionsLimit interface{}
+	SubscriptionsLimit pulumi.IntInput `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-	Terms interface{}
+	Terms pulumi.StringInput `pulumi:"terms"`
 }
 
 // The set of arguments for constructing a Product resource.
 type ProductArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// Do subscribers need to be approved prior to being able to use the Product?
-	ApprovalRequired interface{}
+	ApprovalRequired pulumi.BoolInput `pulumi:"approvalRequired"`
 	// A description of this Product, which may include HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Display Name for this API Management Product.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-	ProductId interface{}
+	ProductId pulumi.StringInput `pulumi:"productId"`
 	// Is this Product Published?
-	Published interface{}
+	Published pulumi.BoolInput `pulumi:"published"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Is a Subscription required to access API's included in this Product?
-	SubscriptionRequired interface{}
+	SubscriptionRequired pulumi.BoolInput `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
-	SubscriptionsLimit interface{}
+	SubscriptionsLimit pulumi.IntInput `pulumi:"subscriptionsLimit"`
 	// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-	Terms interface{}
+	Terms pulumi.StringInput `pulumi:"terms"`
 }

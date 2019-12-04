@@ -10,39 +10,45 @@ import (
 // Use this data source to access endpoint connection information about an existing Private Link Service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
-func LookupServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs) (*GetServiceEndpointConnectionsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", inputs)
+func LookupServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs, opts ...pulumi.InvokeOption) (*GetServiceEndpointConnectionsResult, error) {
+	var rv GetServiceEndpointConnectionsResult
+	err := ctx.Invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServiceEndpointConnectionsResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PrivateEndpointConnections: outputs["privateEndpointConnections"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getServiceEndpointConnections.
 type GetServiceEndpointConnectionsArgs struct {
 	// The name of the private link service.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the private link service resides.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getServiceEndpointConnections.
 type GetServiceEndpointConnectionsResult struct {
-	Location interface{}
-	Name interface{}
-	PrivateEndpointConnections interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	PrivateEndpointConnections []GetServiceEndpointConnectionsPrivateEndpointConnectionsResult `pulumi:"privateEndpointConnections"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetServiceEndpointConnectionsPrivateEndpointConnectionsResult struct {
+	// A message indicating if changes on the service provider require any updates or not.
+	ActionRequired string `pulumi:"actionRequired"`
+	// The resource id of the private link service connection between the private link service and the private link endpoint.
+	ConnectionId string `pulumi:"connectionId"`
+	// The name of the connection between the private link service and the private link endpoint.
+	ConnectionName string `pulumi:"connectionName"`
+	// The request for approval message or the reason for rejection message.
+	Description string `pulumi:"description"`
+	// The resource id of the private link endpoint.
+	PrivateEndpointId string `pulumi:"privateEndpointId"`
+	// The name of the private link endpoint.
+	PrivateEndpointName string `pulumi:"privateEndpointName"`
+	// Indicates the state of the connection between the private link service and the private link endpoint, possible values are `Pending`, `Approved` or `Rejected`.
+	Status string `pulumi:"status"`
 }

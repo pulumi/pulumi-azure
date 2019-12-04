@@ -4,6 +4,8 @@
 package automation
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_runbook.html.markdown.
 type RunBook struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The desired content of the runbook.
+	Content pulumi.StringOutput `pulumi:"content"`
+
+	// A description for this credential.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Progress log option.
+	LogProgress pulumi.BoolOutput `pulumi:"logProgress"`
+
+	// Verbose log option.
+	LogVerbose pulumi.BoolOutput `pulumi:"logVerbose"`
+
+	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The published runbook content link.
+	PublishContentLink RunBookPublishContentLinkOutput `pulumi:"publishContentLink"`
+
+	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+	RunbookType pulumi.StringOutput `pulumi:"runbookType"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRunBook registers a new resource with the given unique name, arguments, and options.
 func NewRunBook(ctx *pulumi.Context,
-	name string, args *RunBookArgs, opts ...pulumi.ResourceOpt) (*RunBook, error) {
+	name string, args *RunBookArgs, opts ...pulumi.ResourceOption) (*RunBook, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -36,177 +71,229 @@ func NewRunBook(ctx *pulumi.Context,
 	if args == nil || args.RunbookType == nil {
 		return nil, errors.New("missing required argument 'RunbookType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["content"] = nil
-		inputs["description"] = nil
-		inputs["location"] = nil
-		inputs["logProgress"] = nil
-		inputs["logVerbose"] = nil
-		inputs["name"] = nil
-		inputs["publishContentLink"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["runbookType"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["content"] = args.Content
-		inputs["description"] = args.Description
-		inputs["location"] = args.Location
-		inputs["logProgress"] = args.LogProgress
-		inputs["logVerbose"] = args.LogVerbose
-		inputs["name"] = args.Name
-		inputs["publishContentLink"] = args.PublishContentLink
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["runbookType"] = args.RunbookType
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.Content; i != nil { inputs["content"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.LogProgress; i != nil { inputs["logProgress"] = i.ToBoolOutput() }
+		if i := args.LogVerbose; i != nil { inputs["logVerbose"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PublishContentLink; i != nil { inputs["publishContentLink"] = i.ToRunBookPublishContentLinkOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RunbookType; i != nil { inputs["runbookType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:automation/runBook:RunBook", name, true, inputs, opts...)
+	var resource RunBook
+	err := ctx.RegisterResource("azure:automation/runBook:RunBook", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RunBook{s: s}, nil
+	return &resource, nil
 }
 
 // GetRunBook gets an existing RunBook resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRunBook(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RunBookState, opts ...pulumi.ResourceOpt) (*RunBook, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RunBookState, opts ...pulumi.ResourceOption) (*RunBook, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["content"] = state.Content
-		inputs["description"] = state.Description
-		inputs["location"] = state.Location
-		inputs["logProgress"] = state.LogProgress
-		inputs["logVerbose"] = state.LogVerbose
-		inputs["name"] = state.Name
-		inputs["publishContentLink"] = state.PublishContentLink
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["runbookType"] = state.RunbookType
-		inputs["tags"] = state.Tags
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.Content; i != nil { inputs["content"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.LogProgress; i != nil { inputs["logProgress"] = i.ToBoolOutput() }
+		if i := state.LogVerbose; i != nil { inputs["logVerbose"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PublishContentLink; i != nil { inputs["publishContentLink"] = i.ToRunBookPublishContentLinkOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RunbookType; i != nil { inputs["runbookType"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:automation/runBook:RunBook", name, id, inputs, opts...)
+	var resource RunBook
+	err := ctx.ReadResource("azure:automation/runBook:RunBook", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RunBook{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RunBook) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RunBook) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-func (r *RunBook) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The desired content of the runbook.
-func (r *RunBook) Content() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["content"])
-}
-
-// A description for this credential.
-func (r *RunBook) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *RunBook) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Progress log option.
-func (r *RunBook) LogProgress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["logProgress"])
-}
-
-// Verbose log option.
-func (r *RunBook) LogVerbose() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["logVerbose"])
-}
-
-// Specifies the name of the Runbook. Changing this forces a new resource to be created.
-func (r *RunBook) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The published runbook content link.
-func (r *RunBook) PublishContentLink() pulumi.Output {
-	return r.s.State["publishContentLink"]
-}
-
-// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-func (r *RunBook) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
-func (r *RunBook) RunbookType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["runbookType"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *RunBook) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RunBook resources.
 type RunBookState struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The desired content of the runbook.
-	Content interface{}
+	Content pulumi.StringInput `pulumi:"content"`
 	// A description for this credential.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Progress log option.
-	LogProgress interface{}
+	LogProgress pulumi.BoolInput `pulumi:"logProgress"`
 	// Verbose log option.
-	LogVerbose interface{}
+	LogVerbose pulumi.BoolInput `pulumi:"logVerbose"`
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The published runbook content link.
-	PublishContentLink interface{}
+	PublishContentLink RunBookPublishContentLinkInput `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
-	RunbookType interface{}
+	RunbookType pulumi.StringInput `pulumi:"runbookType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RunBook resource.
 type RunBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The desired content of the runbook.
-	Content interface{}
+	Content pulumi.StringInput `pulumi:"content"`
 	// A description for this credential.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Progress log option.
-	LogProgress interface{}
+	LogProgress pulumi.BoolInput `pulumi:"logProgress"`
 	// Verbose log option.
-	LogVerbose interface{}
+	LogVerbose pulumi.BoolInput `pulumi:"logVerbose"`
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The published runbook content link.
-	PublishContentLink interface{}
+	PublishContentLink RunBookPublishContentLinkInput `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
-	RunbookType interface{}
+	RunbookType pulumi.StringInput `pulumi:"runbookType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RunBookPublishContentLink struct {
+	Hash *RunBookPublishContentLinkHash `pulumi:"hash"`
+	// The uri of the runbook content.
+	Uri string `pulumi:"uri"`
+	Version *string `pulumi:"version"`
+}
+var runBookPublishContentLinkType = reflect.TypeOf((*RunBookPublishContentLink)(nil)).Elem()
+
+type RunBookPublishContentLinkInput interface {
+	pulumi.Input
+
+	ToRunBookPublishContentLinkOutput() RunBookPublishContentLinkOutput
+	ToRunBookPublishContentLinkOutputWithContext(ctx context.Context) RunBookPublishContentLinkOutput
+}
+
+type RunBookPublishContentLinkArgs struct {
+	Hash RunBookPublishContentLinkHashInput `pulumi:"hash"`
+	// The uri of the runbook content.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (RunBookPublishContentLinkArgs) ElementType() reflect.Type {
+	return runBookPublishContentLinkType
+}
+
+func (a RunBookPublishContentLinkArgs) ToRunBookPublishContentLinkOutput() RunBookPublishContentLinkOutput {
+	return pulumi.ToOutput(a).(RunBookPublishContentLinkOutput)
+}
+
+func (a RunBookPublishContentLinkArgs) ToRunBookPublishContentLinkOutputWithContext(ctx context.Context) RunBookPublishContentLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RunBookPublishContentLinkOutput)
+}
+
+type RunBookPublishContentLinkOutput struct { *pulumi.OutputState }
+
+func (o RunBookPublishContentLinkOutput) Hash() RunBookPublishContentLinkHashOutput {
+	return o.Apply(func(v RunBookPublishContentLink) RunBookPublishContentLinkHash {
+		if v.Hash == nil { return *new(RunBookPublishContentLinkHash) } else { return *v.Hash }
+	}).(RunBookPublishContentLinkHashOutput)
+}
+
+// The uri of the runbook content.
+func (o RunBookPublishContentLinkOutput) Uri() pulumi.StringOutput {
+	return o.Apply(func(v RunBookPublishContentLink) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+func (o RunBookPublishContentLinkOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v RunBookPublishContentLink) string {
+		if v.Version == nil { return *new(string) } else { return *v.Version }
+	}).(pulumi.StringOutput)
+}
+
+func (RunBookPublishContentLinkOutput) ElementType() reflect.Type {
+	return runBookPublishContentLinkType
+}
+
+func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkOutput() RunBookPublishContentLinkOutput {
+	return o
+}
+
+func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkOutputWithContext(ctx context.Context) RunBookPublishContentLinkOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RunBookPublishContentLinkOutput{}) }
+
+type RunBookPublishContentLinkHash struct {
+	Algorithm string `pulumi:"algorithm"`
+	Value string `pulumi:"value"`
+}
+var runBookPublishContentLinkHashType = reflect.TypeOf((*RunBookPublishContentLinkHash)(nil)).Elem()
+
+type RunBookPublishContentLinkHashInput interface {
+	pulumi.Input
+
+	ToRunBookPublishContentLinkHashOutput() RunBookPublishContentLinkHashOutput
+	ToRunBookPublishContentLinkHashOutputWithContext(ctx context.Context) RunBookPublishContentLinkHashOutput
+}
+
+type RunBookPublishContentLinkHashArgs struct {
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RunBookPublishContentLinkHashArgs) ElementType() reflect.Type {
+	return runBookPublishContentLinkHashType
+}
+
+func (a RunBookPublishContentLinkHashArgs) ToRunBookPublishContentLinkHashOutput() RunBookPublishContentLinkHashOutput {
+	return pulumi.ToOutput(a).(RunBookPublishContentLinkHashOutput)
+}
+
+func (a RunBookPublishContentLinkHashArgs) ToRunBookPublishContentLinkHashOutputWithContext(ctx context.Context) RunBookPublishContentLinkHashOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RunBookPublishContentLinkHashOutput)
+}
+
+type RunBookPublishContentLinkHashOutput struct { *pulumi.OutputState }
+
+func (o RunBookPublishContentLinkHashOutput) Algorithm() pulumi.StringOutput {
+	return o.Apply(func(v RunBookPublishContentLinkHash) string {
+		return v.Algorithm
+	}).(pulumi.StringOutput)
+}
+
+func (o RunBookPublishContentLinkHashOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v RunBookPublishContentLinkHash) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (RunBookPublishContentLinkHashOutput) ElementType() reflect.Type {
+	return runBookPublishContentLinkHashType
+}
+
+func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashOutput() RunBookPublishContentLinkHashOutput {
+	return o
+}
+
+func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashOutputWithContext(ctx context.Context) RunBookPublishContentLinkHashOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RunBookPublishContentLinkHashOutput{}) }
+

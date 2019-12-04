@@ -10,49 +10,52 @@ import (
 // Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
-func LookupHub(ctx *pulumi.Context, args *GetHubArgs) (*GetHubResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:notificationhub/getHub:getHub", inputs)
+func LookupHub(ctx *pulumi.Context, args *GetHubArgs, opts ...pulumi.InvokeOption) (*GetHubResult, error) {
+	var rv GetHubResult
+	err := ctx.Invoke("azure:notificationhub/getHub:getHub", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetHubResult{
-		ApnsCredentials: outputs["apnsCredentials"],
-		GcmCredentials: outputs["gcmCredentials"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		NamespaceName: outputs["namespaceName"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getHub.
 type GetHubArgs struct {
 	// Specifies the Name of the Notification Hub.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
-	NamespaceName interface{}
+	NamespaceName string `pulumi:"namespaceName"`
 	// Specifies the Name of the Resource Group within which the Notification Hub exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getHub.
 type GetHubResult struct {
 	// A `apnsCredential` block as defined below.
-	ApnsCredentials interface{}
+	ApnsCredentials []GetHubApnsCredentialsResult `pulumi:"apnsCredentials"`
 	// A `gcmCredential` block as defined below.
-	GcmCredentials interface{}
+	GcmCredentials []GetHubGcmCredentialsResult `pulumi:"gcmCredentials"`
 	// The Azure Region in which this Notification Hub exists.
-	Location interface{}
-	Name interface{}
-	NamespaceName interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	NamespaceName string `pulumi:"namespaceName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetHubApnsCredentialsResult struct {
+	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+	ApplicationMode string `pulumi:"applicationMode"`
+	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+	BundleId string `pulumi:"bundleId"`
+	// The Apple Push Notifications Service (APNS) Key.
+	KeyId string `pulumi:"keyId"`
+	// The ID of the team the Token.
+	TeamId string `pulumi:"teamId"`
+	// The Push Token associated with the Apple Developer Account.
+	Token string `pulumi:"token"`
+}
+type GetHubGcmCredentialsResult struct {
+	// The API Key associated with the Google Cloud Messaging service.
+	ApiKey string `pulumi:"apiKey"`
 }

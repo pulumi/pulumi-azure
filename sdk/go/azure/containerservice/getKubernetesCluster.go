@@ -13,87 +13,198 @@ import (
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
-func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs) (*GetKubernetesClusterResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", inputs)
+func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*GetKubernetesClusterResult, error) {
+	var rv GetKubernetesClusterResult
+	err := ctx.Invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetKubernetesClusterResult{
-		AddonProfiles: outputs["addonProfiles"],
-		AgentPoolProfiles: outputs["agentPoolProfiles"],
-		DnsPrefix: outputs["dnsPrefix"],
-		Fqdn: outputs["fqdn"],
-		KubeAdminConfigs: outputs["kubeAdminConfigs"],
-		KubeAdminConfigRaw: outputs["kubeAdminConfigRaw"],
-		KubeConfigs: outputs["kubeConfigs"],
-		KubeConfigRaw: outputs["kubeConfigRaw"],
-		KubernetesVersion: outputs["kubernetesVersion"],
-		LinuxProfiles: outputs["linuxProfiles"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		NetworkProfiles: outputs["networkProfiles"],
-		NodeResourceGroup: outputs["nodeResourceGroup"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		RoleBasedAccessControls: outputs["roleBasedAccessControls"],
-		ServicePrincipals: outputs["servicePrincipals"],
-		Tags: outputs["tags"],
-		WindowsProfiles: outputs["windowsProfiles"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getKubernetesCluster.
 type GetKubernetesClusterArgs struct {
 	// The name of the managed Kubernetes Cluster.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the managed Kubernetes Cluster exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getKubernetesCluster.
 type GetKubernetesClusterResult struct {
 	// A `addonProfile` block as documented below.
-	AddonProfiles interface{}
+	AddonProfiles []GetKubernetesClusterAddonProfilesResult `pulumi:"addonProfiles"`
 	// An `agentPoolProfile` block as documented below.
-	AgentPoolProfiles interface{}
+	AgentPoolProfiles []GetKubernetesClusterAgentPoolProfilesResult `pulumi:"agentPoolProfiles"`
 	// The DNS Prefix of the managed Kubernetes cluster.
-	DnsPrefix interface{}
+	DnsPrefix string `pulumi:"dnsPrefix"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
-	Fqdn interface{}
+	Fqdn string `pulumi:"fqdn"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfigs interface{}
+	KubeAdminConfigs []GetKubernetesClusterKubeAdminConfigsResult `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfigRaw interface{}
+	KubeAdminConfigRaw string `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeConfig` block as defined below.
-	KubeConfigs interface{}
+	KubeConfigs []GetKubernetesClusterKubeConfigsResult `pulumi:"kubeConfigs"`
 	// Base64 encoded Kubernetes configuration.
-	KubeConfigRaw interface{}
+	KubeConfigRaw string `pulumi:"kubeConfigRaw"`
 	// The version of Kubernetes used on the managed Kubernetes Cluster.
-	KubernetesVersion interface{}
+	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as documented below.
-	LinuxProfiles interface{}
+	LinuxProfiles []GetKubernetesClusterLinuxProfilesResult `pulumi:"linuxProfiles"`
 	// The Azure Region in which the managed Kubernetes Cluster exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name assigned to this pool of agents.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// A `networkProfile` block as documented below.
-	NetworkProfiles interface{}
+	NetworkProfiles []GetKubernetesClusterNetworkProfilesResult `pulumi:"networkProfiles"`
 	// Auto-generated Resource Group containing AKS Cluster resources.
-	NodeResourceGroup interface{}
-	ResourceGroupName interface{}
+	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block as documented below.
-	RoleBasedAccessControls interface{}
+	RoleBasedAccessControls []GetKubernetesClusterRoleBasedAccessControlsResult `pulumi:"roleBasedAccessControls"`
 	// A `servicePrincipal` block as documented below.
-	ServicePrincipals interface{}
+	ServicePrincipals []GetKubernetesClusterServicePrincipalsResult `pulumi:"servicePrincipals"`
 	// A mapping of tags assigned to this resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as documented below.
-	WindowsProfiles interface{}
+	WindowsProfiles []GetKubernetesClusterWindowsProfilesResult `pulumi:"windowsProfiles"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetKubernetesClusterAddonProfilesAzurePoliciesResult struct {
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+type GetKubernetesClusterAddonProfilesHttpApplicationRoutingsResult struct {
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName string `pulumi:"httpApplicationRoutingZoneName"`
+}
+type GetKubernetesClusterAddonProfilesKubeDashboardsResult struct {
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+type GetKubernetesClusterAddonProfilesOmsAgentsResult struct {
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+	// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+}
+type GetKubernetesClusterAddonProfilesResult struct {
+	// A `azurePolicy` block.
+	AzurePolicies []GetKubernetesClusterAddonProfilesAzurePoliciesResult `pulumi:"azurePolicies"`
+	// A `httpApplicationRouting` block.
+	HttpApplicationRoutings []GetKubernetesClusterAddonProfilesHttpApplicationRoutingsResult `pulumi:"httpApplicationRoutings"`
+	// A `kubeDashboard` block.
+	KubeDashboards []GetKubernetesClusterAddonProfilesKubeDashboardsResult `pulumi:"kubeDashboards"`
+	// A `omsAgent` block.
+	OmsAgents []GetKubernetesClusterAddonProfilesOmsAgentsResult `pulumi:"omsAgents"`
+}
+type GetKubernetesClusterAgentPoolProfilesResult struct {
+	// The availability zones used for the nodes.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The number of Agents (VM's) in the Pool.
+	Count int `pulumi:"count"`
+	// The DNS Prefix of the managed Kubernetes cluster.
+	DnsPrefix string `pulumi:"dnsPrefix"`
+	// If the auto-scaler is enabled.
+	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// Maximum number of nodes for auto-scaling
+	MaxCount int `pulumi:"maxCount"`
+	// The maximum number of pods that can run on each agent.
+	MaxPods int `pulumi:"maxPods"`
+	// Minimum number of nodes for auto-scaling
+	MinCount int `pulumi:"minCount"`
+	// The name of the managed Kubernetes Cluster.
+	Name string `pulumi:"name"`
+	// The list of Kubernetes taints which are applied to nodes in the agent pool
+	NodeTaints *[]string `pulumi:"nodeTaints"`
+	// The size of the Agent VM's Operating System Disk in GB.
+	OsDiskSizeGb int `pulumi:"osDiskSizeGb"`
+	// The Operating System used for the Agents.
+	OsType string `pulumi:"osType"`
+	// The type of the Agent Pool.
+	Type string `pulumi:"type"`
+	// The size of each VM in the Agent Pool (e.g. `Standard_F1`).
+	VmSize string `pulumi:"vmSize"`
+	// The ID of the Subnet where the Agents in the Pool are provisioned.
+	VnetSubnetId string `pulumi:"vnetSubnetId"`
+}
+type GetKubernetesClusterKubeAdminConfigsResult struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate string `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey string `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate string `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host string `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password string `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username string `pulumi:"username"`
+}
+type GetKubernetesClusterKubeConfigsResult struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate string `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey string `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate string `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host string `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password string `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username string `pulumi:"username"`
+}
+type GetKubernetesClusterLinuxProfilesResult struct {
+	// The username associated with the administrator account of the Windows VMs.
+	AdminUsername string `pulumi:"adminUsername"`
+	// An `sshKey` block as defined below.
+	SshKeys []GetKubernetesClusterLinuxProfilesSshKeysResult `pulumi:"sshKeys"`
+}
+type GetKubernetesClusterLinuxProfilesSshKeysResult struct {
+	// The Public SSH Key used to access the cluster.
+	KeyData string `pulumi:"keyData"`
+}
+type GetKubernetesClusterNetworkProfilesResult struct {
+	// IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
+	DnsServiceIp string `pulumi:"dnsServiceIp"`
+	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
+	DockerBridgeCidr string `pulumi:"dockerBridgeCidr"`
+	LoadBalancerSku string `pulumi:"loadBalancerSku"`
+	// Network plugin used such as `azure` or `kubenet`.
+	NetworkPlugin string `pulumi:"networkPlugin"`
+	// Network policy to be used with Azure CNI. Eg: `calico` or `azure`
+	NetworkPolicy string `pulumi:"networkPolicy"`
+	// The CIDR used for pod IP addresses.
+	PodCidr string `pulumi:"podCidr"`
+	// Network range used by the Kubernetes service.
+	ServiceCidr string `pulumi:"serviceCidr"`
+}
+type GetKubernetesClusterRoleBasedAccessControlsAzureActiveDirectoriesResult struct {
+	// The Client ID of an Azure Active Directory Application.
+	ClientAppId string `pulumi:"clientAppId"`
+	// The Server ID of an Azure Active Directory Application.
+	ServerAppId string `pulumi:"serverAppId"`
+	// The Tenant ID used for Azure Active Directory Application.
+	TenantId string `pulumi:"tenantId"`
+}
+type GetKubernetesClusterRoleBasedAccessControlsResult struct {
+	// A `azureActiveDirectory` block as documented above.
+	AzureActiveDirectories []GetKubernetesClusterRoleBasedAccessControlsAzureActiveDirectoriesResult `pulumi:"azureActiveDirectories"`
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+type GetKubernetesClusterServicePrincipalsResult struct {
+	// The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
+	ClientId string `pulumi:"clientId"`
+}
+type GetKubernetesClusterWindowsProfilesResult struct {
+	// The username associated with the administrator account of the Windows VMs.
+	AdminUsername string `pulumi:"adminUsername"`
 }

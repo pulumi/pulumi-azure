@@ -10,50 +10,37 @@ import (
 // Use this data source to access information about an existing Application Insights component.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
-func LookupInsights(ctx *pulumi.Context, args *GetInsightsArgs) (*GetInsightsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:appinsights/getInsights:getInsights", inputs)
+func LookupInsights(ctx *pulumi.Context, args *GetInsightsArgs, opts ...pulumi.InvokeOption) (*GetInsightsResult, error) {
+	var rv GetInsightsResult
+	err := ctx.Invoke("azure:appinsights/getInsights:getInsights", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetInsightsResult{
-		AppId: outputs["appId"],
-		ApplicationType: outputs["applicationType"],
-		InstrumentationKey: outputs["instrumentationKey"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getInsights.
 type GetInsightsArgs struct {
 	// Specifies the name of the Application Insights component.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Application Insights component is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getInsights.
 type GetInsightsResult struct {
 	// The App ID associated with this Application Insights component.
-	AppId interface{}
+	AppId string `pulumi:"appId"`
 	// The type of the component.
-	ApplicationType interface{}
+	ApplicationType string `pulumi:"applicationType"`
 	// The instrumentation key of the Application Insights component.
-	InstrumentationKey interface{}
+	InstrumentationKey string `pulumi:"instrumentationKey"`
 	// The Azure location where the component exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags applied to the component.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

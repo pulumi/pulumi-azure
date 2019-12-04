@@ -10,72 +10,186 @@ import (
 // Use this data source to access information about an existing Batch pool
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
-func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["accountName"] = args.AccountName
-		inputs["certificates"] = args.Certificates
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["startTask"] = args.StartTask
-	}
-	outputs, err := ctx.Invoke("azure:batch/getPool:getPool", inputs)
+func LookupPool(ctx *pulumi.Context, args *GetPoolArgs, opts ...pulumi.InvokeOption) (*GetPoolResult, error) {
+	var rv GetPoolResult
+	err := ctx.Invoke("azure:batch/getPool:getPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPoolResult{
-		AccountName: outputs["accountName"],
-		AutoScales: outputs["autoScales"],
-		Certificates: outputs["certificates"],
-		ContainerConfigurations: outputs["containerConfigurations"],
-		DisplayName: outputs["displayName"],
-		FixedScales: outputs["fixedScales"],
-		MaxTasksPerNode: outputs["maxTasksPerNode"],
-		Name: outputs["name"],
-		NodeAgentSkuId: outputs["nodeAgentSkuId"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		StartTask: outputs["startTask"],
-		StorageImageReferences: outputs["storageImageReferences"],
-		VmSize: outputs["vmSize"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPool.
 type GetPoolArgs struct {
-	AccountName interface{}
-	Certificates interface{}
-	Name interface{}
-	ResourceGroupName interface{}
-	StartTask interface{}
+	AccountName string `pulumi:"accountName"`
+	Certificates *[]GetPoolCertificatesArgs `pulumi:"certificates"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	StartTask *GetPoolStartTaskArgs `pulumi:"startTask"`
 }
 
 // A collection of values returned by getPool.
 type GetPoolResult struct {
 	// The name of the Batch account.
-	AccountName interface{}
+	AccountName string `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale.
-	AutoScales interface{}
+	AutoScales []GetPoolAutoScalesResult `pulumi:"autoScales"`
 	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-	Certificates interface{}
+	Certificates *[]GetPoolCertificatesResult `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
-	ContainerConfigurations interface{}
-	DisplayName interface{}
+	ContainerConfigurations []GetPoolContainerConfigurationsResult `pulumi:"containerConfigurations"`
+	DisplayName string `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
-	FixedScales interface{}
+	FixedScales []GetPoolFixedScalesResult `pulumi:"fixedScales"`
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
-	MaxTasksPerNode interface{}
+	MaxTasksPerNode int `pulumi:"maxTasksPerNode"`
 	// The name of the Batch pool.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Sku of the node agents in the Batch pool.
-	NodeAgentSkuId interface{}
-	ResourceGroupName interface{}
+	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask interface{}
+	StartTask *GetPoolStartTaskResult `pulumi:"startTask"`
 	// The reference of the storage image used by the nodes in the Batch pool.
-	StorageImageReferences interface{}
+	StorageImageReferences []GetPoolStorageImageReferencesResult `pulumi:"storageImageReferences"`
 	// The size of the VM created in the Batch pool.
-	VmSize interface{}
+	VmSize string `pulumi:"vmSize"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetPoolAutoScalesResult struct {
+	// The interval to wait before evaluating if the pool needs to be scaled.
+	EvaluationInterval string `pulumi:"evaluationInterval"`
+	// The autoscale formula that needs to be used for scaling the Batch pool.
+	Formula string `pulumi:"formula"`
+}
+type GetPoolCertificatesArgs struct {
+	// The fully qualified ID of the certificate installed on the pool.
+	Id string `pulumi:"id"`
+	// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
+	StoreLocation string `pulumi:"storeLocation"`
+	// The name of the certificate store on the compute node into which the certificate is installed.
+	StoreName *string `pulumi:"storeName"`
+	// Which user accounts on the compute node have access to the private data of the certificate.
+	Visibilities *[]string `pulumi:"visibilities"`
+}
+type GetPoolCertificatesResult struct {
+	// The fully qualified ID of the certificate installed on the pool.
+	Id string `pulumi:"id"`
+	// The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
+	StoreLocation string `pulumi:"storeLocation"`
+	// The name of the certificate store on the compute node into which the certificate is installed.
+	StoreName *string `pulumi:"storeName"`
+	// Which user accounts on the compute node have access to the private data of the certificate.
+	Visibilities *[]string `pulumi:"visibilities"`
+}
+type GetPoolContainerConfigurationsContainerRegistriesResult struct {
+	// The password to log into the registry server.
+	Password string `pulumi:"password"`
+	// The container registry URL. The default is "docker.io".
+	RegistryServer string `pulumi:"registryServer"`
+	// The user name to log into the registry server.
+	UserName string `pulumi:"userName"`
+}
+type GetPoolContainerConfigurationsResult struct {
+	// Additional container registries from which container images can be pulled by the pool's VMs.
+	ContainerRegistries []GetPoolContainerConfigurationsContainerRegistriesResult `pulumi:"containerRegistries"`
+	// The type of container configuration.
+	Type string `pulumi:"type"`
+}
+type GetPoolFixedScalesResult struct {
+	// The timeout for resize operations.
+	ResizeTimeout string `pulumi:"resizeTimeout"`
+	// The number of nodes in the Batch pool.
+	TargetDedicatedNodes int `pulumi:"targetDedicatedNodes"`
+	// The number of low priority nodes in the Batch pool.
+	TargetLowPriorityNodes int `pulumi:"targetLowPriorityNodes"`
+}
+type GetPoolStartTaskArgs struct {
+	// The command line executed by the start task.
+	CommandLine string `pulumi:"commandLine"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	Environment *map[string]string `pulumi:"environment"`
+	// The number of retry count.
+	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
+	// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	ResourceFiles *[]GetPoolStartTaskResourceFilesArgs `pulumi:"resourceFiles"`
+	// A `userIdentity` block that describes the user identity under which the start task runs.
+	UserIdentities *[]GetPoolStartTaskUserIdentitiesArgs `pulumi:"userIdentities"`
+	// A flag that indicates if the Batch pool should wait for the start task to be completed.
+	WaitForSuccess *bool `pulumi:"waitForSuccess"`
+}
+type GetPoolStartTaskResourceFilesArgs struct {
+	// The storage container name in the auto storage account.
+	AutoStorageContainerName *string `pulumi:"autoStorageContainerName"`
+	// The blob prefix used when downloading blobs from an Azure Storage container.
+	BlobPrefix *string `pulumi:"blobPrefix"`
+	// The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
+	FileMode *string `pulumi:"fileMode"`
+	// The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
+	FilePath *string `pulumi:"filePath"`
+	// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
+	HttpUrl *string `pulumi:"httpUrl"`
+	// The URL of the blob container within Azure Blob Storage.
+	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
+}
+type GetPoolStartTaskResourceFilesResult struct {
+	// The storage container name in the auto storage account.
+	AutoStorageContainerName string `pulumi:"autoStorageContainerName"`
+	// The blob prefix used when downloading blobs from an Azure Storage container.
+	BlobPrefix string `pulumi:"blobPrefix"`
+	// The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
+	FileMode string `pulumi:"fileMode"`
+	// The location on the compute node to which to download the file, relative to the task's working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
+	FilePath string `pulumi:"filePath"`
+	// The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
+	HttpUrl string `pulumi:"httpUrl"`
+	// The URL of the blob container within Azure Blob Storage.
+	StorageContainerUrl string `pulumi:"storageContainerUrl"`
+}
+type GetPoolStartTaskResult struct {
+	// The command line executed by the start task.
+	CommandLine string `pulumi:"commandLine"`
+	// A map of strings (key,value) that represents the environment variables to set in the start task.
+	Environment *map[string]string `pulumi:"environment"`
+	// The number of retry count.
+	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
+	// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	ResourceFiles []GetPoolStartTaskResourceFilesResult `pulumi:"resourceFiles"`
+	// A `userIdentity` block that describes the user identity under which the start task runs.
+	UserIdentities []GetPoolStartTaskUserIdentitiesResult `pulumi:"userIdentities"`
+	// A flag that indicates if the Batch pool should wait for the start task to be completed.
+	WaitForSuccess *bool `pulumi:"waitForSuccess"`
+}
+type GetPoolStartTaskUserIdentitiesArgs struct {
+	// A `autoUser` block that describes the user identity under which the start task runs.
+	AutoUsers *[]GetPoolStartTaskUserIdentitiesAutoUsersArgs `pulumi:"autoUsers"`
+	// The user name to log into the registry server.
+	UserName *string `pulumi:"userName"`
+}
+type GetPoolStartTaskUserIdentitiesAutoUsersArgs struct {
+	// The elevation level of the user identity under which the start task runs.
+	ElevationLevel *string `pulumi:"elevationLevel"`
+	// The scope of the user identity under which the start task runs.
+	Scope *string `pulumi:"scope"`
+}
+type GetPoolStartTaskUserIdentitiesAutoUsersResult struct {
+	// The elevation level of the user identity under which the start task runs.
+	ElevationLevel string `pulumi:"elevationLevel"`
+	// The scope of the user identity under which the start task runs.
+	Scope string `pulumi:"scope"`
+}
+type GetPoolStartTaskUserIdentitiesResult struct {
+	// A `autoUser` block that describes the user identity under which the start task runs.
+	AutoUsers []GetPoolStartTaskUserIdentitiesAutoUsersResult `pulumi:"autoUsers"`
+	// The user name to log into the registry server.
+	UserName string `pulumi:"userName"`
+}
+type GetPoolStorageImageReferencesResult struct {
+	// The fully qualified ID of the certificate installed on the pool.
+	Id string `pulumi:"id"`
+	Offer string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku string `pulumi:"sku"`
+	Version string `pulumi:"version"`
 }

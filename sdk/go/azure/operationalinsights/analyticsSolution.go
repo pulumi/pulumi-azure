@@ -4,6 +4,8 @@
 package operationalinsights
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
 type AnalyticsSolution struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// A `plan` block as documented below.
+	Plan AnalyticsSolutionPlanOutput `pulumi:"plan"`
+
+	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
+	SolutionName pulumi.StringOutput `pulumi:"solutionName"`
+
+	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+	WorkspaceName pulumi.StringOutput `pulumi:"workspaceName"`
+
+	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+	WorkspaceResourceId pulumi.StringOutput `pulumi:"workspaceResourceId"`
 }
 
 // NewAnalyticsSolution registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsSolution(ctx *pulumi.Context,
-	name string, args *AnalyticsSolutionArgs, opts ...pulumi.ResourceOpt) (*AnalyticsSolution, error) {
+	name string, args *AnalyticsSolutionArgs, opts ...pulumi.ResourceOption) (*AnalyticsSolution, error) {
 	if args == nil || args.Plan == nil {
 		return nil, errors.New("missing required argument 'Plan'")
 	}
@@ -33,117 +53,146 @@ func NewAnalyticsSolution(ctx *pulumi.Context,
 	if args == nil || args.WorkspaceResourceId == nil {
 		return nil, errors.New("missing required argument 'WorkspaceResourceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["plan"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["solutionName"] = nil
-		inputs["workspaceName"] = nil
-		inputs["workspaceResourceId"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["plan"] = args.Plan
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["solutionName"] = args.SolutionName
-		inputs["workspaceName"] = args.WorkspaceName
-		inputs["workspaceResourceId"] = args.WorkspaceResourceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Plan; i != nil { inputs["plan"] = i.ToAnalyticsSolutionPlanOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SolutionName; i != nil { inputs["solutionName"] = i.ToStringOutput() }
+		if i := args.WorkspaceName; i != nil { inputs["workspaceName"] = i.ToStringOutput() }
+		if i := args.WorkspaceResourceId; i != nil { inputs["workspaceResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, true, inputs, opts...)
+	var resource AnalyticsSolution
+	err := ctx.RegisterResource("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AnalyticsSolution{s: s}, nil
+	return &resource, nil
 }
 
 // GetAnalyticsSolution gets an existing AnalyticsSolution resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAnalyticsSolution(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AnalyticsSolutionState, opts ...pulumi.ResourceOpt) (*AnalyticsSolution, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AnalyticsSolutionState, opts ...pulumi.ResourceOption) (*AnalyticsSolution, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["plan"] = state.Plan
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["solutionName"] = state.SolutionName
-		inputs["workspaceName"] = state.WorkspaceName
-		inputs["workspaceResourceId"] = state.WorkspaceResourceId
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Plan; i != nil { inputs["plan"] = i.ToAnalyticsSolutionPlanOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SolutionName; i != nil { inputs["solutionName"] = i.ToStringOutput() }
+		if i := state.WorkspaceName; i != nil { inputs["workspaceName"] = i.ToStringOutput() }
+		if i := state.WorkspaceResourceId; i != nil { inputs["workspaceResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, id, inputs, opts...)
+	var resource AnalyticsSolution
+	err := ctx.ReadResource("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AnalyticsSolution{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsSolution) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsSolution) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// A `plan` block as documented below.
-func (r *AnalyticsSolution) Plan() pulumi.Output {
-	return r.s.State["plan"]
-}
-
-// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
-func (r *AnalyticsSolution) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) SolutionName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["solutionName"])
-}
-
-// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) WorkspaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workspaceName"])
-}
-
-// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-func (r *AnalyticsSolution) WorkspaceResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workspaceResourceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AnalyticsSolution resources.
 type AnalyticsSolutionState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// A `plan` block as documented below.
-	Plan interface{}
+	Plan AnalyticsSolutionPlanInput `pulumi:"plan"`
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
-	SolutionName interface{}
+	SolutionName pulumi.StringInput `pulumi:"solutionName"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-	WorkspaceName interface{}
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-	WorkspaceResourceId interface{}
+	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
 }
 
 // The set of arguments for constructing a AnalyticsSolution resource.
 type AnalyticsSolutionArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// A `plan` block as documented below.
-	Plan interface{}
+	Plan AnalyticsSolutionPlanInput `pulumi:"plan"`
 	// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
-	SolutionName interface{}
+	SolutionName pulumi.StringInput `pulumi:"solutionName"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-	WorkspaceName interface{}
+	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
-	WorkspaceResourceId interface{}
+	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
 }
+type AnalyticsSolutionPlan struct {
+	Name *string `pulumi:"name"`
+	Product string `pulumi:"product"`
+	PromotionCode *string `pulumi:"promotionCode"`
+	Publisher string `pulumi:"publisher"`
+}
+var analyticsSolutionPlanType = reflect.TypeOf((*AnalyticsSolutionPlan)(nil)).Elem()
+
+type AnalyticsSolutionPlanInput interface {
+	pulumi.Input
+
+	ToAnalyticsSolutionPlanOutput() AnalyticsSolutionPlanOutput
+	ToAnalyticsSolutionPlanOutputWithContext(ctx context.Context) AnalyticsSolutionPlanOutput
+}
+
+type AnalyticsSolutionPlanArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+	Product pulumi.StringInput `pulumi:"product"`
+	PromotionCode pulumi.StringInput `pulumi:"promotionCode"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (AnalyticsSolutionPlanArgs) ElementType() reflect.Type {
+	return analyticsSolutionPlanType
+}
+
+func (a AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanOutput() AnalyticsSolutionPlanOutput {
+	return pulumi.ToOutput(a).(AnalyticsSolutionPlanOutput)
+}
+
+func (a AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanOutputWithContext(ctx context.Context) AnalyticsSolutionPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AnalyticsSolutionPlanOutput)
+}
+
+type AnalyticsSolutionPlanOutput struct { *pulumi.OutputState }
+
+func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsSolutionPlan) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsSolutionPlanOutput) Product() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsSolutionPlan) string {
+		return v.Product
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsSolutionPlanOutput) PromotionCode() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsSolutionPlan) string {
+		if v.PromotionCode == nil { return *new(string) } else { return *v.PromotionCode }
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalyticsSolutionPlanOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v AnalyticsSolutionPlan) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+func (AnalyticsSolutionPlanOutput) ElementType() reflect.Type {
+	return analyticsSolutionPlanType
+}
+
+func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanOutput() AnalyticsSolutionPlanOutput {
+	return o
+}
+
+func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanOutputWithContext(ctx context.Context) AnalyticsSolutionPlanOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AnalyticsSolutionPlanOutput{}) }
+

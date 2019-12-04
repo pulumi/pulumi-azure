@@ -4,6 +4,8 @@
 package cdn
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,62 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
 type Endpoint struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+	ContentTypesToCompresses pulumi.StringArrayOutput `pulumi:"contentTypesToCompresses"`
+
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
+	GeoFilters EndpointGeoFiltersArrayOutput `pulumi:"geoFilters"`
+
+	HostName pulumi.StringOutput `pulumi:"hostName"`
+
+	// Indicates whether compression is to be enabled. Defaults to false.
+	IsCompressionEnabled pulumi.BoolOutput `pulumi:"isCompressionEnabled"`
+
+	// Defaults to `true`.
+	IsHttpAllowed pulumi.BoolOutput `pulumi:"isHttpAllowed"`
+
+	// Defaults to `true`.
+	IsHttpsAllowed pulumi.BoolOutput `pulumi:"isHttpsAllowed"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
+	OptimizationType pulumi.StringOutput `pulumi:"optimizationType"`
+
+	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+	Origins EndpointOriginsArrayOutput `pulumi:"origins"`
+
+	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+	OriginHostHeader pulumi.StringOutput `pulumi:"originHostHeader"`
+
+	// The path used at for origin requests.
+	OriginPath pulumi.StringOutput `pulumi:"originPath"`
+
+	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
+	ProbePath pulumi.StringOutput `pulumi:"probePath"`
+
+	// The CDN Profile to which to attach the CDN Endpoint.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
+
+	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+	QuerystringCachingBehaviour pulumi.StringOutput `pulumi:"querystringCachingBehaviour"`
+
+	// The name of the resource group in which to create the CDN Endpoint.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
-	name string, args *EndpointArgs, opts ...pulumi.ResourceOpt) (*Endpoint, error) {
+	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
 	if args == nil || args.Origins == nil {
 		return nil, errors.New("missing required argument 'Origins'")
 	}
@@ -27,244 +79,367 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["contentTypesToCompresses"] = nil
-		inputs["geoFilters"] = nil
-		inputs["isCompressionEnabled"] = nil
-		inputs["isHttpAllowed"] = nil
-		inputs["isHttpsAllowed"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["optimizationType"] = nil
-		inputs["origins"] = nil
-		inputs["originHostHeader"] = nil
-		inputs["originPath"] = nil
-		inputs["probePath"] = nil
-		inputs["profileName"] = nil
-		inputs["querystringCachingBehaviour"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["contentTypesToCompresses"] = args.ContentTypesToCompresses
-		inputs["geoFilters"] = args.GeoFilters
-		inputs["isCompressionEnabled"] = args.IsCompressionEnabled
-		inputs["isHttpAllowed"] = args.IsHttpAllowed
-		inputs["isHttpsAllowed"] = args.IsHttpsAllowed
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["optimizationType"] = args.OptimizationType
-		inputs["origins"] = args.Origins
-		inputs["originHostHeader"] = args.OriginHostHeader
-		inputs["originPath"] = args.OriginPath
-		inputs["probePath"] = args.ProbePath
-		inputs["profileName"] = args.ProfileName
-		inputs["querystringCachingBehaviour"] = args.QuerystringCachingBehaviour
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ContentTypesToCompresses; i != nil { inputs["contentTypesToCompresses"] = i.ToStringArrayOutput() }
+		if i := args.GeoFilters; i != nil { inputs["geoFilters"] = i.ToEndpointGeoFiltersArrayOutput() }
+		if i := args.IsCompressionEnabled; i != nil { inputs["isCompressionEnabled"] = i.ToBoolOutput() }
+		if i := args.IsHttpAllowed; i != nil { inputs["isHttpAllowed"] = i.ToBoolOutput() }
+		if i := args.IsHttpsAllowed; i != nil { inputs["isHttpsAllowed"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OptimizationType; i != nil { inputs["optimizationType"] = i.ToStringOutput() }
+		if i := args.Origins; i != nil { inputs["origins"] = i.ToEndpointOriginsArrayOutput() }
+		if i := args.OriginHostHeader; i != nil { inputs["originHostHeader"] = i.ToStringOutput() }
+		if i := args.OriginPath; i != nil { inputs["originPath"] = i.ToStringOutput() }
+		if i := args.ProbePath; i != nil { inputs["probePath"] = i.ToStringOutput() }
+		if i := args.ProfileName; i != nil { inputs["profileName"] = i.ToStringOutput() }
+		if i := args.QuerystringCachingBehaviour; i != nil { inputs["querystringCachingBehaviour"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["hostName"] = nil
-	s, err := ctx.RegisterResource("azure:cdn/endpoint:Endpoint", name, true, inputs, opts...)
+	var resource Endpoint
+	err := ctx.RegisterResource("azure:cdn/endpoint:Endpoint", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Endpoint{s: s}, nil
+	return &resource, nil
 }
 
 // GetEndpoint gets an existing Endpoint resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEndpoint(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EndpointState, opts ...pulumi.ResourceOpt) (*Endpoint, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EndpointState, opts ...pulumi.ResourceOption) (*Endpoint, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["contentTypesToCompresses"] = state.ContentTypesToCompresses
-		inputs["geoFilters"] = state.GeoFilters
-		inputs["hostName"] = state.HostName
-		inputs["isCompressionEnabled"] = state.IsCompressionEnabled
-		inputs["isHttpAllowed"] = state.IsHttpAllowed
-		inputs["isHttpsAllowed"] = state.IsHttpsAllowed
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["optimizationType"] = state.OptimizationType
-		inputs["origins"] = state.Origins
-		inputs["originHostHeader"] = state.OriginHostHeader
-		inputs["originPath"] = state.OriginPath
-		inputs["probePath"] = state.ProbePath
-		inputs["profileName"] = state.ProfileName
-		inputs["querystringCachingBehaviour"] = state.QuerystringCachingBehaviour
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.ContentTypesToCompresses; i != nil { inputs["contentTypesToCompresses"] = i.ToStringArrayOutput() }
+		if i := state.GeoFilters; i != nil { inputs["geoFilters"] = i.ToEndpointGeoFiltersArrayOutput() }
+		if i := state.HostName; i != nil { inputs["hostName"] = i.ToStringOutput() }
+		if i := state.IsCompressionEnabled; i != nil { inputs["isCompressionEnabled"] = i.ToBoolOutput() }
+		if i := state.IsHttpAllowed; i != nil { inputs["isHttpAllowed"] = i.ToBoolOutput() }
+		if i := state.IsHttpsAllowed; i != nil { inputs["isHttpsAllowed"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OptimizationType; i != nil { inputs["optimizationType"] = i.ToStringOutput() }
+		if i := state.Origins; i != nil { inputs["origins"] = i.ToEndpointOriginsArrayOutput() }
+		if i := state.OriginHostHeader; i != nil { inputs["originHostHeader"] = i.ToStringOutput() }
+		if i := state.OriginPath; i != nil { inputs["originPath"] = i.ToStringOutput() }
+		if i := state.ProbePath; i != nil { inputs["probePath"] = i.ToStringOutput() }
+		if i := state.ProfileName; i != nil { inputs["profileName"] = i.ToStringOutput() }
+		if i := state.QuerystringCachingBehaviour; i != nil { inputs["querystringCachingBehaviour"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:cdn/endpoint:Endpoint", name, id, inputs, opts...)
+	var resource Endpoint
+	err := ctx.ReadResource("azure:cdn/endpoint:Endpoint", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Endpoint{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Endpoint) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Endpoint) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-func (r *Endpoint) ContentTypesToCompresses() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["contentTypesToCompresses"])
-}
-
-// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
-func (r *Endpoint) GeoFilters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["geoFilters"])
-}
-
-func (r *Endpoint) HostName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostName"])
-}
-
-// Indicates whether compression is to be enabled. Defaults to false.
-func (r *Endpoint) IsCompressionEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isCompressionEnabled"])
-}
-
-// Defaults to `true`.
-func (r *Endpoint) IsHttpAllowed() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isHttpAllowed"])
-}
-
-// Defaults to `true`.
-func (r *Endpoint) IsHttpsAllowed() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isHttpsAllowed"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Endpoint) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-func (r *Endpoint) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-func (r *Endpoint) OptimizationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["optimizationType"])
-}
-
-// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-func (r *Endpoint) Origins() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["origins"])
-}
-
-// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
-func (r *Endpoint) OriginHostHeader() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["originHostHeader"])
-}
-
-// The path used at for origin requests.
-func (r *Endpoint) OriginPath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["originPath"])
-}
-
-// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
-func (r *Endpoint) ProbePath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["probePath"])
-}
-
-// The CDN Profile to which to attach the CDN Endpoint.
-func (r *Endpoint) ProfileName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["profileName"])
-}
-
-// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
-func (r *Endpoint) QuerystringCachingBehaviour() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["querystringCachingBehaviour"])
-}
-
-// The name of the resource group in which to create the CDN Endpoint.
-func (r *Endpoint) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Endpoint) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Endpoint resources.
 type EndpointState struct {
 	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-	ContentTypesToCompresses interface{}
+	ContentTypesToCompresses pulumi.StringArrayInput `pulumi:"contentTypesToCompresses"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
-	GeoFilters interface{}
-	HostName interface{}
+	GeoFilters EndpointGeoFiltersArrayInput `pulumi:"geoFilters"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
 	// Indicates whether compression is to be enabled. Defaults to false.
-	IsCompressionEnabled interface{}
+	IsCompressionEnabled pulumi.BoolInput `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
-	IsHttpAllowed interface{}
+	IsHttpAllowed pulumi.BoolInput `pulumi:"isHttpAllowed"`
 	// Defaults to `true`.
-	IsHttpsAllowed interface{}
+	IsHttpsAllowed pulumi.BoolInput `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-	OptimizationType interface{}
+	OptimizationType pulumi.StringInput `pulumi:"optimizationType"`
 	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-	Origins interface{}
+	Origins EndpointOriginsArrayInput `pulumi:"origins"`
 	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
-	OriginHostHeader interface{}
+	OriginHostHeader pulumi.StringInput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
-	OriginPath interface{}
+	OriginPath pulumi.StringInput `pulumi:"originPath"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
-	ProbePath interface{}
+	ProbePath pulumi.StringInput `pulumi:"probePath"`
 	// The CDN Profile to which to attach the CDN Endpoint.
-	ProfileName interface{}
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
-	QuerystringCachingBehaviour interface{}
+	QuerystringCachingBehaviour pulumi.StringInput `pulumi:"querystringCachingBehaviour"`
 	// The name of the resource group in which to create the CDN Endpoint.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-	ContentTypesToCompresses interface{}
+	ContentTypesToCompresses pulumi.StringArrayInput `pulumi:"contentTypesToCompresses"`
 	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
-	GeoFilters interface{}
+	GeoFilters EndpointGeoFiltersArrayInput `pulumi:"geoFilters"`
 	// Indicates whether compression is to be enabled. Defaults to false.
-	IsCompressionEnabled interface{}
+	IsCompressionEnabled pulumi.BoolInput `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
-	IsHttpAllowed interface{}
+	IsHttpAllowed pulumi.BoolInput `pulumi:"isHttpAllowed"`
 	// Defaults to `true`.
-	IsHttpsAllowed interface{}
+	IsHttpsAllowed pulumi.BoolInput `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-	OptimizationType interface{}
+	OptimizationType pulumi.StringInput `pulumi:"optimizationType"`
 	// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
-	Origins interface{}
+	Origins EndpointOriginsArrayInput `pulumi:"origins"`
 	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
-	OriginHostHeader interface{}
+	OriginHostHeader pulumi.StringInput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
-	OriginPath interface{}
+	OriginPath pulumi.StringInput `pulumi:"originPath"`
 	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
-	ProbePath interface{}
+	ProbePath pulumi.StringInput `pulumi:"probePath"`
 	// The CDN Profile to which to attach the CDN Endpoint.
-	ProfileName interface{}
+	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
-	QuerystringCachingBehaviour interface{}
+	QuerystringCachingBehaviour pulumi.StringInput `pulumi:"querystringCachingBehaviour"`
 	// The name of the resource group in which to create the CDN Endpoint.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type EndpointGeoFilters struct {
+	Action string `pulumi:"action"`
+	CountryCodes []string `pulumi:"countryCodes"`
+	RelativePath string `pulumi:"relativePath"`
+}
+var endpointGeoFiltersType = reflect.TypeOf((*EndpointGeoFilters)(nil)).Elem()
+
+type EndpointGeoFiltersInput interface {
+	pulumi.Input
+
+	ToEndpointGeoFiltersOutput() EndpointGeoFiltersOutput
+	ToEndpointGeoFiltersOutputWithContext(ctx context.Context) EndpointGeoFiltersOutput
+}
+
+type EndpointGeoFiltersArgs struct {
+	Action pulumi.StringInput `pulumi:"action"`
+	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+}
+
+func (EndpointGeoFiltersArgs) ElementType() reflect.Type {
+	return endpointGeoFiltersType
+}
+
+func (a EndpointGeoFiltersArgs) ToEndpointGeoFiltersOutput() EndpointGeoFiltersOutput {
+	return pulumi.ToOutput(a).(EndpointGeoFiltersOutput)
+}
+
+func (a EndpointGeoFiltersArgs) ToEndpointGeoFiltersOutputWithContext(ctx context.Context) EndpointGeoFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EndpointGeoFiltersOutput)
+}
+
+type EndpointGeoFiltersOutput struct { *pulumi.OutputState }
+
+func (o EndpointGeoFiltersOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v EndpointGeoFilters) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointGeoFiltersOutput) CountryCodes() pulumi.StringArrayOutput {
+	return o.Apply(func(v EndpointGeoFilters) []string {
+		return v.CountryCodes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o EndpointGeoFiltersOutput) RelativePath() pulumi.StringOutput {
+	return o.Apply(func(v EndpointGeoFilters) string {
+		return v.RelativePath
+	}).(pulumi.StringOutput)
+}
+
+func (EndpointGeoFiltersOutput) ElementType() reflect.Type {
+	return endpointGeoFiltersType
+}
+
+func (o EndpointGeoFiltersOutput) ToEndpointGeoFiltersOutput() EndpointGeoFiltersOutput {
+	return o
+}
+
+func (o EndpointGeoFiltersOutput) ToEndpointGeoFiltersOutputWithContext(ctx context.Context) EndpointGeoFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EndpointGeoFiltersOutput{}) }
+
+var endpointGeoFiltersArrayType = reflect.TypeOf((*[]EndpointGeoFilters)(nil)).Elem()
+
+type EndpointGeoFiltersArrayInput interface {
+	pulumi.Input
+
+	ToEndpointGeoFiltersArrayOutput() EndpointGeoFiltersArrayOutput
+	ToEndpointGeoFiltersArrayOutputWithContext(ctx context.Context) EndpointGeoFiltersArrayOutput
+}
+
+type EndpointGeoFiltersArrayArgs []EndpointGeoFiltersInput
+
+func (EndpointGeoFiltersArrayArgs) ElementType() reflect.Type {
+	return endpointGeoFiltersArrayType
+}
+
+func (a EndpointGeoFiltersArrayArgs) ToEndpointGeoFiltersArrayOutput() EndpointGeoFiltersArrayOutput {
+	return pulumi.ToOutput(a).(EndpointGeoFiltersArrayOutput)
+}
+
+func (a EndpointGeoFiltersArrayArgs) ToEndpointGeoFiltersArrayOutputWithContext(ctx context.Context) EndpointGeoFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EndpointGeoFiltersArrayOutput)
+}
+
+type EndpointGeoFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o EndpointGeoFiltersArrayOutput) Index(i pulumi.IntInput) EndpointGeoFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) EndpointGeoFilters {
+		return vs[0].([]EndpointGeoFilters)[vs[1].(int)]
+	}).(EndpointGeoFiltersOutput)
+}
+
+func (EndpointGeoFiltersArrayOutput) ElementType() reflect.Type {
+	return endpointGeoFiltersArrayType
+}
+
+func (o EndpointGeoFiltersArrayOutput) ToEndpointGeoFiltersArrayOutput() EndpointGeoFiltersArrayOutput {
+	return o
+}
+
+func (o EndpointGeoFiltersArrayOutput) ToEndpointGeoFiltersArrayOutputWithContext(ctx context.Context) EndpointGeoFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EndpointGeoFiltersArrayOutput{}) }
+
+type EndpointOrigins struct {
+	HostName string `pulumi:"hostName"`
+	HttpPort *int `pulumi:"httpPort"`
+	HttpsPort *int `pulumi:"httpsPort"`
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var endpointOriginsType = reflect.TypeOf((*EndpointOrigins)(nil)).Elem()
+
+type EndpointOriginsInput interface {
+	pulumi.Input
+
+	ToEndpointOriginsOutput() EndpointOriginsOutput
+	ToEndpointOriginsOutputWithContext(ctx context.Context) EndpointOriginsOutput
+}
+
+type EndpointOriginsArgs struct {
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	HttpPort pulumi.IntInput `pulumi:"httpPort"`
+	HttpsPort pulumi.IntInput `pulumi:"httpsPort"`
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (EndpointOriginsArgs) ElementType() reflect.Type {
+	return endpointOriginsType
+}
+
+func (a EndpointOriginsArgs) ToEndpointOriginsOutput() EndpointOriginsOutput {
+	return pulumi.ToOutput(a).(EndpointOriginsOutput)
+}
+
+func (a EndpointOriginsArgs) ToEndpointOriginsOutputWithContext(ctx context.Context) EndpointOriginsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EndpointOriginsOutput)
+}
+
+type EndpointOriginsOutput struct { *pulumi.OutputState }
+
+func (o EndpointOriginsOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v EndpointOrigins) string {
+		return v.HostName
+	}).(pulumi.StringOutput)
+}
+
+func (o EndpointOriginsOutput) HttpPort() pulumi.IntOutput {
+	return o.Apply(func(v EndpointOrigins) int {
+		if v.HttpPort == nil { return *new(int) } else { return *v.HttpPort }
+	}).(pulumi.IntOutput)
+}
+
+func (o EndpointOriginsOutput) HttpsPort() pulumi.IntOutput {
+	return o.Apply(func(v EndpointOrigins) int {
+		if v.HttpsPort == nil { return *new(int) } else { return *v.HttpsPort }
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+func (o EndpointOriginsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v EndpointOrigins) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (EndpointOriginsOutput) ElementType() reflect.Type {
+	return endpointOriginsType
+}
+
+func (o EndpointOriginsOutput) ToEndpointOriginsOutput() EndpointOriginsOutput {
+	return o
+}
+
+func (o EndpointOriginsOutput) ToEndpointOriginsOutputWithContext(ctx context.Context) EndpointOriginsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EndpointOriginsOutput{}) }
+
+var endpointOriginsArrayType = reflect.TypeOf((*[]EndpointOrigins)(nil)).Elem()
+
+type EndpointOriginsArrayInput interface {
+	pulumi.Input
+
+	ToEndpointOriginsArrayOutput() EndpointOriginsArrayOutput
+	ToEndpointOriginsArrayOutputWithContext(ctx context.Context) EndpointOriginsArrayOutput
+}
+
+type EndpointOriginsArrayArgs []EndpointOriginsInput
+
+func (EndpointOriginsArrayArgs) ElementType() reflect.Type {
+	return endpointOriginsArrayType
+}
+
+func (a EndpointOriginsArrayArgs) ToEndpointOriginsArrayOutput() EndpointOriginsArrayOutput {
+	return pulumi.ToOutput(a).(EndpointOriginsArrayOutput)
+}
+
+func (a EndpointOriginsArrayArgs) ToEndpointOriginsArrayOutputWithContext(ctx context.Context) EndpointOriginsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EndpointOriginsArrayOutput)
+}
+
+type EndpointOriginsArrayOutput struct { *pulumi.OutputState }
+
+func (o EndpointOriginsArrayOutput) Index(i pulumi.IntInput) EndpointOriginsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) EndpointOrigins {
+		return vs[0].([]EndpointOrigins)[vs[1].(int)]
+	}).(EndpointOriginsOutput)
+}
+
+func (EndpointOriginsArrayOutput) ElementType() reflect.Type {
+	return endpointOriginsArrayType
+}
+
+func (o EndpointOriginsArrayOutput) ToEndpointOriginsArrayOutput() EndpointOriginsArrayOutput {
+	return o
+}
+
+func (o EndpointOriginsArrayOutput) ToEndpointOriginsArrayOutputWithContext(ctx context.Context) EndpointOriginsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EndpointOriginsArrayOutput{}) }
+

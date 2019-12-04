@@ -10,90 +10,86 @@ import (
 // Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
-func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:cosmosdb/getAccount:getAccount", inputs)
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.InvokeOption) (*GetAccountResult, error) {
+	var rv GetAccountResult
+	err := ctx.Invoke("azure:cosmosdb/getAccount:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccountResult{
-		Capabilities: outputs["capabilities"],
-		ConsistencyPolicies: outputs["consistencyPolicies"],
-		EnableAutomaticFailover: outputs["enableAutomaticFailover"],
-		EnableMultipleWriteLocations: outputs["enableMultipleWriteLocations"],
-		Endpoint: outputs["endpoint"],
-		GeoLocations: outputs["geoLocations"],
-		IpRangeFilter: outputs["ipRangeFilter"],
-		IsVirtualNetworkFilterEnabled: outputs["isVirtualNetworkFilterEnabled"],
-		Kind: outputs["kind"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		OfferType: outputs["offerType"],
-		PrimaryMasterKey: outputs["primaryMasterKey"],
-		PrimaryReadonlyMasterKey: outputs["primaryReadonlyMasterKey"],
-		ReadEndpoints: outputs["readEndpoints"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecondaryMasterKey: outputs["secondaryMasterKey"],
-		SecondaryReadonlyMasterKey: outputs["secondaryReadonlyMasterKey"],
-		Tags: outputs["tags"],
-		VirtualNetworkRules: outputs["virtualNetworkRules"],
-		WriteEndpoints: outputs["writeEndpoints"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
 	// Specifies the name of the CosmosDB Account.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group in which the CosmosDB Account resides.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
 	// Capabilities enabled on this Cosmos DB account.
-	Capabilities interface{}
-	ConsistencyPolicies interface{}
+	Capabilities []GetAccountCapabilitiesResult `pulumi:"capabilities"`
+	ConsistencyPolicies []GetAccountConsistencyPoliciesResult `pulumi:"consistencyPolicies"`
 	// If automatic failover is enabled for this CosmosDB Account.
-	EnableAutomaticFailover interface{}
+	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
 	// If multi-master is enabled for this Cosmos DB account.
-	EnableMultipleWriteLocations interface{}
+	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
-	Endpoint interface{}
-	GeoLocations interface{}
+	Endpoint string `pulumi:"endpoint"`
+	GeoLocations []GetAccountGeoLocationsResult `pulumi:"geoLocations"`
 	// The current IP Filter for this CosmosDB account
-	IpRangeFilter interface{}
+	IpRangeFilter string `pulumi:"ipRangeFilter"`
 	// If virtual network filtering is enabled for this Cosmos DB account.
-	IsVirtualNetworkFilterEnabled interface{}
+	IsVirtualNetworkFilterEnabled bool `pulumi:"isVirtualNetworkFilterEnabled"`
 	// The Kind of the CosmosDB account.
-	Kind interface{}
+	Kind string `pulumi:"kind"`
 	// The name of the Azure region hosting replicated data.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// The Offer Type to used by this CosmosDB Account.
-	OfferType interface{}
+	OfferType string `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
-	PrimaryMasterKey interface{}
+	PrimaryMasterKey string `pulumi:"primaryMasterKey"`
 	// The Primary read-only master Key for the CosmosDB Account.
-	PrimaryReadonlyMasterKey interface{}
+	PrimaryReadonlyMasterKey string `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
-	ReadEndpoints interface{}
-	ResourceGroupName interface{}
+	ReadEndpoints []string `pulumi:"readEndpoints"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary master key for the CosmosDB Account.
-	SecondaryMasterKey interface{}
+	SecondaryMasterKey string `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only master key for the CosmosDB Account.
-	SecondaryReadonlyMasterKey interface{}
+	SecondaryReadonlyMasterKey string `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Subnets that are allowed to access this CosmosDB account.
-	VirtualNetworkRules interface{}
+	VirtualNetworkRules []GetAccountVirtualNetworkRulesResult `pulumi:"virtualNetworkRules"`
 	// A list of write endpoints available for this CosmosDB account.
-	WriteEndpoints interface{}
+	WriteEndpoints []string `pulumi:"writeEndpoints"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAccountCapabilitiesResult struct {
+	// Specifies the name of the CosmosDB Account.
+	Name string `pulumi:"name"`
+}
+type GetAccountConsistencyPoliciesResult struct {
+	// The Consistency Level used by this CosmosDB Account.
+	ConsistencyLevel string `pulumi:"consistencyLevel"`
+	// The amount of staleness (in seconds) tolerated when the consistency level is Bounded Staleness.
+	MaxIntervalInSeconds int `pulumi:"maxIntervalInSeconds"`
+	// The number of stale requests tolerated when the consistency level is Bounded Staleness.
+	MaxStalenessPrefix int `pulumi:"maxStalenessPrefix"`
+}
+type GetAccountGeoLocationsResult struct {
+	FailoverPriority int `pulumi:"failoverPriority"`
+	// The ID of the virtual network subnet.
+	Id string `pulumi:"id"`
+	// The name of the Azure region hosting replicated data.
+	Location string `pulumi:"location"`
+}
+type GetAccountVirtualNetworkRulesResult struct {
+	// The ID of the virtual network subnet.
+	Id string `pulumi:"id"`
 }

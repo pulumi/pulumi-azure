@@ -10,53 +10,70 @@ import (
 // Use this data source to access information about an existing ExpressRoute circuit.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
-func LookupExpressRouteCircuit(ctx *pulumi.Context, args *GetExpressRouteCircuitArgs) (*GetExpressRouteCircuitResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", inputs)
+func LookupExpressRouteCircuit(ctx *pulumi.Context, args *GetExpressRouteCircuitArgs, opts ...pulumi.InvokeOption) (*GetExpressRouteCircuitResult, error) {
+	var rv GetExpressRouteCircuitResult
+	err := ctx.Invoke("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetExpressRouteCircuitResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		Peerings: outputs["peerings"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ServiceKey: outputs["serviceKey"],
-		ServiceProviderProperties: outputs["serviceProviderProperties"],
-		ServiceProviderProvisioningState: outputs["serviceProviderProvisioningState"],
-		Sku: outputs["sku"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getExpressRouteCircuit.
 type GetExpressRouteCircuitArgs struct {
 	// The name of the ExpressRoute circuit.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the ExpressRoute circuit exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getExpressRouteCircuit.
 type GetExpressRouteCircuitResult struct {
 	// The Azure location where the ExpressRoute circuit exists
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// A `peerings` block for the ExpressRoute circuit as documented below
-	Peerings interface{}
-	ResourceGroupName interface{}
+	Peerings []GetExpressRouteCircuitPeeringsResult `pulumi:"peerings"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The string needed by the service provider to provision the ExpressRoute circuit.
-	ServiceKey interface{}
+	ServiceKey string `pulumi:"serviceKey"`
 	// A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
-	ServiceProviderProperties interface{}
+	ServiceProviderProperties []GetExpressRouteCircuitServiceProviderPropertiesResult `pulumi:"serviceProviderProperties"`
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
-	ServiceProviderProvisioningState interface{}
+	ServiceProviderProvisioningState string `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
-	Sku interface{}
+	Sku GetExpressRouteCircuitSkuResult `pulumi:"sku"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetExpressRouteCircuitPeeringsResult struct {
+	// The Either a 16-bit or a 32-bit ASN for Azure.
+	AzureAsn int `pulumi:"azureAsn"`
+	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
+	PeerAsn int `pulumi:"peerAsn"`
+	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+	// > **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
+	PeeringType string `pulumi:"peeringType"`
+	// A `/30` subnet for the primary link.
+	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
+	// A `/30` subnet for the secondary link.
+	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
+	// The shared key. Can be a maximum of 25 characters.
+	SharedKey string `pulumi:"sharedKey"`
+	// A valid VLAN ID to establish this peering on.
+	VlanId int `pulumi:"vlanId"`
+}
+type GetExpressRouteCircuitServiceProviderPropertiesResult struct {
+	// The bandwidth in Mbps of the ExpressRoute circuit.
+	BandwidthInMbps int `pulumi:"bandwidthInMbps"`
+	// The name of the peering location and **not** the Azure resource location.
+	PeeringLocation string `pulumi:"peeringLocation"`
+	// The name of the ExpressRoute Service Provider.
+	ServiceProviderName string `pulumi:"serviceProviderName"`
+}
+type GetExpressRouteCircuitSkuResult struct {
+	// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+	Family string `pulumi:"family"`
+	// The service tier. Possible values are `Standard` or `Premium`.
+	Tier string `pulumi:"tier"`
 }

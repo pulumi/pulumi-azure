@@ -4,6 +4,8 @@
 package trafficmanager
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -16,12 +18,47 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile_legacy.html.markdown.
 type Profile struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// This block specifies the DNS configuration of the
+	// Profile, it supports the fields documented below.
+	DnsConfigs ProfileDnsConfigsArrayOutput `pulumi:"dnsConfigs"`
+
+	// The FQDN of the created Profile.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// This block specifies the Endpoint monitoring
+	// configuration for the Profile, it supports the fields documented below.
+	MonitorConfigs ProfileMonitorConfigsArrayOutput `pulumi:"monitorConfigs"`
+
+	// The name of the virtual network. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The status of the profile, can be set to either
+	// `Enabled` or `Disabled`. Defaults to `Enabled`.
+	ProfileStatus pulumi.StringOutput `pulumi:"profileStatus"`
+
+	// The name of the resource group in which to
+	// create the virtual network.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the algorithm used to route traffic, possible values are:
+	// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+	// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
+	// - `Performance` - Traffic is routed via the User's closest Endpoint
+	// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+	// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
+	TrafficRoutingMethod pulumi.StringOutput `pulumi:"trafficRoutingMethod"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
 func NewProfile(ctx *pulumi.Context,
-	name string, args *ProfileArgs, opts ...pulumi.ResourceOpt) (*Profile, error) {
+	name string, args *ProfileArgs, opts ...pulumi.ResourceOption) (*Profile, error) {
 	if args == nil || args.DnsConfigs == nil {
 		return nil, errors.New("missing required argument 'DnsConfigs'")
 	}
@@ -34,136 +71,68 @@ func NewProfile(ctx *pulumi.Context,
 	if args == nil || args.TrafficRoutingMethod == nil {
 		return nil, errors.New("missing required argument 'TrafficRoutingMethod'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dnsConfigs"] = nil
-		inputs["monitorConfigs"] = nil
-		inputs["name"] = nil
-		inputs["profileStatus"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["trafficRoutingMethod"] = nil
-	} else {
-		inputs["dnsConfigs"] = args.DnsConfigs
-		inputs["monitorConfigs"] = args.MonitorConfigs
-		inputs["name"] = args.Name
-		inputs["profileStatus"] = args.ProfileStatus
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["trafficRoutingMethod"] = args.TrafficRoutingMethod
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DnsConfigs; i != nil { inputs["dnsConfigs"] = i.ToProfileDnsConfigsArrayOutput() }
+		if i := args.MonitorConfigs; i != nil { inputs["monitorConfigs"] = i.ToProfileMonitorConfigsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ProfileStatus; i != nil { inputs["profileStatus"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TrafficRoutingMethod; i != nil { inputs["trafficRoutingMethod"] = i.ToStringOutput() }
 	}
-	inputs["fqdn"] = nil
-	s, err := ctx.RegisterResource("azure:trafficmanager/profile:Profile", name, true, inputs, opts...)
+	var resource Profile
+	err := ctx.RegisterResource("azure:trafficmanager/profile:Profile", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Profile{s: s}, nil
+	return &resource, nil
 }
 
 // GetProfile gets an existing Profile resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProfile(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProfileState, opts ...pulumi.ResourceOpt) (*Profile, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProfileState, opts ...pulumi.ResourceOption) (*Profile, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dnsConfigs"] = state.DnsConfigs
-		inputs["fqdn"] = state.Fqdn
-		inputs["monitorConfigs"] = state.MonitorConfigs
-		inputs["name"] = state.Name
-		inputs["profileStatus"] = state.ProfileStatus
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["trafficRoutingMethod"] = state.TrafficRoutingMethod
+		if i := state.DnsConfigs; i != nil { inputs["dnsConfigs"] = i.ToProfileDnsConfigsArrayOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.MonitorConfigs; i != nil { inputs["monitorConfigs"] = i.ToProfileMonitorConfigsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ProfileStatus; i != nil { inputs["profileStatus"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TrafficRoutingMethod; i != nil { inputs["trafficRoutingMethod"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:trafficmanager/profile:Profile", name, id, inputs, opts...)
+	var resource Profile
+	err := ctx.ReadResource("azure:trafficmanager/profile:Profile", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Profile{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Profile) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Profile) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// This block specifies the DNS configuration of the
-// Profile, it supports the fields documented below.
-func (r *Profile) DnsConfigs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dnsConfigs"])
-}
-
-// The FQDN of the created Profile.
-func (r *Profile) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// This block specifies the Endpoint monitoring
-// configuration for the Profile, it supports the fields documented below.
-func (r *Profile) MonitorConfigs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["monitorConfigs"])
-}
-
-// The name of the virtual network. Changing this forces a
-// new resource to be created.
-func (r *Profile) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The status of the profile, can be set to either
-// `Enabled` or `Disabled`. Defaults to `Enabled`.
-func (r *Profile) ProfileStatus() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["profileStatus"])
-}
-
-// The name of the resource group in which to
-// create the virtual network.
-func (r *Profile) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Profile) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the algorithm used to route traffic, possible values are:
-// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
-// - `Performance` - Traffic is routed via the User's closest Endpoint
-// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
-// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
-func (r *Profile) TrafficRoutingMethod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["trafficRoutingMethod"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Profile resources.
 type ProfileState struct {
 	// This block specifies the DNS configuration of the
 	// Profile, it supports the fields documented below.
-	DnsConfigs interface{}
+	DnsConfigs ProfileDnsConfigsArrayInput `pulumi:"dnsConfigs"`
 	// The FQDN of the created Profile.
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// This block specifies the Endpoint monitoring
 	// configuration for the Profile, it supports the fields documented below.
-	MonitorConfigs interface{}
+	MonitorConfigs ProfileMonitorConfigsArrayInput `pulumi:"monitorConfigs"`
 	// The name of the virtual network. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The status of the profile, can be set to either
 	// `Enabled` or `Disabled`. Defaults to `Enabled`.
-	ProfileStatus interface{}
+	ProfileStatus pulumi.StringInput `pulumi:"profileStatus"`
 	// The name of the resource group in which to
 	// create the virtual network.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
 	// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
@@ -171,28 +140,28 @@ type ProfileState struct {
 	// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
 	// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
 	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
-	TrafficRoutingMethod interface{}
+	TrafficRoutingMethod pulumi.StringInput `pulumi:"trafficRoutingMethod"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
 	// This block specifies the DNS configuration of the
 	// Profile, it supports the fields documented below.
-	DnsConfigs interface{}
+	DnsConfigs ProfileDnsConfigsArrayInput `pulumi:"dnsConfigs"`
 	// This block specifies the Endpoint monitoring
 	// configuration for the Profile, it supports the fields documented below.
-	MonitorConfigs interface{}
+	MonitorConfigs ProfileMonitorConfigsArrayInput `pulumi:"monitorConfigs"`
 	// The name of the virtual network. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The status of the profile, can be set to either
 	// `Enabled` or `Disabled`. Defaults to `Enabled`.
-	ProfileStatus interface{}
+	ProfileStatus pulumi.StringInput `pulumi:"profileStatus"`
 	// The name of the resource group in which to
 	// create the virtual network.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the algorithm used to route traffic, possible values are:
 	// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
 	// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
@@ -200,5 +169,243 @@ type ProfileArgs struct {
 	// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
 	// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
 	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
-	TrafficRoutingMethod interface{}
+	TrafficRoutingMethod pulumi.StringInput `pulumi:"trafficRoutingMethod"`
 }
+type ProfileDnsConfigs struct {
+	RelativeName string `pulumi:"relativeName"`
+	Ttl int `pulumi:"ttl"`
+}
+var profileDnsConfigsType = reflect.TypeOf((*ProfileDnsConfigs)(nil)).Elem()
+
+type ProfileDnsConfigsInput interface {
+	pulumi.Input
+
+	ToProfileDnsConfigsOutput() ProfileDnsConfigsOutput
+	ToProfileDnsConfigsOutputWithContext(ctx context.Context) ProfileDnsConfigsOutput
+}
+
+type ProfileDnsConfigsArgs struct {
+	RelativeName pulumi.StringInput `pulumi:"relativeName"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+}
+
+func (ProfileDnsConfigsArgs) ElementType() reflect.Type {
+	return profileDnsConfigsType
+}
+
+func (a ProfileDnsConfigsArgs) ToProfileDnsConfigsOutput() ProfileDnsConfigsOutput {
+	return pulumi.ToOutput(a).(ProfileDnsConfigsOutput)
+}
+
+func (a ProfileDnsConfigsArgs) ToProfileDnsConfigsOutputWithContext(ctx context.Context) ProfileDnsConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileDnsConfigsOutput)
+}
+
+type ProfileDnsConfigsOutput struct { *pulumi.OutputState }
+
+func (o ProfileDnsConfigsOutput) RelativeName() pulumi.StringOutput {
+	return o.Apply(func(v ProfileDnsConfigs) string {
+		return v.RelativeName
+	}).(pulumi.StringOutput)
+}
+
+func (o ProfileDnsConfigsOutput) Ttl() pulumi.IntOutput {
+	return o.Apply(func(v ProfileDnsConfigs) int {
+		return v.Ttl
+	}).(pulumi.IntOutput)
+}
+
+func (ProfileDnsConfigsOutput) ElementType() reflect.Type {
+	return profileDnsConfigsType
+}
+
+func (o ProfileDnsConfigsOutput) ToProfileDnsConfigsOutput() ProfileDnsConfigsOutput {
+	return o
+}
+
+func (o ProfileDnsConfigsOutput) ToProfileDnsConfigsOutputWithContext(ctx context.Context) ProfileDnsConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileDnsConfigsOutput{}) }
+
+var profileDnsConfigsArrayType = reflect.TypeOf((*[]ProfileDnsConfigs)(nil)).Elem()
+
+type ProfileDnsConfigsArrayInput interface {
+	pulumi.Input
+
+	ToProfileDnsConfigsArrayOutput() ProfileDnsConfigsArrayOutput
+	ToProfileDnsConfigsArrayOutputWithContext(ctx context.Context) ProfileDnsConfigsArrayOutput
+}
+
+type ProfileDnsConfigsArrayArgs []ProfileDnsConfigsInput
+
+func (ProfileDnsConfigsArrayArgs) ElementType() reflect.Type {
+	return profileDnsConfigsArrayType
+}
+
+func (a ProfileDnsConfigsArrayArgs) ToProfileDnsConfigsArrayOutput() ProfileDnsConfigsArrayOutput {
+	return pulumi.ToOutput(a).(ProfileDnsConfigsArrayOutput)
+}
+
+func (a ProfileDnsConfigsArrayArgs) ToProfileDnsConfigsArrayOutputWithContext(ctx context.Context) ProfileDnsConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileDnsConfigsArrayOutput)
+}
+
+type ProfileDnsConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o ProfileDnsConfigsArrayOutput) Index(i pulumi.IntInput) ProfileDnsConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProfileDnsConfigs {
+		return vs[0].([]ProfileDnsConfigs)[vs[1].(int)]
+	}).(ProfileDnsConfigsOutput)
+}
+
+func (ProfileDnsConfigsArrayOutput) ElementType() reflect.Type {
+	return profileDnsConfigsArrayType
+}
+
+func (o ProfileDnsConfigsArrayOutput) ToProfileDnsConfigsArrayOutput() ProfileDnsConfigsArrayOutput {
+	return o
+}
+
+func (o ProfileDnsConfigsArrayOutput) ToProfileDnsConfigsArrayOutputWithContext(ctx context.Context) ProfileDnsConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileDnsConfigsArrayOutput{}) }
+
+type ProfileMonitorConfigs struct {
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	Path *string `pulumi:"path"`
+	Port int `pulumi:"port"`
+	Protocol string `pulumi:"protocol"`
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures *int `pulumi:"toleratedNumberOfFailures"`
+}
+var profileMonitorConfigsType = reflect.TypeOf((*ProfileMonitorConfigs)(nil)).Elem()
+
+type ProfileMonitorConfigsInput interface {
+	pulumi.Input
+
+	ToProfileMonitorConfigsOutput() ProfileMonitorConfigsOutput
+	ToProfileMonitorConfigsOutputWithContext(ctx context.Context) ProfileMonitorConfigsOutput
+}
+
+type ProfileMonitorConfigsArgs struct {
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
+	Path pulumi.StringInput `pulumi:"path"`
+	Port pulumi.IntInput `pulumi:"port"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures pulumi.IntInput `pulumi:"toleratedNumberOfFailures"`
+}
+
+func (ProfileMonitorConfigsArgs) ElementType() reflect.Type {
+	return profileMonitorConfigsType
+}
+
+func (a ProfileMonitorConfigsArgs) ToProfileMonitorConfigsOutput() ProfileMonitorConfigsOutput {
+	return pulumi.ToOutput(a).(ProfileMonitorConfigsOutput)
+}
+
+func (a ProfileMonitorConfigsArgs) ToProfileMonitorConfigsOutputWithContext(ctx context.Context) ProfileMonitorConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileMonitorConfigsOutput)
+}
+
+type ProfileMonitorConfigsOutput struct { *pulumi.OutputState }
+
+func (o ProfileMonitorConfigsOutput) IntervalInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v ProfileMonitorConfigs) int {
+		if v.IntervalInSeconds == nil { return *new(int) } else { return *v.IntervalInSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (o ProfileMonitorConfigsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ProfileMonitorConfigs) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+func (o ProfileMonitorConfigsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ProfileMonitorConfigs) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+func (o ProfileMonitorConfigsOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v ProfileMonitorConfigs) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o ProfileMonitorConfigsOutput) TimeoutInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v ProfileMonitorConfigs) int {
+		if v.TimeoutInSeconds == nil { return *new(int) } else { return *v.TimeoutInSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (o ProfileMonitorConfigsOutput) ToleratedNumberOfFailures() pulumi.IntOutput {
+	return o.Apply(func(v ProfileMonitorConfigs) int {
+		if v.ToleratedNumberOfFailures == nil { return *new(int) } else { return *v.ToleratedNumberOfFailures }
+	}).(pulumi.IntOutput)
+}
+
+func (ProfileMonitorConfigsOutput) ElementType() reflect.Type {
+	return profileMonitorConfigsType
+}
+
+func (o ProfileMonitorConfigsOutput) ToProfileMonitorConfigsOutput() ProfileMonitorConfigsOutput {
+	return o
+}
+
+func (o ProfileMonitorConfigsOutput) ToProfileMonitorConfigsOutputWithContext(ctx context.Context) ProfileMonitorConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileMonitorConfigsOutput{}) }
+
+var profileMonitorConfigsArrayType = reflect.TypeOf((*[]ProfileMonitorConfigs)(nil)).Elem()
+
+type ProfileMonitorConfigsArrayInput interface {
+	pulumi.Input
+
+	ToProfileMonitorConfigsArrayOutput() ProfileMonitorConfigsArrayOutput
+	ToProfileMonitorConfigsArrayOutputWithContext(ctx context.Context) ProfileMonitorConfigsArrayOutput
+}
+
+type ProfileMonitorConfigsArrayArgs []ProfileMonitorConfigsInput
+
+func (ProfileMonitorConfigsArrayArgs) ElementType() reflect.Type {
+	return profileMonitorConfigsArrayType
+}
+
+func (a ProfileMonitorConfigsArrayArgs) ToProfileMonitorConfigsArrayOutput() ProfileMonitorConfigsArrayOutput {
+	return pulumi.ToOutput(a).(ProfileMonitorConfigsArrayOutput)
+}
+
+func (a ProfileMonitorConfigsArrayArgs) ToProfileMonitorConfigsArrayOutputWithContext(ctx context.Context) ProfileMonitorConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileMonitorConfigsArrayOutput)
+}
+
+type ProfileMonitorConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o ProfileMonitorConfigsArrayOutput) Index(i pulumi.IntInput) ProfileMonitorConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProfileMonitorConfigs {
+		return vs[0].([]ProfileMonitorConfigs)[vs[1].(int)]
+	}).(ProfileMonitorConfigsOutput)
+}
+
+func (ProfileMonitorConfigsArrayOutput) ElementType() reflect.Type {
+	return profileMonitorConfigsArrayType
+}
+
+func (o ProfileMonitorConfigsArrayOutput) ToProfileMonitorConfigsArrayOutput() ProfileMonitorConfigsArrayOutput {
+	return o
+}
+
+func (o ProfileMonitorConfigsArrayOutput) ToProfileMonitorConfigsArrayOutputWithContext(ctx context.Context) ProfileMonitorConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileMonitorConfigsArrayOutput{}) }
+

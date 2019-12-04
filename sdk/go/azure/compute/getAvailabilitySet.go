@@ -10,50 +10,37 @@ import (
 // Use this data source to access information about an existing Availability Set.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
-func LookupAvailabilitySet(ctx *pulumi.Context, args *GetAvailabilitySetArgs) (*GetAvailabilitySetResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", inputs)
+func LookupAvailabilitySet(ctx *pulumi.Context, args *GetAvailabilitySetArgs, opts ...pulumi.InvokeOption) (*GetAvailabilitySetResult, error) {
+	var rv GetAvailabilitySetResult
+	err := ctx.Invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAvailabilitySetResult{
-		Location: outputs["location"],
-		Managed: outputs["managed"],
-		Name: outputs["name"],
-		PlatformFaultDomainCount: outputs["platformFaultDomainCount"],
-		PlatformUpdateDomainCount: outputs["platformUpdateDomainCount"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAvailabilitySet.
 type GetAvailabilitySetArgs struct {
 	// The name of the Availability Set.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the Availability Set exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAvailabilitySet.
 type GetAvailabilitySetResult struct {
 	// The supported Azure location where the Availability Set exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// Whether the availability set is managed or not.
-	Managed interface{}
-	Name interface{}
+	Managed bool `pulumi:"managed"`
+	Name string `pulumi:"name"`
 	// The number of fault domains that are used.
-	PlatformFaultDomainCount interface{}
+	PlatformFaultDomainCount string `pulumi:"platformFaultDomainCount"`
 	// The number of update domains that are used.
-	PlatformUpdateDomainCount interface{}
-	ResourceGroupName interface{}
+	PlatformUpdateDomainCount string `pulumi:"platformUpdateDomainCount"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

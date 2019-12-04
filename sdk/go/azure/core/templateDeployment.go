@@ -20,110 +20,80 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/template_deployment.html.markdown.
 type TemplateDeployment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
+	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
+	// specified within the template, and this provider will not be aware of this.
+	DeploymentMode pulumi.StringOutput `pulumi:"deploymentMode"`
+
+	// Specifies the name of the template deployment. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
+	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
+
+	// Specifies the name and value pairs that define the deployment parameters for the template.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+
+	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
+	ParametersBody pulumi.StringOutput `pulumi:"parametersBody"`
+
+	// The name of the resource group in which to
+	// create the template deployment.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the JSON definition for the template.
+	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
 }
 
 // NewTemplateDeployment registers a new resource with the given unique name, arguments, and options.
 func NewTemplateDeployment(ctx *pulumi.Context,
-	name string, args *TemplateDeploymentArgs, opts ...pulumi.ResourceOpt) (*TemplateDeployment, error) {
+	name string, args *TemplateDeploymentArgs, opts ...pulumi.ResourceOption) (*TemplateDeployment, error) {
 	if args == nil || args.DeploymentMode == nil {
 		return nil, errors.New("missing required argument 'DeploymentMode'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["deploymentMode"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-		inputs["parametersBody"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["templateBody"] = nil
-	} else {
-		inputs["deploymentMode"] = args.DeploymentMode
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
-		inputs["parametersBody"] = args.ParametersBody
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["templateBody"] = args.TemplateBody
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeploymentMode; i != nil { inputs["deploymentMode"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := args.ParametersBody; i != nil { inputs["parametersBody"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.TemplateBody; i != nil { inputs["templateBody"] = i.ToStringOutput() }
 	}
-	inputs["outputs"] = nil
-	s, err := ctx.RegisterResource("azure:core/templateDeployment:TemplateDeployment", name, true, inputs, opts...)
+	var resource TemplateDeployment
+	err := ctx.RegisterResource("azure:core/templateDeployment:TemplateDeployment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TemplateDeployment{s: s}, nil
+	return &resource, nil
 }
 
 // GetTemplateDeployment gets an existing TemplateDeployment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTemplateDeployment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TemplateDeploymentState, opts ...pulumi.ResourceOpt) (*TemplateDeployment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TemplateDeploymentState, opts ...pulumi.ResourceOption) (*TemplateDeployment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["deploymentMode"] = state.DeploymentMode
-		inputs["name"] = state.Name
-		inputs["outputs"] = state.Outputs
-		inputs["parameters"] = state.Parameters
-		inputs["parametersBody"] = state.ParametersBody
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["templateBody"] = state.TemplateBody
+		if i := state.DeploymentMode; i != nil { inputs["deploymentMode"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Outputs; i != nil { inputs["outputs"] = i.ToStringMapOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := state.ParametersBody; i != nil { inputs["parametersBody"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.TemplateBody; i != nil { inputs["templateBody"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:core/templateDeployment:TemplateDeployment", name, id, inputs, opts...)
+	var resource TemplateDeployment
+	err := ctx.ReadResource("azure:core/templateDeployment:TemplateDeployment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TemplateDeployment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TemplateDeployment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TemplateDeployment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
-// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
-// specified within the template, and this provider will not be aware of this.
-func (r *TemplateDeployment) DeploymentMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deploymentMode"])
-}
-
-// Specifies the name of the template deployment. Changing this forces a
-// new resource to be created.
-func (r *TemplateDeployment) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
-func (r *TemplateDeployment) Outputs() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["outputs"])
-}
-
-// Specifies the name and value pairs that define the deployment parameters for the template.
-func (r *TemplateDeployment) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
-}
-
-// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-func (r *TemplateDeployment) ParametersBody() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parametersBody"])
-}
-
-// The name of the resource group in which to
-// create the template deployment.
-func (r *TemplateDeployment) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the JSON definition for the template.
-func (r *TemplateDeployment) TemplateBody() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["templateBody"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TemplateDeployment resources.
@@ -131,21 +101,21 @@ type TemplateDeploymentState struct {
 	// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
-	DeploymentMode interface{}
+	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
 	// Specifies the name of the template deployment. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
-	Outputs interface{}
+	Outputs pulumi.StringMapInput `pulumi:"outputs"`
 	// Specifies the name and value pairs that define the deployment parameters for the template.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-	ParametersBody interface{}
+	ParametersBody pulumi.StringInput `pulumi:"parametersBody"`
 	// The name of the resource group in which to
 	// create the template deployment.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the JSON definition for the template.
-	TemplateBody interface{}
+	TemplateBody pulumi.StringInput `pulumi:"templateBody"`
 }
 
 // The set of arguments for constructing a TemplateDeployment resource.
@@ -153,17 +123,17 @@ type TemplateDeploymentArgs struct {
 	// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
 	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
 	// specified within the template, and this provider will not be aware of this.
-	DeploymentMode interface{}
+	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
 	// Specifies the name of the template deployment. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name and value pairs that define the deployment parameters for the template.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
-	ParametersBody interface{}
+	ParametersBody pulumi.StringInput `pulumi:"parametersBody"`
 	// The name of the resource group in which to
 	// create the template deployment.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the JSON definition for the template.
-	TemplateBody interface{}
+	TemplateBody pulumi.StringInput `pulumi:"templateBody"`
 }

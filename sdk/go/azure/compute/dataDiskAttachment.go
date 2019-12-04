@@ -16,12 +16,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_data_disk_attachment.html.markdown.
 type DataDiskAttachment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+	Caching pulumi.StringOutput `pulumi:"caching"`
+
+	// The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
+	CreateOption pulumi.StringOutput `pulumi:"createOption"`
+
+	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
+	Lun pulumi.IntOutput `pulumi:"lun"`
+
+	// The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
+	ManagedDiskId pulumi.StringOutput `pulumi:"managedDiskId"`
+
+	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
+	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
+
+	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+	WriteAcceleratorEnabled pulumi.BoolOutput `pulumi:"writeAcceleratorEnabled"`
 }
 
 // NewDataDiskAttachment registers a new resource with the given unique name, arguments, and options.
 func NewDataDiskAttachment(ctx *pulumi.Context,
-	name string, args *DataDiskAttachmentArgs, opts ...pulumi.ResourceOpt) (*DataDiskAttachment, error) {
+	name string, args *DataDiskAttachmentArgs, opts ...pulumi.ResourceOption) (*DataDiskAttachment, error) {
 	if args == nil || args.Caching == nil {
 		return nil, errors.New("missing required argument 'Caching'")
 	}
@@ -34,117 +52,72 @@ func NewDataDiskAttachment(ctx *pulumi.Context,
 	if args == nil || args.VirtualMachineId == nil {
 		return nil, errors.New("missing required argument 'VirtualMachineId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["caching"] = nil
-		inputs["createOption"] = nil
-		inputs["lun"] = nil
-		inputs["managedDiskId"] = nil
-		inputs["virtualMachineId"] = nil
-		inputs["writeAcceleratorEnabled"] = nil
-	} else {
-		inputs["caching"] = args.Caching
-		inputs["createOption"] = args.CreateOption
-		inputs["lun"] = args.Lun
-		inputs["managedDiskId"] = args.ManagedDiskId
-		inputs["virtualMachineId"] = args.VirtualMachineId
-		inputs["writeAcceleratorEnabled"] = args.WriteAcceleratorEnabled
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Caching; i != nil { inputs["caching"] = i.ToStringOutput() }
+		if i := args.CreateOption; i != nil { inputs["createOption"] = i.ToStringOutput() }
+		if i := args.Lun; i != nil { inputs["lun"] = i.ToIntOutput() }
+		if i := args.ManagedDiskId; i != nil { inputs["managedDiskId"] = i.ToStringOutput() }
+		if i := args.VirtualMachineId; i != nil { inputs["virtualMachineId"] = i.ToStringOutput() }
+		if i := args.WriteAcceleratorEnabled; i != nil { inputs["writeAcceleratorEnabled"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/dataDiskAttachment:DataDiskAttachment", name, true, inputs, opts...)
+	var resource DataDiskAttachment
+	err := ctx.RegisterResource("azure:compute/dataDiskAttachment:DataDiskAttachment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DataDiskAttachment{s: s}, nil
+	return &resource, nil
 }
 
 // GetDataDiskAttachment gets an existing DataDiskAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDataDiskAttachment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DataDiskAttachmentState, opts ...pulumi.ResourceOpt) (*DataDiskAttachment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DataDiskAttachmentState, opts ...pulumi.ResourceOption) (*DataDiskAttachment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["caching"] = state.Caching
-		inputs["createOption"] = state.CreateOption
-		inputs["lun"] = state.Lun
-		inputs["managedDiskId"] = state.ManagedDiskId
-		inputs["virtualMachineId"] = state.VirtualMachineId
-		inputs["writeAcceleratorEnabled"] = state.WriteAcceleratorEnabled
+		if i := state.Caching; i != nil { inputs["caching"] = i.ToStringOutput() }
+		if i := state.CreateOption; i != nil { inputs["createOption"] = i.ToStringOutput() }
+		if i := state.Lun; i != nil { inputs["lun"] = i.ToIntOutput() }
+		if i := state.ManagedDiskId; i != nil { inputs["managedDiskId"] = i.ToStringOutput() }
+		if i := state.VirtualMachineId; i != nil { inputs["virtualMachineId"] = i.ToStringOutput() }
+		if i := state.WriteAcceleratorEnabled; i != nil { inputs["writeAcceleratorEnabled"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/dataDiskAttachment:DataDiskAttachment", name, id, inputs, opts...)
+	var resource DataDiskAttachment
+	err := ctx.ReadResource("azure:compute/dataDiskAttachment:DataDiskAttachment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DataDiskAttachment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DataDiskAttachment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DataDiskAttachment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-func (r *DataDiskAttachment) Caching() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["caching"])
-}
-
-// The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
-func (r *DataDiskAttachment) CreateOption() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createOption"])
-}
-
-// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
-func (r *DataDiskAttachment) Lun() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["lun"])
-}
-
-// The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
-func (r *DataDiskAttachment) ManagedDiskId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["managedDiskId"])
-}
-
-// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
-func (r *DataDiskAttachment) VirtualMachineId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualMachineId"])
-}
-
-// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
-func (r *DataDiskAttachment) WriteAcceleratorEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["writeAcceleratorEnabled"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DataDiskAttachment resources.
 type DataDiskAttachmentState struct {
 	// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-	Caching interface{}
+	Caching pulumi.StringInput `pulumi:"caching"`
 	// The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
-	CreateOption interface{}
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
-	Lun interface{}
+	Lun pulumi.IntInput `pulumi:"lun"`
 	// The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
-	ManagedDiskId interface{}
+	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
-	VirtualMachineId interface{}
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
 	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
-	WriteAcceleratorEnabled interface{}
+	WriteAcceleratorEnabled pulumi.BoolInput `pulumi:"writeAcceleratorEnabled"`
 }
 
 // The set of arguments for constructing a DataDiskAttachment resource.
 type DataDiskAttachmentArgs struct {
 	// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-	Caching interface{}
+	Caching pulumi.StringInput `pulumi:"caching"`
 	// The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
-	CreateOption interface{}
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
-	Lun interface{}
+	Lun pulumi.IntInput `pulumi:"lun"`
 	// The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
-	ManagedDiskId interface{}
+	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
 	// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
-	VirtualMachineId interface{}
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
 	// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
-	WriteAcceleratorEnabled interface{}
+	WriteAcceleratorEnabled pulumi.BoolInput `pulumi:"writeAcceleratorEnabled"`
 }

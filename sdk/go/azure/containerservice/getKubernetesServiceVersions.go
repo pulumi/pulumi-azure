@@ -10,41 +10,31 @@ import (
 // Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
-func LookupKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServiceVersionsArgs) (*GetKubernetesServiceVersionsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["location"] = args.Location
-		inputs["versionPrefix"] = args.VersionPrefix
-	}
-	outputs, err := ctx.Invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", inputs)
+func LookupKubernetesServiceVersions(ctx *pulumi.Context, args *GetKubernetesServiceVersionsArgs, opts ...pulumi.InvokeOption) (*GetKubernetesServiceVersionsResult, error) {
+	var rv GetKubernetesServiceVersionsResult
+	err := ctx.Invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetKubernetesServiceVersionsResult{
-		LatestVersion: outputs["latestVersion"],
-		Location: outputs["location"],
-		VersionPrefix: outputs["versionPrefix"],
-		Versions: outputs["versions"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsArgs struct {
 	// Specifies the location in which to query for versions.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
-	VersionPrefix interface{}
+	VersionPrefix *string `pulumi:"versionPrefix"`
 }
 
 // A collection of values returned by getKubernetesServiceVersions.
 type GetKubernetesServiceVersionsResult struct {
 	// The most recent version available.
-	LatestVersion interface{}
-	Location interface{}
-	VersionPrefix interface{}
+	LatestVersion string `pulumi:"latestVersion"`
+	Location string `pulumi:"location"`
+	VersionPrefix *string `pulumi:"versionPrefix"`
 	// The list of all supported versions.
-	Versions interface{}
+	Versions []string `pulumi:"versions"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

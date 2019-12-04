@@ -12,195 +12,147 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
 type Key struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+	Curve pulumi.StringOutput `pulumi:"curve"`
+
+	// The RSA public exponent of this Key Vault Key.
+	E pulumi.StringOutput `pulumi:"e"`
+
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
+
+	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+	KeySize pulumi.IntOutput `pulumi:"keySize"`
+
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	KeyType pulumi.StringOutput `pulumi:"keyType"`
+
+	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
+	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+
+	// The RSA modulus of this Key Vault Key.
+	N pulumi.StringOutput `pulumi:"n"`
+
+	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
+
+	// The current version of the Key Vault Key.
+	Version pulumi.StringOutput `pulumi:"version"`
+
+	// The EC X component of this Key Vault Key.
+	X pulumi.StringOutput `pulumi:"x"`
+
+	// The EC Y component of this Key Vault Key.
+	Y pulumi.StringOutput `pulumi:"y"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
 func NewKey(ctx *pulumi.Context,
-	name string, args *KeyArgs, opts ...pulumi.ResourceOpt) (*Key, error) {
+	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
 	if args == nil || args.KeyOpts == nil {
 		return nil, errors.New("missing required argument 'KeyOpts'")
 	}
 	if args == nil || args.KeyType == nil {
 		return nil, errors.New("missing required argument 'KeyType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["curve"] = nil
-		inputs["keyOpts"] = nil
-		inputs["keySize"] = nil
-		inputs["keyType"] = nil
-		inputs["keyVaultId"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-		inputs["vaultUri"] = nil
-	} else {
-		inputs["curve"] = args.Curve
-		inputs["keyOpts"] = args.KeyOpts
-		inputs["keySize"] = args.KeySize
-		inputs["keyType"] = args.KeyType
-		inputs["keyVaultId"] = args.KeyVaultId
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
-		inputs["vaultUri"] = args.VaultUri
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Curve; i != nil { inputs["curve"] = i.ToStringOutput() }
+		if i := args.KeyOpts; i != nil { inputs["keyOpts"] = i.ToStringArrayOutput() }
+		if i := args.KeySize; i != nil { inputs["keySize"] = i.ToIntOutput() }
+		if i := args.KeyType; i != nil { inputs["keyType"] = i.ToStringOutput() }
+		if i := args.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VaultUri; i != nil { inputs["vaultUri"] = i.ToStringOutput() }
 	}
-	inputs["e"] = nil
-	inputs["n"] = nil
-	inputs["version"] = nil
-	inputs["x"] = nil
-	inputs["y"] = nil
-	s, err := ctx.RegisterResource("azure:keyvault/key:Key", name, true, inputs, opts...)
+	var resource Key
+	err := ctx.RegisterResource("azure:keyvault/key:Key", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Key{s: s}, nil
+	return &resource, nil
 }
 
 // GetKey gets an existing Key resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetKey(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *KeyState, opts ...pulumi.ResourceOpt) (*Key, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["curve"] = state.Curve
-		inputs["e"] = state.E
-		inputs["keyOpts"] = state.KeyOpts
-		inputs["keySize"] = state.KeySize
-		inputs["keyType"] = state.KeyType
-		inputs["keyVaultId"] = state.KeyVaultId
-		inputs["n"] = state.N
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
-		inputs["vaultUri"] = state.VaultUri
-		inputs["version"] = state.Version
-		inputs["x"] = state.X
-		inputs["y"] = state.Y
+		if i := state.Curve; i != nil { inputs["curve"] = i.ToStringOutput() }
+		if i := state.E; i != nil { inputs["e"] = i.ToStringOutput() }
+		if i := state.KeyOpts; i != nil { inputs["keyOpts"] = i.ToStringArrayOutput() }
+		if i := state.KeySize; i != nil { inputs["keySize"] = i.ToIntOutput() }
+		if i := state.KeyType; i != nil { inputs["keyType"] = i.ToStringOutput() }
+		if i := state.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := state.N; i != nil { inputs["n"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VaultUri; i != nil { inputs["vaultUri"] = i.ToStringOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := state.X; i != nil { inputs["x"] = i.ToStringOutput() }
+		if i := state.Y; i != nil { inputs["y"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:keyvault/key:Key", name, id, inputs, opts...)
+	var resource Key
+	err := ctx.ReadResource("azure:keyvault/key:Key", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Key{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Key) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Key) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
-func (r *Key) Curve() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["curve"])
-}
-
-// The RSA public exponent of this Key Vault Key.
-func (r *Key) E() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["e"])
-}
-
-// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
-func (r *Key) KeyOpts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["keyOpts"])
-}
-
-// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
-func (r *Key) KeySize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["keySize"])
-}
-
-// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
-func (r *Key) KeyType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyType"])
-}
-
-// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
-func (r *Key) KeyVaultId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
-}
-
-// The RSA modulus of this Key Vault Key.
-func (r *Key) N() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["n"])
-}
-
-// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
-func (r *Key) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Key) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *Key) VaultUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vaultUri"])
-}
-
-// The current version of the Key Vault Key.
-func (r *Key) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
-}
-
-// The EC X component of this Key Vault Key.
-func (r *Key) X() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["x"])
-}
-
-// The EC Y component of this Key Vault Key.
-func (r *Key) Y() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["y"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Key resources.
 type KeyState struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
-	Curve interface{}
+	Curve pulumi.StringInput `pulumi:"curve"`
 	// The RSA public exponent of this Key Vault Key.
-	E interface{}
+	E pulumi.StringInput `pulumi:"e"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
-	KeyOpts interface{}
+	KeyOpts pulumi.StringArrayInput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
-	KeySize interface{}
+	KeySize pulumi.IntInput `pulumi:"keySize"`
 	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
-	KeyType interface{}
+	KeyType pulumi.StringInput `pulumi:"keyType"`
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// The RSA modulus of this Key Vault Key.
-	N interface{}
+	N pulumi.StringInput `pulumi:"n"`
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	VaultUri interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
 	// The current version of the Key Vault Key.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// The EC X component of this Key Vault Key.
-	X interface{}
+	X pulumi.StringInput `pulumi:"x"`
 	// The EC Y component of this Key Vault Key.
-	Y interface{}
+	Y pulumi.StringInput `pulumi:"y"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
-	Curve interface{}
+	Curve pulumi.StringInput `pulumi:"curve"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
-	KeyOpts interface{}
+	KeyOpts pulumi.StringArrayInput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
-	KeySize interface{}
+	KeySize pulumi.IntInput `pulumi:"keySize"`
 	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
-	KeyType interface{}
+	KeyType pulumi.StringInput `pulumi:"keyType"`
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	VaultUri interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
 }

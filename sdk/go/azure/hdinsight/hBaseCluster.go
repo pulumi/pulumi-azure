@@ -4,6 +4,8 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_hbase_cluster.html.markdown.
 type HBaseCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
+
+	// A `componentVersion` block as defined below.
+	ComponentVersion HBaseClusterComponentVersionOutput `pulumi:"componentVersion"`
+
+	// A `gateway` block as defined below.
+	Gateway HBaseClusterGatewayOutput `pulumi:"gateway"`
+
+	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
+	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+
+	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `roles` block as defined below.
+	Roles HBaseClusterRolesOutput `pulumi:"roles"`
+
+	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
+	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
+
+	// One or more `storageAccount` block as defined below.
+	StorageAccounts HBaseClusterStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A `storageAccountGen2` block as defined below.
+	StorageAccountGen2 HBaseClusterStorageAccountGen2Output `pulumi:"storageAccountGen2"`
+
+	// A map of Tags which should be assigned to this HDInsight HBase Cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewHBaseCluster registers a new resource with the given unique name, arguments, and options.
 func NewHBaseCluster(ctx *pulumi.Context,
-	name string, args *HBaseClusterArgs, opts ...pulumi.ResourceOpt) (*HBaseCluster, error) {
+	name string, args *HBaseClusterArgs, opts ...pulumi.ResourceOption) (*HBaseCluster, error) {
 	if args == nil || args.ClusterVersion == nil {
 		return nil, errors.New("missing required argument 'ClusterVersion'")
 	}
@@ -36,195 +77,761 @@ func NewHBaseCluster(ctx *pulumi.Context,
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterVersion"] = nil
-		inputs["componentVersion"] = nil
-		inputs["gateway"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roles"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["storageAccountGen2"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-	} else {
-		inputs["clusterVersion"] = args.ClusterVersion
-		inputs["componentVersion"] = args.ComponentVersion
-		inputs["gateway"] = args.Gateway
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roles"] = args.Roles
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["storageAccountGen2"] = args.StorageAccountGen2
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := args.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToHBaseClusterComponentVersionOutput() }
+		if i := args.Gateway; i != nil { inputs["gateway"] = i.ToHBaseClusterGatewayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToHBaseClusterRolesOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToHBaseClusterStorageAccountsArrayOutput() }
+		if i := args.StorageAccountGen2; i != nil { inputs["storageAccountGen2"] = i.ToHBaseClusterStorageAccountGen2Output() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	inputs["httpsEndpoint"] = nil
-	inputs["sshEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:hdinsight/hBaseCluster:HBaseCluster", name, true, inputs, opts...)
+	var resource HBaseCluster
+	err := ctx.RegisterResource("azure:hdinsight/hBaseCluster:HBaseCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HBaseCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetHBaseCluster gets an existing HBaseCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetHBaseCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *HBaseClusterState, opts ...pulumi.ResourceOpt) (*HBaseCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *HBaseClusterState, opts ...pulumi.ResourceOption) (*HBaseCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterVersion"] = state.ClusterVersion
-		inputs["componentVersion"] = state.ComponentVersion
-		inputs["gateway"] = state.Gateway
-		inputs["httpsEndpoint"] = state.HttpsEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roles"] = state.Roles
-		inputs["sshEndpoint"] = state.SshEndpoint
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["storageAccountGen2"] = state.StorageAccountGen2
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
+		if i := state.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := state.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToHBaseClusterComponentVersionOutput() }
+		if i := state.Gateway; i != nil { inputs["gateway"] = i.ToHBaseClusterGatewayOutput() }
+		if i := state.HttpsEndpoint; i != nil { inputs["httpsEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToHBaseClusterRolesOutput() }
+		if i := state.SshEndpoint; i != nil { inputs["sshEndpoint"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToHBaseClusterStorageAccountsArrayOutput() }
+		if i := state.StorageAccountGen2; i != nil { inputs["storageAccountGen2"] = i.ToHBaseClusterStorageAccountGen2Output() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:hdinsight/hBaseCluster:HBaseCluster", name, id, inputs, opts...)
+	var resource HBaseCluster
+	err := ctx.ReadResource("azure:hdinsight/hBaseCluster:HBaseCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HBaseCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *HBaseCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *HBaseCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *HBaseCluster) ClusterVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
-}
-
-// A `componentVersion` block as defined below.
-func (r *HBaseCluster) ComponentVersion() pulumi.Output {
-	return r.s.State["componentVersion"]
-}
-
-// A `gateway` block as defined below.
-func (r *HBaseCluster) Gateway() pulumi.Output {
-	return r.s.State["gateway"]
-}
-
-// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
-func (r *HBaseCluster) HttpsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
-}
-
-// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-func (r *HBaseCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-func (r *HBaseCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-func (r *HBaseCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `roles` block as defined below.
-func (r *HBaseCluster) Roles() pulumi.Output {
-	return r.s.State["roles"]
-}
-
-// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
-func (r *HBaseCluster) SshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
-}
-
-// One or more `storageAccount` block as defined below.
-func (r *HBaseCluster) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A `storageAccountGen2` block as defined below.
-func (r *HBaseCluster) StorageAccountGen2() pulumi.Output {
-	return r.s.State["storageAccountGen2"]
-}
-
-// A map of Tags which should be assigned to this HDInsight HBase Cluster.
-func (r *HBaseCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *HBaseCluster) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering HBaseCluster resources.
 type HBaseClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion HBaseClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway HBaseClusterGatewayInput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
-	HttpsEndpoint interface{}
+	HttpsEndpoint pulumi.StringInput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles HBaseClusterRolesInput `pulumi:"roles"`
 	// The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
-	SshEndpoint interface{}
+	SshEndpoint pulumi.StringInput `pulumi:"sshEndpoint"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts HBaseClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A `storageAccountGen2` block as defined below.
-	StorageAccountGen2 interface{}
+	StorageAccountGen2 HBaseClusterStorageAccountGen2Input `pulumi:"storageAccountGen2"`
 	// A map of Tags which should be assigned to this HDInsight HBase Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a HBaseCluster resource.
 type HBaseClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion HBaseClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway HBaseClusterGatewayInput `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles HBaseClusterRolesInput `pulumi:"roles"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts HBaseClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A `storageAccountGen2` block as defined below.
-	StorageAccountGen2 interface{}
+	StorageAccountGen2 HBaseClusterStorageAccountGen2Input `pulumi:"storageAccountGen2"`
 	// A map of Tags which should be assigned to this HDInsight HBase Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
+type HBaseClusterComponentVersion struct {
+	Hbase string `pulumi:"hbase"`
+}
+var hBaseClusterComponentVersionType = reflect.TypeOf((*HBaseClusterComponentVersion)(nil)).Elem()
+
+type HBaseClusterComponentVersionInput interface {
+	pulumi.Input
+
+	ToHBaseClusterComponentVersionOutput() HBaseClusterComponentVersionOutput
+	ToHBaseClusterComponentVersionOutputWithContext(ctx context.Context) HBaseClusterComponentVersionOutput
+}
+
+type HBaseClusterComponentVersionArgs struct {
+	Hbase pulumi.StringInput `pulumi:"hbase"`
+}
+
+func (HBaseClusterComponentVersionArgs) ElementType() reflect.Type {
+	return hBaseClusterComponentVersionType
+}
+
+func (a HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionOutput() HBaseClusterComponentVersionOutput {
+	return pulumi.ToOutput(a).(HBaseClusterComponentVersionOutput)
+}
+
+func (a HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionOutputWithContext(ctx context.Context) HBaseClusterComponentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterComponentVersionOutput)
+}
+
+type HBaseClusterComponentVersionOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterComponentVersionOutput) Hbase() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterComponentVersion) string {
+		return v.Hbase
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterComponentVersionOutput) ElementType() reflect.Type {
+	return hBaseClusterComponentVersionType
+}
+
+func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionOutput() HBaseClusterComponentVersionOutput {
+	return o
+}
+
+func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionOutputWithContext(ctx context.Context) HBaseClusterComponentVersionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterComponentVersionOutput{}) }
+
+type HBaseClusterGateway struct {
+	Enabled bool `pulumi:"enabled"`
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var hBaseClusterGatewayType = reflect.TypeOf((*HBaseClusterGateway)(nil)).Elem()
+
+type HBaseClusterGatewayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterGatewayOutput() HBaseClusterGatewayOutput
+	ToHBaseClusterGatewayOutputWithContext(ctx context.Context) HBaseClusterGatewayOutput
+}
+
+type HBaseClusterGatewayArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (HBaseClusterGatewayArgs) ElementType() reflect.Type {
+	return hBaseClusterGatewayType
+}
+
+func (a HBaseClusterGatewayArgs) ToHBaseClusterGatewayOutput() HBaseClusterGatewayOutput {
+	return pulumi.ToOutput(a).(HBaseClusterGatewayOutput)
+}
+
+func (a HBaseClusterGatewayArgs) ToHBaseClusterGatewayOutputWithContext(ctx context.Context) HBaseClusterGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterGatewayOutput)
+}
+
+type HBaseClusterGatewayOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v HBaseClusterGateway) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o HBaseClusterGatewayOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterGateway) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterGatewayOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterGateway) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterGatewayOutput) ElementType() reflect.Type {
+	return hBaseClusterGatewayType
+}
+
+func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayOutput() HBaseClusterGatewayOutput {
+	return o
+}
+
+func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayOutputWithContext(ctx context.Context) HBaseClusterGatewayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterGatewayOutput{}) }
+
+type HBaseClusterRoles struct {
+	HeadNode HBaseClusterRolesHeadNode `pulumi:"headNode"`
+	WorkerNode HBaseClusterRolesWorkerNode `pulumi:"workerNode"`
+	ZookeeperNode HBaseClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
+}
+var hBaseClusterRolesType = reflect.TypeOf((*HBaseClusterRoles)(nil)).Elem()
+
+type HBaseClusterRolesInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesOutput() HBaseClusterRolesOutput
+	ToHBaseClusterRolesOutputWithContext(ctx context.Context) HBaseClusterRolesOutput
+}
+
+type HBaseClusterRolesArgs struct {
+	HeadNode HBaseClusterRolesHeadNodeInput `pulumi:"headNode"`
+	WorkerNode HBaseClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	ZookeeperNode HBaseClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
+}
+
+func (HBaseClusterRolesArgs) ElementType() reflect.Type {
+	return hBaseClusterRolesType
+}
+
+func (a HBaseClusterRolesArgs) ToHBaseClusterRolesOutput() HBaseClusterRolesOutput {
+	return pulumi.ToOutput(a).(HBaseClusterRolesOutput)
+}
+
+func (a HBaseClusterRolesArgs) ToHBaseClusterRolesOutputWithContext(ctx context.Context) HBaseClusterRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterRolesOutput)
+}
+
+type HBaseClusterRolesOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterRolesOutput) HeadNode() HBaseClusterRolesHeadNodeOutput {
+	return o.Apply(func(v HBaseClusterRoles) HBaseClusterRolesHeadNode {
+		return v.HeadNode
+	}).(HBaseClusterRolesHeadNodeOutput)
+}
+
+func (o HBaseClusterRolesOutput) WorkerNode() HBaseClusterRolesWorkerNodeOutput {
+	return o.Apply(func(v HBaseClusterRoles) HBaseClusterRolesWorkerNode {
+		return v.WorkerNode
+	}).(HBaseClusterRolesWorkerNodeOutput)
+}
+
+func (o HBaseClusterRolesOutput) ZookeeperNode() HBaseClusterRolesZookeeperNodeOutput {
+	return o.Apply(func(v HBaseClusterRoles) HBaseClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(HBaseClusterRolesZookeeperNodeOutput)
+}
+
+func (HBaseClusterRolesOutput) ElementType() reflect.Type {
+	return hBaseClusterRolesType
+}
+
+func (o HBaseClusterRolesOutput) ToHBaseClusterRolesOutput() HBaseClusterRolesOutput {
+	return o
+}
+
+func (o HBaseClusterRolesOutput) ToHBaseClusterRolesOutputWithContext(ctx context.Context) HBaseClusterRolesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterRolesOutput{}) }
+
+type HBaseClusterRolesHeadNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var hBaseClusterRolesHeadNodeType = reflect.TypeOf((*HBaseClusterRolesHeadNode)(nil)).Elem()
+
+type HBaseClusterRolesHeadNodeInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesHeadNodeOutput() HBaseClusterRolesHeadNodeOutput
+	ToHBaseClusterRolesHeadNodeOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeOutput
+}
+
+type HBaseClusterRolesHeadNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (HBaseClusterRolesHeadNodeArgs) ElementType() reflect.Type {
+	return hBaseClusterRolesHeadNodeType
+}
+
+func (a HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodeOutput() HBaseClusterRolesHeadNodeOutput {
+	return pulumi.ToOutput(a).(HBaseClusterRolesHeadNodeOutput)
+}
+
+func (a HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodeOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterRolesHeadNodeOutput)
+}
+
+type HBaseClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterRolesHeadNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesHeadNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v HBaseClusterRolesHeadNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesHeadNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesHeadNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesHeadNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesHeadNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterRolesHeadNodeOutput) ElementType() reflect.Type {
+	return hBaseClusterRolesHeadNodeType
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodeOutput() HBaseClusterRolesHeadNodeOutput {
+	return o
+}
+
+func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodeOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterRolesHeadNodeOutput{}) }
+
+type HBaseClusterRolesWorkerNode struct {
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var hBaseClusterRolesWorkerNodeType = reflect.TypeOf((*HBaseClusterRolesWorkerNode)(nil)).Elem()
+
+type HBaseClusterRolesWorkerNodeInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeOutput() HBaseClusterRolesWorkerNodeOutput
+	ToHBaseClusterRolesWorkerNodeOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeOutput
+}
+
+type HBaseClusterRolesWorkerNodeArgs struct {
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (HBaseClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
+	return hBaseClusterRolesWorkerNodeType
+}
+
+func (a HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodeOutput() HBaseClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutput(a).(HBaseClusterRolesWorkerNodeOutput)
+}
+
+func (a HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodeOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterRolesWorkerNodeOutput)
+}
+
+type HBaseClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) int {
+		if v.MinInstanceCount == nil { return *new(int) } else { return *v.MinInstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesWorkerNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
+	return hBaseClusterRolesWorkerNodeType
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodeOutput() HBaseClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodeOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeOutput{}) }
+
+type HBaseClusterRolesZookeeperNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var hBaseClusterRolesZookeeperNodeType = reflect.TypeOf((*HBaseClusterRolesZookeeperNode)(nil)).Elem()
+
+type HBaseClusterRolesZookeeperNodeInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesZookeeperNodeOutput() HBaseClusterRolesZookeeperNodeOutput
+	ToHBaseClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeOutput
+}
+
+type HBaseClusterRolesZookeeperNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (HBaseClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
+	return hBaseClusterRolesZookeeperNodeType
+}
+
+func (a HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodeOutput() HBaseClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutput(a).(HBaseClusterRolesZookeeperNodeOutput)
+}
+
+func (a HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterRolesZookeeperNodeOutput)
+}
+
+type HBaseClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterRolesZookeeperNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesZookeeperNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v HBaseClusterRolesZookeeperNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesZookeeperNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesZookeeperNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesZookeeperNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterRolesZookeeperNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
+	return hBaseClusterRolesZookeeperNodeType
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodeOutput() HBaseClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeOutput{}) }
+
+type HBaseClusterStorageAccountGen2 struct {
+	FilesystemId string `pulumi:"filesystemId"`
+	IsDefault bool `pulumi:"isDefault"`
+	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
+	StorageResourceId string `pulumi:"storageResourceId"`
+}
+var hBaseClusterStorageAccountGen2Type = reflect.TypeOf((*HBaseClusterStorageAccountGen2)(nil)).Elem()
+
+type HBaseClusterStorageAccountGen2Input interface {
+	pulumi.Input
+
+	ToHBaseClusterStorageAccountGen2Output() HBaseClusterStorageAccountGen2Output
+	ToHBaseClusterStorageAccountGen2OutputWithContext(ctx context.Context) HBaseClusterStorageAccountGen2Output
+}
+
+type HBaseClusterStorageAccountGen2Args struct {
+	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
+	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+}
+
+func (HBaseClusterStorageAccountGen2Args) ElementType() reflect.Type {
+	return hBaseClusterStorageAccountGen2Type
+}
+
+func (a HBaseClusterStorageAccountGen2Args) ToHBaseClusterStorageAccountGen2Output() HBaseClusterStorageAccountGen2Output {
+	return pulumi.ToOutput(a).(HBaseClusterStorageAccountGen2Output)
+}
+
+func (a HBaseClusterStorageAccountGen2Args) ToHBaseClusterStorageAccountGen2OutputWithContext(ctx context.Context) HBaseClusterStorageAccountGen2Output {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterStorageAccountGen2Output)
+}
+
+type HBaseClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+
+func (o HBaseClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterStorageAccountGen2) string {
+		return v.FilesystemId
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v HBaseClusterStorageAccountGen2) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o HBaseClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterStorageAccountGen2) string {
+		return v.ManagedIdentityResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterStorageAccountGen2) string {
+		return v.StorageResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterStorageAccountGen2Output) ElementType() reflect.Type {
+	return hBaseClusterStorageAccountGen2Type
+}
+
+func (o HBaseClusterStorageAccountGen2Output) ToHBaseClusterStorageAccountGen2Output() HBaseClusterStorageAccountGen2Output {
+	return o
+}
+
+func (o HBaseClusterStorageAccountGen2Output) ToHBaseClusterStorageAccountGen2OutputWithContext(ctx context.Context) HBaseClusterStorageAccountGen2Output {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterStorageAccountGen2Output{}) }
+
+type HBaseClusterStorageAccounts struct {
+	IsDefault bool `pulumi:"isDefault"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+}
+var hBaseClusterStorageAccountsType = reflect.TypeOf((*HBaseClusterStorageAccounts)(nil)).Elem()
+
+type HBaseClusterStorageAccountsInput interface {
+	pulumi.Input
+
+	ToHBaseClusterStorageAccountsOutput() HBaseClusterStorageAccountsOutput
+	ToHBaseClusterStorageAccountsOutputWithContext(ctx context.Context) HBaseClusterStorageAccountsOutput
+}
+
+type HBaseClusterStorageAccountsArgs struct {
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+}
+
+func (HBaseClusterStorageAccountsArgs) ElementType() reflect.Type {
+	return hBaseClusterStorageAccountsType
+}
+
+func (a HBaseClusterStorageAccountsArgs) ToHBaseClusterStorageAccountsOutput() HBaseClusterStorageAccountsOutput {
+	return pulumi.ToOutput(a).(HBaseClusterStorageAccountsOutput)
+}
+
+func (a HBaseClusterStorageAccountsArgs) ToHBaseClusterStorageAccountsOutputWithContext(ctx context.Context) HBaseClusterStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterStorageAccountsOutput)
+}
+
+type HBaseClusterStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterStorageAccountsOutput) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v HBaseClusterStorageAccounts) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o HBaseClusterStorageAccountsOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterStorageAccounts) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o HBaseClusterStorageAccountsOutput) StorageContainerId() pulumi.StringOutput {
+	return o.Apply(func(v HBaseClusterStorageAccounts) string {
+		return v.StorageContainerId
+	}).(pulumi.StringOutput)
+}
+
+func (HBaseClusterStorageAccountsOutput) ElementType() reflect.Type {
+	return hBaseClusterStorageAccountsType
+}
+
+func (o HBaseClusterStorageAccountsOutput) ToHBaseClusterStorageAccountsOutput() HBaseClusterStorageAccountsOutput {
+	return o
+}
+
+func (o HBaseClusterStorageAccountsOutput) ToHBaseClusterStorageAccountsOutputWithContext(ctx context.Context) HBaseClusterStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterStorageAccountsOutput{}) }
+
+var hBaseClusterStorageAccountsArrayType = reflect.TypeOf((*[]HBaseClusterStorageAccounts)(nil)).Elem()
+
+type HBaseClusterStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterStorageAccountsArrayOutput() HBaseClusterStorageAccountsArrayOutput
+	ToHBaseClusterStorageAccountsArrayOutputWithContext(ctx context.Context) HBaseClusterStorageAccountsArrayOutput
+}
+
+type HBaseClusterStorageAccountsArrayArgs []HBaseClusterStorageAccountsInput
+
+func (HBaseClusterStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return hBaseClusterStorageAccountsArrayType
+}
+
+func (a HBaseClusterStorageAccountsArrayArgs) ToHBaseClusterStorageAccountsArrayOutput() HBaseClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(HBaseClusterStorageAccountsArrayOutput)
+}
+
+func (a HBaseClusterStorageAccountsArrayArgs) ToHBaseClusterStorageAccountsArrayOutputWithContext(ctx context.Context) HBaseClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(HBaseClusterStorageAccountsArrayOutput)
+}
+
+type HBaseClusterStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o HBaseClusterStorageAccountsArrayOutput) Index(i pulumi.IntInput) HBaseClusterStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) HBaseClusterStorageAccounts {
+		return vs[0].([]HBaseClusterStorageAccounts)[vs[1].(int)]
+	}).(HBaseClusterStorageAccountsOutput)
+}
+
+func (HBaseClusterStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return hBaseClusterStorageAccountsArrayType
+}
+
+func (o HBaseClusterStorageAccountsArrayOutput) ToHBaseClusterStorageAccountsArrayOutput() HBaseClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func (o HBaseClusterStorageAccountsArrayOutput) ToHBaseClusterStorageAccountsArrayOutputWithContext(ctx context.Context) HBaseClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(HBaseClusterStorageAccountsArrayOutput{}) }
+

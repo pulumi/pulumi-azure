@@ -12,132 +12,102 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/maps_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The primary key used to authenticate and authorize access to the Maps REST APIs.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+
+	// A mapping of tags to assign to the Azure Maps Account.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A unique identifier for the Maps Account.
+	XMsClientId pulumi.StringOutput `pulumi:"xMsClientId"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.SkuName == nil {
 		return nil, errors.New("missing required argument 'SkuName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["skuName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["skuName"] = args.SkuName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["primaryAccessKey"] = nil
-	inputs["secondaryAccessKey"] = nil
-	inputs["xMsClientId"] = nil
-	s, err := ctx.RegisterResource("azure:maps/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:maps/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["skuName"] = state.SkuName
-		inputs["tags"] = state.Tags
-		inputs["xMsClientId"] = state.XMsClientId
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.XMsClientId; i != nil { inputs["xMsClientId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:maps/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:maps/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Azure Maps Account. Changing this forces a new resource to be created.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The primary key used to authenticate and authorize access to the Maps REST APIs.
-func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The secondary key used to authenticate and authorize access to the Maps REST APIs.
-func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
-func (r *Account) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
-}
-
-// A mapping of tags to assign to the Azure Maps Account.
-func (r *Account) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A unique identifier for the Maps Account.
-func (r *Account) XMsClientId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["xMsClientId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The primary key used to authenticate and authorize access to the Maps REST APIs.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A unique identifier for the Maps Account.
-	XMsClientId interface{}
+	XMsClientId pulumi.StringInput `pulumi:"xMsClientId"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// The name of the Azure Maps Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

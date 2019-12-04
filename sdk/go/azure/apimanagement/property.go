@@ -12,12 +12,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
 type Property struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The display name of this API Management Property.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The name of the API Management Property. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
+	Secret pulumi.BoolOutput `pulumi:"secret"`
+
+	// A list of tags to be applied to the API Management Property.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+
+	// The value of this API Management Property.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewProperty registers a new resource with the given unique name, arguments, and options.
 func NewProperty(ctx *pulumi.Context,
-	name string, args *PropertyArgs, opts ...pulumi.ResourceOpt) (*Property, error) {
+	name string, args *PropertyArgs, opts ...pulumi.ResourceOption) (*Property, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -30,129 +51,78 @@ func NewProperty(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["displayName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["secret"] = nil
-		inputs["tags"] = nil
-		inputs["value"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["displayName"] = args.DisplayName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["secret"] = args.Secret
-		inputs["tags"] = args.Tags
-		inputs["value"] = args.Value
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Secret; i != nil { inputs["secret"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringArrayOutput() }
+		if i := args.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/property:Property", name, true, inputs, opts...)
+	var resource Property
+	err := ctx.RegisterResource("azure:apimanagement/property:Property", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Property{s: s}, nil
+	return &resource, nil
 }
 
 // GetProperty gets an existing Property resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProperty(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PropertyState, opts ...pulumi.ResourceOpt) (*Property, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PropertyState, opts ...pulumi.ResourceOption) (*Property, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["displayName"] = state.DisplayName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secret"] = state.Secret
-		inputs["tags"] = state.Tags
-		inputs["value"] = state.Value
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Secret; i != nil { inputs["secret"] = i.ToBoolOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringArrayOutput() }
+		if i := state.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/property:Property", name, id, inputs, opts...)
+	var resource Property
+	err := ctx.ReadResource("azure:apimanagement/property:Property", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Property{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Property) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Property) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
-func (r *Property) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The display name of this API Management Property.
-func (r *Property) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The name of the API Management Property. Changing this forces a new resource to be created.
-func (r *Property) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
-func (r *Property) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
-func (r *Property) Secret() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["secret"])
-}
-
-// A list of tags to be applied to the API Management Property.
-func (r *Property) Tags() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["tags"])
-}
-
-// The value of this API Management Property.
-func (r *Property) Value() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["value"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Property resources.
 type PropertyState struct {
 	// The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The display name of this API Management Property.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the API Management Property. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
-	Secret interface{}
+	Secret pulumi.BoolInput `pulumi:"secret"`
 	// A list of tags to be applied to the API Management Property.
-	Tags interface{}
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
 	// The value of this API Management Property.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Property resource.
 type PropertyArgs struct {
 	// The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The display name of this API Management Property.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the API Management Property. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
-	Secret interface{}
+	Secret pulumi.BoolInput `pulumi:"secret"`
 	// A list of tags to be applied to the API Management Property.
-	Tags interface{}
+	Tags pulumi.StringArrayInput `pulumi:"tags"`
 	// The value of this API Management Property.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }

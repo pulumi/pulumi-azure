@@ -10,45 +10,66 @@ import (
 // Use this data source to access information about an existing Network Security Group.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_security_group.html.markdown.
-func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGroupArgs) (*GetNetworkSecurityGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", inputs)
+func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGroupArgs, opts ...pulumi.InvokeOption) (*GetNetworkSecurityGroupResult, error) {
+	var rv GetNetworkSecurityGroupResult
+	err := ctx.Invoke("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNetworkSecurityGroupResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecurityRules: outputs["securityRules"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNetworkSecurityGroup.
 type GetNetworkSecurityGroupArgs struct {
 	// Specifies the Name of the Network Security Group.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the Name of the Resource Group within which the Network Security Group exists
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNetworkSecurityGroup.
 type GetNetworkSecurityGroupResult struct {
 	// The supported Azure location where the resource exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the security rule.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `securityRule` blocks as defined below.
-	SecurityRules interface{}
+	SecurityRules []GetNetworkSecurityGroupSecurityRulesResult `pulumi:"securityRules"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetNetworkSecurityGroupSecurityRulesResult struct {
+	// Is network traffic is allowed or denied?
+	Access string `pulumi:"access"`
+	// The description for this rule.
+	Description string `pulumi:"description"`
+	// CIDR or destination IP range or * to match any IP.
+	DestinationAddressPrefix string `pulumi:"destinationAddressPrefix"`
+	// A list of CIDRs or destination IP ranges.
+	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
+	// A List of destination Application Security Group ID's
+	DestinationApplicationSecurityGroupIds *[]string `pulumi:"destinationApplicationSecurityGroupIds"`
+	// The Destination Port or Range.
+	DestinationPortRange string `pulumi:"destinationPortRange"`
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+	Direction string `pulumi:"direction"`
+	// Specifies the Name of the Network Security Group.
+	Name string `pulumi:"name"`
+	// The priority of the rule
+	Priority int `pulumi:"priority"`
+	// The network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// CIDR or source IP range or * to match any IP.
+	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
+	// A list of CIDRs or source IP ranges.
+	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
+	// A List of source Application Security Group ID's
+	SourceApplicationSecurityGroupIds *[]string `pulumi:"sourceApplicationSecurityGroupIds"`
+	// The Source Port or Range.
+	SourcePortRange string `pulumi:"sourcePortRange"`
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }

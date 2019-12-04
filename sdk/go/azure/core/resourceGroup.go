@@ -11,93 +11,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/resource_group.html.markdown.
 type ResourceGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The location where the resource group should be created.
+	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the resource group. Must be unique on your
+	// Azure subscription.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
 func NewResourceGroup(ctx *pulumi.Context,
-	name string, args *ResourceGroupArgs, opts ...pulumi.ResourceOpt) (*ResourceGroup, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["tags"] = args.Tags
+	name string, args *ResourceGroupArgs, opts ...pulumi.ResourceOption) (*ResourceGroup, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:core/resourceGroup:ResourceGroup", name, true, inputs, opts...)
+	var resource ResourceGroup
+	err := ctx.RegisterResource("azure:core/resourceGroup:ResourceGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResourceGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetResourceGroup gets an existing ResourceGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetResourceGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ResourceGroupState, opts ...pulumi.ResourceOpt) (*ResourceGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ResourceGroupState, opts ...pulumi.ResourceOption) (*ResourceGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["tags"] = state.Tags
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:core/resourceGroup:ResourceGroup", name, id, inputs, opts...)
+	var resource ResourceGroup
+	err := ctx.ReadResource("azure:core/resourceGroup:ResourceGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ResourceGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ResourceGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ResourceGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The location where the resource group should be created.
-// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
-func (r *ResourceGroup) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the resource group. Must be unique on your
-// Azure subscription.
-func (r *ResourceGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ResourceGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ResourceGroup resources.
 type ResourceGroupState struct {
 	// The location where the resource group should be created.
 	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource group. Must be unique on your
 	// Azure subscription.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
 	// The location where the resource group should be created.
 	// For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the resource group. Must be unique on your
 	// Azure subscription.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

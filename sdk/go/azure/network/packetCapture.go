@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/packet_capture.html.markdown.
 type PacketCapture struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+	Filters PacketCaptureFiltersArrayOutput `pulumi:"filters"`
+
+	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
+	MaximumBytesPerPacket pulumi.IntOutput `pulumi:"maximumBytesPerPacket"`
+
+	// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
+	MaximumBytesPerSession pulumi.IntOutput `pulumi:"maximumBytesPerSession"`
+
+	// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
+	MaximumCaptureDuration pulumi.IntOutput `pulumi:"maximumCaptureDuration"`
+
+	// The name to use for this Packet Capture. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherName pulumi.StringOutput `pulumi:"networkWatcherName"`
+
+	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
+	StorageLocation PacketCaptureStorageLocationOutput `pulumi:"storageLocation"`
+
+	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
 // NewPacketCapture registers a new resource with the given unique name, arguments, and options.
 func NewPacketCapture(ctx *pulumi.Context,
-	name string, args *PacketCaptureArgs, opts ...pulumi.ResourceOpt) (*PacketCapture, error) {
+	name string, args *PacketCaptureArgs, opts ...pulumi.ResourceOption) (*PacketCapture, error) {
 	if args == nil || args.NetworkWatcherName == nil {
 		return nil, errors.New("missing required argument 'NetworkWatcherName'")
 	}
@@ -32,153 +61,286 @@ func NewPacketCapture(ctx *pulumi.Context,
 	if args == nil || args.TargetResourceId == nil {
 		return nil, errors.New("missing required argument 'TargetResourceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["filters"] = nil
-		inputs["maximumBytesPerPacket"] = nil
-		inputs["maximumBytesPerSession"] = nil
-		inputs["maximumCaptureDuration"] = nil
-		inputs["name"] = nil
-		inputs["networkWatcherName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageLocation"] = nil
-		inputs["targetResourceId"] = nil
-	} else {
-		inputs["filters"] = args.Filters
-		inputs["maximumBytesPerPacket"] = args.MaximumBytesPerPacket
-		inputs["maximumBytesPerSession"] = args.MaximumBytesPerSession
-		inputs["maximumCaptureDuration"] = args.MaximumCaptureDuration
-		inputs["name"] = args.Name
-		inputs["networkWatcherName"] = args.NetworkWatcherName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageLocation"] = args.StorageLocation
-		inputs["targetResourceId"] = args.TargetResourceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Filters; i != nil { inputs["filters"] = i.ToPacketCaptureFiltersArrayOutput() }
+		if i := args.MaximumBytesPerPacket; i != nil { inputs["maximumBytesPerPacket"] = i.ToIntOutput() }
+		if i := args.MaximumBytesPerSession; i != nil { inputs["maximumBytesPerSession"] = i.ToIntOutput() }
+		if i := args.MaximumCaptureDuration; i != nil { inputs["maximumCaptureDuration"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkWatcherName; i != nil { inputs["networkWatcherName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageLocation; i != nil { inputs["storageLocation"] = i.ToPacketCaptureStorageLocationOutput() }
+		if i := args.TargetResourceId; i != nil { inputs["targetResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/packetCapture:PacketCapture", name, true, inputs, opts...)
+	var resource PacketCapture
+	err := ctx.RegisterResource("azure:network/packetCapture:PacketCapture", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PacketCapture{s: s}, nil
+	return &resource, nil
 }
 
 // GetPacketCapture gets an existing PacketCapture resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPacketCapture(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PacketCaptureState, opts ...pulumi.ResourceOpt) (*PacketCapture, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PacketCaptureState, opts ...pulumi.ResourceOption) (*PacketCapture, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["filters"] = state.Filters
-		inputs["maximumBytesPerPacket"] = state.MaximumBytesPerPacket
-		inputs["maximumBytesPerSession"] = state.MaximumBytesPerSession
-		inputs["maximumCaptureDuration"] = state.MaximumCaptureDuration
-		inputs["name"] = state.Name
-		inputs["networkWatcherName"] = state.NetworkWatcherName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageLocation"] = state.StorageLocation
-		inputs["targetResourceId"] = state.TargetResourceId
+		if i := state.Filters; i != nil { inputs["filters"] = i.ToPacketCaptureFiltersArrayOutput() }
+		if i := state.MaximumBytesPerPacket; i != nil { inputs["maximumBytesPerPacket"] = i.ToIntOutput() }
+		if i := state.MaximumBytesPerSession; i != nil { inputs["maximumBytesPerSession"] = i.ToIntOutput() }
+		if i := state.MaximumCaptureDuration; i != nil { inputs["maximumCaptureDuration"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkWatcherName; i != nil { inputs["networkWatcherName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageLocation; i != nil { inputs["storageLocation"] = i.ToPacketCaptureStorageLocationOutput() }
+		if i := state.TargetResourceId; i != nil { inputs["targetResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/packetCapture:PacketCapture", name, id, inputs, opts...)
+	var resource PacketCapture
+	err := ctx.ReadResource("azure:network/packetCapture:PacketCapture", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PacketCapture{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PacketCapture) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PacketCapture) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-func (r *PacketCapture) Filters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["filters"])
-}
-
-// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
-func (r *PacketCapture) MaximumBytesPerPacket() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maximumBytesPerPacket"])
-}
-
-// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
-func (r *PacketCapture) MaximumBytesPerSession() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maximumBytesPerSession"])
-}
-
-// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
-func (r *PacketCapture) MaximumCaptureDuration() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maximumCaptureDuration"])
-}
-
-// The name to use for this Packet Capture. Changing this forces a new resource to be created.
-func (r *PacketCapture) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Network Watcher. Changing this forces a new resource to be created.
-func (r *PacketCapture) NetworkWatcherName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkWatcherName"])
-}
-
-// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
-func (r *PacketCapture) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
-func (r *PacketCapture) StorageLocation() pulumi.Output {
-	return r.s.State["storageLocation"]
-}
-
-// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
-func (r *PacketCapture) TargetResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PacketCapture resources.
 type PacketCaptureState struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-	Filters interface{}
+	Filters PacketCaptureFiltersArrayInput `pulumi:"filters"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
-	MaximumBytesPerPacket interface{}
+	MaximumBytesPerPacket pulumi.IntInput `pulumi:"maximumBytesPerPacket"`
 	// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
-	MaximumBytesPerSession interface{}
+	MaximumBytesPerSession pulumi.IntInput `pulumi:"maximumBytesPerSession"`
 	// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
-	MaximumCaptureDuration interface{}
+	MaximumCaptureDuration pulumi.IntInput `pulumi:"maximumCaptureDuration"`
 	// The name to use for this Packet Capture. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
-	NetworkWatcherName interface{}
+	NetworkWatcherName pulumi.StringInput `pulumi:"networkWatcherName"`
 	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
-	StorageLocation interface{}
+	StorageLocation PacketCaptureStorageLocationInput `pulumi:"storageLocation"`
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
-	TargetResourceId interface{}
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
 
 // The set of arguments for constructing a PacketCapture resource.
 type PacketCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-	Filters interface{}
+	Filters PacketCaptureFiltersArrayInput `pulumi:"filters"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
-	MaximumBytesPerPacket interface{}
+	MaximumBytesPerPacket pulumi.IntInput `pulumi:"maximumBytesPerPacket"`
 	// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
-	MaximumBytesPerSession interface{}
+	MaximumBytesPerSession pulumi.IntInput `pulumi:"maximumBytesPerSession"`
 	// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
-	MaximumCaptureDuration interface{}
+	MaximumCaptureDuration pulumi.IntInput `pulumi:"maximumCaptureDuration"`
 	// The name to use for this Packet Capture. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
-	NetworkWatcherName interface{}
+	NetworkWatcherName pulumi.StringInput `pulumi:"networkWatcherName"`
 	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
-	StorageLocation interface{}
+	StorageLocation PacketCaptureStorageLocationInput `pulumi:"storageLocation"`
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
-	TargetResourceId interface{}
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
+type PacketCaptureFilters struct {
+	LocalIpAddress *string `pulumi:"localIpAddress"`
+	LocalPort *string `pulumi:"localPort"`
+	Protocol string `pulumi:"protocol"`
+	RemoteIpAddress *string `pulumi:"remoteIpAddress"`
+	RemotePort *string `pulumi:"remotePort"`
+}
+var packetCaptureFiltersType = reflect.TypeOf((*PacketCaptureFilters)(nil)).Elem()
+
+type PacketCaptureFiltersInput interface {
+	pulumi.Input
+
+	ToPacketCaptureFiltersOutput() PacketCaptureFiltersOutput
+	ToPacketCaptureFiltersOutputWithContext(ctx context.Context) PacketCaptureFiltersOutput
+}
+
+type PacketCaptureFiltersArgs struct {
+	LocalIpAddress pulumi.StringInput `pulumi:"localIpAddress"`
+	LocalPort pulumi.StringInput `pulumi:"localPort"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	RemoteIpAddress pulumi.StringInput `pulumi:"remoteIpAddress"`
+	RemotePort pulumi.StringInput `pulumi:"remotePort"`
+}
+
+func (PacketCaptureFiltersArgs) ElementType() reflect.Type {
+	return packetCaptureFiltersType
+}
+
+func (a PacketCaptureFiltersArgs) ToPacketCaptureFiltersOutput() PacketCaptureFiltersOutput {
+	return pulumi.ToOutput(a).(PacketCaptureFiltersOutput)
+}
+
+func (a PacketCaptureFiltersArgs) ToPacketCaptureFiltersOutputWithContext(ctx context.Context) PacketCaptureFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PacketCaptureFiltersOutput)
+}
+
+type PacketCaptureFiltersOutput struct { *pulumi.OutputState }
+
+func (o PacketCaptureFiltersOutput) LocalIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureFilters) string {
+		if v.LocalIpAddress == nil { return *new(string) } else { return *v.LocalIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o PacketCaptureFiltersOutput) LocalPort() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureFilters) string {
+		if v.LocalPort == nil { return *new(string) } else { return *v.LocalPort }
+	}).(pulumi.StringOutput)
+}
+
+func (o PacketCaptureFiltersOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureFilters) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o PacketCaptureFiltersOutput) RemoteIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureFilters) string {
+		if v.RemoteIpAddress == nil { return *new(string) } else { return *v.RemoteIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o PacketCaptureFiltersOutput) RemotePort() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureFilters) string {
+		if v.RemotePort == nil { return *new(string) } else { return *v.RemotePort }
+	}).(pulumi.StringOutput)
+}
+
+func (PacketCaptureFiltersOutput) ElementType() reflect.Type {
+	return packetCaptureFiltersType
+}
+
+func (o PacketCaptureFiltersOutput) ToPacketCaptureFiltersOutput() PacketCaptureFiltersOutput {
+	return o
+}
+
+func (o PacketCaptureFiltersOutput) ToPacketCaptureFiltersOutputWithContext(ctx context.Context) PacketCaptureFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PacketCaptureFiltersOutput{}) }
+
+var packetCaptureFiltersArrayType = reflect.TypeOf((*[]PacketCaptureFilters)(nil)).Elem()
+
+type PacketCaptureFiltersArrayInput interface {
+	pulumi.Input
+
+	ToPacketCaptureFiltersArrayOutput() PacketCaptureFiltersArrayOutput
+	ToPacketCaptureFiltersArrayOutputWithContext(ctx context.Context) PacketCaptureFiltersArrayOutput
+}
+
+type PacketCaptureFiltersArrayArgs []PacketCaptureFiltersInput
+
+func (PacketCaptureFiltersArrayArgs) ElementType() reflect.Type {
+	return packetCaptureFiltersArrayType
+}
+
+func (a PacketCaptureFiltersArrayArgs) ToPacketCaptureFiltersArrayOutput() PacketCaptureFiltersArrayOutput {
+	return pulumi.ToOutput(a).(PacketCaptureFiltersArrayOutput)
+}
+
+func (a PacketCaptureFiltersArrayArgs) ToPacketCaptureFiltersArrayOutputWithContext(ctx context.Context) PacketCaptureFiltersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PacketCaptureFiltersArrayOutput)
+}
+
+type PacketCaptureFiltersArrayOutput struct { *pulumi.OutputState }
+
+func (o PacketCaptureFiltersArrayOutput) Index(i pulumi.IntInput) PacketCaptureFiltersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PacketCaptureFilters {
+		return vs[0].([]PacketCaptureFilters)[vs[1].(int)]
+	}).(PacketCaptureFiltersOutput)
+}
+
+func (PacketCaptureFiltersArrayOutput) ElementType() reflect.Type {
+	return packetCaptureFiltersArrayType
+}
+
+func (o PacketCaptureFiltersArrayOutput) ToPacketCaptureFiltersArrayOutput() PacketCaptureFiltersArrayOutput {
+	return o
+}
+
+func (o PacketCaptureFiltersArrayOutput) ToPacketCaptureFiltersArrayOutputWithContext(ctx context.Context) PacketCaptureFiltersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PacketCaptureFiltersArrayOutput{}) }
+
+type PacketCaptureStorageLocation struct {
+	FilePath *string `pulumi:"filePath"`
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The URI of the storage path to save the packet capture.
+	StoragePath *string `pulumi:"storagePath"`
+}
+var packetCaptureStorageLocationType = reflect.TypeOf((*PacketCaptureStorageLocation)(nil)).Elem()
+
+type PacketCaptureStorageLocationInput interface {
+	pulumi.Input
+
+	ToPacketCaptureStorageLocationOutput() PacketCaptureStorageLocationOutput
+	ToPacketCaptureStorageLocationOutputWithContext(ctx context.Context) PacketCaptureStorageLocationOutput
+}
+
+type PacketCaptureStorageLocationArgs struct {
+	FilePath pulumi.StringInput `pulumi:"filePath"`
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The URI of the storage path to save the packet capture.
+	StoragePath pulumi.StringInput `pulumi:"storagePath"`
+}
+
+func (PacketCaptureStorageLocationArgs) ElementType() reflect.Type {
+	return packetCaptureStorageLocationType
+}
+
+func (a PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationOutput() PacketCaptureStorageLocationOutput {
+	return pulumi.ToOutput(a).(PacketCaptureStorageLocationOutput)
+}
+
+func (a PacketCaptureStorageLocationArgs) ToPacketCaptureStorageLocationOutputWithContext(ctx context.Context) PacketCaptureStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PacketCaptureStorageLocationOutput)
+}
+
+type PacketCaptureStorageLocationOutput struct { *pulumi.OutputState }
+
+func (o PacketCaptureStorageLocationOutput) FilePath() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureStorageLocation) string {
+		if v.FilePath == nil { return *new(string) } else { return *v.FilePath }
+	}).(pulumi.StringOutput)
+}
+
+func (o PacketCaptureStorageLocationOutput) StorageAccountId() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureStorageLocation) string {
+		if v.StorageAccountId == nil { return *new(string) } else { return *v.StorageAccountId }
+	}).(pulumi.StringOutput)
+}
+
+// The URI of the storage path to save the packet capture.
+func (o PacketCaptureStorageLocationOutput) StoragePath() pulumi.StringOutput {
+	return o.Apply(func(v PacketCaptureStorageLocation) string {
+		if v.StoragePath == nil { return *new(string) } else { return *v.StoragePath }
+	}).(pulumi.StringOutput)
+}
+
+func (PacketCaptureStorageLocationOutput) ElementType() reflect.Type {
+	return packetCaptureStorageLocationType
+}
+
+func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationOutput() PacketCaptureStorageLocationOutput {
+	return o
+}
+
+func (o PacketCaptureStorageLocationOutput) ToPacketCaptureStorageLocationOutputWithContext(ctx context.Context) PacketCaptureStorageLocationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PacketCaptureStorageLocationOutput{}) }
+

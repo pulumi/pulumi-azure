@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,129 +14,235 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall.html.markdown.
 type Firewall struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `ipConfiguration` block as documented below.
+	IpConfigurations FirewallIpConfigurationsArrayOutput `pulumi:"ipConfigurations"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the availability zones in which the Azure Firewall should be created.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
 func NewFirewall(ctx *pulumi.Context,
-	name string, args *FirewallArgs, opts ...pulumi.ResourceOpt) (*Firewall, error) {
+	name string, args *FirewallArgs, opts ...pulumi.ResourceOption) (*Firewall, error) {
 	if args == nil || args.IpConfigurations == nil {
 		return nil, errors.New("missing required argument 'IpConfigurations'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["ipConfigurations"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["ipConfigurations"] = args.IpConfigurations
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToFirewallIpConfigurationsArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/firewall:Firewall", name, true, inputs, opts...)
+	var resource Firewall
+	err := ctx.RegisterResource("azure:network/firewall:Firewall", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Firewall{s: s}, nil
+	return &resource, nil
 }
 
 // GetFirewall gets an existing Firewall resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFirewall(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FirewallState, opts ...pulumi.ResourceOpt) (*Firewall, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FirewallState, opts ...pulumi.ResourceOption) (*Firewall, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["ipConfigurations"] = state.IpConfigurations
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["zones"] = state.Zones
+		if i := state.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToFirewallIpConfigurationsArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/firewall:Firewall", name, id, inputs, opts...)
+	var resource Firewall
+	err := ctx.ReadResource("azure:network/firewall:Firewall", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Firewall{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Firewall) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Firewall) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `ipConfiguration` block as documented below.
-func (r *Firewall) IpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Firewall) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Firewall. Changing this forces a new resource to be created.
-func (r *Firewall) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-func (r *Firewall) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Firewall) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the availability zones in which the Azure Firewall should be created.
-func (r *Firewall) Zones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Firewall resources.
 type FirewallState struct {
 	// A `ipConfiguration` block as documented below.
-	IpConfigurations interface{}
+	IpConfigurations FirewallIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the availability zones in which the Azure Firewall should be created.
-	Zones interface{}
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
 	// A `ipConfiguration` block as documented below.
-	IpConfigurations interface{}
+	IpConfigurations FirewallIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the availability zones in which the Azure Firewall should be created.
-	Zones interface{}
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
+type FirewallIpConfigurations struct {
+	InternalPublicIpAddressId *string `pulumi:"internalPublicIpAddressId"`
+	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The private IP address of the Azure Firewall.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+var firewallIpConfigurationsType = reflect.TypeOf((*FirewallIpConfigurations)(nil)).Elem()
+
+type FirewallIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToFirewallIpConfigurationsOutput() FirewallIpConfigurationsOutput
+	ToFirewallIpConfigurationsOutputWithContext(ctx context.Context) FirewallIpConfigurationsOutput
+}
+
+type FirewallIpConfigurationsArgs struct {
+	InternalPublicIpAddressId pulumi.StringInput `pulumi:"internalPublicIpAddressId"`
+	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The private IP address of the Azure Firewall.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (FirewallIpConfigurationsArgs) ElementType() reflect.Type {
+	return firewallIpConfigurationsType
+}
+
+func (a FirewallIpConfigurationsArgs) ToFirewallIpConfigurationsOutput() FirewallIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(FirewallIpConfigurationsOutput)
+}
+
+func (a FirewallIpConfigurationsArgs) ToFirewallIpConfigurationsOutputWithContext(ctx context.Context) FirewallIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallIpConfigurationsOutput)
+}
+
+type FirewallIpConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o FirewallIpConfigurationsOutput) InternalPublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v FirewallIpConfigurations) string {
+		if v.InternalPublicIpAddressId == nil { return *new(string) } else { return *v.InternalPublicIpAddressId }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Firewall. Changing this forces a new resource to be created.
+func (o FirewallIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FirewallIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The private IP address of the Azure Firewall.
+func (o FirewallIpConfigurationsOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v FirewallIpConfigurations) string {
+		if v.PrivateIpAddress == nil { return *new(string) } else { return *v.PrivateIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallIpConfigurationsOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v FirewallIpConfigurations) string {
+		if v.PublicIpAddressId == nil { return *new(string) } else { return *v.PublicIpAddressId }
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v FirewallIpConfigurations) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (FirewallIpConfigurationsOutput) ElementType() reflect.Type {
+	return firewallIpConfigurationsType
+}
+
+func (o FirewallIpConfigurationsOutput) ToFirewallIpConfigurationsOutput() FirewallIpConfigurationsOutput {
+	return o
+}
+
+func (o FirewallIpConfigurationsOutput) ToFirewallIpConfigurationsOutputWithContext(ctx context.Context) FirewallIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallIpConfigurationsOutput{}) }
+
+var firewallIpConfigurationsArrayType = reflect.TypeOf((*[]FirewallIpConfigurations)(nil)).Elem()
+
+type FirewallIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToFirewallIpConfigurationsArrayOutput() FirewallIpConfigurationsArrayOutput
+	ToFirewallIpConfigurationsArrayOutputWithContext(ctx context.Context) FirewallIpConfigurationsArrayOutput
+}
+
+type FirewallIpConfigurationsArrayArgs []FirewallIpConfigurationsInput
+
+func (FirewallIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return firewallIpConfigurationsArrayType
+}
+
+func (a FirewallIpConfigurationsArrayArgs) ToFirewallIpConfigurationsArrayOutput() FirewallIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(FirewallIpConfigurationsArrayOutput)
+}
+
+func (a FirewallIpConfigurationsArrayArgs) ToFirewallIpConfigurationsArrayOutputWithContext(ctx context.Context) FirewallIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallIpConfigurationsArrayOutput)
+}
+
+type FirewallIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallIpConfigurationsArrayOutput) Index(i pulumi.IntInput) FirewallIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallIpConfigurations {
+		return vs[0].([]FirewallIpConfigurations)[vs[1].(int)]
+	}).(FirewallIpConfigurationsOutput)
+}
+
+func (FirewallIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return firewallIpConfigurationsArrayType
+}
+
+func (o FirewallIpConfigurationsArrayOutput) ToFirewallIpConfigurationsArrayOutput() FirewallIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o FirewallIpConfigurationsArrayOutput) ToFirewallIpConfigurationsArrayOutputWithContext(ctx context.Context) FirewallIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallIpConfigurationsArrayOutput{}) }
+

@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,126 +14,266 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
 type Profile struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `containerNetworkInterface` block as documented below.
+	ContainerNetworkInterface ProfileContainerNetworkInterfaceOutput `pulumi:"containerNetworkInterface"`
+
+	// One or more Resource IDs of Azure Container Network Interfaces.
+	ContainerNetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"containerNetworkInterfaceIds"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
 func NewProfile(ctx *pulumi.Context,
-	name string, args *ProfileArgs, opts ...pulumi.ResourceOpt) (*Profile, error) {
+	name string, args *ProfileArgs, opts ...pulumi.ResourceOption) (*Profile, error) {
 	if args == nil || args.ContainerNetworkInterface == nil {
 		return nil, errors.New("missing required argument 'ContainerNetworkInterface'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["containerNetworkInterface"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["containerNetworkInterface"] = args.ContainerNetworkInterface
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ContainerNetworkInterface; i != nil { inputs["containerNetworkInterface"] = i.ToProfileContainerNetworkInterfaceOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["containerNetworkInterfaceIds"] = nil
-	s, err := ctx.RegisterResource("azure:network/profile:Profile", name, true, inputs, opts...)
+	var resource Profile
+	err := ctx.RegisterResource("azure:network/profile:Profile", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Profile{s: s}, nil
+	return &resource, nil
 }
 
 // GetProfile gets an existing Profile resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProfile(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProfileState, opts ...pulumi.ResourceOpt) (*Profile, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProfileState, opts ...pulumi.ResourceOption) (*Profile, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["containerNetworkInterface"] = state.ContainerNetworkInterface
-		inputs["containerNetworkInterfaceIds"] = state.ContainerNetworkInterfaceIds
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.ContainerNetworkInterface; i != nil { inputs["containerNetworkInterface"] = i.ToProfileContainerNetworkInterfaceOutput() }
+		if i := state.ContainerNetworkInterfaceIds; i != nil { inputs["containerNetworkInterfaceIds"] = i.ToStringArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/profile:Profile", name, id, inputs, opts...)
+	var resource Profile
+	err := ctx.ReadResource("azure:network/profile:Profile", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Profile{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Profile) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Profile) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `containerNetworkInterface` block as documented below.
-func (r *Profile) ContainerNetworkInterface() pulumi.Output {
-	return r.s.State["containerNetworkInterface"]
-}
-
-// One or more Resource IDs of Azure Container Network Interfaces.
-func (r *Profile) ContainerNetworkInterfaceIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["containerNetworkInterfaceIds"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Profile) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-func (r *Profile) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-func (r *Profile) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Profile) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Profile resources.
 type ProfileState struct {
 	// A `containerNetworkInterface` block as documented below.
-	ContainerNetworkInterface interface{}
+	ContainerNetworkInterface ProfileContainerNetworkInterfaceInput `pulumi:"containerNetworkInterface"`
 	// One or more Resource IDs of Azure Container Network Interfaces.
-	ContainerNetworkInterfaceIds interface{}
+	ContainerNetworkInterfaceIds pulumi.StringArrayInput `pulumi:"containerNetworkInterfaceIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
 	// A `containerNetworkInterface` block as documented below.
-	ContainerNetworkInterface interface{}
+	ContainerNetworkInterface ProfileContainerNetworkInterfaceInput `pulumi:"containerNetworkInterface"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ProfileContainerNetworkInterface struct {
+	IpConfigurations []ProfileContainerNetworkInterfaceIpConfigurations `pulumi:"ipConfigurations"`
+	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var profileContainerNetworkInterfaceType = reflect.TypeOf((*ProfileContainerNetworkInterface)(nil)).Elem()
+
+type ProfileContainerNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToProfileContainerNetworkInterfaceOutput() ProfileContainerNetworkInterfaceOutput
+	ToProfileContainerNetworkInterfaceOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceOutput
+}
+
+type ProfileContainerNetworkInterfaceArgs struct {
+	IpConfigurations ProfileContainerNetworkInterfaceIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
+	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ProfileContainerNetworkInterfaceArgs) ElementType() reflect.Type {
+	return profileContainerNetworkInterfaceType
+}
+
+func (a ProfileContainerNetworkInterfaceArgs) ToProfileContainerNetworkInterfaceOutput() ProfileContainerNetworkInterfaceOutput {
+	return pulumi.ToOutput(a).(ProfileContainerNetworkInterfaceOutput)
+}
+
+func (a ProfileContainerNetworkInterfaceArgs) ToProfileContainerNetworkInterfaceOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileContainerNetworkInterfaceOutput)
+}
+
+type ProfileContainerNetworkInterfaceOutput struct { *pulumi.OutputState }
+
+func (o ProfileContainerNetworkInterfaceOutput) IpConfigurations() ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput {
+	return o.Apply(func(v ProfileContainerNetworkInterface) []ProfileContainerNetworkInterfaceIpConfigurations {
+		return v.IpConfigurations
+	}).(ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput)
+}
+
+// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+func (o ProfileContainerNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ProfileContainerNetworkInterface) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ProfileContainerNetworkInterfaceOutput) ElementType() reflect.Type {
+	return profileContainerNetworkInterfaceType
+}
+
+func (o ProfileContainerNetworkInterfaceOutput) ToProfileContainerNetworkInterfaceOutput() ProfileContainerNetworkInterfaceOutput {
+	return o
+}
+
+func (o ProfileContainerNetworkInterfaceOutput) ToProfileContainerNetworkInterfaceOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceOutput{}) }
+
+type ProfileContainerNetworkInterfaceIpConfigurations struct {
+	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	SubnetId string `pulumi:"subnetId"`
+}
+var profileContainerNetworkInterfaceIpConfigurationsType = reflect.TypeOf((*ProfileContainerNetworkInterfaceIpConfigurations)(nil)).Elem()
+
+type ProfileContainerNetworkInterfaceIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToProfileContainerNetworkInterfaceIpConfigurationsOutput() ProfileContainerNetworkInterfaceIpConfigurationsOutput
+	ToProfileContainerNetworkInterfaceIpConfigurationsOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceIpConfigurationsOutput
+}
+
+type ProfileContainerNetworkInterfaceIpConfigurationsArgs struct {
+	// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ProfileContainerNetworkInterfaceIpConfigurationsArgs) ElementType() reflect.Type {
+	return profileContainerNetworkInterfaceIpConfigurationsType
+}
+
+func (a ProfileContainerNetworkInterfaceIpConfigurationsArgs) ToProfileContainerNetworkInterfaceIpConfigurationsOutput() ProfileContainerNetworkInterfaceIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(ProfileContainerNetworkInterfaceIpConfigurationsOutput)
+}
+
+func (a ProfileContainerNetworkInterfaceIpConfigurationsArgs) ToProfileContainerNetworkInterfaceIpConfigurationsOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileContainerNetworkInterfaceIpConfigurationsOutput)
+}
+
+type ProfileContainerNetworkInterfaceIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Network Profile. Changing this forces a new resource to be created.
+func (o ProfileContainerNetworkInterfaceIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ProfileContainerNetworkInterfaceIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ProfileContainerNetworkInterfaceIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v ProfileContainerNetworkInterfaceIpConfigurations) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (ProfileContainerNetworkInterfaceIpConfigurationsOutput) ElementType() reflect.Type {
+	return profileContainerNetworkInterfaceIpConfigurationsType
+}
+
+func (o ProfileContainerNetworkInterfaceIpConfigurationsOutput) ToProfileContainerNetworkInterfaceIpConfigurationsOutput() ProfileContainerNetworkInterfaceIpConfigurationsOutput {
+	return o
+}
+
+func (o ProfileContainerNetworkInterfaceIpConfigurationsOutput) ToProfileContainerNetworkInterfaceIpConfigurationsOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationsOutput{}) }
+
+var profileContainerNetworkInterfaceIpConfigurationsArrayType = reflect.TypeOf((*[]ProfileContainerNetworkInterfaceIpConfigurations)(nil)).Elem()
+
+type ProfileContainerNetworkInterfaceIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToProfileContainerNetworkInterfaceIpConfigurationsArrayOutput() ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput
+	ToProfileContainerNetworkInterfaceIpConfigurationsArrayOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput
+}
+
+type ProfileContainerNetworkInterfaceIpConfigurationsArrayArgs []ProfileContainerNetworkInterfaceIpConfigurationsInput
+
+func (ProfileContainerNetworkInterfaceIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return profileContainerNetworkInterfaceIpConfigurationsArrayType
+}
+
+func (a ProfileContainerNetworkInterfaceIpConfigurationsArrayArgs) ToProfileContainerNetworkInterfaceIpConfigurationsArrayOutput() ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput)
+}
+
+func (a ProfileContainerNetworkInterfaceIpConfigurationsArrayArgs) ToProfileContainerNetworkInterfaceIpConfigurationsArrayOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput)
+}
+
+type ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput) Index(i pulumi.IntInput) ProfileContainerNetworkInterfaceIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ProfileContainerNetworkInterfaceIpConfigurations {
+		return vs[0].([]ProfileContainerNetworkInterfaceIpConfigurations)[vs[1].(int)]
+	}).(ProfileContainerNetworkInterfaceIpConfigurationsOutput)
+}
+
+func (ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return profileContainerNetworkInterfaceIpConfigurationsArrayType
+}
+
+func (o ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput) ToProfileContainerNetworkInterfaceIpConfigurationsArrayOutput() ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput) ToProfileContainerNetworkInterfaceIpConfigurationsArrayOutputWithContext(ctx context.Context) ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationsArrayOutput{}) }
+

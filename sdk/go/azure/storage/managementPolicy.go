@@ -4,6 +4,8 @@
 package storage
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,78 +14,450 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_management_policy.html.markdown.
 type ManagementPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `rule` block as documented below.
+	Rules ManagementPolicyRulesArrayOutput `pulumi:"rules"`
+
+	// Specifies the id of the storage account to apply the management policy to.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
 
 // NewManagementPolicy registers a new resource with the given unique name, arguments, and options.
 func NewManagementPolicy(ctx *pulumi.Context,
-	name string, args *ManagementPolicyArgs, opts ...pulumi.ResourceOpt) (*ManagementPolicy, error) {
+	name string, args *ManagementPolicyArgs, opts ...pulumi.ResourceOption) (*ManagementPolicy, error) {
 	if args == nil || args.StorageAccountId == nil {
 		return nil, errors.New("missing required argument 'StorageAccountId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["rules"] = nil
-		inputs["storageAccountId"] = nil
-	} else {
-		inputs["rules"] = args.Rules
-		inputs["storageAccountId"] = args.StorageAccountId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Rules; i != nil { inputs["rules"] = i.ToManagementPolicyRulesArrayOutput() }
+		if i := args.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:storage/managementPolicy:ManagementPolicy", name, true, inputs, opts...)
+	var resource ManagementPolicy
+	err := ctx.RegisterResource("azure:storage/managementPolicy:ManagementPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ManagementPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetManagementPolicy gets an existing ManagementPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetManagementPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ManagementPolicyState, opts ...pulumi.ResourceOpt) (*ManagementPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ManagementPolicyState, opts ...pulumi.ResourceOption) (*ManagementPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["rules"] = state.Rules
-		inputs["storageAccountId"] = state.StorageAccountId
+		if i := state.Rules; i != nil { inputs["rules"] = i.ToManagementPolicyRulesArrayOutput() }
+		if i := state.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/managementPolicy:ManagementPolicy", name, id, inputs, opts...)
+	var resource ManagementPolicy
+	err := ctx.ReadResource("azure:storage/managementPolicy:ManagementPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ManagementPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ManagementPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ManagementPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `rule` block as documented below.
-func (r *ManagementPolicy) Rules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["rules"])
-}
-
-// Specifies the id of the storage account to apply the management policy to.
-func (r *ManagementPolicy) StorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ManagementPolicy resources.
 type ManagementPolicyState struct {
 	// A `rule` block as documented below.
-	Rules interface{}
+	Rules ManagementPolicyRulesArrayInput `pulumi:"rules"`
 	// Specifies the id of the storage account to apply the management policy to.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
 // The set of arguments for constructing a ManagementPolicy resource.
 type ManagementPolicyArgs struct {
 	// A `rule` block as documented below.
-	Rules interface{}
+	Rules ManagementPolicyRulesArrayInput `pulumi:"rules"`
 	// Specifies the id of the storage account to apply the management policy to.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
+type ManagementPolicyRules struct {
+	// An `actions` block as documented below.
+	Actions ManagementPolicyRulesActions `pulumi:"actions"`
+	// Boolean to specify whether the rule is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// A `filter` block as documented below.
+	Filters *ManagementPolicyRulesFilters `pulumi:"filters"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name string `pulumi:"name"`
+}
+var managementPolicyRulesType = reflect.TypeOf((*ManagementPolicyRules)(nil)).Elem()
+
+type ManagementPolicyRulesInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRulesOutput() ManagementPolicyRulesOutput
+	ToManagementPolicyRulesOutputWithContext(ctx context.Context) ManagementPolicyRulesOutput
+}
+
+type ManagementPolicyRulesArgs struct {
+	// An `actions` block as documented below.
+	Actions ManagementPolicyRulesActionsInput `pulumi:"actions"`
+	// Boolean to specify whether the rule is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `filter` block as documented below.
+	Filters ManagementPolicyRulesFiltersInput `pulumi:"filters"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ManagementPolicyRulesArgs) ElementType() reflect.Type {
+	return managementPolicyRulesType
+}
+
+func (a ManagementPolicyRulesArgs) ToManagementPolicyRulesOutput() ManagementPolicyRulesOutput {
+	return pulumi.ToOutput(a).(ManagementPolicyRulesOutput)
+}
+
+func (a ManagementPolicyRulesArgs) ToManagementPolicyRulesOutputWithContext(ctx context.Context) ManagementPolicyRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagementPolicyRulesOutput)
+}
+
+type ManagementPolicyRulesOutput struct { *pulumi.OutputState }
+
+// An `actions` block as documented below.
+func (o ManagementPolicyRulesOutput) Actions() ManagementPolicyRulesActionsOutput {
+	return o.Apply(func(v ManagementPolicyRules) ManagementPolicyRulesActions {
+		return v.Actions
+	}).(ManagementPolicyRulesActionsOutput)
+}
+
+// Boolean to specify whether the rule is enabled.
+func (o ManagementPolicyRulesOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ManagementPolicyRules) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+// A `filter` block as documented below.
+func (o ManagementPolicyRulesOutput) Filters() ManagementPolicyRulesFiltersOutput {
+	return o.Apply(func(v ManagementPolicyRules) ManagementPolicyRulesFilters {
+		if v.Filters == nil { return *new(ManagementPolicyRulesFilters) } else { return *v.Filters }
+	}).(ManagementPolicyRulesFiltersOutput)
+}
+
+// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+func (o ManagementPolicyRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ManagementPolicyRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ManagementPolicyRulesOutput) ElementType() reflect.Type {
+	return managementPolicyRulesType
+}
+
+func (o ManagementPolicyRulesOutput) ToManagementPolicyRulesOutput() ManagementPolicyRulesOutput {
+	return o
+}
+
+func (o ManagementPolicyRulesOutput) ToManagementPolicyRulesOutputWithContext(ctx context.Context) ManagementPolicyRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagementPolicyRulesOutput{}) }
+
+type ManagementPolicyRulesActions struct {
+	// A `baseBlob` block as documented below.
+	BaseBlob *ManagementPolicyRulesActionsBaseBlob `pulumi:"baseBlob"`
+	// A `snapshot` block as documented below.
+	Snapshot *ManagementPolicyRulesActionsSnapshot `pulumi:"snapshot"`
+}
+var managementPolicyRulesActionsType = reflect.TypeOf((*ManagementPolicyRulesActions)(nil)).Elem()
+
+type ManagementPolicyRulesActionsInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRulesActionsOutput() ManagementPolicyRulesActionsOutput
+	ToManagementPolicyRulesActionsOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsOutput
+}
+
+type ManagementPolicyRulesActionsArgs struct {
+	// A `baseBlob` block as documented below.
+	BaseBlob ManagementPolicyRulesActionsBaseBlobInput `pulumi:"baseBlob"`
+	// A `snapshot` block as documented below.
+	Snapshot ManagementPolicyRulesActionsSnapshotInput `pulumi:"snapshot"`
+}
+
+func (ManagementPolicyRulesActionsArgs) ElementType() reflect.Type {
+	return managementPolicyRulesActionsType
+}
+
+func (a ManagementPolicyRulesActionsArgs) ToManagementPolicyRulesActionsOutput() ManagementPolicyRulesActionsOutput {
+	return pulumi.ToOutput(a).(ManagementPolicyRulesActionsOutput)
+}
+
+func (a ManagementPolicyRulesActionsArgs) ToManagementPolicyRulesActionsOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagementPolicyRulesActionsOutput)
+}
+
+type ManagementPolicyRulesActionsOutput struct { *pulumi.OutputState }
+
+// A `baseBlob` block as documented below.
+func (o ManagementPolicyRulesActionsOutput) BaseBlob() ManagementPolicyRulesActionsBaseBlobOutput {
+	return o.Apply(func(v ManagementPolicyRulesActions) ManagementPolicyRulesActionsBaseBlob {
+		if v.BaseBlob == nil { return *new(ManagementPolicyRulesActionsBaseBlob) } else { return *v.BaseBlob }
+	}).(ManagementPolicyRulesActionsBaseBlobOutput)
+}
+
+// A `snapshot` block as documented below.
+func (o ManagementPolicyRulesActionsOutput) Snapshot() ManagementPolicyRulesActionsSnapshotOutput {
+	return o.Apply(func(v ManagementPolicyRulesActions) ManagementPolicyRulesActionsSnapshot {
+		if v.Snapshot == nil { return *new(ManagementPolicyRulesActionsSnapshot) } else { return *v.Snapshot }
+	}).(ManagementPolicyRulesActionsSnapshotOutput)
+}
+
+func (ManagementPolicyRulesActionsOutput) ElementType() reflect.Type {
+	return managementPolicyRulesActionsType
+}
+
+func (o ManagementPolicyRulesActionsOutput) ToManagementPolicyRulesActionsOutput() ManagementPolicyRulesActionsOutput {
+	return o
+}
+
+func (o ManagementPolicyRulesActionsOutput) ToManagementPolicyRulesActionsOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagementPolicyRulesActionsOutput{}) }
+
+type ManagementPolicyRulesActionsBaseBlob struct {
+	// The age in days after last modification to delete the blob. Must be at least 0.
+	DeleteAfterDaysSinceModificationGreaterThan *int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+	TierToArchiveAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+	TierToCoolAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
+}
+var managementPolicyRulesActionsBaseBlobType = reflect.TypeOf((*ManagementPolicyRulesActionsBaseBlob)(nil)).Elem()
+
+type ManagementPolicyRulesActionsBaseBlobInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRulesActionsBaseBlobOutput() ManagementPolicyRulesActionsBaseBlobOutput
+	ToManagementPolicyRulesActionsBaseBlobOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsBaseBlobOutput
+}
+
+type ManagementPolicyRulesActionsBaseBlobArgs struct {
+	// The age in days after last modification to delete the blob. Must be at least 0.
+	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
+}
+
+func (ManagementPolicyRulesActionsBaseBlobArgs) ElementType() reflect.Type {
+	return managementPolicyRulesActionsBaseBlobType
+}
+
+func (a ManagementPolicyRulesActionsBaseBlobArgs) ToManagementPolicyRulesActionsBaseBlobOutput() ManagementPolicyRulesActionsBaseBlobOutput {
+	return pulumi.ToOutput(a).(ManagementPolicyRulesActionsBaseBlobOutput)
+}
+
+func (a ManagementPolicyRulesActionsBaseBlobArgs) ToManagementPolicyRulesActionsBaseBlobOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsBaseBlobOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagementPolicyRulesActionsBaseBlobOutput)
+}
+
+type ManagementPolicyRulesActionsBaseBlobOutput struct { *pulumi.OutputState }
+
+// The age in days after last modification to delete the blob. Must be at least 0.
+func (o ManagementPolicyRulesActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.Apply(func(v ManagementPolicyRulesActionsBaseBlob) int {
+		if v.DeleteAfterDaysSinceModificationGreaterThan == nil { return *new(int) } else { return *v.DeleteAfterDaysSinceModificationGreaterThan }
+	}).(pulumi.IntOutput)
+}
+
+// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+func (o ManagementPolicyRulesActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.Apply(func(v ManagementPolicyRulesActionsBaseBlob) int {
+		if v.TierToArchiveAfterDaysSinceModificationGreaterThan == nil { return *new(int) } else { return *v.TierToArchiveAfterDaysSinceModificationGreaterThan }
+	}).(pulumi.IntOutput)
+}
+
+// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+func (o ManagementPolicyRulesActionsBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.Apply(func(v ManagementPolicyRulesActionsBaseBlob) int {
+		if v.TierToCoolAfterDaysSinceModificationGreaterThan == nil { return *new(int) } else { return *v.TierToCoolAfterDaysSinceModificationGreaterThan }
+	}).(pulumi.IntOutput)
+}
+
+func (ManagementPolicyRulesActionsBaseBlobOutput) ElementType() reflect.Type {
+	return managementPolicyRulesActionsBaseBlobType
+}
+
+func (o ManagementPolicyRulesActionsBaseBlobOutput) ToManagementPolicyRulesActionsBaseBlobOutput() ManagementPolicyRulesActionsBaseBlobOutput {
+	return o
+}
+
+func (o ManagementPolicyRulesActionsBaseBlobOutput) ToManagementPolicyRulesActionsBaseBlobOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsBaseBlobOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagementPolicyRulesActionsBaseBlobOutput{}) }
+
+type ManagementPolicyRulesActionsSnapshot struct {
+	// The age in days after create to delete the snaphot. Must be at least 0.
+	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
+}
+var managementPolicyRulesActionsSnapshotType = reflect.TypeOf((*ManagementPolicyRulesActionsSnapshot)(nil)).Elem()
+
+type ManagementPolicyRulesActionsSnapshotInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRulesActionsSnapshotOutput() ManagementPolicyRulesActionsSnapshotOutput
+	ToManagementPolicyRulesActionsSnapshotOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsSnapshotOutput
+}
+
+type ManagementPolicyRulesActionsSnapshotArgs struct {
+	// The age in days after create to delete the snaphot. Must be at least 0.
+	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
+}
+
+func (ManagementPolicyRulesActionsSnapshotArgs) ElementType() reflect.Type {
+	return managementPolicyRulesActionsSnapshotType
+}
+
+func (a ManagementPolicyRulesActionsSnapshotArgs) ToManagementPolicyRulesActionsSnapshotOutput() ManagementPolicyRulesActionsSnapshotOutput {
+	return pulumi.ToOutput(a).(ManagementPolicyRulesActionsSnapshotOutput)
+}
+
+func (a ManagementPolicyRulesActionsSnapshotArgs) ToManagementPolicyRulesActionsSnapshotOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagementPolicyRulesActionsSnapshotOutput)
+}
+
+type ManagementPolicyRulesActionsSnapshotOutput struct { *pulumi.OutputState }
+
+// The age in days after create to delete the snaphot. Must be at least 0.
+func (o ManagementPolicyRulesActionsSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
+	return o.Apply(func(v ManagementPolicyRulesActionsSnapshot) int {
+		if v.DeleteAfterDaysSinceCreationGreaterThan == nil { return *new(int) } else { return *v.DeleteAfterDaysSinceCreationGreaterThan }
+	}).(pulumi.IntOutput)
+}
+
+func (ManagementPolicyRulesActionsSnapshotOutput) ElementType() reflect.Type {
+	return managementPolicyRulesActionsSnapshotType
+}
+
+func (o ManagementPolicyRulesActionsSnapshotOutput) ToManagementPolicyRulesActionsSnapshotOutput() ManagementPolicyRulesActionsSnapshotOutput {
+	return o
+}
+
+func (o ManagementPolicyRulesActionsSnapshotOutput) ToManagementPolicyRulesActionsSnapshotOutputWithContext(ctx context.Context) ManagementPolicyRulesActionsSnapshotOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagementPolicyRulesActionsSnapshotOutput{}) }
+
+var managementPolicyRulesArrayType = reflect.TypeOf((*[]ManagementPolicyRules)(nil)).Elem()
+
+type ManagementPolicyRulesArrayInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRulesArrayOutput() ManagementPolicyRulesArrayOutput
+	ToManagementPolicyRulesArrayOutputWithContext(ctx context.Context) ManagementPolicyRulesArrayOutput
+}
+
+type ManagementPolicyRulesArrayArgs []ManagementPolicyRulesInput
+
+func (ManagementPolicyRulesArrayArgs) ElementType() reflect.Type {
+	return managementPolicyRulesArrayType
+}
+
+func (a ManagementPolicyRulesArrayArgs) ToManagementPolicyRulesArrayOutput() ManagementPolicyRulesArrayOutput {
+	return pulumi.ToOutput(a).(ManagementPolicyRulesArrayOutput)
+}
+
+func (a ManagementPolicyRulesArrayArgs) ToManagementPolicyRulesArrayOutputWithContext(ctx context.Context) ManagementPolicyRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagementPolicyRulesArrayOutput)
+}
+
+type ManagementPolicyRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o ManagementPolicyRulesArrayOutput) Index(i pulumi.IntInput) ManagementPolicyRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ManagementPolicyRules {
+		return vs[0].([]ManagementPolicyRules)[vs[1].(int)]
+	}).(ManagementPolicyRulesOutput)
+}
+
+func (ManagementPolicyRulesArrayOutput) ElementType() reflect.Type {
+	return managementPolicyRulesArrayType
+}
+
+func (o ManagementPolicyRulesArrayOutput) ToManagementPolicyRulesArrayOutput() ManagementPolicyRulesArrayOutput {
+	return o
+}
+
+func (o ManagementPolicyRulesArrayOutput) ToManagementPolicyRulesArrayOutputWithContext(ctx context.Context) ManagementPolicyRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagementPolicyRulesArrayOutput{}) }
+
+type ManagementPolicyRulesFilters struct {
+	// An array of predefined values. Only `blockBlob` is supported.
+	BlobTypes *[]string `pulumi:"blobTypes"`
+	// An array of strings for prefixes to be matched.
+	PrefixMatches *[]string `pulumi:"prefixMatches"`
+}
+var managementPolicyRulesFiltersType = reflect.TypeOf((*ManagementPolicyRulesFilters)(nil)).Elem()
+
+type ManagementPolicyRulesFiltersInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRulesFiltersOutput() ManagementPolicyRulesFiltersOutput
+	ToManagementPolicyRulesFiltersOutputWithContext(ctx context.Context) ManagementPolicyRulesFiltersOutput
+}
+
+type ManagementPolicyRulesFiltersArgs struct {
+	// An array of predefined values. Only `blockBlob` is supported.
+	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// An array of strings for prefixes to be matched.
+	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
+}
+
+func (ManagementPolicyRulesFiltersArgs) ElementType() reflect.Type {
+	return managementPolicyRulesFiltersType
+}
+
+func (a ManagementPolicyRulesFiltersArgs) ToManagementPolicyRulesFiltersOutput() ManagementPolicyRulesFiltersOutput {
+	return pulumi.ToOutput(a).(ManagementPolicyRulesFiltersOutput)
+}
+
+func (a ManagementPolicyRulesFiltersArgs) ToManagementPolicyRulesFiltersOutputWithContext(ctx context.Context) ManagementPolicyRulesFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagementPolicyRulesFiltersOutput)
+}
+
+type ManagementPolicyRulesFiltersOutput struct { *pulumi.OutputState }
+
+// An array of predefined values. Only `blockBlob` is supported.
+func (o ManagementPolicyRulesFiltersOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.Apply(func(v ManagementPolicyRulesFilters) []string {
+		if v.BlobTypes == nil { return *new([]string) } else { return *v.BlobTypes }
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of strings for prefixes to be matched.
+func (o ManagementPolicyRulesFiltersOutput) PrefixMatches() pulumi.StringArrayOutput {
+	return o.Apply(func(v ManagementPolicyRulesFilters) []string {
+		if v.PrefixMatches == nil { return *new([]string) } else { return *v.PrefixMatches }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ManagementPolicyRulesFiltersOutput) ElementType() reflect.Type {
+	return managementPolicyRulesFiltersType
+}
+
+func (o ManagementPolicyRulesFiltersOutput) ToManagementPolicyRulesFiltersOutput() ManagementPolicyRulesFiltersOutput {
+	return o
+}
+
+func (o ManagementPolicyRulesFiltersOutput) ToManagementPolicyRulesFiltersOutputWithContext(ctx context.Context) ManagementPolicyRulesFiltersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagementPolicyRulesFiltersOutput{}) }
+

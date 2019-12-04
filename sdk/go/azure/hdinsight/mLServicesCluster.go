@@ -4,6 +4,8 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_ml_services_cluster.html.markdown.
 type MLServicesCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
+
+	// The SSH Connectivity Endpoint for the Edge Node of the HDInsight ML Cluster.
+	EdgeSshEndpoint pulumi.StringOutput `pulumi:"edgeSshEndpoint"`
+
+	// A `gateway` block as defined below.
+	Gateway MLServicesClusterGatewayOutput `pulumi:"gateway"`
+
+	// The HTTPS Connectivity Endpoint for this HDInsight ML Services Cluster.
+	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+
+	// Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `roles` block as defined below.
+	Roles MLServicesClusterRolesOutput `pulumi:"roles"`
+
+	// Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
+	Rstudio pulumi.BoolOutput `pulumi:"rstudio"`
+
+	// The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
+	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
+
+	// One or more `storageAccount` block as defined below.
+	StorageAccounts MLServicesClusterStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewMLServicesCluster registers a new resource with the given unique name, arguments, and options.
 func NewMLServicesCluster(ctx *pulumi.Context,
-	name string, args *MLServicesClusterArgs, opts ...pulumi.ResourceOpt) (*MLServicesCluster, error) {
+	name string, args *MLServicesClusterArgs, opts ...pulumi.ResourceOption) (*MLServicesCluster, error) {
 	if args == nil || args.ClusterVersion == nil {
 		return nil, errors.New("missing required argument 'ClusterVersion'")
 	}
@@ -36,192 +77,732 @@ func NewMLServicesCluster(ctx *pulumi.Context,
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterVersion"] = nil
-		inputs["gateway"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roles"] = nil
-		inputs["rstudio"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-	} else {
-		inputs["clusterVersion"] = args.ClusterVersion
-		inputs["gateway"] = args.Gateway
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roles"] = args.Roles
-		inputs["rstudio"] = args.Rstudio
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := args.Gateway; i != nil { inputs["gateway"] = i.ToMLServicesClusterGatewayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToMLServicesClusterRolesOutput() }
+		if i := args.Rstudio; i != nil { inputs["rstudio"] = i.ToBoolOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToMLServicesClusterStorageAccountsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	inputs["edgeSshEndpoint"] = nil
-	inputs["httpsEndpoint"] = nil
-	inputs["sshEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:hdinsight/mLServicesCluster:MLServicesCluster", name, true, inputs, opts...)
+	var resource MLServicesCluster
+	err := ctx.RegisterResource("azure:hdinsight/mLServicesCluster:MLServicesCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MLServicesCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetMLServicesCluster gets an existing MLServicesCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMLServicesCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MLServicesClusterState, opts ...pulumi.ResourceOpt) (*MLServicesCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MLServicesClusterState, opts ...pulumi.ResourceOption) (*MLServicesCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterVersion"] = state.ClusterVersion
-		inputs["edgeSshEndpoint"] = state.EdgeSshEndpoint
-		inputs["gateway"] = state.Gateway
-		inputs["httpsEndpoint"] = state.HttpsEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roles"] = state.Roles
-		inputs["rstudio"] = state.Rstudio
-		inputs["sshEndpoint"] = state.SshEndpoint
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
+		if i := state.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := state.EdgeSshEndpoint; i != nil { inputs["edgeSshEndpoint"] = i.ToStringOutput() }
+		if i := state.Gateway; i != nil { inputs["gateway"] = i.ToMLServicesClusterGatewayOutput() }
+		if i := state.HttpsEndpoint; i != nil { inputs["httpsEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToMLServicesClusterRolesOutput() }
+		if i := state.Rstudio; i != nil { inputs["rstudio"] = i.ToBoolOutput() }
+		if i := state.SshEndpoint; i != nil { inputs["sshEndpoint"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToMLServicesClusterStorageAccountsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:hdinsight/mLServicesCluster:MLServicesCluster", name, id, inputs, opts...)
+	var resource MLServicesCluster
+	err := ctx.ReadResource("azure:hdinsight/mLServicesCluster:MLServicesCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MLServicesCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MLServicesCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MLServicesCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) ClusterVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
-}
-
-// The SSH Connectivity Endpoint for the Edge Node of the HDInsight ML Cluster.
-func (r *MLServicesCluster) EdgeSshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["edgeSshEndpoint"])
-}
-
-// A `gateway` block as defined below.
-func (r *MLServicesCluster) Gateway() pulumi.Output {
-	return r.s.State["gateway"]
-}
-
-// The HTTPS Connectivity Endpoint for this HDInsight ML Services Cluster.
-func (r *MLServicesCluster) HttpsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
-}
-
-// Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `roles` block as defined below.
-func (r *MLServicesCluster) Roles() pulumi.Output {
-	return r.s.State["roles"]
-}
-
-// Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Rstudio() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["rstudio"])
-}
-
-// The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
-func (r *MLServicesCluster) SshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
-}
-
-// One or more `storageAccount` block as defined below.
-func (r *MLServicesCluster) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
-func (r *MLServicesCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *MLServicesCluster) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MLServicesCluster resources.
 type MLServicesClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// The SSH Connectivity Endpoint for the Edge Node of the HDInsight ML Cluster.
-	EdgeSshEndpoint interface{}
+	EdgeSshEndpoint pulumi.StringInput `pulumi:"edgeSshEndpoint"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway MLServicesClusterGatewayInput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight ML Services Cluster.
-	HttpsEndpoint interface{}
+	HttpsEndpoint pulumi.StringInput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles MLServicesClusterRolesInput `pulumi:"roles"`
 	// Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
-	Rstudio interface{}
+	Rstudio pulumi.BoolInput `pulumi:"rstudio"`
 	// The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
-	SshEndpoint interface{}
+	SshEndpoint pulumi.StringInput `pulumi:"sshEndpoint"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts MLServicesClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a MLServicesCluster resource.
 type MLServicesClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway MLServicesClusterGatewayInput `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles MLServicesClusterRolesInput `pulumi:"roles"`
 	// Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
-	Rstudio interface{}
+	Rstudio pulumi.BoolInput `pulumi:"rstudio"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts MLServicesClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
+type MLServicesClusterGateway struct {
+	Enabled bool `pulumi:"enabled"`
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var mLServicesClusterGatewayType = reflect.TypeOf((*MLServicesClusterGateway)(nil)).Elem()
+
+type MLServicesClusterGatewayInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterGatewayOutput() MLServicesClusterGatewayOutput
+	ToMLServicesClusterGatewayOutputWithContext(ctx context.Context) MLServicesClusterGatewayOutput
+}
+
+type MLServicesClusterGatewayArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (MLServicesClusterGatewayArgs) ElementType() reflect.Type {
+	return mLServicesClusterGatewayType
+}
+
+func (a MLServicesClusterGatewayArgs) ToMLServicesClusterGatewayOutput() MLServicesClusterGatewayOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterGatewayOutput)
+}
+
+func (a MLServicesClusterGatewayArgs) ToMLServicesClusterGatewayOutputWithContext(ctx context.Context) MLServicesClusterGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterGatewayOutput)
+}
+
+type MLServicesClusterGatewayOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v MLServicesClusterGateway) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o MLServicesClusterGatewayOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterGateway) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterGatewayOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterGateway) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (MLServicesClusterGatewayOutput) ElementType() reflect.Type {
+	return mLServicesClusterGatewayType
+}
+
+func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayOutput() MLServicesClusterGatewayOutput {
+	return o
+}
+
+func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayOutputWithContext(ctx context.Context) MLServicesClusterGatewayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterGatewayOutput{}) }
+
+type MLServicesClusterRoles struct {
+	EdgeNode MLServicesClusterRolesEdgeNode `pulumi:"edgeNode"`
+	HeadNode MLServicesClusterRolesHeadNode `pulumi:"headNode"`
+	WorkerNode MLServicesClusterRolesWorkerNode `pulumi:"workerNode"`
+	ZookeeperNode MLServicesClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
+}
+var mLServicesClusterRolesType = reflect.TypeOf((*MLServicesClusterRoles)(nil)).Elem()
+
+type MLServicesClusterRolesInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterRolesOutput() MLServicesClusterRolesOutput
+	ToMLServicesClusterRolesOutputWithContext(ctx context.Context) MLServicesClusterRolesOutput
+}
+
+type MLServicesClusterRolesArgs struct {
+	EdgeNode MLServicesClusterRolesEdgeNodeInput `pulumi:"edgeNode"`
+	HeadNode MLServicesClusterRolesHeadNodeInput `pulumi:"headNode"`
+	WorkerNode MLServicesClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	ZookeeperNode MLServicesClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
+}
+
+func (MLServicesClusterRolesArgs) ElementType() reflect.Type {
+	return mLServicesClusterRolesType
+}
+
+func (a MLServicesClusterRolesArgs) ToMLServicesClusterRolesOutput() MLServicesClusterRolesOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterRolesOutput)
+}
+
+func (a MLServicesClusterRolesArgs) ToMLServicesClusterRolesOutputWithContext(ctx context.Context) MLServicesClusterRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterRolesOutput)
+}
+
+type MLServicesClusterRolesOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterRolesOutput) EdgeNode() MLServicesClusterRolesEdgeNodeOutput {
+	return o.Apply(func(v MLServicesClusterRoles) MLServicesClusterRolesEdgeNode {
+		return v.EdgeNode
+	}).(MLServicesClusterRolesEdgeNodeOutput)
+}
+
+func (o MLServicesClusterRolesOutput) HeadNode() MLServicesClusterRolesHeadNodeOutput {
+	return o.Apply(func(v MLServicesClusterRoles) MLServicesClusterRolesHeadNode {
+		return v.HeadNode
+	}).(MLServicesClusterRolesHeadNodeOutput)
+}
+
+func (o MLServicesClusterRolesOutput) WorkerNode() MLServicesClusterRolesWorkerNodeOutput {
+	return o.Apply(func(v MLServicesClusterRoles) MLServicesClusterRolesWorkerNode {
+		return v.WorkerNode
+	}).(MLServicesClusterRolesWorkerNodeOutput)
+}
+
+func (o MLServicesClusterRolesOutput) ZookeeperNode() MLServicesClusterRolesZookeeperNodeOutput {
+	return o.Apply(func(v MLServicesClusterRoles) MLServicesClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(MLServicesClusterRolesZookeeperNodeOutput)
+}
+
+func (MLServicesClusterRolesOutput) ElementType() reflect.Type {
+	return mLServicesClusterRolesType
+}
+
+func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesOutput() MLServicesClusterRolesOutput {
+	return o
+}
+
+func (o MLServicesClusterRolesOutput) ToMLServicesClusterRolesOutputWithContext(ctx context.Context) MLServicesClusterRolesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterRolesOutput{}) }
+
+type MLServicesClusterRolesEdgeNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var mLServicesClusterRolesEdgeNodeType = reflect.TypeOf((*MLServicesClusterRolesEdgeNode)(nil)).Elem()
+
+type MLServicesClusterRolesEdgeNodeInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterRolesEdgeNodeOutput() MLServicesClusterRolesEdgeNodeOutput
+	ToMLServicesClusterRolesEdgeNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodeOutput
+}
+
+type MLServicesClusterRolesEdgeNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (MLServicesClusterRolesEdgeNodeArgs) ElementType() reflect.Type {
+	return mLServicesClusterRolesEdgeNodeType
+}
+
+func (a MLServicesClusterRolesEdgeNodeArgs) ToMLServicesClusterRolesEdgeNodeOutput() MLServicesClusterRolesEdgeNodeOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterRolesEdgeNodeOutput)
+}
+
+func (a MLServicesClusterRolesEdgeNodeArgs) ToMLServicesClusterRolesEdgeNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterRolesEdgeNodeOutput)
+}
+
+type MLServicesClusterRolesEdgeNodeOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterRolesEdgeNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesEdgeNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v MLServicesClusterRolesEdgeNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesEdgeNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesEdgeNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesEdgeNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesEdgeNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (MLServicesClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
+	return mLServicesClusterRolesEdgeNodeType
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodeOutput() MLServicesClusterRolesEdgeNodeOutput {
+	return o
+}
+
+func (o MLServicesClusterRolesEdgeNodeOutput) ToMLServicesClusterRolesEdgeNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesEdgeNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterRolesEdgeNodeOutput{}) }
+
+type MLServicesClusterRolesHeadNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var mLServicesClusterRolesHeadNodeType = reflect.TypeOf((*MLServicesClusterRolesHeadNode)(nil)).Elem()
+
+type MLServicesClusterRolesHeadNodeInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterRolesHeadNodeOutput() MLServicesClusterRolesHeadNodeOutput
+	ToMLServicesClusterRolesHeadNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodeOutput
+}
+
+type MLServicesClusterRolesHeadNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (MLServicesClusterRolesHeadNodeArgs) ElementType() reflect.Type {
+	return mLServicesClusterRolesHeadNodeType
+}
+
+func (a MLServicesClusterRolesHeadNodeArgs) ToMLServicesClusterRolesHeadNodeOutput() MLServicesClusterRolesHeadNodeOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterRolesHeadNodeOutput)
+}
+
+func (a MLServicesClusterRolesHeadNodeArgs) ToMLServicesClusterRolesHeadNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterRolesHeadNodeOutput)
+}
+
+type MLServicesClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterRolesHeadNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesHeadNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v MLServicesClusterRolesHeadNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesHeadNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesHeadNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesHeadNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesHeadNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (MLServicesClusterRolesHeadNodeOutput) ElementType() reflect.Type {
+	return mLServicesClusterRolesHeadNodeType
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodeOutput() MLServicesClusterRolesHeadNodeOutput {
+	return o
+}
+
+func (o MLServicesClusterRolesHeadNodeOutput) ToMLServicesClusterRolesHeadNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesHeadNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterRolesHeadNodeOutput{}) }
+
+type MLServicesClusterRolesWorkerNode struct {
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var mLServicesClusterRolesWorkerNodeType = reflect.TypeOf((*MLServicesClusterRolesWorkerNode)(nil)).Elem()
+
+type MLServicesClusterRolesWorkerNodeInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterRolesWorkerNodeOutput() MLServicesClusterRolesWorkerNodeOutput
+	ToMLServicesClusterRolesWorkerNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodeOutput
+}
+
+type MLServicesClusterRolesWorkerNodeArgs struct {
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (MLServicesClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
+	return mLServicesClusterRolesWorkerNodeType
+}
+
+func (a MLServicesClusterRolesWorkerNodeArgs) ToMLServicesClusterRolesWorkerNodeOutput() MLServicesClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterRolesWorkerNodeOutput)
+}
+
+func (a MLServicesClusterRolesWorkerNodeArgs) ToMLServicesClusterRolesWorkerNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterRolesWorkerNodeOutput)
+}
+
+type MLServicesClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) int {
+		if v.MinInstanceCount == nil { return *new(int) } else { return *v.MinInstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesWorkerNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (MLServicesClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
+	return mLServicesClusterRolesWorkerNodeType
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNodeOutput() MLServicesClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func (o MLServicesClusterRolesWorkerNodeOutput) ToMLServicesClusterRolesWorkerNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterRolesWorkerNodeOutput{}) }
+
+type MLServicesClusterRolesZookeeperNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var mLServicesClusterRolesZookeeperNodeType = reflect.TypeOf((*MLServicesClusterRolesZookeeperNode)(nil)).Elem()
+
+type MLServicesClusterRolesZookeeperNodeInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterRolesZookeeperNodeOutput() MLServicesClusterRolesZookeeperNodeOutput
+	ToMLServicesClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodeOutput
+}
+
+type MLServicesClusterRolesZookeeperNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (MLServicesClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
+	return mLServicesClusterRolesZookeeperNodeType
+}
+
+func (a MLServicesClusterRolesZookeeperNodeArgs) ToMLServicesClusterRolesZookeeperNodeOutput() MLServicesClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterRolesZookeeperNodeOutput)
+}
+
+func (a MLServicesClusterRolesZookeeperNodeArgs) ToMLServicesClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterRolesZookeeperNodeOutput)
+}
+
+type MLServicesClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesZookeeperNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v MLServicesClusterRolesZookeeperNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesZookeeperNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesZookeeperNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesZookeeperNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterRolesZookeeperNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (MLServicesClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
+	return mLServicesClusterRolesZookeeperNodeType
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZookeeperNodeOutput() MLServicesClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func (o MLServicesClusterRolesZookeeperNodeOutput) ToMLServicesClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) MLServicesClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterRolesZookeeperNodeOutput{}) }
+
+type MLServicesClusterStorageAccounts struct {
+	IsDefault bool `pulumi:"isDefault"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+}
+var mLServicesClusterStorageAccountsType = reflect.TypeOf((*MLServicesClusterStorageAccounts)(nil)).Elem()
+
+type MLServicesClusterStorageAccountsInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterStorageAccountsOutput() MLServicesClusterStorageAccountsOutput
+	ToMLServicesClusterStorageAccountsOutputWithContext(ctx context.Context) MLServicesClusterStorageAccountsOutput
+}
+
+type MLServicesClusterStorageAccountsArgs struct {
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+}
+
+func (MLServicesClusterStorageAccountsArgs) ElementType() reflect.Type {
+	return mLServicesClusterStorageAccountsType
+}
+
+func (a MLServicesClusterStorageAccountsArgs) ToMLServicesClusterStorageAccountsOutput() MLServicesClusterStorageAccountsOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterStorageAccountsOutput)
+}
+
+func (a MLServicesClusterStorageAccountsArgs) ToMLServicesClusterStorageAccountsOutputWithContext(ctx context.Context) MLServicesClusterStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterStorageAccountsOutput)
+}
+
+type MLServicesClusterStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterStorageAccountsOutput) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v MLServicesClusterStorageAccounts) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o MLServicesClusterStorageAccountsOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterStorageAccounts) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o MLServicesClusterStorageAccountsOutput) StorageContainerId() pulumi.StringOutput {
+	return o.Apply(func(v MLServicesClusterStorageAccounts) string {
+		return v.StorageContainerId
+	}).(pulumi.StringOutput)
+}
+
+func (MLServicesClusterStorageAccountsOutput) ElementType() reflect.Type {
+	return mLServicesClusterStorageAccountsType
+}
+
+func (o MLServicesClusterStorageAccountsOutput) ToMLServicesClusterStorageAccountsOutput() MLServicesClusterStorageAccountsOutput {
+	return o
+}
+
+func (o MLServicesClusterStorageAccountsOutput) ToMLServicesClusterStorageAccountsOutputWithContext(ctx context.Context) MLServicesClusterStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterStorageAccountsOutput{}) }
+
+var mLServicesClusterStorageAccountsArrayType = reflect.TypeOf((*[]MLServicesClusterStorageAccounts)(nil)).Elem()
+
+type MLServicesClusterStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToMLServicesClusterStorageAccountsArrayOutput() MLServicesClusterStorageAccountsArrayOutput
+	ToMLServicesClusterStorageAccountsArrayOutputWithContext(ctx context.Context) MLServicesClusterStorageAccountsArrayOutput
+}
+
+type MLServicesClusterStorageAccountsArrayArgs []MLServicesClusterStorageAccountsInput
+
+func (MLServicesClusterStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return mLServicesClusterStorageAccountsArrayType
+}
+
+func (a MLServicesClusterStorageAccountsArrayArgs) ToMLServicesClusterStorageAccountsArrayOutput() MLServicesClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(MLServicesClusterStorageAccountsArrayOutput)
+}
+
+func (a MLServicesClusterStorageAccountsArrayArgs) ToMLServicesClusterStorageAccountsArrayOutputWithContext(ctx context.Context) MLServicesClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MLServicesClusterStorageAccountsArrayOutput)
+}
+
+type MLServicesClusterStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o MLServicesClusterStorageAccountsArrayOutput) Index(i pulumi.IntInput) MLServicesClusterStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MLServicesClusterStorageAccounts {
+		return vs[0].([]MLServicesClusterStorageAccounts)[vs[1].(int)]
+	}).(MLServicesClusterStorageAccountsOutput)
+}
+
+func (MLServicesClusterStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return mLServicesClusterStorageAccountsArrayType
+}
+
+func (o MLServicesClusterStorageAccountsArrayOutput) ToMLServicesClusterStorageAccountsArrayOutput() MLServicesClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func (o MLServicesClusterStorageAccountsArrayOutput) ToMLServicesClusterStorageAccountsArrayOutputWithContext(ctx context.Context) MLServicesClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MLServicesClusterStorageAccountsArrayOutput{}) }
+

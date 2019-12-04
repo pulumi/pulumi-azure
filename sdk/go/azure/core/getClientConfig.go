@@ -10,30 +10,23 @@ import (
 // Use this data source to access the configuration of the AzureRM provider.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/client_config.html.markdown.
-func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
-	outputs, err := ctx.Invoke("azure:core/getClientConfig:getClientConfig", nil)
+func LookupClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
+	var rv GetClientConfigResult
+	err := ctx.Invoke("azure:core/getClientConfig:getClientConfig", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetClientConfigResult{
-		ClientId: outputs["clientId"],
-		ObjectId: outputs["objectId"],
-		ServicePrincipalApplicationId: outputs["servicePrincipalApplicationId"],
-		ServicePrincipalObjectId: outputs["servicePrincipalObjectId"],
-		SubscriptionId: outputs["subscriptionId"],
-		TenantId: outputs["tenantId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of values returned by getClientConfig.
 type GetClientConfigResult struct {
-	ClientId interface{}
-	ObjectId interface{}
-	ServicePrincipalApplicationId interface{}
-	ServicePrincipalObjectId interface{}
-	SubscriptionId interface{}
-	TenantId interface{}
+	ClientId string `pulumi:"clientId"`
+	ObjectId string `pulumi:"objectId"`
+	ServicePrincipalApplicationId string `pulumi:"servicePrincipalApplicationId"`
+	ServicePrincipalObjectId string `pulumi:"servicePrincipalObjectId"`
+	SubscriptionId string `pulumi:"subscriptionId"`
+	TenantId string `pulumi:"tenantId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

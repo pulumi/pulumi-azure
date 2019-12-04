@@ -4,6 +4,8 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation.html.markdown.
 type ApiOperation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
+	ApiName pulumi.StringOutput `pulumi:"apiName"`
+
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The Display Name for this API Management Operation.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
+	Method pulumi.StringOutput `pulumi:"method"`
+
+	// A unique identifier for this API Operation. Changing this forces a new resource to be created.
+	OperationId pulumi.StringOutput `pulumi:"operationId"`
+
+	// A `request` block as defined below.
+	Request ApiOperationRequestOutput `pulumi:"request"`
+
+	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// One or more `response` blocks as defined below.
+	Responses ApiOperationResponsesArrayOutput `pulumi:"responses"`
+
+	// One or more `templateParameter` blocks as defined below.
+	TemplateParameters ApiOperationTemplateParametersArrayOutput `pulumi:"templateParameters"`
+
+	// The relative URL Template identifying the target resource for this operation, which may include parameters.
+	UrlTemplate pulumi.StringOutput `pulumi:"urlTemplate"`
 }
 
 // NewApiOperation registers a new resource with the given unique name, arguments, and options.
 func NewApiOperation(ctx *pulumi.Context,
-	name string, args *ApiOperationArgs, opts ...pulumi.ResourceOpt) (*ApiOperation, error) {
+	name string, args *ApiOperationArgs, opts ...pulumi.ResourceOption) (*ApiOperation, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -39,177 +74,1383 @@ func NewApiOperation(ctx *pulumi.Context,
 	if args == nil || args.UrlTemplate == nil {
 		return nil, errors.New("missing required argument 'UrlTemplate'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["apiName"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["method"] = nil
-		inputs["operationId"] = nil
-		inputs["request"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["responses"] = nil
-		inputs["templateParameters"] = nil
-		inputs["urlTemplate"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["apiName"] = args.ApiName
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["method"] = args.Method
-		inputs["operationId"] = args.OperationId
-		inputs["request"] = args.Request
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["responses"] = args.Responses
-		inputs["templateParameters"] = args.TemplateParameters
-		inputs["urlTemplate"] = args.UrlTemplate
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.ApiName; i != nil { inputs["apiName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Method; i != nil { inputs["method"] = i.ToStringOutput() }
+		if i := args.OperationId; i != nil { inputs["operationId"] = i.ToStringOutput() }
+		if i := args.Request; i != nil { inputs["request"] = i.ToApiOperationRequestOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Responses; i != nil { inputs["responses"] = i.ToApiOperationResponsesArrayOutput() }
+		if i := args.TemplateParameters; i != nil { inputs["templateParameters"] = i.ToApiOperationTemplateParametersArrayOutput() }
+		if i := args.UrlTemplate; i != nil { inputs["urlTemplate"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/apiOperation:ApiOperation", name, true, inputs, opts...)
+	var resource ApiOperation
+	err := ctx.RegisterResource("azure:apimanagement/apiOperation:ApiOperation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiOperation{s: s}, nil
+	return &resource, nil
 }
 
 // GetApiOperation gets an existing ApiOperation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApiOperation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApiOperationState, opts ...pulumi.ResourceOpt) (*ApiOperation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApiOperationState, opts ...pulumi.ResourceOption) (*ApiOperation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["apiName"] = state.ApiName
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["method"] = state.Method
-		inputs["operationId"] = state.OperationId
-		inputs["request"] = state.Request
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["responses"] = state.Responses
-		inputs["templateParameters"] = state.TemplateParameters
-		inputs["urlTemplate"] = state.UrlTemplate
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.ApiName; i != nil { inputs["apiName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Method; i != nil { inputs["method"] = i.ToStringOutput() }
+		if i := state.OperationId; i != nil { inputs["operationId"] = i.ToStringOutput() }
+		if i := state.Request; i != nil { inputs["request"] = i.ToApiOperationRequestOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Responses; i != nil { inputs["responses"] = i.ToApiOperationResponsesArrayOutput() }
+		if i := state.TemplateParameters; i != nil { inputs["templateParameters"] = i.ToApiOperationTemplateParametersArrayOutput() }
+		if i := state.UrlTemplate; i != nil { inputs["urlTemplate"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/apiOperation:ApiOperation", name, id, inputs, opts...)
+	var resource ApiOperation
+	err := ctx.ReadResource("azure:apimanagement/apiOperation:ApiOperation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiOperation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApiOperation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApiOperation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
-func (r *ApiOperation) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
-func (r *ApiOperation) ApiName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiName"])
-}
-
-// A description for this API Operation, which may include HTML formatting tags.
-func (r *ApiOperation) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The Display Name for this API Management Operation.
-func (r *ApiOperation) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
-func (r *ApiOperation) Method() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["method"])
-}
-
-// A unique identifier for this API Operation. Changing this forces a new resource to be created.
-func (r *ApiOperation) OperationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["operationId"])
-}
-
-// A `request` block as defined below.
-func (r *ApiOperation) Request() pulumi.Output {
-	return r.s.State["request"]
-}
-
-// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ApiOperation) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// One or more `response` blocks as defined below.
-func (r *ApiOperation) Responses() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["responses"])
-}
-
-// One or more `templateParameter` blocks as defined below.
-func (r *ApiOperation) TemplateParameters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["templateParameters"])
-}
-
-// The relative URL Template identifying the target resource for this operation, which may include parameters.
-func (r *ApiOperation) UrlTemplate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["urlTemplate"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApiOperation resources.
 type ApiOperationState struct {
 	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
-	ApiName interface{}
+	ApiName pulumi.StringInput `pulumi:"apiName"`
 	// A description for this API Operation, which may include HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Display Name for this API Management Operation.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
-	Method interface{}
+	Method pulumi.StringInput `pulumi:"method"`
 	// A unique identifier for this API Operation. Changing this forces a new resource to be created.
-	OperationId interface{}
+	OperationId pulumi.StringInput `pulumi:"operationId"`
 	// A `request` block as defined below.
-	Request interface{}
+	Request ApiOperationRequestInput `pulumi:"request"`
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `response` blocks as defined below.
-	Responses interface{}
+	Responses ApiOperationResponsesArrayInput `pulumi:"responses"`
 	// One or more `templateParameter` blocks as defined below.
-	TemplateParameters interface{}
+	TemplateParameters ApiOperationTemplateParametersArrayInput `pulumi:"templateParameters"`
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
-	UrlTemplate interface{}
+	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
 }
 
 // The set of arguments for constructing a ApiOperation resource.
 type ApiOperationArgs struct {
 	// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
-	ApiName interface{}
+	ApiName pulumi.StringInput `pulumi:"apiName"`
 	// A description for this API Operation, which may include HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Display Name for this API Management Operation.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
-	Method interface{}
+	Method pulumi.StringInput `pulumi:"method"`
 	// A unique identifier for this API Operation. Changing this forces a new resource to be created.
-	OperationId interface{}
+	OperationId pulumi.StringInput `pulumi:"operationId"`
 	// A `request` block as defined below.
-	Request interface{}
+	Request ApiOperationRequestInput `pulumi:"request"`
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `response` blocks as defined below.
-	Responses interface{}
+	Responses ApiOperationResponsesArrayInput `pulumi:"responses"`
 	// One or more `templateParameter` blocks as defined below.
-	TemplateParameters interface{}
+	TemplateParameters ApiOperationTemplateParametersArrayInput `pulumi:"templateParameters"`
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
-	UrlTemplate interface{}
+	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
 }
+type ApiOperationRequest struct {
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Headers *[]ApiOperationRequestHeaders `pulumi:"headers"`
+	QueryParameters *[]ApiOperationRequestQueryParameters `pulumi:"queryParameters"`
+	Representations *[]ApiOperationRequestRepresentations `pulumi:"representations"`
+}
+var apiOperationRequestType = reflect.TypeOf((*ApiOperationRequest)(nil)).Elem()
+
+type ApiOperationRequestInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestOutput() ApiOperationRequestOutput
+	ToApiOperationRequestOutputWithContext(ctx context.Context) ApiOperationRequestOutput
+}
+
+type ApiOperationRequestArgs struct {
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Headers ApiOperationRequestHeadersArrayInput `pulumi:"headers"`
+	QueryParameters ApiOperationRequestQueryParametersArrayInput `pulumi:"queryParameters"`
+	Representations ApiOperationRequestRepresentationsArrayInput `pulumi:"representations"`
+}
+
+func (ApiOperationRequestArgs) ElementType() reflect.Type {
+	return apiOperationRequestType
+}
+
+func (a ApiOperationRequestArgs) ToApiOperationRequestOutput() ApiOperationRequestOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestOutput)
+}
+
+func (a ApiOperationRequestArgs) ToApiOperationRequestOutputWithContext(ctx context.Context) ApiOperationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestOutput)
+}
+
+type ApiOperationRequestOutput struct { *pulumi.OutputState }
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationRequestOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequest) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestOutput) Headers() ApiOperationRequestHeadersArrayOutput {
+	return o.Apply(func(v ApiOperationRequest) []ApiOperationRequestHeaders {
+		if v.Headers == nil { return *new([]ApiOperationRequestHeaders) } else { return *v.Headers }
+	}).(ApiOperationRequestHeadersArrayOutput)
+}
+
+func (o ApiOperationRequestOutput) QueryParameters() ApiOperationRequestQueryParametersArrayOutput {
+	return o.Apply(func(v ApiOperationRequest) []ApiOperationRequestQueryParameters {
+		if v.QueryParameters == nil { return *new([]ApiOperationRequestQueryParameters) } else { return *v.QueryParameters }
+	}).(ApiOperationRequestQueryParametersArrayOutput)
+}
+
+func (o ApiOperationRequestOutput) Representations() ApiOperationRequestRepresentationsArrayOutput {
+	return o.Apply(func(v ApiOperationRequest) []ApiOperationRequestRepresentations {
+		if v.Representations == nil { return *new([]ApiOperationRequestRepresentations) } else { return *v.Representations }
+	}).(ApiOperationRequestRepresentationsArrayOutput)
+}
+
+func (ApiOperationRequestOutput) ElementType() reflect.Type {
+	return apiOperationRequestType
+}
+
+func (o ApiOperationRequestOutput) ToApiOperationRequestOutput() ApiOperationRequestOutput {
+	return o
+}
+
+func (o ApiOperationRequestOutput) ToApiOperationRequestOutputWithContext(ctx context.Context) ApiOperationRequestOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestOutput{}) }
+
+type ApiOperationRequestHeaders struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Name string `pulumi:"name"`
+	Required bool `pulumi:"required"`
+	Type string `pulumi:"type"`
+	Values *[]string `pulumi:"values"`
+}
+var apiOperationRequestHeadersType = reflect.TypeOf((*ApiOperationRequestHeaders)(nil)).Elem()
+
+type ApiOperationRequestHeadersInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestHeadersOutput() ApiOperationRequestHeadersOutput
+	ToApiOperationRequestHeadersOutputWithContext(ctx context.Context) ApiOperationRequestHeadersOutput
+}
+
+type ApiOperationRequestHeadersArgs struct {
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Name pulumi.StringInput `pulumi:"name"`
+	Required pulumi.BoolInput `pulumi:"required"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApiOperationRequestHeadersArgs) ElementType() reflect.Type {
+	return apiOperationRequestHeadersType
+}
+
+func (a ApiOperationRequestHeadersArgs) ToApiOperationRequestHeadersOutput() ApiOperationRequestHeadersOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestHeadersOutput)
+}
+
+func (a ApiOperationRequestHeadersArgs) ToApiOperationRequestHeadersOutputWithContext(ctx context.Context) ApiOperationRequestHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestHeadersOutput)
+}
+
+type ApiOperationRequestHeadersOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestHeadersOutput) DefaultValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestHeaders) string {
+		if v.DefaultValue == nil { return *new(string) } else { return *v.DefaultValue }
+	}).(pulumi.StringOutput)
+}
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationRequestHeadersOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestHeaders) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestHeadersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestHeaders) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestHeadersOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v ApiOperationRequestHeaders) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApiOperationRequestHeadersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestHeaders) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestHeadersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApiOperationRequestHeaders) []string {
+		if v.Values == nil { return *new([]string) } else { return *v.Values }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApiOperationRequestHeadersOutput) ElementType() reflect.Type {
+	return apiOperationRequestHeadersType
+}
+
+func (o ApiOperationRequestHeadersOutput) ToApiOperationRequestHeadersOutput() ApiOperationRequestHeadersOutput {
+	return o
+}
+
+func (o ApiOperationRequestHeadersOutput) ToApiOperationRequestHeadersOutputWithContext(ctx context.Context) ApiOperationRequestHeadersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestHeadersOutput{}) }
+
+var apiOperationRequestHeadersArrayType = reflect.TypeOf((*[]ApiOperationRequestHeaders)(nil)).Elem()
+
+type ApiOperationRequestHeadersArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestHeadersArrayOutput() ApiOperationRequestHeadersArrayOutput
+	ToApiOperationRequestHeadersArrayOutputWithContext(ctx context.Context) ApiOperationRequestHeadersArrayOutput
+}
+
+type ApiOperationRequestHeadersArrayArgs []ApiOperationRequestHeadersInput
+
+func (ApiOperationRequestHeadersArrayArgs) ElementType() reflect.Type {
+	return apiOperationRequestHeadersArrayType
+}
+
+func (a ApiOperationRequestHeadersArrayArgs) ToApiOperationRequestHeadersArrayOutput() ApiOperationRequestHeadersArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestHeadersArrayOutput)
+}
+
+func (a ApiOperationRequestHeadersArrayArgs) ToApiOperationRequestHeadersArrayOutputWithContext(ctx context.Context) ApiOperationRequestHeadersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestHeadersArrayOutput)
+}
+
+type ApiOperationRequestHeadersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestHeadersArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestHeadersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationRequestHeaders {
+		return vs[0].([]ApiOperationRequestHeaders)[vs[1].(int)]
+	}).(ApiOperationRequestHeadersOutput)
+}
+
+func (ApiOperationRequestHeadersArrayOutput) ElementType() reflect.Type {
+	return apiOperationRequestHeadersArrayType
+}
+
+func (o ApiOperationRequestHeadersArrayOutput) ToApiOperationRequestHeadersArrayOutput() ApiOperationRequestHeadersArrayOutput {
+	return o
+}
+
+func (o ApiOperationRequestHeadersArrayOutput) ToApiOperationRequestHeadersArrayOutputWithContext(ctx context.Context) ApiOperationRequestHeadersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestHeadersArrayOutput{}) }
+
+type ApiOperationRequestQueryParameters struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Name string `pulumi:"name"`
+	Required bool `pulumi:"required"`
+	Type string `pulumi:"type"`
+	Values *[]string `pulumi:"values"`
+}
+var apiOperationRequestQueryParametersType = reflect.TypeOf((*ApiOperationRequestQueryParameters)(nil)).Elem()
+
+type ApiOperationRequestQueryParametersInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestQueryParametersOutput() ApiOperationRequestQueryParametersOutput
+	ToApiOperationRequestQueryParametersOutputWithContext(ctx context.Context) ApiOperationRequestQueryParametersOutput
+}
+
+type ApiOperationRequestQueryParametersArgs struct {
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Name pulumi.StringInput `pulumi:"name"`
+	Required pulumi.BoolInput `pulumi:"required"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApiOperationRequestQueryParametersArgs) ElementType() reflect.Type {
+	return apiOperationRequestQueryParametersType
+}
+
+func (a ApiOperationRequestQueryParametersArgs) ToApiOperationRequestQueryParametersOutput() ApiOperationRequestQueryParametersOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestQueryParametersOutput)
+}
+
+func (a ApiOperationRequestQueryParametersArgs) ToApiOperationRequestQueryParametersOutputWithContext(ctx context.Context) ApiOperationRequestQueryParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestQueryParametersOutput)
+}
+
+type ApiOperationRequestQueryParametersOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestQueryParametersOutput) DefaultValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestQueryParameters) string {
+		if v.DefaultValue == nil { return *new(string) } else { return *v.DefaultValue }
+	}).(pulumi.StringOutput)
+}
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationRequestQueryParametersOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestQueryParameters) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestQueryParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestQueryParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestQueryParametersOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v ApiOperationRequestQueryParameters) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApiOperationRequestQueryParametersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestQueryParameters) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestQueryParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApiOperationRequestQueryParameters) []string {
+		if v.Values == nil { return *new([]string) } else { return *v.Values }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApiOperationRequestQueryParametersOutput) ElementType() reflect.Type {
+	return apiOperationRequestQueryParametersType
+}
+
+func (o ApiOperationRequestQueryParametersOutput) ToApiOperationRequestQueryParametersOutput() ApiOperationRequestQueryParametersOutput {
+	return o
+}
+
+func (o ApiOperationRequestQueryParametersOutput) ToApiOperationRequestQueryParametersOutputWithContext(ctx context.Context) ApiOperationRequestQueryParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestQueryParametersOutput{}) }
+
+var apiOperationRequestQueryParametersArrayType = reflect.TypeOf((*[]ApiOperationRequestQueryParameters)(nil)).Elem()
+
+type ApiOperationRequestQueryParametersArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestQueryParametersArrayOutput() ApiOperationRequestQueryParametersArrayOutput
+	ToApiOperationRequestQueryParametersArrayOutputWithContext(ctx context.Context) ApiOperationRequestQueryParametersArrayOutput
+}
+
+type ApiOperationRequestQueryParametersArrayArgs []ApiOperationRequestQueryParametersInput
+
+func (ApiOperationRequestQueryParametersArrayArgs) ElementType() reflect.Type {
+	return apiOperationRequestQueryParametersArrayType
+}
+
+func (a ApiOperationRequestQueryParametersArrayArgs) ToApiOperationRequestQueryParametersArrayOutput() ApiOperationRequestQueryParametersArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestQueryParametersArrayOutput)
+}
+
+func (a ApiOperationRequestQueryParametersArrayArgs) ToApiOperationRequestQueryParametersArrayOutputWithContext(ctx context.Context) ApiOperationRequestQueryParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestQueryParametersArrayOutput)
+}
+
+type ApiOperationRequestQueryParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestQueryParametersArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestQueryParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationRequestQueryParameters {
+		return vs[0].([]ApiOperationRequestQueryParameters)[vs[1].(int)]
+	}).(ApiOperationRequestQueryParametersOutput)
+}
+
+func (ApiOperationRequestQueryParametersArrayOutput) ElementType() reflect.Type {
+	return apiOperationRequestQueryParametersArrayType
+}
+
+func (o ApiOperationRequestQueryParametersArrayOutput) ToApiOperationRequestQueryParametersArrayOutput() ApiOperationRequestQueryParametersArrayOutput {
+	return o
+}
+
+func (o ApiOperationRequestQueryParametersArrayOutput) ToApiOperationRequestQueryParametersArrayOutputWithContext(ctx context.Context) ApiOperationRequestQueryParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestQueryParametersArrayOutput{}) }
+
+type ApiOperationRequestRepresentations struct {
+	ContentType string `pulumi:"contentType"`
+	FormParameters *[]ApiOperationRequestRepresentationsFormParameters `pulumi:"formParameters"`
+	Sample *string `pulumi:"sample"`
+	SchemaId *string `pulumi:"schemaId"`
+	TypeName *string `pulumi:"typeName"`
+}
+var apiOperationRequestRepresentationsType = reflect.TypeOf((*ApiOperationRequestRepresentations)(nil)).Elem()
+
+type ApiOperationRequestRepresentationsInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestRepresentationsOutput() ApiOperationRequestRepresentationsOutput
+	ToApiOperationRequestRepresentationsOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsOutput
+}
+
+type ApiOperationRequestRepresentationsArgs struct {
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	FormParameters ApiOperationRequestRepresentationsFormParametersArrayInput `pulumi:"formParameters"`
+	Sample pulumi.StringInput `pulumi:"sample"`
+	SchemaId pulumi.StringInput `pulumi:"schemaId"`
+	TypeName pulumi.StringInput `pulumi:"typeName"`
+}
+
+func (ApiOperationRequestRepresentationsArgs) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsType
+}
+
+func (a ApiOperationRequestRepresentationsArgs) ToApiOperationRequestRepresentationsOutput() ApiOperationRequestRepresentationsOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestRepresentationsOutput)
+}
+
+func (a ApiOperationRequestRepresentationsArgs) ToApiOperationRequestRepresentationsOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestRepresentationsOutput)
+}
+
+type ApiOperationRequestRepresentationsOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestRepresentationsOutput) ContentType() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentations) string {
+		return v.ContentType
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestRepresentationsOutput) FormParameters() ApiOperationRequestRepresentationsFormParametersArrayOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentations) []ApiOperationRequestRepresentationsFormParameters {
+		if v.FormParameters == nil { return *new([]ApiOperationRequestRepresentationsFormParameters) } else { return *v.FormParameters }
+	}).(ApiOperationRequestRepresentationsFormParametersArrayOutput)
+}
+
+func (o ApiOperationRequestRepresentationsOutput) Sample() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentations) string {
+		if v.Sample == nil { return *new(string) } else { return *v.Sample }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestRepresentationsOutput) SchemaId() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentations) string {
+		if v.SchemaId == nil { return *new(string) } else { return *v.SchemaId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestRepresentationsOutput) TypeName() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentations) string {
+		if v.TypeName == nil { return *new(string) } else { return *v.TypeName }
+	}).(pulumi.StringOutput)
+}
+
+func (ApiOperationRequestRepresentationsOutput) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsType
+}
+
+func (o ApiOperationRequestRepresentationsOutput) ToApiOperationRequestRepresentationsOutput() ApiOperationRequestRepresentationsOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationsOutput) ToApiOperationRequestRepresentationsOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestRepresentationsOutput{}) }
+
+var apiOperationRequestRepresentationsArrayType = reflect.TypeOf((*[]ApiOperationRequestRepresentations)(nil)).Elem()
+
+type ApiOperationRequestRepresentationsArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestRepresentationsArrayOutput() ApiOperationRequestRepresentationsArrayOutput
+	ToApiOperationRequestRepresentationsArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsArrayOutput
+}
+
+type ApiOperationRequestRepresentationsArrayArgs []ApiOperationRequestRepresentationsInput
+
+func (ApiOperationRequestRepresentationsArrayArgs) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsArrayType
+}
+
+func (a ApiOperationRequestRepresentationsArrayArgs) ToApiOperationRequestRepresentationsArrayOutput() ApiOperationRequestRepresentationsArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestRepresentationsArrayOutput)
+}
+
+func (a ApiOperationRequestRepresentationsArrayArgs) ToApiOperationRequestRepresentationsArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestRepresentationsArrayOutput)
+}
+
+type ApiOperationRequestRepresentationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestRepresentationsArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationRequestRepresentations {
+		return vs[0].([]ApiOperationRequestRepresentations)[vs[1].(int)]
+	}).(ApiOperationRequestRepresentationsOutput)
+}
+
+func (ApiOperationRequestRepresentationsArrayOutput) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsArrayType
+}
+
+func (o ApiOperationRequestRepresentationsArrayOutput) ToApiOperationRequestRepresentationsArrayOutput() ApiOperationRequestRepresentationsArrayOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationsArrayOutput) ToApiOperationRequestRepresentationsArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestRepresentationsArrayOutput{}) }
+
+type ApiOperationRequestRepresentationsFormParameters struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Name string `pulumi:"name"`
+	Required bool `pulumi:"required"`
+	Type string `pulumi:"type"`
+	Values *[]string `pulumi:"values"`
+}
+var apiOperationRequestRepresentationsFormParametersType = reflect.TypeOf((*ApiOperationRequestRepresentationsFormParameters)(nil)).Elem()
+
+type ApiOperationRequestRepresentationsFormParametersInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestRepresentationsFormParametersOutput() ApiOperationRequestRepresentationsFormParametersOutput
+	ToApiOperationRequestRepresentationsFormParametersOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsFormParametersOutput
+}
+
+type ApiOperationRequestRepresentationsFormParametersArgs struct {
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Name pulumi.StringInput `pulumi:"name"`
+	Required pulumi.BoolInput `pulumi:"required"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApiOperationRequestRepresentationsFormParametersArgs) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsFormParametersType
+}
+
+func (a ApiOperationRequestRepresentationsFormParametersArgs) ToApiOperationRequestRepresentationsFormParametersOutput() ApiOperationRequestRepresentationsFormParametersOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestRepresentationsFormParametersOutput)
+}
+
+func (a ApiOperationRequestRepresentationsFormParametersArgs) ToApiOperationRequestRepresentationsFormParametersOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsFormParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestRepresentationsFormParametersOutput)
+}
+
+type ApiOperationRequestRepresentationsFormParametersOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) DefaultValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentationsFormParameters) string {
+		if v.DefaultValue == nil { return *new(string) } else { return *v.DefaultValue }
+	}).(pulumi.StringOutput)
+}
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationRequestRepresentationsFormParametersOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentationsFormParameters) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentationsFormParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentationsFormParameters) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentationsFormParameters) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApiOperationRequestRepresentationsFormParameters) []string {
+		if v.Values == nil { return *new([]string) } else { return *v.Values }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApiOperationRequestRepresentationsFormParametersOutput) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsFormParametersType
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) ToApiOperationRequestRepresentationsFormParametersOutput() ApiOperationRequestRepresentationsFormParametersOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersOutput) ToApiOperationRequestRepresentationsFormParametersOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsFormParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestRepresentationsFormParametersOutput{}) }
+
+var apiOperationRequestRepresentationsFormParametersArrayType = reflect.TypeOf((*[]ApiOperationRequestRepresentationsFormParameters)(nil)).Elem()
+
+type ApiOperationRequestRepresentationsFormParametersArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationRequestRepresentationsFormParametersArrayOutput() ApiOperationRequestRepresentationsFormParametersArrayOutput
+	ToApiOperationRequestRepresentationsFormParametersArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsFormParametersArrayOutput
+}
+
+type ApiOperationRequestRepresentationsFormParametersArrayArgs []ApiOperationRequestRepresentationsFormParametersInput
+
+func (ApiOperationRequestRepresentationsFormParametersArrayArgs) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsFormParametersArrayType
+}
+
+func (a ApiOperationRequestRepresentationsFormParametersArrayArgs) ToApiOperationRequestRepresentationsFormParametersArrayOutput() ApiOperationRequestRepresentationsFormParametersArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationRequestRepresentationsFormParametersArrayOutput)
+}
+
+func (a ApiOperationRequestRepresentationsFormParametersArrayArgs) ToApiOperationRequestRepresentationsFormParametersArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsFormParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationRequestRepresentationsFormParametersArrayOutput)
+}
+
+type ApiOperationRequestRepresentationsFormParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationRequestRepresentationsFormParametersArrayOutput) Index(i pulumi.IntInput) ApiOperationRequestRepresentationsFormParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationRequestRepresentationsFormParameters {
+		return vs[0].([]ApiOperationRequestRepresentationsFormParameters)[vs[1].(int)]
+	}).(ApiOperationRequestRepresentationsFormParametersOutput)
+}
+
+func (ApiOperationRequestRepresentationsFormParametersArrayOutput) ElementType() reflect.Type {
+	return apiOperationRequestRepresentationsFormParametersArrayType
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersArrayOutput) ToApiOperationRequestRepresentationsFormParametersArrayOutput() ApiOperationRequestRepresentationsFormParametersArrayOutput {
+	return o
+}
+
+func (o ApiOperationRequestRepresentationsFormParametersArrayOutput) ToApiOperationRequestRepresentationsFormParametersArrayOutputWithContext(ctx context.Context) ApiOperationRequestRepresentationsFormParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationRequestRepresentationsFormParametersArrayOutput{}) }
+
+type ApiOperationResponses struct {
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Headers *[]ApiOperationResponsesHeaders `pulumi:"headers"`
+	Representations *[]ApiOperationResponsesRepresentations `pulumi:"representations"`
+	StatusCode int `pulumi:"statusCode"`
+}
+var apiOperationResponsesType = reflect.TypeOf((*ApiOperationResponses)(nil)).Elem()
+
+type ApiOperationResponsesInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesOutput() ApiOperationResponsesOutput
+	ToApiOperationResponsesOutputWithContext(ctx context.Context) ApiOperationResponsesOutput
+}
+
+type ApiOperationResponsesArgs struct {
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Headers ApiOperationResponsesHeadersArrayInput `pulumi:"headers"`
+	Representations ApiOperationResponsesRepresentationsArrayInput `pulumi:"representations"`
+	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+}
+
+func (ApiOperationResponsesArgs) ElementType() reflect.Type {
+	return apiOperationResponsesType
+}
+
+func (a ApiOperationResponsesArgs) ToApiOperationResponsesOutput() ApiOperationResponsesOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesOutput)
+}
+
+func (a ApiOperationResponsesArgs) ToApiOperationResponsesOutputWithContext(ctx context.Context) ApiOperationResponsesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesOutput)
+}
+
+type ApiOperationResponsesOutput struct { *pulumi.OutputState }
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationResponsesOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponses) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesOutput) Headers() ApiOperationResponsesHeadersArrayOutput {
+	return o.Apply(func(v ApiOperationResponses) []ApiOperationResponsesHeaders {
+		if v.Headers == nil { return *new([]ApiOperationResponsesHeaders) } else { return *v.Headers }
+	}).(ApiOperationResponsesHeadersArrayOutput)
+}
+
+func (o ApiOperationResponsesOutput) Representations() ApiOperationResponsesRepresentationsArrayOutput {
+	return o.Apply(func(v ApiOperationResponses) []ApiOperationResponsesRepresentations {
+		if v.Representations == nil { return *new([]ApiOperationResponsesRepresentations) } else { return *v.Representations }
+	}).(ApiOperationResponsesRepresentationsArrayOutput)
+}
+
+func (o ApiOperationResponsesOutput) StatusCode() pulumi.IntOutput {
+	return o.Apply(func(v ApiOperationResponses) int {
+		return v.StatusCode
+	}).(pulumi.IntOutput)
+}
+
+func (ApiOperationResponsesOutput) ElementType() reflect.Type {
+	return apiOperationResponsesType
+}
+
+func (o ApiOperationResponsesOutput) ToApiOperationResponsesOutput() ApiOperationResponsesOutput {
+	return o
+}
+
+func (o ApiOperationResponsesOutput) ToApiOperationResponsesOutputWithContext(ctx context.Context) ApiOperationResponsesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesOutput{}) }
+
+var apiOperationResponsesArrayType = reflect.TypeOf((*[]ApiOperationResponses)(nil)).Elem()
+
+type ApiOperationResponsesArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesArrayOutput() ApiOperationResponsesArrayOutput
+	ToApiOperationResponsesArrayOutputWithContext(ctx context.Context) ApiOperationResponsesArrayOutput
+}
+
+type ApiOperationResponsesArrayArgs []ApiOperationResponsesInput
+
+func (ApiOperationResponsesArrayArgs) ElementType() reflect.Type {
+	return apiOperationResponsesArrayType
+}
+
+func (a ApiOperationResponsesArrayArgs) ToApiOperationResponsesArrayOutput() ApiOperationResponsesArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesArrayOutput)
+}
+
+func (a ApiOperationResponsesArrayArgs) ToApiOperationResponsesArrayOutputWithContext(ctx context.Context) ApiOperationResponsesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesArrayOutput)
+}
+
+type ApiOperationResponsesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesArrayOutput) Index(i pulumi.IntInput) ApiOperationResponsesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationResponses {
+		return vs[0].([]ApiOperationResponses)[vs[1].(int)]
+	}).(ApiOperationResponsesOutput)
+}
+
+func (ApiOperationResponsesArrayOutput) ElementType() reflect.Type {
+	return apiOperationResponsesArrayType
+}
+
+func (o ApiOperationResponsesArrayOutput) ToApiOperationResponsesArrayOutput() ApiOperationResponsesArrayOutput {
+	return o
+}
+
+func (o ApiOperationResponsesArrayOutput) ToApiOperationResponsesArrayOutputWithContext(ctx context.Context) ApiOperationResponsesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesArrayOutput{}) }
+
+type ApiOperationResponsesHeaders struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Name string `pulumi:"name"`
+	Required bool `pulumi:"required"`
+	Type string `pulumi:"type"`
+	Values *[]string `pulumi:"values"`
+}
+var apiOperationResponsesHeadersType = reflect.TypeOf((*ApiOperationResponsesHeaders)(nil)).Elem()
+
+type ApiOperationResponsesHeadersInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesHeadersOutput() ApiOperationResponsesHeadersOutput
+	ToApiOperationResponsesHeadersOutputWithContext(ctx context.Context) ApiOperationResponsesHeadersOutput
+}
+
+type ApiOperationResponsesHeadersArgs struct {
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Name pulumi.StringInput `pulumi:"name"`
+	Required pulumi.BoolInput `pulumi:"required"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApiOperationResponsesHeadersArgs) ElementType() reflect.Type {
+	return apiOperationResponsesHeadersType
+}
+
+func (a ApiOperationResponsesHeadersArgs) ToApiOperationResponsesHeadersOutput() ApiOperationResponsesHeadersOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesHeadersOutput)
+}
+
+func (a ApiOperationResponsesHeadersArgs) ToApiOperationResponsesHeadersOutputWithContext(ctx context.Context) ApiOperationResponsesHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesHeadersOutput)
+}
+
+type ApiOperationResponsesHeadersOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesHeadersOutput) DefaultValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesHeaders) string {
+		if v.DefaultValue == nil { return *new(string) } else { return *v.DefaultValue }
+	}).(pulumi.StringOutput)
+}
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationResponsesHeadersOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesHeaders) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesHeadersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesHeaders) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesHeadersOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v ApiOperationResponsesHeaders) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApiOperationResponsesHeadersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesHeaders) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesHeadersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApiOperationResponsesHeaders) []string {
+		if v.Values == nil { return *new([]string) } else { return *v.Values }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApiOperationResponsesHeadersOutput) ElementType() reflect.Type {
+	return apiOperationResponsesHeadersType
+}
+
+func (o ApiOperationResponsesHeadersOutput) ToApiOperationResponsesHeadersOutput() ApiOperationResponsesHeadersOutput {
+	return o
+}
+
+func (o ApiOperationResponsesHeadersOutput) ToApiOperationResponsesHeadersOutputWithContext(ctx context.Context) ApiOperationResponsesHeadersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesHeadersOutput{}) }
+
+var apiOperationResponsesHeadersArrayType = reflect.TypeOf((*[]ApiOperationResponsesHeaders)(nil)).Elem()
+
+type ApiOperationResponsesHeadersArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesHeadersArrayOutput() ApiOperationResponsesHeadersArrayOutput
+	ToApiOperationResponsesHeadersArrayOutputWithContext(ctx context.Context) ApiOperationResponsesHeadersArrayOutput
+}
+
+type ApiOperationResponsesHeadersArrayArgs []ApiOperationResponsesHeadersInput
+
+func (ApiOperationResponsesHeadersArrayArgs) ElementType() reflect.Type {
+	return apiOperationResponsesHeadersArrayType
+}
+
+func (a ApiOperationResponsesHeadersArrayArgs) ToApiOperationResponsesHeadersArrayOutput() ApiOperationResponsesHeadersArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesHeadersArrayOutput)
+}
+
+func (a ApiOperationResponsesHeadersArrayArgs) ToApiOperationResponsesHeadersArrayOutputWithContext(ctx context.Context) ApiOperationResponsesHeadersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesHeadersArrayOutput)
+}
+
+type ApiOperationResponsesHeadersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesHeadersArrayOutput) Index(i pulumi.IntInput) ApiOperationResponsesHeadersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationResponsesHeaders {
+		return vs[0].([]ApiOperationResponsesHeaders)[vs[1].(int)]
+	}).(ApiOperationResponsesHeadersOutput)
+}
+
+func (ApiOperationResponsesHeadersArrayOutput) ElementType() reflect.Type {
+	return apiOperationResponsesHeadersArrayType
+}
+
+func (o ApiOperationResponsesHeadersArrayOutput) ToApiOperationResponsesHeadersArrayOutput() ApiOperationResponsesHeadersArrayOutput {
+	return o
+}
+
+func (o ApiOperationResponsesHeadersArrayOutput) ToApiOperationResponsesHeadersArrayOutputWithContext(ctx context.Context) ApiOperationResponsesHeadersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesHeadersArrayOutput{}) }
+
+type ApiOperationResponsesRepresentations struct {
+	ContentType string `pulumi:"contentType"`
+	FormParameters *[]ApiOperationResponsesRepresentationsFormParameters `pulumi:"formParameters"`
+	Sample *string `pulumi:"sample"`
+	SchemaId *string `pulumi:"schemaId"`
+	TypeName *string `pulumi:"typeName"`
+}
+var apiOperationResponsesRepresentationsType = reflect.TypeOf((*ApiOperationResponsesRepresentations)(nil)).Elem()
+
+type ApiOperationResponsesRepresentationsInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesRepresentationsOutput() ApiOperationResponsesRepresentationsOutput
+	ToApiOperationResponsesRepresentationsOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsOutput
+}
+
+type ApiOperationResponsesRepresentationsArgs struct {
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	FormParameters ApiOperationResponsesRepresentationsFormParametersArrayInput `pulumi:"formParameters"`
+	Sample pulumi.StringInput `pulumi:"sample"`
+	SchemaId pulumi.StringInput `pulumi:"schemaId"`
+	TypeName pulumi.StringInput `pulumi:"typeName"`
+}
+
+func (ApiOperationResponsesRepresentationsArgs) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsType
+}
+
+func (a ApiOperationResponsesRepresentationsArgs) ToApiOperationResponsesRepresentationsOutput() ApiOperationResponsesRepresentationsOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesRepresentationsOutput)
+}
+
+func (a ApiOperationResponsesRepresentationsArgs) ToApiOperationResponsesRepresentationsOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesRepresentationsOutput)
+}
+
+type ApiOperationResponsesRepresentationsOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesRepresentationsOutput) ContentType() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentations) string {
+		return v.ContentType
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsOutput) FormParameters() ApiOperationResponsesRepresentationsFormParametersArrayOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentations) []ApiOperationResponsesRepresentationsFormParameters {
+		if v.FormParameters == nil { return *new([]ApiOperationResponsesRepresentationsFormParameters) } else { return *v.FormParameters }
+	}).(ApiOperationResponsesRepresentationsFormParametersArrayOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsOutput) Sample() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentations) string {
+		if v.Sample == nil { return *new(string) } else { return *v.Sample }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsOutput) SchemaId() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentations) string {
+		if v.SchemaId == nil { return *new(string) } else { return *v.SchemaId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsOutput) TypeName() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentations) string {
+		if v.TypeName == nil { return *new(string) } else { return *v.TypeName }
+	}).(pulumi.StringOutput)
+}
+
+func (ApiOperationResponsesRepresentationsOutput) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsType
+}
+
+func (o ApiOperationResponsesRepresentationsOutput) ToApiOperationResponsesRepresentationsOutput() ApiOperationResponsesRepresentationsOutput {
+	return o
+}
+
+func (o ApiOperationResponsesRepresentationsOutput) ToApiOperationResponsesRepresentationsOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesRepresentationsOutput{}) }
+
+var apiOperationResponsesRepresentationsArrayType = reflect.TypeOf((*[]ApiOperationResponsesRepresentations)(nil)).Elem()
+
+type ApiOperationResponsesRepresentationsArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesRepresentationsArrayOutput() ApiOperationResponsesRepresentationsArrayOutput
+	ToApiOperationResponsesRepresentationsArrayOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsArrayOutput
+}
+
+type ApiOperationResponsesRepresentationsArrayArgs []ApiOperationResponsesRepresentationsInput
+
+func (ApiOperationResponsesRepresentationsArrayArgs) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsArrayType
+}
+
+func (a ApiOperationResponsesRepresentationsArrayArgs) ToApiOperationResponsesRepresentationsArrayOutput() ApiOperationResponsesRepresentationsArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesRepresentationsArrayOutput)
+}
+
+func (a ApiOperationResponsesRepresentationsArrayArgs) ToApiOperationResponsesRepresentationsArrayOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesRepresentationsArrayOutput)
+}
+
+type ApiOperationResponsesRepresentationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesRepresentationsArrayOutput) Index(i pulumi.IntInput) ApiOperationResponsesRepresentationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationResponsesRepresentations {
+		return vs[0].([]ApiOperationResponsesRepresentations)[vs[1].(int)]
+	}).(ApiOperationResponsesRepresentationsOutput)
+}
+
+func (ApiOperationResponsesRepresentationsArrayOutput) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsArrayType
+}
+
+func (o ApiOperationResponsesRepresentationsArrayOutput) ToApiOperationResponsesRepresentationsArrayOutput() ApiOperationResponsesRepresentationsArrayOutput {
+	return o
+}
+
+func (o ApiOperationResponsesRepresentationsArrayOutput) ToApiOperationResponsesRepresentationsArrayOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesRepresentationsArrayOutput{}) }
+
+type ApiOperationResponsesRepresentationsFormParameters struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Name string `pulumi:"name"`
+	Required bool `pulumi:"required"`
+	Type string `pulumi:"type"`
+	Values *[]string `pulumi:"values"`
+}
+var apiOperationResponsesRepresentationsFormParametersType = reflect.TypeOf((*ApiOperationResponsesRepresentationsFormParameters)(nil)).Elem()
+
+type ApiOperationResponsesRepresentationsFormParametersInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesRepresentationsFormParametersOutput() ApiOperationResponsesRepresentationsFormParametersOutput
+	ToApiOperationResponsesRepresentationsFormParametersOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsFormParametersOutput
+}
+
+type ApiOperationResponsesRepresentationsFormParametersArgs struct {
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Name pulumi.StringInput `pulumi:"name"`
+	Required pulumi.BoolInput `pulumi:"required"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApiOperationResponsesRepresentationsFormParametersArgs) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsFormParametersType
+}
+
+func (a ApiOperationResponsesRepresentationsFormParametersArgs) ToApiOperationResponsesRepresentationsFormParametersOutput() ApiOperationResponsesRepresentationsFormParametersOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesRepresentationsFormParametersOutput)
+}
+
+func (a ApiOperationResponsesRepresentationsFormParametersArgs) ToApiOperationResponsesRepresentationsFormParametersOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsFormParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesRepresentationsFormParametersOutput)
+}
+
+type ApiOperationResponsesRepresentationsFormParametersOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) DefaultValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentationsFormParameters) string {
+		if v.DefaultValue == nil { return *new(string) } else { return *v.DefaultValue }
+	}).(pulumi.StringOutput)
+}
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentationsFormParameters) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentationsFormParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentationsFormParameters) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentationsFormParameters) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApiOperationResponsesRepresentationsFormParameters) []string {
+		if v.Values == nil { return *new([]string) } else { return *v.Values }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApiOperationResponsesRepresentationsFormParametersOutput) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsFormParametersType
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) ToApiOperationResponsesRepresentationsFormParametersOutput() ApiOperationResponsesRepresentationsFormParametersOutput {
+	return o
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersOutput) ToApiOperationResponsesRepresentationsFormParametersOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsFormParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesRepresentationsFormParametersOutput{}) }
+
+var apiOperationResponsesRepresentationsFormParametersArrayType = reflect.TypeOf((*[]ApiOperationResponsesRepresentationsFormParameters)(nil)).Elem()
+
+type ApiOperationResponsesRepresentationsFormParametersArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationResponsesRepresentationsFormParametersArrayOutput() ApiOperationResponsesRepresentationsFormParametersArrayOutput
+	ToApiOperationResponsesRepresentationsFormParametersArrayOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsFormParametersArrayOutput
+}
+
+type ApiOperationResponsesRepresentationsFormParametersArrayArgs []ApiOperationResponsesRepresentationsFormParametersInput
+
+func (ApiOperationResponsesRepresentationsFormParametersArrayArgs) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsFormParametersArrayType
+}
+
+func (a ApiOperationResponsesRepresentationsFormParametersArrayArgs) ToApiOperationResponsesRepresentationsFormParametersArrayOutput() ApiOperationResponsesRepresentationsFormParametersArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationResponsesRepresentationsFormParametersArrayOutput)
+}
+
+func (a ApiOperationResponsesRepresentationsFormParametersArrayArgs) ToApiOperationResponsesRepresentationsFormParametersArrayOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsFormParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationResponsesRepresentationsFormParametersArrayOutput)
+}
+
+type ApiOperationResponsesRepresentationsFormParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationResponsesRepresentationsFormParametersArrayOutput) Index(i pulumi.IntInput) ApiOperationResponsesRepresentationsFormParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationResponsesRepresentationsFormParameters {
+		return vs[0].([]ApiOperationResponsesRepresentationsFormParameters)[vs[1].(int)]
+	}).(ApiOperationResponsesRepresentationsFormParametersOutput)
+}
+
+func (ApiOperationResponsesRepresentationsFormParametersArrayOutput) ElementType() reflect.Type {
+	return apiOperationResponsesRepresentationsFormParametersArrayType
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersArrayOutput) ToApiOperationResponsesRepresentationsFormParametersArrayOutput() ApiOperationResponsesRepresentationsFormParametersArrayOutput {
+	return o
+}
+
+func (o ApiOperationResponsesRepresentationsFormParametersArrayOutput) ToApiOperationResponsesRepresentationsFormParametersArrayOutputWithContext(ctx context.Context) ApiOperationResponsesRepresentationsFormParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationResponsesRepresentationsFormParametersArrayOutput{}) }
+
+type ApiOperationTemplateParameters struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	Name string `pulumi:"name"`
+	Required bool `pulumi:"required"`
+	Type string `pulumi:"type"`
+	Values *[]string `pulumi:"values"`
+}
+var apiOperationTemplateParametersType = reflect.TypeOf((*ApiOperationTemplateParameters)(nil)).Elem()
+
+type ApiOperationTemplateParametersInput interface {
+	pulumi.Input
+
+	ToApiOperationTemplateParametersOutput() ApiOperationTemplateParametersOutput
+	ToApiOperationTemplateParametersOutputWithContext(ctx context.Context) ApiOperationTemplateParametersOutput
+}
+
+type ApiOperationTemplateParametersArgs struct {
+	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
+	// A description for this API Operation, which may include HTML formatting tags.
+	Description pulumi.StringInput `pulumi:"description"`
+	Name pulumi.StringInput `pulumi:"name"`
+	Required pulumi.BoolInput `pulumi:"required"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ApiOperationTemplateParametersArgs) ElementType() reflect.Type {
+	return apiOperationTemplateParametersType
+}
+
+func (a ApiOperationTemplateParametersArgs) ToApiOperationTemplateParametersOutput() ApiOperationTemplateParametersOutput {
+	return pulumi.ToOutput(a).(ApiOperationTemplateParametersOutput)
+}
+
+func (a ApiOperationTemplateParametersArgs) ToApiOperationTemplateParametersOutputWithContext(ctx context.Context) ApiOperationTemplateParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationTemplateParametersOutput)
+}
+
+type ApiOperationTemplateParametersOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationTemplateParametersOutput) DefaultValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationTemplateParameters) string {
+		if v.DefaultValue == nil { return *new(string) } else { return *v.DefaultValue }
+	}).(pulumi.StringOutput)
+}
+
+// A description for this API Operation, which may include HTML formatting tags.
+func (o ApiOperationTemplateParametersOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationTemplateParameters) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationTemplateParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationTemplateParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationTemplateParametersOutput) Required() pulumi.BoolOutput {
+	return o.Apply(func(v ApiOperationTemplateParameters) bool {
+		return v.Required
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApiOperationTemplateParametersOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApiOperationTemplateParameters) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiOperationTemplateParametersOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApiOperationTemplateParameters) []string {
+		if v.Values == nil { return *new([]string) } else { return *v.Values }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApiOperationTemplateParametersOutput) ElementType() reflect.Type {
+	return apiOperationTemplateParametersType
+}
+
+func (o ApiOperationTemplateParametersOutput) ToApiOperationTemplateParametersOutput() ApiOperationTemplateParametersOutput {
+	return o
+}
+
+func (o ApiOperationTemplateParametersOutput) ToApiOperationTemplateParametersOutputWithContext(ctx context.Context) ApiOperationTemplateParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationTemplateParametersOutput{}) }
+
+var apiOperationTemplateParametersArrayType = reflect.TypeOf((*[]ApiOperationTemplateParameters)(nil)).Elem()
+
+type ApiOperationTemplateParametersArrayInput interface {
+	pulumi.Input
+
+	ToApiOperationTemplateParametersArrayOutput() ApiOperationTemplateParametersArrayOutput
+	ToApiOperationTemplateParametersArrayOutputWithContext(ctx context.Context) ApiOperationTemplateParametersArrayOutput
+}
+
+type ApiOperationTemplateParametersArrayArgs []ApiOperationTemplateParametersInput
+
+func (ApiOperationTemplateParametersArrayArgs) ElementType() reflect.Type {
+	return apiOperationTemplateParametersArrayType
+}
+
+func (a ApiOperationTemplateParametersArrayArgs) ToApiOperationTemplateParametersArrayOutput() ApiOperationTemplateParametersArrayOutput {
+	return pulumi.ToOutput(a).(ApiOperationTemplateParametersArrayOutput)
+}
+
+func (a ApiOperationTemplateParametersArrayArgs) ToApiOperationTemplateParametersArrayOutputWithContext(ctx context.Context) ApiOperationTemplateParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiOperationTemplateParametersArrayOutput)
+}
+
+type ApiOperationTemplateParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApiOperationTemplateParametersArrayOutput) Index(i pulumi.IntInput) ApiOperationTemplateParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApiOperationTemplateParameters {
+		return vs[0].([]ApiOperationTemplateParameters)[vs[1].(int)]
+	}).(ApiOperationTemplateParametersOutput)
+}
+
+func (ApiOperationTemplateParametersArrayOutput) ElementType() reflect.Type {
+	return apiOperationTemplateParametersArrayType
+}
+
+func (o ApiOperationTemplateParametersArrayOutput) ToApiOperationTemplateParametersArrayOutput() ApiOperationTemplateParametersArrayOutput {
+	return o
+}
+
+func (o ApiOperationTemplateParametersArrayOutput) ToApiOperationTemplateParametersArrayOutputWithContext(ctx context.Context) ApiOperationTemplateParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiOperationTemplateParametersArrayOutput{}) }
+

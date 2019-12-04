@@ -16,12 +16,40 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
 type NatPool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
+	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
+
+	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+
+	// The name of the frontend IP configuration exposing this rule.
+	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
+
+	// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+	FrontendPortEnd pulumi.IntOutput `pulumi:"frontendPortEnd"`
+
+	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+	FrontendPortStart pulumi.IntOutput `pulumi:"frontendPortStart"`
+
+	// The ID of the Load Balancer in which to create the NAT pool.
+	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the NAT pool.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+
+	// The name of the resource group in which to create the resource.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewNatPool registers a new resource with the given unique name, arguments, and options.
 func NewNatPool(ctx *pulumi.Context,
-	name string, args *NatPoolArgs, opts ...pulumi.ResourceOpt) (*NatPool, error) {
+	name string, args *NatPoolArgs, opts ...pulumi.ResourceOption) (*NatPool, error) {
 	if args == nil || args.BackendPort == nil {
 		return nil, errors.New("missing required argument 'BackendPort'")
 	}
@@ -43,157 +71,90 @@ func NewNatPool(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["backendPort"] = nil
-		inputs["frontendIpConfigurationName"] = nil
-		inputs["frontendPortEnd"] = nil
-		inputs["frontendPortStart"] = nil
-		inputs["loadbalancerId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["protocol"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["backendPort"] = args.BackendPort
-		inputs["frontendIpConfigurationName"] = args.FrontendIpConfigurationName
-		inputs["frontendPortEnd"] = args.FrontendPortEnd
-		inputs["frontendPortStart"] = args.FrontendPortStart
-		inputs["loadbalancerId"] = args.LoadbalancerId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["protocol"] = args.Protocol
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BackendPort; i != nil { inputs["backendPort"] = i.ToIntOutput() }
+		if i := args.FrontendIpConfigurationName; i != nil { inputs["frontendIpConfigurationName"] = i.ToStringOutput() }
+		if i := args.FrontendPortEnd; i != nil { inputs["frontendPortEnd"] = i.ToIntOutput() }
+		if i := args.FrontendPortStart; i != nil { inputs["frontendPortStart"] = i.ToIntOutput() }
+		if i := args.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	inputs["frontendIpConfigurationId"] = nil
-	s, err := ctx.RegisterResource("azure:lb/natPool:NatPool", name, true, inputs, opts...)
+	var resource NatPool
+	err := ctx.RegisterResource("azure:lb/natPool:NatPool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NatPool{s: s}, nil
+	return &resource, nil
 }
 
 // GetNatPool gets an existing NatPool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNatPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NatPoolState, opts ...pulumi.ResourceOpt) (*NatPool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NatPoolState, opts ...pulumi.ResourceOption) (*NatPool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backendPort"] = state.BackendPort
-		inputs["frontendIpConfigurationId"] = state.FrontendIpConfigurationId
-		inputs["frontendIpConfigurationName"] = state.FrontendIpConfigurationName
-		inputs["frontendPortEnd"] = state.FrontendPortEnd
-		inputs["frontendPortStart"] = state.FrontendPortStart
-		inputs["loadbalancerId"] = state.LoadbalancerId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["protocol"] = state.Protocol
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.BackendPort; i != nil { inputs["backendPort"] = i.ToIntOutput() }
+		if i := state.FrontendIpConfigurationId; i != nil { inputs["frontendIpConfigurationId"] = i.ToStringOutput() }
+		if i := state.FrontendIpConfigurationName; i != nil { inputs["frontendIpConfigurationName"] = i.ToStringOutput() }
+		if i := state.FrontendPortEnd; i != nil { inputs["frontendPortEnd"] = i.ToIntOutput() }
+		if i := state.FrontendPortStart; i != nil { inputs["frontendPortStart"] = i.ToIntOutput() }
+		if i := state.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:lb/natPool:NatPool", name, id, inputs, opts...)
+	var resource NatPool
+	err := ctx.ReadResource("azure:lb/natPool:NatPool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NatPool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NatPool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NatPool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-func (r *NatPool) BackendPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["backendPort"])
-}
-
-func (r *NatPool) FrontendIpConfigurationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
-}
-
-// The name of the frontend IP configuration exposing this rule.
-func (r *NatPool) FrontendIpConfigurationName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
-}
-
-// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-func (r *NatPool) FrontendPortEnd() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["frontendPortEnd"])
-}
-
-// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-func (r *NatPool) FrontendPortStart() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["frontendPortStart"])
-}
-
-// The ID of the Load Balancer in which to create the NAT pool.
-func (r *NatPool) LoadbalancerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
-}
-
-func (r *NatPool) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the NAT pool.
-func (r *NatPool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
-func (r *NatPool) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
-}
-
-// The name of the resource group in which to create the resource.
-func (r *NatPool) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NatPool resources.
 type NatPoolState struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort interface{}
-	FrontendIpConfigurationId interface{}
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
-	FrontendIpConfigurationName interface{}
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-	FrontendPortEnd interface{}
+	FrontendPortEnd pulumi.IntInput `pulumi:"frontendPortEnd"`
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-	FrontendPortStart interface{}
+	FrontendPortStart pulumi.IntInput `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the NAT pool.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NatPool resource.
 type NatPoolArgs struct {
 	// The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort interface{}
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The name of the frontend IP configuration exposing this rule.
-	FrontendIpConfigurationName interface{}
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-	FrontendPortEnd interface{}
+	FrontendPortEnd pulumi.IntInput `pulumi:"frontendPortEnd"`
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-	FrontendPortStart interface{}
+	FrontendPortStart pulumi.IntInput `pulumi:"frontendPortStart"`
 	// The ID of the Load Balancer in which to create the NAT pool.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the NAT pool.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

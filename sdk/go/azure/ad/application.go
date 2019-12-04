@@ -9,132 +9,102 @@ import (
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_application.html.markdown.
 type Application struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+
+	// Is this Azure AD Application available to other tenants? Defaults to `false`.
+	AvailableToOtherTenants pulumi.BoolOutput `pulumi:"availableToOtherTenants"`
+
+	// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
+	Homepage pulumi.StringOutput `pulumi:"homepage"`
+
+	// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
+	IdentifierUris pulumi.StringArrayOutput `pulumi:"identifierUris"`
+
+	// The display name for the application.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
+	Oauth2AllowImplicitFlow pulumi.BoolOutput `pulumi:"oauth2AllowImplicitFlow"`
+
+	// A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
+	ReplyUrls pulumi.StringArrayOutput `pulumi:"replyUrls"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
-	name string, args *ApplicationArgs, opts ...pulumi.ResourceOpt) (*Application, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["availableToOtherTenants"] = nil
-		inputs["homepage"] = nil
-		inputs["identifierUris"] = nil
-		inputs["name"] = nil
-		inputs["oauth2AllowImplicitFlow"] = nil
-		inputs["replyUrls"] = nil
-	} else {
-		inputs["availableToOtherTenants"] = args.AvailableToOtherTenants
-		inputs["homepage"] = args.Homepage
-		inputs["identifierUris"] = args.IdentifierUris
-		inputs["name"] = args.Name
-		inputs["oauth2AllowImplicitFlow"] = args.Oauth2AllowImplicitFlow
-		inputs["replyUrls"] = args.ReplyUrls
+	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AvailableToOtherTenants; i != nil { inputs["availableToOtherTenants"] = i.ToBoolOutput() }
+		if i := args.Homepage; i != nil { inputs["homepage"] = i.ToStringOutput() }
+		if i := args.IdentifierUris; i != nil { inputs["identifierUris"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Oauth2AllowImplicitFlow; i != nil { inputs["oauth2AllowImplicitFlow"] = i.ToBoolOutput() }
+		if i := args.ReplyUrls; i != nil { inputs["replyUrls"] = i.ToStringArrayOutput() }
 	}
-	inputs["applicationId"] = nil
-	s, err := ctx.RegisterResource("azure:ad/application:Application", name, true, inputs, opts...)
+	var resource Application
+	err := ctx.RegisterResource("azure:ad/application:Application", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
+	return &resource, nil
 }
 
 // GetApplication gets an existing Application resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApplication(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApplicationState, opts ...pulumi.ResourceOpt) (*Application, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationId"] = state.ApplicationId
-		inputs["availableToOtherTenants"] = state.AvailableToOtherTenants
-		inputs["homepage"] = state.Homepage
-		inputs["identifierUris"] = state.IdentifierUris
-		inputs["name"] = state.Name
-		inputs["oauth2AllowImplicitFlow"] = state.Oauth2AllowImplicitFlow
-		inputs["replyUrls"] = state.ReplyUrls
+		if i := state.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := state.AvailableToOtherTenants; i != nil { inputs["availableToOtherTenants"] = i.ToBoolOutput() }
+		if i := state.Homepage; i != nil { inputs["homepage"] = i.ToStringOutput() }
+		if i := state.IdentifierUris; i != nil { inputs["identifierUris"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Oauth2AllowImplicitFlow; i != nil { inputs["oauth2AllowImplicitFlow"] = i.ToBoolOutput() }
+		if i := state.ReplyUrls; i != nil { inputs["replyUrls"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:ad/application:Application", name, id, inputs, opts...)
+	var resource Application
+	err := ctx.ReadResource("azure:ad/application:Application", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Application ID.
-func (r *Application) ApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationId"])
-}
-
-// Is this Azure AD Application available to other tenants? Defaults to `false`.
-func (r *Application) AvailableToOtherTenants() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["availableToOtherTenants"])
-}
-
-// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
-func (r *Application) Homepage() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["homepage"])
-}
-
-// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
-func (r *Application) IdentifierUris() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["identifierUris"])
-}
-
-// The display name for the application.
-func (r *Application) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
-func (r *Application) Oauth2AllowImplicitFlow() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["oauth2AllowImplicitFlow"])
-}
-
-// A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
-func (r *Application) ReplyUrls() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["replyUrls"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
 	// The Application ID.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
-	AvailableToOtherTenants interface{}
+	AvailableToOtherTenants pulumi.BoolInput `pulumi:"availableToOtherTenants"`
 	// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
-	Homepage interface{}
+	Homepage pulumi.StringInput `pulumi:"homepage"`
 	// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
-	IdentifierUris interface{}
+	IdentifierUris pulumi.StringArrayInput `pulumi:"identifierUris"`
 	// The display name for the application.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
-	Oauth2AllowImplicitFlow interface{}
+	Oauth2AllowImplicitFlow pulumi.BoolInput `pulumi:"oauth2AllowImplicitFlow"`
 	// A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
-	ReplyUrls interface{}
+	ReplyUrls pulumi.StringArrayInput `pulumi:"replyUrls"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
-	AvailableToOtherTenants interface{}
+	AvailableToOtherTenants pulumi.BoolInput `pulumi:"availableToOtherTenants"`
 	// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
-	Homepage interface{}
+	Homepage pulumi.StringInput `pulumi:"homepage"`
 	// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
-	IdentifierUris interface{}
+	IdentifierUris pulumi.StringArrayInput `pulumi:"identifierUris"`
 	// The display name for the application.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
-	Oauth2AllowImplicitFlow interface{}
+	Oauth2AllowImplicitFlow pulumi.BoolInput `pulumi:"oauth2AllowImplicitFlow"`
 	// A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
-	ReplyUrls interface{}
+	ReplyUrls pulumi.StringArrayInput `pulumi:"replyUrls"`
 }

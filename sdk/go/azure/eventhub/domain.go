@@ -4,6 +4,8 @@
 package eventhub
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,165 +14,309 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain_legacy.html.markdown.
 type Domain struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Endpoint associated with the EventGrid Domain.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// A `inputMappingDefaultValues` block as defined below.
+	InputMappingDefaultValues DomainInputMappingDefaultValuesOutput `pulumi:"inputMappingDefaultValues"`
+
+	// A `inputMappingFields` block as defined below.
+	InputMappingFields DomainInputMappingFieldsOutput `pulumi:"inputMappingFields"`
+
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+	InputSchema pulumi.StringOutput `pulumi:"inputSchema"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Primary Shared Access Key associated with the EventGrid Domain.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Secondary Shared Access Key associated with the EventGrid Domain.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
-	name string, args *DomainArgs, opts ...pulumi.ResourceOpt) (*Domain, error) {
+	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["inputMappingDefaultValues"] = nil
-		inputs["inputMappingFields"] = nil
-		inputs["inputSchema"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["inputMappingDefaultValues"] = args.InputMappingDefaultValues
-		inputs["inputMappingFields"] = args.InputMappingFields
-		inputs["inputSchema"] = args.InputSchema
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.InputMappingDefaultValues; i != nil { inputs["inputMappingDefaultValues"] = i.ToDomainInputMappingDefaultValuesOutput() }
+		if i := args.InputMappingFields; i != nil { inputs["inputMappingFields"] = i.ToDomainInputMappingFieldsOutput() }
+		if i := args.InputSchema; i != nil { inputs["inputSchema"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["endpoint"] = nil
-	inputs["primaryAccessKey"] = nil
-	inputs["secondaryAccessKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/domain:Domain", name, true, inputs, opts...)
+	var resource Domain
+	err := ctx.RegisterResource("azure:eventhub/domain:Domain", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{s: s}, nil
+	return &resource, nil
 }
 
 // GetDomain gets an existing Domain resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDomain(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DomainState, opts ...pulumi.ResourceOpt) (*Domain, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["endpoint"] = state.Endpoint
-		inputs["inputMappingDefaultValues"] = state.InputMappingDefaultValues
-		inputs["inputMappingFields"] = state.InputMappingFields
-		inputs["inputSchema"] = state.InputSchema
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["tags"] = state.Tags
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.InputMappingDefaultValues; i != nil { inputs["inputMappingDefaultValues"] = i.ToDomainInputMappingDefaultValuesOutput() }
+		if i := state.InputMappingFields; i != nil { inputs["inputMappingFields"] = i.ToDomainInputMappingFieldsOutput() }
+		if i := state.InputSchema; i != nil { inputs["inputSchema"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/domain:Domain", name, id, inputs, opts...)
+	var resource Domain
+	err := ctx.ReadResource("azure:eventhub/domain:Domain", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Domain{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Domain) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Domain) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Endpoint associated with the EventGrid Domain.
-func (r *Domain) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// A `inputMappingDefaultValues` block as defined below.
-func (r *Domain) InputMappingDefaultValues() pulumi.Output {
-	return r.s.State["inputMappingDefaultValues"]
-}
-
-// A `inputMappingFields` block as defined below.
-func (r *Domain) InputMappingFields() pulumi.Output {
-	return r.s.State["inputMappingFields"]
-}
-
-// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
-func (r *Domain) InputSchema() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["inputSchema"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Domain) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
-func (r *Domain) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Primary Shared Access Key associated with the EventGrid Domain.
-func (r *Domain) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
-func (r *Domain) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Secondary Shared Access Key associated with the EventGrid Domain.
-func (r *Domain) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Domain) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Domain resources.
 type DomainState struct {
 	// The Endpoint associated with the EventGrid Domain.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// A `inputMappingDefaultValues` block as defined below.
-	InputMappingDefaultValues interface{}
+	InputMappingDefaultValues DomainInputMappingDefaultValuesInput `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
-	InputMappingFields interface{}
+	InputMappingFields DomainInputMappingFieldsInput `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
-	InputSchema interface{}
+	InputSchema pulumi.StringInput `pulumi:"inputSchema"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Domain.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Domain.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// A `inputMappingDefaultValues` block as defined below.
-	InputMappingDefaultValues interface{}
+	InputMappingDefaultValues DomainInputMappingDefaultValuesInput `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below.
-	InputMappingFields interface{}
+	InputMappingFields DomainInputMappingFieldsInput `pulumi:"inputMappingFields"`
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
-	InputSchema interface{}
+	InputSchema pulumi.StringInput `pulumi:"inputSchema"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type DomainInputMappingDefaultValues struct {
+	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion *string `pulumi:"dataVersion"`
+	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType *string `pulumi:"eventType"`
+	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject *string `pulumi:"subject"`
+}
+var domainInputMappingDefaultValuesType = reflect.TypeOf((*DomainInputMappingDefaultValues)(nil)).Elem()
+
+type DomainInputMappingDefaultValuesInput interface {
+	pulumi.Input
+
+	ToDomainInputMappingDefaultValuesOutput() DomainInputMappingDefaultValuesOutput
+	ToDomainInputMappingDefaultValuesOutputWithContext(ctx context.Context) DomainInputMappingDefaultValuesOutput
+}
+
+type DomainInputMappingDefaultValuesArgs struct {
+	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion pulumi.StringInput `pulumi:"dataVersion"`
+	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject pulumi.StringInput `pulumi:"subject"`
+}
+
+func (DomainInputMappingDefaultValuesArgs) ElementType() reflect.Type {
+	return domainInputMappingDefaultValuesType
+}
+
+func (a DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesOutput() DomainInputMappingDefaultValuesOutput {
+	return pulumi.ToOutput(a).(DomainInputMappingDefaultValuesOutput)
+}
+
+func (a DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesOutputWithContext(ctx context.Context) DomainInputMappingDefaultValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainInputMappingDefaultValuesOutput)
+}
+
+type DomainInputMappingDefaultValuesOutput struct { *pulumi.OutputState }
+
+// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingDefaultValuesOutput) DataVersion() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingDefaultValues) string {
+		if v.DataVersion == nil { return *new(string) } else { return *v.DataVersion }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingDefaultValuesOutput) EventType() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingDefaultValues) string {
+		if v.EventType == nil { return *new(string) } else { return *v.EventType }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingDefaultValuesOutput) Subject() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingDefaultValues) string {
+		if v.Subject == nil { return *new(string) } else { return *v.Subject }
+	}).(pulumi.StringOutput)
+}
+
+func (DomainInputMappingDefaultValuesOutput) ElementType() reflect.Type {
+	return domainInputMappingDefaultValuesType
+}
+
+func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValuesOutput() DomainInputMappingDefaultValuesOutput {
+	return o
+}
+
+func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValuesOutputWithContext(ctx context.Context) DomainInputMappingDefaultValuesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainInputMappingDefaultValuesOutput{}) }
+
+type DomainInputMappingFields struct {
+	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion *string `pulumi:"dataVersion"`
+	// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventTime *string `pulumi:"eventTime"`
+	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType *string `pulumi:"eventType"`
+	// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Id *string `pulumi:"id"`
+	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject *string `pulumi:"subject"`
+	// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Topic *string `pulumi:"topic"`
+}
+var domainInputMappingFieldsType = reflect.TypeOf((*DomainInputMappingFields)(nil)).Elem()
+
+type DomainInputMappingFieldsInput interface {
+	pulumi.Input
+
+	ToDomainInputMappingFieldsOutput() DomainInputMappingFieldsOutput
+	ToDomainInputMappingFieldsOutputWithContext(ctx context.Context) DomainInputMappingFieldsOutput
+}
+
+type DomainInputMappingFieldsArgs struct {
+	// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	DataVersion pulumi.StringInput `pulumi:"dataVersion"`
+	// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventTime pulumi.StringInput `pulumi:"eventTime"`
+	// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+	Topic pulumi.StringInput `pulumi:"topic"`
+}
+
+func (DomainInputMappingFieldsArgs) ElementType() reflect.Type {
+	return domainInputMappingFieldsType
+}
+
+func (a DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsOutput() DomainInputMappingFieldsOutput {
+	return pulumi.ToOutput(a).(DomainInputMappingFieldsOutput)
+}
+
+func (a DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsOutputWithContext(ctx context.Context) DomainInputMappingFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DomainInputMappingFieldsOutput)
+}
+
+type DomainInputMappingFieldsOutput struct { *pulumi.OutputState }
+
+// Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingFieldsOutput) DataVersion() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingFields) string {
+		if v.DataVersion == nil { return *new(string) } else { return *v.DataVersion }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingFieldsOutput) EventTime() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingFields) string {
+		if v.EventTime == nil { return *new(string) } else { return *v.EventTime }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingFieldsOutput) EventType() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingFields) string {
+		if v.EventType == nil { return *new(string) } else { return *v.EventType }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingFieldsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingFields) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingFieldsOutput) Subject() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingFields) string {
+		if v.Subject == nil { return *new(string) } else { return *v.Subject }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+func (o DomainInputMappingFieldsOutput) Topic() pulumi.StringOutput {
+	return o.Apply(func(v DomainInputMappingFields) string {
+		if v.Topic == nil { return *new(string) } else { return *v.Topic }
+	}).(pulumi.StringOutput)
+}
+
+func (DomainInputMappingFieldsOutput) ElementType() reflect.Type {
+	return domainInputMappingFieldsType
+}
+
+func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsOutput() DomainInputMappingFieldsOutput {
+	return o
+}
+
+func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsOutputWithContext(ctx context.Context) DomainInputMappingFieldsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DomainInputMappingFieldsOutput{}) }
+

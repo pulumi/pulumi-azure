@@ -14,12 +14,40 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_storage_container.html.markdown.
 type EndpointStorageContainer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+	BatchFrequencyInSeconds pulumi.IntOutput `pulumi:"batchFrequencyInSeconds"`
+
+	// The connection string for the endpoint.
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+
+	// The name of storage container in the storage account.
+	// *
+	ContainerName pulumi.StringOutput `pulumi:"containerName"`
+
+	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
+	Encoding pulumi.StringOutput `pulumi:"encoding"`
+
+	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+	FileNameFormat pulumi.StringOutput `pulumi:"fileNameFormat"`
+
+	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
+	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+
+	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
+	MaxChunkSizeInBytes pulumi.IntOutput `pulumi:"maxChunkSizeInBytes"`
+
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewEndpointStorageContainer registers a new resource with the given unique name, arguments, and options.
 func NewEndpointStorageContainer(ctx *pulumi.Context,
-	name string, args *EndpointStorageContainerArgs, opts ...pulumi.ResourceOpt) (*EndpointStorageContainer, error) {
+	name string, args *EndpointStorageContainerArgs, opts ...pulumi.ResourceOption) (*EndpointStorageContainer, error) {
 	if args == nil || args.ConnectionString == nil {
 		return nil, errors.New("missing required argument 'ConnectionString'")
 	}
@@ -32,156 +60,92 @@ func NewEndpointStorageContainer(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["batchFrequencyInSeconds"] = nil
-		inputs["connectionString"] = nil
-		inputs["containerName"] = nil
-		inputs["encoding"] = nil
-		inputs["fileNameFormat"] = nil
-		inputs["iothubName"] = nil
-		inputs["maxChunkSizeInBytes"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["batchFrequencyInSeconds"] = args.BatchFrequencyInSeconds
-		inputs["connectionString"] = args.ConnectionString
-		inputs["containerName"] = args.ContainerName
-		inputs["encoding"] = args.Encoding
-		inputs["fileNameFormat"] = args.FileNameFormat
-		inputs["iothubName"] = args.IothubName
-		inputs["maxChunkSizeInBytes"] = args.MaxChunkSizeInBytes
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BatchFrequencyInSeconds; i != nil { inputs["batchFrequencyInSeconds"] = i.ToIntOutput() }
+		if i := args.ConnectionString; i != nil { inputs["connectionString"] = i.ToStringOutput() }
+		if i := args.ContainerName; i != nil { inputs["containerName"] = i.ToStringOutput() }
+		if i := args.Encoding; i != nil { inputs["encoding"] = i.ToStringOutput() }
+		if i := args.FileNameFormat; i != nil { inputs["fileNameFormat"] = i.ToStringOutput() }
+		if i := args.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := args.MaxChunkSizeInBytes; i != nil { inputs["maxChunkSizeInBytes"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, true, inputs, opts...)
+	var resource EndpointStorageContainer
+	err := ctx.RegisterResource("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EndpointStorageContainer{s: s}, nil
+	return &resource, nil
 }
 
 // GetEndpointStorageContainer gets an existing EndpointStorageContainer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEndpointStorageContainer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EndpointStorageContainerState, opts ...pulumi.ResourceOpt) (*EndpointStorageContainer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EndpointStorageContainerState, opts ...pulumi.ResourceOption) (*EndpointStorageContainer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["batchFrequencyInSeconds"] = state.BatchFrequencyInSeconds
-		inputs["connectionString"] = state.ConnectionString
-		inputs["containerName"] = state.ContainerName
-		inputs["encoding"] = state.Encoding
-		inputs["fileNameFormat"] = state.FileNameFormat
-		inputs["iothubName"] = state.IothubName
-		inputs["maxChunkSizeInBytes"] = state.MaxChunkSizeInBytes
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.BatchFrequencyInSeconds; i != nil { inputs["batchFrequencyInSeconds"] = i.ToIntOutput() }
+		if i := state.ConnectionString; i != nil { inputs["connectionString"] = i.ToStringOutput() }
+		if i := state.ContainerName; i != nil { inputs["containerName"] = i.ToStringOutput() }
+		if i := state.Encoding; i != nil { inputs["encoding"] = i.ToStringOutput() }
+		if i := state.FileNameFormat; i != nil { inputs["fileNameFormat"] = i.ToStringOutput() }
+		if i := state.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := state.MaxChunkSizeInBytes; i != nil { inputs["maxChunkSizeInBytes"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, id, inputs, opts...)
+	var resource EndpointStorageContainer
+	err := ctx.ReadResource("azure:iot/endpointStorageContainer:EndpointStorageContainer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EndpointStorageContainer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EndpointStorageContainer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EndpointStorageContainer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
-func (r *EndpointStorageContainer) BatchFrequencyInSeconds() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["batchFrequencyInSeconds"])
-}
-
-// The connection string for the endpoint.
-func (r *EndpointStorageContainer) ConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["connectionString"])
-}
-
-// The name of storage container in the storage account.
-// *
-func (r *EndpointStorageContainer) ContainerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["containerName"])
-}
-
-// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
-func (r *EndpointStorageContainer) Encoding() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["encoding"])
-}
-
-// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
-func (r *EndpointStorageContainer) FileNameFormat() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fileNameFormat"])
-}
-
-// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-func (r *EndpointStorageContainer) IothubName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iothubName"])
-}
-
-// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-func (r *EndpointStorageContainer) MaxChunkSizeInBytes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxChunkSizeInBytes"])
-}
-
-// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-func (r *EndpointStorageContainer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-func (r *EndpointStorageContainer) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EndpointStorageContainer resources.
 type EndpointStorageContainerState struct {
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
-	BatchFrequencyInSeconds interface{}
+	BatchFrequencyInSeconds pulumi.IntInput `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
-	ConnectionString interface{}
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of storage container in the storage account.
 	// *
-	ContainerName interface{}
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
-	Encoding interface{}
+	Encoding pulumi.StringInput `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
-	FileNameFormat interface{}
+	FileNameFormat pulumi.StringInput `pulumi:"fileNameFormat"`
 	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-	MaxChunkSizeInBytes interface{}
+	MaxChunkSizeInBytes pulumi.IntInput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EndpointStorageContainer resource.
 type EndpointStorageContainerArgs struct {
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
-	BatchFrequencyInSeconds interface{}
+	BatchFrequencyInSeconds pulumi.IntInput `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
-	ConnectionString interface{}
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// The name of storage container in the storage account.
 	// *
-	ContainerName interface{}
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
-	Encoding interface{}
+	Encoding pulumi.StringInput `pulumi:"encoding"`
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
-	FileNameFormat interface{}
+	FileNameFormat pulumi.StringInput `pulumi:"fileNameFormat"`
 	// The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-	MaxChunkSizeInBytes interface{}
+	MaxChunkSizeInBytes pulumi.IntInput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

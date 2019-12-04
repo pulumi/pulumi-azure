@@ -14,129 +14,99 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
 type Topic struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Endpoint associated with the EventGrid Topic.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Primary Shared Access Key associated with the EventGrid Topic.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Secondary Shared Access Key associated with the EventGrid Topic.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
 func NewTopic(ctx *pulumi.Context,
-	name string, args *TopicArgs, opts ...pulumi.ResourceOpt) (*Topic, error) {
+	name string, args *TopicArgs, opts ...pulumi.ResourceOption) (*Topic, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["endpoint"] = nil
-	inputs["primaryAccessKey"] = nil
-	inputs["secondaryAccessKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventgrid/topic:Topic", name, true, inputs, opts...)
+	var resource Topic
+	err := ctx.RegisterResource("azure:eventgrid/topic:Topic", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Topic{s: s}, nil
+	return &resource, nil
 }
 
 // GetTopic gets an existing Topic resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTopic(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TopicState, opts ...pulumi.ResourceOpt) (*Topic, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TopicState, opts ...pulumi.ResourceOption) (*Topic, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["endpoint"] = state.Endpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["tags"] = state.Tags
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventgrid/topic:Topic", name, id, inputs, opts...)
+	var resource Topic
+	err := ctx.ReadResource("azure:eventgrid/topic:Topic", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Topic{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Topic) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Topic) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Endpoint associated with the EventGrid Topic.
-func (r *Topic) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Topic) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
-func (r *Topic) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Primary Shared Access Key associated with the EventGrid Topic.
-func (r *Topic) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
-func (r *Topic) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Secondary Shared Access Key associated with the EventGrid Topic.
-func (r *Topic) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Topic) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Topic resources.
 type TopicState struct {
 	// The Endpoint associated with the EventGrid Topic.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Primary Shared Access Key associated with the EventGrid Topic.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

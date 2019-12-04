@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_replication_policy.html.markdown.
 type ReplicationPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
+	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntOutput `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
+
+	// The name of the network mapping.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Retain the recovery points for given time in minutes.
+	RecoveryPointRetentionInMinutes pulumi.IntOutput `pulumi:"recoveryPointRetentionInMinutes"`
+
+	// The name of the vault that should be updated.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// Name of the resource group where the vault that should be updated is located.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewReplicationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewReplicationPolicy(ctx *pulumi.Context,
-	name string, args *ReplicationPolicyArgs, opts ...pulumi.ResourceOpt) (*ReplicationPolicy, error) {
+	name string, args *ReplicationPolicyArgs, opts ...pulumi.ResourceOption) (*ReplicationPolicy, error) {
 	if args == nil || args.ApplicationConsistentSnapshotFrequencyInMinutes == nil {
 		return nil, errors.New("missing required argument 'ApplicationConsistentSnapshotFrequencyInMinutes'")
 	}
@@ -30,105 +45,66 @@ func NewReplicationPolicy(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationConsistentSnapshotFrequencyInMinutes"] = nil
-		inputs["name"] = nil
-		inputs["recoveryPointRetentionInMinutes"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["applicationConsistentSnapshotFrequencyInMinutes"] = args.ApplicationConsistentSnapshotFrequencyInMinutes
-		inputs["name"] = args.Name
-		inputs["recoveryPointRetentionInMinutes"] = args.RecoveryPointRetentionInMinutes
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationConsistentSnapshotFrequencyInMinutes; i != nil { inputs["applicationConsistentSnapshotFrequencyInMinutes"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecoveryPointRetentionInMinutes; i != nil { inputs["recoveryPointRetentionInMinutes"] = i.ToIntOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/replicationPolicy:ReplicationPolicy", name, true, inputs, opts...)
+	var resource ReplicationPolicy
+	err := ctx.RegisterResource("azure:recoveryservices/replicationPolicy:ReplicationPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReplicationPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetReplicationPolicy gets an existing ReplicationPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetReplicationPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ReplicationPolicyState, opts ...pulumi.ResourceOpt) (*ReplicationPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ReplicationPolicyState, opts ...pulumi.ResourceOption) (*ReplicationPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationConsistentSnapshotFrequencyInMinutes"] = state.ApplicationConsistentSnapshotFrequencyInMinutes
-		inputs["name"] = state.Name
-		inputs["recoveryPointRetentionInMinutes"] = state.RecoveryPointRetentionInMinutes
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.ApplicationConsistentSnapshotFrequencyInMinutes; i != nil { inputs["applicationConsistentSnapshotFrequencyInMinutes"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryPointRetentionInMinutes; i != nil { inputs["recoveryPointRetentionInMinutes"] = i.ToIntOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/replicationPolicy:ReplicationPolicy", name, id, inputs, opts...)
+	var resource ReplicationPolicy
+	err := ctx.ReadResource("azure:recoveryservices/replicationPolicy:ReplicationPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReplicationPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicationPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicationPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the frequency(in minutes) at which to create application consistent recovery points.
-func (r *ReplicationPolicy) ApplicationConsistentSnapshotFrequencyInMinutes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["applicationConsistentSnapshotFrequencyInMinutes"])
-}
-
-// The name of the network mapping.
-func (r *ReplicationPolicy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Retain the recovery points for given time in minutes.
-func (r *ReplicationPolicy) RecoveryPointRetentionInMinutes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["recoveryPointRetentionInMinutes"])
-}
-
-// The name of the vault that should be updated.
-func (r *ReplicationPolicy) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// Name of the resource group where the vault that should be updated is located.
-func (r *ReplicationPolicy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ReplicationPolicy resources.
 type ReplicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
-	ApplicationConsistentSnapshotFrequencyInMinutes interface{}
+	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntInput `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Retain the recovery points for given time in minutes.
-	RecoveryPointRetentionInMinutes interface{}
+	RecoveryPointRetentionInMinutes pulumi.IntInput `pulumi:"recoveryPointRetentionInMinutes"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ReplicationPolicy resource.
 type ReplicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
-	ApplicationConsistentSnapshotFrequencyInMinutes interface{}
+	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntInput `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Retain the recovery points for given time in minutes.
-	RecoveryPointRetentionInMinutes interface{}
+	RecoveryPointRetentionInMinutes pulumi.IntInput `pulumi:"recoveryPointRetentionInMinutes"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

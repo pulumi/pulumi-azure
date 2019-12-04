@@ -10,86 +10,90 @@ import (
 // Use this data source to access information about an existing Redis Cache
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
-func LookupCache(ctx *pulumi.Context, args *GetCacheArgs) (*GetCacheResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["zones"] = args.Zones
-	}
-	outputs, err := ctx.Invoke("azure:redis/getCache:getCache", inputs)
+func LookupCache(ctx *pulumi.Context, args *GetCacheArgs, opts ...pulumi.InvokeOption) (*GetCacheResult, error) {
+	var rv GetCacheResult
+	err := ctx.Invoke("azure:redis/getCache:getCache", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetCacheResult{
-		Capacity: outputs["capacity"],
-		EnableNonSslPort: outputs["enableNonSslPort"],
-		Family: outputs["family"],
-		Hostname: outputs["hostname"],
-		Location: outputs["location"],
-		MinimumTlsVersion: outputs["minimumTlsVersion"],
-		Name: outputs["name"],
-		PatchSchedules: outputs["patchSchedules"],
-		Port: outputs["port"],
-		PrimaryAccessKey: outputs["primaryAccessKey"],
-		PrivateStaticIpAddress: outputs["privateStaticIpAddress"],
-		RedisConfigurations: outputs["redisConfigurations"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecondaryAccessKey: outputs["secondaryAccessKey"],
-		ShardCount: outputs["shardCount"],
-		SkuName: outputs["skuName"],
-		SslPort: outputs["sslPort"],
-		SubnetId: outputs["subnetId"],
-		Tags: outputs["tags"],
-		Zones: outputs["zones"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCache.
 type GetCacheArgs struct {
 	// The name of the Redis cache
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group the Redis cache instance is located in.
-	ResourceGroupName interface{}
-	Zones interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Zones *[]string `pulumi:"zones"`
 }
 
 // A collection of values returned by getCache.
 type GetCacheResult struct {
 	// The size of the Redis Cache deployed.
-	Capacity interface{}
+	Capacity int `pulumi:"capacity"`
 	// Whether the SSL port is enabled.
-	EnableNonSslPort interface{}
+	EnableNonSslPort bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-	Family interface{}
+	Family string `pulumi:"family"`
 	// The Hostname of the Redis Instance
-	Hostname interface{}
+	Hostname string `pulumi:"hostname"`
 	// The location of the Redis Cache.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The minimum TLS version.
-	MinimumTlsVersion interface{}
-	Name interface{}
+	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
+	Name string `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
-	PatchSchedules interface{}
+	PatchSchedules []GetCachePatchSchedulesResult `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
-	Port interface{}
+	Port int `pulumi:"port"`
 	// The Primary Access Key for the Redis Instance
-	PrimaryAccessKey interface{}
-	PrivateStaticIpAddress interface{}
+	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	PrivateStaticIpAddress string `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` block as defined below.
-	RedisConfigurations interface{}
-	ResourceGroupName interface{}
+	RedisConfigurations []GetCacheRedisConfigurationsResult `pulumi:"redisConfigurations"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
-	SecondaryAccessKey interface{}
-	ShardCount interface{}
+	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
+	ShardCount int `pulumi:"shardCount"`
 	// The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.
-	SkuName interface{}
+	SkuName string `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
-	SslPort interface{}
-	SubnetId interface{}
-	Tags interface{}
-	Zones interface{}
+	SslPort int `pulumi:"sslPort"`
+	SubnetId string `pulumi:"subnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	Zones []string `pulumi:"zones"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetCachePatchSchedulesResult struct {
+	// the Weekday name for the patch item
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The Start Hour for maintenance in UTC
+	StartHourUtc int `pulumi:"startHourUtc"`
+}
+type GetCacheRedisConfigurationsResult struct {
+	AofBackupEnabled bool `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0 string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1 string `pulumi:"aofStorageConnectionString1"`
+	// Specifies if authentication is enabled
+	EnableAuthentication bool `pulumi:"enableAuthentication"`
+	Maxclients int `pulumi:"maxclients"`
+	// Value in megabytes reserved to accommodate for memory fragmentation.
+	MaxfragmentationmemoryReserved int `pulumi:"maxfragmentationmemoryReserved"`
+	// The max-memory delta for this Redis instance.
+	MaxmemoryDelta int `pulumi:"maxmemoryDelta"`
+	// How Redis will select what to remove when `maxmemory` is reached.
+	MaxmemoryPolicy string `pulumi:"maxmemoryPolicy"`
+	// The value in megabytes reserved for non-cache usage e.g. failover
+	MaxmemoryReserved int `pulumi:"maxmemoryReserved"`
+	NotifyKeyspaceEvents string `pulumi:"notifyKeyspaceEvents"`
+	// Is Backup Enabled? Only supported on Premium SKU's.
+	RdbBackupEnabled bool `pulumi:"rdbBackupEnabled"`
+	// The Backup Frequency in Minutes. Only supported on Premium SKU's.
+	RdbBackupFrequency int `pulumi:"rdbBackupFrequency"`
+	// The maximum number of snapshots that can be created as a backup.
+	RdbBackupMaxSnapshotCount int `pulumi:"rdbBackupMaxSnapshotCount"`
+	// The Connection String to the Storage Account. Only supported for Premium SKU's.
+	RdbStorageConnectionString string `pulumi:"rdbStorageConnectionString"`
 }

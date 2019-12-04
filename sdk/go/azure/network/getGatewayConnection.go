@@ -10,47 +10,21 @@ import (
 // Use this data source to access information about an existing Virtual Network Gateway Connection.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
-func LookupGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs) (*GetGatewayConnectionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getGatewayConnection:getGatewayConnection", inputs)
+func LookupGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*GetGatewayConnectionResult, error) {
+	var rv GetGatewayConnectionResult
+	err := ctx.Invoke("azure:network/getGatewayConnection:getGatewayConnection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetGatewayConnectionResult{
-		AuthorizationKey: outputs["authorizationKey"],
-		ConnectionProtocol: outputs["connectionProtocol"],
-		EgressBytesTransferred: outputs["egressBytesTransferred"],
-		EnableBgp: outputs["enableBgp"],
-		ExpressRouteCircuitId: outputs["expressRouteCircuitId"],
-		ExpressRouteGatewayBypass: outputs["expressRouteGatewayBypass"],
-		IngressBytesTransferred: outputs["ingressBytesTransferred"],
-		IpsecPolicies: outputs["ipsecPolicies"],
-		LocalNetworkGatewayId: outputs["localNetworkGatewayId"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PeerVirtualNetworkGatewayId: outputs["peerVirtualNetworkGatewayId"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ResourceGuid: outputs["resourceGuid"],
-		RoutingWeight: outputs["routingWeight"],
-		SharedKey: outputs["sharedKey"],
-		Tags: outputs["tags"],
-		Type: outputs["type"],
-		UsePolicyBasedTrafficSelectors: outputs["usePolicyBasedTrafficSelectors"],
-		VirtualNetworkGatewayId: outputs["virtualNetworkGatewayId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getGatewayConnection.
 type GetGatewayConnectionArgs struct {
 	// Specifies the name of the Virtual Network Gateway Connection.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Virtual Network Gateway Connection is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getGatewayConnection.
@@ -58,48 +32,76 @@ type GetGatewayConnectionResult struct {
 	// The authorization key associated with the
 	// Express Route Circuit. This field is present only if the type is an
 	// ExpressRoute connection.
-	AuthorizationKey interface{}
-	ConnectionProtocol interface{}
-	EgressBytesTransferred interface{}
+	AuthorizationKey string `pulumi:"authorizationKey"`
+	ConnectionProtocol string `pulumi:"connectionProtocol"`
+	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection.
-	EnableBgp interface{}
+	EnableBgp bool `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit
 	// (i.e. when `type` is `ExpressRoute`).
-	ExpressRouteCircuitId interface{}
+	ExpressRouteCircuitId string `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
-	ExpressRouteGatewayBypass interface{}
-	IngressBytesTransferred interface{}
-	IpsecPolicies interface{}
+	ExpressRouteGatewayBypass bool `pulumi:"expressRouteGatewayBypass"`
+	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
+	IpsecPolicies []GetGatewayConnectionIpsecPoliciesResult `pulumi:"ipsecPolicies"`
 	// The ID of the local network gateway
 	// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
-	LocalNetworkGatewayId interface{}
+	LocalNetworkGatewayId string `pulumi:"localNetworkGatewayId"`
 	// The location/region where the connection is
 	// located.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// The ID of the peer virtual
 	// network gateway when a VNet-to-VNet connection (i.e. when `type`
 	// is `Vnet2Vnet`).
-	PeerVirtualNetworkGatewayId interface{}
-	ResourceGroupName interface{}
-	ResourceGuid interface{}
+	PeerVirtualNetworkGatewayId string `pulumi:"peerVirtualNetworkGatewayId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGuid string `pulumi:"resourceGuid"`
 	// The routing weight.
-	RoutingWeight interface{}
+	RoutingWeight int `pulumi:"routingWeight"`
 	// The shared IPSec key. 
-	SharedKey interface{}
+	SharedKey string `pulumi:"sharedKey"`
 	// (Optional) A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-	Type interface{}
+	Type string `pulumi:"type"`
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block.
-	UsePolicyBasedTrafficSelectors interface{}
+	UsePolicyBasedTrafficSelectors bool `pulumi:"usePolicyBasedTrafficSelectors"`
 	// The ID of the Virtual Network Gateway
 	// in which the connection is created.
-	VirtualNetworkGatewayId interface{}
+	VirtualNetworkGatewayId string `pulumi:"virtualNetworkGatewayId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetGatewayConnectionIpsecPoliciesResult struct {
+	// The DH group used in IKE phase 1 for initial SA. Valid
+	// options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
+	// `ECP256`, `ECP384`, or `None`.
+	DhGroup string `pulumi:"dhGroup"`
+	// The IKE encryption algorithm. Valid
+	// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+	IkeEncryption string `pulumi:"ikeEncryption"`
+	// The IKE integrity algorithm. Valid
+	// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+	IkeIntegrity string `pulumi:"ikeIntegrity"`
+	// The IPSec encryption algorithm. Valid
+	// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
+	IpsecEncryption string `pulumi:"ipsecEncryption"`
+	// The IPSec integrity algorithm. Valid
+	// options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
+	IpsecIntegrity string `pulumi:"ipsecIntegrity"`
+	// The DH group used in IKE phase 2 for new child SA.
+	// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+	// or `None`.
+	PfsGroup string `pulumi:"pfsGroup"`
+	// The IPSec SA payload size in KB. Must be at least
+	// `1024` KB.
+	SaDatasize int `pulumi:"saDatasize"`
+	// The IPSec SA lifetime in seconds. Must be at least
+	// `300` seconds.
+	SaLifetime int `pulumi:"saLifetime"`
 }

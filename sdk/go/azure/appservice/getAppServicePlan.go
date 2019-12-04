@@ -10,59 +10,59 @@ import (
 // Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
-func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*GetAppServicePlanResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:appservice/getAppServicePlan:getAppServicePlan", inputs)
+func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs, opts ...pulumi.InvokeOption) (*GetAppServicePlanResult, error) {
+	var rv GetAppServicePlanResult
+	err := ctx.Invoke("azure:appservice/getAppServicePlan:getAppServicePlan", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAppServicePlanResult{
-		IsXenon: outputs["isXenon"],
-		Kind: outputs["kind"],
-		Location: outputs["location"],
-		MaximumElasticWorkerCount: outputs["maximumElasticWorkerCount"],
-		MaximumNumberOfWorkers: outputs["maximumNumberOfWorkers"],
-		Name: outputs["name"],
-		Properties: outputs["properties"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAppServicePlan.
 type GetAppServicePlanArgs struct {
 	// The name of the App Service Plan.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the App Service Plan exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAppServicePlan.
 type GetAppServicePlanResult struct {
 	// A flag that indicates if it's a xenon plan (support for Windows Container)
-	IsXenon interface{}
+	IsXenon bool `pulumi:"isXenon"`
 	// The Operating System type of the App Service Plan
-	Kind interface{}
+	Kind string `pulumi:"kind"`
 	// The Azure location where the App Service Plan exists
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-	MaximumElasticWorkerCount interface{}
+	MaximumElasticWorkerCount int `pulumi:"maximumElasticWorkerCount"`
 	// Maximum number of instances that can be assigned to this App Service plan.
-	MaximumNumberOfWorkers interface{}
-	Name interface{}
+	MaximumNumberOfWorkers int `pulumi:"maximumNumberOfWorkers"`
+	Name string `pulumi:"name"`
 	// A `properties` block as documented below.
-	Properties interface{}
-	ResourceGroupName interface{}
+	Properties []GetAppServicePlanPropertiesResult `pulumi:"properties"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
-	Sku interface{}
+	Sku GetAppServicePlanSkuResult `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAppServicePlanPropertiesResult struct {
+	// The ID of the App Service Environment where the App Service Plan is located.
+	AppServiceEnvironmentId string `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently?
+	PerSiteScaling bool `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`?
+	Reserved bool `pulumi:"reserved"`
+}
+type GetAppServicePlanSkuResult struct {
+	// Specifies the number of workers associated with this App Service Plan.
+	Capacity int `pulumi:"capacity"`
+	// Specifies the plan's instance size.
+	Size string `pulumi:"size"`
+	// Specifies the plan's pricing tier.
+	Tier string `pulumi:"tier"`
 }

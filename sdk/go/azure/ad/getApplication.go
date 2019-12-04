@@ -8,53 +8,39 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
-func LookupApplication(ctx *pulumi.Context, args *GetApplicationArgs) (*GetApplicationResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["objectId"] = args.ObjectId
-	}
-	outputs, err := ctx.Invoke("azure:ad/getApplication:getApplication", inputs)
+func LookupApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
+	var rv GetApplicationResult
+	err := ctx.Invoke("azure:ad/getApplication:getApplication", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetApplicationResult{
-		ApplicationId: outputs["applicationId"],
-		AvailableToOtherTenants: outputs["availableToOtherTenants"],
-		Homepage: outputs["homepage"],
-		IdentifierUris: outputs["identifierUris"],
-		Name: outputs["name"],
-		Oauth2AllowImplicitFlow: outputs["oauth2AllowImplicitFlow"],
-		ObjectId: outputs["objectId"],
-		ReplyUrls: outputs["replyUrls"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getApplication.
 type GetApplicationArgs struct {
 	// Specifies the name of the Application within Azure Active Directory.
-	Name interface{}
+	Name *string `pulumi:"name"`
 	// Specifies the Object ID of the Application within Azure Active Directory.
-	ObjectId interface{}
+	ObjectId *string `pulumi:"objectId"`
 }
 
 // A collection of values returned by getApplication.
 type GetApplicationResult struct {
 	// the Application ID of the Azure Active Directory Application.
-	ApplicationId interface{}
+	ApplicationId string `pulumi:"applicationId"`
 	// Is this Azure AD Application available to other tenants?
-	AvailableToOtherTenants interface{}
-	Homepage interface{}
+	AvailableToOtherTenants bool `pulumi:"availableToOtherTenants"`
+	Homepage string `pulumi:"homepage"`
 	// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
-	IdentifierUris interface{}
-	Name interface{}
+	IdentifierUris []string `pulumi:"identifierUris"`
+	Name string `pulumi:"name"`
 	// Does this Azure AD Application allow OAuth2.0 implicit flow tokens?
-	Oauth2AllowImplicitFlow interface{}
+	Oauth2AllowImplicitFlow bool `pulumi:"oauth2AllowImplicitFlow"`
 	// the Object ID of the Azure Active Directory Application.
-	ObjectId interface{}
+	ObjectId string `pulumi:"objectId"`
 	// A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
-	ReplyUrls interface{}
+	ReplyUrls []string `pulumi:"replyUrls"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

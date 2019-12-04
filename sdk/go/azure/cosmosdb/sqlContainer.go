@@ -4,6 +4,8 @@
 package cosmosdb
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_sql_container.html.markdown.
 type SqlContainer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+
+	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Define a partition key. Changing this forces a new resource to be created.
+	PartitionKeyPath pulumi.StringOutput `pulumi:"partitionKeyPath"`
+
+	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
+	UniqueKeys SqlContainerUniqueKeysArrayOutput `pulumi:"uniqueKeys"`
 }
 
 // NewSqlContainer registers a new resource with the given unique name, arguments, and options.
 func NewSqlContainer(ctx *pulumi.Context,
-	name string, args *SqlContainerArgs, opts ...pulumi.ResourceOpt) (*SqlContainer, error) {
+	name string, args *SqlContainerArgs, opts ...pulumi.ResourceOption) (*SqlContainer, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -27,117 +47,167 @@ func NewSqlContainer(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["databaseName"] = nil
-		inputs["name"] = nil
-		inputs["partitionKeyPath"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["uniqueKeys"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["databaseName"] = args.DatabaseName
-		inputs["name"] = args.Name
-		inputs["partitionKeyPath"] = args.PartitionKeyPath
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["uniqueKeys"] = args.UniqueKeys
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PartitionKeyPath; i != nil { inputs["partitionKeyPath"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.UniqueKeys; i != nil { inputs["uniqueKeys"] = i.ToSqlContainerUniqueKeysArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:cosmosdb/sqlContainer:SqlContainer", name, true, inputs, opts...)
+	var resource SqlContainer
+	err := ctx.RegisterResource("azure:cosmosdb/sqlContainer:SqlContainer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlContainer{s: s}, nil
+	return &resource, nil
 }
 
 // GetSqlContainer gets an existing SqlContainer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSqlContainer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SqlContainerState, opts ...pulumi.ResourceOpt) (*SqlContainer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SqlContainerState, opts ...pulumi.ResourceOption) (*SqlContainer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["databaseName"] = state.DatabaseName
-		inputs["name"] = state.Name
-		inputs["partitionKeyPath"] = state.PartitionKeyPath
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["uniqueKeys"] = state.UniqueKeys
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PartitionKeyPath; i != nil { inputs["partitionKeyPath"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.UniqueKeys; i != nil { inputs["uniqueKeys"] = i.ToSqlContainerUniqueKeysArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:cosmosdb/sqlContainer:SqlContainer", name, id, inputs, opts...)
+	var resource SqlContainer
+	err := ctx.ReadResource("azure:cosmosdb/sqlContainer:SqlContainer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlContainer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SqlContainer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SqlContainer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-func (r *SqlContainer) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
-func (r *SqlContainer) DatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["databaseName"])
-}
-
-// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-func (r *SqlContainer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Define a partition key. Changing this forces a new resource to be created.
-func (r *SqlContainer) PartitionKeyPath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["partitionKeyPath"])
-}
-
-// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-func (r *SqlContainer) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
-func (r *SqlContainer) UniqueKeys() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["uniqueKeys"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SqlContainer resources.
 type SqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath interface{}
+	PartitionKeyPath pulumi.StringInput `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
-	UniqueKeys interface{}
+	UniqueKeys SqlContainerUniqueKeysArrayInput `pulumi:"uniqueKeys"`
 }
 
 // The set of arguments for constructing a SqlContainer resource.
 type SqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath interface{}
+	PartitionKeyPath pulumi.StringInput `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
-	UniqueKeys interface{}
+	UniqueKeys SqlContainerUniqueKeysArrayInput `pulumi:"uniqueKeys"`
 }
+type SqlContainerUniqueKeys struct {
+	Paths []string `pulumi:"paths"`
+}
+var sqlContainerUniqueKeysType = reflect.TypeOf((*SqlContainerUniqueKeys)(nil)).Elem()
+
+type SqlContainerUniqueKeysInput interface {
+	pulumi.Input
+
+	ToSqlContainerUniqueKeysOutput() SqlContainerUniqueKeysOutput
+	ToSqlContainerUniqueKeysOutputWithContext(ctx context.Context) SqlContainerUniqueKeysOutput
+}
+
+type SqlContainerUniqueKeysArgs struct {
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (SqlContainerUniqueKeysArgs) ElementType() reflect.Type {
+	return sqlContainerUniqueKeysType
+}
+
+func (a SqlContainerUniqueKeysArgs) ToSqlContainerUniqueKeysOutput() SqlContainerUniqueKeysOutput {
+	return pulumi.ToOutput(a).(SqlContainerUniqueKeysOutput)
+}
+
+func (a SqlContainerUniqueKeysArgs) ToSqlContainerUniqueKeysOutputWithContext(ctx context.Context) SqlContainerUniqueKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SqlContainerUniqueKeysOutput)
+}
+
+type SqlContainerUniqueKeysOutput struct { *pulumi.OutputState }
+
+func (o SqlContainerUniqueKeysOutput) Paths() pulumi.StringArrayOutput {
+	return o.Apply(func(v SqlContainerUniqueKeys) []string {
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+func (SqlContainerUniqueKeysOutput) ElementType() reflect.Type {
+	return sqlContainerUniqueKeysType
+}
+
+func (o SqlContainerUniqueKeysOutput) ToSqlContainerUniqueKeysOutput() SqlContainerUniqueKeysOutput {
+	return o
+}
+
+func (o SqlContainerUniqueKeysOutput) ToSqlContainerUniqueKeysOutputWithContext(ctx context.Context) SqlContainerUniqueKeysOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SqlContainerUniqueKeysOutput{}) }
+
+var sqlContainerUniqueKeysArrayType = reflect.TypeOf((*[]SqlContainerUniqueKeys)(nil)).Elem()
+
+type SqlContainerUniqueKeysArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerUniqueKeysArrayOutput() SqlContainerUniqueKeysArrayOutput
+	ToSqlContainerUniqueKeysArrayOutputWithContext(ctx context.Context) SqlContainerUniqueKeysArrayOutput
+}
+
+type SqlContainerUniqueKeysArrayArgs []SqlContainerUniqueKeysInput
+
+func (SqlContainerUniqueKeysArrayArgs) ElementType() reflect.Type {
+	return sqlContainerUniqueKeysArrayType
+}
+
+func (a SqlContainerUniqueKeysArrayArgs) ToSqlContainerUniqueKeysArrayOutput() SqlContainerUniqueKeysArrayOutput {
+	return pulumi.ToOutput(a).(SqlContainerUniqueKeysArrayOutput)
+}
+
+func (a SqlContainerUniqueKeysArrayArgs) ToSqlContainerUniqueKeysArrayOutputWithContext(ctx context.Context) SqlContainerUniqueKeysArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SqlContainerUniqueKeysArrayOutput)
+}
+
+type SqlContainerUniqueKeysArrayOutput struct { *pulumi.OutputState }
+
+func (o SqlContainerUniqueKeysArrayOutput) Index(i pulumi.IntInput) SqlContainerUniqueKeysOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SqlContainerUniqueKeys {
+		return vs[0].([]SqlContainerUniqueKeys)[vs[1].(int)]
+	}).(SqlContainerUniqueKeysOutput)
+}
+
+func (SqlContainerUniqueKeysArrayOutput) ElementType() reflect.Type {
+	return sqlContainerUniqueKeysArrayType
+}
+
+func (o SqlContainerUniqueKeysArrayOutput) ToSqlContainerUniqueKeysArrayOutput() SqlContainerUniqueKeysArrayOutput {
+	return o
+}
+
+func (o SqlContainerUniqueKeysArrayOutput) ToSqlContainerUniqueKeysArrayOutputWithContext(ctx context.Context) SqlContainerUniqueKeysArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SqlContainerUniqueKeysArrayOutput{}) }
+

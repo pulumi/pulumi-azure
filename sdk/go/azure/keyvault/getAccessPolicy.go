@@ -10,22 +10,13 @@ import (
 // Use this data source to access information about the permissions from the Management Key Vault Templates.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
-func LookupAccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAccessPolicyResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", inputs)
+func LookupAccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs, opts ...pulumi.InvokeOption) (*GetAccessPolicyResult, error) {
+	var rv GetAccessPolicyResult
+	err := ctx.Invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccessPolicyResult{
-		CertificatePermissions: outputs["certificatePermissions"],
-		KeyPermissions: outputs["keyPermissions"],
-		Name: outputs["name"],
-		SecretPermissions: outputs["secretPermissions"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAccessPolicy.
@@ -33,18 +24,18 @@ type GetAccessPolicyArgs struct {
 	// Specifies the name of the Management Template. Possible values are: `Key Management`,
 	// `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
 	// `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getAccessPolicy.
 type GetAccessPolicyResult struct {
 	// the certificate permissions for the access policy
-	CertificatePermissions interface{}
+	CertificatePermissions []string `pulumi:"certificatePermissions"`
 	// the key permissions for the access policy
-	KeyPermissions interface{}
-	Name interface{}
+	KeyPermissions []string `pulumi:"keyPermissions"`
+	Name string `pulumi:"name"`
 	// the secret permissions for the access policy
-	SecretPermissions interface{}
+	SecretPermissions []string `pulumi:"secretPermissions"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

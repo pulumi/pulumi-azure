@@ -4,6 +4,8 @@
 package mssql
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,44 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
 type ElasticPool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	ElasticPoolProperties ElasticPoolElasticPoolPropertiesOutput `pulumi:"elasticPoolProperties"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+	MaxSizeBytes pulumi.IntOutput `pulumi:"maxSizeBytes"`
+
+	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+	MaxSizeGb pulumi.Float64Output `pulumi:"maxSizeGb"`
+
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `perDatabaseSettings` block as defined below.
+	PerDatabaseSettings ElasticPoolPerDatabaseSettingsOutput `pulumi:"perDatabaseSettings"`
+
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// A `sku` block as defined below.
+	Sku ElasticPoolSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
 
 // NewElasticPool registers a new resource with the given unique name, arguments, and options.
 func NewElasticPool(ctx *pulumi.Context,
-	name string, args *ElasticPoolArgs, opts ...pulumi.ResourceOpt) (*ElasticPool, error) {
+	name string, args *ElasticPoolArgs, opts ...pulumi.ResourceOption) (*ElasticPool, error) {
 	if args == nil || args.PerDatabaseSettings == nil {
 		return nil, errors.New("missing required argument 'PerDatabaseSettings'")
 	}
@@ -30,172 +64,336 @@ func NewElasticPool(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["maxSizeBytes"] = nil
-		inputs["maxSizeGb"] = nil
-		inputs["name"] = nil
-		inputs["perDatabaseSettings"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serverName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-		inputs["zoneRedundant"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["maxSizeBytes"] = args.MaxSizeBytes
-		inputs["maxSizeGb"] = args.MaxSizeGb
-		inputs["name"] = args.Name
-		inputs["perDatabaseSettings"] = args.PerDatabaseSettings
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
-		inputs["zoneRedundant"] = args.ZoneRedundant
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MaxSizeBytes; i != nil { inputs["maxSizeBytes"] = i.ToIntOutput() }
+		if i := args.MaxSizeGb; i != nil { inputs["maxSizeGb"] = i.ToFloat64Output() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PerDatabaseSettings; i != nil { inputs["perDatabaseSettings"] = i.ToElasticPoolPerDatabaseSettingsOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToElasticPoolSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.ZoneRedundant; i != nil { inputs["zoneRedundant"] = i.ToBoolOutput() }
 	}
-	inputs["elasticPoolProperties"] = nil
-	s, err := ctx.RegisterResource("azure:mssql/elasticPool:ElasticPool", name, true, inputs, opts...)
+	var resource ElasticPool
+	err := ctx.RegisterResource("azure:mssql/elasticPool:ElasticPool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ElasticPool{s: s}, nil
+	return &resource, nil
 }
 
 // GetElasticPool gets an existing ElasticPool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetElasticPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ElasticPoolState, opts ...pulumi.ResourceOpt) (*ElasticPool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ElasticPoolState, opts ...pulumi.ResourceOption) (*ElasticPool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["elasticPoolProperties"] = state.ElasticPoolProperties
-		inputs["location"] = state.Location
-		inputs["maxSizeBytes"] = state.MaxSizeBytes
-		inputs["maxSizeGb"] = state.MaxSizeGb
-		inputs["name"] = state.Name
-		inputs["perDatabaseSettings"] = state.PerDatabaseSettings
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverName"] = state.ServerName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["zoneRedundant"] = state.ZoneRedundant
+		if i := state.ElasticPoolProperties; i != nil { inputs["elasticPoolProperties"] = i.ToElasticPoolElasticPoolPropertiesOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MaxSizeBytes; i != nil { inputs["maxSizeBytes"] = i.ToIntOutput() }
+		if i := state.MaxSizeGb; i != nil { inputs["maxSizeGb"] = i.ToFloat64Output() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PerDatabaseSettings; i != nil { inputs["perDatabaseSettings"] = i.ToElasticPoolPerDatabaseSettingsOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToElasticPoolSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ZoneRedundant; i != nil { inputs["zoneRedundant"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:mssql/elasticPool:ElasticPool", name, id, inputs, opts...)
+	var resource ElasticPool
+	err := ctx.ReadResource("azure:mssql/elasticPool:ElasticPool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ElasticPool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ElasticPool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ElasticPool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *ElasticPool) ElasticPoolProperties() pulumi.Output {
-	return r.s.State["elasticPoolProperties"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ElasticPool) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-func (r *ElasticPool) MaxSizeBytes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxSizeBytes"])
-}
-
-// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
-func (r *ElasticPool) MaxSizeGb() pulumi.Float64Output {
-	return (pulumi.Float64Output)(r.s.State["maxSizeGb"])
-}
-
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
-func (r *ElasticPool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `perDatabaseSettings` block as defined below.
-func (r *ElasticPool) PerDatabaseSettings() pulumi.Output {
-	return r.s.State["perDatabaseSettings"]
-}
-
-// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-func (r *ElasticPool) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-func (r *ElasticPool) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// A `sku` block as defined below.
-func (r *ElasticPool) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ElasticPool) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-func (r *ElasticPool) ZoneRedundant() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["zoneRedundant"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type ElasticPoolState struct {
-	ElasticPoolProperties interface{}
+	ElasticPoolProperties ElasticPoolElasticPoolPropertiesInput `pulumi:"elasticPoolProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-	MaxSizeBytes interface{}
+	MaxSizeBytes pulumi.IntInput `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
-	MaxSizeGb interface{}
+	MaxSizeGb pulumi.Float64Input `pulumi:"maxSizeGb"`
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
-	PerDatabaseSettings interface{}
+	PerDatabaseSettings ElasticPoolPerDatabaseSettingsInput `pulumi:"perDatabaseSettings"`
 	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku ElasticPoolSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-	ZoneRedundant interface{}
+	ZoneRedundant pulumi.BoolInput `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-	MaxSizeBytes interface{}
+	MaxSizeBytes pulumi.IntInput `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
-	MaxSizeGb interface{}
+	MaxSizeGb pulumi.Float64Input `pulumi:"maxSizeGb"`
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `perDatabaseSettings` block as defined below.
-	PerDatabaseSettings interface{}
+	PerDatabaseSettings ElasticPoolPerDatabaseSettingsInput `pulumi:"perDatabaseSettings"`
 	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku ElasticPoolSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-	ZoneRedundant interface{}
+	ZoneRedundant pulumi.BoolInput `pulumi:"zoneRedundant"`
 }
+type ElasticPoolElasticPoolProperties struct {
+	CreationDate string `pulumi:"creationDate"`
+	LicenseType string `pulumi:"licenseType"`
+	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+	MaxSizeBytes int `pulumi:"maxSizeBytes"`
+	State string `pulumi:"state"`
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+	ZoneRedundant bool `pulumi:"zoneRedundant"`
+}
+var elasticPoolElasticPoolPropertiesType = reflect.TypeOf((*ElasticPoolElasticPoolProperties)(nil)).Elem()
+
+type ElasticPoolElasticPoolPropertiesInput interface {
+	pulumi.Input
+
+	ToElasticPoolElasticPoolPropertiesOutput() ElasticPoolElasticPoolPropertiesOutput
+	ToElasticPoolElasticPoolPropertiesOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesOutput
+}
+
+type ElasticPoolElasticPoolPropertiesArgs struct {
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
+	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+	MaxSizeBytes pulumi.IntInput `pulumi:"maxSizeBytes"`
+	State pulumi.StringInput `pulumi:"state"`
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+	ZoneRedundant pulumi.BoolInput `pulumi:"zoneRedundant"`
+}
+
+func (ElasticPoolElasticPoolPropertiesArgs) ElementType() reflect.Type {
+	return elasticPoolElasticPoolPropertiesType
+}
+
+func (a ElasticPoolElasticPoolPropertiesArgs) ToElasticPoolElasticPoolPropertiesOutput() ElasticPoolElasticPoolPropertiesOutput {
+	return pulumi.ToOutput(a).(ElasticPoolElasticPoolPropertiesOutput)
+}
+
+func (a ElasticPoolElasticPoolPropertiesArgs) ToElasticPoolElasticPoolPropertiesOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ElasticPoolElasticPoolPropertiesOutput)
+}
+
+type ElasticPoolElasticPoolPropertiesOutput struct { *pulumi.OutputState }
+
+func (o ElasticPoolElasticPoolPropertiesOutput) CreationDate() pulumi.StringOutput {
+	return o.Apply(func(v ElasticPoolElasticPoolProperties) string {
+		return v.CreationDate
+	}).(pulumi.StringOutput)
+}
+
+func (o ElasticPoolElasticPoolPropertiesOutput) LicenseType() pulumi.StringOutput {
+	return o.Apply(func(v ElasticPoolElasticPoolProperties) string {
+		return v.LicenseType
+	}).(pulumi.StringOutput)
+}
+
+// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
+func (o ElasticPoolElasticPoolPropertiesOutput) MaxSizeBytes() pulumi.IntOutput {
+	return o.Apply(func(v ElasticPoolElasticPoolProperties) int {
+		return v.MaxSizeBytes
+	}).(pulumi.IntOutput)
+}
+
+func (o ElasticPoolElasticPoolPropertiesOutput) State() pulumi.StringOutput {
+	return o.Apply(func(v ElasticPoolElasticPoolProperties) string {
+		return v.State
+	}).(pulumi.StringOutput)
+}
+
+// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+func (o ElasticPoolElasticPoolPropertiesOutput) ZoneRedundant() pulumi.BoolOutput {
+	return o.Apply(func(v ElasticPoolElasticPoolProperties) bool {
+		return v.ZoneRedundant
+	}).(pulumi.BoolOutput)
+}
+
+func (ElasticPoolElasticPoolPropertiesOutput) ElementType() reflect.Type {
+	return elasticPoolElasticPoolPropertiesType
+}
+
+func (o ElasticPoolElasticPoolPropertiesOutput) ToElasticPoolElasticPoolPropertiesOutput() ElasticPoolElasticPoolPropertiesOutput {
+	return o
+}
+
+func (o ElasticPoolElasticPoolPropertiesOutput) ToElasticPoolElasticPoolPropertiesOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ElasticPoolElasticPoolPropertiesOutput{}) }
+
+type ElasticPoolPerDatabaseSettings struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity float64 `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity float64 `pulumi:"minCapacity"`
+}
+var elasticPoolPerDatabaseSettingsType = reflect.TypeOf((*ElasticPoolPerDatabaseSettings)(nil)).Elem()
+
+type ElasticPoolPerDatabaseSettingsInput interface {
+	pulumi.Input
+
+	ToElasticPoolPerDatabaseSettingsOutput() ElasticPoolPerDatabaseSettingsOutput
+	ToElasticPoolPerDatabaseSettingsOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsOutput
+}
+
+type ElasticPoolPerDatabaseSettingsArgs struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
+}
+
+func (ElasticPoolPerDatabaseSettingsArgs) ElementType() reflect.Type {
+	return elasticPoolPerDatabaseSettingsType
+}
+
+func (a ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsOutput() ElasticPoolPerDatabaseSettingsOutput {
+	return pulumi.ToOutput(a).(ElasticPoolPerDatabaseSettingsOutput)
+}
+
+func (a ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ElasticPoolPerDatabaseSettingsOutput)
+}
+
+type ElasticPoolPerDatabaseSettingsOutput struct { *pulumi.OutputState }
+
+// The maximum capacity any one database can consume.
+func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64Output {
+	return o.Apply(func(v ElasticPoolPerDatabaseSettings) float64 {
+		return v.MaxCapacity
+	}).(pulumi.Float64Output)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o ElasticPoolPerDatabaseSettingsOutput) MinCapacity() pulumi.Float64Output {
+	return o.Apply(func(v ElasticPoolPerDatabaseSettings) float64 {
+		return v.MinCapacity
+	}).(pulumi.Float64Output)
+}
+
+func (ElasticPoolPerDatabaseSettingsOutput) ElementType() reflect.Type {
+	return elasticPoolPerDatabaseSettingsType
+}
+
+func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsOutput() ElasticPoolPerDatabaseSettingsOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{}) }
+
+type ElasticPoolSku struct {
+	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+	Capacity int `pulumi:"capacity"`
+	// The `family` of hardware `Gen4` or `Gen5`.
+	Family *string `pulumi:"family"`
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	Name string `pulumi:"name"`
+	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+	Tier string `pulumi:"tier"`
+}
+var elasticPoolSkuType = reflect.TypeOf((*ElasticPoolSku)(nil)).Elem()
+
+type ElasticPoolSkuInput interface {
+	pulumi.Input
+
+	ToElasticPoolSkuOutput() ElasticPoolSkuOutput
+	ToElasticPoolSkuOutputWithContext(ctx context.Context) ElasticPoolSkuOutput
+}
+
+type ElasticPoolSkuArgs struct {
+	// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The `family` of hardware `Gen4` or `Gen5`.
+	Family pulumi.StringInput `pulumi:"family"`
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (ElasticPoolSkuArgs) ElementType() reflect.Type {
+	return elasticPoolSkuType
+}
+
+func (a ElasticPoolSkuArgs) ToElasticPoolSkuOutput() ElasticPoolSkuOutput {
+	return pulumi.ToOutput(a).(ElasticPoolSkuOutput)
+}
+
+func (a ElasticPoolSkuArgs) ToElasticPoolSkuOutputWithContext(ctx context.Context) ElasticPoolSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ElasticPoolSkuOutput)
+}
+
+type ElasticPoolSkuOutput struct { *pulumi.OutputState }
+
+// The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+func (o ElasticPoolSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v ElasticPoolSku) int {
+		return v.Capacity
+	}).(pulumi.IntOutput)
+}
+
+// The `family` of hardware `Gen4` or `Gen5`.
+func (o ElasticPoolSkuOutput) Family() pulumi.StringOutput {
+	return o.Apply(func(v ElasticPoolSku) string {
+		if v.Family == nil { return *new(string) } else { return *v.Family }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ElasticPoolSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+func (o ElasticPoolSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v ElasticPoolSku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (ElasticPoolSkuOutput) ElementType() reflect.Type {
+	return elasticPoolSkuType
+}
+
+func (o ElasticPoolSkuOutput) ToElasticPoolSkuOutput() ElasticPoolSkuOutput {
+	return o
+}
+
+func (o ElasticPoolSkuOutput) ToElasticPoolSkuOutputWithContext(ctx context.Context) ElasticPoolSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ElasticPoolSkuOutput{}) }
+

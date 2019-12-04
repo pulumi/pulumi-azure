@@ -12,117 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_http_request.html.markdown.
 type TriggerHttpRequest struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
+
+	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
+	Method pulumi.StringOutput `pulumi:"method"`
+
+	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the Relative Path used for this Request.
+	RelativePath pulumi.StringOutput `pulumi:"relativePath"`
+
+	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+	Schema pulumi.StringOutput `pulumi:"schema"`
 }
 
 // NewTriggerHttpRequest registers a new resource with the given unique name, arguments, and options.
 func NewTriggerHttpRequest(ctx *pulumi.Context,
-	name string, args *TriggerHttpRequestArgs, opts ...pulumi.ResourceOpt) (*TriggerHttpRequest, error) {
+	name string, args *TriggerHttpRequestArgs, opts ...pulumi.ResourceOption) (*TriggerHttpRequest, error) {
 	if args == nil || args.LogicAppId == nil {
 		return nil, errors.New("missing required argument 'LogicAppId'")
 	}
 	if args == nil || args.Schema == nil {
 		return nil, errors.New("missing required argument 'Schema'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["logicAppId"] = nil
-		inputs["method"] = nil
-		inputs["name"] = nil
-		inputs["relativePath"] = nil
-		inputs["schema"] = nil
-	} else {
-		inputs["logicAppId"] = args.LogicAppId
-		inputs["method"] = args.Method
-		inputs["name"] = args.Name
-		inputs["relativePath"] = args.RelativePath
-		inputs["schema"] = args.Schema
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := args.Method; i != nil { inputs["method"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RelativePath; i != nil { inputs["relativePath"] = i.ToStringOutput() }
+		if i := args.Schema; i != nil { inputs["schema"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, true, inputs, opts...)
+	var resource TriggerHttpRequest
+	err := ctx.RegisterResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerHttpRequest{s: s}, nil
+	return &resource, nil
 }
 
 // GetTriggerHttpRequest gets an existing TriggerHttpRequest resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTriggerHttpRequest(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TriggerHttpRequestState, opts ...pulumi.ResourceOpt) (*TriggerHttpRequest, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TriggerHttpRequestState, opts ...pulumi.ResourceOption) (*TriggerHttpRequest, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["logicAppId"] = state.LogicAppId
-		inputs["method"] = state.Method
-		inputs["name"] = state.Name
-		inputs["relativePath"] = state.RelativePath
-		inputs["schema"] = state.Schema
+		if i := state.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := state.Method; i != nil { inputs["method"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RelativePath; i != nil { inputs["relativePath"] = i.ToStringOutput() }
+		if i := state.Schema; i != nil { inputs["schema"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, id, inputs, opts...)
+	var resource TriggerHttpRequest
+	err := ctx.ReadResource("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerHttpRequest{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerHttpRequest) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerHttpRequest) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerHttpRequest) LogicAppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logicAppId"])
-}
-
-// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
-func (r *TriggerHttpRequest) Method() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["method"])
-}
-
-// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerHttpRequest) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the Relative Path used for this Request.
-func (r *TriggerHttpRequest) RelativePath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["relativePath"])
-}
-
-// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
-func (r *TriggerHttpRequest) Schema() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["schema"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TriggerHttpRequest resources.
 type TriggerHttpRequestState struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
-	Method interface{}
+	Method pulumi.StringInput `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
-	RelativePath interface{}
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
-	Schema interface{}
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a TriggerHttpRequest resource.
 type TriggerHttpRequestArgs struct {
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
-	Method interface{}
+	Method pulumi.StringInput `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
-	RelativePath interface{}
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
-	Schema interface{}
+	Schema pulumi.StringInput `pulumi:"schema"`
 }

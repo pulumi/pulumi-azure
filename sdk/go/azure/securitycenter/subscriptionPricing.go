@@ -16,66 +16,54 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.html.markdown.
 type SubscriptionPricing struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The pricing tier to use. Possible values are `Free` and `Standard`.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewSubscriptionPricing registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionPricing(ctx *pulumi.Context,
-	name string, args *SubscriptionPricingArgs, opts ...pulumi.ResourceOpt) (*SubscriptionPricing, error) {
+	name string, args *SubscriptionPricingArgs, opts ...pulumi.ResourceOption) (*SubscriptionPricing, error) {
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["tier"] = nil
-	} else {
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, true, inputs, opts...)
+	var resource SubscriptionPricing
+	err := ctx.RegisterResource("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubscriptionPricing{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubscriptionPricing gets an existing SubscriptionPricing resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubscriptionPricing(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubscriptionPricingState, opts ...pulumi.ResourceOpt) (*SubscriptionPricing, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubscriptionPricingState, opts ...pulumi.ResourceOption) (*SubscriptionPricing, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["tier"] = state.Tier
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, id, inputs, opts...)
+	var resource SubscriptionPricing
+	err := ctx.ReadResource("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubscriptionPricing{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SubscriptionPricing) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SubscriptionPricing) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The pricing tier to use. Possible values are `Free` and `Standard`.
-func (r *SubscriptionPricing) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SubscriptionPricing resources.
 type SubscriptionPricingState struct {
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a SubscriptionPricing resource.
 type SubscriptionPricingArgs struct {
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }

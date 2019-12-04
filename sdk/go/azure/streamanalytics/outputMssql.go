@@ -12,12 +12,35 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
 type OutputMssql struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	Database pulumi.StringOutput `pulumi:"database"`
+
+	// The name of the Stream Output. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SQL server url. Changing this forces a new resource to be created.
+	Server pulumi.StringOutput `pulumi:"server"`
+
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
+
+	// Table in the database that the output points to. Changing this forces a new resource to be created.
+	Table pulumi.StringOutput `pulumi:"table"`
+
+	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+	User pulumi.StringOutput `pulumi:"user"`
 }
 
 // NewOutputMssql registers a new resource with the given unique name, arguments, and options.
 func NewOutputMssql(ctx *pulumi.Context,
-	name string, args *OutputMssqlArgs, opts ...pulumi.ResourceOpt) (*OutputMssql, error) {
+	name string, args *OutputMssqlArgs, opts ...pulumi.ResourceOption) (*OutputMssql, error) {
 	if args == nil || args.Database == nil {
 		return nil, errors.New("missing required argument 'Database'")
 	}
@@ -39,138 +62,82 @@ func NewOutputMssql(ctx *pulumi.Context,
 	if args == nil || args.User == nil {
 		return nil, errors.New("missing required argument 'User'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["database"] = nil
-		inputs["name"] = nil
-		inputs["password"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["server"] = nil
-		inputs["streamAnalyticsJobName"] = nil
-		inputs["table"] = nil
-		inputs["user"] = nil
-	} else {
-		inputs["database"] = args.Database
-		inputs["name"] = args.Name
-		inputs["password"] = args.Password
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["server"] = args.Server
-		inputs["streamAnalyticsJobName"] = args.StreamAnalyticsJobName
-		inputs["table"] = args.Table
-		inputs["user"] = args.User
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Database; i != nil { inputs["database"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Server; i != nil { inputs["server"] = i.ToStringOutput() }
+		if i := args.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
+		if i := args.Table; i != nil { inputs["table"] = i.ToStringOutput() }
+		if i := args.User; i != nil { inputs["user"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:streamanalytics/outputMssql:OutputMssql", name, true, inputs, opts...)
+	var resource OutputMssql
+	err := ctx.RegisterResource("azure:streamanalytics/outputMssql:OutputMssql", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OutputMssql{s: s}, nil
+	return &resource, nil
 }
 
 // GetOutputMssql gets an existing OutputMssql resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOutputMssql(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OutputMssqlState, opts ...pulumi.ResourceOpt) (*OutputMssql, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OutputMssqlState, opts ...pulumi.ResourceOption) (*OutputMssql, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["database"] = state.Database
-		inputs["name"] = state.Name
-		inputs["password"] = state.Password
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["server"] = state.Server
-		inputs["streamAnalyticsJobName"] = state.StreamAnalyticsJobName
-		inputs["table"] = state.Table
-		inputs["user"] = state.User
+		if i := state.Database; i != nil { inputs["database"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Server; i != nil { inputs["server"] = i.ToStringOutput() }
+		if i := state.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
+		if i := state.Table; i != nil { inputs["table"] = i.ToStringOutput() }
+		if i := state.User; i != nil { inputs["user"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:streamanalytics/outputMssql:OutputMssql", name, id, inputs, opts...)
+	var resource OutputMssql
+	err := ctx.ReadResource("azure:streamanalytics/outputMssql:OutputMssql", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OutputMssql{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OutputMssql) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OutputMssql) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *OutputMssql) Database() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["database"])
-}
-
-// The name of the Stream Output. Changing this forces a new resource to be created.
-func (r *OutputMssql) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-func (r *OutputMssql) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *OutputMssql) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SQL server url. Changing this forces a new resource to be created.
-func (r *OutputMssql) Server() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["server"])
-}
-
-// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *OutputMssql) StreamAnalyticsJobName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
-}
-
-// Table in the database that the output points to. Changing this forces a new resource to be created.
-func (r *OutputMssql) Table() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["table"])
-}
-
-// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-func (r *OutputMssql) User() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["user"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OutputMssql resources.
 type OutputMssqlState struct {
-	Database interface{}
+	Database pulumi.StringInput `pulumi:"database"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SQL server url. Changing this forces a new resource to be created.
-	Server interface{}
+	Server pulumi.StringInput `pulumi:"server"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
-	Table interface{}
+	Table pulumi.StringInput `pulumi:"table"`
 	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	User interface{}
+	User pulumi.StringInput `pulumi:"user"`
 }
 
 // The set of arguments for constructing a OutputMssql resource.
 type OutputMssqlArgs struct {
-	Database interface{}
+	Database pulumi.StringInput `pulumi:"database"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SQL server url. Changing this forces a new resource to be created.
-	Server interface{}
+	Server pulumi.StringInput `pulumi:"server"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 	// Table in the database that the output points to. Changing this forces a new resource to be created.
-	Table interface{}
+	Table pulumi.StringInput `pulumi:"table"`
 	// Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-	User interface{}
+	User pulumi.StringInput `pulumi:"user"`
 }

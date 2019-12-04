@@ -12,50 +12,46 @@ import (
 // > **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this data source as a part of version 2.0 of the AzureRM Provider.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/scheduler_job_collection.html.markdown.
-func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJobCollectionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:scheduler/getJobCollection:getJobCollection", inputs)
+func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs, opts ...pulumi.InvokeOption) (*GetJobCollectionResult, error) {
+	var rv GetJobCollectionResult
+	err := ctx.Invoke("azure:scheduler/getJobCollection:getJobCollection", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetJobCollectionResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		Quotas: outputs["quotas"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		State: outputs["state"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getJobCollection.
 type GetJobCollectionArgs struct {
 	// Specifies the name of the Scheduler Job Collection.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group in which the Scheduler Job Collection resides.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getJobCollection.
 type GetJobCollectionResult struct {
 	// The Azure location where the resource exists.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// The Job collection quotas as documented in the `quota` block below.
-	Quotas interface{}
-	ResourceGroupName interface{}
+	Quotas []GetJobCollectionQuotasResult `pulumi:"quotas"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Job Collection's pricing level's SKU.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// The Job Collection's state.
-	State interface{}
+	State string `pulumi:"state"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetJobCollectionQuotasResult struct {
+	// Sets the maximum number of jobs in the collection.
+	MaxJobCount int `pulumi:"maxJobCount"`
+	// The maximum frequency of recurrence.
+	MaxRecurrenceFrequency string `pulumi:"maxRecurrenceFrequency"`
+	MaxRecurrenceInterval int `pulumi:"maxRecurrenceInterval"`
+	// The maximum interval between retries.
+	MaxRetryInterval int `pulumi:"maxRetryInterval"`
 }

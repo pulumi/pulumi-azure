@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,162 +14,464 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
 type DiagnosticSetting struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+	EventhubAuthorizationRuleId pulumi.StringOutput `pulumi:"eventhubAuthorizationRuleId"`
+
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
+
+	// One or more `log` blocks as defined below.
+	Logs DiagnosticSettingLogsArrayOutput `pulumi:"logs"`
+
+	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	LogAnalyticsDestinationType pulumi.StringOutput `pulumi:"logAnalyticsDestinationType"`
+
+	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
+
+	// One or more `metric` blocks as defined below.
+	Metrics DiagnosticSettingMetricsArrayOutput `pulumi:"metrics"`
+
+	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+
+	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
 // NewDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
 func NewDiagnosticSetting(ctx *pulumi.Context,
-	name string, args *DiagnosticSettingArgs, opts ...pulumi.ResourceOpt) (*DiagnosticSetting, error) {
+	name string, args *DiagnosticSettingArgs, opts ...pulumi.ResourceOption) (*DiagnosticSetting, error) {
 	if args == nil || args.TargetResourceId == nil {
 		return nil, errors.New("missing required argument 'TargetResourceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["eventhubAuthorizationRuleId"] = nil
-		inputs["eventhubName"] = nil
-		inputs["logs"] = nil
-		inputs["logAnalyticsDestinationType"] = nil
-		inputs["logAnalyticsWorkspaceId"] = nil
-		inputs["metrics"] = nil
-		inputs["name"] = nil
-		inputs["storageAccountId"] = nil
-		inputs["targetResourceId"] = nil
-	} else {
-		inputs["eventhubAuthorizationRuleId"] = args.EventhubAuthorizationRuleId
-		inputs["eventhubName"] = args.EventhubName
-		inputs["logs"] = args.Logs
-		inputs["logAnalyticsDestinationType"] = args.LogAnalyticsDestinationType
-		inputs["logAnalyticsWorkspaceId"] = args.LogAnalyticsWorkspaceId
-		inputs["metrics"] = args.Metrics
-		inputs["name"] = args.Name
-		inputs["storageAccountId"] = args.StorageAccountId
-		inputs["targetResourceId"] = args.TargetResourceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EventhubAuthorizationRuleId; i != nil { inputs["eventhubAuthorizationRuleId"] = i.ToStringOutput() }
+		if i := args.EventhubName; i != nil { inputs["eventhubName"] = i.ToStringOutput() }
+		if i := args.Logs; i != nil { inputs["logs"] = i.ToDiagnosticSettingLogsArrayOutput() }
+		if i := args.LogAnalyticsDestinationType; i != nil { inputs["logAnalyticsDestinationType"] = i.ToStringOutput() }
+		if i := args.LogAnalyticsWorkspaceId; i != nil { inputs["logAnalyticsWorkspaceId"] = i.ToStringOutput() }
+		if i := args.Metrics; i != nil { inputs["metrics"] = i.ToDiagnosticSettingMetricsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := args.TargetResourceId; i != nil { inputs["targetResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, true, inputs, opts...)
+	var resource DiagnosticSetting
+	err := ctx.RegisterResource("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DiagnosticSetting{s: s}, nil
+	return &resource, nil
 }
 
 // GetDiagnosticSetting gets an existing DiagnosticSetting resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDiagnosticSetting(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DiagnosticSettingState, opts ...pulumi.ResourceOpt) (*DiagnosticSetting, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DiagnosticSettingState, opts ...pulumi.ResourceOption) (*DiagnosticSetting, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["eventhubAuthorizationRuleId"] = state.EventhubAuthorizationRuleId
-		inputs["eventhubName"] = state.EventhubName
-		inputs["logs"] = state.Logs
-		inputs["logAnalyticsDestinationType"] = state.LogAnalyticsDestinationType
-		inputs["logAnalyticsWorkspaceId"] = state.LogAnalyticsWorkspaceId
-		inputs["metrics"] = state.Metrics
-		inputs["name"] = state.Name
-		inputs["storageAccountId"] = state.StorageAccountId
-		inputs["targetResourceId"] = state.TargetResourceId
+		if i := state.EventhubAuthorizationRuleId; i != nil { inputs["eventhubAuthorizationRuleId"] = i.ToStringOutput() }
+		if i := state.EventhubName; i != nil { inputs["eventhubName"] = i.ToStringOutput() }
+		if i := state.Logs; i != nil { inputs["logs"] = i.ToDiagnosticSettingLogsArrayOutput() }
+		if i := state.LogAnalyticsDestinationType; i != nil { inputs["logAnalyticsDestinationType"] = i.ToStringOutput() }
+		if i := state.LogAnalyticsWorkspaceId; i != nil { inputs["logAnalyticsWorkspaceId"] = i.ToStringOutput() }
+		if i := state.Metrics; i != nil { inputs["metrics"] = i.ToDiagnosticSettingMetricsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := state.TargetResourceId; i != nil { inputs["targetResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, id, inputs, opts...)
+	var resource DiagnosticSetting
+	err := ctx.ReadResource("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DiagnosticSetting{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DiagnosticSetting) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DiagnosticSetting) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) EventhubAuthorizationRuleId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eventhubAuthorizationRuleId"])
-}
-
-// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) EventhubName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eventhubName"])
-}
-
-// One or more `log` blocks as defined below.
-func (r *DiagnosticSetting) Logs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["logs"])
-}
-
-// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
-func (r *DiagnosticSetting) LogAnalyticsDestinationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logAnalyticsDestinationType"])
-}
-
-// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) LogAnalyticsWorkspaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logAnalyticsWorkspaceId"])
-}
-
-// One or more `metric` blocks as defined below.
-func (r *DiagnosticSetting) Metrics() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["metrics"])
-}
-
-// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) StorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
-}
-
-// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
-func (r *DiagnosticSetting) TargetResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DiagnosticSetting resources.
 type DiagnosticSettingState struct {
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
-	EventhubAuthorizationRuleId interface{}
+	EventhubAuthorizationRuleId pulumi.StringInput `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-	EventhubName interface{}
+	EventhubName pulumi.StringInput `pulumi:"eventhubName"`
 	// One or more `log` blocks as defined below.
-	Logs interface{}
+	Logs DiagnosticSettingLogsArrayInput `pulumi:"logs"`
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
-	LogAnalyticsDestinationType interface{}
+	LogAnalyticsDestinationType pulumi.StringInput `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-	LogAnalyticsWorkspaceId interface{}
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `metric` blocks as defined below.
-	Metrics interface{}
+	Metrics DiagnosticSettingMetricsArrayInput `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
-	TargetResourceId interface{}
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
 
 // The set of arguments for constructing a DiagnosticSetting resource.
 type DiagnosticSettingArgs struct {
 	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
-	EventhubAuthorizationRuleId interface{}
+	EventhubAuthorizationRuleId pulumi.StringInput `pulumi:"eventhubAuthorizationRuleId"`
 	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-	EventhubName interface{}
+	EventhubName pulumi.StringInput `pulumi:"eventhubName"`
 	// One or more `log` blocks as defined below.
-	Logs interface{}
+	Logs DiagnosticSettingLogsArrayInput `pulumi:"logs"`
 	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
-	LogAnalyticsDestinationType interface{}
+	LogAnalyticsDestinationType pulumi.StringInput `pulumi:"logAnalyticsDestinationType"`
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-	LogAnalyticsWorkspaceId interface{}
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
 	// One or more `metric` blocks as defined below.
-	Metrics interface{}
+	Metrics DiagnosticSettingMetricsArrayInput `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
-	TargetResourceId interface{}
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
+type DiagnosticSettingLogs struct {
+	Category string `pulumi:"category"`
+	Enabled *bool `pulumi:"enabled"`
+	RetentionPolicy DiagnosticSettingLogsRetentionPolicy `pulumi:"retentionPolicy"`
+}
+var diagnosticSettingLogsType = reflect.TypeOf((*DiagnosticSettingLogs)(nil)).Elem()
+
+type DiagnosticSettingLogsInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingLogsOutput() DiagnosticSettingLogsOutput
+	ToDiagnosticSettingLogsOutputWithContext(ctx context.Context) DiagnosticSettingLogsOutput
+}
+
+type DiagnosticSettingLogsArgs struct {
+	Category pulumi.StringInput `pulumi:"category"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	RetentionPolicy DiagnosticSettingLogsRetentionPolicyInput `pulumi:"retentionPolicy"`
+}
+
+func (DiagnosticSettingLogsArgs) ElementType() reflect.Type {
+	return diagnosticSettingLogsType
+}
+
+func (a DiagnosticSettingLogsArgs) ToDiagnosticSettingLogsOutput() DiagnosticSettingLogsOutput {
+	return pulumi.ToOutput(a).(DiagnosticSettingLogsOutput)
+}
+
+func (a DiagnosticSettingLogsArgs) ToDiagnosticSettingLogsOutputWithContext(ctx context.Context) DiagnosticSettingLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DiagnosticSettingLogsOutput)
+}
+
+type DiagnosticSettingLogsOutput struct { *pulumi.OutputState }
+
+func (o DiagnosticSettingLogsOutput) Category() pulumi.StringOutput {
+	return o.Apply(func(v DiagnosticSettingLogs) string {
+		return v.Category
+	}).(pulumi.StringOutput)
+}
+
+func (o DiagnosticSettingLogsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DiagnosticSettingLogs) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o DiagnosticSettingLogsOutput) RetentionPolicy() DiagnosticSettingLogsRetentionPolicyOutput {
+	return o.Apply(func(v DiagnosticSettingLogs) DiagnosticSettingLogsRetentionPolicy {
+		return v.RetentionPolicy
+	}).(DiagnosticSettingLogsRetentionPolicyOutput)
+}
+
+func (DiagnosticSettingLogsOutput) ElementType() reflect.Type {
+	return diagnosticSettingLogsType
+}
+
+func (o DiagnosticSettingLogsOutput) ToDiagnosticSettingLogsOutput() DiagnosticSettingLogsOutput {
+	return o
+}
+
+func (o DiagnosticSettingLogsOutput) ToDiagnosticSettingLogsOutputWithContext(ctx context.Context) DiagnosticSettingLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DiagnosticSettingLogsOutput{}) }
+
+var diagnosticSettingLogsArrayType = reflect.TypeOf((*[]DiagnosticSettingLogs)(nil)).Elem()
+
+type DiagnosticSettingLogsArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingLogsArrayOutput() DiagnosticSettingLogsArrayOutput
+	ToDiagnosticSettingLogsArrayOutputWithContext(ctx context.Context) DiagnosticSettingLogsArrayOutput
+}
+
+type DiagnosticSettingLogsArrayArgs []DiagnosticSettingLogsInput
+
+func (DiagnosticSettingLogsArrayArgs) ElementType() reflect.Type {
+	return diagnosticSettingLogsArrayType
+}
+
+func (a DiagnosticSettingLogsArrayArgs) ToDiagnosticSettingLogsArrayOutput() DiagnosticSettingLogsArrayOutput {
+	return pulumi.ToOutput(a).(DiagnosticSettingLogsArrayOutput)
+}
+
+func (a DiagnosticSettingLogsArrayArgs) ToDiagnosticSettingLogsArrayOutputWithContext(ctx context.Context) DiagnosticSettingLogsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DiagnosticSettingLogsArrayOutput)
+}
+
+type DiagnosticSettingLogsArrayOutput struct { *pulumi.OutputState }
+
+func (o DiagnosticSettingLogsArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingLogsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DiagnosticSettingLogs {
+		return vs[0].([]DiagnosticSettingLogs)[vs[1].(int)]
+	}).(DiagnosticSettingLogsOutput)
+}
+
+func (DiagnosticSettingLogsArrayOutput) ElementType() reflect.Type {
+	return diagnosticSettingLogsArrayType
+}
+
+func (o DiagnosticSettingLogsArrayOutput) ToDiagnosticSettingLogsArrayOutput() DiagnosticSettingLogsArrayOutput {
+	return o
+}
+
+func (o DiagnosticSettingLogsArrayOutput) ToDiagnosticSettingLogsArrayOutputWithContext(ctx context.Context) DiagnosticSettingLogsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DiagnosticSettingLogsArrayOutput{}) }
+
+type DiagnosticSettingLogsRetentionPolicy struct {
+	Days *int `pulumi:"days"`
+	Enabled bool `pulumi:"enabled"`
+}
+var diagnosticSettingLogsRetentionPolicyType = reflect.TypeOf((*DiagnosticSettingLogsRetentionPolicy)(nil)).Elem()
+
+type DiagnosticSettingLogsRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingLogsRetentionPolicyOutput() DiagnosticSettingLogsRetentionPolicyOutput
+	ToDiagnosticSettingLogsRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingLogsRetentionPolicyOutput
+}
+
+type DiagnosticSettingLogsRetentionPolicyArgs struct {
+	Days pulumi.IntInput `pulumi:"days"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DiagnosticSettingLogsRetentionPolicyArgs) ElementType() reflect.Type {
+	return diagnosticSettingLogsRetentionPolicyType
+}
+
+func (a DiagnosticSettingLogsRetentionPolicyArgs) ToDiagnosticSettingLogsRetentionPolicyOutput() DiagnosticSettingLogsRetentionPolicyOutput {
+	return pulumi.ToOutput(a).(DiagnosticSettingLogsRetentionPolicyOutput)
+}
+
+func (a DiagnosticSettingLogsRetentionPolicyArgs) ToDiagnosticSettingLogsRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingLogsRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DiagnosticSettingLogsRetentionPolicyOutput)
+}
+
+type DiagnosticSettingLogsRetentionPolicyOutput struct { *pulumi.OutputState }
+
+func (o DiagnosticSettingLogsRetentionPolicyOutput) Days() pulumi.IntOutput {
+	return o.Apply(func(v DiagnosticSettingLogsRetentionPolicy) int {
+		if v.Days == nil { return *new(int) } else { return *v.Days }
+	}).(pulumi.IntOutput)
+}
+
+func (o DiagnosticSettingLogsRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DiagnosticSettingLogsRetentionPolicy) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (DiagnosticSettingLogsRetentionPolicyOutput) ElementType() reflect.Type {
+	return diagnosticSettingLogsRetentionPolicyType
+}
+
+func (o DiagnosticSettingLogsRetentionPolicyOutput) ToDiagnosticSettingLogsRetentionPolicyOutput() DiagnosticSettingLogsRetentionPolicyOutput {
+	return o
+}
+
+func (o DiagnosticSettingLogsRetentionPolicyOutput) ToDiagnosticSettingLogsRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingLogsRetentionPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DiagnosticSettingLogsRetentionPolicyOutput{}) }
+
+type DiagnosticSettingMetrics struct {
+	Category string `pulumi:"category"`
+	Enabled *bool `pulumi:"enabled"`
+	RetentionPolicy DiagnosticSettingMetricsRetentionPolicy `pulumi:"retentionPolicy"`
+}
+var diagnosticSettingMetricsType = reflect.TypeOf((*DiagnosticSettingMetrics)(nil)).Elem()
+
+type DiagnosticSettingMetricsInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingMetricsOutput() DiagnosticSettingMetricsOutput
+	ToDiagnosticSettingMetricsOutputWithContext(ctx context.Context) DiagnosticSettingMetricsOutput
+}
+
+type DiagnosticSettingMetricsArgs struct {
+	Category pulumi.StringInput `pulumi:"category"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	RetentionPolicy DiagnosticSettingMetricsRetentionPolicyInput `pulumi:"retentionPolicy"`
+}
+
+func (DiagnosticSettingMetricsArgs) ElementType() reflect.Type {
+	return diagnosticSettingMetricsType
+}
+
+func (a DiagnosticSettingMetricsArgs) ToDiagnosticSettingMetricsOutput() DiagnosticSettingMetricsOutput {
+	return pulumi.ToOutput(a).(DiagnosticSettingMetricsOutput)
+}
+
+func (a DiagnosticSettingMetricsArgs) ToDiagnosticSettingMetricsOutputWithContext(ctx context.Context) DiagnosticSettingMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DiagnosticSettingMetricsOutput)
+}
+
+type DiagnosticSettingMetricsOutput struct { *pulumi.OutputState }
+
+func (o DiagnosticSettingMetricsOutput) Category() pulumi.StringOutput {
+	return o.Apply(func(v DiagnosticSettingMetrics) string {
+		return v.Category
+	}).(pulumi.StringOutput)
+}
+
+func (o DiagnosticSettingMetricsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DiagnosticSettingMetrics) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o DiagnosticSettingMetricsOutput) RetentionPolicy() DiagnosticSettingMetricsRetentionPolicyOutput {
+	return o.Apply(func(v DiagnosticSettingMetrics) DiagnosticSettingMetricsRetentionPolicy {
+		return v.RetentionPolicy
+	}).(DiagnosticSettingMetricsRetentionPolicyOutput)
+}
+
+func (DiagnosticSettingMetricsOutput) ElementType() reflect.Type {
+	return diagnosticSettingMetricsType
+}
+
+func (o DiagnosticSettingMetricsOutput) ToDiagnosticSettingMetricsOutput() DiagnosticSettingMetricsOutput {
+	return o
+}
+
+func (o DiagnosticSettingMetricsOutput) ToDiagnosticSettingMetricsOutputWithContext(ctx context.Context) DiagnosticSettingMetricsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DiagnosticSettingMetricsOutput{}) }
+
+var diagnosticSettingMetricsArrayType = reflect.TypeOf((*[]DiagnosticSettingMetrics)(nil)).Elem()
+
+type DiagnosticSettingMetricsArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingMetricsArrayOutput() DiagnosticSettingMetricsArrayOutput
+	ToDiagnosticSettingMetricsArrayOutputWithContext(ctx context.Context) DiagnosticSettingMetricsArrayOutput
+}
+
+type DiagnosticSettingMetricsArrayArgs []DiagnosticSettingMetricsInput
+
+func (DiagnosticSettingMetricsArrayArgs) ElementType() reflect.Type {
+	return diagnosticSettingMetricsArrayType
+}
+
+func (a DiagnosticSettingMetricsArrayArgs) ToDiagnosticSettingMetricsArrayOutput() DiagnosticSettingMetricsArrayOutput {
+	return pulumi.ToOutput(a).(DiagnosticSettingMetricsArrayOutput)
+}
+
+func (a DiagnosticSettingMetricsArrayArgs) ToDiagnosticSettingMetricsArrayOutputWithContext(ctx context.Context) DiagnosticSettingMetricsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DiagnosticSettingMetricsArrayOutput)
+}
+
+type DiagnosticSettingMetricsArrayOutput struct { *pulumi.OutputState }
+
+func (o DiagnosticSettingMetricsArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingMetricsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DiagnosticSettingMetrics {
+		return vs[0].([]DiagnosticSettingMetrics)[vs[1].(int)]
+	}).(DiagnosticSettingMetricsOutput)
+}
+
+func (DiagnosticSettingMetricsArrayOutput) ElementType() reflect.Type {
+	return diagnosticSettingMetricsArrayType
+}
+
+func (o DiagnosticSettingMetricsArrayOutput) ToDiagnosticSettingMetricsArrayOutput() DiagnosticSettingMetricsArrayOutput {
+	return o
+}
+
+func (o DiagnosticSettingMetricsArrayOutput) ToDiagnosticSettingMetricsArrayOutputWithContext(ctx context.Context) DiagnosticSettingMetricsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DiagnosticSettingMetricsArrayOutput{}) }
+
+type DiagnosticSettingMetricsRetentionPolicy struct {
+	Days *int `pulumi:"days"`
+	Enabled bool `pulumi:"enabled"`
+}
+var diagnosticSettingMetricsRetentionPolicyType = reflect.TypeOf((*DiagnosticSettingMetricsRetentionPolicy)(nil)).Elem()
+
+type DiagnosticSettingMetricsRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDiagnosticSettingMetricsRetentionPolicyOutput() DiagnosticSettingMetricsRetentionPolicyOutput
+	ToDiagnosticSettingMetricsRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingMetricsRetentionPolicyOutput
+}
+
+type DiagnosticSettingMetricsRetentionPolicyArgs struct {
+	Days pulumi.IntInput `pulumi:"days"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DiagnosticSettingMetricsRetentionPolicyArgs) ElementType() reflect.Type {
+	return diagnosticSettingMetricsRetentionPolicyType
+}
+
+func (a DiagnosticSettingMetricsRetentionPolicyArgs) ToDiagnosticSettingMetricsRetentionPolicyOutput() DiagnosticSettingMetricsRetentionPolicyOutput {
+	return pulumi.ToOutput(a).(DiagnosticSettingMetricsRetentionPolicyOutput)
+}
+
+func (a DiagnosticSettingMetricsRetentionPolicyArgs) ToDiagnosticSettingMetricsRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingMetricsRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DiagnosticSettingMetricsRetentionPolicyOutput)
+}
+
+type DiagnosticSettingMetricsRetentionPolicyOutput struct { *pulumi.OutputState }
+
+func (o DiagnosticSettingMetricsRetentionPolicyOutput) Days() pulumi.IntOutput {
+	return o.Apply(func(v DiagnosticSettingMetricsRetentionPolicy) int {
+		if v.Days == nil { return *new(int) } else { return *v.Days }
+	}).(pulumi.IntOutput)
+}
+
+func (o DiagnosticSettingMetricsRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v DiagnosticSettingMetricsRetentionPolicy) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (DiagnosticSettingMetricsRetentionPolicyOutput) ElementType() reflect.Type {
+	return diagnosticSettingMetricsRetentionPolicyType
+}
+
+func (o DiagnosticSettingMetricsRetentionPolicyOutput) ToDiagnosticSettingMetricsRetentionPolicyOutput() DiagnosticSettingMetricsRetentionPolicyOutput {
+	return o
+}
+
+func (o DiagnosticSettingMetricsRetentionPolicyOutput) ToDiagnosticSettingMetricsRetentionPolicyOutputWithContext(ctx context.Context) DiagnosticSettingMetricsRetentionPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DiagnosticSettingMetricsRetentionPolicyOutput{}) }
+

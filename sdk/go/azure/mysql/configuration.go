@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_configuration.html.markdown.
 type Configuration struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
-	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOpt) (*Configuration, error) {
+	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -27,93 +39,60 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serverName"] = nil
-		inputs["value"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["value"] = args.Value
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:mysql/configuration:Configuration", name, true, inputs, opts...)
+	var resource Configuration
+	err := ctx.RegisterResource("azure:mysql/configuration:Configuration", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Configuration{s: s}, nil
+	return &resource, nil
 }
 
 // GetConfiguration gets an existing Configuration resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConfiguration(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConfigurationState, opts ...pulumi.ResourceOpt) (*Configuration, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConfigurationState, opts ...pulumi.ResourceOption) (*Configuration, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverName"] = state.ServerName
-		inputs["value"] = state.Value
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:mysql/configuration:Configuration", name, id, inputs, opts...)
+	var resource Configuration
+	err := ctx.ReadResource("azure:mysql/configuration:Configuration", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Configuration{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Configuration) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Configuration) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
-func (r *Configuration) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
-func (r *Configuration) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
-func (r *Configuration) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
-func (r *Configuration) Value() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["value"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Configuration resources.
 type ConfigurationState struct {
 	// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
 	// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }

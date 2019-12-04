@@ -4,6 +4,8 @@
 package role
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition_legacy.html.markdown.
 type Definition struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
+
+	// A description of the Role Definition.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the Role Definition. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `permissions` block as defined below.
+	Permissions DefinitionPermissionsArrayOutput `pulumi:"permissions"`
+
+	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
+	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
+
+	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
+	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewDefinition registers a new resource with the given unique name, arguments, and options.
 func NewDefinition(ctx *pulumi.Context,
-	name string, args *DefinitionArgs, opts ...pulumi.ResourceOpt) (*Definition, error) {
+	name string, args *DefinitionArgs, opts ...pulumi.ResourceOption) (*Definition, error) {
 	if args == nil || args.AssignableScopes == nil {
 		return nil, errors.New("missing required argument 'AssignableScopes'")
 	}
@@ -27,117 +47,191 @@ func NewDefinition(ctx *pulumi.Context,
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["assignableScopes"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["permissions"] = nil
-		inputs["roleDefinitionId"] = nil
-		inputs["scope"] = nil
-	} else {
-		inputs["assignableScopes"] = args.AssignableScopes
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["permissions"] = args.Permissions
-		inputs["roleDefinitionId"] = args.RoleDefinitionId
-		inputs["scope"] = args.Scope
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AssignableScopes; i != nil { inputs["assignableScopes"] = i.ToStringArrayOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Permissions; i != nil { inputs["permissions"] = i.ToDefinitionPermissionsArrayOutput() }
+		if i := args.RoleDefinitionId; i != nil { inputs["roleDefinitionId"] = i.ToStringOutput() }
+		if i := args.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:role/definition:Definition", name, true, inputs, opts...)
+	var resource Definition
+	err := ctx.RegisterResource("azure:role/definition:Definition", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Definition{s: s}, nil
+	return &resource, nil
 }
 
 // GetDefinition gets an existing Definition resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDefinition(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DefinitionState, opts ...pulumi.ResourceOpt) (*Definition, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DefinitionState, opts ...pulumi.ResourceOption) (*Definition, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["assignableScopes"] = state.AssignableScopes
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["permissions"] = state.Permissions
-		inputs["roleDefinitionId"] = state.RoleDefinitionId
-		inputs["scope"] = state.Scope
+		if i := state.AssignableScopes; i != nil { inputs["assignableScopes"] = i.ToStringArrayOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Permissions; i != nil { inputs["permissions"] = i.ToDefinitionPermissionsArrayOutput() }
+		if i := state.RoleDefinitionId; i != nil { inputs["roleDefinitionId"] = i.ToStringOutput() }
+		if i := state.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:role/definition:Definition", name, id, inputs, opts...)
+	var resource Definition
+	err := ctx.ReadResource("azure:role/definition:Definition", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Definition{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Definition) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Definition) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
-func (r *Definition) AssignableScopes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["assignableScopes"])
-}
-
-// A description of the Role Definition.
-func (r *Definition) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the Role Definition. Changing this forces a new resource to be created.
-func (r *Definition) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `permissions` block as defined below.
-func (r *Definition) Permissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["permissions"])
-}
-
-// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-func (r *Definition) RoleDefinitionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["roleDefinitionId"])
-}
-
-// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
-func (r *Definition) Scope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scope"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Definition resources.
 type DefinitionState struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
-	AssignableScopes interface{}
+	AssignableScopes pulumi.StringArrayInput `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the Role Definition. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `permissions` block as defined below.
-	Permissions interface{}
+	Permissions DefinitionPermissionsArrayInput `pulumi:"permissions"`
 	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-	RoleDefinitionId interface{}
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Definition resource.
 type DefinitionArgs struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
-	AssignableScopes interface{}
+	AssignableScopes pulumi.StringArrayInput `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the Role Definition. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `permissions` block as defined below.
-	Permissions interface{}
+	Permissions DefinitionPermissionsArrayInput `pulumi:"permissions"`
 	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-	RoleDefinitionId interface{}
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 }
+type DefinitionPermissions struct {
+	Actions *[]string `pulumi:"actions"`
+	DataActions *[]string `pulumi:"dataActions"`
+	NotActions *[]string `pulumi:"notActions"`
+	NotDataActions *[]string `pulumi:"notDataActions"`
+}
+var definitionPermissionsType = reflect.TypeOf((*DefinitionPermissions)(nil)).Elem()
+
+type DefinitionPermissionsInput interface {
+	pulumi.Input
+
+	ToDefinitionPermissionsOutput() DefinitionPermissionsOutput
+	ToDefinitionPermissionsOutputWithContext(ctx context.Context) DefinitionPermissionsOutput
+}
+
+type DefinitionPermissionsArgs struct {
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
+}
+
+func (DefinitionPermissionsArgs) ElementType() reflect.Type {
+	return definitionPermissionsType
+}
+
+func (a DefinitionPermissionsArgs) ToDefinitionPermissionsOutput() DefinitionPermissionsOutput {
+	return pulumi.ToOutput(a).(DefinitionPermissionsOutput)
+}
+
+func (a DefinitionPermissionsArgs) ToDefinitionPermissionsOutputWithContext(ctx context.Context) DefinitionPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefinitionPermissionsOutput)
+}
+
+type DefinitionPermissionsOutput struct { *pulumi.OutputState }
+
+func (o DefinitionPermissionsOutput) Actions() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefinitionPermissions) []string {
+		if v.Actions == nil { return *new([]string) } else { return *v.Actions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefinitionPermissionsOutput) DataActions() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefinitionPermissions) []string {
+		if v.DataActions == nil { return *new([]string) } else { return *v.DataActions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefinitionPermissionsOutput) NotActions() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefinitionPermissions) []string {
+		if v.NotActions == nil { return *new([]string) } else { return *v.NotActions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DefinitionPermissionsOutput) NotDataActions() pulumi.StringArrayOutput {
+	return o.Apply(func(v DefinitionPermissions) []string {
+		if v.NotDataActions == nil { return *new([]string) } else { return *v.NotDataActions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (DefinitionPermissionsOutput) ElementType() reflect.Type {
+	return definitionPermissionsType
+}
+
+func (o DefinitionPermissionsOutput) ToDefinitionPermissionsOutput() DefinitionPermissionsOutput {
+	return o
+}
+
+func (o DefinitionPermissionsOutput) ToDefinitionPermissionsOutputWithContext(ctx context.Context) DefinitionPermissionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefinitionPermissionsOutput{}) }
+
+var definitionPermissionsArrayType = reflect.TypeOf((*[]DefinitionPermissions)(nil)).Elem()
+
+type DefinitionPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToDefinitionPermissionsArrayOutput() DefinitionPermissionsArrayOutput
+	ToDefinitionPermissionsArrayOutputWithContext(ctx context.Context) DefinitionPermissionsArrayOutput
+}
+
+type DefinitionPermissionsArrayArgs []DefinitionPermissionsInput
+
+func (DefinitionPermissionsArrayArgs) ElementType() reflect.Type {
+	return definitionPermissionsArrayType
+}
+
+func (a DefinitionPermissionsArrayArgs) ToDefinitionPermissionsArrayOutput() DefinitionPermissionsArrayOutput {
+	return pulumi.ToOutput(a).(DefinitionPermissionsArrayOutput)
+}
+
+func (a DefinitionPermissionsArrayArgs) ToDefinitionPermissionsArrayOutputWithContext(ctx context.Context) DefinitionPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DefinitionPermissionsArrayOutput)
+}
+
+type DefinitionPermissionsArrayOutput struct { *pulumi.OutputState }
+
+func (o DefinitionPermissionsArrayOutput) Index(i pulumi.IntInput) DefinitionPermissionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DefinitionPermissions {
+		return vs[0].([]DefinitionPermissions)[vs[1].(int)]
+	}).(DefinitionPermissionsOutput)
+}
+
+func (DefinitionPermissionsArrayOutput) ElementType() reflect.Type {
+	return definitionPermissionsArrayType
+}
+
+func (o DefinitionPermissionsArrayOutput) ToDefinitionPermissionsArrayOutput() DefinitionPermissionsArrayOutput {
+	return o
+}
+
+func (o DefinitionPermissionsArrayOutput) ToDefinitionPermissionsArrayOutputWithContext(ctx context.Context) DefinitionPermissionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DefinitionPermissionsArrayOutput{}) }
+

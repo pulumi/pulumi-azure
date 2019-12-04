@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,240 +14,364 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
 type NetworkInterface struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
+	AppliedDnsServers pulumi.StringArrayOutput `pulumi:"appliedDnsServers"`
+
+	// List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
+	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+
+	// Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
+	EnableAcceleratedNetworking pulumi.BoolOutput `pulumi:"enableAcceleratedNetworking"`
+
+	// Enables IP Forwarding on the NIC. Defaults to `false`.
+	EnableIpForwarding pulumi.BoolOutput `pulumi:"enableIpForwarding"`
+
+	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
+	InternalDnsNameLabel pulumi.StringOutput `pulumi:"internalDnsNameLabel"`
+
+	InternalFqdn pulumi.StringOutput `pulumi:"internalFqdn"`
+
+	// One or more `ipConfiguration` associated with this NIC as documented below.
+	IpConfigurations NetworkInterfaceIpConfigurationsArrayOutput `pulumi:"ipConfigurations"`
+
+	// The location/region where the network interface is created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The media access control (MAC) address of the network interface.
+	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
+
+	// The name of the network interface. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ID of the Network Security Group to associate with the network interface.
+	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
+
+	// The first private IP address of the network interface.
+	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+
+	// The private IP addresses of the network interface.
+	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
+
+	// The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Reference to a VM with which this NIC has been associated.
+	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterface(ctx *pulumi.Context,
-	name string, args *NetworkInterfaceArgs, opts ...pulumi.ResourceOpt) (*NetworkInterface, error) {
+	name string, args *NetworkInterfaceArgs, opts ...pulumi.ResourceOption) (*NetworkInterface, error) {
 	if args == nil || args.IpConfigurations == nil {
 		return nil, errors.New("missing required argument 'IpConfigurations'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appliedDnsServers"] = nil
-		inputs["dnsServers"] = nil
-		inputs["enableAcceleratedNetworking"] = nil
-		inputs["enableIpForwarding"] = nil
-		inputs["internalDnsNameLabel"] = nil
-		inputs["internalFqdn"] = nil
-		inputs["ipConfigurations"] = nil
-		inputs["location"] = nil
-		inputs["macAddress"] = nil
-		inputs["name"] = nil
-		inputs["networkSecurityGroupId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["virtualMachineId"] = nil
-	} else {
-		inputs["appliedDnsServers"] = args.AppliedDnsServers
-		inputs["dnsServers"] = args.DnsServers
-		inputs["enableAcceleratedNetworking"] = args.EnableAcceleratedNetworking
-		inputs["enableIpForwarding"] = args.EnableIpForwarding
-		inputs["internalDnsNameLabel"] = args.InternalDnsNameLabel
-		inputs["internalFqdn"] = args.InternalFqdn
-		inputs["ipConfigurations"] = args.IpConfigurations
-		inputs["location"] = args.Location
-		inputs["macAddress"] = args.MacAddress
-		inputs["name"] = args.Name
-		inputs["networkSecurityGroupId"] = args.NetworkSecurityGroupId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["virtualMachineId"] = args.VirtualMachineId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppliedDnsServers; i != nil { inputs["appliedDnsServers"] = i.ToStringArrayOutput() }
+		if i := args.DnsServers; i != nil { inputs["dnsServers"] = i.ToStringArrayOutput() }
+		if i := args.EnableAcceleratedNetworking; i != nil { inputs["enableAcceleratedNetworking"] = i.ToBoolOutput() }
+		if i := args.EnableIpForwarding; i != nil { inputs["enableIpForwarding"] = i.ToBoolOutput() }
+		if i := args.InternalDnsNameLabel; i != nil { inputs["internalDnsNameLabel"] = i.ToStringOutput() }
+		if i := args.InternalFqdn; i != nil { inputs["internalFqdn"] = i.ToStringOutput() }
+		if i := args.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToNetworkInterfaceIpConfigurationsArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MacAddress; i != nil { inputs["macAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkSecurityGroupId; i != nil { inputs["networkSecurityGroupId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VirtualMachineId; i != nil { inputs["virtualMachineId"] = i.ToStringOutput() }
 	}
-	inputs["privateIpAddress"] = nil
-	inputs["privateIpAddresses"] = nil
-	s, err := ctx.RegisterResource("azure:network/networkInterface:NetworkInterface", name, true, inputs, opts...)
+	var resource NetworkInterface
+	err := ctx.RegisterResource("azure:network/networkInterface:NetworkInterface", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterface{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkInterface gets an existing NetworkInterface resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkInterface(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkInterfaceState, opts ...pulumi.ResourceOpt) (*NetworkInterface, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkInterfaceState, opts ...pulumi.ResourceOption) (*NetworkInterface, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appliedDnsServers"] = state.AppliedDnsServers
-		inputs["dnsServers"] = state.DnsServers
-		inputs["enableAcceleratedNetworking"] = state.EnableAcceleratedNetworking
-		inputs["enableIpForwarding"] = state.EnableIpForwarding
-		inputs["internalDnsNameLabel"] = state.InternalDnsNameLabel
-		inputs["internalFqdn"] = state.InternalFqdn
-		inputs["ipConfigurations"] = state.IpConfigurations
-		inputs["location"] = state.Location
-		inputs["macAddress"] = state.MacAddress
-		inputs["name"] = state.Name
-		inputs["networkSecurityGroupId"] = state.NetworkSecurityGroupId
-		inputs["privateIpAddress"] = state.PrivateIpAddress
-		inputs["privateIpAddresses"] = state.PrivateIpAddresses
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["virtualMachineId"] = state.VirtualMachineId
+		if i := state.AppliedDnsServers; i != nil { inputs["appliedDnsServers"] = i.ToStringArrayOutput() }
+		if i := state.DnsServers; i != nil { inputs["dnsServers"] = i.ToStringArrayOutput() }
+		if i := state.EnableAcceleratedNetworking; i != nil { inputs["enableAcceleratedNetworking"] = i.ToBoolOutput() }
+		if i := state.EnableIpForwarding; i != nil { inputs["enableIpForwarding"] = i.ToBoolOutput() }
+		if i := state.InternalDnsNameLabel; i != nil { inputs["internalDnsNameLabel"] = i.ToStringOutput() }
+		if i := state.InternalFqdn; i != nil { inputs["internalFqdn"] = i.ToStringOutput() }
+		if i := state.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToNetworkInterfaceIpConfigurationsArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MacAddress; i != nil { inputs["macAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkSecurityGroupId; i != nil { inputs["networkSecurityGroupId"] = i.ToStringOutput() }
+		if i := state.PrivateIpAddress; i != nil { inputs["privateIpAddress"] = i.ToStringOutput() }
+		if i := state.PrivateIpAddresses; i != nil { inputs["privateIpAddresses"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualMachineId; i != nil { inputs["virtualMachineId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/networkInterface:NetworkInterface", name, id, inputs, opts...)
+	var resource NetworkInterface
+	err := ctx.ReadResource("azure:network/networkInterface:NetworkInterface", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterface{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterface) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterface) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
-func (r *NetworkInterface) AppliedDnsServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["appliedDnsServers"])
-}
-
-// List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
-func (r *NetworkInterface) DnsServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dnsServers"])
-}
-
-// Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
-func (r *NetworkInterface) EnableAcceleratedNetworking() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableAcceleratedNetworking"])
-}
-
-// Enables IP Forwarding on the NIC. Defaults to `false`.
-func (r *NetworkInterface) EnableIpForwarding() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableIpForwarding"])
-}
-
-// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
-func (r *NetworkInterface) InternalDnsNameLabel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["internalDnsNameLabel"])
-}
-
-func (r *NetworkInterface) InternalFqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["internalFqdn"])
-}
-
-// One or more `ipConfiguration` associated with this NIC as documented below.
-func (r *NetworkInterface) IpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
-}
-
-// The location/region where the network interface is created. Changing this forces a new resource to be created.
-func (r *NetworkInterface) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The media access control (MAC) address of the network interface.
-func (r *NetworkInterface) MacAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["macAddress"])
-}
-
-// The name of the network interface. Changing this forces a new resource to be created.
-func (r *NetworkInterface) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ID of the Network Security Group to associate with the network interface.
-func (r *NetworkInterface) NetworkSecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
-}
-
-// The first private IP address of the network interface.
-func (r *NetworkInterface) PrivateIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
-}
-
-// The private IP addresses of the network interface.
-func (r *NetworkInterface) PrivateIpAddresses() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
-}
-
-// The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
-func (r *NetworkInterface) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *NetworkInterface) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Reference to a VM with which this NIC has been associated.
-func (r *NetworkInterface) VirtualMachineId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualMachineId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkInterface resources.
 type NetworkInterfaceState struct {
 	// If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
-	AppliedDnsServers interface{}
+	AppliedDnsServers pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
 	// List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
-	DnsServers interface{}
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
-	EnableAcceleratedNetworking interface{}
+	EnableAcceleratedNetworking pulumi.BoolInput `pulumi:"enableAcceleratedNetworking"`
 	// Enables IP Forwarding on the NIC. Defaults to `false`.
-	EnableIpForwarding interface{}
+	EnableIpForwarding pulumi.BoolInput `pulumi:"enableIpForwarding"`
 	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
-	InternalDnsNameLabel interface{}
-	InternalFqdn interface{}
+	InternalDnsNameLabel pulumi.StringInput `pulumi:"internalDnsNameLabel"`
+	InternalFqdn pulumi.StringInput `pulumi:"internalFqdn"`
 	// One or more `ipConfiguration` associated with this NIC as documented below.
-	IpConfigurations interface{}
+	IpConfigurations NetworkInterfaceIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
 	// The location/region where the network interface is created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The media access control (MAC) address of the network interface.
-	MacAddress interface{}
+	MacAddress pulumi.StringInput `pulumi:"macAddress"`
 	// The name of the network interface. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Network Security Group to associate with the network interface.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
 	// The first private IP address of the network interface.
-	PrivateIpAddress interface{}
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// The private IP addresses of the network interface.
-	PrivateIpAddresses interface{}
+	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
 	// The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Reference to a VM with which this NIC has been associated.
-	VirtualMachineId interface{}
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
 	// If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
-	AppliedDnsServers interface{}
+	AppliedDnsServers pulumi.StringArrayInput `pulumi:"appliedDnsServers"`
 	// List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
-	DnsServers interface{}
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
-	EnableAcceleratedNetworking interface{}
+	EnableAcceleratedNetworking pulumi.BoolInput `pulumi:"enableAcceleratedNetworking"`
 	// Enables IP Forwarding on the NIC. Defaults to `false`.
-	EnableIpForwarding interface{}
+	EnableIpForwarding pulumi.BoolInput `pulumi:"enableIpForwarding"`
 	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
-	InternalDnsNameLabel interface{}
-	InternalFqdn interface{}
+	InternalDnsNameLabel pulumi.StringInput `pulumi:"internalDnsNameLabel"`
+	InternalFqdn pulumi.StringInput `pulumi:"internalFqdn"`
 	// One or more `ipConfiguration` associated with this NIC as documented below.
-	IpConfigurations interface{}
+	IpConfigurations NetworkInterfaceIpConfigurationsArrayInput `pulumi:"ipConfigurations"`
 	// The location/region where the network interface is created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The media access control (MAC) address of the network interface.
-	MacAddress interface{}
+	MacAddress pulumi.StringInput `pulumi:"macAddress"`
 	// The name of the network interface. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Network Security Group to associate with the network interface.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
 	// The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Reference to a VM with which this NIC has been associated.
-	VirtualMachineId interface{}
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
 }
+type NetworkInterfaceIpConfigurations struct {
+	ApplicationGatewayBackendAddressPoolsIds *[]string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
+	ApplicationSecurityGroupIds *[]string `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolsIds *[]string `pulumi:"loadBalancerBackendAddressPoolsIds"`
+	LoadBalancerInboundNatRulesIds *[]string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the network interface. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Primary *bool `pulumi:"primary"`
+	// The first private IP address of the network interface.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	PrivateIpAddressVersion *string `pulumi:"privateIpAddressVersion"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+var networkInterfaceIpConfigurationsType = reflect.TypeOf((*NetworkInterfaceIpConfigurations)(nil)).Elem()
+
+type NetworkInterfaceIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIpConfigurationsOutput() NetworkInterfaceIpConfigurationsOutput
+	ToNetworkInterfaceIpConfigurationsOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationsOutput
+}
+
+type NetworkInterfaceIpConfigurationsArgs struct {
+	ApplicationGatewayBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolsIds"`
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	LoadBalancerBackendAddressPoolsIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolsIds"`
+	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of the network interface. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The first private IP address of the network interface.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	PrivateIpAddressVersion pulumi.StringInput `pulumi:"privateIpAddressVersion"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (NetworkInterfaceIpConfigurationsArgs) ElementType() reflect.Type {
+	return networkInterfaceIpConfigurationsType
+}
+
+func (a NetworkInterfaceIpConfigurationsArgs) ToNetworkInterfaceIpConfigurationsOutput() NetworkInterfaceIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(NetworkInterfaceIpConfigurationsOutput)
+}
+
+func (a NetworkInterfaceIpConfigurationsArgs) ToNetworkInterfaceIpConfigurationsOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkInterfaceIpConfigurationsOutput)
+}
+
+type NetworkInterfaceIpConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o NetworkInterfaceIpConfigurationsOutput) ApplicationGatewayBackendAddressPoolsIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) []string {
+		if v.ApplicationGatewayBackendAddressPoolsIds == nil { return *new([]string) } else { return *v.ApplicationGatewayBackendAddressPoolsIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) []string {
+		if v.ApplicationSecurityGroupIds == nil { return *new([]string) } else { return *v.ApplicationSecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) LoadBalancerBackendAddressPoolsIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) []string {
+		if v.LoadBalancerBackendAddressPoolsIds == nil { return *new([]string) } else { return *v.LoadBalancerBackendAddressPoolsIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) []string {
+		if v.LoadBalancerInboundNatRulesIds == nil { return *new([]string) } else { return *v.LoadBalancerInboundNatRulesIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the network interface. Changing this forces a new resource to be created.
+func (o NetworkInterfaceIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) Primary() pulumi.BoolOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) bool {
+		if v.Primary == nil { return *new(bool) } else { return *v.Primary }
+	}).(pulumi.BoolOutput)
+}
+
+// The first private IP address of the network interface.
+func (o NetworkInterfaceIpConfigurationsOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) string {
+		if v.PrivateIpAddress == nil { return *new(string) } else { return *v.PrivateIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) string {
+		return v.PrivateIpAddressAllocation
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) PrivateIpAddressVersion() pulumi.StringOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) string {
+		if v.PrivateIpAddressVersion == nil { return *new(string) } else { return *v.PrivateIpAddressVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) string {
+		if v.PublicIpAddressId == nil { return *new(string) } else { return *v.PublicIpAddressId }
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v NetworkInterfaceIpConfigurations) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (NetworkInterfaceIpConfigurationsOutput) ElementType() reflect.Type {
+	return networkInterfaceIpConfigurationsType
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) ToNetworkInterfaceIpConfigurationsOutput() NetworkInterfaceIpConfigurationsOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpConfigurationsOutput) ToNetworkInterfaceIpConfigurationsOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationsOutput{}) }
+
+var networkInterfaceIpConfigurationsArrayType = reflect.TypeOf((*[]NetworkInterfaceIpConfigurations)(nil)).Elem()
+
+type NetworkInterfaceIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIpConfigurationsArrayOutput() NetworkInterfaceIpConfigurationsArrayOutput
+	ToNetworkInterfaceIpConfigurationsArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationsArrayOutput
+}
+
+type NetworkInterfaceIpConfigurationsArrayArgs []NetworkInterfaceIpConfigurationsInput
+
+func (NetworkInterfaceIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return networkInterfaceIpConfigurationsArrayType
+}
+
+func (a NetworkInterfaceIpConfigurationsArrayArgs) ToNetworkInterfaceIpConfigurationsArrayOutput() NetworkInterfaceIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(NetworkInterfaceIpConfigurationsArrayOutput)
+}
+
+func (a NetworkInterfaceIpConfigurationsArrayArgs) ToNetworkInterfaceIpConfigurationsArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkInterfaceIpConfigurationsArrayOutput)
+}
+
+type NetworkInterfaceIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o NetworkInterfaceIpConfigurationsArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NetworkInterfaceIpConfigurations {
+		return vs[0].([]NetworkInterfaceIpConfigurations)[vs[1].(int)]
+	}).(NetworkInterfaceIpConfigurationsOutput)
+}
+
+func (NetworkInterfaceIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return networkInterfaceIpConfigurationsArrayType
+}
+
+func (o NetworkInterfaceIpConfigurationsArrayOutput) ToNetworkInterfaceIpConfigurationsArrayOutput() NetworkInterfaceIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIpConfigurationsArrayOutput) ToNetworkInterfaceIpConfigurationsArrayOutputWithContext(ctx context.Context) NetworkInterfaceIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationsArrayOutput{}) }
+

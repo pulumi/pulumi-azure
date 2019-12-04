@@ -12,12 +12,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_web_app.html.markdown.
 type WebApp struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Application Insights API Key to associate with the Web App Bot.
+	DeveloperAppInsightsApiKey pulumi.StringOutput `pulumi:"developerAppInsightsApiKey"`
+
+	// The Application Insights Application ID to associate with the Web App Bot.
+	DeveloperAppInsightsApplicationId pulumi.StringOutput `pulumi:"developerAppInsightsApplicationId"`
+
+	// The Application Insights Key to associate with the Web App Bot.
+	DeveloperAppInsightsKey pulumi.StringOutput `pulumi:"developerAppInsightsKey"`
+
+	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The Web App Bot endpoint.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// A list of LUIS App IDs to associate with the Web App Bot.
+	LuisAppIds pulumi.StringArrayOutput `pulumi:"luisAppIds"`
+
+	// The LUIS key to associate with the Web App Bot.
+	LuisKey pulumi.StringOutput `pulumi:"luisKey"`
+
+	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
+	MicrosoftAppId pulumi.StringOutput `pulumi:"microsoftAppId"`
+
+	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewWebApp registers a new resource with the given unique name, arguments, and options.
 func NewWebApp(ctx *pulumi.Context,
-	name string, args *WebAppArgs, opts ...pulumi.ResourceOpt) (*WebApp, error) {
+	name string, args *WebAppArgs, opts ...pulumi.ResourceOption) (*WebApp, error) {
 	if args == nil || args.MicrosoftAppId == nil {
 		return nil, errors.New("missing required argument 'MicrosoftAppId'")
 	}
@@ -27,201 +66,114 @@ func NewWebApp(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["developerAppInsightsApiKey"] = nil
-		inputs["developerAppInsightsApplicationId"] = nil
-		inputs["developerAppInsightsKey"] = nil
-		inputs["displayName"] = nil
-		inputs["endpoint"] = nil
-		inputs["location"] = nil
-		inputs["luisAppIds"] = nil
-		inputs["luisKey"] = nil
-		inputs["microsoftAppId"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["developerAppInsightsApiKey"] = args.DeveloperAppInsightsApiKey
-		inputs["developerAppInsightsApplicationId"] = args.DeveloperAppInsightsApplicationId
-		inputs["developerAppInsightsKey"] = args.DeveloperAppInsightsKey
-		inputs["displayName"] = args.DisplayName
-		inputs["endpoint"] = args.Endpoint
-		inputs["location"] = args.Location
-		inputs["luisAppIds"] = args.LuisAppIds
-		inputs["luisKey"] = args.LuisKey
-		inputs["microsoftAppId"] = args.MicrosoftAppId
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DeveloperAppInsightsApiKey; i != nil { inputs["developerAppInsightsApiKey"] = i.ToStringOutput() }
+		if i := args.DeveloperAppInsightsApplicationId; i != nil { inputs["developerAppInsightsApplicationId"] = i.ToStringOutput() }
+		if i := args.DeveloperAppInsightsKey; i != nil { inputs["developerAppInsightsKey"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.LuisAppIds; i != nil { inputs["luisAppIds"] = i.ToStringArrayOutput() }
+		if i := args.LuisKey; i != nil { inputs["luisKey"] = i.ToStringOutput() }
+		if i := args.MicrosoftAppId; i != nil { inputs["microsoftAppId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:bot/webApp:WebApp", name, true, inputs, opts...)
+	var resource WebApp
+	err := ctx.RegisterResource("azure:bot/webApp:WebApp", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WebApp{s: s}, nil
+	return &resource, nil
 }
 
 // GetWebApp gets an existing WebApp resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWebApp(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WebAppState, opts ...pulumi.ResourceOpt) (*WebApp, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WebAppState, opts ...pulumi.ResourceOption) (*WebApp, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["developerAppInsightsApiKey"] = state.DeveloperAppInsightsApiKey
-		inputs["developerAppInsightsApplicationId"] = state.DeveloperAppInsightsApplicationId
-		inputs["developerAppInsightsKey"] = state.DeveloperAppInsightsKey
-		inputs["displayName"] = state.DisplayName
-		inputs["endpoint"] = state.Endpoint
-		inputs["location"] = state.Location
-		inputs["luisAppIds"] = state.LuisAppIds
-		inputs["luisKey"] = state.LuisKey
-		inputs["microsoftAppId"] = state.MicrosoftAppId
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.DeveloperAppInsightsApiKey; i != nil { inputs["developerAppInsightsApiKey"] = i.ToStringOutput() }
+		if i := state.DeveloperAppInsightsApplicationId; i != nil { inputs["developerAppInsightsApplicationId"] = i.ToStringOutput() }
+		if i := state.DeveloperAppInsightsKey; i != nil { inputs["developerAppInsightsKey"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.LuisAppIds; i != nil { inputs["luisAppIds"] = i.ToStringArrayOutput() }
+		if i := state.LuisKey; i != nil { inputs["luisKey"] = i.ToStringOutput() }
+		if i := state.MicrosoftAppId; i != nil { inputs["microsoftAppId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:bot/webApp:WebApp", name, id, inputs, opts...)
+	var resource WebApp
+	err := ctx.ReadResource("azure:bot/webApp:WebApp", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WebApp{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *WebApp) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *WebApp) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Application Insights API Key to associate with the Web App Bot.
-func (r *WebApp) DeveloperAppInsightsApiKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["developerAppInsightsApiKey"])
-}
-
-// The Application Insights Application ID to associate with the Web App Bot.
-func (r *WebApp) DeveloperAppInsightsApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["developerAppInsightsApplicationId"])
-}
-
-// The Application Insights Key to associate with the Web App Bot.
-func (r *WebApp) DeveloperAppInsightsKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["developerAppInsightsKey"])
-}
-
-// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
-func (r *WebApp) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The Web App Bot endpoint.
-func (r *WebApp) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *WebApp) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// A list of LUIS App IDs to associate with the Web App Bot.
-func (r *WebApp) LuisAppIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["luisAppIds"])
-}
-
-// The LUIS key to associate with the Web App Bot.
-func (r *WebApp) LuisKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["luisKey"])
-}
-
-// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
-func (r *WebApp) MicrosoftAppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["microsoftAppId"])
-}
-
-// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
-func (r *WebApp) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
-func (r *WebApp) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-func (r *WebApp) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *WebApp) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering WebApp resources.
 type WebAppState struct {
 	// The Application Insights API Key to associate with the Web App Bot.
-	DeveloperAppInsightsApiKey interface{}
+	DeveloperAppInsightsApiKey pulumi.StringInput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Web App Bot.
-	DeveloperAppInsightsApplicationId interface{}
+	DeveloperAppInsightsApplicationId pulumi.StringInput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Web App Bot.
-	DeveloperAppInsightsKey interface{}
+	DeveloperAppInsightsKey pulumi.StringInput `pulumi:"developerAppInsightsKey"`
 	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The Web App Bot endpoint.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// A list of LUIS App IDs to associate with the Web App Bot.
-	LuisAppIds interface{}
+	LuisAppIds pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	// The LUIS key to associate with the Web App Bot.
-	LuisKey interface{}
+	LuisKey pulumi.StringInput `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
-	MicrosoftAppId interface{}
+	MicrosoftAppId pulumi.StringInput `pulumi:"microsoftAppId"`
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WebApp resource.
 type WebAppArgs struct {
 	// The Application Insights API Key to associate with the Web App Bot.
-	DeveloperAppInsightsApiKey interface{}
+	DeveloperAppInsightsApiKey pulumi.StringInput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights Application ID to associate with the Web App Bot.
-	DeveloperAppInsightsApplicationId interface{}
+	DeveloperAppInsightsApplicationId pulumi.StringInput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Web App Bot.
-	DeveloperAppInsightsKey interface{}
+	DeveloperAppInsightsKey pulumi.StringInput `pulumi:"developerAppInsightsKey"`
 	// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The Web App Bot endpoint.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// A list of LUIS App IDs to associate with the Web App Bot.
-	LuisAppIds interface{}
+	LuisAppIds pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	// The LUIS key to associate with the Web App Bot.
-	LuisKey interface{}
+	LuisKey pulumi.StringInput `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
-	MicrosoftAppId interface{}
+	MicrosoftAppId pulumi.StringInput `pulumi:"microsoftAppId"`
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

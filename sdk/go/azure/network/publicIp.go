@@ -12,231 +12,177 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip.html.markdown.
 type PublicIp struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	AllocationMethod pulumi.StringOutput `pulumi:"allocationMethod"`
+
+	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+	DomainNameLabel pulumi.StringOutput `pulumi:"domainNameLabel"`
+
+	// Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
+	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
+
+	// The IP address value that was allocated.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+
+	// The IP Version to use, IPv6 or IPv4.
+	IpVersion pulumi.StringOutput `pulumi:"ipVersion"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Public IP resource . Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	PublicIpAddressAllocation pulumi.StringOutput `pulumi:"publicIpAddressAllocation"`
+
+	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	PublicIpPrefixId pulumi.StringOutput `pulumi:"publicIpPrefixId"`
+
+	// The name of the resource group in which to
+	// create the public ip.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
+	ReverseFqdn pulumi.StringOutput `pulumi:"reverseFqdn"`
+
+	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A collection containing the availability zone to allocate the Public IP in.
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewPublicIp registers a new resource with the given unique name, arguments, and options.
 func NewPublicIp(ctx *pulumi.Context,
-	name string, args *PublicIpArgs, opts ...pulumi.ResourceOpt) (*PublicIp, error) {
+	name string, args *PublicIpArgs, opts ...pulumi.ResourceOption) (*PublicIp, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allocationMethod"] = nil
-		inputs["domainNameLabel"] = nil
-		inputs["idleTimeoutInMinutes"] = nil
-		inputs["ipVersion"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["publicIpAddressAllocation"] = nil
-		inputs["publicIpPrefixId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["reverseFqdn"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["allocationMethod"] = args.AllocationMethod
-		inputs["domainNameLabel"] = args.DomainNameLabel
-		inputs["idleTimeoutInMinutes"] = args.IdleTimeoutInMinutes
-		inputs["ipVersion"] = args.IpVersion
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["publicIpAddressAllocation"] = args.PublicIpAddressAllocation
-		inputs["publicIpPrefixId"] = args.PublicIpPrefixId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["reverseFqdn"] = args.ReverseFqdn
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllocationMethod; i != nil { inputs["allocationMethod"] = i.ToStringOutput() }
+		if i := args.DomainNameLabel; i != nil { inputs["domainNameLabel"] = i.ToStringOutput() }
+		if i := args.IdleTimeoutInMinutes; i != nil { inputs["idleTimeoutInMinutes"] = i.ToIntOutput() }
+		if i := args.IpVersion; i != nil { inputs["ipVersion"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PublicIpAddressAllocation; i != nil { inputs["publicIpAddressAllocation"] = i.ToStringOutput() }
+		if i := args.PublicIpPrefixId; i != nil { inputs["publicIpPrefixId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ReverseFqdn; i != nil { inputs["reverseFqdn"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	inputs["fqdn"] = nil
-	inputs["ipAddress"] = nil
-	s, err := ctx.RegisterResource("azure:network/publicIp:PublicIp", name, true, inputs, opts...)
+	var resource PublicIp
+	err := ctx.RegisterResource("azure:network/publicIp:PublicIp", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PublicIp{s: s}, nil
+	return &resource, nil
 }
 
 // GetPublicIp gets an existing PublicIp resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPublicIp(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PublicIpState, opts ...pulumi.ResourceOpt) (*PublicIp, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PublicIpState, opts ...pulumi.ResourceOption) (*PublicIp, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allocationMethod"] = state.AllocationMethod
-		inputs["domainNameLabel"] = state.DomainNameLabel
-		inputs["fqdn"] = state.Fqdn
-		inputs["idleTimeoutInMinutes"] = state.IdleTimeoutInMinutes
-		inputs["ipAddress"] = state.IpAddress
-		inputs["ipVersion"] = state.IpVersion
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["publicIpAddressAllocation"] = state.PublicIpAddressAllocation
-		inputs["publicIpPrefixId"] = state.PublicIpPrefixId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["reverseFqdn"] = state.ReverseFqdn
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["zones"] = state.Zones
+		if i := state.AllocationMethod; i != nil { inputs["allocationMethod"] = i.ToStringOutput() }
+		if i := state.DomainNameLabel; i != nil { inputs["domainNameLabel"] = i.ToStringOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.IdleTimeoutInMinutes; i != nil { inputs["idleTimeoutInMinutes"] = i.ToIntOutput() }
+		if i := state.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := state.IpVersion; i != nil { inputs["ipVersion"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PublicIpAddressAllocation; i != nil { inputs["publicIpAddressAllocation"] = i.ToStringOutput() }
+		if i := state.PublicIpPrefixId; i != nil { inputs["publicIpPrefixId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ReverseFqdn; i != nil { inputs["reverseFqdn"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/publicIp:PublicIp", name, id, inputs, opts...)
+	var resource PublicIp
+	err := ctx.ReadResource("azure:network/publicIp:PublicIp", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PublicIp{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PublicIp) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PublicIp) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-func (r *PublicIp) AllocationMethod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["allocationMethod"])
-}
-
-// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-func (r *PublicIp) DomainNameLabel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainNameLabel"])
-}
-
-// Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
-func (r *PublicIp) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
-func (r *PublicIp) IdleTimeoutInMinutes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["idleTimeoutInMinutes"])
-}
-
-// The IP address value that was allocated.
-func (r *PublicIp) IpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddress"])
-}
-
-// The IP Version to use, IPv6 or IPv4.
-func (r *PublicIp) IpVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipVersion"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *PublicIp) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Public IP resource . Changing this forces a
-// new resource to be created.
-func (r *PublicIp) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *PublicIp) PublicIpAddressAllocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicIpAddressAllocation"])
-}
-
-// If specified then public IP address allocated will be provided from the public IP prefix resource.
-func (r *PublicIp) PublicIpPrefixId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicIpPrefixId"])
-}
-
-// The name of the resource group in which to
-// create the public ip.
-func (r *PublicIp) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-func (r *PublicIp) ReverseFqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reverseFqdn"])
-}
-
-// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-func (r *PublicIp) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *PublicIp) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A collection containing the availability zone to allocate the Public IP in.
-func (r *PublicIp) Zones() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PublicIp resources.
 type PublicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-	AllocationMethod interface{}
+	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-	DomainNameLabel interface{}
+	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The IP Version to use, IPv6 or IPv4.
-	IpVersion interface{}
+	IpVersion pulumi.StringInput `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
-	Name interface{}
-	PublicIpAddressAllocation interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	PublicIpAddressAllocation pulumi.StringInput `pulumi:"publicIpAddressAllocation"`
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
-	PublicIpPrefixId interface{}
+	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
 	// The name of the resource group in which to
 	// create the public ip.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-	ReverseFqdn interface{}
+	ReverseFqdn pulumi.StringInput `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a PublicIp resource.
 type PublicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-	AllocationMethod interface{}
+	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-	DomainNameLabel interface{}
+	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
 	// The IP Version to use, IPv6 or IPv4.
-	IpVersion interface{}
+	IpVersion pulumi.StringInput `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
-	Name interface{}
-	PublicIpAddressAllocation interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	PublicIpAddressAllocation pulumi.StringInput `pulumi:"publicIpAddressAllocation"`
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
-	PublicIpPrefixId interface{}
+	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
 	// The name of the resource group in which to
 	// create the public ip.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
-	ReverseFqdn interface{}
+	ReverseFqdn pulumi.StringInput `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }

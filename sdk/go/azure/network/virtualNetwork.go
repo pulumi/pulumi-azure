@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -17,121 +19,88 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network.html.markdown.
 type VirtualNetwork struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The address space that is used the virtual
+	// network. You can supply more than one address space. Changing this forces
+	// a new resource to be created.
+	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
+
+	// A `ddosProtectionPlan` block as documented below.
+	DdosProtectionPlan VirtualNetworkDdosProtectionPlanOutput `pulumi:"ddosProtectionPlan"`
+
+	// List of IP addresses of DNS servers
+	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+
+	// The location/region where the virtual network is
+	// created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the virtual network. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the virtual network.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Can be specified multiple times to define multiple
+	// subnets. Each `subnet` block supports fields documented below.
+	Subnets VirtualNetworkSubnetsArrayOutput `pulumi:"subnets"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetwork(ctx *pulumi.Context,
-	name string, args *VirtualNetworkArgs, opts ...pulumi.ResourceOpt) (*VirtualNetwork, error) {
+	name string, args *VirtualNetworkArgs, opts ...pulumi.ResourceOption) (*VirtualNetwork, error) {
 	if args == nil || args.AddressSpaces == nil {
 		return nil, errors.New("missing required argument 'AddressSpaces'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addressSpaces"] = nil
-		inputs["ddosProtectionPlan"] = nil
-		inputs["dnsServers"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["subnets"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["addressSpaces"] = args.AddressSpaces
-		inputs["ddosProtectionPlan"] = args.DdosProtectionPlan
-		inputs["dnsServers"] = args.DnsServers
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["subnets"] = args.Subnets
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddressSpaces; i != nil { inputs["addressSpaces"] = i.ToStringArrayOutput() }
+		if i := args.DdosProtectionPlan; i != nil { inputs["ddosProtectionPlan"] = i.ToVirtualNetworkDdosProtectionPlanOutput() }
+		if i := args.DnsServers; i != nil { inputs["dnsServers"] = i.ToStringArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Subnets; i != nil { inputs["subnets"] = i.ToVirtualNetworkSubnetsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/virtualNetwork:VirtualNetwork", name, true, inputs, opts...)
+	var resource VirtualNetwork
+	err := ctx.RegisterResource("azure:network/virtualNetwork:VirtualNetwork", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetwork{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualNetwork gets an existing VirtualNetwork resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualNetwork(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualNetworkState, opts ...pulumi.ResourceOpt) (*VirtualNetwork, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualNetworkState, opts ...pulumi.ResourceOption) (*VirtualNetwork, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addressSpaces"] = state.AddressSpaces
-		inputs["ddosProtectionPlan"] = state.DdosProtectionPlan
-		inputs["dnsServers"] = state.DnsServers
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["subnets"] = state.Subnets
-		inputs["tags"] = state.Tags
+		if i := state.AddressSpaces; i != nil { inputs["addressSpaces"] = i.ToStringArrayOutput() }
+		if i := state.DdosProtectionPlan; i != nil { inputs["ddosProtectionPlan"] = i.ToVirtualNetworkDdosProtectionPlanOutput() }
+		if i := state.DnsServers; i != nil { inputs["dnsServers"] = i.ToStringArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Subnets; i != nil { inputs["subnets"] = i.ToVirtualNetworkSubnetsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/virtualNetwork:VirtualNetwork", name, id, inputs, opts...)
+	var resource VirtualNetwork
+	err := ctx.ReadResource("azure:network/virtualNetwork:VirtualNetwork", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetwork{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetwork) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetwork) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The address space that is used the virtual
-// network. You can supply more than one address space. Changing this forces
-// a new resource to be created.
-func (r *VirtualNetwork) AddressSpaces() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["addressSpaces"])
-}
-
-// A `ddosProtectionPlan` block as documented below.
-func (r *VirtualNetwork) DdosProtectionPlan() pulumi.Output {
-	return r.s.State["ddosProtectionPlan"]
-}
-
-// List of IP addresses of DNS servers
-func (r *VirtualNetwork) DnsServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dnsServers"])
-}
-
-// The location/region where the virtual network is
-// created. Changing this forces a new resource to be created.
-func (r *VirtualNetwork) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the virtual network. Changing this forces a
-// new resource to be created.
-func (r *VirtualNetwork) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the virtual network.
-func (r *VirtualNetwork) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Can be specified multiple times to define multiple
-// subnets. Each `subnet` block supports fields documented below.
-func (r *VirtualNetwork) Subnets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnets"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VirtualNetwork) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualNetwork resources.
@@ -139,25 +108,25 @@ type VirtualNetworkState struct {
 	// The address space that is used the virtual
 	// network. You can supply more than one address space. Changing this forces
 	// a new resource to be created.
-	AddressSpaces interface{}
+	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// A `ddosProtectionPlan` block as documented below.
-	DdosProtectionPlan interface{}
+	DdosProtectionPlan VirtualNetworkDdosProtectionPlanInput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
-	DnsServers interface{}
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the virtual network.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple
 	// subnets. Each `subnet` block supports fields documented below.
-	Subnets interface{}
+	Subnets VirtualNetworkSubnetsArrayInput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
@@ -165,23 +134,212 @@ type VirtualNetworkArgs struct {
 	// The address space that is used the virtual
 	// network. You can supply more than one address space. Changing this forces
 	// a new resource to be created.
-	AddressSpaces interface{}
+	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// A `ddosProtectionPlan` block as documented below.
-	DdosProtectionPlan interface{}
+	DdosProtectionPlan VirtualNetworkDdosProtectionPlanInput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
-	DnsServers interface{}
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the virtual network. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the virtual network.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Can be specified multiple times to define multiple
 	// subnets. Each `subnet` block supports fields documented below.
-	Subnets interface{}
+	Subnets VirtualNetworkSubnetsArrayInput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type VirtualNetworkDdosProtectionPlan struct {
+	Enable bool `pulumi:"enable"`
+	// The ID of this subnet.
+	Id string `pulumi:"id"`
+}
+var virtualNetworkDdosProtectionPlanType = reflect.TypeOf((*VirtualNetworkDdosProtectionPlan)(nil)).Elem()
+
+type VirtualNetworkDdosProtectionPlanInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkDdosProtectionPlanOutput() VirtualNetworkDdosProtectionPlanOutput
+	ToVirtualNetworkDdosProtectionPlanOutputWithContext(ctx context.Context) VirtualNetworkDdosProtectionPlanOutput
+}
+
+type VirtualNetworkDdosProtectionPlanArgs struct {
+	Enable pulumi.BoolInput `pulumi:"enable"`
+	// The ID of this subnet.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (VirtualNetworkDdosProtectionPlanArgs) ElementType() reflect.Type {
+	return virtualNetworkDdosProtectionPlanType
+}
+
+func (a VirtualNetworkDdosProtectionPlanArgs) ToVirtualNetworkDdosProtectionPlanOutput() VirtualNetworkDdosProtectionPlanOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkDdosProtectionPlanOutput)
+}
+
+func (a VirtualNetworkDdosProtectionPlanArgs) ToVirtualNetworkDdosProtectionPlanOutputWithContext(ctx context.Context) VirtualNetworkDdosProtectionPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkDdosProtectionPlanOutput)
+}
+
+type VirtualNetworkDdosProtectionPlanOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkDdosProtectionPlanOutput) Enable() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualNetworkDdosProtectionPlan) bool {
+		return v.Enable
+	}).(pulumi.BoolOutput)
+}
+
+// The ID of this subnet.
+func (o VirtualNetworkDdosProtectionPlanOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkDdosProtectionPlan) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNetworkDdosProtectionPlanOutput) ElementType() reflect.Type {
+	return virtualNetworkDdosProtectionPlanType
+}
+
+func (o VirtualNetworkDdosProtectionPlanOutput) ToVirtualNetworkDdosProtectionPlanOutput() VirtualNetworkDdosProtectionPlanOutput {
+	return o
+}
+
+func (o VirtualNetworkDdosProtectionPlanOutput) ToVirtualNetworkDdosProtectionPlanOutputWithContext(ctx context.Context) VirtualNetworkDdosProtectionPlanOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanOutput{}) }
+
+type VirtualNetworkSubnets struct {
+	AddressPrefix string `pulumi:"addressPrefix"`
+	// The ID of this subnet.
+	Id *string `pulumi:"id"`
+	// The name of the virtual network. Changing this forces a
+	// new resource to be created.
+	Name string `pulumi:"name"`
+	SecurityGroup *string `pulumi:"securityGroup"`
+}
+var virtualNetworkSubnetsType = reflect.TypeOf((*VirtualNetworkSubnets)(nil)).Elem()
+
+type VirtualNetworkSubnetsInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetsOutput() VirtualNetworkSubnetsOutput
+	ToVirtualNetworkSubnetsOutputWithContext(ctx context.Context) VirtualNetworkSubnetsOutput
+}
+
+type VirtualNetworkSubnetsArgs struct {
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
+	// The ID of this subnet.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the virtual network. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	SecurityGroup pulumi.StringInput `pulumi:"securityGroup"`
+}
+
+func (VirtualNetworkSubnetsArgs) ElementType() reflect.Type {
+	return virtualNetworkSubnetsType
+}
+
+func (a VirtualNetworkSubnetsArgs) ToVirtualNetworkSubnetsOutput() VirtualNetworkSubnetsOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkSubnetsOutput)
+}
+
+func (a VirtualNetworkSubnetsArgs) ToVirtualNetworkSubnetsOutputWithContext(ctx context.Context) VirtualNetworkSubnetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkSubnetsOutput)
+}
+
+type VirtualNetworkSubnetsOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkSubnetsOutput) AddressPrefix() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkSubnets) string {
+		return v.AddressPrefix
+	}).(pulumi.StringOutput)
+}
+
+// The ID of this subnet.
+func (o VirtualNetworkSubnetsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkSubnets) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the virtual network. Changing this forces a
+// new resource to be created.
+func (o VirtualNetworkSubnetsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkSubnets) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkSubnetsOutput) SecurityGroup() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkSubnets) string {
+		if v.SecurityGroup == nil { return *new(string) } else { return *v.SecurityGroup }
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualNetworkSubnetsOutput) ElementType() reflect.Type {
+	return virtualNetworkSubnetsType
+}
+
+func (o VirtualNetworkSubnetsOutput) ToVirtualNetworkSubnetsOutput() VirtualNetworkSubnetsOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetsOutput) ToVirtualNetworkSubnetsOutputWithContext(ctx context.Context) VirtualNetworkSubnetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkSubnetsOutput{}) }
+
+var virtualNetworkSubnetsArrayType = reflect.TypeOf((*[]VirtualNetworkSubnets)(nil)).Elem()
+
+type VirtualNetworkSubnetsArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetsArrayOutput() VirtualNetworkSubnetsArrayOutput
+	ToVirtualNetworkSubnetsArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetsArrayOutput
+}
+
+type VirtualNetworkSubnetsArrayArgs []VirtualNetworkSubnetsInput
+
+func (VirtualNetworkSubnetsArrayArgs) ElementType() reflect.Type {
+	return virtualNetworkSubnetsArrayType
+}
+
+func (a VirtualNetworkSubnetsArrayArgs) ToVirtualNetworkSubnetsArrayOutput() VirtualNetworkSubnetsArrayOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkSubnetsArrayOutput)
+}
+
+func (a VirtualNetworkSubnetsArrayArgs) ToVirtualNetworkSubnetsArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkSubnetsArrayOutput)
+}
+
+type VirtualNetworkSubnetsArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkSubnetsArrayOutput) Index(i pulumi.IntInput) VirtualNetworkSubnetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualNetworkSubnets {
+		return vs[0].([]VirtualNetworkSubnets)[vs[1].(int)]
+	}).(VirtualNetworkSubnetsOutput)
+}
+
+func (VirtualNetworkSubnetsArrayOutput) ElementType() reflect.Type {
+	return virtualNetworkSubnetsArrayType
+}
+
+func (o VirtualNetworkSubnetsArrayOutput) ToVirtualNetworkSubnetsArrayOutput() VirtualNetworkSubnetsArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetsArrayOutput) ToVirtualNetworkSubnetsArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkSubnetsArrayOutput{}) }
+

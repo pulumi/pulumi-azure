@@ -12,12 +12,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_pool.html.markdown.
 type Pool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the NetApp account in which the NetApp Pool should be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the NetApp Pool. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
+
+	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
+	SizeInTb pulumi.IntOutput `pulumi:"sizeInTb"`
 }
 
 // NewPool registers a new resource with the given unique name, arguments, and options.
 func NewPool(ctx *pulumi.Context,
-	name string, args *PoolArgs, opts ...pulumi.ResourceOpt) (*Pool, error) {
+	name string, args *PoolArgs, opts ...pulumi.ResourceOption) (*Pool, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -30,117 +48,72 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil || args.SizeInTb == nil {
 		return nil, errors.New("missing required argument 'SizeInTb'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serviceLevel"] = nil
-		inputs["sizeInTb"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serviceLevel"] = args.ServiceLevel
-		inputs["sizeInTb"] = args.SizeInTb
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServiceLevel; i != nil { inputs["serviceLevel"] = i.ToStringOutput() }
+		if i := args.SizeInTb; i != nil { inputs["sizeInTb"] = i.ToIntOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:netapp/pool:Pool", name, true, inputs, opts...)
+	var resource Pool
+	err := ctx.RegisterResource("azure:netapp/pool:Pool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pool{s: s}, nil
+	return &resource, nil
 }
 
 // GetPool gets an existing Pool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PoolState, opts ...pulumi.ResourceOpt) (*Pool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PoolState, opts ...pulumi.ResourceOption) (*Pool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serviceLevel"] = state.ServiceLevel
-		inputs["sizeInTb"] = state.SizeInTb
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServiceLevel; i != nil { inputs["serviceLevel"] = i.ToStringOutput() }
+		if i := state.SizeInTb; i != nil { inputs["sizeInTb"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("azure:netapp/pool:Pool", name, id, inputs, opts...)
+	var resource Pool
+	err := ctx.ReadResource("azure:netapp/pool:Pool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Pool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Pool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the NetApp account in which the NetApp Pool should be created.
-func (r *Pool) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Pool) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the NetApp Pool. Changing this forces a new resource to be created.
-func (r *Pool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-func (r *Pool) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
-func (r *Pool) ServiceLevel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceLevel"])
-}
-
-// Provisioned size of the pool in TB. Value must be between `4` and `500`.
-func (r *Pool) SizeInTb() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["sizeInTb"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Pool resources.
 type PoolState struct {
 	// The name of the NetApp account in which the NetApp Pool should be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
-	ServiceLevel interface{}
+	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
-	SizeInTb interface{}
+	SizeInTb pulumi.IntInput `pulumi:"sizeInTb"`
 }
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
 	// The name of the NetApp account in which the NetApp Pool should be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the NetApp Pool. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
-	ServiceLevel interface{}
+	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `4` and `500`.
-	SizeInTb interface{}
+	SizeInTb pulumi.IntInput `pulumi:"sizeInTb"`
 }

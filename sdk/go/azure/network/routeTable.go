@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,135 +14,236 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
 type RouteTable struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation pulumi.BoolOutput `pulumi:"disableBgpRoutePropagation"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the route.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+	Routes RouteTableRoutesArrayOutput `pulumi:"routes"`
+
+	// The collection of Subnets associated with this route table.
+	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
 func NewRouteTable(ctx *pulumi.Context,
-	name string, args *RouteTableArgs, opts ...pulumi.ResourceOpt) (*RouteTable, error) {
+	name string, args *RouteTableArgs, opts ...pulumi.ResourceOption) (*RouteTable, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["disableBgpRoutePropagation"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["routes"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["disableBgpRoutePropagation"] = args.DisableBgpRoutePropagation
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["routes"] = args.Routes
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DisableBgpRoutePropagation; i != nil { inputs["disableBgpRoutePropagation"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Routes; i != nil { inputs["routes"] = i.ToRouteTableRoutesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["subnets"] = nil
-	s, err := ctx.RegisterResource("azure:network/routeTable:RouteTable", name, true, inputs, opts...)
+	var resource RouteTable
+	err := ctx.RegisterResource("azure:network/routeTable:RouteTable", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RouteTable{s: s}, nil
+	return &resource, nil
 }
 
 // GetRouteTable gets an existing RouteTable resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRouteTable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RouteTableState, opts ...pulumi.ResourceOpt) (*RouteTable, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RouteTableState, opts ...pulumi.ResourceOption) (*RouteTable, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["disableBgpRoutePropagation"] = state.DisableBgpRoutePropagation
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["routes"] = state.Routes
-		inputs["subnets"] = state.Subnets
-		inputs["tags"] = state.Tags
+		if i := state.DisableBgpRoutePropagation; i != nil { inputs["disableBgpRoutePropagation"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Routes; i != nil { inputs["routes"] = i.ToRouteTableRoutesArrayOutput() }
+		if i := state.Subnets; i != nil { inputs["subnets"] = i.ToStringArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/routeTable:RouteTable", name, id, inputs, opts...)
+	var resource RouteTable
+	err := ctx.ReadResource("azure:network/routeTable:RouteTable", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RouteTable{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RouteTable) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RouteTable) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-func (r *RouteTable) DisableBgpRoutePropagation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["disableBgpRoutePropagation"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *RouteTable) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the route.
-func (r *RouteTable) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-func (r *RouteTable) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
-func (r *RouteTable) Routes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["routes"])
-}
-
-// The collection of Subnets associated with this route table.
-func (r *RouteTable) Subnets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subnets"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *RouteTable) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RouteTable resources.
 type RouteTableState struct {
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-	DisableBgpRoutePropagation interface{}
+	DisableBgpRoutePropagation pulumi.BoolInput `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the route.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
-	Routes interface{}
+	Routes RouteTableRoutesArrayInput `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
-	Subnets interface{}
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-	DisableBgpRoutePropagation interface{}
+	DisableBgpRoutePropagation pulumi.BoolInput `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the route.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
-	Routes interface{}
+	Routes RouteTableRoutesArrayInput `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RouteTableRoutes struct {
+	// The destination CIDR to which the route applies, such as 10.1.0.0/16
+	AddressPrefix string `pulumi:"addressPrefix"`
+	// The name of the route.
+	Name string `pulumi:"name"`
+	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+	NextHopInIpAddress *string `pulumi:"nextHopInIpAddress"`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
+	NextHopType string `pulumi:"nextHopType"`
+}
+var routeTableRoutesType = reflect.TypeOf((*RouteTableRoutes)(nil)).Elem()
+
+type RouteTableRoutesInput interface {
+	pulumi.Input
+
+	ToRouteTableRoutesOutput() RouteTableRoutesOutput
+	ToRouteTableRoutesOutputWithContext(ctx context.Context) RouteTableRoutesOutput
+}
+
+type RouteTableRoutesArgs struct {
+	// The destination CIDR to which the route applies, such as 10.1.0.0/16
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
+	// The name of the route.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+	NextHopInIpAddress pulumi.StringInput `pulumi:"nextHopInIpAddress"`
+	// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
+	NextHopType pulumi.StringInput `pulumi:"nextHopType"`
+}
+
+func (RouteTableRoutesArgs) ElementType() reflect.Type {
+	return routeTableRoutesType
+}
+
+func (a RouteTableRoutesArgs) ToRouteTableRoutesOutput() RouteTableRoutesOutput {
+	return pulumi.ToOutput(a).(RouteTableRoutesOutput)
+}
+
+func (a RouteTableRoutesArgs) ToRouteTableRoutesOutputWithContext(ctx context.Context) RouteTableRoutesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteTableRoutesOutput)
+}
+
+type RouteTableRoutesOutput struct { *pulumi.OutputState }
+
+// The destination CIDR to which the route applies, such as 10.1.0.0/16
+func (o RouteTableRoutesOutput) AddressPrefix() pulumi.StringOutput {
+	return o.Apply(func(v RouteTableRoutes) string {
+		return v.AddressPrefix
+	}).(pulumi.StringOutput)
+}
+
+// The name of the route.
+func (o RouteTableRoutesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v RouteTableRoutes) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+func (o RouteTableRoutesOutput) NextHopInIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v RouteTableRoutes) string {
+		if v.NextHopInIpAddress == nil { return *new(string) } else { return *v.NextHopInIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
+func (o RouteTableRoutesOutput) NextHopType() pulumi.StringOutput {
+	return o.Apply(func(v RouteTableRoutes) string {
+		return v.NextHopType
+	}).(pulumi.StringOutput)
+}
+
+func (RouteTableRoutesOutput) ElementType() reflect.Type {
+	return routeTableRoutesType
+}
+
+func (o RouteTableRoutesOutput) ToRouteTableRoutesOutput() RouteTableRoutesOutput {
+	return o
+}
+
+func (o RouteTableRoutesOutput) ToRouteTableRoutesOutputWithContext(ctx context.Context) RouteTableRoutesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteTableRoutesOutput{}) }
+
+var routeTableRoutesArrayType = reflect.TypeOf((*[]RouteTableRoutes)(nil)).Elem()
+
+type RouteTableRoutesArrayInput interface {
+	pulumi.Input
+
+	ToRouteTableRoutesArrayOutput() RouteTableRoutesArrayOutput
+	ToRouteTableRoutesArrayOutputWithContext(ctx context.Context) RouteTableRoutesArrayOutput
+}
+
+type RouteTableRoutesArrayArgs []RouteTableRoutesInput
+
+func (RouteTableRoutesArrayArgs) ElementType() reflect.Type {
+	return routeTableRoutesArrayType
+}
+
+func (a RouteTableRoutesArrayArgs) ToRouteTableRoutesArrayOutput() RouteTableRoutesArrayOutput {
+	return pulumi.ToOutput(a).(RouteTableRoutesArrayOutput)
+}
+
+func (a RouteTableRoutesArrayArgs) ToRouteTableRoutesArrayOutputWithContext(ctx context.Context) RouteTableRoutesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RouteTableRoutesArrayOutput)
+}
+
+type RouteTableRoutesArrayOutput struct { *pulumi.OutputState }
+
+func (o RouteTableRoutesArrayOutput) Index(i pulumi.IntInput) RouteTableRoutesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RouteTableRoutes {
+		return vs[0].([]RouteTableRoutes)[vs[1].(int)]
+	}).(RouteTableRoutesOutput)
+}
+
+func (RouteTableRoutesArrayOutput) ElementType() reflect.Type {
+	return routeTableRoutesArrayType
+}
+
+func (o RouteTableRoutesArrayOutput) ToRouteTableRoutesArrayOutput() RouteTableRoutesArrayOutput {
+	return o
+}
+
+func (o RouteTableRoutesArrayOutput) ToRouteTableRoutesArrayOutputWithContext(ctx context.Context) RouteTableRoutesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RouteTableRoutesArrayOutput{}) }
+

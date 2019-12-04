@@ -4,6 +4,8 @@
 package servicebus
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
 type SubscriptionRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
+	Action pulumi.StringOutput `pulumi:"action"`
+
+	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
+	CorrelationFilter SubscriptionRuleCorrelationFilterOutput `pulumi:"correlationFilter"`
+
+	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
+	FilterType pulumi.StringOutput `pulumi:"filterType"`
+
+	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+
+	// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
+	SqlFilter pulumi.StringOutput `pulumi:"sqlFilter"`
+
+	// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
+	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
+
+	// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
+	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
 // NewSubscriptionRule registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionRule(ctx *pulumi.Context,
-	name string, args *SubscriptionRuleArgs, opts ...pulumi.ResourceOpt) (*SubscriptionRule, error) {
+	name string, args *SubscriptionRuleArgs, opts ...pulumi.ResourceOption) (*SubscriptionRule, error) {
 	if args == nil || args.FilterType == nil {
 		return nil, errors.New("missing required argument 'FilterType'")
 	}
@@ -33,153 +62,220 @@ func NewSubscriptionRule(ctx *pulumi.Context,
 	if args == nil || args.TopicName == nil {
 		return nil, errors.New("missing required argument 'TopicName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["action"] = nil
-		inputs["correlationFilter"] = nil
-		inputs["filterType"] = nil
-		inputs["name"] = nil
-		inputs["namespaceName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sqlFilter"] = nil
-		inputs["subscriptionName"] = nil
-		inputs["topicName"] = nil
-	} else {
-		inputs["action"] = args.Action
-		inputs["correlationFilter"] = args.CorrelationFilter
-		inputs["filterType"] = args.FilterType
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sqlFilter"] = args.SqlFilter
-		inputs["subscriptionName"] = args.SubscriptionName
-		inputs["topicName"] = args.TopicName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Action; i != nil { inputs["action"] = i.ToStringOutput() }
+		if i := args.CorrelationFilter; i != nil { inputs["correlationFilter"] = i.ToSubscriptionRuleCorrelationFilterOutput() }
+		if i := args.FilterType; i != nil { inputs["filterType"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SqlFilter; i != nil { inputs["sqlFilter"] = i.ToStringOutput() }
+		if i := args.SubscriptionName; i != nil { inputs["subscriptionName"] = i.ToStringOutput() }
+		if i := args.TopicName; i != nil { inputs["topicName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:servicebus/subscriptionRule:SubscriptionRule", name, true, inputs, opts...)
+	var resource SubscriptionRule
+	err := ctx.RegisterResource("azure:servicebus/subscriptionRule:SubscriptionRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubscriptionRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubscriptionRule gets an existing SubscriptionRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubscriptionRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubscriptionRuleState, opts ...pulumi.ResourceOpt) (*SubscriptionRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubscriptionRuleState, opts ...pulumi.ResourceOption) (*SubscriptionRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["action"] = state.Action
-		inputs["correlationFilter"] = state.CorrelationFilter
-		inputs["filterType"] = state.FilterType
-		inputs["name"] = state.Name
-		inputs["namespaceName"] = state.NamespaceName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sqlFilter"] = state.SqlFilter
-		inputs["subscriptionName"] = state.SubscriptionName
-		inputs["topicName"] = state.TopicName
+		if i := state.Action; i != nil { inputs["action"] = i.ToStringOutput() }
+		if i := state.CorrelationFilter; i != nil { inputs["correlationFilter"] = i.ToSubscriptionRuleCorrelationFilterOutput() }
+		if i := state.FilterType; i != nil { inputs["filterType"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SqlFilter; i != nil { inputs["sqlFilter"] = i.ToStringOutput() }
+		if i := state.SubscriptionName; i != nil { inputs["subscriptionName"] = i.ToStringOutput() }
+		if i := state.TopicName; i != nil { inputs["topicName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:servicebus/subscriptionRule:SubscriptionRule", name, id, inputs, opts...)
+	var resource SubscriptionRule
+	err := ctx.ReadResource("azure:servicebus/subscriptionRule:SubscriptionRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubscriptionRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SubscriptionRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SubscriptionRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-func (r *SubscriptionRule) Action() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["action"])
-}
-
-// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
-func (r *SubscriptionRule) CorrelationFilter() pulumi.Output {
-	return r.s.State["correlationFilter"]
-}
-
-// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
-func (r *SubscriptionRule) FilterType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["filterType"])
-}
-
-// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) NamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceName"])
-}
-
-// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-func (r *SubscriptionRule) SqlFilter() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sqlFilter"])
-}
-
-// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) SubscriptionName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subscriptionName"])
-}
-
-// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-func (r *SubscriptionRule) TopicName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["topicName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SubscriptionRule resources.
 type SubscriptionRuleState struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-	Action interface{}
+	Action pulumi.StringInput `pulumi:"action"`
 	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
-	CorrelationFilter interface{}
+	CorrelationFilter SubscriptionRuleCorrelationFilterInput `pulumi:"correlationFilter"`
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
-	FilterType interface{}
+	FilterType pulumi.StringInput `pulumi:"filterType"`
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-	SqlFilter interface{}
+	SqlFilter pulumi.StringInput `pulumi:"sqlFilter"`
 	// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-	SubscriptionName interface{}
+	SubscriptionName pulumi.StringInput `pulumi:"subscriptionName"`
 	// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-	TopicName interface{}
+	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a SubscriptionRule resource.
 type SubscriptionRuleArgs struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-	Action interface{}
+	Action pulumi.StringInput `pulumi:"action"`
 	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
-	CorrelationFilter interface{}
+	CorrelationFilter SubscriptionRuleCorrelationFilterInput `pulumi:"correlationFilter"`
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
-	FilterType interface{}
+	FilterType pulumi.StringInput `pulumi:"filterType"`
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-	SqlFilter interface{}
+	SqlFilter pulumi.StringInput `pulumi:"sqlFilter"`
 	// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-	SubscriptionName interface{}
+	SubscriptionName pulumi.StringInput `pulumi:"subscriptionName"`
 	// The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
-	TopicName interface{}
+	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
+type SubscriptionRuleCorrelationFilter struct {
+	// Content type of the message.
+	ContentType *string `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId *string `pulumi:"correlationId"`
+	// Application specific label.
+	Label *string `pulumi:"label"`
+	// Identifier of the message.
+	MessageId *string `pulumi:"messageId"`
+	// Address of the queue to reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId *string `pulumi:"replyToSessionId"`
+	// Session identifier.
+	SessionId *string `pulumi:"sessionId"`
+	// Address to send to.
+	To *string `pulumi:"to"`
+}
+var subscriptionRuleCorrelationFilterType = reflect.TypeOf((*SubscriptionRuleCorrelationFilter)(nil)).Elem()
+
+type SubscriptionRuleCorrelationFilterInput interface {
+	pulumi.Input
+
+	ToSubscriptionRuleCorrelationFilterOutput() SubscriptionRuleCorrelationFilterOutput
+	ToSubscriptionRuleCorrelationFilterOutputWithContext(ctx context.Context) SubscriptionRuleCorrelationFilterOutput
+}
+
+type SubscriptionRuleCorrelationFilterArgs struct {
+	// Content type of the message.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId pulumi.StringInput `pulumi:"correlationId"`
+	// Application specific label.
+	Label pulumi.StringInput `pulumi:"label"`
+	// Identifier of the message.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+	// Address of the queue to reply to.
+	ReplyTo pulumi.StringInput `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId pulumi.StringInput `pulumi:"replyToSessionId"`
+	// Session identifier.
+	SessionId pulumi.StringInput `pulumi:"sessionId"`
+	// Address to send to.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (SubscriptionRuleCorrelationFilterArgs) ElementType() reflect.Type {
+	return subscriptionRuleCorrelationFilterType
+}
+
+func (a SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilterOutput() SubscriptionRuleCorrelationFilterOutput {
+	return pulumi.ToOutput(a).(SubscriptionRuleCorrelationFilterOutput)
+}
+
+func (a SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilterOutputWithContext(ctx context.Context) SubscriptionRuleCorrelationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SubscriptionRuleCorrelationFilterOutput)
+}
+
+type SubscriptionRuleCorrelationFilterOutput struct { *pulumi.OutputState }
+
+// Content type of the message.
+func (o SubscriptionRuleCorrelationFilterOutput) ContentType() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.ContentType == nil { return *new(string) } else { return *v.ContentType }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of the correlation.
+func (o SubscriptionRuleCorrelationFilterOutput) CorrelationId() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.CorrelationId == nil { return *new(string) } else { return *v.CorrelationId }
+	}).(pulumi.StringOutput)
+}
+
+// Application specific label.
+func (o SubscriptionRuleCorrelationFilterOutput) Label() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.Label == nil { return *new(string) } else { return *v.Label }
+	}).(pulumi.StringOutput)
+}
+
+// Identifier of the message.
+func (o SubscriptionRuleCorrelationFilterOutput) MessageId() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.MessageId == nil { return *new(string) } else { return *v.MessageId }
+	}).(pulumi.StringOutput)
+}
+
+// Address of the queue to reply to.
+func (o SubscriptionRuleCorrelationFilterOutput) ReplyTo() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.ReplyTo == nil { return *new(string) } else { return *v.ReplyTo }
+	}).(pulumi.StringOutput)
+}
+
+// Session identifier to reply to.
+func (o SubscriptionRuleCorrelationFilterOutput) ReplyToSessionId() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.ReplyToSessionId == nil { return *new(string) } else { return *v.ReplyToSessionId }
+	}).(pulumi.StringOutput)
+}
+
+// Session identifier.
+func (o SubscriptionRuleCorrelationFilterOutput) SessionId() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.SessionId == nil { return *new(string) } else { return *v.SessionId }
+	}).(pulumi.StringOutput)
+}
+
+// Address to send to.
+func (o SubscriptionRuleCorrelationFilterOutput) To() pulumi.StringOutput {
+	return o.Apply(func(v SubscriptionRuleCorrelationFilter) string {
+		if v.To == nil { return *new(string) } else { return *v.To }
+	}).(pulumi.StringOutput)
+}
+
+func (SubscriptionRuleCorrelationFilterOutput) ElementType() reflect.Type {
+	return subscriptionRuleCorrelationFilterType
+}
+
+func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFilterOutput() SubscriptionRuleCorrelationFilterOutput {
+	return o
+}
+
+func (o SubscriptionRuleCorrelationFilterOutput) ToSubscriptionRuleCorrelationFilterOutputWithContext(ctx context.Context) SubscriptionRuleCorrelationFilterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterOutput{}) }
+

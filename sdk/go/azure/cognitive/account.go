@@ -4,6 +4,8 @@
 package cognitive
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cognitive_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The endpoint used to connect to the Cognitive Service Account.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `LUIS`, `LUIS.Authoring`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A primary access key which can be used to connect to the Cognitive Service Account.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The secondary access key which can be used to connect to the Cognitive Service Account.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// A `sku` block as defined below.
+	Sku AccountSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
@@ -27,144 +56,142 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["kind"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["kind"] = args.Kind
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToAccountSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["endpoint"] = nil
-	inputs["primaryAccessKey"] = nil
-	inputs["secondaryAccessKey"] = nil
-	s, err := ctx.RegisterResource("azure:cognitive/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:cognitive/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["endpoint"] = state.Endpoint
-		inputs["kind"] = state.Kind
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToAccountSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:cognitive/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:cognitive/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The endpoint used to connect to the Cognitive Service Account.
-func (r *Account) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `LUIS`, `LUIS.Authoring`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
-func (r *Account) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A primary access key which can be used to connect to the Cognitive Service Account.
-func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The secondary access key which can be used to connect to the Cognitive Service Account.
-func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// A `sku` block as defined below.
-func (r *Account) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Account) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// The endpoint used to connect to the Cognitive Service Account.
-	Endpoint interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `LUIS`, `LUIS.Authoring`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku AccountSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `LUIS`, `LUIS.Authoring`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku AccountSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type AccountSku struct {
+	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Tier string `pulumi:"tier"`
+}
+var accountSkuType = reflect.TypeOf((*AccountSku)(nil)).Elem()
+
+type AccountSkuInput interface {
+	pulumi.Input
+
+	ToAccountSkuOutput() AccountSkuOutput
+	ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput
+}
+
+type AccountSkuArgs struct {
+	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (AccountSkuArgs) ElementType() reflect.Type {
+	return accountSkuType
+}
+
+func (a AccountSkuArgs) ToAccountSkuOutput() AccountSkuOutput {
+	return pulumi.ToOutput(a).(AccountSkuOutput)
+}
+
+func (a AccountSkuArgs) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountSkuOutput)
+}
+
+type AccountSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+func (o AccountSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AccountSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v AccountSku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (AccountSkuOutput) ElementType() reflect.Type {
+	return accountSkuType
+}
+
+func (o AccountSkuOutput) ToAccountSkuOutput() AccountSkuOutput {
+	return o
+}
+
+func (o AccountSkuOutput) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountSkuOutput{}) }
+

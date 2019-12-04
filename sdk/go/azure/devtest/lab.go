@@ -12,168 +12,126 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_lab.html.markdown.
 type Lab struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Storage Account used for Artifact Storage.
+	ArtifactsStorageAccountId pulumi.StringOutput `pulumi:"artifactsStorageAccountId"`
+
+	// The ID of the Default Premium Storage Account for this Dev Test Lab.
+	DefaultPremiumStorageAccountId pulumi.StringOutput `pulumi:"defaultPremiumStorageAccountId"`
+
+	// The ID of the Default Storage Account for this Dev Test Lab.
+	DefaultStorageAccountId pulumi.StringOutput `pulumi:"defaultStorageAccountId"`
+
+	// The ID of the Key used for this Dev Test Lab.
+	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+
+	// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ID of the Storage Account used for Storage of Premium Data Disk.
+	PremiumDataDiskStorageAccountId pulumi.StringOutput `pulumi:"premiumDataDiskStorageAccountId"`
+
+	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	StorageType pulumi.StringOutput `pulumi:"storageType"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The unique immutable identifier of the Dev Test Lab.
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewLab registers a new resource with the given unique name, arguments, and options.
 func NewLab(ctx *pulumi.Context,
-	name string, args *LabArgs, opts ...pulumi.ResourceOpt) (*Lab, error) {
+	name string, args *LabArgs, opts ...pulumi.ResourceOption) (*Lab, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageType"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageType"] = args.StorageType
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageType; i != nil { inputs["storageType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["artifactsStorageAccountId"] = nil
-	inputs["defaultPremiumStorageAccountId"] = nil
-	inputs["defaultStorageAccountId"] = nil
-	inputs["keyVaultId"] = nil
-	inputs["premiumDataDiskStorageAccountId"] = nil
-	inputs["uniqueIdentifier"] = nil
-	s, err := ctx.RegisterResource("azure:devtest/lab:Lab", name, true, inputs, opts...)
+	var resource Lab
+	err := ctx.RegisterResource("azure:devtest/lab:Lab", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Lab{s: s}, nil
+	return &resource, nil
 }
 
 // GetLab gets an existing Lab resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLab(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LabState, opts ...pulumi.ResourceOpt) (*Lab, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LabState, opts ...pulumi.ResourceOption) (*Lab, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["artifactsStorageAccountId"] = state.ArtifactsStorageAccountId
-		inputs["defaultPremiumStorageAccountId"] = state.DefaultPremiumStorageAccountId
-		inputs["defaultStorageAccountId"] = state.DefaultStorageAccountId
-		inputs["keyVaultId"] = state.KeyVaultId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["premiumDataDiskStorageAccountId"] = state.PremiumDataDiskStorageAccountId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageType"] = state.StorageType
-		inputs["tags"] = state.Tags
-		inputs["uniqueIdentifier"] = state.UniqueIdentifier
+		if i := state.ArtifactsStorageAccountId; i != nil { inputs["artifactsStorageAccountId"] = i.ToStringOutput() }
+		if i := state.DefaultPremiumStorageAccountId; i != nil { inputs["defaultPremiumStorageAccountId"] = i.ToStringOutput() }
+		if i := state.DefaultStorageAccountId; i != nil { inputs["defaultStorageAccountId"] = i.ToStringOutput() }
+		if i := state.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PremiumDataDiskStorageAccountId; i != nil { inputs["premiumDataDiskStorageAccountId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageType; i != nil { inputs["storageType"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UniqueIdentifier; i != nil { inputs["uniqueIdentifier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:devtest/lab:Lab", name, id, inputs, opts...)
+	var resource Lab
+	err := ctx.ReadResource("azure:devtest/lab:Lab", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Lab{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Lab) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Lab) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Storage Account used for Artifact Storage.
-func (r *Lab) ArtifactsStorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["artifactsStorageAccountId"])
-}
-
-// The ID of the Default Premium Storage Account for this Dev Test Lab.
-func (r *Lab) DefaultPremiumStorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultPremiumStorageAccountId"])
-}
-
-// The ID of the Default Storage Account for this Dev Test Lab.
-func (r *Lab) DefaultStorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultStorageAccountId"])
-}
-
-// The ID of the Key used for this Dev Test Lab.
-func (r *Lab) KeyVaultId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
-}
-
-// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
-func (r *Lab) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
-func (r *Lab) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ID of the Storage Account used for Storage of Premium Data Disk.
-func (r *Lab) PremiumDataDiskStorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["premiumDataDiskStorageAccountId"])
-}
-
-// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-func (r *Lab) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
-func (r *Lab) StorageType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageType"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Lab) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The unique immutable identifier of the Dev Test Lab.
-func (r *Lab) UniqueIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Lab resources.
 type LabState struct {
 	// The ID of the Storage Account used for Artifact Storage.
-	ArtifactsStorageAccountId interface{}
+	ArtifactsStorageAccountId pulumi.StringInput `pulumi:"artifactsStorageAccountId"`
 	// The ID of the Default Premium Storage Account for this Dev Test Lab.
-	DefaultPremiumStorageAccountId interface{}
+	DefaultPremiumStorageAccountId pulumi.StringInput `pulumi:"defaultPremiumStorageAccountId"`
 	// The ID of the Default Storage Account for this Dev Test Lab.
-	DefaultStorageAccountId interface{}
+	DefaultStorageAccountId pulumi.StringInput `pulumi:"defaultStorageAccountId"`
 	// The ID of the Key used for this Dev Test Lab.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Storage Account used for Storage of Premium Data Disk.
-	PremiumDataDiskStorageAccountId interface{}
+	PremiumDataDiskStorageAccountId pulumi.StringInput `pulumi:"premiumDataDiskStorageAccountId"`
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
-	StorageType interface{}
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The unique immutable identifier of the Dev Test Lab.
-	UniqueIdentifier interface{}
+	UniqueIdentifier pulumi.StringInput `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a Lab resource.
 type LabArgs struct {
 	// Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
-	StorageType interface{}
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

@@ -17,12 +17,50 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
 type VirtualNetworkPeering struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Controls if forwarded traffic from  VMs
+	// in the remote virtual network is allowed. Defaults to false.
+	AllowForwardedTraffic pulumi.BoolOutput `pulumi:"allowForwardedTraffic"`
+
+	// Controls gatewayLinks can be used in the
+	// remote virtual network’s link to the local virtual network.
+	AllowGatewayTransit pulumi.BoolOutput `pulumi:"allowGatewayTransit"`
+
+	// Controls if the VMs in the remote
+	// virtual network can access VMs in the local virtual network. Defaults to
+	// false.
+	AllowVirtualNetworkAccess pulumi.BoolOutput `pulumi:"allowVirtualNetworkAccess"`
+
+	// The name of the virtual network peering. Changing this
+	// forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The full Azure resource ID of the
+	// remote virtual network.  Changing this forces a new resource to be created.
+	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
+
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Controls if remote gateways can be used on
+	// the local virtual network. If the flag is set to `true`, and
+	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
+	// use gateways of remote virtual network for transit. Only one peering can
+	// have this flag set to `true`. This flag cannot be set if virtual network
+	// already has a gateway. Defaults to `false`.
+	UseRemoteGateways pulumi.BoolOutput `pulumi:"useRemoteGateways"`
+
+	// The name of the virtual network. Changing
+	// this forces a new resource to be created.
+	VirtualNetworkName pulumi.StringOutput `pulumi:"virtualNetworkName"`
 }
 
 // NewVirtualNetworkPeering registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkPeering(ctx *pulumi.Context,
-	name string, args *VirtualNetworkPeeringArgs, opts ...pulumi.ResourceOpt) (*VirtualNetworkPeering, error) {
+	name string, args *VirtualNetworkPeeringArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkPeering, error) {
 	if args == nil || args.RemoteVirtualNetworkId == nil {
 		return nil, errors.New("missing required argument 'RemoteVirtualNetworkId'")
 	}
@@ -32,183 +70,112 @@ func NewVirtualNetworkPeering(ctx *pulumi.Context,
 	if args == nil || args.VirtualNetworkName == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowForwardedTraffic"] = nil
-		inputs["allowGatewayTransit"] = nil
-		inputs["allowVirtualNetworkAccess"] = nil
-		inputs["name"] = nil
-		inputs["remoteVirtualNetworkId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["useRemoteGateways"] = nil
-		inputs["virtualNetworkName"] = nil
-	} else {
-		inputs["allowForwardedTraffic"] = args.AllowForwardedTraffic
-		inputs["allowGatewayTransit"] = args.AllowGatewayTransit
-		inputs["allowVirtualNetworkAccess"] = args.AllowVirtualNetworkAccess
-		inputs["name"] = args.Name
-		inputs["remoteVirtualNetworkId"] = args.RemoteVirtualNetworkId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["useRemoteGateways"] = args.UseRemoteGateways
-		inputs["virtualNetworkName"] = args.VirtualNetworkName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowForwardedTraffic; i != nil { inputs["allowForwardedTraffic"] = i.ToBoolOutput() }
+		if i := args.AllowGatewayTransit; i != nil { inputs["allowGatewayTransit"] = i.ToBoolOutput() }
+		if i := args.AllowVirtualNetworkAccess; i != nil { inputs["allowVirtualNetworkAccess"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RemoteVirtualNetworkId; i != nil { inputs["remoteVirtualNetworkId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.UseRemoteGateways; i != nil { inputs["useRemoteGateways"] = i.ToBoolOutput() }
+		if i := args.VirtualNetworkName; i != nil { inputs["virtualNetworkName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, true, inputs, opts...)
+	var resource VirtualNetworkPeering
+	err := ctx.RegisterResource("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkPeering{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualNetworkPeering gets an existing VirtualNetworkPeering resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualNetworkPeering(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualNetworkPeeringState, opts ...pulumi.ResourceOpt) (*VirtualNetworkPeering, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualNetworkPeeringState, opts ...pulumi.ResourceOption) (*VirtualNetworkPeering, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowForwardedTraffic"] = state.AllowForwardedTraffic
-		inputs["allowGatewayTransit"] = state.AllowGatewayTransit
-		inputs["allowVirtualNetworkAccess"] = state.AllowVirtualNetworkAccess
-		inputs["name"] = state.Name
-		inputs["remoteVirtualNetworkId"] = state.RemoteVirtualNetworkId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["useRemoteGateways"] = state.UseRemoteGateways
-		inputs["virtualNetworkName"] = state.VirtualNetworkName
+		if i := state.AllowForwardedTraffic; i != nil { inputs["allowForwardedTraffic"] = i.ToBoolOutput() }
+		if i := state.AllowGatewayTransit; i != nil { inputs["allowGatewayTransit"] = i.ToBoolOutput() }
+		if i := state.AllowVirtualNetworkAccess; i != nil { inputs["allowVirtualNetworkAccess"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RemoteVirtualNetworkId; i != nil { inputs["remoteVirtualNetworkId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.UseRemoteGateways; i != nil { inputs["useRemoteGateways"] = i.ToBoolOutput() }
+		if i := state.VirtualNetworkName; i != nil { inputs["virtualNetworkName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, id, inputs, opts...)
+	var resource VirtualNetworkPeering
+	err := ctx.ReadResource("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkPeering{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkPeering) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkPeering) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Controls if forwarded traffic from  VMs
-// in the remote virtual network is allowed. Defaults to false.
-func (r *VirtualNetworkPeering) AllowForwardedTraffic() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowForwardedTraffic"])
-}
-
-// Controls gatewayLinks can be used in the
-// remote virtual network’s link to the local virtual network.
-func (r *VirtualNetworkPeering) AllowGatewayTransit() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowGatewayTransit"])
-}
-
-// Controls if the VMs in the remote
-// virtual network can access VMs in the local virtual network. Defaults to
-// false.
-func (r *VirtualNetworkPeering) AllowVirtualNetworkAccess() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowVirtualNetworkAccess"])
-}
-
-// The name of the virtual network peering. Changing this
-// forces a new resource to be created.
-func (r *VirtualNetworkPeering) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The full Azure resource ID of the
-// remote virtual network.  Changing this forces a new resource to be created.
-func (r *VirtualNetworkPeering) RemoteVirtualNetworkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["remoteVirtualNetworkId"])
-}
-
-// The name of the resource group in which to
-// create the virtual network. Changing this forces a new resource to be
-// created.
-func (r *VirtualNetworkPeering) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Controls if remote gateways can be used on
-// the local virtual network. If the flag is set to `true`, and
-// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
-// use gateways of remote virtual network for transit. Only one peering can
-// have this flag set to `true`. This flag cannot be set if virtual network
-// already has a gateway. Defaults to `false`.
-func (r *VirtualNetworkPeering) UseRemoteGateways() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["useRemoteGateways"])
-}
-
-// The name of the virtual network. Changing
-// this forces a new resource to be created.
-func (r *VirtualNetworkPeering) VirtualNetworkName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualNetworkName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualNetworkPeering resources.
 type VirtualNetworkPeeringState struct {
 	// Controls if forwarded traffic from  VMs
 	// in the remote virtual network is allowed. Defaults to false.
-	AllowForwardedTraffic interface{}
+	AllowForwardedTraffic pulumi.BoolInput `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the
 	// remote virtual network’s link to the local virtual network.
-	AllowGatewayTransit interface{}
+	AllowGatewayTransit pulumi.BoolInput `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
 	// false.
-	AllowVirtualNetworkAccess interface{}
+	AllowVirtualNetworkAccess pulumi.BoolInput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The full Azure resource ID of the
 	// remote virtual network.  Changing this forces a new resource to be created.
-	RemoteVirtualNetworkId interface{}
+	RemoteVirtualNetworkId pulumi.StringInput `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to
 	// create the virtual network. Changing this forces a new resource to be
 	// created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Controls if remote gateways can be used on
 	// the local virtual network. If the flag is set to `true`, and
 	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
 	// use gateways of remote virtual network for transit. Only one peering can
 	// have this flag set to `true`. This flag cannot be set if virtual network
 	// already has a gateway. Defaults to `false`.
-	UseRemoteGateways interface{}
+	UseRemoteGateways pulumi.BoolInput `pulumi:"useRemoteGateways"`
 	// The name of the virtual network. Changing
 	// this forces a new resource to be created.
-	VirtualNetworkName interface{}
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkPeering resource.
 type VirtualNetworkPeeringArgs struct {
 	// Controls if forwarded traffic from  VMs
 	// in the remote virtual network is allowed. Defaults to false.
-	AllowForwardedTraffic interface{}
+	AllowForwardedTraffic pulumi.BoolInput `pulumi:"allowForwardedTraffic"`
 	// Controls gatewayLinks can be used in the
 	// remote virtual network’s link to the local virtual network.
-	AllowGatewayTransit interface{}
+	AllowGatewayTransit pulumi.BoolInput `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote
 	// virtual network can access VMs in the local virtual network. Defaults to
 	// false.
-	AllowVirtualNetworkAccess interface{}
+	AllowVirtualNetworkAccess pulumi.BoolInput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this
 	// forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The full Azure resource ID of the
 	// remote virtual network.  Changing this forces a new resource to be created.
-	RemoteVirtualNetworkId interface{}
+	RemoteVirtualNetworkId pulumi.StringInput `pulumi:"remoteVirtualNetworkId"`
 	// The name of the resource group in which to
 	// create the virtual network. Changing this forces a new resource to be
 	// created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Controls if remote gateways can be used on
 	// the local virtual network. If the flag is set to `true`, and
 	// `allowGatewayTransit` on the remote peering is also `true`, virtual network will
 	// use gateways of remote virtual network for transit. Only one peering can
 	// have this flag set to `true`. This flag cannot be set if virtual network
 	// already has a gateway. Defaults to `false`.
-	UseRemoteGateways interface{}
+	UseRemoteGateways pulumi.BoolInput `pulumi:"useRemoteGateways"`
 	// The name of the virtual network. Changing
 	// this forces a new resource to be created.
-	VirtualNetworkName interface{}
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
 }

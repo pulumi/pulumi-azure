@@ -10,77 +10,77 @@ import (
 // Use this data source to access information about an existing Network Interface.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
-func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (*GetNetworkInterfaceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getNetworkInterface:getNetworkInterface", inputs)
+func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfaceResult, error) {
+	var rv GetNetworkInterfaceResult
+	err := ctx.Invoke("azure:network/getNetworkInterface:getNetworkInterface", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNetworkInterfaceResult{
-		AppliedDnsServers: outputs["appliedDnsServers"],
-		DnsServers: outputs["dnsServers"],
-		EnableAcceleratedNetworking: outputs["enableAcceleratedNetworking"],
-		EnableIpForwarding: outputs["enableIpForwarding"],
-		InternalDnsNameLabel: outputs["internalDnsNameLabel"],
-		InternalFqdn: outputs["internalFqdn"],
-		IpConfigurations: outputs["ipConfigurations"],
-		Location: outputs["location"],
-		MacAddress: outputs["macAddress"],
-		Name: outputs["name"],
-		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
-		PrivateIpAddress: outputs["privateIpAddress"],
-		PrivateIpAddresses: outputs["privateIpAddresses"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		VirtualMachineId: outputs["virtualMachineId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNetworkInterface.
 type GetNetworkInterfaceArgs struct {
 	// Specifies the name of the Network Interface.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Network Interface is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNetworkInterface.
 type GetNetworkInterfaceResult struct {
 	// List of DNS servers applied to the specified Network Interface.
-	AppliedDnsServers interface{}
+	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
 	// The list of DNS servers used by the specified Network Interface.
-	DnsServers interface{}
+	DnsServers []string `pulumi:"dnsServers"`
 	// Indicates if accelerated networking is set on the specified Network Interface.
-	EnableAcceleratedNetworking interface{}
+	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
 	// Indicate if IP forwarding is set on the specified Network Interface.
-	EnableIpForwarding interface{}
+	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
 	// The internal dns name label of the specified Network Interface.
-	InternalDnsNameLabel interface{}
-	InternalFqdn interface{}
+	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`
+	InternalFqdn string `pulumi:"internalFqdn"`
 	// One or more `ipConfiguration` blocks as defined below.
-	IpConfigurations interface{}
+	IpConfigurations []GetNetworkInterfaceIpConfigurationsResult `pulumi:"ipConfigurations"`
 	// The location of the specified Network Interface.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The MAC address used by the specified Network Interface.
-	MacAddress interface{}
+	MacAddress string `pulumi:"macAddress"`
 	// The name of the IP Configuration.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The ID of the network security group associated to the specified Network Interface.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
 	// The Private IP Address assigned to this Network Interface.
-	PrivateIpAddress interface{}
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The list of private ip addresses associates to the specified Network Interface.
-	PrivateIpAddresses interface{}
-	ResourceGroupName interface{}
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// List the tags associated to the specified Network Interface.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the virtual machine that the specified Network Interface is attached to.
-	VirtualMachineId interface{}
+	VirtualMachineId string `pulumi:"virtualMachineId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetNetworkInterfaceIpConfigurationsResult struct {
+	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
+	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
+	// A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+	LoadBalancerBackendAddressPoolsIds []string `pulumi:"loadBalancerBackendAddressPoolsIds"`
+	// A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// Specifies the name of the Network Interface.
+	Name string `pulumi:"name"`
+	// is this the Primary IP Configuration for this Network Interface?
+	Primary bool `pulumi:"primary"`
+	// The Private IP Address assigned to this Network Interface.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The IP Address allocation type for the Private address, such as `Dynamic` or `Static`.
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	PrivateIpAddressVersion string `pulumi:"privateIpAddressVersion"`
+	// The ID of the Public IP Address which is connected to this Network Interface.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// The ID of the Subnet which the Network Interface is connected to.
+	SubnetId string `pulumi:"subnetId"`
 }

@@ -10,49 +10,55 @@ import (
 // Use this data source to access information about an existing Dev Test Lab Virtual Network.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_virtual_network.html.markdown.
-func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*GetVirtualNetworkResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["labName"] = args.LabName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", inputs)
+func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkResult, error) {
+	var rv GetVirtualNetworkResult
+	err := ctx.Invoke("azure:devtest/getVirtualNetwork:getVirtualNetwork", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVirtualNetworkResult{
-		AllowedSubnets: outputs["allowedSubnets"],
-		LabName: outputs["labName"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SubnetOverrides: outputs["subnetOverrides"],
-		UniqueIdentifier: outputs["uniqueIdentifier"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVirtualNetwork.
 type GetVirtualNetworkArgs struct {
 	// Specifies the name of the Dev Test Lab.
-	LabName interface{}
+	LabName string `pulumi:"labName"`
 	// Specifies the name of the Virtual Network.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group that contains the Virtual Network.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getVirtualNetwork.
 type GetVirtualNetworkResult struct {
 	// The list of subnets enabled for the virtual network as defined below.
-	AllowedSubnets interface{}
-	LabName interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	AllowedSubnets []GetVirtualNetworkAllowedSubnetsResult `pulumi:"allowedSubnets"`
+	LabName string `pulumi:"labName"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of permission overrides for the subnets as defined below.
-	SubnetOverrides interface{}
+	SubnetOverrides GetVirtualNetworkSubnetOverridesResult `pulumi:"subnetOverrides"`
 	// The unique immutable identifier of the virtual network.
-	UniqueIdentifier interface{}
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetVirtualNetworkAllowedSubnetsResult struct {
+	// Indicates if this subnet allows public IP addresses. Possible values are `Allow`, `Default` and `Deny`.
+	AllowPublicIp string `pulumi:"allowPublicIp"`
+	// The name of the subnet.
+	LabSubnetName string `pulumi:"labSubnetName"`
+	// The resource identifier for the subnet.
+	ResourceId string `pulumi:"resourceId"`
+}
+type GetVirtualNetworkSubnetOverridesResult struct {
+	// The name of the subnet.
+	LabSubnetName string `pulumi:"labSubnetName"`
+	// The resource identifier for the subnet.
+	ResourceId string `pulumi:"resourceId"`
+	// Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
+	UseInVmCreationPermission string `pulumi:"useInVmCreationPermission"`
+	UsePublicIpAddressPermission string `pulumi:"usePublicIpAddressPermission"`
+	// The virtual network pool associated with this subnet.
+	VirtualNetworkPoolName string `pulumi:"virtualNetworkPoolName"`
 }

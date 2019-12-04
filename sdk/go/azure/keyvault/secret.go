@@ -15,156 +15,120 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
 type Secret struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the content type for the Key Vault Secret.
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
+
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+
+	// The ID of the Key Vault where the Secret should be created.
+	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+
+	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate pulumi.StringOutput `pulumi:"notBeforeDate"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the value of the Key Vault Secret.
+	Value pulumi.StringOutput `pulumi:"value"`
+
+	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
+
+	// The current version of the Key Vault Secret.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
 func NewSecret(ctx *pulumi.Context,
-	name string, args *SecretArgs, opts ...pulumi.ResourceOpt) (*Secret, error) {
+	name string, args *SecretArgs, opts ...pulumi.ResourceOption) (*Secret, error) {
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["contentType"] = nil
-		inputs["expirationDate"] = nil
-		inputs["keyVaultId"] = nil
-		inputs["name"] = nil
-		inputs["notBeforeDate"] = nil
-		inputs["tags"] = nil
-		inputs["value"] = nil
-		inputs["vaultUri"] = nil
-	} else {
-		inputs["contentType"] = args.ContentType
-		inputs["expirationDate"] = args.ExpirationDate
-		inputs["keyVaultId"] = args.KeyVaultId
-		inputs["name"] = args.Name
-		inputs["notBeforeDate"] = args.NotBeforeDate
-		inputs["tags"] = args.Tags
-		inputs["value"] = args.Value
-		inputs["vaultUri"] = args.VaultUri
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ContentType; i != nil { inputs["contentType"] = i.ToStringOutput() }
+		if i := args.ExpirationDate; i != nil { inputs["expirationDate"] = i.ToStringOutput() }
+		if i := args.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NotBeforeDate; i != nil { inputs["notBeforeDate"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Value; i != nil { inputs["value"] = i.ToStringOutput() }
+		if i := args.VaultUri; i != nil { inputs["vaultUri"] = i.ToStringOutput() }
 	}
-	inputs["version"] = nil
-	s, err := ctx.RegisterResource("azure:keyvault/secret:Secret", name, true, inputs, opts...)
+	var resource Secret
+	err := ctx.RegisterResource("azure:keyvault/secret:Secret", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Secret{s: s}, nil
+	return &resource, nil
 }
 
 // GetSecret gets an existing Secret resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSecret(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SecretState, opts ...pulumi.ResourceOpt) (*Secret, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SecretState, opts ...pulumi.ResourceOption) (*Secret, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["contentType"] = state.ContentType
-		inputs["expirationDate"] = state.ExpirationDate
-		inputs["keyVaultId"] = state.KeyVaultId
-		inputs["name"] = state.Name
-		inputs["notBeforeDate"] = state.NotBeforeDate
-		inputs["tags"] = state.Tags
-		inputs["value"] = state.Value
-		inputs["vaultUri"] = state.VaultUri
-		inputs["version"] = state.Version
+		if i := state.ContentType; i != nil { inputs["contentType"] = i.ToStringOutput() }
+		if i := state.ExpirationDate; i != nil { inputs["expirationDate"] = i.ToStringOutput() }
+		if i := state.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NotBeforeDate; i != nil { inputs["notBeforeDate"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Value; i != nil { inputs["value"] = i.ToStringOutput() }
+		if i := state.VaultUri; i != nil { inputs["vaultUri"] = i.ToStringOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:keyvault/secret:Secret", name, id, inputs, opts...)
+	var resource Secret
+	err := ctx.ReadResource("azure:keyvault/secret:Secret", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Secret{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Secret) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Secret) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the content type for the Key Vault Secret.
-func (r *Secret) ContentType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["contentType"])
-}
-
-// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-func (r *Secret) ExpirationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expirationDate"])
-}
-
-// The ID of the Key Vault where the Secret should be created.
-func (r *Secret) KeyVaultId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
-}
-
-// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
-func (r *Secret) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
-func (r *Secret) NotBeforeDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notBeforeDate"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Secret) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the value of the Key Vault Secret.
-func (r *Secret) Value() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["value"])
-}
-
-func (r *Secret) VaultUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vaultUri"])
-}
-
-// The current version of the Key Vault Secret.
-func (r *Secret) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Secret resources.
 type SecretState struct {
 	// Specifies the content type for the Key Vault Secret.
-	ContentType interface{}
+	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-	ExpirationDate interface{}
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// The ID of the Key Vault where the Secret should be created.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
-	NotBeforeDate interface{}
+	NotBeforeDate pulumi.StringInput `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
-	Value interface{}
-	VaultUri interface{}
+	Value pulumi.StringInput `pulumi:"value"`
+	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
 	// The current version of the Key Vault Secret.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
 	// Specifies the content type for the Key Vault Secret.
-	ContentType interface{}
+	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
-	ExpirationDate interface{}
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// The ID of the Key Vault where the Secret should be created.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
-	NotBeforeDate interface{}
+	NotBeforeDate pulumi.StringInput `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
-	Value interface{}
-	VaultUri interface{}
+	Value pulumi.StringInput `pulumi:"value"`
+	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
 }

@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,48 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alert.html.markdown.
 type MetricAlert struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `action` blocks as defined below.
+	Actions MetricAlertActionsArrayOutput `pulumi:"actions"`
+
+	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+	AutoMitigate pulumi.BoolOutput `pulumi:"autoMitigate"`
+
+	// One or more `criteria` blocks as defined below.
+	Criterias MetricAlertCriteriasArrayOutput `pulumi:"criterias"`
+
+	// The description of this Metric Alert.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Should this Metric Alert be enabled? Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
+	Frequency pulumi.StringOutput `pulumi:"frequency"`
+
+	// The name of the Metric Alert. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Metric Alert instance.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A set of strings of resource IDs at which the metric criteria should be applied.
+	Scopes pulumi.StringOutput `pulumi:"scopes"`
+
+	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
+	Severity pulumi.IntOutput `pulumi:"severity"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+	WindowSize pulumi.StringOutput `pulumi:"windowSize"`
 }
 
 // NewMetricAlert registers a new resource with the given unique name, arguments, and options.
 func NewMetricAlert(ctx *pulumi.Context,
-	name string, args *MetricAlertArgs, opts ...pulumi.ResourceOpt) (*MetricAlert, error) {
+	name string, args *MetricAlertArgs, opts ...pulumi.ResourceOption) (*MetricAlert, error) {
 	if args == nil || args.Criterias == nil {
 		return nil, errors.New("missing required argument 'Criterias'")
 	}
@@ -27,189 +65,460 @@ func NewMetricAlert(ctx *pulumi.Context,
 	if args == nil || args.Scopes == nil {
 		return nil, errors.New("missing required argument 'Scopes'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["actions"] = nil
-		inputs["autoMitigate"] = nil
-		inputs["criterias"] = nil
-		inputs["description"] = nil
-		inputs["enabled"] = nil
-		inputs["frequency"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["scopes"] = nil
-		inputs["severity"] = nil
-		inputs["tags"] = nil
-		inputs["windowSize"] = nil
-	} else {
-		inputs["actions"] = args.Actions
-		inputs["autoMitigate"] = args.AutoMitigate
-		inputs["criterias"] = args.Criterias
-		inputs["description"] = args.Description
-		inputs["enabled"] = args.Enabled
-		inputs["frequency"] = args.Frequency
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["scopes"] = args.Scopes
-		inputs["severity"] = args.Severity
-		inputs["tags"] = args.Tags
-		inputs["windowSize"] = args.WindowSize
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Actions; i != nil { inputs["actions"] = i.ToMetricAlertActionsArrayOutput() }
+		if i := args.AutoMitigate; i != nil { inputs["autoMitigate"] = i.ToBoolOutput() }
+		if i := args.Criterias; i != nil { inputs["criterias"] = i.ToMetricAlertCriteriasArrayOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Scopes; i != nil { inputs["scopes"] = i.ToStringOutput() }
+		if i := args.Severity; i != nil { inputs["severity"] = i.ToIntOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.WindowSize; i != nil { inputs["windowSize"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/metricAlert:MetricAlert", name, true, inputs, opts...)
+	var resource MetricAlert
+	err := ctx.RegisterResource("azure:monitoring/metricAlert:MetricAlert", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MetricAlert{s: s}, nil
+	return &resource, nil
 }
 
 // GetMetricAlert gets an existing MetricAlert resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMetricAlert(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MetricAlertState, opts ...pulumi.ResourceOpt) (*MetricAlert, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MetricAlertState, opts ...pulumi.ResourceOption) (*MetricAlert, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["actions"] = state.Actions
-		inputs["autoMitigate"] = state.AutoMitigate
-		inputs["criterias"] = state.Criterias
-		inputs["description"] = state.Description
-		inputs["enabled"] = state.Enabled
-		inputs["frequency"] = state.Frequency
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["scopes"] = state.Scopes
-		inputs["severity"] = state.Severity
-		inputs["tags"] = state.Tags
-		inputs["windowSize"] = state.WindowSize
+		if i := state.Actions; i != nil { inputs["actions"] = i.ToMetricAlertActionsArrayOutput() }
+		if i := state.AutoMitigate; i != nil { inputs["autoMitigate"] = i.ToBoolOutput() }
+		if i := state.Criterias; i != nil { inputs["criterias"] = i.ToMetricAlertCriteriasArrayOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Scopes; i != nil { inputs["scopes"] = i.ToStringOutput() }
+		if i := state.Severity; i != nil { inputs["severity"] = i.ToIntOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.WindowSize; i != nil { inputs["windowSize"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/metricAlert:MetricAlert", name, id, inputs, opts...)
+	var resource MetricAlert
+	err := ctx.ReadResource("azure:monitoring/metricAlert:MetricAlert", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MetricAlert{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MetricAlert) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MetricAlert) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `action` blocks as defined below.
-func (r *MetricAlert) Actions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["actions"])
-}
-
-// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-func (r *MetricAlert) AutoMitigate() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoMitigate"])
-}
-
-// One or more `criteria` blocks as defined below.
-func (r *MetricAlert) Criterias() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["criterias"])
-}
-
-// The description of this Metric Alert.
-func (r *MetricAlert) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Should this Metric Alert be enabled? Defaults to `true`.
-func (r *MetricAlert) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
-func (r *MetricAlert) Frequency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frequency"])
-}
-
-// The name of the Metric Alert. Changing this forces a new resource to be created.
-func (r *MetricAlert) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Metric Alert instance.
-func (r *MetricAlert) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A set of strings of resource IDs at which the metric criteria should be applied.
-func (r *MetricAlert) Scopes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scopes"])
-}
-
-// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
-func (r *MetricAlert) Severity() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["severity"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *MetricAlert) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-func (r *MetricAlert) WindowSize() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["windowSize"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MetricAlert resources.
 type MetricAlertState struct {
 	// One or more `action` blocks as defined below.
-	Actions interface{}
+	Actions MetricAlertActionsArrayInput `pulumi:"actions"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-	AutoMitigate interface{}
+	AutoMitigate pulumi.BoolInput `pulumi:"autoMitigate"`
 	// One or more `criteria` blocks as defined below.
-	Criterias interface{}
+	Criterias MetricAlertCriteriasArrayInput `pulumi:"criterias"`
 	// The description of this Metric Alert.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Metric Alert instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes interface{}
+	Scopes pulumi.StringInput `pulumi:"scopes"`
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
-	Severity interface{}
+	Severity pulumi.IntInput `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-	WindowSize interface{}
+	WindowSize pulumi.StringInput `pulumi:"windowSize"`
 }
 
 // The set of arguments for constructing a MetricAlert resource.
 type MetricAlertArgs struct {
 	// One or more `action` blocks as defined below.
-	Actions interface{}
+	Actions MetricAlertActionsArrayInput `pulumi:"actions"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-	AutoMitigate interface{}
+	AutoMitigate pulumi.BoolInput `pulumi:"autoMitigate"`
 	// One or more `criteria` blocks as defined below.
-	Criterias interface{}
+	Criterias MetricAlertCriteriasArrayInput `pulumi:"criterias"`
 	// The description of this Metric Alert.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The name of the Metric Alert. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Metric Alert instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes interface{}
+	Scopes pulumi.StringInput `pulumi:"scopes"`
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
-	Severity interface{}
+	Severity pulumi.IntInput `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-	WindowSize interface{}
+	WindowSize pulumi.StringInput `pulumi:"windowSize"`
 }
+type MetricAlertActions struct {
+	ActionGroupId string `pulumi:"actionGroupId"`
+	WebhookProperties *map[string]string `pulumi:"webhookProperties"`
+}
+var metricAlertActionsType = reflect.TypeOf((*MetricAlertActions)(nil)).Elem()
+
+type MetricAlertActionsInput interface {
+	pulumi.Input
+
+	ToMetricAlertActionsOutput() MetricAlertActionsOutput
+	ToMetricAlertActionsOutputWithContext(ctx context.Context) MetricAlertActionsOutput
+}
+
+type MetricAlertActionsArgs struct {
+	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
+	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
+}
+
+func (MetricAlertActionsArgs) ElementType() reflect.Type {
+	return metricAlertActionsType
+}
+
+func (a MetricAlertActionsArgs) ToMetricAlertActionsOutput() MetricAlertActionsOutput {
+	return pulumi.ToOutput(a).(MetricAlertActionsOutput)
+}
+
+func (a MetricAlertActionsArgs) ToMetricAlertActionsOutputWithContext(ctx context.Context) MetricAlertActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlertActionsOutput)
+}
+
+type MetricAlertActionsOutput struct { *pulumi.OutputState }
+
+func (o MetricAlertActionsOutput) ActionGroupId() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertActions) string {
+		return v.ActionGroupId
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertActionsOutput) WebhookProperties() pulumi.StringMapOutput {
+	return o.Apply(func(v MetricAlertActions) map[string]string {
+		if v.WebhookProperties == nil { return *new(map[string]string) } else { return *v.WebhookProperties }
+	}).(pulumi.StringMapOutput)
+}
+
+func (MetricAlertActionsOutput) ElementType() reflect.Type {
+	return metricAlertActionsType
+}
+
+func (o MetricAlertActionsOutput) ToMetricAlertActionsOutput() MetricAlertActionsOutput {
+	return o
+}
+
+func (o MetricAlertActionsOutput) ToMetricAlertActionsOutputWithContext(ctx context.Context) MetricAlertActionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlertActionsOutput{}) }
+
+var metricAlertActionsArrayType = reflect.TypeOf((*[]MetricAlertActions)(nil)).Elem()
+
+type MetricAlertActionsArrayInput interface {
+	pulumi.Input
+
+	ToMetricAlertActionsArrayOutput() MetricAlertActionsArrayOutput
+	ToMetricAlertActionsArrayOutputWithContext(ctx context.Context) MetricAlertActionsArrayOutput
+}
+
+type MetricAlertActionsArrayArgs []MetricAlertActionsInput
+
+func (MetricAlertActionsArrayArgs) ElementType() reflect.Type {
+	return metricAlertActionsArrayType
+}
+
+func (a MetricAlertActionsArrayArgs) ToMetricAlertActionsArrayOutput() MetricAlertActionsArrayOutput {
+	return pulumi.ToOutput(a).(MetricAlertActionsArrayOutput)
+}
+
+func (a MetricAlertActionsArrayArgs) ToMetricAlertActionsArrayOutputWithContext(ctx context.Context) MetricAlertActionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlertActionsArrayOutput)
+}
+
+type MetricAlertActionsArrayOutput struct { *pulumi.OutputState }
+
+func (o MetricAlertActionsArrayOutput) Index(i pulumi.IntInput) MetricAlertActionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MetricAlertActions {
+		return vs[0].([]MetricAlertActions)[vs[1].(int)]
+	}).(MetricAlertActionsOutput)
+}
+
+func (MetricAlertActionsArrayOutput) ElementType() reflect.Type {
+	return metricAlertActionsArrayType
+}
+
+func (o MetricAlertActionsArrayOutput) ToMetricAlertActionsArrayOutput() MetricAlertActionsArrayOutput {
+	return o
+}
+
+func (o MetricAlertActionsArrayOutput) ToMetricAlertActionsArrayOutputWithContext(ctx context.Context) MetricAlertActionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlertActionsArrayOutput{}) }
+
+type MetricAlertCriterias struct {
+	Aggregation string `pulumi:"aggregation"`
+	Dimensions *[]MetricAlertCriteriasDimensions `pulumi:"dimensions"`
+	MetricName string `pulumi:"metricName"`
+	MetricNamespace string `pulumi:"metricNamespace"`
+	Operator string `pulumi:"operator"`
+	Threshold float64 `pulumi:"threshold"`
+}
+var metricAlertCriteriasType = reflect.TypeOf((*MetricAlertCriterias)(nil)).Elem()
+
+type MetricAlertCriteriasInput interface {
+	pulumi.Input
+
+	ToMetricAlertCriteriasOutput() MetricAlertCriteriasOutput
+	ToMetricAlertCriteriasOutputWithContext(ctx context.Context) MetricAlertCriteriasOutput
+}
+
+type MetricAlertCriteriasArgs struct {
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	Dimensions MetricAlertCriteriasDimensionsArrayInput `pulumi:"dimensions"`
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (MetricAlertCriteriasArgs) ElementType() reflect.Type {
+	return metricAlertCriteriasType
+}
+
+func (a MetricAlertCriteriasArgs) ToMetricAlertCriteriasOutput() MetricAlertCriteriasOutput {
+	return pulumi.ToOutput(a).(MetricAlertCriteriasOutput)
+}
+
+func (a MetricAlertCriteriasArgs) ToMetricAlertCriteriasOutputWithContext(ctx context.Context) MetricAlertCriteriasOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlertCriteriasOutput)
+}
+
+type MetricAlertCriteriasOutput struct { *pulumi.OutputState }
+
+func (o MetricAlertCriteriasOutput) Aggregation() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertCriterias) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertCriteriasOutput) Dimensions() MetricAlertCriteriasDimensionsArrayOutput {
+	return o.Apply(func(v MetricAlertCriterias) []MetricAlertCriteriasDimensions {
+		if v.Dimensions == nil { return *new([]MetricAlertCriteriasDimensions) } else { return *v.Dimensions }
+	}).(MetricAlertCriteriasDimensionsArrayOutput)
+}
+
+func (o MetricAlertCriteriasOutput) MetricName() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertCriterias) string {
+		return v.MetricName
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertCriteriasOutput) MetricNamespace() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertCriterias) string {
+		return v.MetricNamespace
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertCriteriasOutput) Operator() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertCriterias) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertCriteriasOutput) Threshold() pulumi.Float64Output {
+	return o.Apply(func(v MetricAlertCriterias) float64 {
+		return v.Threshold
+	}).(pulumi.Float64Output)
+}
+
+func (MetricAlertCriteriasOutput) ElementType() reflect.Type {
+	return metricAlertCriteriasType
+}
+
+func (o MetricAlertCriteriasOutput) ToMetricAlertCriteriasOutput() MetricAlertCriteriasOutput {
+	return o
+}
+
+func (o MetricAlertCriteriasOutput) ToMetricAlertCriteriasOutputWithContext(ctx context.Context) MetricAlertCriteriasOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlertCriteriasOutput{}) }
+
+var metricAlertCriteriasArrayType = reflect.TypeOf((*[]MetricAlertCriterias)(nil)).Elem()
+
+type MetricAlertCriteriasArrayInput interface {
+	pulumi.Input
+
+	ToMetricAlertCriteriasArrayOutput() MetricAlertCriteriasArrayOutput
+	ToMetricAlertCriteriasArrayOutputWithContext(ctx context.Context) MetricAlertCriteriasArrayOutput
+}
+
+type MetricAlertCriteriasArrayArgs []MetricAlertCriteriasInput
+
+func (MetricAlertCriteriasArrayArgs) ElementType() reflect.Type {
+	return metricAlertCriteriasArrayType
+}
+
+func (a MetricAlertCriteriasArrayArgs) ToMetricAlertCriteriasArrayOutput() MetricAlertCriteriasArrayOutput {
+	return pulumi.ToOutput(a).(MetricAlertCriteriasArrayOutput)
+}
+
+func (a MetricAlertCriteriasArrayArgs) ToMetricAlertCriteriasArrayOutputWithContext(ctx context.Context) MetricAlertCriteriasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlertCriteriasArrayOutput)
+}
+
+type MetricAlertCriteriasArrayOutput struct { *pulumi.OutputState }
+
+func (o MetricAlertCriteriasArrayOutput) Index(i pulumi.IntInput) MetricAlertCriteriasOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MetricAlertCriterias {
+		return vs[0].([]MetricAlertCriterias)[vs[1].(int)]
+	}).(MetricAlertCriteriasOutput)
+}
+
+func (MetricAlertCriteriasArrayOutput) ElementType() reflect.Type {
+	return metricAlertCriteriasArrayType
+}
+
+func (o MetricAlertCriteriasArrayOutput) ToMetricAlertCriteriasArrayOutput() MetricAlertCriteriasArrayOutput {
+	return o
+}
+
+func (o MetricAlertCriteriasArrayOutput) ToMetricAlertCriteriasArrayOutputWithContext(ctx context.Context) MetricAlertCriteriasArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlertCriteriasArrayOutput{}) }
+
+type MetricAlertCriteriasDimensions struct {
+	// The name of the Metric Alert. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Operator string `pulumi:"operator"`
+	Values []string `pulumi:"values"`
+}
+var metricAlertCriteriasDimensionsType = reflect.TypeOf((*MetricAlertCriteriasDimensions)(nil)).Elem()
+
+type MetricAlertCriteriasDimensionsInput interface {
+	pulumi.Input
+
+	ToMetricAlertCriteriasDimensionsOutput() MetricAlertCriteriasDimensionsOutput
+	ToMetricAlertCriteriasDimensionsOutputWithContext(ctx context.Context) MetricAlertCriteriasDimensionsOutput
+}
+
+type MetricAlertCriteriasDimensionsArgs struct {
+	// The name of the Metric Alert. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MetricAlertCriteriasDimensionsArgs) ElementType() reflect.Type {
+	return metricAlertCriteriasDimensionsType
+}
+
+func (a MetricAlertCriteriasDimensionsArgs) ToMetricAlertCriteriasDimensionsOutput() MetricAlertCriteriasDimensionsOutput {
+	return pulumi.ToOutput(a).(MetricAlertCriteriasDimensionsOutput)
+}
+
+func (a MetricAlertCriteriasDimensionsArgs) ToMetricAlertCriteriasDimensionsOutputWithContext(ctx context.Context) MetricAlertCriteriasDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlertCriteriasDimensionsOutput)
+}
+
+type MetricAlertCriteriasDimensionsOutput struct { *pulumi.OutputState }
+
+// The name of the Metric Alert. Changing this forces a new resource to be created.
+func (o MetricAlertCriteriasDimensionsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertCriteriasDimensions) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertCriteriasDimensionsOutput) Operator() pulumi.StringOutput {
+	return o.Apply(func(v MetricAlertCriteriasDimensions) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricAlertCriteriasDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.Apply(func(v MetricAlertCriteriasDimensions) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+func (MetricAlertCriteriasDimensionsOutput) ElementType() reflect.Type {
+	return metricAlertCriteriasDimensionsType
+}
+
+func (o MetricAlertCriteriasDimensionsOutput) ToMetricAlertCriteriasDimensionsOutput() MetricAlertCriteriasDimensionsOutput {
+	return o
+}
+
+func (o MetricAlertCriteriasDimensionsOutput) ToMetricAlertCriteriasDimensionsOutputWithContext(ctx context.Context) MetricAlertCriteriasDimensionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlertCriteriasDimensionsOutput{}) }
+
+var metricAlertCriteriasDimensionsArrayType = reflect.TypeOf((*[]MetricAlertCriteriasDimensions)(nil)).Elem()
+
+type MetricAlertCriteriasDimensionsArrayInput interface {
+	pulumi.Input
+
+	ToMetricAlertCriteriasDimensionsArrayOutput() MetricAlertCriteriasDimensionsArrayOutput
+	ToMetricAlertCriteriasDimensionsArrayOutputWithContext(ctx context.Context) MetricAlertCriteriasDimensionsArrayOutput
+}
+
+type MetricAlertCriteriasDimensionsArrayArgs []MetricAlertCriteriasDimensionsInput
+
+func (MetricAlertCriteriasDimensionsArrayArgs) ElementType() reflect.Type {
+	return metricAlertCriteriasDimensionsArrayType
+}
+
+func (a MetricAlertCriteriasDimensionsArrayArgs) ToMetricAlertCriteriasDimensionsArrayOutput() MetricAlertCriteriasDimensionsArrayOutput {
+	return pulumi.ToOutput(a).(MetricAlertCriteriasDimensionsArrayOutput)
+}
+
+func (a MetricAlertCriteriasDimensionsArrayArgs) ToMetricAlertCriteriasDimensionsArrayOutputWithContext(ctx context.Context) MetricAlertCriteriasDimensionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MetricAlertCriteriasDimensionsArrayOutput)
+}
+
+type MetricAlertCriteriasDimensionsArrayOutput struct { *pulumi.OutputState }
+
+func (o MetricAlertCriteriasDimensionsArrayOutput) Index(i pulumi.IntInput) MetricAlertCriteriasDimensionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MetricAlertCriteriasDimensions {
+		return vs[0].([]MetricAlertCriteriasDimensions)[vs[1].(int)]
+	}).(MetricAlertCriteriasDimensionsOutput)
+}
+
+func (MetricAlertCriteriasDimensionsArrayOutput) ElementType() reflect.Type {
+	return metricAlertCriteriasDimensionsArrayType
+}
+
+func (o MetricAlertCriteriasDimensionsArrayOutput) ToMetricAlertCriteriasDimensionsArrayOutput() MetricAlertCriteriasDimensionsArrayOutput {
+	return o
+}
+
+func (o MetricAlertCriteriasDimensionsArrayOutput) ToMetricAlertCriteriasDimensionsArrayOutputWithContext(ctx context.Context) MetricAlertCriteriasDimensionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MetricAlertCriteriasDimensionsArrayOutput{}) }
+

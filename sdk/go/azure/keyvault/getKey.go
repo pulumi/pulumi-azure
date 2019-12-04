@@ -13,60 +13,43 @@ import (
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_key.html.markdown.
-func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["keyVaultId"] = args.KeyVaultId
-		inputs["name"] = args.Name
-		inputs["vaultUri"] = args.VaultUri
-	}
-	outputs, err := ctx.Invoke("azure:keyvault/getKey:getKey", inputs)
+func LookupKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
+	var rv GetKeyResult
+	err := ctx.Invoke("azure:keyvault/getKey:getKey", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetKeyResult{
-		E: outputs["e"],
-		KeyOpts: outputs["keyOpts"],
-		KeySize: outputs["keySize"],
-		KeyType: outputs["keyType"],
-		KeyVaultId: outputs["keyVaultId"],
-		N: outputs["n"],
-		Name: outputs["name"],
-		Tags: outputs["tags"],
-		VaultUri: outputs["vaultUri"],
-		Version: outputs["version"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
 	// Specifies the ID of the Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource. 
-	KeyVaultId interface{}
+	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Key.
-	Name interface{}
-	VaultUri interface{}
+	Name string `pulumi:"name"`
+	VaultUri *string `pulumi:"vaultUri"`
 }
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
 	// The RSA public exponent of this Key Vault Key.
-	E interface{}
+	E string `pulumi:"e"`
 	// A list of JSON web key operations assigned to this Key Vault Key
-	KeyOpts interface{}
+	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of this Key Vault Key.
-	KeySize interface{}
+	KeySize int `pulumi:"keySize"`
 	// Specifies the Key Type of this Key Vault Key
-	KeyType interface{}
-	KeyVaultId interface{}
+	KeyType string `pulumi:"keyType"`
+	KeyVaultId string `pulumi:"keyVaultId"`
 	// The RSA modulus of this Key Vault Key.
-	N interface{}
-	Name interface{}
+	N string `pulumi:"n"`
+	Name string `pulumi:"name"`
 	// A mapping of tags assigned to this Key Vault Key.
-	Tags interface{}
-	VaultUri interface{}
+	Tags map[string]string `pulumi:"tags"`
+	VaultUri string `pulumi:"vaultUri"`
 	// The current version of the Key Vault Key.
-	Version interface{}
+	Version string `pulumi:"version"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

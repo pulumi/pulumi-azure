@@ -4,6 +4,8 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,255 +14,320 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
 type CertificateOrder struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Reasons why App Service Certificate is not renewable at the current moment.
+	AppServiceCertificateNotRenewableReasons pulumi.StringArrayOutput `pulumi:"appServiceCertificateNotRenewableReasons"`
+
+	// true if the certificate should be automatically renewed when it expires; otherwise, false.
+	AutoRenew pulumi.BoolOutput `pulumi:"autoRenew"`
+
+	// State of the Key Vault secret. A `certificates` block as defined below.
+	Certificates CertificateOrderCertificatesArrayOutput `pulumi:"certificates"`
+
+	// Last CSR that was created for this order.
+	Csr pulumi.StringOutput `pulumi:"csr"`
+
+	// The Distinguished Name for the App Service Certificate Order.
+	DistinguishedName pulumi.StringOutput `pulumi:"distinguishedName"`
+
+	// Domain verification token.
+	DomainVerificationToken pulumi.StringOutput `pulumi:"domainVerificationToken"`
+
+	// Certificate expiration time.
+	ExpirationTime pulumi.StringOutput `pulumi:"expirationTime"`
+
+	// Certificate thumbprint intermediate certificate.
+	IntermediateThumbprint pulumi.StringOutput `pulumi:"intermediateThumbprint"`
+
+	// Whether the private key is external or not.
+	IsPrivateKeyExternal pulumi.BoolOutput `pulumi:"isPrivateKeyExternal"`
+
+	// Certificate key size.
+	KeySize pulumi.IntOutput `pulumi:"keySize"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the certificate. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Certificate product type, such as `Standard` or `WildCard`.
+	ProductType pulumi.StringOutput `pulumi:"productType"`
+
+	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Certificate thumbprint for root certificate.
+	RootThumbprint pulumi.StringOutput `pulumi:"rootThumbprint"`
+
+	// Certificate thumbprint for signed certificate.
+	SignedCertificateThumbprint pulumi.StringOutput `pulumi:"signedCertificateThumbprint"`
+
+	// Current order status.
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Duration in years (must be between 1 and 3).
+	ValidityInYears pulumi.IntOutput `pulumi:"validityInYears"`
 }
 
 // NewCertificateOrder registers a new resource with the given unique name, arguments, and options.
 func NewCertificateOrder(ctx *pulumi.Context,
-	name string, args *CertificateOrderArgs, opts ...pulumi.ResourceOpt) (*CertificateOrder, error) {
+	name string, args *CertificateOrderArgs, opts ...pulumi.ResourceOption) (*CertificateOrder, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoRenew"] = nil
-		inputs["csr"] = nil
-		inputs["distinguishedName"] = nil
-		inputs["keySize"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["productType"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["validityInYears"] = nil
-	} else {
-		inputs["autoRenew"] = args.AutoRenew
-		inputs["csr"] = args.Csr
-		inputs["distinguishedName"] = args.DistinguishedName
-		inputs["keySize"] = args.KeySize
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["productType"] = args.ProductType
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["validityInYears"] = args.ValidityInYears
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoRenew; i != nil { inputs["autoRenew"] = i.ToBoolOutput() }
+		if i := args.Csr; i != nil { inputs["csr"] = i.ToStringOutput() }
+		if i := args.DistinguishedName; i != nil { inputs["distinguishedName"] = i.ToStringOutput() }
+		if i := args.KeySize; i != nil { inputs["keySize"] = i.ToIntOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ProductType; i != nil { inputs["productType"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.ValidityInYears; i != nil { inputs["validityInYears"] = i.ToIntOutput() }
 	}
-	inputs["appServiceCertificateNotRenewableReasons"] = nil
-	inputs["certificates"] = nil
-	inputs["domainVerificationToken"] = nil
-	inputs["expirationTime"] = nil
-	inputs["intermediateThumbprint"] = nil
-	inputs["isPrivateKeyExternal"] = nil
-	inputs["rootThumbprint"] = nil
-	inputs["signedCertificateThumbprint"] = nil
-	inputs["status"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/certificateOrder:CertificateOrder", name, true, inputs, opts...)
+	var resource CertificateOrder
+	err := ctx.RegisterResource("azure:appservice/certificateOrder:CertificateOrder", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CertificateOrder{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificateOrder gets an existing CertificateOrder resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificateOrder(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateOrderState, opts ...pulumi.ResourceOpt) (*CertificateOrder, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateOrderState, opts ...pulumi.ResourceOption) (*CertificateOrder, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServiceCertificateNotRenewableReasons"] = state.AppServiceCertificateNotRenewableReasons
-		inputs["autoRenew"] = state.AutoRenew
-		inputs["certificates"] = state.Certificates
-		inputs["csr"] = state.Csr
-		inputs["distinguishedName"] = state.DistinguishedName
-		inputs["domainVerificationToken"] = state.DomainVerificationToken
-		inputs["expirationTime"] = state.ExpirationTime
-		inputs["intermediateThumbprint"] = state.IntermediateThumbprint
-		inputs["isPrivateKeyExternal"] = state.IsPrivateKeyExternal
-		inputs["keySize"] = state.KeySize
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["productType"] = state.ProductType
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["rootThumbprint"] = state.RootThumbprint
-		inputs["signedCertificateThumbprint"] = state.SignedCertificateThumbprint
-		inputs["status"] = state.Status
-		inputs["tags"] = state.Tags
-		inputs["validityInYears"] = state.ValidityInYears
+		if i := state.AppServiceCertificateNotRenewableReasons; i != nil { inputs["appServiceCertificateNotRenewableReasons"] = i.ToStringArrayOutput() }
+		if i := state.AutoRenew; i != nil { inputs["autoRenew"] = i.ToBoolOutput() }
+		if i := state.Certificates; i != nil { inputs["certificates"] = i.ToCertificateOrderCertificatesArrayOutput() }
+		if i := state.Csr; i != nil { inputs["csr"] = i.ToStringOutput() }
+		if i := state.DistinguishedName; i != nil { inputs["distinguishedName"] = i.ToStringOutput() }
+		if i := state.DomainVerificationToken; i != nil { inputs["domainVerificationToken"] = i.ToStringOutput() }
+		if i := state.ExpirationTime; i != nil { inputs["expirationTime"] = i.ToStringOutput() }
+		if i := state.IntermediateThumbprint; i != nil { inputs["intermediateThumbprint"] = i.ToStringOutput() }
+		if i := state.IsPrivateKeyExternal; i != nil { inputs["isPrivateKeyExternal"] = i.ToBoolOutput() }
+		if i := state.KeySize; i != nil { inputs["keySize"] = i.ToIntOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ProductType; i != nil { inputs["productType"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RootThumbprint; i != nil { inputs["rootThumbprint"] = i.ToStringOutput() }
+		if i := state.SignedCertificateThumbprint; i != nil { inputs["signedCertificateThumbprint"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ValidityInYears; i != nil { inputs["validityInYears"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/certificateOrder:CertificateOrder", name, id, inputs, opts...)
+	var resource CertificateOrder
+	err := ctx.ReadResource("azure:appservice/certificateOrder:CertificateOrder", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CertificateOrder{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CertificateOrder) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CertificateOrder) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Reasons why App Service Certificate is not renewable at the current moment.
-func (r *CertificateOrder) AppServiceCertificateNotRenewableReasons() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["appServiceCertificateNotRenewableReasons"])
-}
-
-// true if the certificate should be automatically renewed when it expires; otherwise, false.
-func (r *CertificateOrder) AutoRenew() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoRenew"])
-}
-
-// State of the Key Vault secret. A `certificates` block as defined below.
-func (r *CertificateOrder) Certificates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["certificates"])
-}
-
-// Last CSR that was created for this order.
-func (r *CertificateOrder) Csr() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["csr"])
-}
-
-// The Distinguished Name for the App Service Certificate Order.
-func (r *CertificateOrder) DistinguishedName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["distinguishedName"])
-}
-
-// Domain verification token.
-func (r *CertificateOrder) DomainVerificationToken() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["domainVerificationToken"])
-}
-
-// Certificate expiration time.
-func (r *CertificateOrder) ExpirationTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expirationTime"])
-}
-
-// Certificate thumbprint intermediate certificate.
-func (r *CertificateOrder) IntermediateThumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["intermediateThumbprint"])
-}
-
-// Whether the private key is external or not.
-func (r *CertificateOrder) IsPrivateKeyExternal() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isPrivateKeyExternal"])
-}
-
-// Certificate key size.
-func (r *CertificateOrder) KeySize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["keySize"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *CertificateOrder) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the certificate. Changing this forces a new resource to be created.
-func (r *CertificateOrder) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Certificate product type, such as `Standard` or `WildCard`.
-func (r *CertificateOrder) ProductType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["productType"])
-}
-
-// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-func (r *CertificateOrder) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Certificate thumbprint for root certificate.
-func (r *CertificateOrder) RootThumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["rootThumbprint"])
-}
-
-// Certificate thumbprint for signed certificate.
-func (r *CertificateOrder) SignedCertificateThumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["signedCertificateThumbprint"])
-}
-
-// Current order status.
-func (r *CertificateOrder) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *CertificateOrder) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Duration in years (must be between 1 and 3).
-func (r *CertificateOrder) ValidityInYears() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["validityInYears"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CertificateOrder resources.
 type CertificateOrderState struct {
 	// Reasons why App Service Certificate is not renewable at the current moment.
-	AppServiceCertificateNotRenewableReasons interface{}
+	AppServiceCertificateNotRenewableReasons pulumi.StringArrayInput `pulumi:"appServiceCertificateNotRenewableReasons"`
 	// true if the certificate should be automatically renewed when it expires; otherwise, false.
-	AutoRenew interface{}
+	AutoRenew pulumi.BoolInput `pulumi:"autoRenew"`
 	// State of the Key Vault secret. A `certificates` block as defined below.
-	Certificates interface{}
+	Certificates CertificateOrderCertificatesArrayInput `pulumi:"certificates"`
 	// Last CSR that was created for this order.
-	Csr interface{}
+	Csr pulumi.StringInput `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
-	DistinguishedName interface{}
+	DistinguishedName pulumi.StringInput `pulumi:"distinguishedName"`
 	// Domain verification token.
-	DomainVerificationToken interface{}
+	DomainVerificationToken pulumi.StringInput `pulumi:"domainVerificationToken"`
 	// Certificate expiration time.
-	ExpirationTime interface{}
+	ExpirationTime pulumi.StringInput `pulumi:"expirationTime"`
 	// Certificate thumbprint intermediate certificate.
-	IntermediateThumbprint interface{}
+	IntermediateThumbprint pulumi.StringInput `pulumi:"intermediateThumbprint"`
 	// Whether the private key is external or not.
-	IsPrivateKeyExternal interface{}
+	IsPrivateKeyExternal pulumi.BoolInput `pulumi:"isPrivateKeyExternal"`
 	// Certificate key size.
-	KeySize interface{}
+	KeySize pulumi.IntInput `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Certificate product type, such as `Standard` or `WildCard`.
-	ProductType interface{}
+	ProductType pulumi.StringInput `pulumi:"productType"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Certificate thumbprint for root certificate.
-	RootThumbprint interface{}
+	RootThumbprint pulumi.StringInput `pulumi:"rootThumbprint"`
 	// Certificate thumbprint for signed certificate.
-	SignedCertificateThumbprint interface{}
+	SignedCertificateThumbprint pulumi.StringInput `pulumi:"signedCertificateThumbprint"`
 	// Current order status.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Duration in years (must be between 1 and 3).
-	ValidityInYears interface{}
+	ValidityInYears pulumi.IntInput `pulumi:"validityInYears"`
 }
 
 // The set of arguments for constructing a CertificateOrder resource.
 type CertificateOrderArgs struct {
 	// true if the certificate should be automatically renewed when it expires; otherwise, false.
-	AutoRenew interface{}
+	AutoRenew pulumi.BoolInput `pulumi:"autoRenew"`
 	// Last CSR that was created for this order.
-	Csr interface{}
+	Csr pulumi.StringInput `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
-	DistinguishedName interface{}
+	DistinguishedName pulumi.StringInput `pulumi:"distinguishedName"`
 	// Certificate key size.
-	KeySize interface{}
+	KeySize pulumi.IntInput `pulumi:"keySize"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Certificate product type, such as `Standard` or `WildCard`.
-	ProductType interface{}
+	ProductType pulumi.StringInput `pulumi:"productType"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Duration in years (must be between 1 and 3).
-	ValidityInYears interface{}
+	ValidityInYears pulumi.IntInput `pulumi:"validityInYears"`
 }
+type CertificateOrderCertificates struct {
+	// The name of the App Service Certificate.
+	CertificateName string `pulumi:"certificateName"`
+	// Key Vault resource Id.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName string `pulumi:"keyVaultSecretName"`
+	// Status of the Key Vault secret.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+var certificateOrderCertificatesType = reflect.TypeOf((*CertificateOrderCertificates)(nil)).Elem()
+
+type CertificateOrderCertificatesInput interface {
+	pulumi.Input
+
+	ToCertificateOrderCertificatesOutput() CertificateOrderCertificatesOutput
+	ToCertificateOrderCertificatesOutputWithContext(ctx context.Context) CertificateOrderCertificatesOutput
+}
+
+type CertificateOrderCertificatesArgs struct {
+	// The name of the App Service Certificate.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// Key Vault resource Id.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringInput `pulumi:"keyVaultSecretName"`
+	// Status of the Key Vault secret.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (CertificateOrderCertificatesArgs) ElementType() reflect.Type {
+	return certificateOrderCertificatesType
+}
+
+func (a CertificateOrderCertificatesArgs) ToCertificateOrderCertificatesOutput() CertificateOrderCertificatesOutput {
+	return pulumi.ToOutput(a).(CertificateOrderCertificatesOutput)
+}
+
+func (a CertificateOrderCertificatesArgs) ToCertificateOrderCertificatesOutputWithContext(ctx context.Context) CertificateOrderCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CertificateOrderCertificatesOutput)
+}
+
+type CertificateOrderCertificatesOutput struct { *pulumi.OutputState }
+
+// The name of the App Service Certificate.
+func (o CertificateOrderCertificatesOutput) CertificateName() pulumi.StringOutput {
+	return o.Apply(func(v CertificateOrderCertificates) string {
+		return v.CertificateName
+	}).(pulumi.StringOutput)
+}
+
+// Key Vault resource Id.
+func (o CertificateOrderCertificatesOutput) KeyVaultId() pulumi.StringOutput {
+	return o.Apply(func(v CertificateOrderCertificates) string {
+		return v.KeyVaultId
+	}).(pulumi.StringOutput)
+}
+
+// Key Vault secret name.
+func (o CertificateOrderCertificatesOutput) KeyVaultSecretName() pulumi.StringOutput {
+	return o.Apply(func(v CertificateOrderCertificates) string {
+		return v.KeyVaultSecretName
+	}).(pulumi.StringOutput)
+}
+
+// Status of the Key Vault secret.
+func (o CertificateOrderCertificatesOutput) ProvisioningState() pulumi.StringOutput {
+	return o.Apply(func(v CertificateOrderCertificates) string {
+		return v.ProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+func (CertificateOrderCertificatesOutput) ElementType() reflect.Type {
+	return certificateOrderCertificatesType
+}
+
+func (o CertificateOrderCertificatesOutput) ToCertificateOrderCertificatesOutput() CertificateOrderCertificatesOutput {
+	return o
+}
+
+func (o CertificateOrderCertificatesOutput) ToCertificateOrderCertificatesOutputWithContext(ctx context.Context) CertificateOrderCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CertificateOrderCertificatesOutput{}) }
+
+var certificateOrderCertificatesArrayType = reflect.TypeOf((*[]CertificateOrderCertificates)(nil)).Elem()
+
+type CertificateOrderCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToCertificateOrderCertificatesArrayOutput() CertificateOrderCertificatesArrayOutput
+	ToCertificateOrderCertificatesArrayOutputWithContext(ctx context.Context) CertificateOrderCertificatesArrayOutput
+}
+
+type CertificateOrderCertificatesArrayArgs []CertificateOrderCertificatesInput
+
+func (CertificateOrderCertificatesArrayArgs) ElementType() reflect.Type {
+	return certificateOrderCertificatesArrayType
+}
+
+func (a CertificateOrderCertificatesArrayArgs) ToCertificateOrderCertificatesArrayOutput() CertificateOrderCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(CertificateOrderCertificatesArrayOutput)
+}
+
+func (a CertificateOrderCertificatesArrayArgs) ToCertificateOrderCertificatesArrayOutputWithContext(ctx context.Context) CertificateOrderCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CertificateOrderCertificatesArrayOutput)
+}
+
+type CertificateOrderCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o CertificateOrderCertificatesArrayOutput) Index(i pulumi.IntInput) CertificateOrderCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CertificateOrderCertificates {
+		return vs[0].([]CertificateOrderCertificates)[vs[1].(int)]
+	}).(CertificateOrderCertificatesOutput)
+}
+
+func (CertificateOrderCertificatesArrayOutput) ElementType() reflect.Type {
+	return certificateOrderCertificatesArrayType
+}
+
+func (o CertificateOrderCertificatesArrayOutput) ToCertificateOrderCertificatesArrayOutput() CertificateOrderCertificatesArrayOutput {
+	return o
+}
+
+func (o CertificateOrderCertificatesArrayOutput) ToCertificateOrderCertificatesArrayOutputWithContext(ctx context.Context) CertificateOrderCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CertificateOrderCertificatesArrayOutput{}) }
+

@@ -14,225 +14,174 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster_node_pool.html.markdown.
 type KubernetesClusterNodePool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
+
+	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+	EnableAutoScaling pulumi.BoolOutput `pulumi:"enableAutoScaling"`
+
+	// Should each node have a Public IP Address? Defaults to `false`.
+	EnableNodePublicIp pulumi.BoolOutput `pulumi:"enableNodePublicIp"`
+
+	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
+
+	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+	MaxCount pulumi.IntOutput `pulumi:"maxCount"`
+
+	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+	MaxPods pulumi.IntOutput `pulumi:"maxPods"`
+
+	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+	MinCount pulumi.IntOutput `pulumi:"minCount"`
+
+	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
+	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
+
+	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
+	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
+
+	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+	OsDiskSizeGb pulumi.IntOutput `pulumi:"osDiskSizeGb"`
+
+	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+	OsType pulumi.StringOutput `pulumi:"osType"`
+
+	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+	VmSize pulumi.StringOutput `pulumi:"vmSize"`
+
+	// The ID of the Subnet where this Node Pool should exist.
+	VnetSubnetId pulumi.StringOutput `pulumi:"vnetSubnetId"`
 }
 
 // NewKubernetesClusterNodePool registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesClusterNodePool(ctx *pulumi.Context,
-	name string, args *KubernetesClusterNodePoolArgs, opts ...pulumi.ResourceOpt) (*KubernetesClusterNodePool, error) {
+	name string, args *KubernetesClusterNodePoolArgs, opts ...pulumi.ResourceOption) (*KubernetesClusterNodePool, error) {
 	if args == nil || args.KubernetesClusterId == nil {
 		return nil, errors.New("missing required argument 'KubernetesClusterId'")
 	}
 	if args == nil || args.VmSize == nil {
 		return nil, errors.New("missing required argument 'VmSize'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["availabilityZones"] = nil
-		inputs["enableAutoScaling"] = nil
-		inputs["enableNodePublicIp"] = nil
-		inputs["kubernetesClusterId"] = nil
-		inputs["maxCount"] = nil
-		inputs["maxPods"] = nil
-		inputs["minCount"] = nil
-		inputs["name"] = nil
-		inputs["nodeCount"] = nil
-		inputs["nodeTaints"] = nil
-		inputs["osDiskSizeGb"] = nil
-		inputs["osType"] = nil
-		inputs["vmSize"] = nil
-		inputs["vnetSubnetId"] = nil
-	} else {
-		inputs["availabilityZones"] = args.AvailabilityZones
-		inputs["enableAutoScaling"] = args.EnableAutoScaling
-		inputs["enableNodePublicIp"] = args.EnableNodePublicIp
-		inputs["kubernetesClusterId"] = args.KubernetesClusterId
-		inputs["maxCount"] = args.MaxCount
-		inputs["maxPods"] = args.MaxPods
-		inputs["minCount"] = args.MinCount
-		inputs["name"] = args.Name
-		inputs["nodeCount"] = args.NodeCount
-		inputs["nodeTaints"] = args.NodeTaints
-		inputs["osDiskSizeGb"] = args.OsDiskSizeGb
-		inputs["osType"] = args.OsType
-		inputs["vmSize"] = args.VmSize
-		inputs["vnetSubnetId"] = args.VnetSubnetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := args.EnableAutoScaling; i != nil { inputs["enableAutoScaling"] = i.ToBoolOutput() }
+		if i := args.EnableNodePublicIp; i != nil { inputs["enableNodePublicIp"] = i.ToBoolOutput() }
+		if i := args.KubernetesClusterId; i != nil { inputs["kubernetesClusterId"] = i.ToStringOutput() }
+		if i := args.MaxCount; i != nil { inputs["maxCount"] = i.ToIntOutput() }
+		if i := args.MaxPods; i != nil { inputs["maxPods"] = i.ToIntOutput() }
+		if i := args.MinCount; i != nil { inputs["minCount"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NodeCount; i != nil { inputs["nodeCount"] = i.ToIntOutput() }
+		if i := args.NodeTaints; i != nil { inputs["nodeTaints"] = i.ToStringArrayOutput() }
+		if i := args.OsDiskSizeGb; i != nil { inputs["osDiskSizeGb"] = i.ToIntOutput() }
+		if i := args.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := args.VmSize; i != nil { inputs["vmSize"] = i.ToStringOutput() }
+		if i := args.VnetSubnetId; i != nil { inputs["vnetSubnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, true, inputs, opts...)
+	var resource KubernetesClusterNodePool
+	err := ctx.RegisterResource("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &KubernetesClusterNodePool{s: s}, nil
+	return &resource, nil
 }
 
 // GetKubernetesClusterNodePool gets an existing KubernetesClusterNodePool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetKubernetesClusterNodePool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *KubernetesClusterNodePoolState, opts ...pulumi.ResourceOpt) (*KubernetesClusterNodePool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *KubernetesClusterNodePoolState, opts ...pulumi.ResourceOption) (*KubernetesClusterNodePool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["availabilityZones"] = state.AvailabilityZones
-		inputs["enableAutoScaling"] = state.EnableAutoScaling
-		inputs["enableNodePublicIp"] = state.EnableNodePublicIp
-		inputs["kubernetesClusterId"] = state.KubernetesClusterId
-		inputs["maxCount"] = state.MaxCount
-		inputs["maxPods"] = state.MaxPods
-		inputs["minCount"] = state.MinCount
-		inputs["name"] = state.Name
-		inputs["nodeCount"] = state.NodeCount
-		inputs["nodeTaints"] = state.NodeTaints
-		inputs["osDiskSizeGb"] = state.OsDiskSizeGb
-		inputs["osType"] = state.OsType
-		inputs["vmSize"] = state.VmSize
-		inputs["vnetSubnetId"] = state.VnetSubnetId
+		if i := state.AvailabilityZones; i != nil { inputs["availabilityZones"] = i.ToStringArrayOutput() }
+		if i := state.EnableAutoScaling; i != nil { inputs["enableAutoScaling"] = i.ToBoolOutput() }
+		if i := state.EnableNodePublicIp; i != nil { inputs["enableNodePublicIp"] = i.ToBoolOutput() }
+		if i := state.KubernetesClusterId; i != nil { inputs["kubernetesClusterId"] = i.ToStringOutput() }
+		if i := state.MaxCount; i != nil { inputs["maxCount"] = i.ToIntOutput() }
+		if i := state.MaxPods; i != nil { inputs["maxPods"] = i.ToIntOutput() }
+		if i := state.MinCount; i != nil { inputs["minCount"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NodeCount; i != nil { inputs["nodeCount"] = i.ToIntOutput() }
+		if i := state.NodeTaints; i != nil { inputs["nodeTaints"] = i.ToStringArrayOutput() }
+		if i := state.OsDiskSizeGb; i != nil { inputs["osDiskSizeGb"] = i.ToIntOutput() }
+		if i := state.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := state.VmSize; i != nil { inputs["vmSize"] = i.ToStringOutput() }
+		if i := state.VnetSubnetId; i != nil { inputs["vnetSubnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, id, inputs, opts...)
+	var resource KubernetesClusterNodePool
+	err := ctx.ReadResource("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &KubernetesClusterNodePool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *KubernetesClusterNodePool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *KubernetesClusterNodePool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A list of Availability Zones where the Nodes in this Node Pool should be created in.
-func (r *KubernetesClusterNodePool) AvailabilityZones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["availabilityZones"])
-}
-
-// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
-func (r *KubernetesClusterNodePool) EnableAutoScaling() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableAutoScaling"])
-}
-
-// Should each node have a Public IP Address? Defaults to `false`.
-func (r *KubernetesClusterNodePool) EnableNodePublicIp() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableNodePublicIp"])
-}
-
-// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-func (r *KubernetesClusterNodePool) KubernetesClusterId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kubernetesClusterId"])
-}
-
-// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
-func (r *KubernetesClusterNodePool) MaxCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxCount"])
-}
-
-// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-func (r *KubernetesClusterNodePool) MaxPods() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxPods"])
-}
-
-// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
-func (r *KubernetesClusterNodePool) MinCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["minCount"])
-}
-
-// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-func (r *KubernetesClusterNodePool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
-func (r *KubernetesClusterNodePool) NodeCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["nodeCount"])
-}
-
-// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
-func (r *KubernetesClusterNodePool) NodeTaints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["nodeTaints"])
-}
-
-// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
-func (r *KubernetesClusterNodePool) OsDiskSizeGb() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["osDiskSizeGb"])
-}
-
-// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
-func (r *KubernetesClusterNodePool) OsType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["osType"])
-}
-
-// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
-func (r *KubernetesClusterNodePool) VmSize() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vmSize"])
-}
-
-// The ID of the Subnet where this Node Pool should exist.
-func (r *KubernetesClusterNodePool) VnetSubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vnetSubnetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering KubernetesClusterNodePool resources.
 type KubernetesClusterNodePoolState struct {
 	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
-	EnableAutoScaling interface{}
+	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
 	// Should each node have a Public IP Address? Defaults to `false`.
-	EnableNodePublicIp interface{}
+	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-	KubernetesClusterId interface{}
+	KubernetesClusterId pulumi.StringInput `pulumi:"kubernetesClusterId"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
-	MaxCount interface{}
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods interface{}
+	MaxPods pulumi.IntInput `pulumi:"maxPods"`
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
-	MinCount interface{}
+	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
-	NodeCount interface{}
+	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
-	NodeTaints interface{}
+	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
-	OsDiskSizeGb interface{}
+	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
-	VmSize interface{}
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
-	VnetSubnetId interface{}
+	VnetSubnetId pulumi.StringInput `pulumi:"vnetSubnetId"`
 }
 
 // The set of arguments for constructing a KubernetesClusterNodePool resource.
 type KubernetesClusterNodePoolArgs struct {
 	// A list of Availability Zones where the Nodes in this Node Pool should be created in.
-	AvailabilityZones interface{}
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
-	EnableAutoScaling interface{}
+	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
 	// Should each node have a Public IP Address? Defaults to `false`.
-	EnableNodePublicIp interface{}
+	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-	KubernetesClusterId interface{}
+	KubernetesClusterId pulumi.StringInput `pulumi:"kubernetesClusterId"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
-	MaxCount interface{}
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-	MaxPods interface{}
+	MaxPods pulumi.IntInput `pulumi:"maxPods"`
 	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
-	MinCount interface{}
+	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The number of nodes which should exist within this Node Pool. Valid values are between `1` and `100`.
-	NodeCount interface{}
+	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
-	NodeTaints interface{}
+	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
-	OsDiskSizeGb interface{}
+	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
 	// The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
-	VmSize interface{}
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist.
-	VnetSubnetId interface{}
+	VnetSubnetId pulumi.StringInput `pulumi:"vnetSubnetId"`
 }

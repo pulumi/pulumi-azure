@@ -8,40 +8,30 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
-func LookupServicePrincipal(ctx *pulumi.Context, args *GetServicePrincipalArgs) (*GetServicePrincipalResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["applicationId"] = args.ApplicationId
-		inputs["displayName"] = args.DisplayName
-		inputs["objectId"] = args.ObjectId
-	}
-	outputs, err := ctx.Invoke("azure:ad/getServicePrincipal:getServicePrincipal", inputs)
+func LookupServicePrincipal(ctx *pulumi.Context, args *GetServicePrincipalArgs, opts ...pulumi.InvokeOption) (*GetServicePrincipalResult, error) {
+	var rv GetServicePrincipalResult
+	err := ctx.Invoke("azure:ad/getServicePrincipal:getServicePrincipal", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServicePrincipalResult{
-		ApplicationId: outputs["applicationId"],
-		DisplayName: outputs["displayName"],
-		ObjectId: outputs["objectId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getServicePrincipal.
 type GetServicePrincipalArgs struct {
 	// The ID of the Azure AD Application for which to create a Service Principal.
-	ApplicationId interface{}
+	ApplicationId *string `pulumi:"applicationId"`
 	// The Display Name of the Azure AD Application associated with this Service Principal.
-	DisplayName interface{}
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the Azure AD Service Principal.
-	ObjectId interface{}
+	ObjectId *string `pulumi:"objectId"`
 }
 
 // A collection of values returned by getServicePrincipal.
 type GetServicePrincipalResult struct {
-	ApplicationId interface{}
-	DisplayName interface{}
-	ObjectId interface{}
+	ApplicationId string `pulumi:"applicationId"`
+	DisplayName string `pulumi:"displayName"`
+	ObjectId string `pulumi:"objectId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protected_vm.html.markdown.
 type ProtectedVM struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the id of the backup policy to use.
+	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
+
+	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewProtectedVM registers a new resource with the given unique name, arguments, and options.
 func NewProtectedVM(ctx *pulumi.Context,
-	name string, args *ProtectedVMArgs, opts ...pulumi.ResourceOpt) (*ProtectedVM, error) {
+	name string, args *ProtectedVMArgs, opts ...pulumi.ResourceOption) (*ProtectedVM, error) {
 	if args == nil || args.BackupPolicyId == nil {
 		return nil, errors.New("missing required argument 'BackupPolicyId'")
 	}
@@ -30,105 +45,66 @@ func NewProtectedVM(ctx *pulumi.Context,
 	if args == nil || args.SourceVmId == nil {
 		return nil, errors.New("missing required argument 'SourceVmId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["backupPolicyId"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sourceVmId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["backupPolicyId"] = args.BackupPolicyId
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sourceVmId"] = args.SourceVmId
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BackupPolicyId; i != nil { inputs["backupPolicyId"] = i.ToStringOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SourceVmId; i != nil { inputs["sourceVmId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/protectedVM:ProtectedVM", name, true, inputs, opts...)
+	var resource ProtectedVM
+	err := ctx.RegisterResource("azure:recoveryservices/protectedVM:ProtectedVM", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProtectedVM{s: s}, nil
+	return &resource, nil
 }
 
 // GetProtectedVM gets an existing ProtectedVM resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProtectedVM(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProtectedVMState, opts ...pulumi.ResourceOpt) (*ProtectedVM, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProtectedVMState, opts ...pulumi.ResourceOption) (*ProtectedVM, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backupPolicyId"] = state.BackupPolicyId
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sourceVmId"] = state.SourceVmId
-		inputs["tags"] = state.Tags
+		if i := state.BackupPolicyId; i != nil { inputs["backupPolicyId"] = i.ToStringOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SourceVmId; i != nil { inputs["sourceVmId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/protectedVM:ProtectedVM", name, id, inputs, opts...)
+	var resource ProtectedVM
+	err := ctx.ReadResource("azure:recoveryservices/protectedVM:ProtectedVM", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProtectedVM{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectedVM) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectedVM) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the id of the backup policy to use.
-func (r *ProtectedVM) BackupPolicyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["backupPolicyId"])
-}
-
-// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-func (r *ProtectedVM) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-func (r *ProtectedVM) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-func (r *ProtectedVM) SourceVmId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceVmId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ProtectedVM) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ProtectedVM resources.
 type ProtectedVMState struct {
 	// Specifies the id of the backup policy to use.
-	BackupPolicyId interface{}
+	BackupPolicyId pulumi.StringInput `pulumi:"backupPolicyId"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-	SourceVmId interface{}
+	SourceVmId pulumi.StringInput `pulumi:"sourceVmId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProtectedVM resource.
 type ProtectedVMArgs struct {
 	// Specifies the id of the backup policy to use.
-	BackupPolicyId interface{}
+	BackupPolicyId pulumi.StringInput `pulumi:"backupPolicyId"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-	SourceVmId interface{}
+	SourceVmId pulumi.StringInput `pulumi:"sourceVmId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

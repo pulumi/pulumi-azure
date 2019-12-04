@@ -4,6 +4,8 @@
 package keyvault
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,210 +16,435 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
 type KeyVault struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+	AccessPolicies KeyVaultAccessPoliciesArrayOutput `pulumi:"accessPolicies"`
+
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+	EnabledForDeployment pulumi.BoolOutput `pulumi:"enabledForDeployment"`
+
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+	EnabledForDiskEncryption pulumi.BoolOutput `pulumi:"enabledForDiskEncryption"`
+
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+	EnabledForTemplateDeployment pulumi.BoolOutput `pulumi:"enabledForTemplateDeployment"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `networkAcls` block as defined below.
+	NetworkAcls KeyVaultNetworkAclsOutput `pulumi:"networkAcls"`
+
+	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// ) A `sku` block as described below.
+	Sku KeyVaultSkuOutput `pulumi:"sku"`
+
+	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+
+	// The URI of the Key Vault, used for performing operations on keys and secrets.
+	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
 }
 
 // NewKeyVault registers a new resource with the given unique name, arguments, and options.
 func NewKeyVault(ctx *pulumi.Context,
-	name string, args *KeyVaultArgs, opts ...pulumi.ResourceOpt) (*KeyVault, error) {
+	name string, args *KeyVaultArgs, opts ...pulumi.ResourceOption) (*KeyVault, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.TenantId == nil {
 		return nil, errors.New("missing required argument 'TenantId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accessPolicies"] = nil
-		inputs["enabledForDeployment"] = nil
-		inputs["enabledForDiskEncryption"] = nil
-		inputs["enabledForTemplateDeployment"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkAcls"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["skuName"] = nil
-		inputs["tags"] = nil
-		inputs["tenantId"] = nil
-	} else {
-		inputs["accessPolicies"] = args.AccessPolicies
-		inputs["enabledForDeployment"] = args.EnabledForDeployment
-		inputs["enabledForDiskEncryption"] = args.EnabledForDiskEncryption
-		inputs["enabledForTemplateDeployment"] = args.EnabledForTemplateDeployment
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkAcls"] = args.NetworkAcls
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["skuName"] = args.SkuName
-		inputs["tags"] = args.Tags
-		inputs["tenantId"] = args.TenantId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccessPolicies; i != nil { inputs["accessPolicies"] = i.ToKeyVaultAccessPoliciesArrayOutput() }
+		if i := args.EnabledForDeployment; i != nil { inputs["enabledForDeployment"] = i.ToBoolOutput() }
+		if i := args.EnabledForDiskEncryption; i != nil { inputs["enabledForDiskEncryption"] = i.ToBoolOutput() }
+		if i := args.EnabledForTemplateDeployment; i != nil { inputs["enabledForTemplateDeployment"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkAcls; i != nil { inputs["networkAcls"] = i.ToKeyVaultNetworkAclsOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToKeyVaultSkuOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TenantId; i != nil { inputs["tenantId"] = i.ToStringOutput() }
 	}
-	inputs["vaultUri"] = nil
-	s, err := ctx.RegisterResource("azure:keyvault/keyVault:KeyVault", name, true, inputs, opts...)
+	var resource KeyVault
+	err := ctx.RegisterResource("azure:keyvault/keyVault:KeyVault", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &KeyVault{s: s}, nil
+	return &resource, nil
 }
 
 // GetKeyVault gets an existing KeyVault resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetKeyVault(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *KeyVaultState, opts ...pulumi.ResourceOpt) (*KeyVault, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *KeyVaultState, opts ...pulumi.ResourceOption) (*KeyVault, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessPolicies"] = state.AccessPolicies
-		inputs["enabledForDeployment"] = state.EnabledForDeployment
-		inputs["enabledForDiskEncryption"] = state.EnabledForDiskEncryption
-		inputs["enabledForTemplateDeployment"] = state.EnabledForTemplateDeployment
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkAcls"] = state.NetworkAcls
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["skuName"] = state.SkuName
-		inputs["tags"] = state.Tags
-		inputs["tenantId"] = state.TenantId
-		inputs["vaultUri"] = state.VaultUri
+		if i := state.AccessPolicies; i != nil { inputs["accessPolicies"] = i.ToKeyVaultAccessPoliciesArrayOutput() }
+		if i := state.EnabledForDeployment; i != nil { inputs["enabledForDeployment"] = i.ToBoolOutput() }
+		if i := state.EnabledForDiskEncryption; i != nil { inputs["enabledForDiskEncryption"] = i.ToBoolOutput() }
+		if i := state.EnabledForTemplateDeployment; i != nil { inputs["enabledForTemplateDeployment"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkAcls; i != nil { inputs["networkAcls"] = i.ToKeyVaultNetworkAclsOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToKeyVaultSkuOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TenantId; i != nil { inputs["tenantId"] = i.ToStringOutput() }
+		if i := state.VaultUri; i != nil { inputs["vaultUri"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:keyvault/keyVault:KeyVault", name, id, inputs, opts...)
+	var resource KeyVault
+	err := ctx.ReadResource("azure:keyvault/keyVault:KeyVault", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &KeyVault{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *KeyVault) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *KeyVault) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
-func (r *KeyVault) AccessPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["accessPolicies"])
-}
-
-// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-func (r *KeyVault) EnabledForDeployment() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabledForDeployment"])
-}
-
-// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-func (r *KeyVault) EnabledForDiskEncryption() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabledForDiskEncryption"])
-}
-
-// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
-func (r *KeyVault) EnabledForTemplateDeployment() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabledForTemplateDeployment"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *KeyVault) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-func (r *KeyVault) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `networkAcls` block as defined below.
-func (r *KeyVault) NetworkAcls() pulumi.Output {
-	return r.s.State["networkAcls"]
-}
-
-// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-func (r *KeyVault) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// ) A `sku` block as described below.
-func (r *KeyVault) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-func (r *KeyVault) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *KeyVault) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-func (r *KeyVault) TenantId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tenantId"])
-}
-
-// The URI of the Key Vault, used for performing operations on keys and secrets.
-func (r *KeyVault) VaultUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vaultUri"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering KeyVault resources.
 type KeyVaultState struct {
 	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
-	AccessPolicies interface{}
+	AccessPolicies KeyVaultAccessPoliciesArrayInput `pulumi:"accessPolicies"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-	EnabledForDeployment interface{}
+	EnabledForDeployment pulumi.BoolInput `pulumi:"enabledForDeployment"`
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-	EnabledForDiskEncryption interface{}
+	EnabledForDiskEncryption pulumi.BoolInput `pulumi:"enabledForDiskEncryption"`
 	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
-	EnabledForTemplateDeployment interface{}
+	EnabledForTemplateDeployment pulumi.BoolInput `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
-	NetworkAcls interface{}
+	NetworkAcls KeyVaultNetworkAclsInput `pulumi:"networkAcls"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku KeyVaultSkuInput `pulumi:"sku"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId interface{}
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The URI of the Key Vault, used for performing operations on keys and secrets.
-	VaultUri interface{}
+	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
 }
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
 	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
-	AccessPolicies interface{}
+	AccessPolicies KeyVaultAccessPoliciesArrayInput `pulumi:"accessPolicies"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-	EnabledForDeployment interface{}
+	EnabledForDeployment pulumi.BoolInput `pulumi:"enabledForDeployment"`
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-	EnabledForDiskEncryption interface{}
+	EnabledForDiskEncryption pulumi.BoolInput `pulumi:"enabledForDiskEncryption"`
 	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
-	EnabledForTemplateDeployment interface{}
+	EnabledForTemplateDeployment pulumi.BoolInput `pulumi:"enabledForTemplateDeployment"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
-	NetworkAcls interface{}
+	NetworkAcls KeyVaultNetworkAclsInput `pulumi:"networkAcls"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku KeyVaultSkuInput `pulumi:"sku"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-	TenantId interface{}
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
+type KeyVaultAccessPolicies struct {
+	ApplicationId *string `pulumi:"applicationId"`
+	CertificatePermissions *[]string `pulumi:"certificatePermissions"`
+	KeyPermissions *[]string `pulumi:"keyPermissions"`
+	ObjectId string `pulumi:"objectId"`
+	SecretPermissions *[]string `pulumi:"secretPermissions"`
+	StoragePermissions *[]string `pulumi:"storagePermissions"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	TenantId string `pulumi:"tenantId"`
+}
+var keyVaultAccessPoliciesType = reflect.TypeOf((*KeyVaultAccessPolicies)(nil)).Elem()
+
+type KeyVaultAccessPoliciesInput interface {
+	pulumi.Input
+
+	ToKeyVaultAccessPoliciesOutput() KeyVaultAccessPoliciesOutput
+	ToKeyVaultAccessPoliciesOutputWithContext(ctx context.Context) KeyVaultAccessPoliciesOutput
+}
+
+type KeyVaultAccessPoliciesArgs struct {
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	CertificatePermissions pulumi.StringArrayInput `pulumi:"certificatePermissions"`
+	KeyPermissions pulumi.StringArrayInput `pulumi:"keyPermissions"`
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	SecretPermissions pulumi.StringArrayInput `pulumi:"secretPermissions"`
+	StoragePermissions pulumi.StringArrayInput `pulumi:"storagePermissions"`
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (KeyVaultAccessPoliciesArgs) ElementType() reflect.Type {
+	return keyVaultAccessPoliciesType
+}
+
+func (a KeyVaultAccessPoliciesArgs) ToKeyVaultAccessPoliciesOutput() KeyVaultAccessPoliciesOutput {
+	return pulumi.ToOutput(a).(KeyVaultAccessPoliciesOutput)
+}
+
+func (a KeyVaultAccessPoliciesArgs) ToKeyVaultAccessPoliciesOutputWithContext(ctx context.Context) KeyVaultAccessPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KeyVaultAccessPoliciesOutput)
+}
+
+type KeyVaultAccessPoliciesOutput struct { *pulumi.OutputState }
+
+func (o KeyVaultAccessPoliciesOutput) ApplicationId() pulumi.StringOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) string {
+		if v.ApplicationId == nil { return *new(string) } else { return *v.ApplicationId }
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyVaultAccessPoliciesOutput) CertificatePermissions() pulumi.StringArrayOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) []string {
+		if v.CertificatePermissions == nil { return *new([]string) } else { return *v.CertificatePermissions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KeyVaultAccessPoliciesOutput) KeyPermissions() pulumi.StringArrayOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) []string {
+		if v.KeyPermissions == nil { return *new([]string) } else { return *v.KeyPermissions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KeyVaultAccessPoliciesOutput) ObjectId() pulumi.StringOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) string {
+		return v.ObjectId
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyVaultAccessPoliciesOutput) SecretPermissions() pulumi.StringArrayOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) []string {
+		if v.SecretPermissions == nil { return *new([]string) } else { return *v.SecretPermissions }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KeyVaultAccessPoliciesOutput) StoragePermissions() pulumi.StringArrayOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) []string {
+		if v.StoragePermissions == nil { return *new([]string) } else { return *v.StoragePermissions }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+func (o KeyVaultAccessPoliciesOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v KeyVaultAccessPolicies) string {
+		return v.TenantId
+	}).(pulumi.StringOutput)
+}
+
+func (KeyVaultAccessPoliciesOutput) ElementType() reflect.Type {
+	return keyVaultAccessPoliciesType
+}
+
+func (o KeyVaultAccessPoliciesOutput) ToKeyVaultAccessPoliciesOutput() KeyVaultAccessPoliciesOutput {
+	return o
+}
+
+func (o KeyVaultAccessPoliciesOutput) ToKeyVaultAccessPoliciesOutputWithContext(ctx context.Context) KeyVaultAccessPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KeyVaultAccessPoliciesOutput{}) }
+
+var keyVaultAccessPoliciesArrayType = reflect.TypeOf((*[]KeyVaultAccessPolicies)(nil)).Elem()
+
+type KeyVaultAccessPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultAccessPoliciesArrayOutput() KeyVaultAccessPoliciesArrayOutput
+	ToKeyVaultAccessPoliciesArrayOutputWithContext(ctx context.Context) KeyVaultAccessPoliciesArrayOutput
+}
+
+type KeyVaultAccessPoliciesArrayArgs []KeyVaultAccessPoliciesInput
+
+func (KeyVaultAccessPoliciesArrayArgs) ElementType() reflect.Type {
+	return keyVaultAccessPoliciesArrayType
+}
+
+func (a KeyVaultAccessPoliciesArrayArgs) ToKeyVaultAccessPoliciesArrayOutput() KeyVaultAccessPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(KeyVaultAccessPoliciesArrayOutput)
+}
+
+func (a KeyVaultAccessPoliciesArrayArgs) ToKeyVaultAccessPoliciesArrayOutputWithContext(ctx context.Context) KeyVaultAccessPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KeyVaultAccessPoliciesArrayOutput)
+}
+
+type KeyVaultAccessPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o KeyVaultAccessPoliciesArrayOutput) Index(i pulumi.IntInput) KeyVaultAccessPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) KeyVaultAccessPolicies {
+		return vs[0].([]KeyVaultAccessPolicies)[vs[1].(int)]
+	}).(KeyVaultAccessPoliciesOutput)
+}
+
+func (KeyVaultAccessPoliciesArrayOutput) ElementType() reflect.Type {
+	return keyVaultAccessPoliciesArrayType
+}
+
+func (o KeyVaultAccessPoliciesArrayOutput) ToKeyVaultAccessPoliciesArrayOutput() KeyVaultAccessPoliciesArrayOutput {
+	return o
+}
+
+func (o KeyVaultAccessPoliciesArrayOutput) ToKeyVaultAccessPoliciesArrayOutputWithContext(ctx context.Context) KeyVaultAccessPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KeyVaultAccessPoliciesArrayOutput{}) }
+
+type KeyVaultNetworkAcls struct {
+	Bypass string `pulumi:"bypass"`
+	DefaultAction string `pulumi:"defaultAction"`
+	IpRules *[]string `pulumi:"ipRules"`
+	VirtualNetworkSubnetIds *[]string `pulumi:"virtualNetworkSubnetIds"`
+}
+var keyVaultNetworkAclsType = reflect.TypeOf((*KeyVaultNetworkAcls)(nil)).Elem()
+
+type KeyVaultNetworkAclsInput interface {
+	pulumi.Input
+
+	ToKeyVaultNetworkAclsOutput() KeyVaultNetworkAclsOutput
+	ToKeyVaultNetworkAclsOutputWithContext(ctx context.Context) KeyVaultNetworkAclsOutput
+}
+
+type KeyVaultNetworkAclsArgs struct {
+	Bypass pulumi.StringInput `pulumi:"bypass"`
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
+}
+
+func (KeyVaultNetworkAclsArgs) ElementType() reflect.Type {
+	return keyVaultNetworkAclsType
+}
+
+func (a KeyVaultNetworkAclsArgs) ToKeyVaultNetworkAclsOutput() KeyVaultNetworkAclsOutput {
+	return pulumi.ToOutput(a).(KeyVaultNetworkAclsOutput)
+}
+
+func (a KeyVaultNetworkAclsArgs) ToKeyVaultNetworkAclsOutputWithContext(ctx context.Context) KeyVaultNetworkAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KeyVaultNetworkAclsOutput)
+}
+
+type KeyVaultNetworkAclsOutput struct { *pulumi.OutputState }
+
+func (o KeyVaultNetworkAclsOutput) Bypass() pulumi.StringOutput {
+	return o.Apply(func(v KeyVaultNetworkAcls) string {
+		return v.Bypass
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyVaultNetworkAclsOutput) DefaultAction() pulumi.StringOutput {
+	return o.Apply(func(v KeyVaultNetworkAcls) string {
+		return v.DefaultAction
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyVaultNetworkAclsOutput) IpRules() pulumi.StringArrayOutput {
+	return o.Apply(func(v KeyVaultNetworkAcls) []string {
+		if v.IpRules == nil { return *new([]string) } else { return *v.IpRules }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KeyVaultNetworkAclsOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v KeyVaultNetworkAcls) []string {
+		if v.VirtualNetworkSubnetIds == nil { return *new([]string) } else { return *v.VirtualNetworkSubnetIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (KeyVaultNetworkAclsOutput) ElementType() reflect.Type {
+	return keyVaultNetworkAclsType
+}
+
+func (o KeyVaultNetworkAclsOutput) ToKeyVaultNetworkAclsOutput() KeyVaultNetworkAclsOutput {
+	return o
+}
+
+func (o KeyVaultNetworkAclsOutput) ToKeyVaultNetworkAclsOutputWithContext(ctx context.Context) KeyVaultNetworkAclsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{}) }
+
+type KeyVaultSku struct {
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+var keyVaultSkuType = reflect.TypeOf((*KeyVaultSku)(nil)).Elem()
+
+type KeyVaultSkuInput interface {
+	pulumi.Input
+
+	ToKeyVaultSkuOutput() KeyVaultSkuOutput
+	ToKeyVaultSkuOutputWithContext(ctx context.Context) KeyVaultSkuOutput
+}
+
+type KeyVaultSkuArgs struct {
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (KeyVaultSkuArgs) ElementType() reflect.Type {
+	return keyVaultSkuType
+}
+
+func (a KeyVaultSkuArgs) ToKeyVaultSkuOutput() KeyVaultSkuOutput {
+	return pulumi.ToOutput(a).(KeyVaultSkuOutput)
+}
+
+func (a KeyVaultSkuArgs) ToKeyVaultSkuOutputWithContext(ctx context.Context) KeyVaultSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KeyVaultSkuOutput)
+}
+
+type KeyVaultSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+func (o KeyVaultSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v KeyVaultSku) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (KeyVaultSkuOutput) ElementType() reflect.Type {
+	return keyVaultSkuType
+}
+
+func (o KeyVaultSkuOutput) ToKeyVaultSkuOutput() KeyVaultSkuOutput {
+	return o
+}
+
+func (o KeyVaultSkuOutput) ToKeyVaultSkuOutputWithContext(ctx context.Context) KeyVaultSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KeyVaultSkuOutput{}) }
+

@@ -12,12 +12,29 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_aaaa_record.html.markdown.
 type AAAARecord struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the DNS A Record.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of IPv6 Addresses.
+	Records pulumi.StringArrayOutput `pulumi:"records"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewAAAARecord registers a new resource with the given unique name, arguments, and options.
 func NewAAAARecord(ctx *pulumi.Context,
-	name string, args *AAAARecordArgs, opts ...pulumi.ResourceOpt) (*AAAARecord, error) {
+	name string, args *AAAARecordArgs, opts ...pulumi.ResourceOption) (*AAAARecord, error) {
 	if args == nil || args.Records == nil {
 		return nil, errors.New("missing required argument 'Records'")
 	}
@@ -30,114 +47,70 @@ func NewAAAARecord(ctx *pulumi.Context,
 	if args == nil || args.ZoneName == nil {
 		return nil, errors.New("missing required argument 'ZoneName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["records"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["ttl"] = nil
-		inputs["zoneName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["records"] = args.Records
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["ttl"] = args.Ttl
-		inputs["zoneName"] = args.ZoneName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Records; i != nil { inputs["records"] = i.ToStringArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:privatedns/aAAARecord:AAAARecord", name, true, inputs, opts...)
+	var resource AAAARecord
+	err := ctx.RegisterResource("azure:privatedns/aAAARecord:AAAARecord", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AAAARecord{s: s}, nil
+	return &resource, nil
 }
 
 // GetAAAARecord gets an existing AAAARecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAAAARecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AAAARecordState, opts ...pulumi.ResourceOpt) (*AAAARecord, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AAAARecordState, opts ...pulumi.ResourceOption) (*AAAARecord, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["records"] = state.Records
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["ttl"] = state.Ttl
-		inputs["zoneName"] = state.ZoneName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Records; i != nil { inputs["records"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:privatedns/aAAARecord:AAAARecord", name, id, inputs, opts...)
+	var resource AAAARecord
+	err := ctx.ReadResource("azure:privatedns/aAAARecord:AAAARecord", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AAAARecord{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AAAARecord) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AAAARecord) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the DNS A Record.
-func (r *AAAARecord) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of IPv6 Addresses.
-func (r *AAAARecord) Records() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["records"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *AAAARecord) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *AAAARecord) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *AAAARecord) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (r *AAAARecord) ZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AAAARecord resources.
 type AAAARecordState struct {
 	// The name of the DNS A Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of IPv6 Addresses.
-	Records interface{}
+	Records pulumi.StringArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	Ttl interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a AAAARecord resource.
 type AAAARecordArgs struct {
 	// The name of the DNS A Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of IPv6 Addresses.
-	Records interface{}
+	Records pulumi.StringArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	Ttl interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }

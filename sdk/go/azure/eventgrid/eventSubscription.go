@@ -4,6 +4,8 @@
 package eventgrid
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,210 +14,588 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
 type EventSubscription struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+	EventDeliverySchema pulumi.StringOutput `pulumi:"eventDeliverySchema"`
+
+	// A `eventhubEndpoint` block as defined below.
+	EventhubEndpoint EventSubscriptionEventhubEndpointOutput `pulumi:"eventhubEndpoint"`
+
+	// A `hybridConnectionEndpoint` block as defined below.
+	HybridConnectionEndpoint EventSubscriptionHybridConnectionEndpointOutput `pulumi:"hybridConnectionEndpoint"`
+
+	// A list of applicable event types that need to be part of the event subscription.
+	IncludedEventTypes pulumi.StringArrayOutput `pulumi:"includedEventTypes"`
+
+	// A list of labels to assign to the event subscription.
+	Labels pulumi.StringArrayOutput `pulumi:"labels"`
+
+	// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `retryPolicy` block as defined below.
+	RetryPolicy EventSubscriptionRetryPolicyOutput `pulumi:"retryPolicy"`
+
+	// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
+	Scope pulumi.StringOutput `pulumi:"scope"`
+
+	// A `storageBlobDeadLetterDestination` block as defined below.
+	StorageBlobDeadLetterDestination EventSubscriptionStorageBlobDeadLetterDestinationOutput `pulumi:"storageBlobDeadLetterDestination"`
+
+	// A `storageQueueEndpoint` block as defined below.
+	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointOutput `pulumi:"storageQueueEndpoint"`
+
+	// A `subjectFilter` block as defined below.
+	SubjectFilter EventSubscriptionSubjectFilterOutput `pulumi:"subjectFilter"`
+
+	// Specifies the name of the topic to associate with the event subscription.
+	TopicName pulumi.StringOutput `pulumi:"topicName"`
+
+	// A `webhookEndpoint` block as defined below.
+	WebhookEndpoint EventSubscriptionWebhookEndpointOutput `pulumi:"webhookEndpoint"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewEventSubscription(ctx *pulumi.Context,
-	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOpt) (*EventSubscription, error) {
+	name string, args *EventSubscriptionArgs, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["eventDeliverySchema"] = nil
-		inputs["eventhubEndpoint"] = nil
-		inputs["hybridConnectionEndpoint"] = nil
-		inputs["includedEventTypes"] = nil
-		inputs["labels"] = nil
-		inputs["name"] = nil
-		inputs["retryPolicy"] = nil
-		inputs["scope"] = nil
-		inputs["storageBlobDeadLetterDestination"] = nil
-		inputs["storageQueueEndpoint"] = nil
-		inputs["subjectFilter"] = nil
-		inputs["topicName"] = nil
-		inputs["webhookEndpoint"] = nil
-	} else {
-		inputs["eventDeliverySchema"] = args.EventDeliverySchema
-		inputs["eventhubEndpoint"] = args.EventhubEndpoint
-		inputs["hybridConnectionEndpoint"] = args.HybridConnectionEndpoint
-		inputs["includedEventTypes"] = args.IncludedEventTypes
-		inputs["labels"] = args.Labels
-		inputs["name"] = args.Name
-		inputs["retryPolicy"] = args.RetryPolicy
-		inputs["scope"] = args.Scope
-		inputs["storageBlobDeadLetterDestination"] = args.StorageBlobDeadLetterDestination
-		inputs["storageQueueEndpoint"] = args.StorageQueueEndpoint
-		inputs["subjectFilter"] = args.SubjectFilter
-		inputs["topicName"] = args.TopicName
-		inputs["webhookEndpoint"] = args.WebhookEndpoint
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EventDeliverySchema; i != nil { inputs["eventDeliverySchema"] = i.ToStringOutput() }
+		if i := args.EventhubEndpoint; i != nil { inputs["eventhubEndpoint"] = i.ToEventSubscriptionEventhubEndpointOutput() }
+		if i := args.HybridConnectionEndpoint; i != nil { inputs["hybridConnectionEndpoint"] = i.ToEventSubscriptionHybridConnectionEndpointOutput() }
+		if i := args.IncludedEventTypes; i != nil { inputs["includedEventTypes"] = i.ToStringArrayOutput() }
+		if i := args.Labels; i != nil { inputs["labels"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RetryPolicy; i != nil { inputs["retryPolicy"] = i.ToEventSubscriptionRetryPolicyOutput() }
+		if i := args.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
+		if i := args.StorageBlobDeadLetterDestination; i != nil { inputs["storageBlobDeadLetterDestination"] = i.ToEventSubscriptionStorageBlobDeadLetterDestinationOutput() }
+		if i := args.StorageQueueEndpoint; i != nil { inputs["storageQueueEndpoint"] = i.ToEventSubscriptionStorageQueueEndpointOutput() }
+		if i := args.SubjectFilter; i != nil { inputs["subjectFilter"] = i.ToEventSubscriptionSubjectFilterOutput() }
+		if i := args.TopicName; i != nil { inputs["topicName"] = i.ToStringOutput() }
+		if i := args.WebhookEndpoint; i != nil { inputs["webhookEndpoint"] = i.ToEventSubscriptionWebhookEndpointOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:eventgrid/eventSubscription:EventSubscription", name, true, inputs, opts...)
+	var resource EventSubscription
+	err := ctx.RegisterResource("azure:eventgrid/eventSubscription:EventSubscription", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventSubscription{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventSubscription gets an existing EventSubscription resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventSubscription(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventSubscriptionState, opts ...pulumi.ResourceOpt) (*EventSubscription, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventSubscriptionState, opts ...pulumi.ResourceOption) (*EventSubscription, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["eventDeliverySchema"] = state.EventDeliverySchema
-		inputs["eventhubEndpoint"] = state.EventhubEndpoint
-		inputs["hybridConnectionEndpoint"] = state.HybridConnectionEndpoint
-		inputs["includedEventTypes"] = state.IncludedEventTypes
-		inputs["labels"] = state.Labels
-		inputs["name"] = state.Name
-		inputs["retryPolicy"] = state.RetryPolicy
-		inputs["scope"] = state.Scope
-		inputs["storageBlobDeadLetterDestination"] = state.StorageBlobDeadLetterDestination
-		inputs["storageQueueEndpoint"] = state.StorageQueueEndpoint
-		inputs["subjectFilter"] = state.SubjectFilter
-		inputs["topicName"] = state.TopicName
-		inputs["webhookEndpoint"] = state.WebhookEndpoint
+		if i := state.EventDeliverySchema; i != nil { inputs["eventDeliverySchema"] = i.ToStringOutput() }
+		if i := state.EventhubEndpoint; i != nil { inputs["eventhubEndpoint"] = i.ToEventSubscriptionEventhubEndpointOutput() }
+		if i := state.HybridConnectionEndpoint; i != nil { inputs["hybridConnectionEndpoint"] = i.ToEventSubscriptionHybridConnectionEndpointOutput() }
+		if i := state.IncludedEventTypes; i != nil { inputs["includedEventTypes"] = i.ToStringArrayOutput() }
+		if i := state.Labels; i != nil { inputs["labels"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RetryPolicy; i != nil { inputs["retryPolicy"] = i.ToEventSubscriptionRetryPolicyOutput() }
+		if i := state.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
+		if i := state.StorageBlobDeadLetterDestination; i != nil { inputs["storageBlobDeadLetterDestination"] = i.ToEventSubscriptionStorageBlobDeadLetterDestinationOutput() }
+		if i := state.StorageQueueEndpoint; i != nil { inputs["storageQueueEndpoint"] = i.ToEventSubscriptionStorageQueueEndpointOutput() }
+		if i := state.SubjectFilter; i != nil { inputs["subjectFilter"] = i.ToEventSubscriptionSubjectFilterOutput() }
+		if i := state.TopicName; i != nil { inputs["topicName"] = i.ToStringOutput() }
+		if i := state.WebhookEndpoint; i != nil { inputs["webhookEndpoint"] = i.ToEventSubscriptionWebhookEndpointOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventgrid/eventSubscription:EventSubscription", name, id, inputs, opts...)
+	var resource EventSubscription
+	err := ctx.ReadResource("azure:eventgrid/eventSubscription:EventSubscription", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventSubscription{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventSubscription) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventSubscription) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
-func (r *EventSubscription) EventDeliverySchema() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eventDeliverySchema"])
-}
-
-// A `eventhubEndpoint` block as defined below.
-func (r *EventSubscription) EventhubEndpoint() pulumi.Output {
-	return r.s.State["eventhubEndpoint"]
-}
-
-// A `hybridConnectionEndpoint` block as defined below.
-func (r *EventSubscription) HybridConnectionEndpoint() pulumi.Output {
-	return r.s.State["hybridConnectionEndpoint"]
-}
-
-// A list of applicable event types that need to be part of the event subscription.
-func (r *EventSubscription) IncludedEventTypes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["includedEventTypes"])
-}
-
-// A list of labels to assign to the event subscription.
-func (r *EventSubscription) Labels() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["labels"])
-}
-
-// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-func (r *EventSubscription) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `retryPolicy` block as defined below.
-func (r *EventSubscription) RetryPolicy() pulumi.Output {
-	return r.s.State["retryPolicy"]
-}
-
-// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
-func (r *EventSubscription) Scope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scope"])
-}
-
-// A `storageBlobDeadLetterDestination` block as defined below.
-func (r *EventSubscription) StorageBlobDeadLetterDestination() pulumi.Output {
-	return r.s.State["storageBlobDeadLetterDestination"]
-}
-
-// A `storageQueueEndpoint` block as defined below.
-func (r *EventSubscription) StorageQueueEndpoint() pulumi.Output {
-	return r.s.State["storageQueueEndpoint"]
-}
-
-// A `subjectFilter` block as defined below.
-func (r *EventSubscription) SubjectFilter() pulumi.Output {
-	return r.s.State["subjectFilter"]
-}
-
-// Specifies the name of the topic to associate with the event subscription.
-func (r *EventSubscription) TopicName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["topicName"])
-}
-
-// A `webhookEndpoint` block as defined below.
-func (r *EventSubscription) WebhookEndpoint() pulumi.Output {
-	return r.s.State["webhookEndpoint"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type EventSubscriptionState struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
-	EventDeliverySchema interface{}
+	EventDeliverySchema pulumi.StringInput `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
-	EventhubEndpoint interface{}
+	EventhubEndpoint EventSubscriptionEventhubEndpointInput `pulumi:"eventhubEndpoint"`
 	// A `hybridConnectionEndpoint` block as defined below.
-	HybridConnectionEndpoint interface{}
+	HybridConnectionEndpoint EventSubscriptionHybridConnectionEndpointInput `pulumi:"hybridConnectionEndpoint"`
 	// A list of applicable event types that need to be part of the event subscription.
-	IncludedEventTypes interface{}
+	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
 	// A list of labels to assign to the event subscription.
-	Labels interface{}
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
 	// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `retryPolicy` block as defined below.
-	RetryPolicy interface{}
+	RetryPolicy EventSubscriptionRetryPolicyInput `pulumi:"retryPolicy"`
 	// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 	// A `storageBlobDeadLetterDestination` block as defined below.
-	StorageBlobDeadLetterDestination interface{}
+	StorageBlobDeadLetterDestination EventSubscriptionStorageBlobDeadLetterDestinationInput `pulumi:"storageBlobDeadLetterDestination"`
 	// A `storageQueueEndpoint` block as defined below.
-	StorageQueueEndpoint interface{}
+	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointInput `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
-	SubjectFilter interface{}
+	SubjectFilter EventSubscriptionSubjectFilterInput `pulumi:"subjectFilter"`
 	// Specifies the name of the topic to associate with the event subscription.
-	TopicName interface{}
+	TopicName pulumi.StringInput `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
-	WebhookEndpoint interface{}
+	WebhookEndpoint EventSubscriptionWebhookEndpointInput `pulumi:"webhookEndpoint"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
-	EventDeliverySchema interface{}
+	EventDeliverySchema pulumi.StringInput `pulumi:"eventDeliverySchema"`
 	// A `eventhubEndpoint` block as defined below.
-	EventhubEndpoint interface{}
+	EventhubEndpoint EventSubscriptionEventhubEndpointInput `pulumi:"eventhubEndpoint"`
 	// A `hybridConnectionEndpoint` block as defined below.
-	HybridConnectionEndpoint interface{}
+	HybridConnectionEndpoint EventSubscriptionHybridConnectionEndpointInput `pulumi:"hybridConnectionEndpoint"`
 	// A list of applicable event types that need to be part of the event subscription.
-	IncludedEventTypes interface{}
+	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
 	// A list of labels to assign to the event subscription.
-	Labels interface{}
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
 	// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `retryPolicy` block as defined below.
-	RetryPolicy interface{}
+	RetryPolicy EventSubscriptionRetryPolicyInput `pulumi:"retryPolicy"`
 	// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 	// A `storageBlobDeadLetterDestination` block as defined below.
-	StorageBlobDeadLetterDestination interface{}
+	StorageBlobDeadLetterDestination EventSubscriptionStorageBlobDeadLetterDestinationInput `pulumi:"storageBlobDeadLetterDestination"`
 	// A `storageQueueEndpoint` block as defined below.
-	StorageQueueEndpoint interface{}
+	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointInput `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
-	SubjectFilter interface{}
+	SubjectFilter EventSubscriptionSubjectFilterInput `pulumi:"subjectFilter"`
 	// Specifies the name of the topic to associate with the event subscription.
-	TopicName interface{}
+	TopicName pulumi.StringInput `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
-	WebhookEndpoint interface{}
+	WebhookEndpoint EventSubscriptionWebhookEndpointInput `pulumi:"webhookEndpoint"`
 }
+type EventSubscriptionEventhubEndpoint struct {
+	// Specifies the id of the eventhub where the Event Subscription will receive events.
+	EventhubId string `pulumi:"eventhubId"`
+}
+var eventSubscriptionEventhubEndpointType = reflect.TypeOf((*EventSubscriptionEventhubEndpoint)(nil)).Elem()
+
+type EventSubscriptionEventhubEndpointInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionEventhubEndpointOutput() EventSubscriptionEventhubEndpointOutput
+	ToEventSubscriptionEventhubEndpointOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointOutput
+}
+
+type EventSubscriptionEventhubEndpointArgs struct {
+	// Specifies the id of the eventhub where the Event Subscription will receive events.
+	EventhubId pulumi.StringInput `pulumi:"eventhubId"`
+}
+
+func (EventSubscriptionEventhubEndpointArgs) ElementType() reflect.Type {
+	return eventSubscriptionEventhubEndpointType
+}
+
+func (a EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpointOutput() EventSubscriptionEventhubEndpointOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionEventhubEndpointOutput)
+}
+
+func (a EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpointOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionEventhubEndpointOutput)
+}
+
+type EventSubscriptionEventhubEndpointOutput struct { *pulumi.OutputState }
+
+// Specifies the id of the eventhub where the Event Subscription will receive events.
+func (o EventSubscriptionEventhubEndpointOutput) EventhubId() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionEventhubEndpoint) string {
+		return v.EventhubId
+	}).(pulumi.StringOutput)
+}
+
+func (EventSubscriptionEventhubEndpointOutput) ElementType() reflect.Type {
+	return eventSubscriptionEventhubEndpointType
+}
+
+func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointOutput() EventSubscriptionEventhubEndpointOutput {
+	return o
+}
+
+func (o EventSubscriptionEventhubEndpointOutput) ToEventSubscriptionEventhubEndpointOutputWithContext(ctx context.Context) EventSubscriptionEventhubEndpointOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionEventhubEndpointOutput{}) }
+
+type EventSubscriptionHybridConnectionEndpoint struct {
+	// Specifies the id of the hybrid connection where the Event Subscription will receive events.
+	HybridConnectionId string `pulumi:"hybridConnectionId"`
+}
+var eventSubscriptionHybridConnectionEndpointType = reflect.TypeOf((*EventSubscriptionHybridConnectionEndpoint)(nil)).Elem()
+
+type EventSubscriptionHybridConnectionEndpointInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionHybridConnectionEndpointOutput() EventSubscriptionHybridConnectionEndpointOutput
+	ToEventSubscriptionHybridConnectionEndpointOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointOutput
+}
+
+type EventSubscriptionHybridConnectionEndpointArgs struct {
+	// Specifies the id of the hybrid connection where the Event Subscription will receive events.
+	HybridConnectionId pulumi.StringInput `pulumi:"hybridConnectionId"`
+}
+
+func (EventSubscriptionHybridConnectionEndpointArgs) ElementType() reflect.Type {
+	return eventSubscriptionHybridConnectionEndpointType
+}
+
+func (a EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybridConnectionEndpointOutput() EventSubscriptionHybridConnectionEndpointOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionHybridConnectionEndpointOutput)
+}
+
+func (a EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybridConnectionEndpointOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionHybridConnectionEndpointOutput)
+}
+
+type EventSubscriptionHybridConnectionEndpointOutput struct { *pulumi.OutputState }
+
+// Specifies the id of the hybrid connection where the Event Subscription will receive events.
+func (o EventSubscriptionHybridConnectionEndpointOutput) HybridConnectionId() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionHybridConnectionEndpoint) string {
+		return v.HybridConnectionId
+	}).(pulumi.StringOutput)
+}
+
+func (EventSubscriptionHybridConnectionEndpointOutput) ElementType() reflect.Type {
+	return eventSubscriptionHybridConnectionEndpointType
+}
+
+func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointOutput() EventSubscriptionHybridConnectionEndpointOutput {
+	return o
+}
+
+func (o EventSubscriptionHybridConnectionEndpointOutput) ToEventSubscriptionHybridConnectionEndpointOutputWithContext(ctx context.Context) EventSubscriptionHybridConnectionEndpointOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionHybridConnectionEndpointOutput{}) }
+
+type EventSubscriptionRetryPolicy struct {
+	// Specifies the time to live (in minutes) for events.
+	EventTimeToLive int `pulumi:"eventTimeToLive"`
+	// Specifies the maximum number of delivery retry attempts for events.
+	MaxDeliveryAttempts int `pulumi:"maxDeliveryAttempts"`
+}
+var eventSubscriptionRetryPolicyType = reflect.TypeOf((*EventSubscriptionRetryPolicy)(nil)).Elem()
+
+type EventSubscriptionRetryPolicyInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionRetryPolicyOutput() EventSubscriptionRetryPolicyOutput
+	ToEventSubscriptionRetryPolicyOutputWithContext(ctx context.Context) EventSubscriptionRetryPolicyOutput
+}
+
+type EventSubscriptionRetryPolicyArgs struct {
+	// Specifies the time to live (in minutes) for events.
+	EventTimeToLive pulumi.IntInput `pulumi:"eventTimeToLive"`
+	// Specifies the maximum number of delivery retry attempts for events.
+	MaxDeliveryAttempts pulumi.IntInput `pulumi:"maxDeliveryAttempts"`
+}
+
+func (EventSubscriptionRetryPolicyArgs) ElementType() reflect.Type {
+	return eventSubscriptionRetryPolicyType
+}
+
+func (a EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyOutput() EventSubscriptionRetryPolicyOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionRetryPolicyOutput)
+}
+
+func (a EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyOutputWithContext(ctx context.Context) EventSubscriptionRetryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionRetryPolicyOutput)
+}
+
+type EventSubscriptionRetryPolicyOutput struct { *pulumi.OutputState }
+
+// Specifies the time to live (in minutes) for events.
+func (o EventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
+	return o.Apply(func(v EventSubscriptionRetryPolicy) int {
+		return v.EventTimeToLive
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the maximum number of delivery retry attempts for events.
+func (o EventSubscriptionRetryPolicyOutput) MaxDeliveryAttempts() pulumi.IntOutput {
+	return o.Apply(func(v EventSubscriptionRetryPolicy) int {
+		return v.MaxDeliveryAttempts
+	}).(pulumi.IntOutput)
+}
+
+func (EventSubscriptionRetryPolicyOutput) ElementType() reflect.Type {
+	return eventSubscriptionRetryPolicyType
+}
+
+func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyOutput() EventSubscriptionRetryPolicyOutput {
+	return o
+}
+
+func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyOutputWithContext(ctx context.Context) EventSubscriptionRetryPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionRetryPolicyOutput{}) }
+
+type EventSubscriptionStorageBlobDeadLetterDestination struct {
+	// Specifies the id of the storage account id where the storage blob is located. 
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// Specifies the name of the Storage blob container that is the destination of the deadletter events
+	StorageBlobContainerName string `pulumi:"storageBlobContainerName"`
+}
+var eventSubscriptionStorageBlobDeadLetterDestinationType = reflect.TypeOf((*EventSubscriptionStorageBlobDeadLetterDestination)(nil)).Elem()
+
+type EventSubscriptionStorageBlobDeadLetterDestinationInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionStorageBlobDeadLetterDestinationOutput() EventSubscriptionStorageBlobDeadLetterDestinationOutput
+	ToEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) EventSubscriptionStorageBlobDeadLetterDestinationOutput
+}
+
+type EventSubscriptionStorageBlobDeadLetterDestinationArgs struct {
+	// Specifies the id of the storage account id where the storage blob is located. 
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// Specifies the name of the Storage blob container that is the destination of the deadletter events
+	StorageBlobContainerName pulumi.StringInput `pulumi:"storageBlobContainerName"`
+}
+
+func (EventSubscriptionStorageBlobDeadLetterDestinationArgs) ElementType() reflect.Type {
+	return eventSubscriptionStorageBlobDeadLetterDestinationType
+}
+
+func (a EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscriptionStorageBlobDeadLetterDestinationOutput() EventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
+}
+
+func (a EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) EventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
+}
+
+type EventSubscriptionStorageBlobDeadLetterDestinationOutput struct { *pulumi.OutputState }
+
+// Specifies the id of the storage account id where the storage blob is located. 
+func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountId() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionStorageBlobDeadLetterDestination) string {
+		return v.StorageAccountId
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Storage blob container that is the destination of the deadletter events
+func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageBlobContainerName() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionStorageBlobDeadLetterDestination) string {
+		return v.StorageBlobContainerName
+	}).(pulumi.StringOutput)
+}
+
+func (EventSubscriptionStorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
+	return eventSubscriptionStorageBlobDeadLetterDestinationType
+}
+
+func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscriptionStorageBlobDeadLetterDestinationOutput() EventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return o
+}
+
+func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx context.Context) EventSubscriptionStorageBlobDeadLetterDestinationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionStorageBlobDeadLetterDestinationOutput{}) }
+
+type EventSubscriptionStorageQueueEndpoint struct {
+	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+	QueueName string `pulumi:"queueName"`
+	// Specifies the id of the storage account id where the storage blob is located. 
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+var eventSubscriptionStorageQueueEndpointType = reflect.TypeOf((*EventSubscriptionStorageQueueEndpoint)(nil)).Elem()
+
+type EventSubscriptionStorageQueueEndpointInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionStorageQueueEndpointOutput() EventSubscriptionStorageQueueEndpointOutput
+	ToEventSubscriptionStorageQueueEndpointOutputWithContext(ctx context.Context) EventSubscriptionStorageQueueEndpointOutput
+}
+
+type EventSubscriptionStorageQueueEndpointArgs struct {
+	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+	QueueName pulumi.StringInput `pulumi:"queueName"`
+	// Specifies the id of the storage account id where the storage blob is located. 
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (EventSubscriptionStorageQueueEndpointArgs) ElementType() reflect.Type {
+	return eventSubscriptionStorageQueueEndpointType
+}
+
+func (a EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQueueEndpointOutput() EventSubscriptionStorageQueueEndpointOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionStorageQueueEndpointOutput)
+}
+
+func (a EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQueueEndpointOutputWithContext(ctx context.Context) EventSubscriptionStorageQueueEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionStorageQueueEndpointOutput)
+}
+
+type EventSubscriptionStorageQueueEndpointOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the storage queue where the Event Subscriptio will receive events.
+func (o EventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionStorageQueueEndpoint) string {
+		return v.QueueName
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the id of the storage account id where the storage blob is located. 
+func (o EventSubscriptionStorageQueueEndpointOutput) StorageAccountId() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionStorageQueueEndpoint) string {
+		return v.StorageAccountId
+	}).(pulumi.StringOutput)
+}
+
+func (EventSubscriptionStorageQueueEndpointOutput) ElementType() reflect.Type {
+	return eventSubscriptionStorageQueueEndpointType
+}
+
+func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQueueEndpointOutput() EventSubscriptionStorageQueueEndpointOutput {
+	return o
+}
+
+func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQueueEndpointOutputWithContext(ctx context.Context) EventSubscriptionStorageQueueEndpointOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionStorageQueueEndpointOutput{}) }
+
+type EventSubscriptionSubjectFilter struct {
+	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+	CaseSensitive *bool `pulumi:"caseSensitive"`
+	// A string to filter events for an event subscription based on a resource path prefix.
+	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
+	// A string to filter events for an event subscription based on a resource path suffix.
+	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+}
+var eventSubscriptionSubjectFilterType = reflect.TypeOf((*EventSubscriptionSubjectFilter)(nil)).Elem()
+
+type EventSubscriptionSubjectFilterInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionSubjectFilterOutput() EventSubscriptionSubjectFilterOutput
+	ToEventSubscriptionSubjectFilterOutputWithContext(ctx context.Context) EventSubscriptionSubjectFilterOutput
+}
+
+type EventSubscriptionSubjectFilterArgs struct {
+	// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+	CaseSensitive pulumi.BoolInput `pulumi:"caseSensitive"`
+	// A string to filter events for an event subscription based on a resource path prefix.
+	SubjectBeginsWith pulumi.StringInput `pulumi:"subjectBeginsWith"`
+	// A string to filter events for an event subscription based on a resource path suffix.
+	SubjectEndsWith pulumi.StringInput `pulumi:"subjectEndsWith"`
+}
+
+func (EventSubscriptionSubjectFilterArgs) ElementType() reflect.Type {
+	return eventSubscriptionSubjectFilterType
+}
+
+func (a EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterOutput() EventSubscriptionSubjectFilterOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionSubjectFilterOutput)
+}
+
+func (a EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterOutputWithContext(ctx context.Context) EventSubscriptionSubjectFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionSubjectFilterOutput)
+}
+
+type EventSubscriptionSubjectFilterOutput struct { *pulumi.OutputState }
+
+// Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value defaults to `false`.
+func (o EventSubscriptionSubjectFilterOutput) CaseSensitive() pulumi.BoolOutput {
+	return o.Apply(func(v EventSubscriptionSubjectFilter) bool {
+		if v.CaseSensitive == nil { return *new(bool) } else { return *v.CaseSensitive }
+	}).(pulumi.BoolOutput)
+}
+
+// A string to filter events for an event subscription based on a resource path prefix.
+func (o EventSubscriptionSubjectFilterOutput) SubjectBeginsWith() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionSubjectFilter) string {
+		if v.SubjectBeginsWith == nil { return *new(string) } else { return *v.SubjectBeginsWith }
+	}).(pulumi.StringOutput)
+}
+
+// A string to filter events for an event subscription based on a resource path suffix.
+func (o EventSubscriptionSubjectFilterOutput) SubjectEndsWith() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionSubjectFilter) string {
+		if v.SubjectEndsWith == nil { return *new(string) } else { return *v.SubjectEndsWith }
+	}).(pulumi.StringOutput)
+}
+
+func (EventSubscriptionSubjectFilterOutput) ElementType() reflect.Type {
+	return eventSubscriptionSubjectFilterType
+}
+
+func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterOutput() EventSubscriptionSubjectFilterOutput {
+	return o
+}
+
+func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterOutputWithContext(ctx context.Context) EventSubscriptionSubjectFilterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionSubjectFilterOutput{}) }
+
+type EventSubscriptionWebhookEndpoint struct {
+	// Specifies the url of the webhook where the Event Subscription will receive events. 
+	Url string `pulumi:"url"`
+}
+var eventSubscriptionWebhookEndpointType = reflect.TypeOf((*EventSubscriptionWebhookEndpoint)(nil)).Elem()
+
+type EventSubscriptionWebhookEndpointInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionWebhookEndpointOutput() EventSubscriptionWebhookEndpointOutput
+	ToEventSubscriptionWebhookEndpointOutputWithContext(ctx context.Context) EventSubscriptionWebhookEndpointOutput
+}
+
+type EventSubscriptionWebhookEndpointArgs struct {
+	// Specifies the url of the webhook where the Event Subscription will receive events. 
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (EventSubscriptionWebhookEndpointArgs) ElementType() reflect.Type {
+	return eventSubscriptionWebhookEndpointType
+}
+
+func (a EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpointOutput() EventSubscriptionWebhookEndpointOutput {
+	return pulumi.ToOutput(a).(EventSubscriptionWebhookEndpointOutput)
+}
+
+func (a EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpointOutputWithContext(ctx context.Context) EventSubscriptionWebhookEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventSubscriptionWebhookEndpointOutput)
+}
+
+type EventSubscriptionWebhookEndpointOutput struct { *pulumi.OutputState }
+
+// Specifies the url of the webhook where the Event Subscription will receive events. 
+func (o EventSubscriptionWebhookEndpointOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v EventSubscriptionWebhookEndpoint) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+func (EventSubscriptionWebhookEndpointOutput) ElementType() reflect.Type {
+	return eventSubscriptionWebhookEndpointType
+}
+
+func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpointOutput() EventSubscriptionWebhookEndpointOutput {
+	return o
+}
+
+func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpointOutputWithContext(ctx context.Context) EventSubscriptionWebhookEndpointOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventSubscriptionWebhookEndpointOutput{}) }
+

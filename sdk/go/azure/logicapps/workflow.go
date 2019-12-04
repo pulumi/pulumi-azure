@@ -12,147 +12,114 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_workflow.html.markdown.
 type Workflow struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Access Endpoint for the Logic App Workflow
+	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
+
+	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A map of Key-Value pairs.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+
+	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
+	WorkflowSchema pulumi.StringOutput `pulumi:"workflowSchema"`
+
+	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+	WorkflowVersion pulumi.StringOutput `pulumi:"workflowVersion"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
 func NewWorkflow(ctx *pulumi.Context,
-	name string, args *WorkflowArgs, opts ...pulumi.ResourceOpt) (*Workflow, error) {
+	name string, args *WorkflowArgs, opts ...pulumi.ResourceOption) (*Workflow, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["workflowSchema"] = nil
-		inputs["workflowVersion"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["workflowSchema"] = args.WorkflowSchema
-		inputs["workflowVersion"] = args.WorkflowVersion
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.WorkflowSchema; i != nil { inputs["workflowSchema"] = i.ToStringOutput() }
+		if i := args.WorkflowVersion; i != nil { inputs["workflowVersion"] = i.ToStringOutput() }
 	}
-	inputs["accessEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:logicapps/workflow:Workflow", name, true, inputs, opts...)
+	var resource Workflow
+	err := ctx.RegisterResource("azure:logicapps/workflow:Workflow", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Workflow{s: s}, nil
+	return &resource, nil
 }
 
 // GetWorkflow gets an existing Workflow resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWorkflow(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WorkflowState, opts ...pulumi.ResourceOpt) (*Workflow, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WorkflowState, opts ...pulumi.ResourceOption) (*Workflow, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessEndpoint"] = state.AccessEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["parameters"] = state.Parameters
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["workflowSchema"] = state.WorkflowSchema
-		inputs["workflowVersion"] = state.WorkflowVersion
+		if i := state.AccessEndpoint; i != nil { inputs["accessEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.WorkflowSchema; i != nil { inputs["workflowSchema"] = i.ToStringOutput() }
+		if i := state.WorkflowVersion; i != nil { inputs["workflowVersion"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:logicapps/workflow:Workflow", name, id, inputs, opts...)
+	var resource Workflow
+	err := ctx.ReadResource("azure:logicapps/workflow:Workflow", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Workflow{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Workflow) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Workflow) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Access Endpoint for the Logic App Workflow
-func (r *Workflow) AccessEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accessEndpoint"])
-}
-
-// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
-func (r *Workflow) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *Workflow) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A map of Key-Value pairs.
-func (r *Workflow) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
-}
-
-// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
-func (r *Workflow) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Workflow) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
-func (r *Workflow) WorkflowSchema() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workflowSchema"])
-}
-
-// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
-func (r *Workflow) WorkflowVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workflowVersion"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Workflow resources.
 type WorkflowState struct {
 	// The Access Endpoint for the Logic App Workflow
-	AccessEndpoint interface{}
+	AccessEndpoint pulumi.StringInput `pulumi:"accessEndpoint"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of Key-Value pairs.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
-	WorkflowSchema interface{}
+	WorkflowSchema pulumi.StringInput `pulumi:"workflowSchema"`
 	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
-	WorkflowVersion interface{}
+	WorkflowVersion pulumi.StringInput `pulumi:"workflowVersion"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of Key-Value pairs.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
-	WorkflowSchema interface{}
+	WorkflowSchema pulumi.StringInput `pulumi:"workflowSchema"`
 	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
-	WorkflowVersion interface{}
+	WorkflowVersion pulumi.StringInput `pulumi:"workflowVersion"`
 }

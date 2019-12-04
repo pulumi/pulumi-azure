@@ -10,67 +10,74 @@ import (
 // Use this data source to access information about an existing Key Vault.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
-func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:keyvault/getKeyVault:getKeyVault", inputs)
+func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs, opts ...pulumi.InvokeOption) (*GetKeyVaultResult, error) {
+	var rv GetKeyVaultResult
+	err := ctx.Invoke("azure:keyvault/getKeyVault:getKeyVault", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetKeyVaultResult{
-		AccessPolicies: outputs["accessPolicies"],
-		EnabledForDeployment: outputs["enabledForDeployment"],
-		EnabledForDiskEncryption: outputs["enabledForDiskEncryption"],
-		EnabledForTemplateDeployment: outputs["enabledForTemplateDeployment"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		NetworkAcls: outputs["networkAcls"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		SkuName: outputs["skuName"],
-		Tags: outputs["tags"],
-		TenantId: outputs["tenantId"],
-		VaultUri: outputs["vaultUri"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getKeyVault.
 type GetKeyVaultArgs struct {
 	// Specifies the name of the Key Vault.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Key Vault exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getKeyVault.
 type GetKeyVaultResult struct {
 	// One or more `accessPolicy` blocks as defined below.
-	AccessPolicies interface{}
+	AccessPolicies []GetKeyVaultAccessPoliciesResult `pulumi:"accessPolicies"`
 	// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
-	EnabledForDeployment interface{}
+	EnabledForDeployment bool `pulumi:"enabledForDeployment"`
 	// Can Azure Disk Encryption retrieve secrets from the Key Vault?
-	EnabledForDiskEncryption interface{}
+	EnabledForDiskEncryption bool `pulumi:"enabledForDiskEncryption"`
 	// Can Azure Resource Manager retrieve secrets from the Key Vault?
-	EnabledForTemplateDeployment interface{}
+	EnabledForTemplateDeployment bool `pulumi:"enabledForTemplateDeployment"`
 	// The Azure Region in which the Key Vault exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the SKU used for this Key Vault.
-	Name interface{}
-	NetworkAcls interface{}
-	ResourceGroupName interface{}
+	Name string `pulumi:"name"`
+	NetworkAcls []GetKeyVaultNetworkAclsResult `pulumi:"networkAcls"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as described below.
-	Sku interface{}
-	SkuName interface{}
+	Sku GetKeyVaultSkuResult `pulumi:"sku"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the Key Vault.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
-	TenantId interface{}
+	TenantId string `pulumi:"tenantId"`
 	// The URI of the vault for performing operations on keys and secrets.
-	VaultUri interface{}
+	VaultUri string `pulumi:"vaultUri"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetKeyVaultAccessPoliciesResult struct {
+	// The Object ID of a Azure Active Directory Application.
+	ApplicationId string `pulumi:"applicationId"`
+	// A list of certificate permissions applicable to this Access Policy.
+	CertificatePermissions []string `pulumi:"certificatePermissions"`
+	// A list of key permissions applicable to this Access Policy.
+	KeyPermissions []string `pulumi:"keyPermissions"`
+	// An Object ID of a User, Service Principal or Security Group.
+	ObjectId string `pulumi:"objectId"`
+	// A list of secret permissions applicable to this Access Policy.
+	SecretPermissions []string `pulumi:"secretPermissions"`
+	// A list of storage permissions applicable to this Access Policy.
+	StoragePermissions []string `pulumi:"storagePermissions"`
+	// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
+	TenantId string `pulumi:"tenantId"`
+}
+type GetKeyVaultNetworkAclsResult struct {
+	Bypass string `pulumi:"bypass"`
+	DefaultAction string `pulumi:"defaultAction"`
+	IpRules []string `pulumi:"ipRules"`
+	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
+}
+type GetKeyVaultSkuResult struct {
+	// Specifies the name of the Key Vault.
+	Name string `pulumi:"name"`
 }

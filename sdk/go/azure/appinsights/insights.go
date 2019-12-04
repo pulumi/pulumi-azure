@@ -12,153 +12,120 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
 type Insights struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The App ID associated with this Application Insights component.
+	AppId pulumi.StringOutput `pulumi:"appId"`
+
+	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+	ApplicationType pulumi.StringOutput `pulumi:"applicationType"`
+
+	// The Instrumentation Key for this Application Insights component.
+	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Application Insights component. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the Application Insights component.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+	SamplingPercentage pulumi.Float64Output `pulumi:"samplingPercentage"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewInsights registers a new resource with the given unique name, arguments, and options.
 func NewInsights(ctx *pulumi.Context,
-	name string, args *InsightsArgs, opts ...pulumi.ResourceOpt) (*Insights, error) {
+	name string, args *InsightsArgs, opts ...pulumi.ResourceOption) (*Insights, error) {
 	if args == nil || args.ApplicationType == nil {
 		return nil, errors.New("missing required argument 'ApplicationType'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationType"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["samplingPercentage"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["applicationType"] = args.ApplicationType
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["samplingPercentage"] = args.SamplingPercentage
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationType; i != nil { inputs["applicationType"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SamplingPercentage; i != nil { inputs["samplingPercentage"] = i.ToFloat64Output() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["appId"] = nil
-	inputs["instrumentationKey"] = nil
-	s, err := ctx.RegisterResource("azure:appinsights/insights:Insights", name, true, inputs, opts...)
+	var resource Insights
+	err := ctx.RegisterResource("azure:appinsights/insights:Insights", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Insights{s: s}, nil
+	return &resource, nil
 }
 
 // GetInsights gets an existing Insights resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInsights(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InsightsState, opts ...pulumi.ResourceOpt) (*Insights, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InsightsState, opts ...pulumi.ResourceOption) (*Insights, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appId"] = state.AppId
-		inputs["applicationType"] = state.ApplicationType
-		inputs["instrumentationKey"] = state.InstrumentationKey
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["samplingPercentage"] = state.SamplingPercentage
-		inputs["tags"] = state.Tags
+		if i := state.AppId; i != nil { inputs["appId"] = i.ToStringOutput() }
+		if i := state.ApplicationType; i != nil { inputs["applicationType"] = i.ToStringOutput() }
+		if i := state.InstrumentationKey; i != nil { inputs["instrumentationKey"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SamplingPercentage; i != nil { inputs["samplingPercentage"] = i.ToFloat64Output() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appinsights/insights:Insights", name, id, inputs, opts...)
+	var resource Insights
+	err := ctx.ReadResource("azure:appinsights/insights:Insights", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Insights{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Insights) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Insights) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The App ID associated with this Application Insights component.
-func (r *Insights) AppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appId"])
-}
-
-// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
-func (r *Insights) ApplicationType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationType"])
-}
-
-// The Instrumentation Key for this Application Insights component.
-func (r *Insights) InstrumentationKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["instrumentationKey"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Insights) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Application Insights component. Changing this forces a
-// new resource to be created.
-func (r *Insights) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the Application Insights component.
-func (r *Insights) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
-func (r *Insights) SamplingPercentage() pulumi.Float64Output {
-	return (pulumi.Float64Output)(r.s.State["samplingPercentage"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Insights) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Insights resources.
 type InsightsState struct {
 	// The App ID associated with this Application Insights component.
-	AppId interface{}
+	AppId pulumi.StringInput `pulumi:"appId"`
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
-	ApplicationType interface{}
+	ApplicationType pulumi.StringInput `pulumi:"applicationType"`
 	// The Instrumentation Key for this Application Insights component.
-	InstrumentationKey interface{}
+	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Application Insights component.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
-	SamplingPercentage interface{}
+	SamplingPercentage pulumi.Float64Input `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Insights resource.
 type InsightsArgs struct {
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
-	ApplicationType interface{}
+	ApplicationType pulumi.StringInput `pulumi:"applicationType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Application Insights component. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the Application Insights component.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
-	SamplingPercentage interface{}
+	SamplingPercentage pulumi.Float64Input `pulumi:"samplingPercentage"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

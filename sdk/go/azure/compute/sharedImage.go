@@ -4,6 +4,8 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
 type SharedImage struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A description of this Shared Image.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The End User Licence Agreement for the Shared Image.
+	Eula pulumi.StringOutput `pulumi:"eula"`
+
+	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+	GalleryName pulumi.StringOutput `pulumi:"galleryName"`
+
+	// An `identifier` block as defined below.
+	Identifier SharedImageIdentifierOutput `pulumi:"identifier"`
+
+	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+	OsType pulumi.StringOutput `pulumi:"osType"`
+
+	// The URI containing the Privacy Statement associated with this Shared Image.
+	PrivacyStatementUri pulumi.StringOutput `pulumi:"privacyStatementUri"`
+
+	// The URI containing the Release Notes associated with this Shared Image.
+	ReleaseNoteUri pulumi.StringOutput `pulumi:"releaseNoteUri"`
+
+	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the Shared Image.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewSharedImage registers a new resource with the given unique name, arguments, and options.
 func NewSharedImage(ctx *pulumi.Context,
-	name string, args *SharedImageArgs, opts ...pulumi.ResourceOpt) (*SharedImage, error) {
+	name string, args *SharedImageArgs, opts ...pulumi.ResourceOption) (*SharedImage, error) {
 	if args == nil || args.GalleryName == nil {
 		return nil, errors.New("missing required argument 'GalleryName'")
 	}
@@ -30,177 +65,168 @@ func NewSharedImage(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["eula"] = nil
-		inputs["galleryName"] = nil
-		inputs["identifier"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["osType"] = nil
-		inputs["privacyStatementUri"] = nil
-		inputs["releaseNoteUri"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["eula"] = args.Eula
-		inputs["galleryName"] = args.GalleryName
-		inputs["identifier"] = args.Identifier
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["osType"] = args.OsType
-		inputs["privacyStatementUri"] = args.PrivacyStatementUri
-		inputs["releaseNoteUri"] = args.ReleaseNoteUri
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Eula; i != nil { inputs["eula"] = i.ToStringOutput() }
+		if i := args.GalleryName; i != nil { inputs["galleryName"] = i.ToStringOutput() }
+		if i := args.Identifier; i != nil { inputs["identifier"] = i.ToSharedImageIdentifierOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := args.PrivacyStatementUri; i != nil { inputs["privacyStatementUri"] = i.ToStringOutput() }
+		if i := args.ReleaseNoteUri; i != nil { inputs["releaseNoteUri"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/sharedImage:SharedImage", name, true, inputs, opts...)
+	var resource SharedImage
+	err := ctx.RegisterResource("azure:compute/sharedImage:SharedImage", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedImage{s: s}, nil
+	return &resource, nil
 }
 
 // GetSharedImage gets an existing SharedImage resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSharedImage(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SharedImageState, opts ...pulumi.ResourceOpt) (*SharedImage, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SharedImageState, opts ...pulumi.ResourceOption) (*SharedImage, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["eula"] = state.Eula
-		inputs["galleryName"] = state.GalleryName
-		inputs["identifier"] = state.Identifier
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["osType"] = state.OsType
-		inputs["privacyStatementUri"] = state.PrivacyStatementUri
-		inputs["releaseNoteUri"] = state.ReleaseNoteUri
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Eula; i != nil { inputs["eula"] = i.ToStringOutput() }
+		if i := state.GalleryName; i != nil { inputs["galleryName"] = i.ToStringOutput() }
+		if i := state.Identifier; i != nil { inputs["identifier"] = i.ToSharedImageIdentifierOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := state.PrivacyStatementUri; i != nil { inputs["privacyStatementUri"] = i.ToStringOutput() }
+		if i := state.ReleaseNoteUri; i != nil { inputs["releaseNoteUri"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/sharedImage:SharedImage", name, id, inputs, opts...)
+	var resource SharedImage
+	err := ctx.ReadResource("azure:compute/sharedImage:SharedImage", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedImage{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SharedImage) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SharedImage) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A description of this Shared Image.
-func (r *SharedImage) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The End User Licence Agreement for the Shared Image.
-func (r *SharedImage) Eula() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eula"])
-}
-
-// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
-func (r *SharedImage) GalleryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["galleryName"])
-}
-
-// An `identifier` block as defined below.
-func (r *SharedImage) Identifier() pulumi.Output {
-	return r.s.State["identifier"]
-}
-
-// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
-func (r *SharedImage) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
-func (r *SharedImage) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
-func (r *SharedImage) OsType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["osType"])
-}
-
-// The URI containing the Privacy Statement associated with this Shared Image.
-func (r *SharedImage) PrivacyStatementUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privacyStatementUri"])
-}
-
-// The URI containing the Release Notes associated with this Shared Image.
-func (r *SharedImage) ReleaseNoteUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["releaseNoteUri"])
-}
-
-// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-func (r *SharedImage) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the Shared Image.
-func (r *SharedImage) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SharedImage resources.
 type SharedImageState struct {
 	// A description of this Shared Image.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
-	Eula interface{}
+	Eula pulumi.StringInput `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
-	GalleryName interface{}
+	GalleryName pulumi.StringInput `pulumi:"galleryName"`
 	// An `identifier` block as defined below.
-	Identifier interface{}
+	Identifier SharedImageIdentifierInput `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
-	PrivacyStatementUri interface{}
+	PrivacyStatementUri pulumi.StringInput `pulumi:"privacyStatementUri"`
 	// The URI containing the Release Notes associated with this Shared Image.
-	ReleaseNoteUri interface{}
+	ReleaseNoteUri pulumi.StringInput `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Shared Image.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SharedImage resource.
 type SharedImageArgs struct {
 	// A description of this Shared Image.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
-	Eula interface{}
+	Eula pulumi.StringInput `pulumi:"eula"`
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
-	GalleryName interface{}
+	GalleryName pulumi.StringInput `pulumi:"galleryName"`
 	// An `identifier` block as defined below.
-	Identifier interface{}
+	Identifier SharedImageIdentifierInput `pulumi:"identifier"`
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
-	PrivacyStatementUri interface{}
+	PrivacyStatementUri pulumi.StringInput `pulumi:"privacyStatementUri"`
 	// The URI containing the Release Notes associated with this Shared Image.
-	ReleaseNoteUri interface{}
+	ReleaseNoteUri pulumi.StringInput `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Shared Image.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type SharedImageIdentifier struct {
+	Offer string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku string `pulumi:"sku"`
+}
+var sharedImageIdentifierType = reflect.TypeOf((*SharedImageIdentifier)(nil)).Elem()
+
+type SharedImageIdentifierInput interface {
+	pulumi.Input
+
+	ToSharedImageIdentifierOutput() SharedImageIdentifierOutput
+	ToSharedImageIdentifierOutputWithContext(ctx context.Context) SharedImageIdentifierOutput
+}
+
+type SharedImageIdentifierArgs struct {
+	Offer pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku pulumi.StringInput `pulumi:"sku"`
+}
+
+func (SharedImageIdentifierArgs) ElementType() reflect.Type {
+	return sharedImageIdentifierType
+}
+
+func (a SharedImageIdentifierArgs) ToSharedImageIdentifierOutput() SharedImageIdentifierOutput {
+	return pulumi.ToOutput(a).(SharedImageIdentifierOutput)
+}
+
+func (a SharedImageIdentifierArgs) ToSharedImageIdentifierOutputWithContext(ctx context.Context) SharedImageIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SharedImageIdentifierOutput)
+}
+
+type SharedImageIdentifierOutput struct { *pulumi.OutputState }
+
+func (o SharedImageIdentifierOutput) Offer() pulumi.StringOutput {
+	return o.Apply(func(v SharedImageIdentifier) string {
+		return v.Offer
+	}).(pulumi.StringOutput)
+}
+
+func (o SharedImageIdentifierOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v SharedImageIdentifier) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+func (o SharedImageIdentifierOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v SharedImageIdentifier) string {
+		return v.Sku
+	}).(pulumi.StringOutput)
+}
+
+func (SharedImageIdentifierOutput) ElementType() reflect.Type {
+	return sharedImageIdentifierType
+}
+
+func (o SharedImageIdentifierOutput) ToSharedImageIdentifierOutput() SharedImageIdentifierOutput {
+	return o
+}
+
+func (o SharedImageIdentifierOutput) ToSharedImageIdentifierOutputWithContext(ctx context.Context) SharedImageIdentifierOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SharedImageIdentifierOutput{}) }
+

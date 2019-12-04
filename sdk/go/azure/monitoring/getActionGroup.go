@@ -10,72 +10,147 @@ import (
 // Use this data source to access the properties of an Action Group.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
-func LookupActionGroup(ctx *pulumi.Context, args *GetActionGroupArgs) (*GetActionGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:monitoring/getActionGroup:getActionGroup", inputs)
+func LookupActionGroup(ctx *pulumi.Context, args *GetActionGroupArgs, opts ...pulumi.InvokeOption) (*GetActionGroupResult, error) {
+	var rv GetActionGroupResult
+	err := ctx.Invoke("azure:monitoring/getActionGroup:getActionGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetActionGroupResult{
-		ArmRoleReceivers: outputs["armRoleReceivers"],
-		AutomationRunbookReceivers: outputs["automationRunbookReceivers"],
-		AzureAppPushReceivers: outputs["azureAppPushReceivers"],
-		AzureFunctionReceivers: outputs["azureFunctionReceivers"],
-		EmailReceivers: outputs["emailReceivers"],
-		Enabled: outputs["enabled"],
-		ItsmReceivers: outputs["itsmReceivers"],
-		LogicAppReceivers: outputs["logicAppReceivers"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ShortName: outputs["shortName"],
-		SmsReceivers: outputs["smsReceivers"],
-		VoiceReceivers: outputs["voiceReceivers"],
-		WebhookReceivers: outputs["webhookReceivers"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getActionGroup.
 type GetActionGroupArgs struct {
 	// Specifies the name of the Action Group.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Action Group is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getActionGroup.
 type GetActionGroupResult struct {
 	// One or more `armRoleReceiver` blocks as defined below.
-	ArmRoleReceivers interface{}
+	ArmRoleReceivers []GetActionGroupArmRoleReceiversResult `pulumi:"armRoleReceivers"`
 	// One or more `automationRunbookReceiver` blocks as defined below.
-	AutomationRunbookReceivers interface{}
+	AutomationRunbookReceivers []GetActionGroupAutomationRunbookReceiversResult `pulumi:"automationRunbookReceivers"`
 	// One or more `azureAppPushReceiver` blocks as defined below.
-	AzureAppPushReceivers interface{}
+	AzureAppPushReceivers []GetActionGroupAzureAppPushReceiversResult `pulumi:"azureAppPushReceivers"`
 	// One or more `azureFunctionReceiver` blocks as defined below.
-	AzureFunctionReceivers interface{}
+	AzureFunctionReceivers []GetActionGroupAzureFunctionReceiversResult `pulumi:"azureFunctionReceivers"`
 	// One or more `emailReceiver` blocks as defined below.
-	EmailReceivers interface{}
+	EmailReceivers []GetActionGroupEmailReceiversResult `pulumi:"emailReceivers"`
 	// Whether this action group is enabled.
-	Enabled interface{}
+	Enabled bool `pulumi:"enabled"`
 	// One or more `itsmReceiver` blocks as defined below.
-	ItsmReceivers interface{}
+	ItsmReceivers []GetActionGroupItsmReceiversResult `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
-	LogicAppReceivers interface{}
+	LogicAppReceivers []GetActionGroupLogicAppReceiversResult `pulumi:"logicAppReceivers"`
 	// The name of the webhook receiver.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The short name of the action group.
-	ShortName interface{}
+	ShortName string `pulumi:"shortName"`
 	// One or more `smsReceiver` blocks as defined below.
-	SmsReceivers interface{}
+	SmsReceivers []GetActionGroupSmsReceiversResult `pulumi:"smsReceivers"`
 	// One or more `voiceReceiver` blocks as defined below.
-	VoiceReceivers interface{}
+	VoiceReceivers []GetActionGroupVoiceReceiversResult `pulumi:"voiceReceivers"`
 	// One or more `webhookReceiver` blocks as defined below.
-	WebhookReceivers interface{}
+	WebhookReceivers []GetActionGroupWebhookReceiversResult `pulumi:"webhookReceivers"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetActionGroupArmRoleReceiversResult struct {
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The arm role id.
+	RoleId string `pulumi:"roleId"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+}
+type GetActionGroupAutomationRunbookReceiversResult struct {
+	// The automation account ID which holds this runbook and authenticates to Azure resources.
+	AutomationAccountId string `pulumi:"automationAccountId"`
+	// Indicates whether this instance is global runbook.
+	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The name for this runbook.
+	RunbookName string `pulumi:"runbookName"`
+	// The URI where webhooks should be sent.
+	ServiceUri string `pulumi:"serviceUri"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+	// The resource id for webhook linked to this runbook.
+	WebhookResourceId string `pulumi:"webhookResourceId"`
+}
+type GetActionGroupAzureAppPushReceiversResult struct {
+	// The email address of this receiver.
+	EmailAddress string `pulumi:"emailAddress"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+}
+type GetActionGroupAzureFunctionReceiversResult struct {
+	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
+	// The function name in the function app.
+	FunctionName string `pulumi:"functionName"`
+	// The http trigger url where http request sent to.
+	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+}
+type GetActionGroupEmailReceiversResult struct {
+	// The email address of this receiver.
+	EmailAddress string `pulumi:"emailAddress"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+}
+type GetActionGroupItsmReceiversResult struct {
+	// The unique connection identifier of the ITSM connection.
+	ConnectionId string `pulumi:"connectionId"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The region of the workspace.
+	Region string `pulumi:"region"`
+	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	TicketConfiguration string `pulumi:"ticketConfiguration"`
+	// The Azure Log Analytics workspace ID where this connection is defined.
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+type GetActionGroupLogicAppReceiversResult struct {
+	// The callback url where http request sent to.
+	CallbackUrl string `pulumi:"callbackUrl"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The Azure resource ID of the logic app.
+	ResourceId string `pulumi:"resourceId"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema bool `pulumi:"useCommonAlertSchema"`
+}
+type GetActionGroupSmsReceiversResult struct {
+	// The country code of the voice receiver.
+	CountryCode string `pulumi:"countryCode"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The phone number of the voice receiver.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+type GetActionGroupVoiceReceiversResult struct {
+	// The country code of the voice receiver.
+	CountryCode string `pulumi:"countryCode"`
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The phone number of the voice receiver.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+type GetActionGroupWebhookReceiversResult struct {
+	// Specifies the name of the Action Group.
+	Name string `pulumi:"name"`
+	// The URI where webhooks should be sent.
+	ServiceUri string `pulumi:"serviceUri"`
+	// Indicates whether to use common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
 }

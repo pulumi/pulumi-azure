@@ -4,6 +4,8 @@
 package dns
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_txt_record.html.markdown.
 type TxtRecord struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the DNS TXT Record.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of values that make up the txt record. Each `record` block supports fields documented below.
+	Records TxtRecordRecordsArrayOutput `pulumi:"records"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewTxtRecord registers a new resource with the given unique name, arguments, and options.
 func NewTxtRecord(ctx *pulumi.Context,
-	name string, args *TxtRecordArgs, opts ...pulumi.ResourceOpt) (*TxtRecord, error) {
+	name string, args *TxtRecordArgs, opts ...pulumi.ResourceOption) (*TxtRecord, error) {
 	if args == nil || args.Records == nil {
 		return nil, errors.New("missing required argument 'Records'")
 	}
@@ -30,117 +50,167 @@ func NewTxtRecord(ctx *pulumi.Context,
 	if args == nil || args.ZoneName == nil {
 		return nil, errors.New("missing required argument 'ZoneName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["records"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["ttl"] = nil
-		inputs["zoneName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["records"] = args.Records
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["ttl"] = args.Ttl
-		inputs["zoneName"] = args.ZoneName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Records; i != nil { inputs["records"] = i.ToTxtRecordRecordsArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:dns/txtRecord:TxtRecord", name, true, inputs, opts...)
+	var resource TxtRecord
+	err := ctx.RegisterResource("azure:dns/txtRecord:TxtRecord", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TxtRecord{s: s}, nil
+	return &resource, nil
 }
 
 // GetTxtRecord gets an existing TxtRecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTxtRecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TxtRecordState, opts ...pulumi.ResourceOpt) (*TxtRecord, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TxtRecordState, opts ...pulumi.ResourceOption) (*TxtRecord, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["records"] = state.Records
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["ttl"] = state.Ttl
-		inputs["zoneName"] = state.ZoneName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Records; i != nil { inputs["records"] = i.ToTxtRecordRecordsArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:dns/txtRecord:TxtRecord", name, id, inputs, opts...)
+	var resource TxtRecord
+	err := ctx.ReadResource("azure:dns/txtRecord:TxtRecord", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TxtRecord{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TxtRecord) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TxtRecord) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the DNS TXT Record.
-func (r *TxtRecord) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of values that make up the txt record. Each `record` block supports fields documented below.
-func (r *TxtRecord) Records() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["records"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *TxtRecord) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *TxtRecord) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Time To Live (TTL) of the DNS record in seconds.
-func (r *TxtRecord) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *TxtRecord) ZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TxtRecord resources.
 type TxtRecordState struct {
 	// The name of the DNS TXT Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
-	Records interface{}
+	Records TxtRecordRecordsArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a TxtRecord resource.
 type TxtRecordArgs struct {
 	// The name of the DNS TXT Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of values that make up the txt record. Each `record` block supports fields documented below.
-	Records interface{}
+	Records TxtRecordRecordsArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
+type TxtRecordRecords struct {
+	Value string `pulumi:"value"`
+}
+var txtRecordRecordsType = reflect.TypeOf((*TxtRecordRecords)(nil)).Elem()
+
+type TxtRecordRecordsInput interface {
+	pulumi.Input
+
+	ToTxtRecordRecordsOutput() TxtRecordRecordsOutput
+	ToTxtRecordRecordsOutputWithContext(ctx context.Context) TxtRecordRecordsOutput
+}
+
+type TxtRecordRecordsArgs struct {
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TxtRecordRecordsArgs) ElementType() reflect.Type {
+	return txtRecordRecordsType
+}
+
+func (a TxtRecordRecordsArgs) ToTxtRecordRecordsOutput() TxtRecordRecordsOutput {
+	return pulumi.ToOutput(a).(TxtRecordRecordsOutput)
+}
+
+func (a TxtRecordRecordsArgs) ToTxtRecordRecordsOutputWithContext(ctx context.Context) TxtRecordRecordsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TxtRecordRecordsOutput)
+}
+
+type TxtRecordRecordsOutput struct { *pulumi.OutputState }
+
+func (o TxtRecordRecordsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v TxtRecordRecords) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (TxtRecordRecordsOutput) ElementType() reflect.Type {
+	return txtRecordRecordsType
+}
+
+func (o TxtRecordRecordsOutput) ToTxtRecordRecordsOutput() TxtRecordRecordsOutput {
+	return o
+}
+
+func (o TxtRecordRecordsOutput) ToTxtRecordRecordsOutputWithContext(ctx context.Context) TxtRecordRecordsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TxtRecordRecordsOutput{}) }
+
+var txtRecordRecordsArrayType = reflect.TypeOf((*[]TxtRecordRecords)(nil)).Elem()
+
+type TxtRecordRecordsArrayInput interface {
+	pulumi.Input
+
+	ToTxtRecordRecordsArrayOutput() TxtRecordRecordsArrayOutput
+	ToTxtRecordRecordsArrayOutputWithContext(ctx context.Context) TxtRecordRecordsArrayOutput
+}
+
+type TxtRecordRecordsArrayArgs []TxtRecordRecordsInput
+
+func (TxtRecordRecordsArrayArgs) ElementType() reflect.Type {
+	return txtRecordRecordsArrayType
+}
+
+func (a TxtRecordRecordsArrayArgs) ToTxtRecordRecordsArrayOutput() TxtRecordRecordsArrayOutput {
+	return pulumi.ToOutput(a).(TxtRecordRecordsArrayOutput)
+}
+
+func (a TxtRecordRecordsArrayArgs) ToTxtRecordRecordsArrayOutputWithContext(ctx context.Context) TxtRecordRecordsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TxtRecordRecordsArrayOutput)
+}
+
+type TxtRecordRecordsArrayOutput struct { *pulumi.OutputState }
+
+func (o TxtRecordRecordsArrayOutput) Index(i pulumi.IntInput) TxtRecordRecordsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TxtRecordRecords {
+		return vs[0].([]TxtRecordRecords)[vs[1].(int)]
+	}).(TxtRecordRecordsOutput)
+}
+
+func (TxtRecordRecordsArrayOutput) ElementType() reflect.Type {
+	return txtRecordRecordsArrayType
+}
+
+func (o TxtRecordRecordsArrayOutput) ToTxtRecordRecordsArrayOutput() TxtRecordRecordsArrayOutput {
+	return o
+}
+
+func (o TxtRecordRecordsArrayOutput) ToTxtRecordRecordsArrayOutputWithContext(ctx context.Context) TxtRecordRecordsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TxtRecordRecordsArrayOutput{}) }
+

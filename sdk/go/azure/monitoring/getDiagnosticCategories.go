@@ -10,36 +10,28 @@ import (
 // Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
-func LookupDiagnosticCategories(ctx *pulumi.Context, args *GetDiagnosticCategoriesArgs) (*GetDiagnosticCategoriesResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["resourceId"] = args.ResourceId
-	}
-	outputs, err := ctx.Invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", inputs)
+func LookupDiagnosticCategories(ctx *pulumi.Context, args *GetDiagnosticCategoriesArgs, opts ...pulumi.InvokeOption) (*GetDiagnosticCategoriesResult, error) {
+	var rv GetDiagnosticCategoriesResult
+	err := ctx.Invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetDiagnosticCategoriesResult{
-		Logs: outputs["logs"],
-		Metrics: outputs["metrics"],
-		ResourceId: outputs["resourceId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getDiagnosticCategories.
 type GetDiagnosticCategoriesArgs struct {
 	// The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
-	ResourceId interface{}
+	ResourceId string `pulumi:"resourceId"`
 }
 
 // A collection of values returned by getDiagnosticCategories.
 type GetDiagnosticCategoriesResult struct {
 	// A list of the Log Categories supported for this Resource.
-	Logs interface{}
+	Logs []string `pulumi:"logs"`
 	// A list of the Metric Categories supported for this Resource.
-	Metrics interface{}
-	ResourceId interface{}
+	Metrics []string `pulumi:"metrics"`
+	ResourceId string `pulumi:"resourceId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

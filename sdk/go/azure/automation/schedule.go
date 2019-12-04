@@ -4,6 +4,8 @@
 package automation
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,210 +14,265 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
 type Schedule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
+	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
+
+	// A description for this Schedule.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The end time of the schedule.
+	ExpiryTime pulumi.StringOutput `pulumi:"expiryTime"`
+
+	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+	Frequency pulumi.StringOutput `pulumi:"frequency"`
+
+	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	Interval pulumi.IntOutput `pulumi:"interval"`
+
+	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+	MonthDays pulumi.IntArrayOutput `pulumi:"monthDays"`
+
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+	MonthlyOccurrences ScheduleMonthlyOccurrencesArrayOutput `pulumi:"monthlyOccurrences"`
+
+	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
+
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	Timezone pulumi.StringOutput `pulumi:"timezone"`
+
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	WeekDays pulumi.StringArrayOutput `pulumi:"weekDays"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
-	name string, args *ScheduleArgs, opts ...pulumi.ResourceOpt) (*Schedule, error) {
+	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
 	if args == nil || args.Frequency == nil {
 		return nil, errors.New("missing required argument 'Frequency'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["automationAccountName"] = nil
-		inputs["description"] = nil
-		inputs["expiryTime"] = nil
-		inputs["frequency"] = nil
-		inputs["interval"] = nil
-		inputs["monthDays"] = nil
-		inputs["monthlyOccurrences"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["startTime"] = nil
-		inputs["timezone"] = nil
-		inputs["weekDays"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["automationAccountName"] = args.AutomationAccountName
-		inputs["description"] = args.Description
-		inputs["expiryTime"] = args.ExpiryTime
-		inputs["frequency"] = args.Frequency
-		inputs["interval"] = args.Interval
-		inputs["monthDays"] = args.MonthDays
-		inputs["monthlyOccurrences"] = args.MonthlyOccurrences
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["startTime"] = args.StartTime
-		inputs["timezone"] = args.Timezone
-		inputs["weekDays"] = args.WeekDays
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.ExpiryTime; i != nil { inputs["expiryTime"] = i.ToStringOutput() }
+		if i := args.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := args.Interval; i != nil { inputs["interval"] = i.ToIntOutput() }
+		if i := args.MonthDays; i != nil { inputs["monthDays"] = i.ToIntArrayOutput() }
+		if i := args.MonthlyOccurrences; i != nil { inputs["monthlyOccurrences"] = i.ToScheduleMonthlyOccurrencesArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
+		if i := args.Timezone; i != nil { inputs["timezone"] = i.ToStringOutput() }
+		if i := args.WeekDays; i != nil { inputs["weekDays"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:automation/schedule:Schedule", name, true, inputs, opts...)
+	var resource Schedule
+	err := ctx.RegisterResource("azure:automation/schedule:Schedule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Schedule{s: s}, nil
+	return &resource, nil
 }
 
 // GetSchedule gets an existing Schedule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSchedule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ScheduleState, opts ...pulumi.ResourceOpt) (*Schedule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ScheduleState, opts ...pulumi.ResourceOption) (*Schedule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["automationAccountName"] = state.AutomationAccountName
-		inputs["description"] = state.Description
-		inputs["expiryTime"] = state.ExpiryTime
-		inputs["frequency"] = state.Frequency
-		inputs["interval"] = state.Interval
-		inputs["monthDays"] = state.MonthDays
-		inputs["monthlyOccurrences"] = state.MonthlyOccurrences
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["startTime"] = state.StartTime
-		inputs["timezone"] = state.Timezone
-		inputs["weekDays"] = state.WeekDays
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.ExpiryTime; i != nil { inputs["expiryTime"] = i.ToStringOutput() }
+		if i := state.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := state.Interval; i != nil { inputs["interval"] = i.ToIntOutput() }
+		if i := state.MonthDays; i != nil { inputs["monthDays"] = i.ToIntArrayOutput() }
+		if i := state.MonthlyOccurrences; i != nil { inputs["monthlyOccurrences"] = i.ToScheduleMonthlyOccurrencesArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
+		if i := state.Timezone; i != nil { inputs["timezone"] = i.ToStringOutput() }
+		if i := state.WeekDays; i != nil { inputs["weekDays"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:automation/schedule:Schedule", name, id, inputs, opts...)
+	var resource Schedule
+	err := ctx.ReadResource("azure:automation/schedule:Schedule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Schedule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Schedule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Schedule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Schedule) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-func (r *Schedule) AutomationAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
-}
-
-// A description for this Schedule.
-func (r *Schedule) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The end time of the schedule.
-func (r *Schedule) ExpiryTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expiryTime"])
-}
-
-// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-func (r *Schedule) Frequency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frequency"])
-}
-
-// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-func (r *Schedule) Interval() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["interval"])
-}
-
-// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-func (r *Schedule) MonthDays() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["monthDays"])
-}
-
-// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
-func (r *Schedule) MonthlyOccurrences() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["monthlyOccurrences"])
-}
-
-// Specifies the name of the Schedule. Changing this forces a new resource to be created.
-func (r *Schedule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
-func (r *Schedule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-func (r *Schedule) StartTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startTime"])
-}
-
-// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
-func (r *Schedule) Timezone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timezone"])
-}
-
-// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
-func (r *Schedule) WeekDays() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["weekDays"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Schedule resources.
 type ScheduleState struct {
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// A description for this Schedule.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The end time of the schedule.
-	ExpiryTime interface{}
+	ExpiryTime pulumi.StringInput `pulumi:"expiryTime"`
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-	Interval interface{}
+	Interval pulumi.IntInput `pulumi:"interval"`
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-	MonthDays interface{}
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
 	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
-	MonthlyOccurrences interface{}
+	MonthlyOccurrences ScheduleMonthlyOccurrencesArrayInput `pulumi:"monthlyOccurrences"`
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
-	Timezone interface{}
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
-	WeekDays interface{}
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// A description for this Schedule.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The end time of the schedule.
-	ExpiryTime interface{}
+	ExpiryTime pulumi.StringInput `pulumi:"expiryTime"`
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-	Interval interface{}
+	Interval pulumi.IntInput `pulumi:"interval"`
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-	MonthDays interface{}
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
 	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
-	MonthlyOccurrences interface{}
+	MonthlyOccurrences ScheduleMonthlyOccurrencesArrayInput `pulumi:"monthlyOccurrences"`
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
-	Timezone interface{}
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
-	WeekDays interface{}
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
 }
+type ScheduleMonthlyOccurrences struct {
+	Day string `pulumi:"day"`
+	Occurrence int `pulumi:"occurrence"`
+}
+var scheduleMonthlyOccurrencesType = reflect.TypeOf((*ScheduleMonthlyOccurrences)(nil)).Elem()
+
+type ScheduleMonthlyOccurrencesInput interface {
+	pulumi.Input
+
+	ToScheduleMonthlyOccurrencesOutput() ScheduleMonthlyOccurrencesOutput
+	ToScheduleMonthlyOccurrencesOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencesOutput
+}
+
+type ScheduleMonthlyOccurrencesArgs struct {
+	Day pulumi.StringInput `pulumi:"day"`
+	Occurrence pulumi.IntInput `pulumi:"occurrence"`
+}
+
+func (ScheduleMonthlyOccurrencesArgs) ElementType() reflect.Type {
+	return scheduleMonthlyOccurrencesType
+}
+
+func (a ScheduleMonthlyOccurrencesArgs) ToScheduleMonthlyOccurrencesOutput() ScheduleMonthlyOccurrencesOutput {
+	return pulumi.ToOutput(a).(ScheduleMonthlyOccurrencesOutput)
+}
+
+func (a ScheduleMonthlyOccurrencesArgs) ToScheduleMonthlyOccurrencesOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduleMonthlyOccurrencesOutput)
+}
+
+type ScheduleMonthlyOccurrencesOutput struct { *pulumi.OutputState }
+
+func (o ScheduleMonthlyOccurrencesOutput) Day() pulumi.StringOutput {
+	return o.Apply(func(v ScheduleMonthlyOccurrences) string {
+		return v.Day
+	}).(pulumi.StringOutput)
+}
+
+func (o ScheduleMonthlyOccurrencesOutput) Occurrence() pulumi.IntOutput {
+	return o.Apply(func(v ScheduleMonthlyOccurrences) int {
+		return v.Occurrence
+	}).(pulumi.IntOutput)
+}
+
+func (ScheduleMonthlyOccurrencesOutput) ElementType() reflect.Type {
+	return scheduleMonthlyOccurrencesType
+}
+
+func (o ScheduleMonthlyOccurrencesOutput) ToScheduleMonthlyOccurrencesOutput() ScheduleMonthlyOccurrencesOutput {
+	return o
+}
+
+func (o ScheduleMonthlyOccurrencesOutput) ToScheduleMonthlyOccurrencesOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduleMonthlyOccurrencesOutput{}) }
+
+var scheduleMonthlyOccurrencesArrayType = reflect.TypeOf((*[]ScheduleMonthlyOccurrences)(nil)).Elem()
+
+type ScheduleMonthlyOccurrencesArrayInput interface {
+	pulumi.Input
+
+	ToScheduleMonthlyOccurrencesArrayOutput() ScheduleMonthlyOccurrencesArrayOutput
+	ToScheduleMonthlyOccurrencesArrayOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencesArrayOutput
+}
+
+type ScheduleMonthlyOccurrencesArrayArgs []ScheduleMonthlyOccurrencesInput
+
+func (ScheduleMonthlyOccurrencesArrayArgs) ElementType() reflect.Type {
+	return scheduleMonthlyOccurrencesArrayType
+}
+
+func (a ScheduleMonthlyOccurrencesArrayArgs) ToScheduleMonthlyOccurrencesArrayOutput() ScheduleMonthlyOccurrencesArrayOutput {
+	return pulumi.ToOutput(a).(ScheduleMonthlyOccurrencesArrayOutput)
+}
+
+func (a ScheduleMonthlyOccurrencesArrayArgs) ToScheduleMonthlyOccurrencesArrayOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduleMonthlyOccurrencesArrayOutput)
+}
+
+type ScheduleMonthlyOccurrencesArrayOutput struct { *pulumi.OutputState }
+
+func (o ScheduleMonthlyOccurrencesArrayOutput) Index(i pulumi.IntInput) ScheduleMonthlyOccurrencesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ScheduleMonthlyOccurrences {
+		return vs[0].([]ScheduleMonthlyOccurrences)[vs[1].(int)]
+	}).(ScheduleMonthlyOccurrencesOutput)
+}
+
+func (ScheduleMonthlyOccurrencesArrayOutput) ElementType() reflect.Type {
+	return scheduleMonthlyOccurrencesArrayType
+}
+
+func (o ScheduleMonthlyOccurrencesArrayOutput) ToScheduleMonthlyOccurrencesArrayOutput() ScheduleMonthlyOccurrencesArrayOutput {
+	return o
+}
+
+func (o ScheduleMonthlyOccurrencesArrayOutput) ToScheduleMonthlyOccurrencesArrayOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrencesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduleMonthlyOccurrencesArrayOutput{}) }
+

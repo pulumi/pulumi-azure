@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,94 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
 type ApplicationGateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `authenticationCertificate` blocks as defined below.
+	AuthenticationCertificates ApplicationGatewayAuthenticationCertificatesArrayOutput `pulumi:"authenticationCertificates"`
+
+	// A `autoscaleConfiguration` block as defined below.
+	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationOutput `pulumi:"autoscaleConfiguration"`
+
+	// One or more `backendAddressPool` blocks as defined below.
+	BackendAddressPools ApplicationGatewayBackendAddressPoolsArrayOutput `pulumi:"backendAddressPools"`
+
+	// One or more `backendHttpSettings` blocks as defined below.
+	BackendHttpSettings ApplicationGatewayBackendHttpSettingsArrayOutput `pulumi:"backendHttpSettings"`
+
+	// One or more `customErrorConfiguration` blocks as defined below.
+	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationsArrayOutput `pulumi:"customErrorConfigurations"`
+
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
+	DisabledSslProtocols pulumi.StringArrayOutput `pulumi:"disabledSslProtocols"`
+
+	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+	EnableHttp2 pulumi.BoolOutput `pulumi:"enableHttp2"`
+
+	// One or more `frontendIpConfiguration` blocks as defined below.
+	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationsArrayOutput `pulumi:"frontendIpConfigurations"`
+
+	// One or more `frontendPort` blocks as defined below.
+	FrontendPorts ApplicationGatewayFrontendPortsArrayOutput `pulumi:"frontendPorts"`
+
+	// One or more `gatewayIpConfiguration` blocks as defined below.
+	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationsArrayOutput `pulumi:"gatewayIpConfigurations"`
+
+	// One or more `httpListener` blocks as defined below.
+	HttpListeners ApplicationGatewayHttpListenersArrayOutput `pulumi:"httpListeners"`
+
+	// A `identity` block.
+	Identity ApplicationGatewayIdentityOutput `pulumi:"identity"`
+
+	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// One or more `probe` blocks as defined below.
+	Probes ApplicationGatewayProbesArrayOutput `pulumi:"probes"`
+
+	// A `redirectConfiguration` block as defined below.
+	RedirectConfigurations ApplicationGatewayRedirectConfigurationsArrayOutput `pulumi:"redirectConfigurations"`
+
+	// One or more `requestRoutingRule` blocks as defined below.
+	RequestRoutingRules ApplicationGatewayRequestRoutingRulesArrayOutput `pulumi:"requestRoutingRules"`
+
+	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
+	RewriteRuleSets ApplicationGatewayRewriteRuleSetsArrayOutput `pulumi:"rewriteRuleSets"`
+
+	// A `sku` block as defined below.
+	Sku ApplicationGatewaySkuOutput `pulumi:"sku"`
+
+	// One or more `sslCertificate` blocks as defined below.
+	SslCertificates ApplicationGatewaySslCertificatesArrayOutput `pulumi:"sslCertificates"`
+
+	// a `ssl policy` block as defined below.
+	SslPolicies ApplicationGatewaySslPoliciesArrayOutput `pulumi:"sslPolicies"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// One or more `trustedRootCertificate` blocks as defined below.
+	TrustedRootCertificates ApplicationGatewayTrustedRootCertificatesArrayOutput `pulumi:"trustedRootCertificates"`
+
+	// One or more `urlPathMap` blocks as defined below.
+	UrlPathMaps ApplicationGatewayUrlPathMapsArrayOutput `pulumi:"urlPathMaps"`
+
+	// A `wafConfiguration` block as defined below.
+	WafConfiguration ApplicationGatewayWafConfigurationOutput `pulumi:"wafConfiguration"`
+
+	// A collection of availability zones to spread the Application Gateway over.
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewApplicationGateway registers a new resource with the given unique name, arguments, and options.
 func NewApplicationGateway(ctx *pulumi.Context,
-	name string, args *ApplicationGatewayArgs, opts ...pulumi.ResourceOpt) (*ApplicationGateway, error) {
+	name string, args *ApplicationGatewayArgs, opts ...pulumi.ResourceOption) (*ApplicationGateway, error) {
 	if args == nil || args.BackendAddressPools == nil {
 		return nil, errors.New("missing required argument 'BackendAddressPools'")
 	}
@@ -45,372 +129,4118 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["authenticationCertificates"] = nil
-		inputs["autoscaleConfiguration"] = nil
-		inputs["backendAddressPools"] = nil
-		inputs["backendHttpSettings"] = nil
-		inputs["customErrorConfigurations"] = nil
-		inputs["disabledSslProtocols"] = nil
-		inputs["enableHttp2"] = nil
-		inputs["frontendIpConfigurations"] = nil
-		inputs["frontendPorts"] = nil
-		inputs["gatewayIpConfigurations"] = nil
-		inputs["httpListeners"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["probes"] = nil
-		inputs["redirectConfigurations"] = nil
-		inputs["requestRoutingRules"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["rewriteRuleSets"] = nil
-		inputs["sku"] = nil
-		inputs["sslCertificates"] = nil
-		inputs["sslPolicies"] = nil
-		inputs["tags"] = nil
-		inputs["trustedRootCertificates"] = nil
-		inputs["urlPathMaps"] = nil
-		inputs["wafConfiguration"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["authenticationCertificates"] = args.AuthenticationCertificates
-		inputs["autoscaleConfiguration"] = args.AutoscaleConfiguration
-		inputs["backendAddressPools"] = args.BackendAddressPools
-		inputs["backendHttpSettings"] = args.BackendHttpSettings
-		inputs["customErrorConfigurations"] = args.CustomErrorConfigurations
-		inputs["disabledSslProtocols"] = args.DisabledSslProtocols
-		inputs["enableHttp2"] = args.EnableHttp2
-		inputs["frontendIpConfigurations"] = args.FrontendIpConfigurations
-		inputs["frontendPorts"] = args.FrontendPorts
-		inputs["gatewayIpConfigurations"] = args.GatewayIpConfigurations
-		inputs["httpListeners"] = args.HttpListeners
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["probes"] = args.Probes
-		inputs["redirectConfigurations"] = args.RedirectConfigurations
-		inputs["requestRoutingRules"] = args.RequestRoutingRules
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["rewriteRuleSets"] = args.RewriteRuleSets
-		inputs["sku"] = args.Sku
-		inputs["sslCertificates"] = args.SslCertificates
-		inputs["sslPolicies"] = args.SslPolicies
-		inputs["tags"] = args.Tags
-		inputs["trustedRootCertificates"] = args.TrustedRootCertificates
-		inputs["urlPathMaps"] = args.UrlPathMaps
-		inputs["wafConfiguration"] = args.WafConfiguration
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AuthenticationCertificates; i != nil { inputs["authenticationCertificates"] = i.ToApplicationGatewayAuthenticationCertificatesArrayOutput() }
+		if i := args.AutoscaleConfiguration; i != nil { inputs["autoscaleConfiguration"] = i.ToApplicationGatewayAutoscaleConfigurationOutput() }
+		if i := args.BackendAddressPools; i != nil { inputs["backendAddressPools"] = i.ToApplicationGatewayBackendAddressPoolsArrayOutput() }
+		if i := args.BackendHttpSettings; i != nil { inputs["backendHttpSettings"] = i.ToApplicationGatewayBackendHttpSettingsArrayOutput() }
+		if i := args.CustomErrorConfigurations; i != nil { inputs["customErrorConfigurations"] = i.ToApplicationGatewayCustomErrorConfigurationsArrayOutput() }
+		if i := args.DisabledSslProtocols; i != nil { inputs["disabledSslProtocols"] = i.ToStringArrayOutput() }
+		if i := args.EnableHttp2; i != nil { inputs["enableHttp2"] = i.ToBoolOutput() }
+		if i := args.FrontendIpConfigurations; i != nil { inputs["frontendIpConfigurations"] = i.ToApplicationGatewayFrontendIpConfigurationsArrayOutput() }
+		if i := args.FrontendPorts; i != nil { inputs["frontendPorts"] = i.ToApplicationGatewayFrontendPortsArrayOutput() }
+		if i := args.GatewayIpConfigurations; i != nil { inputs["gatewayIpConfigurations"] = i.ToApplicationGatewayGatewayIpConfigurationsArrayOutput() }
+		if i := args.HttpListeners; i != nil { inputs["httpListeners"] = i.ToApplicationGatewayHttpListenersArrayOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToApplicationGatewayIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Probes; i != nil { inputs["probes"] = i.ToApplicationGatewayProbesArrayOutput() }
+		if i := args.RedirectConfigurations; i != nil { inputs["redirectConfigurations"] = i.ToApplicationGatewayRedirectConfigurationsArrayOutput() }
+		if i := args.RequestRoutingRules; i != nil { inputs["requestRoutingRules"] = i.ToApplicationGatewayRequestRoutingRulesArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RewriteRuleSets; i != nil { inputs["rewriteRuleSets"] = i.ToApplicationGatewayRewriteRuleSetsArrayOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToApplicationGatewaySkuOutput() }
+		if i := args.SslCertificates; i != nil { inputs["sslCertificates"] = i.ToApplicationGatewaySslCertificatesArrayOutput() }
+		if i := args.SslPolicies; i != nil { inputs["sslPolicies"] = i.ToApplicationGatewaySslPoliciesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TrustedRootCertificates; i != nil { inputs["trustedRootCertificates"] = i.ToApplicationGatewayTrustedRootCertificatesArrayOutput() }
+		if i := args.UrlPathMaps; i != nil { inputs["urlPathMaps"] = i.ToApplicationGatewayUrlPathMapsArrayOutput() }
+		if i := args.WafConfiguration; i != nil { inputs["wafConfiguration"] = i.ToApplicationGatewayWafConfigurationOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/applicationGateway:ApplicationGateway", name, true, inputs, opts...)
+	var resource ApplicationGateway
+	err := ctx.RegisterResource("azure:network/applicationGateway:ApplicationGateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApplicationGateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetApplicationGateway gets an existing ApplicationGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApplicationGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApplicationGatewayState, opts ...pulumi.ResourceOpt) (*ApplicationGateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApplicationGatewayState, opts ...pulumi.ResourceOption) (*ApplicationGateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["authenticationCertificates"] = state.AuthenticationCertificates
-		inputs["autoscaleConfiguration"] = state.AutoscaleConfiguration
-		inputs["backendAddressPools"] = state.BackendAddressPools
-		inputs["backendHttpSettings"] = state.BackendHttpSettings
-		inputs["customErrorConfigurations"] = state.CustomErrorConfigurations
-		inputs["disabledSslProtocols"] = state.DisabledSslProtocols
-		inputs["enableHttp2"] = state.EnableHttp2
-		inputs["frontendIpConfigurations"] = state.FrontendIpConfigurations
-		inputs["frontendPorts"] = state.FrontendPorts
-		inputs["gatewayIpConfigurations"] = state.GatewayIpConfigurations
-		inputs["httpListeners"] = state.HttpListeners
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["probes"] = state.Probes
-		inputs["redirectConfigurations"] = state.RedirectConfigurations
-		inputs["requestRoutingRules"] = state.RequestRoutingRules
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["rewriteRuleSets"] = state.RewriteRuleSets
-		inputs["sku"] = state.Sku
-		inputs["sslCertificates"] = state.SslCertificates
-		inputs["sslPolicies"] = state.SslPolicies
-		inputs["tags"] = state.Tags
-		inputs["trustedRootCertificates"] = state.TrustedRootCertificates
-		inputs["urlPathMaps"] = state.UrlPathMaps
-		inputs["wafConfiguration"] = state.WafConfiguration
-		inputs["zones"] = state.Zones
+		if i := state.AuthenticationCertificates; i != nil { inputs["authenticationCertificates"] = i.ToApplicationGatewayAuthenticationCertificatesArrayOutput() }
+		if i := state.AutoscaleConfiguration; i != nil { inputs["autoscaleConfiguration"] = i.ToApplicationGatewayAutoscaleConfigurationOutput() }
+		if i := state.BackendAddressPools; i != nil { inputs["backendAddressPools"] = i.ToApplicationGatewayBackendAddressPoolsArrayOutput() }
+		if i := state.BackendHttpSettings; i != nil { inputs["backendHttpSettings"] = i.ToApplicationGatewayBackendHttpSettingsArrayOutput() }
+		if i := state.CustomErrorConfigurations; i != nil { inputs["customErrorConfigurations"] = i.ToApplicationGatewayCustomErrorConfigurationsArrayOutput() }
+		if i := state.DisabledSslProtocols; i != nil { inputs["disabledSslProtocols"] = i.ToStringArrayOutput() }
+		if i := state.EnableHttp2; i != nil { inputs["enableHttp2"] = i.ToBoolOutput() }
+		if i := state.FrontendIpConfigurations; i != nil { inputs["frontendIpConfigurations"] = i.ToApplicationGatewayFrontendIpConfigurationsArrayOutput() }
+		if i := state.FrontendPorts; i != nil { inputs["frontendPorts"] = i.ToApplicationGatewayFrontendPortsArrayOutput() }
+		if i := state.GatewayIpConfigurations; i != nil { inputs["gatewayIpConfigurations"] = i.ToApplicationGatewayGatewayIpConfigurationsArrayOutput() }
+		if i := state.HttpListeners; i != nil { inputs["httpListeners"] = i.ToApplicationGatewayHttpListenersArrayOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToApplicationGatewayIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Probes; i != nil { inputs["probes"] = i.ToApplicationGatewayProbesArrayOutput() }
+		if i := state.RedirectConfigurations; i != nil { inputs["redirectConfigurations"] = i.ToApplicationGatewayRedirectConfigurationsArrayOutput() }
+		if i := state.RequestRoutingRules; i != nil { inputs["requestRoutingRules"] = i.ToApplicationGatewayRequestRoutingRulesArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RewriteRuleSets; i != nil { inputs["rewriteRuleSets"] = i.ToApplicationGatewayRewriteRuleSetsArrayOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToApplicationGatewaySkuOutput() }
+		if i := state.SslCertificates; i != nil { inputs["sslCertificates"] = i.ToApplicationGatewaySslCertificatesArrayOutput() }
+		if i := state.SslPolicies; i != nil { inputs["sslPolicies"] = i.ToApplicationGatewaySslPoliciesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TrustedRootCertificates; i != nil { inputs["trustedRootCertificates"] = i.ToApplicationGatewayTrustedRootCertificatesArrayOutput() }
+		if i := state.UrlPathMaps; i != nil { inputs["urlPathMaps"] = i.ToApplicationGatewayUrlPathMapsArrayOutput() }
+		if i := state.WafConfiguration; i != nil { inputs["wafConfiguration"] = i.ToApplicationGatewayWafConfigurationOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/applicationGateway:ApplicationGateway", name, id, inputs, opts...)
+	var resource ApplicationGateway
+	err := ctx.ReadResource("azure:network/applicationGateway:ApplicationGateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApplicationGateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApplicationGateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApplicationGateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `authenticationCertificate` blocks as defined below.
-func (r *ApplicationGateway) AuthenticationCertificates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["authenticationCertificates"])
-}
-
-// A `autoscaleConfiguration` block as defined below.
-func (r *ApplicationGateway) AutoscaleConfiguration() pulumi.Output {
-	return r.s.State["autoscaleConfiguration"]
-}
-
-// One or more `backendAddressPool` blocks as defined below.
-func (r *ApplicationGateway) BackendAddressPools() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["backendAddressPools"])
-}
-
-// One or more `backendHttpSettings` blocks as defined below.
-func (r *ApplicationGateway) BackendHttpSettings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["backendHttpSettings"])
-}
-
-// One or more `customErrorConfiguration` blocks as defined below.
-func (r *ApplicationGateway) CustomErrorConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customErrorConfigurations"])
-}
-
-// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-func (r *ApplicationGateway) DisabledSslProtocols() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
-}
-
-// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-func (r *ApplicationGateway) EnableHttp2() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableHttp2"])
-}
-
-// One or more `frontendIpConfiguration` blocks as defined below.
-func (r *ApplicationGateway) FrontendIpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
-}
-
-// One or more `frontendPort` blocks as defined below.
-func (r *ApplicationGateway) FrontendPorts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["frontendPorts"])
-}
-
-// One or more `gatewayIpConfiguration` blocks as defined below.
-func (r *ApplicationGateway) GatewayIpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["gatewayIpConfigurations"])
-}
-
-// One or more `httpListener` blocks as defined below.
-func (r *ApplicationGateway) HttpListeners() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["httpListeners"])
-}
-
-// A `identity` block.
-func (r *ApplicationGateway) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
-func (r *ApplicationGateway) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Application Gateway. Changing this forces a new resource to be created.
-func (r *ApplicationGateway) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// One or more `probe` blocks as defined below.
-func (r *ApplicationGateway) Probes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["probes"])
-}
-
-// A `redirectConfiguration` block as defined below.
-func (r *ApplicationGateway) RedirectConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["redirectConfigurations"])
-}
-
-// One or more `requestRoutingRule` blocks as defined below.
-func (r *ApplicationGateway) RequestRoutingRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["requestRoutingRules"])
-}
-
-// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-func (r *ApplicationGateway) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
-func (r *ApplicationGateway) RewriteRuleSets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["rewriteRuleSets"])
-}
-
-// A `sku` block as defined below.
-func (r *ApplicationGateway) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// One or more `sslCertificate` blocks as defined below.
-func (r *ApplicationGateway) SslCertificates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["sslCertificates"])
-}
-
-// a `ssl policy` block as defined below.
-func (r *ApplicationGateway) SslPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["sslPolicies"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ApplicationGateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// One or more `trustedRootCertificate` blocks as defined below.
-func (r *ApplicationGateway) TrustedRootCertificates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["trustedRootCertificates"])
-}
-
-// One or more `urlPathMap` blocks as defined below.
-func (r *ApplicationGateway) UrlPathMaps() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["urlPathMaps"])
-}
-
-// A `wafConfiguration` block as defined below.
-func (r *ApplicationGateway) WafConfiguration() pulumi.Output {
-	return r.s.State["wafConfiguration"]
-}
-
-// A collection of availability zones to spread the Application Gateway over.
-func (r *ApplicationGateway) Zones() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApplicationGateway resources.
 type ApplicationGatewayState struct {
 	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates interface{}
+	AuthenticationCertificates ApplicationGatewayAuthenticationCertificatesArrayInput `pulumi:"authenticationCertificates"`
 	// A `autoscaleConfiguration` block as defined below.
-	AutoscaleConfiguration interface{}
+	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationInput `pulumi:"autoscaleConfiguration"`
 	// One or more `backendAddressPool` blocks as defined below.
-	BackendAddressPools interface{}
+	BackendAddressPools ApplicationGatewayBackendAddressPoolsArrayInput `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
-	BackendHttpSettings interface{}
+	BackendHttpSettings ApplicationGatewayBackendHttpSettingsArrayInput `pulumi:"backendHttpSettings"`
 	// One or more `customErrorConfiguration` blocks as defined below.
-	CustomErrorConfigurations interface{}
+	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationsArrayInput `pulumi:"customErrorConfigurations"`
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-	DisabledSslProtocols interface{}
+	DisabledSslProtocols pulumi.StringArrayInput `pulumi:"disabledSslProtocols"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-	EnableHttp2 interface{}
+	EnableHttp2 pulumi.BoolInput `pulumi:"enableHttp2"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationsArrayInput `pulumi:"frontendIpConfigurations"`
 	// One or more `frontendPort` blocks as defined below.
-	FrontendPorts interface{}
+	FrontendPorts ApplicationGatewayFrontendPortsArrayInput `pulumi:"frontendPorts"`
 	// One or more `gatewayIpConfiguration` blocks as defined below.
-	GatewayIpConfigurations interface{}
+	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationsArrayInput `pulumi:"gatewayIpConfigurations"`
 	// One or more `httpListener` blocks as defined below.
-	HttpListeners interface{}
+	HttpListeners ApplicationGatewayHttpListenersArrayInput `pulumi:"httpListeners"`
 	// A `identity` block.
-	Identity interface{}
+	Identity ApplicationGatewayIdentityInput `pulumi:"identity"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `probe` blocks as defined below.
-	Probes interface{}
+	Probes ApplicationGatewayProbesArrayInput `pulumi:"probes"`
 	// A `redirectConfiguration` block as defined below.
-	RedirectConfigurations interface{}
+	RedirectConfigurations ApplicationGatewayRedirectConfigurationsArrayInput `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
-	RequestRoutingRules interface{}
+	RequestRoutingRules ApplicationGatewayRequestRoutingRulesArrayInput `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
-	RewriteRuleSets interface{}
+	RewriteRuleSets ApplicationGatewayRewriteRuleSetsArrayInput `pulumi:"rewriteRuleSets"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku ApplicationGatewaySkuInput `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
-	SslCertificates interface{}
+	SslCertificates ApplicationGatewaySslCertificatesArrayInput `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
-	SslPolicies interface{}
+	SslPolicies ApplicationGatewaySslPoliciesArrayInput `pulumi:"sslPolicies"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// One or more `trustedRootCertificate` blocks as defined below.
-	TrustedRootCertificates interface{}
+	TrustedRootCertificates ApplicationGatewayTrustedRootCertificatesArrayInput `pulumi:"trustedRootCertificates"`
 	// One or more `urlPathMap` blocks as defined below.
-	UrlPathMaps interface{}
+	UrlPathMaps ApplicationGatewayUrlPathMapsArrayInput `pulumi:"urlPathMaps"`
 	// A `wafConfiguration` block as defined below.
-	WafConfiguration interface{}
+	WafConfiguration ApplicationGatewayWafConfigurationInput `pulumi:"wafConfiguration"`
 	// A collection of availability zones to spread the Application Gateway over.
-	Zones interface{}
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
 	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates interface{}
+	AuthenticationCertificates ApplicationGatewayAuthenticationCertificatesArrayInput `pulumi:"authenticationCertificates"`
 	// A `autoscaleConfiguration` block as defined below.
-	AutoscaleConfiguration interface{}
+	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationInput `pulumi:"autoscaleConfiguration"`
 	// One or more `backendAddressPool` blocks as defined below.
-	BackendAddressPools interface{}
+	BackendAddressPools ApplicationGatewayBackendAddressPoolsArrayInput `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
-	BackendHttpSettings interface{}
+	BackendHttpSettings ApplicationGatewayBackendHttpSettingsArrayInput `pulumi:"backendHttpSettings"`
 	// One or more `customErrorConfiguration` blocks as defined below.
-	CustomErrorConfigurations interface{}
+	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationsArrayInput `pulumi:"customErrorConfigurations"`
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-	DisabledSslProtocols interface{}
+	DisabledSslProtocols pulumi.StringArrayInput `pulumi:"disabledSslProtocols"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-	EnableHttp2 interface{}
+	EnableHttp2 pulumi.BoolInput `pulumi:"enableHttp2"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationsArrayInput `pulumi:"frontendIpConfigurations"`
 	// One or more `frontendPort` blocks as defined below.
-	FrontendPorts interface{}
+	FrontendPorts ApplicationGatewayFrontendPortsArrayInput `pulumi:"frontendPorts"`
 	// One or more `gatewayIpConfiguration` blocks as defined below.
-	GatewayIpConfigurations interface{}
+	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationsArrayInput `pulumi:"gatewayIpConfigurations"`
 	// One or more `httpListener` blocks as defined below.
-	HttpListeners interface{}
+	HttpListeners ApplicationGatewayHttpListenersArrayInput `pulumi:"httpListeners"`
 	// A `identity` block.
-	Identity interface{}
+	Identity ApplicationGatewayIdentityInput `pulumi:"identity"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `probe` blocks as defined below.
-	Probes interface{}
+	Probes ApplicationGatewayProbesArrayInput `pulumi:"probes"`
 	// A `redirectConfiguration` block as defined below.
-	RedirectConfigurations interface{}
+	RedirectConfigurations ApplicationGatewayRedirectConfigurationsArrayInput `pulumi:"redirectConfigurations"`
 	// One or more `requestRoutingRule` blocks as defined below.
-	RequestRoutingRules interface{}
+	RequestRoutingRules ApplicationGatewayRequestRoutingRulesArrayInput `pulumi:"requestRoutingRules"`
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
-	RewriteRuleSets interface{}
+	RewriteRuleSets ApplicationGatewayRewriteRuleSetsArrayInput `pulumi:"rewriteRuleSets"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku ApplicationGatewaySkuInput `pulumi:"sku"`
 	// One or more `sslCertificate` blocks as defined below.
-	SslCertificates interface{}
+	SslCertificates ApplicationGatewaySslCertificatesArrayInput `pulumi:"sslCertificates"`
 	// a `ssl policy` block as defined below.
-	SslPolicies interface{}
+	SslPolicies ApplicationGatewaySslPoliciesArrayInput `pulumi:"sslPolicies"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// One or more `trustedRootCertificate` blocks as defined below.
-	TrustedRootCertificates interface{}
+	TrustedRootCertificates ApplicationGatewayTrustedRootCertificatesArrayInput `pulumi:"trustedRootCertificates"`
 	// One or more `urlPathMap` blocks as defined below.
-	UrlPathMaps interface{}
+	UrlPathMaps ApplicationGatewayUrlPathMapsArrayInput `pulumi:"urlPathMaps"`
 	// A `wafConfiguration` block as defined below.
-	WafConfiguration interface{}
+	WafConfiguration ApplicationGatewayWafConfigurationInput `pulumi:"wafConfiguration"`
 	// A collection of availability zones to spread the Application Gateway over.
-	Zones interface{}
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
+type ApplicationGatewayAuthenticationCertificates struct {
+	Data string `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var applicationGatewayAuthenticationCertificatesType = reflect.TypeOf((*ApplicationGatewayAuthenticationCertificates)(nil)).Elem()
+
+type ApplicationGatewayAuthenticationCertificatesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayAuthenticationCertificatesOutput() ApplicationGatewayAuthenticationCertificatesOutput
+	ToApplicationGatewayAuthenticationCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificatesOutput
+}
+
+type ApplicationGatewayAuthenticationCertificatesArgs struct {
+	Data pulumi.StringInput `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayAuthenticationCertificatesArgs) ElementType() reflect.Type {
+	return applicationGatewayAuthenticationCertificatesType
+}
+
+func (a ApplicationGatewayAuthenticationCertificatesArgs) ToApplicationGatewayAuthenticationCertificatesOutput() ApplicationGatewayAuthenticationCertificatesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayAuthenticationCertificatesOutput)
+}
+
+func (a ApplicationGatewayAuthenticationCertificatesArgs) ToApplicationGatewayAuthenticationCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayAuthenticationCertificatesOutput)
+}
+
+type ApplicationGatewayAuthenticationCertificatesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayAuthenticationCertificatesOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayAuthenticationCertificates) string {
+		return v.Data
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayAuthenticationCertificatesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayAuthenticationCertificates) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayAuthenticationCertificatesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayAuthenticationCertificates) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayAuthenticationCertificatesOutput) ElementType() reflect.Type {
+	return applicationGatewayAuthenticationCertificatesType
+}
+
+func (o ApplicationGatewayAuthenticationCertificatesOutput) ToApplicationGatewayAuthenticationCertificatesOutput() ApplicationGatewayAuthenticationCertificatesOutput {
+	return o
+}
+
+func (o ApplicationGatewayAuthenticationCertificatesOutput) ToApplicationGatewayAuthenticationCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificatesOutput{}) }
+
+var applicationGatewayAuthenticationCertificatesArrayType = reflect.TypeOf((*[]ApplicationGatewayAuthenticationCertificates)(nil)).Elem()
+
+type ApplicationGatewayAuthenticationCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayAuthenticationCertificatesArrayOutput() ApplicationGatewayAuthenticationCertificatesArrayOutput
+	ToApplicationGatewayAuthenticationCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificatesArrayOutput
+}
+
+type ApplicationGatewayAuthenticationCertificatesArrayArgs []ApplicationGatewayAuthenticationCertificatesInput
+
+func (ApplicationGatewayAuthenticationCertificatesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayAuthenticationCertificatesArrayType
+}
+
+func (a ApplicationGatewayAuthenticationCertificatesArrayArgs) ToApplicationGatewayAuthenticationCertificatesArrayOutput() ApplicationGatewayAuthenticationCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayAuthenticationCertificatesArrayOutput)
+}
+
+func (a ApplicationGatewayAuthenticationCertificatesArrayArgs) ToApplicationGatewayAuthenticationCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayAuthenticationCertificatesArrayOutput)
+}
+
+type ApplicationGatewayAuthenticationCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayAuthenticationCertificatesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayAuthenticationCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayAuthenticationCertificates {
+		return vs[0].([]ApplicationGatewayAuthenticationCertificates)[vs[1].(int)]
+	}).(ApplicationGatewayAuthenticationCertificatesOutput)
+}
+
+func (ApplicationGatewayAuthenticationCertificatesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayAuthenticationCertificatesArrayType
+}
+
+func (o ApplicationGatewayAuthenticationCertificatesArrayOutput) ToApplicationGatewayAuthenticationCertificatesArrayOutput() ApplicationGatewayAuthenticationCertificatesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayAuthenticationCertificatesArrayOutput) ToApplicationGatewayAuthenticationCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificatesArrayOutput{}) }
+
+type ApplicationGatewayAutoscaleConfiguration struct {
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	MinCapacity int `pulumi:"minCapacity"`
+}
+var applicationGatewayAutoscaleConfigurationType = reflect.TypeOf((*ApplicationGatewayAutoscaleConfiguration)(nil)).Elem()
+
+type ApplicationGatewayAutoscaleConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayAutoscaleConfigurationOutput() ApplicationGatewayAutoscaleConfigurationOutput
+	ToApplicationGatewayAutoscaleConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayAutoscaleConfigurationOutput
+}
+
+type ApplicationGatewayAutoscaleConfigurationArgs struct {
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+}
+
+func (ApplicationGatewayAutoscaleConfigurationArgs) ElementType() reflect.Type {
+	return applicationGatewayAutoscaleConfigurationType
+}
+
+func (a ApplicationGatewayAutoscaleConfigurationArgs) ToApplicationGatewayAutoscaleConfigurationOutput() ApplicationGatewayAutoscaleConfigurationOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayAutoscaleConfigurationOutput)
+}
+
+func (a ApplicationGatewayAutoscaleConfigurationArgs) ToApplicationGatewayAutoscaleConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayAutoscaleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayAutoscaleConfigurationOutput)
+}
+
+type ApplicationGatewayAutoscaleConfigurationOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayAutoscaleConfigurationOutput) MaxCapacity() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayAutoscaleConfiguration) int {
+		if v.MaxCapacity == nil { return *new(int) } else { return *v.MaxCapacity }
+	}).(pulumi.IntOutput)
+}
+
+func (o ApplicationGatewayAutoscaleConfigurationOutput) MinCapacity() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayAutoscaleConfiguration) int {
+		return v.MinCapacity
+	}).(pulumi.IntOutput)
+}
+
+func (ApplicationGatewayAutoscaleConfigurationOutput) ElementType() reflect.Type {
+	return applicationGatewayAutoscaleConfigurationType
+}
+
+func (o ApplicationGatewayAutoscaleConfigurationOutput) ToApplicationGatewayAutoscaleConfigurationOutput() ApplicationGatewayAutoscaleConfigurationOutput {
+	return o
+}
+
+func (o ApplicationGatewayAutoscaleConfigurationOutput) ToApplicationGatewayAutoscaleConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayAutoscaleConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayAutoscaleConfigurationOutput{}) }
+
+type ApplicationGatewayBackendAddressPools struct {
+	FqdnLists *[]string `pulumi:"fqdnLists"`
+	Fqdns *[]string `pulumi:"fqdns"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	IpAddressLists *[]string `pulumi:"ipAddressLists"`
+	IpAddresses *[]string `pulumi:"ipAddresses"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var applicationGatewayBackendAddressPoolsType = reflect.TypeOf((*ApplicationGatewayBackendAddressPools)(nil)).Elem()
+
+type ApplicationGatewayBackendAddressPoolsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendAddressPoolsOutput() ApplicationGatewayBackendAddressPoolsOutput
+	ToApplicationGatewayBackendAddressPoolsOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolsOutput
+}
+
+type ApplicationGatewayBackendAddressPoolsArgs struct {
+	FqdnLists pulumi.StringArrayInput `pulumi:"fqdnLists"`
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	IpAddressLists pulumi.StringArrayInput `pulumi:"ipAddressLists"`
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayBackendAddressPoolsArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendAddressPoolsType
+}
+
+func (a ApplicationGatewayBackendAddressPoolsArgs) ToApplicationGatewayBackendAddressPoolsOutput() ApplicationGatewayBackendAddressPoolsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendAddressPoolsOutput)
+}
+
+func (a ApplicationGatewayBackendAddressPoolsArgs) ToApplicationGatewayBackendAddressPoolsOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendAddressPoolsOutput)
+}
+
+type ApplicationGatewayBackendAddressPoolsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayBackendAddressPoolsOutput) FqdnLists() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewayBackendAddressPools) []string {
+		if v.FqdnLists == nil { return *new([]string) } else { return *v.FqdnLists }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolsOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewayBackendAddressPools) []string {
+		if v.Fqdns == nil { return *new([]string) } else { return *v.Fqdns }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayBackendAddressPoolsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendAddressPools) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolsOutput) IpAddressLists() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewayBackendAddressPools) []string {
+		if v.IpAddressLists == nil { return *new([]string) } else { return *v.IpAddressLists }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationGatewayBackendAddressPoolsOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewayBackendAddressPools) []string {
+		if v.IpAddresses == nil { return *new([]string) } else { return *v.IpAddresses }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayBackendAddressPoolsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendAddressPools) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayBackendAddressPoolsOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendAddressPoolsType
+}
+
+func (o ApplicationGatewayBackendAddressPoolsOutput) ToApplicationGatewayBackendAddressPoolsOutput() ApplicationGatewayBackendAddressPoolsOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolsOutput) ToApplicationGatewayBackendAddressPoolsOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolsOutput{}) }
+
+var applicationGatewayBackendAddressPoolsArrayType = reflect.TypeOf((*[]ApplicationGatewayBackendAddressPools)(nil)).Elem()
+
+type ApplicationGatewayBackendAddressPoolsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendAddressPoolsArrayOutput() ApplicationGatewayBackendAddressPoolsArrayOutput
+	ToApplicationGatewayBackendAddressPoolsArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolsArrayOutput
+}
+
+type ApplicationGatewayBackendAddressPoolsArrayArgs []ApplicationGatewayBackendAddressPoolsInput
+
+func (ApplicationGatewayBackendAddressPoolsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendAddressPoolsArrayType
+}
+
+func (a ApplicationGatewayBackendAddressPoolsArrayArgs) ToApplicationGatewayBackendAddressPoolsArrayOutput() ApplicationGatewayBackendAddressPoolsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendAddressPoolsArrayOutput)
+}
+
+func (a ApplicationGatewayBackendAddressPoolsArrayArgs) ToApplicationGatewayBackendAddressPoolsArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendAddressPoolsArrayOutput)
+}
+
+type ApplicationGatewayBackendAddressPoolsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayBackendAddressPoolsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayBackendAddressPoolsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayBackendAddressPools {
+		return vs[0].([]ApplicationGatewayBackendAddressPools)[vs[1].(int)]
+	}).(ApplicationGatewayBackendAddressPoolsOutput)
+}
+
+func (ApplicationGatewayBackendAddressPoolsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendAddressPoolsArrayType
+}
+
+func (o ApplicationGatewayBackendAddressPoolsArrayOutput) ToApplicationGatewayBackendAddressPoolsArrayOutput() ApplicationGatewayBackendAddressPoolsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendAddressPoolsArrayOutput) ToApplicationGatewayBackendAddressPoolsArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendAddressPoolsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolsArrayOutput{}) }
+
+type ApplicationGatewayBackendHttpSettings struct {
+	AffinityCookieName *string `pulumi:"affinityCookieName"`
+	// One or more `authenticationCertificate` blocks as defined below.
+	AuthenticationCertificates *[]ApplicationGatewayBackendHttpSettingsAuthenticationCertificates `pulumi:"authenticationCertificates"`
+	ConnectionDraining *ApplicationGatewayBackendHttpSettingsConnectionDraining `pulumi:"connectionDraining"`
+	CookieBasedAffinity string `pulumi:"cookieBasedAffinity"`
+	HostName *string `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Path *string `pulumi:"path"`
+	PickHostNameFromBackendAddress *bool `pulumi:"pickHostNameFromBackendAddress"`
+	Port int `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId *string `pulumi:"probeId"`
+	ProbeName *string `pulumi:"probeName"`
+	Protocol string `pulumi:"protocol"`
+	RequestTimeout *int `pulumi:"requestTimeout"`
+}
+var applicationGatewayBackendHttpSettingsType = reflect.TypeOf((*ApplicationGatewayBackendHttpSettings)(nil)).Elem()
+
+type ApplicationGatewayBackendHttpSettingsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHttpSettingsOutput() ApplicationGatewayBackendHttpSettingsOutput
+	ToApplicationGatewayBackendHttpSettingsOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsOutput
+}
+
+type ApplicationGatewayBackendHttpSettingsArgs struct {
+	AffinityCookieName pulumi.StringInput `pulumi:"affinityCookieName"`
+	// One or more `authenticationCertificate` blocks as defined below.
+	AuthenticationCertificates ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayInput `pulumi:"authenticationCertificates"`
+	ConnectionDraining ApplicationGatewayBackendHttpSettingsConnectionDrainingInput `pulumi:"connectionDraining"`
+	CookieBasedAffinity pulumi.StringInput `pulumi:"cookieBasedAffinity"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Path pulumi.StringInput `pulumi:"path"`
+	PickHostNameFromBackendAddress pulumi.BoolInput `pulumi:"pickHostNameFromBackendAddress"`
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId pulumi.StringInput `pulumi:"probeId"`
+	ProbeName pulumi.StringInput `pulumi:"probeName"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	RequestTimeout pulumi.IntInput `pulumi:"requestTimeout"`
+}
+
+func (ApplicationGatewayBackendHttpSettingsArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsType
+}
+
+func (a ApplicationGatewayBackendHttpSettingsArgs) ToApplicationGatewayBackendHttpSettingsOutput() ApplicationGatewayBackendHttpSettingsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendHttpSettingsOutput)
+}
+
+func (a ApplicationGatewayBackendHttpSettingsArgs) ToApplicationGatewayBackendHttpSettingsOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendHttpSettingsOutput)
+}
+
+type ApplicationGatewayBackendHttpSettingsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) AffinityCookieName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		if v.AffinityCookieName == nil { return *new(string) } else { return *v.AffinityCookieName }
+	}).(pulumi.StringOutput)
+}
+
+// One or more `authenticationCertificate` blocks as defined below.
+func (o ApplicationGatewayBackendHttpSettingsOutput) AuthenticationCertificates() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) []ApplicationGatewayBackendHttpSettingsAuthenticationCertificates {
+		if v.AuthenticationCertificates == nil { return *new([]ApplicationGatewayBackendHttpSettingsAuthenticationCertificates) } else { return *v.AuthenticationCertificates }
+	}).(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) ConnectionDraining() ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) ApplicationGatewayBackendHttpSettingsConnectionDraining {
+		if v.ConnectionDraining == nil { return *new(ApplicationGatewayBackendHttpSettingsConnectionDraining) } else { return *v.ConnectionDraining }
+	}).(ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) CookieBasedAffinity() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		return v.CookieBasedAffinity
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		if v.HostName == nil { return *new(string) } else { return *v.HostName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayBackendHttpSettingsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayBackendHttpSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) PickHostNameFromBackendAddress() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) bool {
+		if v.PickHostNameFromBackendAddress == nil { return *new(bool) } else { return *v.PickHostNameFromBackendAddress }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+// The ID of the associated Probe.
+func (o ApplicationGatewayBackendHttpSettingsOutput) ProbeId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		if v.ProbeId == nil { return *new(string) } else { return *v.ProbeId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) ProbeName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		if v.ProbeName == nil { return *new(string) } else { return *v.ProbeName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) RequestTimeout() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettings) int {
+		if v.RequestTimeout == nil { return *new(int) } else { return *v.RequestTimeout }
+	}).(pulumi.IntOutput)
+}
+
+func (ApplicationGatewayBackendHttpSettingsOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsType
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) ToApplicationGatewayBackendHttpSettingsOutput() ApplicationGatewayBackendHttpSettingsOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsOutput) ToApplicationGatewayBackendHttpSettingsOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsOutput{}) }
+
+var applicationGatewayBackendHttpSettingsArrayType = reflect.TypeOf((*[]ApplicationGatewayBackendHttpSettings)(nil)).Elem()
+
+type ApplicationGatewayBackendHttpSettingsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHttpSettingsArrayOutput() ApplicationGatewayBackendHttpSettingsArrayOutput
+	ToApplicationGatewayBackendHttpSettingsArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsArrayOutput
+}
+
+type ApplicationGatewayBackendHttpSettingsArrayArgs []ApplicationGatewayBackendHttpSettingsInput
+
+func (ApplicationGatewayBackendHttpSettingsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsArrayType
+}
+
+func (a ApplicationGatewayBackendHttpSettingsArrayArgs) ToApplicationGatewayBackendHttpSettingsArrayOutput() ApplicationGatewayBackendHttpSettingsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendHttpSettingsArrayOutput)
+}
+
+func (a ApplicationGatewayBackendHttpSettingsArrayArgs) ToApplicationGatewayBackendHttpSettingsArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendHttpSettingsArrayOutput)
+}
+
+type ApplicationGatewayBackendHttpSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayBackendHttpSettingsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayBackendHttpSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayBackendHttpSettings {
+		return vs[0].([]ApplicationGatewayBackendHttpSettings)[vs[1].(int)]
+	}).(ApplicationGatewayBackendHttpSettingsOutput)
+}
+
+func (ApplicationGatewayBackendHttpSettingsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsArrayType
+}
+
+func (o ApplicationGatewayBackendHttpSettingsArrayOutput) ToApplicationGatewayBackendHttpSettingsArrayOutput() ApplicationGatewayBackendHttpSettingsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsArrayOutput) ToApplicationGatewayBackendHttpSettingsArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsArrayOutput{}) }
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificates struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var applicationGatewayBackendHttpSettingsAuthenticationCertificatesType = reflect.TypeOf((*ApplicationGatewayBackendHttpSettingsAuthenticationCertificates)(nil)).Elem()
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput
+	ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput
+}
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsAuthenticationCertificatesType
+}
+
+func (a ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput)
+}
+
+func (a ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArgs) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput)
+}
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput struct { *pulumi.OutputState }
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettingsAuthenticationCertificates) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettingsAuthenticationCertificates) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsAuthenticationCertificatesType
+}
+
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput{}) }
+
+var applicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayType = reflect.TypeOf((*[]ApplicationGatewayBackendHttpSettingsAuthenticationCertificates)(nil)).Elem()
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput
+	ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput
+}
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayArgs []ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesInput
+
+func (ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayType
+}
+
+func (a ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayArgs) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput)
+}
+
+func (a ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayArgs) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput)
+}
+
+type ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayBackendHttpSettingsAuthenticationCertificates {
+		return vs[0].([]ApplicationGatewayBackendHttpSettingsAuthenticationCertificates)[vs[1].(int)]
+	}).(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesOutput)
+}
+
+func (ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayType
+}
+
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput() ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput) ToApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsAuthenticationCertificatesArrayOutput{}) }
+
+type ApplicationGatewayBackendHttpSettingsConnectionDraining struct {
+	DrainTimeoutSec int `pulumi:"drainTimeoutSec"`
+	Enabled bool `pulumi:"enabled"`
+}
+var applicationGatewayBackendHttpSettingsConnectionDrainingType = reflect.TypeOf((*ApplicationGatewayBackendHttpSettingsConnectionDraining)(nil)).Elem()
+
+type ApplicationGatewayBackendHttpSettingsConnectionDrainingInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayBackendHttpSettingsConnectionDrainingOutput() ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput
+	ToApplicationGatewayBackendHttpSettingsConnectionDrainingOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput
+}
+
+type ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs struct {
+	DrainTimeoutSec pulumi.IntInput `pulumi:"drainTimeoutSec"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsConnectionDrainingType
+}
+
+func (a ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs) ToApplicationGatewayBackendHttpSettingsConnectionDrainingOutput() ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput)
+}
+
+func (a ApplicationGatewayBackendHttpSettingsConnectionDrainingArgs) ToApplicationGatewayBackendHttpSettingsConnectionDrainingOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput)
+}
+
+type ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput) DrainTimeoutSec() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettingsConnectionDraining) int {
+		return v.DrainTimeoutSec
+	}).(pulumi.IntOutput)
+}
+
+func (o ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayBackendHttpSettingsConnectionDraining) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput) ElementType() reflect.Type {
+	return applicationGatewayBackendHttpSettingsConnectionDrainingType
+}
+
+func (o ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput) ToApplicationGatewayBackendHttpSettingsConnectionDrainingOutput() ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput {
+	return o
+}
+
+func (o ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput) ToApplicationGatewayBackendHttpSettingsConnectionDrainingOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingsConnectionDrainingOutput{}) }
+
+type ApplicationGatewayCustomErrorConfigurations struct {
+	CustomErrorPageUrl string `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	StatusCode string `pulumi:"statusCode"`
+}
+var applicationGatewayCustomErrorConfigurationsType = reflect.TypeOf((*ApplicationGatewayCustomErrorConfigurations)(nil)).Elem()
+
+type ApplicationGatewayCustomErrorConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayCustomErrorConfigurationsOutput() ApplicationGatewayCustomErrorConfigurationsOutput
+	ToApplicationGatewayCustomErrorConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayCustomErrorConfigurationsOutput
+}
+
+type ApplicationGatewayCustomErrorConfigurationsArgs struct {
+	CustomErrorPageUrl pulumi.StringInput `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (ApplicationGatewayCustomErrorConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayCustomErrorConfigurationsType
+}
+
+func (a ApplicationGatewayCustomErrorConfigurationsArgs) ToApplicationGatewayCustomErrorConfigurationsOutput() ApplicationGatewayCustomErrorConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayCustomErrorConfigurationsOutput)
+}
+
+func (a ApplicationGatewayCustomErrorConfigurationsArgs) ToApplicationGatewayCustomErrorConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayCustomErrorConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayCustomErrorConfigurationsOutput)
+}
+
+type ApplicationGatewayCustomErrorConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayCustomErrorConfigurationsOutput) CustomErrorPageUrl() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayCustomErrorConfigurations) string {
+		return v.CustomErrorPageUrl
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayCustomErrorConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayCustomErrorConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayCustomErrorConfigurationsOutput) StatusCode() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayCustomErrorConfigurations) string {
+		return v.StatusCode
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayCustomErrorConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayCustomErrorConfigurationsType
+}
+
+func (o ApplicationGatewayCustomErrorConfigurationsOutput) ToApplicationGatewayCustomErrorConfigurationsOutput() ApplicationGatewayCustomErrorConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayCustomErrorConfigurationsOutput) ToApplicationGatewayCustomErrorConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayCustomErrorConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayCustomErrorConfigurationsOutput{}) }
+
+var applicationGatewayCustomErrorConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayCustomErrorConfigurations)(nil)).Elem()
+
+type ApplicationGatewayCustomErrorConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayCustomErrorConfigurationsArrayOutput() ApplicationGatewayCustomErrorConfigurationsArrayOutput
+	ToApplicationGatewayCustomErrorConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayCustomErrorConfigurationsArrayOutput
+}
+
+type ApplicationGatewayCustomErrorConfigurationsArrayArgs []ApplicationGatewayCustomErrorConfigurationsInput
+
+func (ApplicationGatewayCustomErrorConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayCustomErrorConfigurationsArrayType
+}
+
+func (a ApplicationGatewayCustomErrorConfigurationsArrayArgs) ToApplicationGatewayCustomErrorConfigurationsArrayOutput() ApplicationGatewayCustomErrorConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayCustomErrorConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayCustomErrorConfigurationsArrayArgs) ToApplicationGatewayCustomErrorConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayCustomErrorConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayCustomErrorConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayCustomErrorConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayCustomErrorConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayCustomErrorConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayCustomErrorConfigurations {
+		return vs[0].([]ApplicationGatewayCustomErrorConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayCustomErrorConfigurationsOutput)
+}
+
+func (ApplicationGatewayCustomErrorConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayCustomErrorConfigurationsArrayType
+}
+
+func (o ApplicationGatewayCustomErrorConfigurationsArrayOutput) ToApplicationGatewayCustomErrorConfigurationsArrayOutput() ApplicationGatewayCustomErrorConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayCustomErrorConfigurationsArrayOutput) ToApplicationGatewayCustomErrorConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayCustomErrorConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayCustomErrorConfigurationsArrayOutput{}) }
+
+type ApplicationGatewayFrontendIpConfigurations struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+var applicationGatewayFrontendIpConfigurationsType = reflect.TypeOf((*ApplicationGatewayFrontendIpConfigurations)(nil)).Elem()
+
+type ApplicationGatewayFrontendIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayFrontendIpConfigurationsOutput() ApplicationGatewayFrontendIpConfigurationsOutput
+	ToApplicationGatewayFrontendIpConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIpConfigurationsOutput
+}
+
+type ApplicationGatewayFrontendIpConfigurationsArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ApplicationGatewayFrontendIpConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayFrontendIpConfigurationsType
+}
+
+func (a ApplicationGatewayFrontendIpConfigurationsArgs) ToApplicationGatewayFrontendIpConfigurationsOutput() ApplicationGatewayFrontendIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayFrontendIpConfigurationsOutput)
+}
+
+func (a ApplicationGatewayFrontendIpConfigurationsArgs) ToApplicationGatewayFrontendIpConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayFrontendIpConfigurationsOutput)
+}
+
+type ApplicationGatewayFrontendIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendIpConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendIpConfigurations) string {
+		if v.PrivateIpAddress == nil { return *new(string) } else { return *v.PrivateIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendIpConfigurations) string {
+		if v.PrivateIpAddressAllocation == nil { return *new(string) } else { return *v.PrivateIpAddressAllocation }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendIpConfigurations) string {
+		if v.PublicIpAddressId == nil { return *new(string) } else { return *v.PublicIpAddressId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendIpConfigurations) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayFrontendIpConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayFrontendIpConfigurationsType
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) ToApplicationGatewayFrontendIpConfigurationsOutput() ApplicationGatewayFrontendIpConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsOutput) ToApplicationGatewayFrontendIpConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayFrontendIpConfigurationsOutput{}) }
+
+var applicationGatewayFrontendIpConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayFrontendIpConfigurations)(nil)).Elem()
+
+type ApplicationGatewayFrontendIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayFrontendIpConfigurationsArrayOutput() ApplicationGatewayFrontendIpConfigurationsArrayOutput
+	ToApplicationGatewayFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIpConfigurationsArrayOutput
+}
+
+type ApplicationGatewayFrontendIpConfigurationsArrayArgs []ApplicationGatewayFrontendIpConfigurationsInput
+
+func (ApplicationGatewayFrontendIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayFrontendIpConfigurationsArrayType
+}
+
+func (a ApplicationGatewayFrontendIpConfigurationsArrayArgs) ToApplicationGatewayFrontendIpConfigurationsArrayOutput() ApplicationGatewayFrontendIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayFrontendIpConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayFrontendIpConfigurationsArrayArgs) ToApplicationGatewayFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayFrontendIpConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayFrontendIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayFrontendIpConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayFrontendIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayFrontendIpConfigurations {
+		return vs[0].([]ApplicationGatewayFrontendIpConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayFrontendIpConfigurationsOutput)
+}
+
+func (ApplicationGatewayFrontendIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayFrontendIpConfigurationsArrayType
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsArrayOutput) ToApplicationGatewayFrontendIpConfigurationsArrayOutput() ApplicationGatewayFrontendIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayFrontendIpConfigurationsArrayOutput) ToApplicationGatewayFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayFrontendIpConfigurationsArrayOutput{}) }
+
+type ApplicationGatewayFrontendPorts struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Port int `pulumi:"port"`
+}
+var applicationGatewayFrontendPortsType = reflect.TypeOf((*ApplicationGatewayFrontendPorts)(nil)).Elem()
+
+type ApplicationGatewayFrontendPortsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayFrontendPortsOutput() ApplicationGatewayFrontendPortsOutput
+	ToApplicationGatewayFrontendPortsOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortsOutput
+}
+
+type ApplicationGatewayFrontendPortsArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ApplicationGatewayFrontendPortsArgs) ElementType() reflect.Type {
+	return applicationGatewayFrontendPortsType
+}
+
+func (a ApplicationGatewayFrontendPortsArgs) ToApplicationGatewayFrontendPortsOutput() ApplicationGatewayFrontendPortsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayFrontendPortsOutput)
+}
+
+func (a ApplicationGatewayFrontendPortsArgs) ToApplicationGatewayFrontendPortsOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayFrontendPortsOutput)
+}
+
+type ApplicationGatewayFrontendPortsOutput struct { *pulumi.OutputState }
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayFrontendPortsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendPorts) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayFrontendPortsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendPorts) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayFrontendPortsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayFrontendPorts) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+func (ApplicationGatewayFrontendPortsOutput) ElementType() reflect.Type {
+	return applicationGatewayFrontendPortsType
+}
+
+func (o ApplicationGatewayFrontendPortsOutput) ToApplicationGatewayFrontendPortsOutput() ApplicationGatewayFrontendPortsOutput {
+	return o
+}
+
+func (o ApplicationGatewayFrontendPortsOutput) ToApplicationGatewayFrontendPortsOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayFrontendPortsOutput{}) }
+
+var applicationGatewayFrontendPortsArrayType = reflect.TypeOf((*[]ApplicationGatewayFrontendPorts)(nil)).Elem()
+
+type ApplicationGatewayFrontendPortsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayFrontendPortsArrayOutput() ApplicationGatewayFrontendPortsArrayOutput
+	ToApplicationGatewayFrontendPortsArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortsArrayOutput
+}
+
+type ApplicationGatewayFrontendPortsArrayArgs []ApplicationGatewayFrontendPortsInput
+
+func (ApplicationGatewayFrontendPortsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayFrontendPortsArrayType
+}
+
+func (a ApplicationGatewayFrontendPortsArrayArgs) ToApplicationGatewayFrontendPortsArrayOutput() ApplicationGatewayFrontendPortsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayFrontendPortsArrayOutput)
+}
+
+func (a ApplicationGatewayFrontendPortsArrayArgs) ToApplicationGatewayFrontendPortsArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayFrontendPortsArrayOutput)
+}
+
+type ApplicationGatewayFrontendPortsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayFrontendPortsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayFrontendPortsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayFrontendPorts {
+		return vs[0].([]ApplicationGatewayFrontendPorts)[vs[1].(int)]
+	}).(ApplicationGatewayFrontendPortsOutput)
+}
+
+func (ApplicationGatewayFrontendPortsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayFrontendPortsArrayType
+}
+
+func (o ApplicationGatewayFrontendPortsArrayOutput) ToApplicationGatewayFrontendPortsArrayOutput() ApplicationGatewayFrontendPortsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayFrontendPortsArrayOutput) ToApplicationGatewayFrontendPortsArrayOutputWithContext(ctx context.Context) ApplicationGatewayFrontendPortsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayFrontendPortsArrayOutput{}) }
+
+type ApplicationGatewayGatewayIpConfigurations struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	SubnetId string `pulumi:"subnetId"`
+}
+var applicationGatewayGatewayIpConfigurationsType = reflect.TypeOf((*ApplicationGatewayGatewayIpConfigurations)(nil)).Elem()
+
+type ApplicationGatewayGatewayIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayGatewayIpConfigurationsOutput() ApplicationGatewayGatewayIpConfigurationsOutput
+	ToApplicationGatewayGatewayIpConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayGatewayIpConfigurationsOutput
+}
+
+type ApplicationGatewayGatewayIpConfigurationsArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ApplicationGatewayGatewayIpConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayGatewayIpConfigurationsType
+}
+
+func (a ApplicationGatewayGatewayIpConfigurationsArgs) ToApplicationGatewayGatewayIpConfigurationsOutput() ApplicationGatewayGatewayIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayGatewayIpConfigurationsOutput)
+}
+
+func (a ApplicationGatewayGatewayIpConfigurationsArgs) ToApplicationGatewayGatewayIpConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayGatewayIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayGatewayIpConfigurationsOutput)
+}
+
+type ApplicationGatewayGatewayIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayGatewayIpConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayGatewayIpConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayGatewayIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayGatewayIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayGatewayIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayGatewayIpConfigurations) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayGatewayIpConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayGatewayIpConfigurationsType
+}
+
+func (o ApplicationGatewayGatewayIpConfigurationsOutput) ToApplicationGatewayGatewayIpConfigurationsOutput() ApplicationGatewayGatewayIpConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayGatewayIpConfigurationsOutput) ToApplicationGatewayGatewayIpConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayGatewayIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayGatewayIpConfigurationsOutput{}) }
+
+var applicationGatewayGatewayIpConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayGatewayIpConfigurations)(nil)).Elem()
+
+type ApplicationGatewayGatewayIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayGatewayIpConfigurationsArrayOutput() ApplicationGatewayGatewayIpConfigurationsArrayOutput
+	ToApplicationGatewayGatewayIpConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayGatewayIpConfigurationsArrayOutput
+}
+
+type ApplicationGatewayGatewayIpConfigurationsArrayArgs []ApplicationGatewayGatewayIpConfigurationsInput
+
+func (ApplicationGatewayGatewayIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayGatewayIpConfigurationsArrayType
+}
+
+func (a ApplicationGatewayGatewayIpConfigurationsArrayArgs) ToApplicationGatewayGatewayIpConfigurationsArrayOutput() ApplicationGatewayGatewayIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayGatewayIpConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayGatewayIpConfigurationsArrayArgs) ToApplicationGatewayGatewayIpConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayGatewayIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayGatewayIpConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayGatewayIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayGatewayIpConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayGatewayIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayGatewayIpConfigurations {
+		return vs[0].([]ApplicationGatewayGatewayIpConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayGatewayIpConfigurationsOutput)
+}
+
+func (ApplicationGatewayGatewayIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayGatewayIpConfigurationsArrayType
+}
+
+func (o ApplicationGatewayGatewayIpConfigurationsArrayOutput) ToApplicationGatewayGatewayIpConfigurationsArrayOutput() ApplicationGatewayGatewayIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayGatewayIpConfigurationsArrayOutput) ToApplicationGatewayGatewayIpConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayGatewayIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayGatewayIpConfigurationsArrayOutput{}) }
+
+type ApplicationGatewayHttpListeners struct {
+	// One or more `customErrorConfiguration` blocks as defined below.
+	CustomErrorConfigurations *[]ApplicationGatewayHttpListenersCustomErrorConfigurations `pulumi:"customErrorConfigurations"`
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
+	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId *string `pulumi:"frontendPortId"`
+	FrontendPortName string `pulumi:"frontendPortName"`
+	HostName *string `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Protocol string `pulumi:"protocol"`
+	RequireSni *bool `pulumi:"requireSni"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId *string `pulumi:"sslCertificateId"`
+	SslCertificateName *string `pulumi:"sslCertificateName"`
+}
+var applicationGatewayHttpListenersType = reflect.TypeOf((*ApplicationGatewayHttpListeners)(nil)).Elem()
+
+type ApplicationGatewayHttpListenersInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayHttpListenersOutput() ApplicationGatewayHttpListenersOutput
+	ToApplicationGatewayHttpListenersOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersOutput
+}
+
+type ApplicationGatewayHttpListenersArgs struct {
+	// One or more `customErrorConfiguration` blocks as defined below.
+	CustomErrorConfigurations ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayInput `pulumi:"customErrorConfigurations"`
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId pulumi.StringInput `pulumi:"frontendPortId"`
+	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	RequireSni pulumi.BoolInput `pulumi:"requireSni"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId pulumi.StringInput `pulumi:"sslCertificateId"`
+	SslCertificateName pulumi.StringInput `pulumi:"sslCertificateName"`
+}
+
+func (ApplicationGatewayHttpListenersArgs) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersType
+}
+
+func (a ApplicationGatewayHttpListenersArgs) ToApplicationGatewayHttpListenersOutput() ApplicationGatewayHttpListenersOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayHttpListenersOutput)
+}
+
+func (a ApplicationGatewayHttpListenersArgs) ToApplicationGatewayHttpListenersOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayHttpListenersOutput)
+}
+
+type ApplicationGatewayHttpListenersOutput struct { *pulumi.OutputState }
+
+// One or more `customErrorConfiguration` blocks as defined below.
+func (o ApplicationGatewayHttpListenersOutput) CustomErrorConfigurations() ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) []ApplicationGatewayHttpListenersCustomErrorConfigurations {
+		if v.CustomErrorConfigurations == nil { return *new([]ApplicationGatewayHttpListenersCustomErrorConfigurations) } else { return *v.CustomErrorConfigurations }
+	}).(ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput)
+}
+
+// The ID of the associated Frontend Configuration.
+func (o ApplicationGatewayHttpListenersOutput) FrontendIpConfigurationId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		if v.FrontendIpConfigurationId == nil { return *new(string) } else { return *v.FrontendIpConfigurationId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersOutput) FrontendIpConfigurationName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		return v.FrontendIpConfigurationName
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated Frontend Port.
+func (o ApplicationGatewayHttpListenersOutput) FrontendPortId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		if v.FrontendPortId == nil { return *new(string) } else { return *v.FrontendPortId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersOutput) FrontendPortName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		return v.FrontendPortName
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		if v.HostName == nil { return *new(string) } else { return *v.HostName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayHttpListenersOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayHttpListenersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersOutput) RequireSni() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) bool {
+		if v.RequireSni == nil { return *new(bool) } else { return *v.RequireSni }
+	}).(pulumi.BoolOutput)
+}
+
+// The ID of the associated SSL Certificate.
+func (o ApplicationGatewayHttpListenersOutput) SslCertificateId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		if v.SslCertificateId == nil { return *new(string) } else { return *v.SslCertificateId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersOutput) SslCertificateName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListeners) string {
+		if v.SslCertificateName == nil { return *new(string) } else { return *v.SslCertificateName }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayHttpListenersOutput) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersType
+}
+
+func (o ApplicationGatewayHttpListenersOutput) ToApplicationGatewayHttpListenersOutput() ApplicationGatewayHttpListenersOutput {
+	return o
+}
+
+func (o ApplicationGatewayHttpListenersOutput) ToApplicationGatewayHttpListenersOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayHttpListenersOutput{}) }
+
+var applicationGatewayHttpListenersArrayType = reflect.TypeOf((*[]ApplicationGatewayHttpListeners)(nil)).Elem()
+
+type ApplicationGatewayHttpListenersArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayHttpListenersArrayOutput() ApplicationGatewayHttpListenersArrayOutput
+	ToApplicationGatewayHttpListenersArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersArrayOutput
+}
+
+type ApplicationGatewayHttpListenersArrayArgs []ApplicationGatewayHttpListenersInput
+
+func (ApplicationGatewayHttpListenersArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersArrayType
+}
+
+func (a ApplicationGatewayHttpListenersArrayArgs) ToApplicationGatewayHttpListenersArrayOutput() ApplicationGatewayHttpListenersArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayHttpListenersArrayOutput)
+}
+
+func (a ApplicationGatewayHttpListenersArrayArgs) ToApplicationGatewayHttpListenersArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayHttpListenersArrayOutput)
+}
+
+type ApplicationGatewayHttpListenersArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayHttpListenersArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayHttpListenersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayHttpListeners {
+		return vs[0].([]ApplicationGatewayHttpListeners)[vs[1].(int)]
+	}).(ApplicationGatewayHttpListenersOutput)
+}
+
+func (ApplicationGatewayHttpListenersArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersArrayType
+}
+
+func (o ApplicationGatewayHttpListenersArrayOutput) ToApplicationGatewayHttpListenersArrayOutput() ApplicationGatewayHttpListenersArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayHttpListenersArrayOutput) ToApplicationGatewayHttpListenersArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayHttpListenersArrayOutput{}) }
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurations struct {
+	CustomErrorPageUrl string `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	StatusCode string `pulumi:"statusCode"`
+}
+var applicationGatewayHttpListenersCustomErrorConfigurationsType = reflect.TypeOf((*ApplicationGatewayHttpListenersCustomErrorConfigurations)(nil)).Elem()
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayHttpListenersCustomErrorConfigurationsOutput() ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput
+	ToApplicationGatewayHttpListenersCustomErrorConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput
+}
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs struct {
+	CustomErrorPageUrl pulumi.StringInput `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersCustomErrorConfigurationsType
+}
+
+func (a ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs) ToApplicationGatewayHttpListenersCustomErrorConfigurationsOutput() ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput)
+}
+
+func (a ApplicationGatewayHttpListenersCustomErrorConfigurationsArgs) ToApplicationGatewayHttpListenersCustomErrorConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput)
+}
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput) CustomErrorPageUrl() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListenersCustomErrorConfigurations) string {
+		return v.CustomErrorPageUrl
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListenersCustomErrorConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput) StatusCode() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayHttpListenersCustomErrorConfigurations) string {
+		return v.StatusCode
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersCustomErrorConfigurationsType
+}
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput) ToApplicationGatewayHttpListenersCustomErrorConfigurationsOutput() ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput) ToApplicationGatewayHttpListenersCustomErrorConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput{}) }
+
+var applicationGatewayHttpListenersCustomErrorConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayHttpListenersCustomErrorConfigurations)(nil)).Elem()
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput() ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput
+	ToApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput
+}
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayArgs []ApplicationGatewayHttpListenersCustomErrorConfigurationsInput
+
+func (ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersCustomErrorConfigurationsArrayType
+}
+
+func (a ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayArgs) ToApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput() ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayArgs) ToApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayHttpListenersCustomErrorConfigurations {
+		return vs[0].([]ApplicationGatewayHttpListenersCustomErrorConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayHttpListenersCustomErrorConfigurationsOutput)
+}
+
+func (ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayHttpListenersCustomErrorConfigurationsArrayType
+}
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput) ToApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput() ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput) ToApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayHttpListenersCustomErrorConfigurationsArrayOutput{}) }
+
+type ApplicationGatewayIdentity struct {
+	IdentityIds string `pulumi:"identityIds"`
+	Type *string `pulumi:"type"`
+}
+var applicationGatewayIdentityType = reflect.TypeOf((*ApplicationGatewayIdentity)(nil)).Elem()
+
+type ApplicationGatewayIdentityInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayIdentityOutput() ApplicationGatewayIdentityOutput
+	ToApplicationGatewayIdentityOutputWithContext(ctx context.Context) ApplicationGatewayIdentityOutput
+}
+
+type ApplicationGatewayIdentityArgs struct {
+	IdentityIds pulumi.StringInput `pulumi:"identityIds"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationGatewayIdentityArgs) ElementType() reflect.Type {
+	return applicationGatewayIdentityType
+}
+
+func (a ApplicationGatewayIdentityArgs) ToApplicationGatewayIdentityOutput() ApplicationGatewayIdentityOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayIdentityOutput)
+}
+
+func (a ApplicationGatewayIdentityArgs) ToApplicationGatewayIdentityOutputWithContext(ctx context.Context) ApplicationGatewayIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayIdentityOutput)
+}
+
+type ApplicationGatewayIdentityOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayIdentity) string {
+		return v.IdentityIds
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayIdentity) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayIdentityOutput) ElementType() reflect.Type {
+	return applicationGatewayIdentityType
+}
+
+func (o ApplicationGatewayIdentityOutput) ToApplicationGatewayIdentityOutput() ApplicationGatewayIdentityOutput {
+	return o
+}
+
+func (o ApplicationGatewayIdentityOutput) ToApplicationGatewayIdentityOutputWithContext(ctx context.Context) ApplicationGatewayIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayIdentityOutput{}) }
+
+type ApplicationGatewayProbes struct {
+	Host *string `pulumi:"host"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	Interval int `pulumi:"interval"`
+	Match *ApplicationGatewayProbesMatch `pulumi:"match"`
+	MinimumServers *int `pulumi:"minimumServers"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Path string `pulumi:"path"`
+	PickHostNameFromBackendHttpSettings *bool `pulumi:"pickHostNameFromBackendHttpSettings"`
+	Protocol string `pulumi:"protocol"`
+	Timeout int `pulumi:"timeout"`
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+}
+var applicationGatewayProbesType = reflect.TypeOf((*ApplicationGatewayProbes)(nil)).Elem()
+
+type ApplicationGatewayProbesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayProbesOutput() ApplicationGatewayProbesOutput
+	ToApplicationGatewayProbesOutputWithContext(ctx context.Context) ApplicationGatewayProbesOutput
+}
+
+type ApplicationGatewayProbesArgs struct {
+	Host pulumi.StringInput `pulumi:"host"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	Interval pulumi.IntInput `pulumi:"interval"`
+	Match ApplicationGatewayProbesMatchInput `pulumi:"match"`
+	MinimumServers pulumi.IntInput `pulumi:"minimumServers"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Path pulumi.StringInput `pulumi:"path"`
+	PickHostNameFromBackendHttpSettings pulumi.BoolInput `pulumi:"pickHostNameFromBackendHttpSettings"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+}
+
+func (ApplicationGatewayProbesArgs) ElementType() reflect.Type {
+	return applicationGatewayProbesType
+}
+
+func (a ApplicationGatewayProbesArgs) ToApplicationGatewayProbesOutput() ApplicationGatewayProbesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayProbesOutput)
+}
+
+func (a ApplicationGatewayProbesArgs) ToApplicationGatewayProbesOutputWithContext(ctx context.Context) ApplicationGatewayProbesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayProbesOutput)
+}
+
+type ApplicationGatewayProbesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayProbesOutput) Host() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) string {
+		if v.Host == nil { return *new(string) } else { return *v.Host }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayProbesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) Interval() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) int {
+		return v.Interval
+	}).(pulumi.IntOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) Match() ApplicationGatewayProbesMatchOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) ApplicationGatewayProbesMatch {
+		if v.Match == nil { return *new(ApplicationGatewayProbesMatch) } else { return *v.Match }
+	}).(ApplicationGatewayProbesMatchOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) MinimumServers() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) int {
+		if v.MinimumServers == nil { return *new(int) } else { return *v.MinimumServers }
+	}).(pulumi.IntOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayProbesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) PickHostNameFromBackendHttpSettings() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) bool {
+		if v.PickHostNameFromBackendHttpSettings == nil { return *new(bool) } else { return *v.PickHostNameFromBackendHttpSettings }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) Timeout() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) int {
+		return v.Timeout
+	}).(pulumi.IntOutput)
+}
+
+func (o ApplicationGatewayProbesOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayProbes) int {
+		return v.UnhealthyThreshold
+	}).(pulumi.IntOutput)
+}
+
+func (ApplicationGatewayProbesOutput) ElementType() reflect.Type {
+	return applicationGatewayProbesType
+}
+
+func (o ApplicationGatewayProbesOutput) ToApplicationGatewayProbesOutput() ApplicationGatewayProbesOutput {
+	return o
+}
+
+func (o ApplicationGatewayProbesOutput) ToApplicationGatewayProbesOutputWithContext(ctx context.Context) ApplicationGatewayProbesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayProbesOutput{}) }
+
+var applicationGatewayProbesArrayType = reflect.TypeOf((*[]ApplicationGatewayProbes)(nil)).Elem()
+
+type ApplicationGatewayProbesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayProbesArrayOutput() ApplicationGatewayProbesArrayOutput
+	ToApplicationGatewayProbesArrayOutputWithContext(ctx context.Context) ApplicationGatewayProbesArrayOutput
+}
+
+type ApplicationGatewayProbesArrayArgs []ApplicationGatewayProbesInput
+
+func (ApplicationGatewayProbesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayProbesArrayType
+}
+
+func (a ApplicationGatewayProbesArrayArgs) ToApplicationGatewayProbesArrayOutput() ApplicationGatewayProbesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayProbesArrayOutput)
+}
+
+func (a ApplicationGatewayProbesArrayArgs) ToApplicationGatewayProbesArrayOutputWithContext(ctx context.Context) ApplicationGatewayProbesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayProbesArrayOutput)
+}
+
+type ApplicationGatewayProbesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayProbesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayProbesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayProbes {
+		return vs[0].([]ApplicationGatewayProbes)[vs[1].(int)]
+	}).(ApplicationGatewayProbesOutput)
+}
+
+func (ApplicationGatewayProbesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayProbesArrayType
+}
+
+func (o ApplicationGatewayProbesArrayOutput) ToApplicationGatewayProbesArrayOutput() ApplicationGatewayProbesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayProbesArrayOutput) ToApplicationGatewayProbesArrayOutputWithContext(ctx context.Context) ApplicationGatewayProbesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayProbesArrayOutput{}) }
+
+type ApplicationGatewayProbesMatch struct {
+	Body *string `pulumi:"body"`
+	StatusCodes *[]string `pulumi:"statusCodes"`
+}
+var applicationGatewayProbesMatchType = reflect.TypeOf((*ApplicationGatewayProbesMatch)(nil)).Elem()
+
+type ApplicationGatewayProbesMatchInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayProbesMatchOutput() ApplicationGatewayProbesMatchOutput
+	ToApplicationGatewayProbesMatchOutputWithContext(ctx context.Context) ApplicationGatewayProbesMatchOutput
+}
+
+type ApplicationGatewayProbesMatchArgs struct {
+	Body pulumi.StringInput `pulumi:"body"`
+	StatusCodes pulumi.StringArrayInput `pulumi:"statusCodes"`
+}
+
+func (ApplicationGatewayProbesMatchArgs) ElementType() reflect.Type {
+	return applicationGatewayProbesMatchType
+}
+
+func (a ApplicationGatewayProbesMatchArgs) ToApplicationGatewayProbesMatchOutput() ApplicationGatewayProbesMatchOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayProbesMatchOutput)
+}
+
+func (a ApplicationGatewayProbesMatchArgs) ToApplicationGatewayProbesMatchOutputWithContext(ctx context.Context) ApplicationGatewayProbesMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayProbesMatchOutput)
+}
+
+type ApplicationGatewayProbesMatchOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayProbesMatchOutput) Body() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayProbesMatch) string {
+		if v.Body == nil { return *new(string) } else { return *v.Body }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayProbesMatchOutput) StatusCodes() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewayProbesMatch) []string {
+		if v.StatusCodes == nil { return *new([]string) } else { return *v.StatusCodes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ApplicationGatewayProbesMatchOutput) ElementType() reflect.Type {
+	return applicationGatewayProbesMatchType
+}
+
+func (o ApplicationGatewayProbesMatchOutput) ToApplicationGatewayProbesMatchOutput() ApplicationGatewayProbesMatchOutput {
+	return o
+}
+
+func (o ApplicationGatewayProbesMatchOutput) ToApplicationGatewayProbesMatchOutputWithContext(ctx context.Context) ApplicationGatewayProbesMatchOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayProbesMatchOutput{}) }
+
+type ApplicationGatewayRedirectConfigurations struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	IncludePath *bool `pulumi:"includePath"`
+	IncludeQueryString *bool `pulumi:"includeQueryString"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	RedirectType string `pulumi:"redirectType"`
+	TargetListenerId *string `pulumi:"targetListenerId"`
+	TargetListenerName *string `pulumi:"targetListenerName"`
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+var applicationGatewayRedirectConfigurationsType = reflect.TypeOf((*ApplicationGatewayRedirectConfigurations)(nil)).Elem()
+
+type ApplicationGatewayRedirectConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRedirectConfigurationsOutput() ApplicationGatewayRedirectConfigurationsOutput
+	ToApplicationGatewayRedirectConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRedirectConfigurationsOutput
+}
+
+type ApplicationGatewayRedirectConfigurationsArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	IncludePath pulumi.BoolInput `pulumi:"includePath"`
+	IncludeQueryString pulumi.BoolInput `pulumi:"includeQueryString"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+	TargetListenerId pulumi.StringInput `pulumi:"targetListenerId"`
+	TargetListenerName pulumi.StringInput `pulumi:"targetListenerName"`
+	TargetUrl pulumi.StringInput `pulumi:"targetUrl"`
+}
+
+func (ApplicationGatewayRedirectConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayRedirectConfigurationsType
+}
+
+func (a ApplicationGatewayRedirectConfigurationsArgs) ToApplicationGatewayRedirectConfigurationsOutput() ApplicationGatewayRedirectConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRedirectConfigurationsOutput)
+}
+
+func (a ApplicationGatewayRedirectConfigurationsArgs) ToApplicationGatewayRedirectConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRedirectConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRedirectConfigurationsOutput)
+}
+
+type ApplicationGatewayRedirectConfigurationsOutput struct { *pulumi.OutputState }
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayRedirectConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) IncludePath() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) bool {
+		if v.IncludePath == nil { return *new(bool) } else { return *v.IncludePath }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) IncludeQueryString() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) bool {
+		if v.IncludeQueryString == nil { return *new(bool) } else { return *v.IncludeQueryString }
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayRedirectConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) RedirectType() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) string {
+		return v.RedirectType
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) TargetListenerId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) string {
+		if v.TargetListenerId == nil { return *new(string) } else { return *v.TargetListenerId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) TargetListenerName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) string {
+		if v.TargetListenerName == nil { return *new(string) } else { return *v.TargetListenerName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) TargetUrl() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRedirectConfigurations) string {
+		if v.TargetUrl == nil { return *new(string) } else { return *v.TargetUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayRedirectConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayRedirectConfigurationsType
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) ToApplicationGatewayRedirectConfigurationsOutput() ApplicationGatewayRedirectConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayRedirectConfigurationsOutput) ToApplicationGatewayRedirectConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRedirectConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRedirectConfigurationsOutput{}) }
+
+var applicationGatewayRedirectConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayRedirectConfigurations)(nil)).Elem()
+
+type ApplicationGatewayRedirectConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRedirectConfigurationsArrayOutput() ApplicationGatewayRedirectConfigurationsArrayOutput
+	ToApplicationGatewayRedirectConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRedirectConfigurationsArrayOutput
+}
+
+type ApplicationGatewayRedirectConfigurationsArrayArgs []ApplicationGatewayRedirectConfigurationsInput
+
+func (ApplicationGatewayRedirectConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRedirectConfigurationsArrayType
+}
+
+func (a ApplicationGatewayRedirectConfigurationsArrayArgs) ToApplicationGatewayRedirectConfigurationsArrayOutput() ApplicationGatewayRedirectConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRedirectConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayRedirectConfigurationsArrayArgs) ToApplicationGatewayRedirectConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRedirectConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRedirectConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayRedirectConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRedirectConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRedirectConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRedirectConfigurations {
+		return vs[0].([]ApplicationGatewayRedirectConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayRedirectConfigurationsOutput)
+}
+
+func (ApplicationGatewayRedirectConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRedirectConfigurationsArrayType
+}
+
+func (o ApplicationGatewayRedirectConfigurationsArrayOutput) ToApplicationGatewayRedirectConfigurationsArrayOutput() ApplicationGatewayRedirectConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRedirectConfigurationsArrayOutput) ToApplicationGatewayRedirectConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRedirectConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRedirectConfigurationsArrayOutput{}) }
+
+type ApplicationGatewayRequestRoutingRules struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
+	BackendAddressPoolName *string `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId *string `pulumi:"backendHttpSettingsId"`
+	BackendHttpSettingsName *string `pulumi:"backendHttpSettingsName"`
+	// The ID of the associated HTTP Listener.
+	HttpListenerId *string `pulumi:"httpListenerId"`
+	HttpListenerName string `pulumi:"httpListenerName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
+	RedirectConfigurationName *string `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId *string `pulumi:"rewriteRuleSetId"`
+	RewriteRuleSetName *string `pulumi:"rewriteRuleSetName"`
+	RuleType string `pulumi:"ruleType"`
+	// The ID of the associated URL Path Map.
+	UrlPathMapId *string `pulumi:"urlPathMapId"`
+	UrlPathMapName *string `pulumi:"urlPathMapName"`
+}
+var applicationGatewayRequestRoutingRulesType = reflect.TypeOf((*ApplicationGatewayRequestRoutingRules)(nil)).Elem()
+
+type ApplicationGatewayRequestRoutingRulesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRequestRoutingRulesOutput() ApplicationGatewayRequestRoutingRulesOutput
+	ToApplicationGatewayRequestRoutingRulesOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRulesOutput
+}
+
+type ApplicationGatewayRequestRoutingRulesArgs struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
+	BackendAddressPoolName pulumi.StringInput `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId pulumi.StringInput `pulumi:"backendHttpSettingsId"`
+	BackendHttpSettingsName pulumi.StringInput `pulumi:"backendHttpSettingsName"`
+	// The ID of the associated HTTP Listener.
+	HttpListenerId pulumi.StringInput `pulumi:"httpListenerId"`
+	HttpListenerName pulumi.StringInput `pulumi:"httpListenerName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId pulumi.StringInput `pulumi:"redirectConfigurationId"`
+	RedirectConfigurationName pulumi.StringInput `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId pulumi.StringInput `pulumi:"rewriteRuleSetId"`
+	RewriteRuleSetName pulumi.StringInput `pulumi:"rewriteRuleSetName"`
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The ID of the associated URL Path Map.
+	UrlPathMapId pulumi.StringInput `pulumi:"urlPathMapId"`
+	UrlPathMapName pulumi.StringInput `pulumi:"urlPathMapName"`
+}
+
+func (ApplicationGatewayRequestRoutingRulesArgs) ElementType() reflect.Type {
+	return applicationGatewayRequestRoutingRulesType
+}
+
+func (a ApplicationGatewayRequestRoutingRulesArgs) ToApplicationGatewayRequestRoutingRulesOutput() ApplicationGatewayRequestRoutingRulesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRequestRoutingRulesOutput)
+}
+
+func (a ApplicationGatewayRequestRoutingRulesArgs) ToApplicationGatewayRequestRoutingRulesOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRequestRoutingRulesOutput)
+}
+
+type ApplicationGatewayRequestRoutingRulesOutput struct { *pulumi.OutputState }
+
+// The ID of the associated Backend Address Pool.
+func (o ApplicationGatewayRequestRoutingRulesOutput) BackendAddressPoolId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.BackendAddressPoolId == nil { return *new(string) } else { return *v.BackendAddressPoolId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) BackendAddressPoolName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.BackendAddressPoolName == nil { return *new(string) } else { return *v.BackendAddressPoolName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated Backend HTTP Settings Configuration.
+func (o ApplicationGatewayRequestRoutingRulesOutput) BackendHttpSettingsId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.BackendHttpSettingsId == nil { return *new(string) } else { return *v.BackendHttpSettingsId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) BackendHttpSettingsName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.BackendHttpSettingsName == nil { return *new(string) } else { return *v.BackendHttpSettingsName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated HTTP Listener.
+func (o ApplicationGatewayRequestRoutingRulesOutput) HttpListenerId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.HttpListenerId == nil { return *new(string) } else { return *v.HttpListenerId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) HttpListenerName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		return v.HttpListenerName
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayRequestRoutingRulesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayRequestRoutingRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated Redirect Configuration.
+func (o ApplicationGatewayRequestRoutingRulesOutput) RedirectConfigurationId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.RedirectConfigurationId == nil { return *new(string) } else { return *v.RedirectConfigurationId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) RedirectConfigurationName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.RedirectConfigurationName == nil { return *new(string) } else { return *v.RedirectConfigurationName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated Rewrite Rule Set.
+func (o ApplicationGatewayRequestRoutingRulesOutput) RewriteRuleSetId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.RewriteRuleSetId == nil { return *new(string) } else { return *v.RewriteRuleSetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) RewriteRuleSetName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.RewriteRuleSetName == nil { return *new(string) } else { return *v.RewriteRuleSetName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) RuleType() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		return v.RuleType
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated URL Path Map.
+func (o ApplicationGatewayRequestRoutingRulesOutput) UrlPathMapId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.UrlPathMapId == nil { return *new(string) } else { return *v.UrlPathMapId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) UrlPathMapName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRequestRoutingRules) string {
+		if v.UrlPathMapName == nil { return *new(string) } else { return *v.UrlPathMapName }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayRequestRoutingRulesOutput) ElementType() reflect.Type {
+	return applicationGatewayRequestRoutingRulesType
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) ToApplicationGatewayRequestRoutingRulesOutput() ApplicationGatewayRequestRoutingRulesOutput {
+	return o
+}
+
+func (o ApplicationGatewayRequestRoutingRulesOutput) ToApplicationGatewayRequestRoutingRulesOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRequestRoutingRulesOutput{}) }
+
+var applicationGatewayRequestRoutingRulesArrayType = reflect.TypeOf((*[]ApplicationGatewayRequestRoutingRules)(nil)).Elem()
+
+type ApplicationGatewayRequestRoutingRulesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRequestRoutingRulesArrayOutput() ApplicationGatewayRequestRoutingRulesArrayOutput
+	ToApplicationGatewayRequestRoutingRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRulesArrayOutput
+}
+
+type ApplicationGatewayRequestRoutingRulesArrayArgs []ApplicationGatewayRequestRoutingRulesInput
+
+func (ApplicationGatewayRequestRoutingRulesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRequestRoutingRulesArrayType
+}
+
+func (a ApplicationGatewayRequestRoutingRulesArrayArgs) ToApplicationGatewayRequestRoutingRulesArrayOutput() ApplicationGatewayRequestRoutingRulesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRequestRoutingRulesArrayOutput)
+}
+
+func (a ApplicationGatewayRequestRoutingRulesArrayArgs) ToApplicationGatewayRequestRoutingRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRequestRoutingRulesArrayOutput)
+}
+
+type ApplicationGatewayRequestRoutingRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRequestRoutingRulesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRequestRoutingRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRequestRoutingRules {
+		return vs[0].([]ApplicationGatewayRequestRoutingRules)[vs[1].(int)]
+	}).(ApplicationGatewayRequestRoutingRulesOutput)
+}
+
+func (ApplicationGatewayRequestRoutingRulesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRequestRoutingRulesArrayType
+}
+
+func (o ApplicationGatewayRequestRoutingRulesArrayOutput) ToApplicationGatewayRequestRoutingRulesArrayOutput() ApplicationGatewayRequestRoutingRulesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRequestRoutingRulesArrayOutput) ToApplicationGatewayRequestRoutingRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayRequestRoutingRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRequestRoutingRulesArrayOutput{}) }
+
+type ApplicationGatewayRewriteRuleSets struct {
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	RewriteRules *[]ApplicationGatewayRewriteRuleSetsRewriteRules `pulumi:"rewriteRules"`
+}
+var applicationGatewayRewriteRuleSetsType = reflect.TypeOf((*ApplicationGatewayRewriteRuleSets)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsOutput() ApplicationGatewayRewriteRuleSetsOutput
+	ToApplicationGatewayRewriteRuleSetsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	RewriteRules ApplicationGatewayRewriteRuleSetsRewriteRulesArrayInput `pulumi:"rewriteRules"`
+}
+
+func (ApplicationGatewayRewriteRuleSetsArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsArgs) ToApplicationGatewayRewriteRuleSetsOutput() ApplicationGatewayRewriteRuleSetsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsArgs) ToApplicationGatewayRewriteRuleSetsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsOutput struct { *pulumi.OutputState }
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayRewriteRuleSetsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSets) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayRewriteRuleSetsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSets) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsOutput) RewriteRules() ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSets) []ApplicationGatewayRewriteRuleSetsRewriteRules {
+		if v.RewriteRules == nil { return *new([]ApplicationGatewayRewriteRuleSetsRewriteRules) } else { return *v.RewriteRules }
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsOutput) ToApplicationGatewayRewriteRuleSetsOutput() ApplicationGatewayRewriteRuleSetsOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsOutput) ToApplicationGatewayRewriteRuleSetsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsOutput{}) }
+
+var applicationGatewayRewriteRuleSetsArrayType = reflect.TypeOf((*[]ApplicationGatewayRewriteRuleSets)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsArrayOutput() ApplicationGatewayRewriteRuleSetsArrayOutput
+	ToApplicationGatewayRewriteRuleSetsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsArrayOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsArrayArgs []ApplicationGatewayRewriteRuleSetsInput
+
+func (ApplicationGatewayRewriteRuleSetsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsArrayType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsArrayArgs) ToApplicationGatewayRewriteRuleSetsArrayOutput() ApplicationGatewayRewriteRuleSetsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsArrayOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsArrayArgs) ToApplicationGatewayRewriteRuleSetsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsArrayOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRewriteRuleSetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRewriteRuleSets {
+		return vs[0].([]ApplicationGatewayRewriteRuleSets)[vs[1].(int)]
+	}).(ApplicationGatewayRewriteRuleSetsOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsArrayType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsArrayOutput) ToApplicationGatewayRewriteRuleSetsArrayOutput() ApplicationGatewayRewriteRuleSetsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsArrayOutput) ToApplicationGatewayRewriteRuleSetsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsArrayOutput{}) }
+
+type ApplicationGatewayRewriteRuleSetsRewriteRules struct {
+	Conditions *[]ApplicationGatewayRewriteRuleSetsRewriteRulesConditions `pulumi:"conditions"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	RequestHeaderConfigurations *[]ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations `pulumi:"requestHeaderConfigurations"`
+	ResponseHeaderConfigurations *[]ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations `pulumi:"responseHeaderConfigurations"`
+	RuleSequence int `pulumi:"ruleSequence"`
+}
+var applicationGatewayRewriteRuleSetsRewriteRulesType = reflect.TypeOf((*ApplicationGatewayRewriteRuleSetsRewriteRules)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesArgs struct {
+	Conditions ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayInput `pulumi:"conditions"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	RequestHeaderConfigurations ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayInput `pulumi:"requestHeaderConfigurations"`
+	ResponseHeaderConfigurations ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayInput `pulumi:"responseHeaderConfigurations"`
+	RuleSequence pulumi.IntInput `pulumi:"ruleSequence"`
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) Conditions() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRules) []ApplicationGatewayRewriteRuleSetsRewriteRulesConditions {
+		if v.Conditions == nil { return *new([]ApplicationGatewayRewriteRuleSetsRewriteRulesConditions) } else { return *v.Conditions }
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) RequestHeaderConfigurations() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRules) []ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations {
+		if v.RequestHeaderConfigurations == nil { return *new([]ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations) } else { return *v.RequestHeaderConfigurations }
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) ResponseHeaderConfigurations() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRules) []ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations {
+		if v.ResponseHeaderConfigurations == nil { return *new([]ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations) } else { return *v.ResponseHeaderConfigurations }
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) RuleSequence() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRules) int {
+		return v.RuleSequence
+	}).(pulumi.IntOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesOutput{}) }
+
+var applicationGatewayRewriteRuleSetsRewriteRulesArrayType = reflect.TypeOf((*[]ApplicationGatewayRewriteRuleSetsRewriteRules)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesArrayArgs []ApplicationGatewayRewriteRuleSetsRewriteRulesInput
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesArrayType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRewriteRuleSetsRewriteRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRewriteRuleSetsRewriteRules {
+		return vs[0].([]ApplicationGatewayRewriteRuleSetsRewriteRules)[vs[1].(int)]
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesArrayType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesArrayOutput{}) }
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditions struct {
+	IgnoreCase *bool `pulumi:"ignoreCase"`
+	Negate *bool `pulumi:"negate"`
+	Pattern string `pulumi:"pattern"`
+	Variable string `pulumi:"variable"`
+}
+var applicationGatewayRewriteRuleSetsRewriteRulesConditionsType = reflect.TypeOf((*ApplicationGatewayRewriteRuleSetsRewriteRulesConditions)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs struct {
+	IgnoreCase pulumi.BoolInput `pulumi:"ignoreCase"`
+	Negate pulumi.BoolInput `pulumi:"negate"`
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+	Variable pulumi.StringInput `pulumi:"variable"`
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesConditionsType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) IgnoreCase() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesConditions) bool {
+		if v.IgnoreCase == nil { return *new(bool) } else { return *v.IgnoreCase }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) Negate() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesConditions) bool {
+		if v.Negate == nil { return *new(bool) } else { return *v.Negate }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) Pattern() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesConditions) string {
+		return v.Pattern
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) Variable() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesConditions) string {
+		return v.Variable
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesConditionsType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput{}) }
+
+var applicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayType = reflect.TypeOf((*[]ApplicationGatewayRewriteRuleSetsRewriteRulesConditions)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayArgs []ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsInput
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRewriteRuleSetsRewriteRulesConditions {
+		return vs[0].([]ApplicationGatewayRewriteRuleSetsRewriteRulesConditions)[vs[1].(int)]
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesConditionsArrayOutput{}) }
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations struct {
+	HeaderName string `pulumi:"headerName"`
+	HeaderValue string `pulumi:"headerValue"`
+}
+var applicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsType = reflect.TypeOf((*ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs struct {
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput) HeaderName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations) string {
+		return v.HeaderName
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput) HeaderValue() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations) string {
+		return v.HeaderValue
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput{}) }
+
+var applicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayArgs []ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsInput
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations {
+		return vs[0].([]ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesRequestHeaderConfigurationsArrayOutput{}) }
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations struct {
+	HeaderName string `pulumi:"headerName"`
+	HeaderValue string `pulumi:"headerValue"`
+}
+var applicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsType = reflect.TypeOf((*ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs struct {
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput) HeaderName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations) string {
+		return v.HeaderName
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput) HeaderValue() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations) string {
+		return v.HeaderValue
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput{}) }
+
+var applicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayType = reflect.TypeOf((*[]ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations)(nil)).Elem()
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput
+	ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayArgs []ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsInput
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayType
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput)
+}
+
+func (a ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayArgs) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput)
+}
+
+type ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations {
+		return vs[0].([]ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurations)[vs[1].(int)]
+	}).(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsOutput)
+}
+
+func (ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayType
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput() ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput) ToApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutputWithContext(ctx context.Context) ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayRewriteRuleSetsRewriteRulesResponseHeaderConfigurationsArrayOutput{}) }
+
+type ApplicationGatewaySku struct {
+	Capacity *int `pulumi:"capacity"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Tier string `pulumi:"tier"`
+}
+var applicationGatewaySkuType = reflect.TypeOf((*ApplicationGatewaySku)(nil)).Elem()
+
+type ApplicationGatewaySkuInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySkuOutput() ApplicationGatewaySkuOutput
+	ToApplicationGatewaySkuOutputWithContext(ctx context.Context) ApplicationGatewaySkuOutput
+}
+
+type ApplicationGatewaySkuArgs struct {
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (ApplicationGatewaySkuArgs) ElementType() reflect.Type {
+	return applicationGatewaySkuType
+}
+
+func (a ApplicationGatewaySkuArgs) ToApplicationGatewaySkuOutput() ApplicationGatewaySkuOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewaySkuOutput)
+}
+
+func (a ApplicationGatewaySkuArgs) ToApplicationGatewaySkuOutputWithContext(ctx context.Context) ApplicationGatewaySkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewaySkuOutput)
+}
+
+type ApplicationGatewaySkuOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewaySkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewaySku) int {
+		if v.Capacity == nil { return *new(int) } else { return *v.Capacity }
+	}).(pulumi.IntOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewaySkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewaySkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewaySkuOutput) ElementType() reflect.Type {
+	return applicationGatewaySkuType
+}
+
+func (o ApplicationGatewaySkuOutput) ToApplicationGatewaySkuOutput() ApplicationGatewaySkuOutput {
+	return o
+}
+
+func (o ApplicationGatewaySkuOutput) ToApplicationGatewaySkuOutputWithContext(ctx context.Context) ApplicationGatewaySkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewaySkuOutput{}) }
+
+type ApplicationGatewaySslCertificates struct {
+	Data string `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Password string `pulumi:"password"`
+	// The Public Certificate Data associated with the SSL Certificate.
+	PublicCertData *string `pulumi:"publicCertData"`
+}
+var applicationGatewaySslCertificatesType = reflect.TypeOf((*ApplicationGatewaySslCertificates)(nil)).Elem()
+
+type ApplicationGatewaySslCertificatesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslCertificatesOutput() ApplicationGatewaySslCertificatesOutput
+	ToApplicationGatewaySslCertificatesOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificatesOutput
+}
+
+type ApplicationGatewaySslCertificatesArgs struct {
+	Data pulumi.StringInput `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Password pulumi.StringInput `pulumi:"password"`
+	// The Public Certificate Data associated with the SSL Certificate.
+	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
+}
+
+func (ApplicationGatewaySslCertificatesArgs) ElementType() reflect.Type {
+	return applicationGatewaySslCertificatesType
+}
+
+func (a ApplicationGatewaySslCertificatesArgs) ToApplicationGatewaySslCertificatesOutput() ApplicationGatewaySslCertificatesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewaySslCertificatesOutput)
+}
+
+func (a ApplicationGatewaySslCertificatesArgs) ToApplicationGatewaySslCertificatesOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewaySslCertificatesOutput)
+}
+
+type ApplicationGatewaySslCertificatesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewaySslCertificatesOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslCertificates) string {
+		return v.Data
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewaySslCertificatesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslCertificates) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewaySslCertificatesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslCertificates) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewaySslCertificatesOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslCertificates) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The Public Certificate Data associated with the SSL Certificate.
+func (o ApplicationGatewaySslCertificatesOutput) PublicCertData() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslCertificates) string {
+		if v.PublicCertData == nil { return *new(string) } else { return *v.PublicCertData }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewaySslCertificatesOutput) ElementType() reflect.Type {
+	return applicationGatewaySslCertificatesType
+}
+
+func (o ApplicationGatewaySslCertificatesOutput) ToApplicationGatewaySslCertificatesOutput() ApplicationGatewaySslCertificatesOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslCertificatesOutput) ToApplicationGatewaySslCertificatesOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewaySslCertificatesOutput{}) }
+
+var applicationGatewaySslCertificatesArrayType = reflect.TypeOf((*[]ApplicationGatewaySslCertificates)(nil)).Elem()
+
+type ApplicationGatewaySslCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslCertificatesArrayOutput() ApplicationGatewaySslCertificatesArrayOutput
+	ToApplicationGatewaySslCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificatesArrayOutput
+}
+
+type ApplicationGatewaySslCertificatesArrayArgs []ApplicationGatewaySslCertificatesInput
+
+func (ApplicationGatewaySslCertificatesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewaySslCertificatesArrayType
+}
+
+func (a ApplicationGatewaySslCertificatesArrayArgs) ToApplicationGatewaySslCertificatesArrayOutput() ApplicationGatewaySslCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewaySslCertificatesArrayOutput)
+}
+
+func (a ApplicationGatewaySslCertificatesArrayArgs) ToApplicationGatewaySslCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewaySslCertificatesArrayOutput)
+}
+
+type ApplicationGatewaySslCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewaySslCertificatesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewaySslCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewaySslCertificates {
+		return vs[0].([]ApplicationGatewaySslCertificates)[vs[1].(int)]
+	}).(ApplicationGatewaySslCertificatesOutput)
+}
+
+func (ApplicationGatewaySslCertificatesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewaySslCertificatesArrayType
+}
+
+func (o ApplicationGatewaySslCertificatesArrayOutput) ToApplicationGatewaySslCertificatesArrayOutput() ApplicationGatewaySslCertificatesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslCertificatesArrayOutput) ToApplicationGatewaySslCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewaySslCertificatesArrayOutput{}) }
+
+type ApplicationGatewaySslPolicies struct {
+	CipherSuites *[]string `pulumi:"cipherSuites"`
+	DisabledProtocols *[]string `pulumi:"disabledProtocols"`
+	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
+	PolicyName *string `pulumi:"policyName"`
+	PolicyType *string `pulumi:"policyType"`
+}
+var applicationGatewaySslPoliciesType = reflect.TypeOf((*ApplicationGatewaySslPolicies)(nil)).Elem()
+
+type ApplicationGatewaySslPoliciesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslPoliciesOutput() ApplicationGatewaySslPoliciesOutput
+	ToApplicationGatewaySslPoliciesOutputWithContext(ctx context.Context) ApplicationGatewaySslPoliciesOutput
+}
+
+type ApplicationGatewaySslPoliciesArgs struct {
+	CipherSuites pulumi.StringArrayInput `pulumi:"cipherSuites"`
+	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
+	MinProtocolVersion pulumi.StringInput `pulumi:"minProtocolVersion"`
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+}
+
+func (ApplicationGatewaySslPoliciesArgs) ElementType() reflect.Type {
+	return applicationGatewaySslPoliciesType
+}
+
+func (a ApplicationGatewaySslPoliciesArgs) ToApplicationGatewaySslPoliciesOutput() ApplicationGatewaySslPoliciesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewaySslPoliciesOutput)
+}
+
+func (a ApplicationGatewaySslPoliciesArgs) ToApplicationGatewaySslPoliciesOutputWithContext(ctx context.Context) ApplicationGatewaySslPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewaySslPoliciesOutput)
+}
+
+type ApplicationGatewaySslPoliciesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewaySslPoliciesOutput) CipherSuites() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewaySslPolicies) []string {
+		if v.CipherSuites == nil { return *new([]string) } else { return *v.CipherSuites }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationGatewaySslPoliciesOutput) DisabledProtocols() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewaySslPolicies) []string {
+		if v.DisabledProtocols == nil { return *new([]string) } else { return *v.DisabledProtocols }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApplicationGatewaySslPoliciesOutput) MinProtocolVersion() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslPolicies) string {
+		if v.MinProtocolVersion == nil { return *new(string) } else { return *v.MinProtocolVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewaySslPoliciesOutput) PolicyName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslPolicies) string {
+		if v.PolicyName == nil { return *new(string) } else { return *v.PolicyName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewaySslPoliciesOutput) PolicyType() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewaySslPolicies) string {
+		if v.PolicyType == nil { return *new(string) } else { return *v.PolicyType }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewaySslPoliciesOutput) ElementType() reflect.Type {
+	return applicationGatewaySslPoliciesType
+}
+
+func (o ApplicationGatewaySslPoliciesOutput) ToApplicationGatewaySslPoliciesOutput() ApplicationGatewaySslPoliciesOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslPoliciesOutput) ToApplicationGatewaySslPoliciesOutputWithContext(ctx context.Context) ApplicationGatewaySslPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewaySslPoliciesOutput{}) }
+
+var applicationGatewaySslPoliciesArrayType = reflect.TypeOf((*[]ApplicationGatewaySslPolicies)(nil)).Elem()
+
+type ApplicationGatewaySslPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewaySslPoliciesArrayOutput() ApplicationGatewaySslPoliciesArrayOutput
+	ToApplicationGatewaySslPoliciesArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslPoliciesArrayOutput
+}
+
+type ApplicationGatewaySslPoliciesArrayArgs []ApplicationGatewaySslPoliciesInput
+
+func (ApplicationGatewaySslPoliciesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewaySslPoliciesArrayType
+}
+
+func (a ApplicationGatewaySslPoliciesArrayArgs) ToApplicationGatewaySslPoliciesArrayOutput() ApplicationGatewaySslPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewaySslPoliciesArrayOutput)
+}
+
+func (a ApplicationGatewaySslPoliciesArrayArgs) ToApplicationGatewaySslPoliciesArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewaySslPoliciesArrayOutput)
+}
+
+type ApplicationGatewaySslPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewaySslPoliciesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewaySslPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewaySslPolicies {
+		return vs[0].([]ApplicationGatewaySslPolicies)[vs[1].(int)]
+	}).(ApplicationGatewaySslPoliciesOutput)
+}
+
+func (ApplicationGatewaySslPoliciesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewaySslPoliciesArrayType
+}
+
+func (o ApplicationGatewaySslPoliciesArrayOutput) ToApplicationGatewaySslPoliciesArrayOutput() ApplicationGatewaySslPoliciesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewaySslPoliciesArrayOutput) ToApplicationGatewaySslPoliciesArrayOutputWithContext(ctx context.Context) ApplicationGatewaySslPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewaySslPoliciesArrayOutput{}) }
+
+type ApplicationGatewayTrustedRootCertificates struct {
+	Data string `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var applicationGatewayTrustedRootCertificatesType = reflect.TypeOf((*ApplicationGatewayTrustedRootCertificates)(nil)).Elem()
+
+type ApplicationGatewayTrustedRootCertificatesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayTrustedRootCertificatesOutput() ApplicationGatewayTrustedRootCertificatesOutput
+	ToApplicationGatewayTrustedRootCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayTrustedRootCertificatesOutput
+}
+
+type ApplicationGatewayTrustedRootCertificatesArgs struct {
+	Data pulumi.StringInput `pulumi:"data"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationGatewayTrustedRootCertificatesArgs) ElementType() reflect.Type {
+	return applicationGatewayTrustedRootCertificatesType
+}
+
+func (a ApplicationGatewayTrustedRootCertificatesArgs) ToApplicationGatewayTrustedRootCertificatesOutput() ApplicationGatewayTrustedRootCertificatesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayTrustedRootCertificatesOutput)
+}
+
+func (a ApplicationGatewayTrustedRootCertificatesArgs) ToApplicationGatewayTrustedRootCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayTrustedRootCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayTrustedRootCertificatesOutput)
+}
+
+type ApplicationGatewayTrustedRootCertificatesOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayTrustedRootCertificatesOutput) Data() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayTrustedRootCertificates) string {
+		return v.Data
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayTrustedRootCertificatesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayTrustedRootCertificates) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayTrustedRootCertificatesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayTrustedRootCertificates) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayTrustedRootCertificatesOutput) ElementType() reflect.Type {
+	return applicationGatewayTrustedRootCertificatesType
+}
+
+func (o ApplicationGatewayTrustedRootCertificatesOutput) ToApplicationGatewayTrustedRootCertificatesOutput() ApplicationGatewayTrustedRootCertificatesOutput {
+	return o
+}
+
+func (o ApplicationGatewayTrustedRootCertificatesOutput) ToApplicationGatewayTrustedRootCertificatesOutputWithContext(ctx context.Context) ApplicationGatewayTrustedRootCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayTrustedRootCertificatesOutput{}) }
+
+var applicationGatewayTrustedRootCertificatesArrayType = reflect.TypeOf((*[]ApplicationGatewayTrustedRootCertificates)(nil)).Elem()
+
+type ApplicationGatewayTrustedRootCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayTrustedRootCertificatesArrayOutput() ApplicationGatewayTrustedRootCertificatesArrayOutput
+	ToApplicationGatewayTrustedRootCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayTrustedRootCertificatesArrayOutput
+}
+
+type ApplicationGatewayTrustedRootCertificatesArrayArgs []ApplicationGatewayTrustedRootCertificatesInput
+
+func (ApplicationGatewayTrustedRootCertificatesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayTrustedRootCertificatesArrayType
+}
+
+func (a ApplicationGatewayTrustedRootCertificatesArrayArgs) ToApplicationGatewayTrustedRootCertificatesArrayOutput() ApplicationGatewayTrustedRootCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayTrustedRootCertificatesArrayOutput)
+}
+
+func (a ApplicationGatewayTrustedRootCertificatesArrayArgs) ToApplicationGatewayTrustedRootCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayTrustedRootCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayTrustedRootCertificatesArrayOutput)
+}
+
+type ApplicationGatewayTrustedRootCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayTrustedRootCertificatesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayTrustedRootCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayTrustedRootCertificates {
+		return vs[0].([]ApplicationGatewayTrustedRootCertificates)[vs[1].(int)]
+	}).(ApplicationGatewayTrustedRootCertificatesOutput)
+}
+
+func (ApplicationGatewayTrustedRootCertificatesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayTrustedRootCertificatesArrayType
+}
+
+func (o ApplicationGatewayTrustedRootCertificatesArrayOutput) ToApplicationGatewayTrustedRootCertificatesArrayOutput() ApplicationGatewayTrustedRootCertificatesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayTrustedRootCertificatesArrayOutput) ToApplicationGatewayTrustedRootCertificatesArrayOutputWithContext(ctx context.Context) ApplicationGatewayTrustedRootCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayTrustedRootCertificatesArrayOutput{}) }
+
+type ApplicationGatewayUrlPathMaps struct {
+	// The ID of the Default Backend Address Pool.
+	DefaultBackendAddressPoolId *string `pulumi:"defaultBackendAddressPoolId"`
+	DefaultBackendAddressPoolName *string `pulumi:"defaultBackendAddressPoolName"`
+	// The ID of the Default Backend HTTP Settings Collection.
+	DefaultBackendHttpSettingsId *string `pulumi:"defaultBackendHttpSettingsId"`
+	DefaultBackendHttpSettingsName *string `pulumi:"defaultBackendHttpSettingsName"`
+	// The ID of the Default Redirect Configuration.
+	DefaultRedirectConfigurationId *string `pulumi:"defaultRedirectConfigurationId"`
+	DefaultRedirectConfigurationName *string `pulumi:"defaultRedirectConfigurationName"`
+	DefaultRewriteRuleSetId *string `pulumi:"defaultRewriteRuleSetId"`
+	DefaultRewriteRuleSetName *string `pulumi:"defaultRewriteRuleSetName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// A list of `pathRule` blocks as defined above.
+	PathRules []ApplicationGatewayUrlPathMapsPathRules `pulumi:"pathRules"`
+}
+var applicationGatewayUrlPathMapsType = reflect.TypeOf((*ApplicationGatewayUrlPathMaps)(nil)).Elem()
+
+type ApplicationGatewayUrlPathMapsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayUrlPathMapsOutput() ApplicationGatewayUrlPathMapsOutput
+	ToApplicationGatewayUrlPathMapsOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsOutput
+}
+
+type ApplicationGatewayUrlPathMapsArgs struct {
+	// The ID of the Default Backend Address Pool.
+	DefaultBackendAddressPoolId pulumi.StringInput `pulumi:"defaultBackendAddressPoolId"`
+	DefaultBackendAddressPoolName pulumi.StringInput `pulumi:"defaultBackendAddressPoolName"`
+	// The ID of the Default Backend HTTP Settings Collection.
+	DefaultBackendHttpSettingsId pulumi.StringInput `pulumi:"defaultBackendHttpSettingsId"`
+	DefaultBackendHttpSettingsName pulumi.StringInput `pulumi:"defaultBackendHttpSettingsName"`
+	// The ID of the Default Redirect Configuration.
+	DefaultRedirectConfigurationId pulumi.StringInput `pulumi:"defaultRedirectConfigurationId"`
+	DefaultRedirectConfigurationName pulumi.StringInput `pulumi:"defaultRedirectConfigurationName"`
+	DefaultRewriteRuleSetId pulumi.StringInput `pulumi:"defaultRewriteRuleSetId"`
+	DefaultRewriteRuleSetName pulumi.StringInput `pulumi:"defaultRewriteRuleSetName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of `pathRule` blocks as defined above.
+	PathRules ApplicationGatewayUrlPathMapsPathRulesArrayInput `pulumi:"pathRules"`
+}
+
+func (ApplicationGatewayUrlPathMapsArgs) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsType
+}
+
+func (a ApplicationGatewayUrlPathMapsArgs) ToApplicationGatewayUrlPathMapsOutput() ApplicationGatewayUrlPathMapsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayUrlPathMapsOutput)
+}
+
+func (a ApplicationGatewayUrlPathMapsArgs) ToApplicationGatewayUrlPathMapsOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayUrlPathMapsOutput)
+}
+
+type ApplicationGatewayUrlPathMapsOutput struct { *pulumi.OutputState }
+
+// The ID of the Default Backend Address Pool.
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultBackendAddressPoolId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultBackendAddressPoolId == nil { return *new(string) } else { return *v.DefaultBackendAddressPoolId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultBackendAddressPoolName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultBackendAddressPoolName == nil { return *new(string) } else { return *v.DefaultBackendAddressPoolName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Default Backend HTTP Settings Collection.
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultBackendHttpSettingsId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultBackendHttpSettingsId == nil { return *new(string) } else { return *v.DefaultBackendHttpSettingsId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultBackendHttpSettingsName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultBackendHttpSettingsName == nil { return *new(string) } else { return *v.DefaultBackendHttpSettingsName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Default Redirect Configuration.
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultRedirectConfigurationId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultRedirectConfigurationId == nil { return *new(string) } else { return *v.DefaultRedirectConfigurationId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultRedirectConfigurationName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultRedirectConfigurationName == nil { return *new(string) } else { return *v.DefaultRedirectConfigurationName }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultRewriteRuleSetId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultRewriteRuleSetId == nil { return *new(string) } else { return *v.DefaultRewriteRuleSetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) DefaultRewriteRuleSetName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.DefaultRewriteRuleSetName == nil { return *new(string) } else { return *v.DefaultRewriteRuleSetName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayUrlPathMapsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayUrlPathMapsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// A list of `pathRule` blocks as defined above.
+func (o ApplicationGatewayUrlPathMapsOutput) PathRules() ApplicationGatewayUrlPathMapsPathRulesArrayOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMaps) []ApplicationGatewayUrlPathMapsPathRules {
+		return v.PathRules
+	}).(ApplicationGatewayUrlPathMapsPathRulesArrayOutput)
+}
+
+func (ApplicationGatewayUrlPathMapsOutput) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsType
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) ToApplicationGatewayUrlPathMapsOutput() ApplicationGatewayUrlPathMapsOutput {
+	return o
+}
+
+func (o ApplicationGatewayUrlPathMapsOutput) ToApplicationGatewayUrlPathMapsOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayUrlPathMapsOutput{}) }
+
+var applicationGatewayUrlPathMapsArrayType = reflect.TypeOf((*[]ApplicationGatewayUrlPathMaps)(nil)).Elem()
+
+type ApplicationGatewayUrlPathMapsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayUrlPathMapsArrayOutput() ApplicationGatewayUrlPathMapsArrayOutput
+	ToApplicationGatewayUrlPathMapsArrayOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsArrayOutput
+}
+
+type ApplicationGatewayUrlPathMapsArrayArgs []ApplicationGatewayUrlPathMapsInput
+
+func (ApplicationGatewayUrlPathMapsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsArrayType
+}
+
+func (a ApplicationGatewayUrlPathMapsArrayArgs) ToApplicationGatewayUrlPathMapsArrayOutput() ApplicationGatewayUrlPathMapsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayUrlPathMapsArrayOutput)
+}
+
+func (a ApplicationGatewayUrlPathMapsArrayArgs) ToApplicationGatewayUrlPathMapsArrayOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayUrlPathMapsArrayOutput)
+}
+
+type ApplicationGatewayUrlPathMapsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayUrlPathMapsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayUrlPathMapsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayUrlPathMaps {
+		return vs[0].([]ApplicationGatewayUrlPathMaps)[vs[1].(int)]
+	}).(ApplicationGatewayUrlPathMapsOutput)
+}
+
+func (ApplicationGatewayUrlPathMapsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsArrayType
+}
+
+func (o ApplicationGatewayUrlPathMapsArrayOutput) ToApplicationGatewayUrlPathMapsArrayOutput() ApplicationGatewayUrlPathMapsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayUrlPathMapsArrayOutput) ToApplicationGatewayUrlPathMapsArrayOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayUrlPathMapsArrayOutput{}) }
+
+type ApplicationGatewayUrlPathMapsPathRules struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
+	BackendAddressPoolName *string `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId *string `pulumi:"backendHttpSettingsId"`
+	BackendHttpSettingsName *string `pulumi:"backendHttpSettingsName"`
+	// The ID of the Rewrite Rule Set
+	Id *string `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Paths []string `pulumi:"paths"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId *string `pulumi:"redirectConfigurationId"`
+	RedirectConfigurationName *string `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId *string `pulumi:"rewriteRuleSetId"`
+	RewriteRuleSetName *string `pulumi:"rewriteRuleSetName"`
+}
+var applicationGatewayUrlPathMapsPathRulesType = reflect.TypeOf((*ApplicationGatewayUrlPathMapsPathRules)(nil)).Elem()
+
+type ApplicationGatewayUrlPathMapsPathRulesInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayUrlPathMapsPathRulesOutput() ApplicationGatewayUrlPathMapsPathRulesOutput
+	ToApplicationGatewayUrlPathMapsPathRulesOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsPathRulesOutput
+}
+
+type ApplicationGatewayUrlPathMapsPathRulesArgs struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
+	BackendAddressPoolName pulumi.StringInput `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId pulumi.StringInput `pulumi:"backendHttpSettingsId"`
+	BackendHttpSettingsName pulumi.StringInput `pulumi:"backendHttpSettingsName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId pulumi.StringInput `pulumi:"redirectConfigurationId"`
+	RedirectConfigurationName pulumi.StringInput `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId pulumi.StringInput `pulumi:"rewriteRuleSetId"`
+	RewriteRuleSetName pulumi.StringInput `pulumi:"rewriteRuleSetName"`
+}
+
+func (ApplicationGatewayUrlPathMapsPathRulesArgs) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsPathRulesType
+}
+
+func (a ApplicationGatewayUrlPathMapsPathRulesArgs) ToApplicationGatewayUrlPathMapsPathRulesOutput() ApplicationGatewayUrlPathMapsPathRulesOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayUrlPathMapsPathRulesOutput)
+}
+
+func (a ApplicationGatewayUrlPathMapsPathRulesArgs) ToApplicationGatewayUrlPathMapsPathRulesOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsPathRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayUrlPathMapsPathRulesOutput)
+}
+
+type ApplicationGatewayUrlPathMapsPathRulesOutput struct { *pulumi.OutputState }
+
+// The ID of the associated Backend Address Pool.
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) BackendAddressPoolId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.BackendAddressPoolId == nil { return *new(string) } else { return *v.BackendAddressPoolId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) BackendAddressPoolName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.BackendAddressPoolName == nil { return *new(string) } else { return *v.BackendAddressPoolName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated Backend HTTP Settings Configuration.
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) BackendHttpSettingsId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.BackendHttpSettingsId == nil { return *new(string) } else { return *v.BackendHttpSettingsId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) BackendHttpSettingsName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.BackendHttpSettingsName == nil { return *new(string) } else { return *v.BackendHttpSettingsName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Application Gateway. Changing this forces a new resource to be created.
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) Paths() pulumi.StringArrayOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) []string {
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the associated Redirect Configuration.
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) RedirectConfigurationId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.RedirectConfigurationId == nil { return *new(string) } else { return *v.RedirectConfigurationId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) RedirectConfigurationName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.RedirectConfigurationName == nil { return *new(string) } else { return *v.RedirectConfigurationName }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the associated Rewrite Rule Set.
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) RewriteRuleSetId() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.RewriteRuleSetId == nil { return *new(string) } else { return *v.RewriteRuleSetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) RewriteRuleSetName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayUrlPathMapsPathRules) string {
+		if v.RewriteRuleSetName == nil { return *new(string) } else { return *v.RewriteRuleSetName }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayUrlPathMapsPathRulesOutput) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsPathRulesType
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) ToApplicationGatewayUrlPathMapsPathRulesOutput() ApplicationGatewayUrlPathMapsPathRulesOutput {
+	return o
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesOutput) ToApplicationGatewayUrlPathMapsPathRulesOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsPathRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayUrlPathMapsPathRulesOutput{}) }
+
+var applicationGatewayUrlPathMapsPathRulesArrayType = reflect.TypeOf((*[]ApplicationGatewayUrlPathMapsPathRules)(nil)).Elem()
+
+type ApplicationGatewayUrlPathMapsPathRulesArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayUrlPathMapsPathRulesArrayOutput() ApplicationGatewayUrlPathMapsPathRulesArrayOutput
+	ToApplicationGatewayUrlPathMapsPathRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsPathRulesArrayOutput
+}
+
+type ApplicationGatewayUrlPathMapsPathRulesArrayArgs []ApplicationGatewayUrlPathMapsPathRulesInput
+
+func (ApplicationGatewayUrlPathMapsPathRulesArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsPathRulesArrayType
+}
+
+func (a ApplicationGatewayUrlPathMapsPathRulesArrayArgs) ToApplicationGatewayUrlPathMapsPathRulesArrayOutput() ApplicationGatewayUrlPathMapsPathRulesArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayUrlPathMapsPathRulesArrayOutput)
+}
+
+func (a ApplicationGatewayUrlPathMapsPathRulesArrayArgs) ToApplicationGatewayUrlPathMapsPathRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsPathRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayUrlPathMapsPathRulesArrayOutput)
+}
+
+type ApplicationGatewayUrlPathMapsPathRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayUrlPathMapsPathRulesArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayUrlPathMapsPathRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayUrlPathMapsPathRules {
+		return vs[0].([]ApplicationGatewayUrlPathMapsPathRules)[vs[1].(int)]
+	}).(ApplicationGatewayUrlPathMapsPathRulesOutput)
+}
+
+func (ApplicationGatewayUrlPathMapsPathRulesArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayUrlPathMapsPathRulesArrayType
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesArrayOutput) ToApplicationGatewayUrlPathMapsPathRulesArrayOutput() ApplicationGatewayUrlPathMapsPathRulesArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayUrlPathMapsPathRulesArrayOutput) ToApplicationGatewayUrlPathMapsPathRulesArrayOutputWithContext(ctx context.Context) ApplicationGatewayUrlPathMapsPathRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayUrlPathMapsPathRulesArrayOutput{}) }
+
+type ApplicationGatewayWafConfiguration struct {
+	DisabledRuleGroups *[]ApplicationGatewayWafConfigurationDisabledRuleGroups `pulumi:"disabledRuleGroups"`
+	Enabled bool `pulumi:"enabled"`
+	Exclusions *[]ApplicationGatewayWafConfigurationExclusions `pulumi:"exclusions"`
+	FileUploadLimitMb *int `pulumi:"fileUploadLimitMb"`
+	FirewallMode string `pulumi:"firewallMode"`
+	MaxRequestBodySizeKb *int `pulumi:"maxRequestBodySizeKb"`
+	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
+	RuleSetType *string `pulumi:"ruleSetType"`
+	RuleSetVersion string `pulumi:"ruleSetVersion"`
+}
+var applicationGatewayWafConfigurationType = reflect.TypeOf((*ApplicationGatewayWafConfiguration)(nil)).Elem()
+
+type ApplicationGatewayWafConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayWafConfigurationOutput() ApplicationGatewayWafConfigurationOutput
+	ToApplicationGatewayWafConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationOutput
+}
+
+type ApplicationGatewayWafConfigurationArgs struct {
+	DisabledRuleGroups ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayInput `pulumi:"disabledRuleGroups"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Exclusions ApplicationGatewayWafConfigurationExclusionsArrayInput `pulumi:"exclusions"`
+	FileUploadLimitMb pulumi.IntInput `pulumi:"fileUploadLimitMb"`
+	FirewallMode pulumi.StringInput `pulumi:"firewallMode"`
+	MaxRequestBodySizeKb pulumi.IntInput `pulumi:"maxRequestBodySizeKb"`
+	RequestBodyCheck pulumi.BoolInput `pulumi:"requestBodyCheck"`
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+}
+
+func (ApplicationGatewayWafConfigurationArgs) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationType
+}
+
+func (a ApplicationGatewayWafConfigurationArgs) ToApplicationGatewayWafConfigurationOutput() ApplicationGatewayWafConfigurationOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayWafConfigurationOutput)
+}
+
+func (a ApplicationGatewayWafConfigurationArgs) ToApplicationGatewayWafConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayWafConfigurationOutput)
+}
+
+type ApplicationGatewayWafConfigurationOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayWafConfigurationOutput) DisabledRuleGroups() ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationDisabledRuleGroups {
+		if v.DisabledRuleGroups == nil { return *new([]ApplicationGatewayWafConfigurationDisabledRuleGroups) } else { return *v.DisabledRuleGroups }
+	}).(ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) Exclusions() ApplicationGatewayWafConfigurationExclusionsArrayOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationExclusions {
+		if v.Exclusions == nil { return *new([]ApplicationGatewayWafConfigurationExclusions) } else { return *v.Exclusions }
+	}).(ApplicationGatewayWafConfigurationExclusionsArrayOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) FileUploadLimitMb() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) int {
+		if v.FileUploadLimitMb == nil { return *new(int) } else { return *v.FileUploadLimitMb }
+	}).(pulumi.IntOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) FirewallMode() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) string {
+		return v.FirewallMode
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) MaxRequestBodySizeKb() pulumi.IntOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) int {
+		if v.MaxRequestBodySizeKb == nil { return *new(int) } else { return *v.MaxRequestBodySizeKb }
+	}).(pulumi.IntOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) RequestBodyCheck() pulumi.BoolOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) bool {
+		if v.RequestBodyCheck == nil { return *new(bool) } else { return *v.RequestBodyCheck }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) string {
+		if v.RuleSetType == nil { return *new(string) } else { return *v.RuleSetType }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) RuleSetVersion() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfiguration) string {
+		return v.RuleSetVersion
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayWafConfigurationOutput) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationType
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) ToApplicationGatewayWafConfigurationOutput() ApplicationGatewayWafConfigurationOutput {
+	return o
+}
+
+func (o ApplicationGatewayWafConfigurationOutput) ToApplicationGatewayWafConfigurationOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationOutput{}) }
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroups struct {
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	Rules *[]int `pulumi:"rules"`
+}
+var applicationGatewayWafConfigurationDisabledRuleGroupsType = reflect.TypeOf((*ApplicationGatewayWafConfigurationDisabledRuleGroups)(nil)).Elem()
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroupsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayWafConfigurationDisabledRuleGroupsOutput() ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput
+	ToApplicationGatewayWafConfigurationDisabledRuleGroupsOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput
+}
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs struct {
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	Rules pulumi.IntArrayInput `pulumi:"rules"`
+}
+
+func (ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationDisabledRuleGroupsType
+}
+
+func (a ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs) ToApplicationGatewayWafConfigurationDisabledRuleGroupsOutput() ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput)
+}
+
+func (a ApplicationGatewayWafConfigurationDisabledRuleGroupsArgs) ToApplicationGatewayWafConfigurationDisabledRuleGroupsOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput)
+}
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput) RuleGroupName() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfigurationDisabledRuleGroups) string {
+		return v.RuleGroupName
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput) Rules() pulumi.IntArrayOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfigurationDisabledRuleGroups) []int {
+		if v.Rules == nil { return *new([]int) } else { return *v.Rules }
+	}).(pulumi.IntArrayOutput)
+}
+
+func (ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationDisabledRuleGroupsType
+}
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput) ToApplicationGatewayWafConfigurationDisabledRuleGroupsOutput() ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput {
+	return o
+}
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput) ToApplicationGatewayWafConfigurationDisabledRuleGroupsOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput{}) }
+
+var applicationGatewayWafConfigurationDisabledRuleGroupsArrayType = reflect.TypeOf((*[]ApplicationGatewayWafConfigurationDisabledRuleGroups)(nil)).Elem()
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput() ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput
+	ToApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput
+}
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayArgs []ApplicationGatewayWafConfigurationDisabledRuleGroupsInput
+
+func (ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationDisabledRuleGroupsArrayType
+}
+
+func (a ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayArgs) ToApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput() ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput)
+}
+
+func (a ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayArgs) ToApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput)
+}
+
+type ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayWafConfigurationDisabledRuleGroups {
+		return vs[0].([]ApplicationGatewayWafConfigurationDisabledRuleGroups)[vs[1].(int)]
+	}).(ApplicationGatewayWafConfigurationDisabledRuleGroupsOutput)
+}
+
+func (ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationDisabledRuleGroupsArrayType
+}
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput) ToApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput() ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput) ToApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationDisabledRuleGroupsArrayOutput{}) }
+
+type ApplicationGatewayWafConfigurationExclusions struct {
+	MatchVariable string `pulumi:"matchVariable"`
+	Selector *string `pulumi:"selector"`
+	SelectorMatchOperator *string `pulumi:"selectorMatchOperator"`
+}
+var applicationGatewayWafConfigurationExclusionsType = reflect.TypeOf((*ApplicationGatewayWafConfigurationExclusions)(nil)).Elem()
+
+type ApplicationGatewayWafConfigurationExclusionsInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayWafConfigurationExclusionsOutput() ApplicationGatewayWafConfigurationExclusionsOutput
+	ToApplicationGatewayWafConfigurationExclusionsOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationExclusionsOutput
+}
+
+type ApplicationGatewayWafConfigurationExclusionsArgs struct {
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	Selector pulumi.StringInput `pulumi:"selector"`
+	SelectorMatchOperator pulumi.StringInput `pulumi:"selectorMatchOperator"`
+}
+
+func (ApplicationGatewayWafConfigurationExclusionsArgs) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationExclusionsType
+}
+
+func (a ApplicationGatewayWafConfigurationExclusionsArgs) ToApplicationGatewayWafConfigurationExclusionsOutput() ApplicationGatewayWafConfigurationExclusionsOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayWafConfigurationExclusionsOutput)
+}
+
+func (a ApplicationGatewayWafConfigurationExclusionsArgs) ToApplicationGatewayWafConfigurationExclusionsOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationExclusionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayWafConfigurationExclusionsOutput)
+}
+
+type ApplicationGatewayWafConfigurationExclusionsOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayWafConfigurationExclusionsOutput) MatchVariable() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfigurationExclusions) string {
+		return v.MatchVariable
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationExclusionsOutput) Selector() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfigurationExclusions) string {
+		if v.Selector == nil { return *new(string) } else { return *v.Selector }
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationGatewayWafConfigurationExclusionsOutput) SelectorMatchOperator() pulumi.StringOutput {
+	return o.Apply(func(v ApplicationGatewayWafConfigurationExclusions) string {
+		if v.SelectorMatchOperator == nil { return *new(string) } else { return *v.SelectorMatchOperator }
+	}).(pulumi.StringOutput)
+}
+
+func (ApplicationGatewayWafConfigurationExclusionsOutput) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationExclusionsType
+}
+
+func (o ApplicationGatewayWafConfigurationExclusionsOutput) ToApplicationGatewayWafConfigurationExclusionsOutput() ApplicationGatewayWafConfigurationExclusionsOutput {
+	return o
+}
+
+func (o ApplicationGatewayWafConfigurationExclusionsOutput) ToApplicationGatewayWafConfigurationExclusionsOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationExclusionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationExclusionsOutput{}) }
+
+var applicationGatewayWafConfigurationExclusionsArrayType = reflect.TypeOf((*[]ApplicationGatewayWafConfigurationExclusions)(nil)).Elem()
+
+type ApplicationGatewayWafConfigurationExclusionsArrayInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayWafConfigurationExclusionsArrayOutput() ApplicationGatewayWafConfigurationExclusionsArrayOutput
+	ToApplicationGatewayWafConfigurationExclusionsArrayOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationExclusionsArrayOutput
+}
+
+type ApplicationGatewayWafConfigurationExclusionsArrayArgs []ApplicationGatewayWafConfigurationExclusionsInput
+
+func (ApplicationGatewayWafConfigurationExclusionsArrayArgs) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationExclusionsArrayType
+}
+
+func (a ApplicationGatewayWafConfigurationExclusionsArrayArgs) ToApplicationGatewayWafConfigurationExclusionsArrayOutput() ApplicationGatewayWafConfigurationExclusionsArrayOutput {
+	return pulumi.ToOutput(a).(ApplicationGatewayWafConfigurationExclusionsArrayOutput)
+}
+
+func (a ApplicationGatewayWafConfigurationExclusionsArrayArgs) ToApplicationGatewayWafConfigurationExclusionsArrayOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationExclusionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApplicationGatewayWafConfigurationExclusionsArrayOutput)
+}
+
+type ApplicationGatewayWafConfigurationExclusionsArrayOutput struct { *pulumi.OutputState }
+
+func (o ApplicationGatewayWafConfigurationExclusionsArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayWafConfigurationExclusionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ApplicationGatewayWafConfigurationExclusions {
+		return vs[0].([]ApplicationGatewayWafConfigurationExclusions)[vs[1].(int)]
+	}).(ApplicationGatewayWafConfigurationExclusionsOutput)
+}
+
+func (ApplicationGatewayWafConfigurationExclusionsArrayOutput) ElementType() reflect.Type {
+	return applicationGatewayWafConfigurationExclusionsArrayType
+}
+
+func (o ApplicationGatewayWafConfigurationExclusionsArrayOutput) ToApplicationGatewayWafConfigurationExclusionsArrayOutput() ApplicationGatewayWafConfigurationExclusionsArrayOutput {
+	return o
+}
+
+func (o ApplicationGatewayWafConfigurationExclusionsArrayOutput) ToApplicationGatewayWafConfigurationExclusionsArrayOutputWithContext(ctx context.Context) ApplicationGatewayWafConfigurationExclusionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApplicationGatewayWafConfigurationExclusionsArrayOutput{}) }
+

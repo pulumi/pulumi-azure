@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
 type ConsumerGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
+	EventhubEndpointName pulumi.StringOutput `pulumi:"eventhubEndpointName"`
+
+	// The name of the IoT Hub. Changing this forces a new resource to be created.
+	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+
+	// The name of this Consumer Group. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewConsumerGroup registers a new resource with the given unique name, arguments, and options.
 func NewConsumerGroup(ctx *pulumi.Context,
-	name string, args *ConsumerGroupArgs, opts ...pulumi.ResourceOpt) (*ConsumerGroup, error) {
+	name string, args *ConsumerGroupArgs, opts ...pulumi.ResourceOption) (*ConsumerGroup, error) {
 	if args == nil || args.EventhubEndpointName == nil {
 		return nil, errors.New("missing required argument 'EventhubEndpointName'")
 	}
@@ -27,93 +39,60 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["eventhubEndpointName"] = nil
-		inputs["iothubName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["eventhubEndpointName"] = args.EventhubEndpointName
-		inputs["iothubName"] = args.IothubName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EventhubEndpointName; i != nil { inputs["eventhubEndpointName"] = i.ToStringOutput() }
+		if i := args.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:iot/consumerGroup:ConsumerGroup", name, true, inputs, opts...)
+	var resource ConsumerGroup
+	err := ctx.RegisterResource("azure:iot/consumerGroup:ConsumerGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConsumerGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetConsumerGroup gets an existing ConsumerGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConsumerGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConsumerGroupState, opts ...pulumi.ResourceOpt) (*ConsumerGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConsumerGroupState, opts ...pulumi.ResourceOption) (*ConsumerGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["eventhubEndpointName"] = state.EventhubEndpointName
-		inputs["iothubName"] = state.IothubName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.EventhubEndpointName; i != nil { inputs["eventhubEndpointName"] = i.ToStringOutput() }
+		if i := state.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/consumerGroup:ConsumerGroup", name, id, inputs, opts...)
+	var resource ConsumerGroup
+	err := ctx.ReadResource("azure:iot/consumerGroup:ConsumerGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConsumerGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ConsumerGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ConsumerGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) EventhubEndpointName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eventhubEndpointName"])
-}
-
-// The name of the IoT Hub. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) IothubName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iothubName"])
-}
-
-// The name of this Consumer Group. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
-func (r *ConsumerGroup) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ConsumerGroup resources.
 type ConsumerGroupState struct {
 	// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
-	EventhubEndpointName interface{}
+	EventhubEndpointName pulumi.StringInput `pulumi:"eventhubEndpointName"`
 	// The name of the IoT Hub. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// The name of this Consumer Group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ConsumerGroup resource.
 type ConsumerGroupArgs struct {
 	// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
-	EventhubEndpointName interface{}
+	EventhubEndpointName pulumi.StringInput `pulumi:"eventhubEndpointName"`
 	// The name of the IoT Hub. Changing this forces a new resource to be created.
-	IothubName interface{}
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// The name of this Consumer Group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

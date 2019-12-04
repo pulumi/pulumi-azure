@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_autoscale_setting.html.markdown.
 type AutoscaleSetting struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies a `notification` block as defined below.
+	Notification AutoscaleSettingNotificationOutput `pulumi:"notification"`
+
+	// Specifies one or more (up to 20) `profile` blocks as defined below.
+	Profiles AutoscaleSettingProfilesArrayOutput `pulumi:"profiles"`
+
+	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the resource ID of the resource that the autoscale setting should be added to.
+	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 }
 
 // NewAutoscaleSetting registers a new resource with the given unique name, arguments, and options.
 func NewAutoscaleSetting(ctx *pulumi.Context,
-	name string, args *AutoscaleSettingArgs, opts ...pulumi.ResourceOpt) (*AutoscaleSetting, error) {
+	name string, args *AutoscaleSettingArgs, opts ...pulumi.ResourceOption) (*AutoscaleSetting, error) {
 	if args == nil || args.Profiles == nil {
 		return nil, errors.New("missing required argument 'Profiles'")
 	}
@@ -27,141 +53,930 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	if args == nil || args.TargetResourceId == nil {
 		return nil, errors.New("missing required argument 'TargetResourceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["enabled"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["notification"] = nil
-		inputs["profiles"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["targetResourceId"] = nil
-	} else {
-		inputs["enabled"] = args.Enabled
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["notification"] = args.Notification
-		inputs["profiles"] = args.Profiles
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["targetResourceId"] = args.TargetResourceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Notification; i != nil { inputs["notification"] = i.ToAutoscaleSettingNotificationOutput() }
+		if i := args.Profiles; i != nil { inputs["profiles"] = i.ToAutoscaleSettingProfilesArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TargetResourceId; i != nil { inputs["targetResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, true, inputs, opts...)
+	var resource AutoscaleSetting
+	err := ctx.RegisterResource("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AutoscaleSetting{s: s}, nil
+	return &resource, nil
 }
 
 // GetAutoscaleSetting gets an existing AutoscaleSetting resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAutoscaleSetting(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AutoscaleSettingState, opts ...pulumi.ResourceOpt) (*AutoscaleSetting, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AutoscaleSettingState, opts ...pulumi.ResourceOption) (*AutoscaleSetting, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["enabled"] = state.Enabled
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["notification"] = state.Notification
-		inputs["profiles"] = state.Profiles
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["targetResourceId"] = state.TargetResourceId
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Notification; i != nil { inputs["notification"] = i.ToAutoscaleSettingNotificationOutput() }
+		if i := state.Profiles; i != nil { inputs["profiles"] = i.ToAutoscaleSettingProfilesArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TargetResourceId; i != nil { inputs["targetResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, id, inputs, opts...)
+	var resource AutoscaleSetting
+	err := ctx.ReadResource("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AutoscaleSetting{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AutoscaleSetting) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AutoscaleSetting) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
-func (r *AutoscaleSetting) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
-func (r *AutoscaleSetting) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-func (r *AutoscaleSetting) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies a `notification` block as defined below.
-func (r *AutoscaleSetting) Notification() pulumi.Output {
-	return r.s.State["notification"]
-}
-
-// Specifies one or more (up to 20) `profile` blocks as defined below.
-func (r *AutoscaleSetting) Profiles() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["profiles"])
-}
-
-// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-func (r *AutoscaleSetting) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *AutoscaleSetting) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the resource ID of the resource that the autoscale setting should be added to.
-func (r *AutoscaleSetting) TargetResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AutoscaleSetting resources.
 type AutoscaleSettingState struct {
 	// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a `notification` block as defined below.
-	Notification interface{}
+	Notification AutoscaleSettingNotificationInput `pulumi:"notification"`
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
-	Profiles interface{}
+	Profiles AutoscaleSettingProfilesArrayInput `pulumi:"profiles"`
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the resource ID of the resource that the autoscale setting should be added to.
-	TargetResourceId interface{}
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
 
 // The set of arguments for constructing a AutoscaleSetting resource.
 type AutoscaleSettingArgs struct {
 	// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a `notification` block as defined below.
-	Notification interface{}
+	Notification AutoscaleSettingNotificationInput `pulumi:"notification"`
 	// Specifies one or more (up to 20) `profile` blocks as defined below.
-	Profiles interface{}
+	Profiles AutoscaleSettingProfilesArrayInput `pulumi:"profiles"`
 	// The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the resource ID of the resource that the autoscale setting should be added to.
-	TargetResourceId interface{}
+	TargetResourceId pulumi.StringInput `pulumi:"targetResourceId"`
 }
+type AutoscaleSettingNotification struct {
+	Email *AutoscaleSettingNotificationEmail `pulumi:"email"`
+	Webhooks *[]AutoscaleSettingNotificationWebhooks `pulumi:"webhooks"`
+}
+var autoscaleSettingNotificationType = reflect.TypeOf((*AutoscaleSettingNotification)(nil)).Elem()
+
+type AutoscaleSettingNotificationInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingNotificationOutput() AutoscaleSettingNotificationOutput
+	ToAutoscaleSettingNotificationOutputWithContext(ctx context.Context) AutoscaleSettingNotificationOutput
+}
+
+type AutoscaleSettingNotificationArgs struct {
+	Email AutoscaleSettingNotificationEmailInput `pulumi:"email"`
+	Webhooks AutoscaleSettingNotificationWebhooksArrayInput `pulumi:"webhooks"`
+}
+
+func (AutoscaleSettingNotificationArgs) ElementType() reflect.Type {
+	return autoscaleSettingNotificationType
+}
+
+func (a AutoscaleSettingNotificationArgs) ToAutoscaleSettingNotificationOutput() AutoscaleSettingNotificationOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingNotificationOutput)
+}
+
+func (a AutoscaleSettingNotificationArgs) ToAutoscaleSettingNotificationOutputWithContext(ctx context.Context) AutoscaleSettingNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingNotificationOutput)
+}
+
+type AutoscaleSettingNotificationOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingNotificationOutput) Email() AutoscaleSettingNotificationEmailOutput {
+	return o.Apply(func(v AutoscaleSettingNotification) AutoscaleSettingNotificationEmail {
+		if v.Email == nil { return *new(AutoscaleSettingNotificationEmail) } else { return *v.Email }
+	}).(AutoscaleSettingNotificationEmailOutput)
+}
+
+func (o AutoscaleSettingNotificationOutput) Webhooks() AutoscaleSettingNotificationWebhooksArrayOutput {
+	return o.Apply(func(v AutoscaleSettingNotification) []AutoscaleSettingNotificationWebhooks {
+		if v.Webhooks == nil { return *new([]AutoscaleSettingNotificationWebhooks) } else { return *v.Webhooks }
+	}).(AutoscaleSettingNotificationWebhooksArrayOutput)
+}
+
+func (AutoscaleSettingNotificationOutput) ElementType() reflect.Type {
+	return autoscaleSettingNotificationType
+}
+
+func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationOutput() AutoscaleSettingNotificationOutput {
+	return o
+}
+
+func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationOutputWithContext(ctx context.Context) AutoscaleSettingNotificationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{}) }
+
+type AutoscaleSettingNotificationEmail struct {
+	CustomEmails *[]string `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator *bool `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrator *bool `pulumi:"sendToSubscriptionCoAdministrator"`
+}
+var autoscaleSettingNotificationEmailType = reflect.TypeOf((*AutoscaleSettingNotificationEmail)(nil)).Elem()
+
+type AutoscaleSettingNotificationEmailInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingNotificationEmailOutput() AutoscaleSettingNotificationEmailOutput
+	ToAutoscaleSettingNotificationEmailOutputWithContext(ctx context.Context) AutoscaleSettingNotificationEmailOutput
+}
+
+type AutoscaleSettingNotificationEmailArgs struct {
+	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
+	SendToSubscriptionAdministrator pulumi.BoolInput `pulumi:"sendToSubscriptionAdministrator"`
+	SendToSubscriptionCoAdministrator pulumi.BoolInput `pulumi:"sendToSubscriptionCoAdministrator"`
+}
+
+func (AutoscaleSettingNotificationEmailArgs) ElementType() reflect.Type {
+	return autoscaleSettingNotificationEmailType
+}
+
+func (a AutoscaleSettingNotificationEmailArgs) ToAutoscaleSettingNotificationEmailOutput() AutoscaleSettingNotificationEmailOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingNotificationEmailOutput)
+}
+
+func (a AutoscaleSettingNotificationEmailArgs) ToAutoscaleSettingNotificationEmailOutputWithContext(ctx context.Context) AutoscaleSettingNotificationEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingNotificationEmailOutput)
+}
+
+type AutoscaleSettingNotificationEmailOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingNotificationEmailOutput) CustomEmails() pulumi.StringArrayOutput {
+	return o.Apply(func(v AutoscaleSettingNotificationEmail) []string {
+		if v.CustomEmails == nil { return *new([]string) } else { return *v.CustomEmails }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AutoscaleSettingNotificationEmailOutput) SendToSubscriptionAdministrator() pulumi.BoolOutput {
+	return o.Apply(func(v AutoscaleSettingNotificationEmail) bool {
+		if v.SendToSubscriptionAdministrator == nil { return *new(bool) } else { return *v.SendToSubscriptionAdministrator }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AutoscaleSettingNotificationEmailOutput) SendToSubscriptionCoAdministrator() pulumi.BoolOutput {
+	return o.Apply(func(v AutoscaleSettingNotificationEmail) bool {
+		if v.SendToSubscriptionCoAdministrator == nil { return *new(bool) } else { return *v.SendToSubscriptionCoAdministrator }
+	}).(pulumi.BoolOutput)
+}
+
+func (AutoscaleSettingNotificationEmailOutput) ElementType() reflect.Type {
+	return autoscaleSettingNotificationEmailType
+}
+
+func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationEmailOutput() AutoscaleSettingNotificationEmailOutput {
+	return o
+}
+
+func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationEmailOutputWithContext(ctx context.Context) AutoscaleSettingNotificationEmailOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingNotificationEmailOutput{}) }
+
+type AutoscaleSettingNotificationWebhooks struct {
+	Properties *map[string]string `pulumi:"properties"`
+	ServiceUri string `pulumi:"serviceUri"`
+}
+var autoscaleSettingNotificationWebhooksType = reflect.TypeOf((*AutoscaleSettingNotificationWebhooks)(nil)).Elem()
+
+type AutoscaleSettingNotificationWebhooksInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingNotificationWebhooksOutput() AutoscaleSettingNotificationWebhooksOutput
+	ToAutoscaleSettingNotificationWebhooksOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhooksOutput
+}
+
+type AutoscaleSettingNotificationWebhooksArgs struct {
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
+}
+
+func (AutoscaleSettingNotificationWebhooksArgs) ElementType() reflect.Type {
+	return autoscaleSettingNotificationWebhooksType
+}
+
+func (a AutoscaleSettingNotificationWebhooksArgs) ToAutoscaleSettingNotificationWebhooksOutput() AutoscaleSettingNotificationWebhooksOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingNotificationWebhooksOutput)
+}
+
+func (a AutoscaleSettingNotificationWebhooksArgs) ToAutoscaleSettingNotificationWebhooksOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhooksOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingNotificationWebhooksOutput)
+}
+
+type AutoscaleSettingNotificationWebhooksOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingNotificationWebhooksOutput) Properties() pulumi.StringMapOutput {
+	return o.Apply(func(v AutoscaleSettingNotificationWebhooks) map[string]string {
+		if v.Properties == nil { return *new(map[string]string) } else { return *v.Properties }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o AutoscaleSettingNotificationWebhooksOutput) ServiceUri() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingNotificationWebhooks) string {
+		return v.ServiceUri
+	}).(pulumi.StringOutput)
+}
+
+func (AutoscaleSettingNotificationWebhooksOutput) ElementType() reflect.Type {
+	return autoscaleSettingNotificationWebhooksType
+}
+
+func (o AutoscaleSettingNotificationWebhooksOutput) ToAutoscaleSettingNotificationWebhooksOutput() AutoscaleSettingNotificationWebhooksOutput {
+	return o
+}
+
+func (o AutoscaleSettingNotificationWebhooksOutput) ToAutoscaleSettingNotificationWebhooksOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhooksOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingNotificationWebhooksOutput{}) }
+
+var autoscaleSettingNotificationWebhooksArrayType = reflect.TypeOf((*[]AutoscaleSettingNotificationWebhooks)(nil)).Elem()
+
+type AutoscaleSettingNotificationWebhooksArrayInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingNotificationWebhooksArrayOutput() AutoscaleSettingNotificationWebhooksArrayOutput
+	ToAutoscaleSettingNotificationWebhooksArrayOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhooksArrayOutput
+}
+
+type AutoscaleSettingNotificationWebhooksArrayArgs []AutoscaleSettingNotificationWebhooksInput
+
+func (AutoscaleSettingNotificationWebhooksArrayArgs) ElementType() reflect.Type {
+	return autoscaleSettingNotificationWebhooksArrayType
+}
+
+func (a AutoscaleSettingNotificationWebhooksArrayArgs) ToAutoscaleSettingNotificationWebhooksArrayOutput() AutoscaleSettingNotificationWebhooksArrayOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingNotificationWebhooksArrayOutput)
+}
+
+func (a AutoscaleSettingNotificationWebhooksArrayArgs) ToAutoscaleSettingNotificationWebhooksArrayOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhooksArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingNotificationWebhooksArrayOutput)
+}
+
+type AutoscaleSettingNotificationWebhooksArrayOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingNotificationWebhooksArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingNotificationWebhooksOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AutoscaleSettingNotificationWebhooks {
+		return vs[0].([]AutoscaleSettingNotificationWebhooks)[vs[1].(int)]
+	}).(AutoscaleSettingNotificationWebhooksOutput)
+}
+
+func (AutoscaleSettingNotificationWebhooksArrayOutput) ElementType() reflect.Type {
+	return autoscaleSettingNotificationWebhooksArrayType
+}
+
+func (o AutoscaleSettingNotificationWebhooksArrayOutput) ToAutoscaleSettingNotificationWebhooksArrayOutput() AutoscaleSettingNotificationWebhooksArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingNotificationWebhooksArrayOutput) ToAutoscaleSettingNotificationWebhooksArrayOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhooksArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingNotificationWebhooksArrayOutput{}) }
+
+type AutoscaleSettingProfiles struct {
+	Capacity AutoscaleSettingProfilesCapacity `pulumi:"capacity"`
+	FixedDate *AutoscaleSettingProfilesFixedDate `pulumi:"fixedDate"`
+	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Recurrence *AutoscaleSettingProfilesRecurrence `pulumi:"recurrence"`
+	Rules *[]AutoscaleSettingProfilesRules `pulumi:"rules"`
+}
+var autoscaleSettingProfilesType = reflect.TypeOf((*AutoscaleSettingProfiles)(nil)).Elem()
+
+type AutoscaleSettingProfilesInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesOutput() AutoscaleSettingProfilesOutput
+	ToAutoscaleSettingProfilesOutputWithContext(ctx context.Context) AutoscaleSettingProfilesOutput
+}
+
+type AutoscaleSettingProfilesArgs struct {
+	Capacity AutoscaleSettingProfilesCapacityInput `pulumi:"capacity"`
+	FixedDate AutoscaleSettingProfilesFixedDateInput `pulumi:"fixedDate"`
+	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Recurrence AutoscaleSettingProfilesRecurrenceInput `pulumi:"recurrence"`
+	Rules AutoscaleSettingProfilesRulesArrayInput `pulumi:"rules"`
+}
+
+func (AutoscaleSettingProfilesArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesType
+}
+
+func (a AutoscaleSettingProfilesArgs) ToAutoscaleSettingProfilesOutput() AutoscaleSettingProfilesOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesOutput)
+}
+
+func (a AutoscaleSettingProfilesArgs) ToAutoscaleSettingProfilesOutputWithContext(ctx context.Context) AutoscaleSettingProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesOutput)
+}
+
+type AutoscaleSettingProfilesOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesOutput) Capacity() AutoscaleSettingProfilesCapacityOutput {
+	return o.Apply(func(v AutoscaleSettingProfiles) AutoscaleSettingProfilesCapacity {
+		return v.Capacity
+	}).(AutoscaleSettingProfilesCapacityOutput)
+}
+
+func (o AutoscaleSettingProfilesOutput) FixedDate() AutoscaleSettingProfilesFixedDateOutput {
+	return o.Apply(func(v AutoscaleSettingProfiles) AutoscaleSettingProfilesFixedDate {
+		if v.FixedDate == nil { return *new(AutoscaleSettingProfilesFixedDate) } else { return *v.FixedDate }
+	}).(AutoscaleSettingProfilesFixedDateOutput)
+}
+
+// The name of the AutoScale Setting. Changing this forces a new resource to be created.
+func (o AutoscaleSettingProfilesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfiles) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesOutput) Recurrence() AutoscaleSettingProfilesRecurrenceOutput {
+	return o.Apply(func(v AutoscaleSettingProfiles) AutoscaleSettingProfilesRecurrence {
+		if v.Recurrence == nil { return *new(AutoscaleSettingProfilesRecurrence) } else { return *v.Recurrence }
+	}).(AutoscaleSettingProfilesRecurrenceOutput)
+}
+
+func (o AutoscaleSettingProfilesOutput) Rules() AutoscaleSettingProfilesRulesArrayOutput {
+	return o.Apply(func(v AutoscaleSettingProfiles) []AutoscaleSettingProfilesRules {
+		if v.Rules == nil { return *new([]AutoscaleSettingProfilesRules) } else { return *v.Rules }
+	}).(AutoscaleSettingProfilesRulesArrayOutput)
+}
+
+func (AutoscaleSettingProfilesOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesType
+}
+
+func (o AutoscaleSettingProfilesOutput) ToAutoscaleSettingProfilesOutput() AutoscaleSettingProfilesOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesOutput) ToAutoscaleSettingProfilesOutputWithContext(ctx context.Context) AutoscaleSettingProfilesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesOutput{}) }
+
+var autoscaleSettingProfilesArrayType = reflect.TypeOf((*[]AutoscaleSettingProfiles)(nil)).Elem()
+
+type AutoscaleSettingProfilesArrayInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesArrayOutput() AutoscaleSettingProfilesArrayOutput
+	ToAutoscaleSettingProfilesArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfilesArrayOutput
+}
+
+type AutoscaleSettingProfilesArrayArgs []AutoscaleSettingProfilesInput
+
+func (AutoscaleSettingProfilesArrayArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesArrayType
+}
+
+func (a AutoscaleSettingProfilesArrayArgs) ToAutoscaleSettingProfilesArrayOutput() AutoscaleSettingProfilesArrayOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesArrayOutput)
+}
+
+func (a AutoscaleSettingProfilesArrayArgs) ToAutoscaleSettingProfilesArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfilesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesArrayOutput)
+}
+
+type AutoscaleSettingProfilesArrayOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfilesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AutoscaleSettingProfiles {
+		return vs[0].([]AutoscaleSettingProfiles)[vs[1].(int)]
+	}).(AutoscaleSettingProfilesOutput)
+}
+
+func (AutoscaleSettingProfilesArrayOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesArrayType
+}
+
+func (o AutoscaleSettingProfilesArrayOutput) ToAutoscaleSettingProfilesArrayOutput() AutoscaleSettingProfilesArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesArrayOutput) ToAutoscaleSettingProfilesArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfilesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesArrayOutput{}) }
+
+type AutoscaleSettingProfilesCapacity struct {
+	Default int `pulumi:"default"`
+	Maximum int `pulumi:"maximum"`
+	Minimum int `pulumi:"minimum"`
+}
+var autoscaleSettingProfilesCapacityType = reflect.TypeOf((*AutoscaleSettingProfilesCapacity)(nil)).Elem()
+
+type AutoscaleSettingProfilesCapacityInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesCapacityOutput() AutoscaleSettingProfilesCapacityOutput
+	ToAutoscaleSettingProfilesCapacityOutputWithContext(ctx context.Context) AutoscaleSettingProfilesCapacityOutput
+}
+
+type AutoscaleSettingProfilesCapacityArgs struct {
+	Default pulumi.IntInput `pulumi:"default"`
+	Maximum pulumi.IntInput `pulumi:"maximum"`
+	Minimum pulumi.IntInput `pulumi:"minimum"`
+}
+
+func (AutoscaleSettingProfilesCapacityArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesCapacityType
+}
+
+func (a AutoscaleSettingProfilesCapacityArgs) ToAutoscaleSettingProfilesCapacityOutput() AutoscaleSettingProfilesCapacityOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesCapacityOutput)
+}
+
+func (a AutoscaleSettingProfilesCapacityArgs) ToAutoscaleSettingProfilesCapacityOutputWithContext(ctx context.Context) AutoscaleSettingProfilesCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesCapacityOutput)
+}
+
+type AutoscaleSettingProfilesCapacityOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesCapacityOutput) Default() pulumi.IntOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesCapacity) int {
+		return v.Default
+	}).(pulumi.IntOutput)
+}
+
+func (o AutoscaleSettingProfilesCapacityOutput) Maximum() pulumi.IntOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesCapacity) int {
+		return v.Maximum
+	}).(pulumi.IntOutput)
+}
+
+func (o AutoscaleSettingProfilesCapacityOutput) Minimum() pulumi.IntOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesCapacity) int {
+		return v.Minimum
+	}).(pulumi.IntOutput)
+}
+
+func (AutoscaleSettingProfilesCapacityOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesCapacityType
+}
+
+func (o AutoscaleSettingProfilesCapacityOutput) ToAutoscaleSettingProfilesCapacityOutput() AutoscaleSettingProfilesCapacityOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesCapacityOutput) ToAutoscaleSettingProfilesCapacityOutputWithContext(ctx context.Context) AutoscaleSettingProfilesCapacityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesCapacityOutput{}) }
+
+type AutoscaleSettingProfilesFixedDate struct {
+	End string `pulumi:"end"`
+	Start string `pulumi:"start"`
+	Timezone *string `pulumi:"timezone"`
+}
+var autoscaleSettingProfilesFixedDateType = reflect.TypeOf((*AutoscaleSettingProfilesFixedDate)(nil)).Elem()
+
+type AutoscaleSettingProfilesFixedDateInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesFixedDateOutput() AutoscaleSettingProfilesFixedDateOutput
+	ToAutoscaleSettingProfilesFixedDateOutputWithContext(ctx context.Context) AutoscaleSettingProfilesFixedDateOutput
+}
+
+type AutoscaleSettingProfilesFixedDateArgs struct {
+	End pulumi.StringInput `pulumi:"end"`
+	Start pulumi.StringInput `pulumi:"start"`
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (AutoscaleSettingProfilesFixedDateArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesFixedDateType
+}
+
+func (a AutoscaleSettingProfilesFixedDateArgs) ToAutoscaleSettingProfilesFixedDateOutput() AutoscaleSettingProfilesFixedDateOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesFixedDateOutput)
+}
+
+func (a AutoscaleSettingProfilesFixedDateArgs) ToAutoscaleSettingProfilesFixedDateOutputWithContext(ctx context.Context) AutoscaleSettingProfilesFixedDateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesFixedDateOutput)
+}
+
+type AutoscaleSettingProfilesFixedDateOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesFixedDateOutput) End() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesFixedDate) string {
+		return v.End
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesFixedDateOutput) Start() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesFixedDate) string {
+		return v.Start
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesFixedDateOutput) Timezone() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesFixedDate) string {
+		if v.Timezone == nil { return *new(string) } else { return *v.Timezone }
+	}).(pulumi.StringOutput)
+}
+
+func (AutoscaleSettingProfilesFixedDateOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesFixedDateType
+}
+
+func (o AutoscaleSettingProfilesFixedDateOutput) ToAutoscaleSettingProfilesFixedDateOutput() AutoscaleSettingProfilesFixedDateOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesFixedDateOutput) ToAutoscaleSettingProfilesFixedDateOutputWithContext(ctx context.Context) AutoscaleSettingProfilesFixedDateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesFixedDateOutput{}) }
+
+type AutoscaleSettingProfilesRecurrence struct {
+	Days []string `pulumi:"days"`
+	Hours int `pulumi:"hours"`
+	Minutes int `pulumi:"minutes"`
+	Timezone *string `pulumi:"timezone"`
+}
+var autoscaleSettingProfilesRecurrenceType = reflect.TypeOf((*AutoscaleSettingProfilesRecurrence)(nil)).Elem()
+
+type AutoscaleSettingProfilesRecurrenceInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesRecurrenceOutput() AutoscaleSettingProfilesRecurrenceOutput
+	ToAutoscaleSettingProfilesRecurrenceOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRecurrenceOutput
+}
+
+type AutoscaleSettingProfilesRecurrenceArgs struct {
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	Hours pulumi.IntInput `pulumi:"hours"`
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (AutoscaleSettingProfilesRecurrenceArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRecurrenceType
+}
+
+func (a AutoscaleSettingProfilesRecurrenceArgs) ToAutoscaleSettingProfilesRecurrenceOutput() AutoscaleSettingProfilesRecurrenceOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesRecurrenceOutput)
+}
+
+func (a AutoscaleSettingProfilesRecurrenceArgs) ToAutoscaleSettingProfilesRecurrenceOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesRecurrenceOutput)
+}
+
+type AutoscaleSettingProfilesRecurrenceOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesRecurrenceOutput) Days() pulumi.StringArrayOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRecurrence) []string {
+		return v.Days
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AutoscaleSettingProfilesRecurrenceOutput) Hours() pulumi.IntOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRecurrence) int {
+		return v.Hours
+	}).(pulumi.IntOutput)
+}
+
+func (o AutoscaleSettingProfilesRecurrenceOutput) Minutes() pulumi.IntOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRecurrence) int {
+		return v.Minutes
+	}).(pulumi.IntOutput)
+}
+
+func (o AutoscaleSettingProfilesRecurrenceOutput) Timezone() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRecurrence) string {
+		if v.Timezone == nil { return *new(string) } else { return *v.Timezone }
+	}).(pulumi.StringOutput)
+}
+
+func (AutoscaleSettingProfilesRecurrenceOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRecurrenceType
+}
+
+func (o AutoscaleSettingProfilesRecurrenceOutput) ToAutoscaleSettingProfilesRecurrenceOutput() AutoscaleSettingProfilesRecurrenceOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesRecurrenceOutput) ToAutoscaleSettingProfilesRecurrenceOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRecurrenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesRecurrenceOutput{}) }
+
+type AutoscaleSettingProfilesRules struct {
+	MetricTrigger AutoscaleSettingProfilesRulesMetricTrigger `pulumi:"metricTrigger"`
+	ScaleAction AutoscaleSettingProfilesRulesScaleAction `pulumi:"scaleAction"`
+}
+var autoscaleSettingProfilesRulesType = reflect.TypeOf((*AutoscaleSettingProfilesRules)(nil)).Elem()
+
+type AutoscaleSettingProfilesRulesInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesRulesOutput() AutoscaleSettingProfilesRulesOutput
+	ToAutoscaleSettingProfilesRulesOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesOutput
+}
+
+type AutoscaleSettingProfilesRulesArgs struct {
+	MetricTrigger AutoscaleSettingProfilesRulesMetricTriggerInput `pulumi:"metricTrigger"`
+	ScaleAction AutoscaleSettingProfilesRulesScaleActionInput `pulumi:"scaleAction"`
+}
+
+func (AutoscaleSettingProfilesRulesArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesType
+}
+
+func (a AutoscaleSettingProfilesRulesArgs) ToAutoscaleSettingProfilesRulesOutput() AutoscaleSettingProfilesRulesOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesRulesOutput)
+}
+
+func (a AutoscaleSettingProfilesRulesArgs) ToAutoscaleSettingProfilesRulesOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesRulesOutput)
+}
+
+type AutoscaleSettingProfilesRulesOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesRulesOutput) MetricTrigger() AutoscaleSettingProfilesRulesMetricTriggerOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRules) AutoscaleSettingProfilesRulesMetricTrigger {
+		return v.MetricTrigger
+	}).(AutoscaleSettingProfilesRulesMetricTriggerOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesOutput) ScaleAction() AutoscaleSettingProfilesRulesScaleActionOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRules) AutoscaleSettingProfilesRulesScaleAction {
+		return v.ScaleAction
+	}).(AutoscaleSettingProfilesRulesScaleActionOutput)
+}
+
+func (AutoscaleSettingProfilesRulesOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesType
+}
+
+func (o AutoscaleSettingProfilesRulesOutput) ToAutoscaleSettingProfilesRulesOutput() AutoscaleSettingProfilesRulesOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesRulesOutput) ToAutoscaleSettingProfilesRulesOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesRulesOutput{}) }
+
+var autoscaleSettingProfilesRulesArrayType = reflect.TypeOf((*[]AutoscaleSettingProfilesRules)(nil)).Elem()
+
+type AutoscaleSettingProfilesRulesArrayInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesRulesArrayOutput() AutoscaleSettingProfilesRulesArrayOutput
+	ToAutoscaleSettingProfilesRulesArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesArrayOutput
+}
+
+type AutoscaleSettingProfilesRulesArrayArgs []AutoscaleSettingProfilesRulesInput
+
+func (AutoscaleSettingProfilesRulesArrayArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesArrayType
+}
+
+func (a AutoscaleSettingProfilesRulesArrayArgs) ToAutoscaleSettingProfilesRulesArrayOutput() AutoscaleSettingProfilesRulesArrayOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesRulesArrayOutput)
+}
+
+func (a AutoscaleSettingProfilesRulesArrayArgs) ToAutoscaleSettingProfilesRulesArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesRulesArrayOutput)
+}
+
+type AutoscaleSettingProfilesRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesRulesArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfilesRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AutoscaleSettingProfilesRules {
+		return vs[0].([]AutoscaleSettingProfilesRules)[vs[1].(int)]
+	}).(AutoscaleSettingProfilesRulesOutput)
+}
+
+func (AutoscaleSettingProfilesRulesArrayOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesArrayType
+}
+
+func (o AutoscaleSettingProfilesRulesArrayOutput) ToAutoscaleSettingProfilesRulesArrayOutput() AutoscaleSettingProfilesRulesArrayOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesRulesArrayOutput) ToAutoscaleSettingProfilesRulesArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesRulesArrayOutput{}) }
+
+type AutoscaleSettingProfilesRulesMetricTrigger struct {
+	MetricName string `pulumi:"metricName"`
+	MetricResourceId string `pulumi:"metricResourceId"`
+	Operator string `pulumi:"operator"`
+	Statistic string `pulumi:"statistic"`
+	Threshold float64 `pulumi:"threshold"`
+	TimeAggregation string `pulumi:"timeAggregation"`
+	TimeGrain string `pulumi:"timeGrain"`
+	TimeWindow string `pulumi:"timeWindow"`
+}
+var autoscaleSettingProfilesRulesMetricTriggerType = reflect.TypeOf((*AutoscaleSettingProfilesRulesMetricTrigger)(nil)).Elem()
+
+type AutoscaleSettingProfilesRulesMetricTriggerInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesRulesMetricTriggerOutput() AutoscaleSettingProfilesRulesMetricTriggerOutput
+	ToAutoscaleSettingProfilesRulesMetricTriggerOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesMetricTriggerOutput
+}
+
+type AutoscaleSettingProfilesRulesMetricTriggerArgs struct {
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	MetricResourceId pulumi.StringInput `pulumi:"metricResourceId"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	Statistic pulumi.StringInput `pulumi:"statistic"`
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
+	TimeWindow pulumi.StringInput `pulumi:"timeWindow"`
+}
+
+func (AutoscaleSettingProfilesRulesMetricTriggerArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesMetricTriggerType
+}
+
+func (a AutoscaleSettingProfilesRulesMetricTriggerArgs) ToAutoscaleSettingProfilesRulesMetricTriggerOutput() AutoscaleSettingProfilesRulesMetricTriggerOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesRulesMetricTriggerOutput)
+}
+
+func (a AutoscaleSettingProfilesRulesMetricTriggerArgs) ToAutoscaleSettingProfilesRulesMetricTriggerOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesMetricTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesRulesMetricTriggerOutput)
+}
+
+type AutoscaleSettingProfilesRulesMetricTriggerOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) MetricName() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.MetricName
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) MetricResourceId() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.MetricResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) Operator() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) Statistic() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.Statistic
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) Threshold() pulumi.Float64Output {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) float64 {
+		return v.Threshold
+	}).(pulumi.Float64Output)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.TimeAggregation
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) TimeGrain() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.TimeGrain
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) TimeWindow() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesMetricTrigger) string {
+		return v.TimeWindow
+	}).(pulumi.StringOutput)
+}
+
+func (AutoscaleSettingProfilesRulesMetricTriggerOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesMetricTriggerType
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) ToAutoscaleSettingProfilesRulesMetricTriggerOutput() AutoscaleSettingProfilesRulesMetricTriggerOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesRulesMetricTriggerOutput) ToAutoscaleSettingProfilesRulesMetricTriggerOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesMetricTriggerOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesRulesMetricTriggerOutput{}) }
+
+type AutoscaleSettingProfilesRulesScaleAction struct {
+	Cooldown string `pulumi:"cooldown"`
+	Direction string `pulumi:"direction"`
+	Type string `pulumi:"type"`
+	Value int `pulumi:"value"`
+}
+var autoscaleSettingProfilesRulesScaleActionType = reflect.TypeOf((*AutoscaleSettingProfilesRulesScaleAction)(nil)).Elem()
+
+type AutoscaleSettingProfilesRulesScaleActionInput interface {
+	pulumi.Input
+
+	ToAutoscaleSettingProfilesRulesScaleActionOutput() AutoscaleSettingProfilesRulesScaleActionOutput
+	ToAutoscaleSettingProfilesRulesScaleActionOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesScaleActionOutput
+}
+
+type AutoscaleSettingProfilesRulesScaleActionArgs struct {
+	Cooldown pulumi.StringInput `pulumi:"cooldown"`
+	Direction pulumi.StringInput `pulumi:"direction"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AutoscaleSettingProfilesRulesScaleActionArgs) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesScaleActionType
+}
+
+func (a AutoscaleSettingProfilesRulesScaleActionArgs) ToAutoscaleSettingProfilesRulesScaleActionOutput() AutoscaleSettingProfilesRulesScaleActionOutput {
+	return pulumi.ToOutput(a).(AutoscaleSettingProfilesRulesScaleActionOutput)
+}
+
+func (a AutoscaleSettingProfilesRulesScaleActionArgs) ToAutoscaleSettingProfilesRulesScaleActionOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesScaleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AutoscaleSettingProfilesRulesScaleActionOutput)
+}
+
+type AutoscaleSettingProfilesRulesScaleActionOutput struct { *pulumi.OutputState }
+
+func (o AutoscaleSettingProfilesRulesScaleActionOutput) Cooldown() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesScaleAction) string {
+		return v.Cooldown
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesScaleActionOutput) Direction() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesScaleAction) string {
+		return v.Direction
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesScaleActionOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesScaleAction) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoscaleSettingProfilesRulesScaleActionOutput) Value() pulumi.IntOutput {
+	return o.Apply(func(v AutoscaleSettingProfilesRulesScaleAction) int {
+		return v.Value
+	}).(pulumi.IntOutput)
+}
+
+func (AutoscaleSettingProfilesRulesScaleActionOutput) ElementType() reflect.Type {
+	return autoscaleSettingProfilesRulesScaleActionType
+}
+
+func (o AutoscaleSettingProfilesRulesScaleActionOutput) ToAutoscaleSettingProfilesRulesScaleActionOutput() AutoscaleSettingProfilesRulesScaleActionOutput {
+	return o
+}
+
+func (o AutoscaleSettingProfilesRulesScaleActionOutput) ToAutoscaleSettingProfilesRulesScaleActionOutputWithContext(ctx context.Context) AutoscaleSettingProfilesRulesScaleActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AutoscaleSettingProfilesRulesScaleActionOutput{}) }
+

@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
 type ExpressRouteCircuit struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+	AllowClassicOperations pulumi.BoolOutput `pulumi:"allowClassicOperations"`
+
+	// The bandwidth in Mbps of the circuit being created.
+	BandwidthInMbps pulumi.IntOutput `pulumi:"bandwidthInMbps"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the peering location and **not** the Azure resource location.
+	PeeringLocation pulumi.StringOutput `pulumi:"peeringLocation"`
+
+	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The string needed by the service provider to provision the ExpressRoute circuit.
+	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
+
+	// The name of the ExpressRoute Service Provider.
+	ServiceProviderName pulumi.StringOutput `pulumi:"serviceProviderName"`
+
+	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+	ServiceProviderProvisioningState pulumi.StringOutput `pulumi:"serviceProviderProvisioningState"`
+
+	// A `sku` block for the ExpressRoute circuit as documented below.
+	Sku ExpressRouteCircuitSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewExpressRouteCircuit registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuit(ctx *pulumi.Context,
-	name string, args *ExpressRouteCircuitArgs, opts ...pulumi.ResourceOpt) (*ExpressRouteCircuit, error) {
+	name string, args *ExpressRouteCircuitArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuit, error) {
 	if args == nil || args.BandwidthInMbps == nil {
 		return nil, errors.New("missing required argument 'BandwidthInMbps'")
 	}
@@ -33,171 +68,160 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowClassicOperations"] = nil
-		inputs["bandwidthInMbps"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["peeringLocation"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serviceProviderName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["allowClassicOperations"] = args.AllowClassicOperations
-		inputs["bandwidthInMbps"] = args.BandwidthInMbps
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["peeringLocation"] = args.PeeringLocation
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serviceProviderName"] = args.ServiceProviderName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowClassicOperations; i != nil { inputs["allowClassicOperations"] = i.ToBoolOutput() }
+		if i := args.BandwidthInMbps; i != nil { inputs["bandwidthInMbps"] = i.ToIntOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PeeringLocation; i != nil { inputs["peeringLocation"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServiceProviderName; i != nil { inputs["serviceProviderName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToExpressRouteCircuitSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["serviceKey"] = nil
-	inputs["serviceProviderProvisioningState"] = nil
-	s, err := ctx.RegisterResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, true, inputs, opts...)
+	var resource ExpressRouteCircuit
+	err := ctx.RegisterResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ExpressRouteCircuit{s: s}, nil
+	return &resource, nil
 }
 
 // GetExpressRouteCircuit gets an existing ExpressRouteCircuit resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetExpressRouteCircuit(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ExpressRouteCircuitState, opts ...pulumi.ResourceOpt) (*ExpressRouteCircuit, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ExpressRouteCircuitState, opts ...pulumi.ResourceOption) (*ExpressRouteCircuit, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowClassicOperations"] = state.AllowClassicOperations
-		inputs["bandwidthInMbps"] = state.BandwidthInMbps
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["peeringLocation"] = state.PeeringLocation
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serviceKey"] = state.ServiceKey
-		inputs["serviceProviderName"] = state.ServiceProviderName
-		inputs["serviceProviderProvisioningState"] = state.ServiceProviderProvisioningState
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.AllowClassicOperations; i != nil { inputs["allowClassicOperations"] = i.ToBoolOutput() }
+		if i := state.BandwidthInMbps; i != nil { inputs["bandwidthInMbps"] = i.ToIntOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PeeringLocation; i != nil { inputs["peeringLocation"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServiceKey; i != nil { inputs["serviceKey"] = i.ToStringOutput() }
+		if i := state.ServiceProviderName; i != nil { inputs["serviceProviderName"] = i.ToStringOutput() }
+		if i := state.ServiceProviderProvisioningState; i != nil { inputs["serviceProviderProvisioningState"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToExpressRouteCircuitSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, id, inputs, opts...)
+	var resource ExpressRouteCircuit
+	err := ctx.ReadResource("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ExpressRouteCircuit{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ExpressRouteCircuit) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ExpressRouteCircuit) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-func (r *ExpressRouteCircuit) AllowClassicOperations() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowClassicOperations"])
-}
-
-// The bandwidth in Mbps of the circuit being created.
-func (r *ExpressRouteCircuit) BandwidthInMbps() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["bandwidthInMbps"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuit) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuit) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the peering location and **not** the Azure resource location.
-func (r *ExpressRouteCircuit) PeeringLocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["peeringLocation"])
-}
-
-// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuit) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The string needed by the service provider to provision the ExpressRoute circuit.
-func (r *ExpressRouteCircuit) ServiceKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceKey"])
-}
-
-// The name of the ExpressRoute Service Provider.
-func (r *ExpressRouteCircuit) ServiceProviderName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceProviderName"])
-}
-
-// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
-func (r *ExpressRouteCircuit) ServiceProviderProvisioningState() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceProviderProvisioningState"])
-}
-
-// A `sku` block for the ExpressRoute circuit as documented below.
-func (r *ExpressRouteCircuit) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ExpressRouteCircuit) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ExpressRouteCircuit resources.
 type ExpressRouteCircuitState struct {
 	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-	AllowClassicOperations interface{}
+	AllowClassicOperations pulumi.BoolInput `pulumi:"allowClassicOperations"`
 	// The bandwidth in Mbps of the circuit being created.
-	BandwidthInMbps interface{}
+	BandwidthInMbps pulumi.IntInput `pulumi:"bandwidthInMbps"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the peering location and **not** the Azure resource location.
-	PeeringLocation interface{}
+	PeeringLocation pulumi.StringInput `pulumi:"peeringLocation"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The string needed by the service provider to provision the ExpressRoute circuit.
-	ServiceKey interface{}
+	ServiceKey pulumi.StringInput `pulumi:"serviceKey"`
 	// The name of the ExpressRoute Service Provider.
-	ServiceProviderName interface{}
+	ServiceProviderName pulumi.StringInput `pulumi:"serviceProviderName"`
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
-	ServiceProviderProvisioningState interface{}
+	ServiceProviderProvisioningState pulumi.StringInput `pulumi:"serviceProviderProvisioningState"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
-	Sku interface{}
+	Sku ExpressRouteCircuitSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuit resource.
 type ExpressRouteCircuitArgs struct {
 	// Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-	AllowClassicOperations interface{}
+	AllowClassicOperations pulumi.BoolInput `pulumi:"allowClassicOperations"`
 	// The bandwidth in Mbps of the circuit being created.
-	BandwidthInMbps interface{}
+	BandwidthInMbps pulumi.IntInput `pulumi:"bandwidthInMbps"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the peering location and **not** the Azure resource location.
-	PeeringLocation interface{}
+	PeeringLocation pulumi.StringInput `pulumi:"peeringLocation"`
 	// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the ExpressRoute Service Provider.
-	ServiceProviderName interface{}
+	ServiceProviderName pulumi.StringInput `pulumi:"serviceProviderName"`
 	// A `sku` block for the ExpressRoute circuit as documented below.
-	Sku interface{}
+	Sku ExpressRouteCircuitSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ExpressRouteCircuitSku struct {
+	// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+	Family string `pulumi:"family"`
+	// The service tier. Possible values are `Standard` or `Premium`.
+	Tier string `pulumi:"tier"`
+}
+var expressRouteCircuitSkuType = reflect.TypeOf((*ExpressRouteCircuitSku)(nil)).Elem()
+
+type ExpressRouteCircuitSkuInput interface {
+	pulumi.Input
+
+	ToExpressRouteCircuitSkuOutput() ExpressRouteCircuitSkuOutput
+	ToExpressRouteCircuitSkuOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuOutput
+}
+
+type ExpressRouteCircuitSkuArgs struct {
+	// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+	Family pulumi.StringInput `pulumi:"family"`
+	// The service tier. Possible values are `Standard` or `Premium`.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (ExpressRouteCircuitSkuArgs) ElementType() reflect.Type {
+	return expressRouteCircuitSkuType
+}
+
+func (a ExpressRouteCircuitSkuArgs) ToExpressRouteCircuitSkuOutput() ExpressRouteCircuitSkuOutput {
+	return pulumi.ToOutput(a).(ExpressRouteCircuitSkuOutput)
+}
+
+func (a ExpressRouteCircuitSkuArgs) ToExpressRouteCircuitSkuOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ExpressRouteCircuitSkuOutput)
+}
+
+type ExpressRouteCircuitSkuOutput struct { *pulumi.OutputState }
+
+// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+func (o ExpressRouteCircuitSkuOutput) Family() pulumi.StringOutput {
+	return o.Apply(func(v ExpressRouteCircuitSku) string {
+		return v.Family
+	}).(pulumi.StringOutput)
+}
+
+// The service tier. Possible values are `Standard` or `Premium`.
+func (o ExpressRouteCircuitSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v ExpressRouteCircuitSku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (ExpressRouteCircuitSkuOutput) ElementType() reflect.Type {
+	return expressRouteCircuitSkuType
+}
+
+func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuOutput() ExpressRouteCircuitSkuOutput {
+	return o
+}
+
+func (o ExpressRouteCircuitSkuOutput) ToExpressRouteCircuitSkuOutputWithContext(ctx context.Context) ExpressRouteCircuitSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ExpressRouteCircuitSkuOutput{}) }
+

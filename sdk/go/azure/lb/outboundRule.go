@@ -4,6 +4,8 @@
 package lb
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
 type OutboundRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The number of outbound ports to be used for NAT.
+	AllocatedOutboundPorts pulumi.IntOutput `pulumi:"allocatedOutboundPorts"`
+
+	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
+
+	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	EnableTcpReset pulumi.BoolOutput `pulumi:"enableTcpReset"`
+
+	// One or more `frontendIpConfiguration` blocks as defined below.
+	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationsArrayOutput `pulumi:"frontendIpConfigurations"`
+
+	// The timeout for the TCP idle connection
+	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
+
+	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
+	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+
+	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewOutboundRule registers a new resource with the given unique name, arguments, and options.
 func NewOutboundRule(ctx *pulumi.Context,
-	name string, args *OutboundRuleArgs, opts ...pulumi.ResourceOpt) (*OutboundRule, error) {
+	name string, args *OutboundRuleArgs, opts ...pulumi.ResourceOption) (*OutboundRule, error) {
 	if args == nil || args.BackendAddressPoolId == nil {
 		return nil, errors.New("missing required argument 'BackendAddressPoolId'")
 	}
@@ -32,153 +61,199 @@ func NewOutboundRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allocatedOutboundPorts"] = nil
-		inputs["backendAddressPoolId"] = nil
-		inputs["enableTcpReset"] = nil
-		inputs["frontendIpConfigurations"] = nil
-		inputs["idleTimeoutInMinutes"] = nil
-		inputs["loadbalancerId"] = nil
-		inputs["name"] = nil
-		inputs["protocol"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["allocatedOutboundPorts"] = args.AllocatedOutboundPorts
-		inputs["backendAddressPoolId"] = args.BackendAddressPoolId
-		inputs["enableTcpReset"] = args.EnableTcpReset
-		inputs["frontendIpConfigurations"] = args.FrontendIpConfigurations
-		inputs["idleTimeoutInMinutes"] = args.IdleTimeoutInMinutes
-		inputs["loadbalancerId"] = args.LoadbalancerId
-		inputs["name"] = args.Name
-		inputs["protocol"] = args.Protocol
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllocatedOutboundPorts; i != nil { inputs["allocatedOutboundPorts"] = i.ToIntOutput() }
+		if i := args.BackendAddressPoolId; i != nil { inputs["backendAddressPoolId"] = i.ToStringOutput() }
+		if i := args.EnableTcpReset; i != nil { inputs["enableTcpReset"] = i.ToBoolOutput() }
+		if i := args.FrontendIpConfigurations; i != nil { inputs["frontendIpConfigurations"] = i.ToOutboundRuleFrontendIpConfigurationsArrayOutput() }
+		if i := args.IdleTimeoutInMinutes; i != nil { inputs["idleTimeoutInMinutes"] = i.ToIntOutput() }
+		if i := args.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:lb/outboundRule:OutboundRule", name, true, inputs, opts...)
+	var resource OutboundRule
+	err := ctx.RegisterResource("azure:lb/outboundRule:OutboundRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OutboundRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetOutboundRule gets an existing OutboundRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOutboundRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OutboundRuleState, opts ...pulumi.ResourceOpt) (*OutboundRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OutboundRuleState, opts ...pulumi.ResourceOption) (*OutboundRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allocatedOutboundPorts"] = state.AllocatedOutboundPorts
-		inputs["backendAddressPoolId"] = state.BackendAddressPoolId
-		inputs["enableTcpReset"] = state.EnableTcpReset
-		inputs["frontendIpConfigurations"] = state.FrontendIpConfigurations
-		inputs["idleTimeoutInMinutes"] = state.IdleTimeoutInMinutes
-		inputs["loadbalancerId"] = state.LoadbalancerId
-		inputs["name"] = state.Name
-		inputs["protocol"] = state.Protocol
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.AllocatedOutboundPorts; i != nil { inputs["allocatedOutboundPorts"] = i.ToIntOutput() }
+		if i := state.BackendAddressPoolId; i != nil { inputs["backendAddressPoolId"] = i.ToStringOutput() }
+		if i := state.EnableTcpReset; i != nil { inputs["enableTcpReset"] = i.ToBoolOutput() }
+		if i := state.FrontendIpConfigurations; i != nil { inputs["frontendIpConfigurations"] = i.ToOutboundRuleFrontendIpConfigurationsArrayOutput() }
+		if i := state.IdleTimeoutInMinutes; i != nil { inputs["idleTimeoutInMinutes"] = i.ToIntOutput() }
+		if i := state.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:lb/outboundRule:OutboundRule", name, id, inputs, opts...)
+	var resource OutboundRule
+	err := ctx.ReadResource("azure:lb/outboundRule:OutboundRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OutboundRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OutboundRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OutboundRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The number of outbound ports to be used for NAT.
-func (r *OutboundRule) AllocatedOutboundPorts() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["allocatedOutboundPorts"])
-}
-
-// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-func (r *OutboundRule) BackendAddressPoolId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["backendAddressPoolId"])
-}
-
-// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-func (r *OutboundRule) EnableTcpReset() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableTcpReset"])
-}
-
-// One or more `frontendIpConfiguration` blocks as defined below.
-func (r *OutboundRule) FrontendIpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
-}
-
-// The timeout for the TCP idle connection
-func (r *OutboundRule) IdleTimeoutInMinutes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["idleTimeoutInMinutes"])
-}
-
-// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
-func (r *OutboundRule) LoadbalancerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
-}
-
-// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
-func (r *OutboundRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-func (r *OutboundRule) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
-}
-
-// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-func (r *OutboundRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OutboundRule resources.
 type OutboundRuleState struct {
 	// The number of outbound ports to be used for NAT.
-	AllocatedOutboundPorts interface{}
+	AllocatedOutboundPorts pulumi.IntInput `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-	BackendAddressPoolId interface{}
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
 	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-	EnableTcpReset interface{}
+	EnableTcpReset pulumi.BoolInput `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationsArrayInput `pulumi:"frontendIpConfigurations"`
 	// The timeout for the TCP idle connection
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
-	LoadbalancerId interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
 	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a OutboundRule resource.
 type OutboundRuleArgs struct {
 	// The number of outbound ports to be used for NAT.
-	AllocatedOutboundPorts interface{}
+	AllocatedOutboundPorts pulumi.IntInput `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-	BackendAddressPoolId interface{}
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
 	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-	EnableTcpReset interface{}
+	EnableTcpReset pulumi.BoolInput `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationsArrayInput `pulumi:"frontendIpConfigurations"`
 	// The timeout for the TCP idle connection
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
-	LoadbalancerId interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
 	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
+type OutboundRuleFrontendIpConfigurations struct {
+	// The ID of the Load Balancer Outbound Rule.
+	Id *string `pulumi:"id"`
+	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var outboundRuleFrontendIpConfigurationsType = reflect.TypeOf((*OutboundRuleFrontendIpConfigurations)(nil)).Elem()
+
+type OutboundRuleFrontendIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToOutboundRuleFrontendIpConfigurationsOutput() OutboundRuleFrontendIpConfigurationsOutput
+	ToOutboundRuleFrontendIpConfigurationsOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationsOutput
+}
+
+type OutboundRuleFrontendIpConfigurationsArgs struct {
+	// The ID of the Load Balancer Outbound Rule.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OutboundRuleFrontendIpConfigurationsArgs) ElementType() reflect.Type {
+	return outboundRuleFrontendIpConfigurationsType
+}
+
+func (a OutboundRuleFrontendIpConfigurationsArgs) ToOutboundRuleFrontendIpConfigurationsOutput() OutboundRuleFrontendIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(OutboundRuleFrontendIpConfigurationsOutput)
+}
+
+func (a OutboundRuleFrontendIpConfigurationsArgs) ToOutboundRuleFrontendIpConfigurationsOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OutboundRuleFrontendIpConfigurationsOutput)
+}
+
+type OutboundRuleFrontendIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// The ID of the Load Balancer Outbound Rule.
+func (o OutboundRuleFrontendIpConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v OutboundRuleFrontendIpConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+func (o OutboundRuleFrontendIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v OutboundRuleFrontendIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (OutboundRuleFrontendIpConfigurationsOutput) ElementType() reflect.Type {
+	return outboundRuleFrontendIpConfigurationsType
+}
+
+func (o OutboundRuleFrontendIpConfigurationsOutput) ToOutboundRuleFrontendIpConfigurationsOutput() OutboundRuleFrontendIpConfigurationsOutput {
+	return o
+}
+
+func (o OutboundRuleFrontendIpConfigurationsOutput) ToOutboundRuleFrontendIpConfigurationsOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OutboundRuleFrontendIpConfigurationsOutput{}) }
+
+var outboundRuleFrontendIpConfigurationsArrayType = reflect.TypeOf((*[]OutboundRuleFrontendIpConfigurations)(nil)).Elem()
+
+type OutboundRuleFrontendIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToOutboundRuleFrontendIpConfigurationsArrayOutput() OutboundRuleFrontendIpConfigurationsArrayOutput
+	ToOutboundRuleFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationsArrayOutput
+}
+
+type OutboundRuleFrontendIpConfigurationsArrayArgs []OutboundRuleFrontendIpConfigurationsInput
+
+func (OutboundRuleFrontendIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return outboundRuleFrontendIpConfigurationsArrayType
+}
+
+func (a OutboundRuleFrontendIpConfigurationsArrayArgs) ToOutboundRuleFrontendIpConfigurationsArrayOutput() OutboundRuleFrontendIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(OutboundRuleFrontendIpConfigurationsArrayOutput)
+}
+
+func (a OutboundRuleFrontendIpConfigurationsArrayArgs) ToOutboundRuleFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OutboundRuleFrontendIpConfigurationsArrayOutput)
+}
+
+type OutboundRuleFrontendIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o OutboundRuleFrontendIpConfigurationsArrayOutput) Index(i pulumi.IntInput) OutboundRuleFrontendIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) OutboundRuleFrontendIpConfigurations {
+		return vs[0].([]OutboundRuleFrontendIpConfigurations)[vs[1].(int)]
+	}).(OutboundRuleFrontendIpConfigurationsOutput)
+}
+
+func (OutboundRuleFrontendIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return outboundRuleFrontendIpConfigurationsArrayType
+}
+
+func (o OutboundRuleFrontendIpConfigurationsArrayOutput) ToOutboundRuleFrontendIpConfigurationsArrayOutput() OutboundRuleFrontendIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o OutboundRuleFrontendIpConfigurationsArrayOutput) ToOutboundRuleFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OutboundRuleFrontendIpConfigurationsArrayOutput{}) }
+

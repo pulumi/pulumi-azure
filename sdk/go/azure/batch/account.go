@@ -4,6 +4,8 @@
 package batch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,165 +14,187 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The account endpoint used to interact with the Batch service.
+	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
+
+	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	KeyVaultReference AccountKeyVaultReferenceOutput `pulumi:"keyVaultReference"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
+	PoolAllocationMode pulumi.StringOutput `pulumi:"poolAllocationMode"`
+
+	// The Batch account primary access key.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Batch account secondary access key.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["keyVaultReference"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["poolAllocationMode"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageAccountId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["keyVaultReference"] = args.KeyVaultReference
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["poolAllocationMode"] = args.PoolAllocationMode
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageAccountId"] = args.StorageAccountId
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.KeyVaultReference; i != nil { inputs["keyVaultReference"] = i.ToAccountKeyVaultReferenceOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PoolAllocationMode; i != nil { inputs["poolAllocationMode"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["accountEndpoint"] = nil
-	inputs["primaryAccessKey"] = nil
-	inputs["secondaryAccessKey"] = nil
-	s, err := ctx.RegisterResource("azure:batch/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:batch/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountEndpoint"] = state.AccountEndpoint
-		inputs["keyVaultReference"] = state.KeyVaultReference
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["poolAllocationMode"] = state.PoolAllocationMode
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["storageAccountId"] = state.StorageAccountId
-		inputs["tags"] = state.Tags
+		if i := state.AccountEndpoint; i != nil { inputs["accountEndpoint"] = i.ToStringOutput() }
+		if i := state.KeyVaultReference; i != nil { inputs["keyVaultReference"] = i.ToAccountKeyVaultReferenceOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PoolAllocationMode; i != nil { inputs["poolAllocationMode"] = i.ToStringOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:batch/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:batch/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The account endpoint used to interact with the Batch service.
-func (r *Account) AccountEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountEndpoint"])
-}
-
-// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
-func (r *Account) KeyVaultReference() pulumi.Output {
-	return r.s.State["keyVaultReference"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Batch account. Changing this forces a new resource to be created.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
-func (r *Account) PoolAllocationMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["poolAllocationMode"])
-}
-
-// The Batch account primary access key.
-func (r *Account) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Batch account secondary access key.
-func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
-func (r *Account) StorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Account) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// The account endpoint used to interact with the Batch service.
-	AccountEndpoint interface{}
+	AccountEndpoint pulumi.StringInput `pulumi:"accountEndpoint"`
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
-	KeyVaultReference interface{}
+	KeyVaultReference AccountKeyVaultReferenceInput `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
-	PoolAllocationMode interface{}
+	PoolAllocationMode pulumi.StringInput `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
-	KeyVaultReference interface{}
+	KeyVaultReference AccountKeyVaultReferenceInput `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
-	PoolAllocationMode interface{}
+	PoolAllocationMode pulumi.StringInput `pulumi:"poolAllocationMode"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type AccountKeyVaultReference struct {
+	// The Batch account ID.
+	Id string `pulumi:"id"`
+	Url string `pulumi:"url"`
+}
+var accountKeyVaultReferenceType = reflect.TypeOf((*AccountKeyVaultReference)(nil)).Elem()
+
+type AccountKeyVaultReferenceInput interface {
+	pulumi.Input
+
+	ToAccountKeyVaultReferenceOutput() AccountKeyVaultReferenceOutput
+	ToAccountKeyVaultReferenceOutputWithContext(ctx context.Context) AccountKeyVaultReferenceOutput
+}
+
+type AccountKeyVaultReferenceArgs struct {
+	// The Batch account ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (AccountKeyVaultReferenceArgs) ElementType() reflect.Type {
+	return accountKeyVaultReferenceType
+}
+
+func (a AccountKeyVaultReferenceArgs) ToAccountKeyVaultReferenceOutput() AccountKeyVaultReferenceOutput {
+	return pulumi.ToOutput(a).(AccountKeyVaultReferenceOutput)
+}
+
+func (a AccountKeyVaultReferenceArgs) ToAccountKeyVaultReferenceOutputWithContext(ctx context.Context) AccountKeyVaultReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountKeyVaultReferenceOutput)
+}
+
+type AccountKeyVaultReferenceOutput struct { *pulumi.OutputState }
+
+// The Batch account ID.
+func (o AccountKeyVaultReferenceOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AccountKeyVaultReference) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountKeyVaultReferenceOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v AccountKeyVaultReference) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+func (AccountKeyVaultReferenceOutput) ElementType() reflect.Type {
+	return accountKeyVaultReferenceType
+}
+
+func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferenceOutput() AccountKeyVaultReferenceOutput {
+	return o
+}
+
+func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferenceOutputWithContext(ctx context.Context) AccountKeyVaultReferenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountKeyVaultReferenceOutput{}) }
+

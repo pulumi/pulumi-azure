@@ -10,49 +10,36 @@ import (
 // Uses this data source to access information about an existing NetApp Pool.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_pool.html.markdown.
-func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["accountName"] = args.AccountName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:netapp/getPool:getPool", inputs)
+func LookupPool(ctx *pulumi.Context, args *GetPoolArgs, opts ...pulumi.InvokeOption) (*GetPoolResult, error) {
+	var rv GetPoolResult
+	err := ctx.Invoke("azure:netapp/getPool:getPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPoolResult{
-		AccountName: outputs["accountName"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ServiceLevel: outputs["serviceLevel"],
-		SizeInTb: outputs["sizeInTb"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPool.
 type GetPoolArgs struct {
 	// The name of the NetApp account where the NetApp pool exists.
-	AccountName interface{}
+	AccountName string `pulumi:"accountName"`
 	// The name of the NetApp Pool.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the NetApp Pool exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getPool.
 type GetPoolResult struct {
-	AccountName interface{}
+	AccountName string `pulumi:"accountName"`
 	// The Azure Region where the NetApp Pool exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The service level of the file system.
-	ServiceLevel interface{}
+	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB.
-	SizeInTb interface{}
+	SizeInTb int `pulumi:"sizeInTb"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

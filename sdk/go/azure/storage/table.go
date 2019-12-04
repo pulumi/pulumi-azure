@@ -4,6 +4,8 @@
 package storage
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,105 +14,301 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
 type Table struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `acl` blocks as defined below.
+	Acls TableAclsArrayOutput `pulumi:"acls"`
+
+	// The name of the storage table. Must be unique within the storage account the table is located.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the storage table.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the storage account in which to create the storage table.
+	// Changing this forces a new resource to be created.
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
 func NewTable(ctx *pulumi.Context,
-	name string, args *TableArgs, opts ...pulumi.ResourceOpt) (*Table, error) {
+	name string, args *TableArgs, opts ...pulumi.ResourceOption) (*Table, error) {
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["acls"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageAccountName"] = nil
-	} else {
-		inputs["acls"] = args.Acls
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageAccountName"] = args.StorageAccountName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Acls; i != nil { inputs["acls"] = i.ToTableAclsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:storage/table:Table", name, true, inputs, opts...)
+	var resource Table
+	err := ctx.RegisterResource("azure:storage/table:Table", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Table{s: s}, nil
+	return &resource, nil
 }
 
 // GetTable gets an existing Table resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TableState, opts ...pulumi.ResourceOpt) (*Table, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TableState, opts ...pulumi.ResourceOption) (*Table, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["acls"] = state.Acls
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageAccountName"] = state.StorageAccountName
+		if i := state.Acls; i != nil { inputs["acls"] = i.ToTableAclsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/table:Table", name, id, inputs, opts...)
+	var resource Table
+	err := ctx.ReadResource("azure:storage/table:Table", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Table{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Table) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Table) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `acl` blocks as defined below.
-func (r *Table) Acls() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["acls"])
-}
-
-// The name of the storage table. Must be unique within the storage account the table is located.
-func (r *Table) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the storage table.
-func (r *Table) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the storage account in which to create the storage table.
-// Changing this forces a new resource to be created.
-func (r *Table) StorageAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Table resources.
 type TableState struct {
 	// One or more `acl` blocks as defined below.
-	Acls interface{}
+	Acls TableAclsArrayInput `pulumi:"acls"`
 	// The name of the storage table. Must be unique within the storage account the table is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the storage table.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
 	// One or more `acl` blocks as defined below.
-	Acls interface{}
+	Acls TableAclsArrayInput `pulumi:"acls"`
 	// The name of the storage table. Must be unique within the storage account the table is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the storage table.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the storage table.
 	// Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }
+type TableAcls struct {
+	AccessPolicies *[]TableAclsAccessPolicies `pulumi:"accessPolicies"`
+	// The ID of the Table within the Storage Account.
+	Id string `pulumi:"id"`
+}
+var tableAclsType = reflect.TypeOf((*TableAcls)(nil)).Elem()
+
+type TableAclsInput interface {
+	pulumi.Input
+
+	ToTableAclsOutput() TableAclsOutput
+	ToTableAclsOutputWithContext(ctx context.Context) TableAclsOutput
+}
+
+type TableAclsArgs struct {
+	AccessPolicies TableAclsAccessPoliciesArrayInput `pulumi:"accessPolicies"`
+	// The ID of the Table within the Storage Account.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TableAclsArgs) ElementType() reflect.Type {
+	return tableAclsType
+}
+
+func (a TableAclsArgs) ToTableAclsOutput() TableAclsOutput {
+	return pulumi.ToOutput(a).(TableAclsOutput)
+}
+
+func (a TableAclsArgs) ToTableAclsOutputWithContext(ctx context.Context) TableAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TableAclsOutput)
+}
+
+type TableAclsOutput struct { *pulumi.OutputState }
+
+func (o TableAclsOutput) AccessPolicies() TableAclsAccessPoliciesArrayOutput {
+	return o.Apply(func(v TableAcls) []TableAclsAccessPolicies {
+		if v.AccessPolicies == nil { return *new([]TableAclsAccessPolicies) } else { return *v.AccessPolicies }
+	}).(TableAclsAccessPoliciesArrayOutput)
+}
+
+// The ID of the Table within the Storage Account.
+func (o TableAclsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v TableAcls) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (TableAclsOutput) ElementType() reflect.Type {
+	return tableAclsType
+}
+
+func (o TableAclsOutput) ToTableAclsOutput() TableAclsOutput {
+	return o
+}
+
+func (o TableAclsOutput) ToTableAclsOutputWithContext(ctx context.Context) TableAclsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TableAclsOutput{}) }
+
+type TableAclsAccessPolicies struct {
+	Expiry string `pulumi:"expiry"`
+	Permissions string `pulumi:"permissions"`
+	Start string `pulumi:"start"`
+}
+var tableAclsAccessPoliciesType = reflect.TypeOf((*TableAclsAccessPolicies)(nil)).Elem()
+
+type TableAclsAccessPoliciesInput interface {
+	pulumi.Input
+
+	ToTableAclsAccessPoliciesOutput() TableAclsAccessPoliciesOutput
+	ToTableAclsAccessPoliciesOutputWithContext(ctx context.Context) TableAclsAccessPoliciesOutput
+}
+
+type TableAclsAccessPoliciesArgs struct {
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (TableAclsAccessPoliciesArgs) ElementType() reflect.Type {
+	return tableAclsAccessPoliciesType
+}
+
+func (a TableAclsAccessPoliciesArgs) ToTableAclsAccessPoliciesOutput() TableAclsAccessPoliciesOutput {
+	return pulumi.ToOutput(a).(TableAclsAccessPoliciesOutput)
+}
+
+func (a TableAclsAccessPoliciesArgs) ToTableAclsAccessPoliciesOutputWithContext(ctx context.Context) TableAclsAccessPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TableAclsAccessPoliciesOutput)
+}
+
+type TableAclsAccessPoliciesOutput struct { *pulumi.OutputState }
+
+func (o TableAclsAccessPoliciesOutput) Expiry() pulumi.StringOutput {
+	return o.Apply(func(v TableAclsAccessPolicies) string {
+		return v.Expiry
+	}).(pulumi.StringOutput)
+}
+
+func (o TableAclsAccessPoliciesOutput) Permissions() pulumi.StringOutput {
+	return o.Apply(func(v TableAclsAccessPolicies) string {
+		return v.Permissions
+	}).(pulumi.StringOutput)
+}
+
+func (o TableAclsAccessPoliciesOutput) Start() pulumi.StringOutput {
+	return o.Apply(func(v TableAclsAccessPolicies) string {
+		return v.Start
+	}).(pulumi.StringOutput)
+}
+
+func (TableAclsAccessPoliciesOutput) ElementType() reflect.Type {
+	return tableAclsAccessPoliciesType
+}
+
+func (o TableAclsAccessPoliciesOutput) ToTableAclsAccessPoliciesOutput() TableAclsAccessPoliciesOutput {
+	return o
+}
+
+func (o TableAclsAccessPoliciesOutput) ToTableAclsAccessPoliciesOutputWithContext(ctx context.Context) TableAclsAccessPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TableAclsAccessPoliciesOutput{}) }
+
+var tableAclsAccessPoliciesArrayType = reflect.TypeOf((*[]TableAclsAccessPolicies)(nil)).Elem()
+
+type TableAclsAccessPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToTableAclsAccessPoliciesArrayOutput() TableAclsAccessPoliciesArrayOutput
+	ToTableAclsAccessPoliciesArrayOutputWithContext(ctx context.Context) TableAclsAccessPoliciesArrayOutput
+}
+
+type TableAclsAccessPoliciesArrayArgs []TableAclsAccessPoliciesInput
+
+func (TableAclsAccessPoliciesArrayArgs) ElementType() reflect.Type {
+	return tableAclsAccessPoliciesArrayType
+}
+
+func (a TableAclsAccessPoliciesArrayArgs) ToTableAclsAccessPoliciesArrayOutput() TableAclsAccessPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(TableAclsAccessPoliciesArrayOutput)
+}
+
+func (a TableAclsAccessPoliciesArrayArgs) ToTableAclsAccessPoliciesArrayOutputWithContext(ctx context.Context) TableAclsAccessPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TableAclsAccessPoliciesArrayOutput)
+}
+
+type TableAclsAccessPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o TableAclsAccessPoliciesArrayOutput) Index(i pulumi.IntInput) TableAclsAccessPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TableAclsAccessPolicies {
+		return vs[0].([]TableAclsAccessPolicies)[vs[1].(int)]
+	}).(TableAclsAccessPoliciesOutput)
+}
+
+func (TableAclsAccessPoliciesArrayOutput) ElementType() reflect.Type {
+	return tableAclsAccessPoliciesArrayType
+}
+
+func (o TableAclsAccessPoliciesArrayOutput) ToTableAclsAccessPoliciesArrayOutput() TableAclsAccessPoliciesArrayOutput {
+	return o
+}
+
+func (o TableAclsAccessPoliciesArrayOutput) ToTableAclsAccessPoliciesArrayOutputWithContext(ctx context.Context) TableAclsAccessPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TableAclsAccessPoliciesArrayOutput{}) }
+
+var tableAclsArrayType = reflect.TypeOf((*[]TableAcls)(nil)).Elem()
+
+type TableAclsArrayInput interface {
+	pulumi.Input
+
+	ToTableAclsArrayOutput() TableAclsArrayOutput
+	ToTableAclsArrayOutputWithContext(ctx context.Context) TableAclsArrayOutput
+}
+
+type TableAclsArrayArgs []TableAclsInput
+
+func (TableAclsArrayArgs) ElementType() reflect.Type {
+	return tableAclsArrayType
+}
+
+func (a TableAclsArrayArgs) ToTableAclsArrayOutput() TableAclsArrayOutput {
+	return pulumi.ToOutput(a).(TableAclsArrayOutput)
+}
+
+func (a TableAclsArrayArgs) ToTableAclsArrayOutputWithContext(ctx context.Context) TableAclsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(TableAclsArrayOutput)
+}
+
+type TableAclsArrayOutput struct { *pulumi.OutputState }
+
+func (o TableAclsArrayOutput) Index(i pulumi.IntInput) TableAclsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) TableAcls {
+		return vs[0].([]TableAcls)[vs[1].(int)]
+	}).(TableAclsOutput)
+}
+
+func (TableAclsArrayOutput) ElementType() reflect.Type {
+	return tableAclsArrayType
+}
+
+func (o TableAclsArrayOutput) ToTableAclsArrayOutput() TableAclsArrayOutput {
+	return o
+}
+
+func (o TableAclsArrayOutput) ToTableAclsArrayOutputWithContext(ctx context.Context) TableAclsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(TableAclsArrayOutput{}) }
+

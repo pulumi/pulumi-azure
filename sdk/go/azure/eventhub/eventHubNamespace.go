@@ -4,6 +4,8 @@
 package eventhub
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,217 +14,393 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
 type EventHubNamespace struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Is Auto Inflate enabled for the EventHub Namespace?
+	AutoInflateEnabled pulumi.BoolOutput `pulumi:"autoInflateEnabled"`
+
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
+	Capacity pulumi.IntOutput `pulumi:"capacity"`
+
+	// The primary connection string for the authorization
+	// rule `RootManageSharedAccessKey`.
+	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
+
+	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
+
+	// The secondary connection string for the
+	// authorization rule `RootManageSharedAccessKey`.
+	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
+
+	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
+
+	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+	KafkaEnabled pulumi.BoolOutput `pulumi:"kafkaEnabled"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+	MaximumThroughputUnits pulumi.IntOutput `pulumi:"maximumThroughputUnits"`
+
+	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `networkRulesets` block as defined below.
+	NetworkRulesets EventHubNamespaceNetworkRulesetsOutput `pulumi:"networkRulesets"`
+
+	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Defines which tier to use. Valid options are `Basic` and `Standard`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewEventHubNamespace registers a new resource with the given unique name, arguments, and options.
 func NewEventHubNamespace(ctx *pulumi.Context,
-	name string, args *EventHubNamespaceArgs, opts ...pulumi.ResourceOpt) (*EventHubNamespace, error) {
+	name string, args *EventHubNamespaceArgs, opts ...pulumi.ResourceOption) (*EventHubNamespace, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoInflateEnabled"] = nil
-		inputs["capacity"] = nil
-		inputs["kafkaEnabled"] = nil
-		inputs["location"] = nil
-		inputs["maximumThroughputUnits"] = nil
-		inputs["name"] = nil
-		inputs["networkRulesets"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["autoInflateEnabled"] = args.AutoInflateEnabled
-		inputs["capacity"] = args.Capacity
-		inputs["kafkaEnabled"] = args.KafkaEnabled
-		inputs["location"] = args.Location
-		inputs["maximumThroughputUnits"] = args.MaximumThroughputUnits
-		inputs["name"] = args.Name
-		inputs["networkRulesets"] = args.NetworkRulesets
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoInflateEnabled; i != nil { inputs["autoInflateEnabled"] = i.ToBoolOutput() }
+		if i := args.Capacity; i != nil { inputs["capacity"] = i.ToIntOutput() }
+		if i := args.KafkaEnabled; i != nil { inputs["kafkaEnabled"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MaximumThroughputUnits; i != nil { inputs["maximumThroughputUnits"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkRulesets; i != nil { inputs["networkRulesets"] = i.ToEventHubNamespaceNetworkRulesetsOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["defaultPrimaryConnectionString"] = nil
-	inputs["defaultPrimaryKey"] = nil
-	inputs["defaultSecondaryConnectionString"] = nil
-	inputs["defaultSecondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/eventHubNamespace:EventHubNamespace", name, true, inputs, opts...)
+	var resource EventHubNamespace
+	err := ctx.RegisterResource("azure:eventhub/eventHubNamespace:EventHubNamespace", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventHubNamespace{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventHubNamespace gets an existing EventHubNamespace resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventHubNamespace(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventHubNamespaceState, opts ...pulumi.ResourceOpt) (*EventHubNamespace, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventHubNamespaceState, opts ...pulumi.ResourceOption) (*EventHubNamespace, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoInflateEnabled"] = state.AutoInflateEnabled
-		inputs["capacity"] = state.Capacity
-		inputs["defaultPrimaryConnectionString"] = state.DefaultPrimaryConnectionString
-		inputs["defaultPrimaryKey"] = state.DefaultPrimaryKey
-		inputs["defaultSecondaryConnectionString"] = state.DefaultSecondaryConnectionString
-		inputs["defaultSecondaryKey"] = state.DefaultSecondaryKey
-		inputs["kafkaEnabled"] = state.KafkaEnabled
-		inputs["location"] = state.Location
-		inputs["maximumThroughputUnits"] = state.MaximumThroughputUnits
-		inputs["name"] = state.Name
-		inputs["networkRulesets"] = state.NetworkRulesets
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.AutoInflateEnabled; i != nil { inputs["autoInflateEnabled"] = i.ToBoolOutput() }
+		if i := state.Capacity; i != nil { inputs["capacity"] = i.ToIntOutput() }
+		if i := state.DefaultPrimaryConnectionString; i != nil { inputs["defaultPrimaryConnectionString"] = i.ToStringOutput() }
+		if i := state.DefaultPrimaryKey; i != nil { inputs["defaultPrimaryKey"] = i.ToStringOutput() }
+		if i := state.DefaultSecondaryConnectionString; i != nil { inputs["defaultSecondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.DefaultSecondaryKey; i != nil { inputs["defaultSecondaryKey"] = i.ToStringOutput() }
+		if i := state.KafkaEnabled; i != nil { inputs["kafkaEnabled"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MaximumThroughputUnits; i != nil { inputs["maximumThroughputUnits"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkRulesets; i != nil { inputs["networkRulesets"] = i.ToEventHubNamespaceNetworkRulesetsOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/eventHubNamespace:EventHubNamespace", name, id, inputs, opts...)
+	var resource EventHubNamespace
+	err := ctx.ReadResource("azure:eventhub/eventHubNamespace:EventHubNamespace", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventHubNamespace{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventHubNamespace) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventHubNamespace) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Is Auto Inflate enabled for the EventHub Namespace?
-func (r *EventHubNamespace) AutoInflateEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoInflateEnabled"])
-}
-
-// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
-func (r *EventHubNamespace) Capacity() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["capacity"])
-}
-
-// The primary connection string for the authorization
-// rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultPrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
-}
-
-// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultPrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
-}
-
-// The secondary connection string for the
-// authorization rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultSecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
-}
-
-// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *EventHubNamespace) DefaultSecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
-}
-
-// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-func (r *EventHubNamespace) KafkaEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["kafkaEnabled"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-func (r *EventHubNamespace) MaximumThroughputUnits() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maximumThroughputUnits"])
-}
-
-// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `networkRulesets` block as defined below.
-func (r *EventHubNamespace) NetworkRulesets() pulumi.Output {
-	return r.s.State["networkRulesets"]
-}
-
-// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-func (r *EventHubNamespace) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Defines which tier to use. Valid options are `Basic` and `Standard`.
-func (r *EventHubNamespace) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *EventHubNamespace) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventHubNamespace resources.
 type EventHubNamespaceState struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
-	AutoInflateEnabled interface{}
+	AutoInflateEnabled pulumi.BoolInput `pulumi:"autoInflateEnabled"`
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
-	Capacity interface{}
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
-	DefaultPrimaryConnectionString interface{}
+	DefaultPrimaryConnectionString pulumi.StringInput `pulumi:"defaultPrimaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultPrimaryKey interface{}
+	DefaultPrimaryKey pulumi.StringInput `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryConnectionString interface{}
+	DefaultSecondaryConnectionString pulumi.StringInput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryKey interface{}
+	DefaultSecondaryKey pulumi.StringInput `pulumi:"defaultSecondaryKey"`
 	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled interface{}
+	KafkaEnabled pulumi.BoolInput `pulumi:"kafkaEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-	MaximumThroughputUnits interface{}
+	MaximumThroughputUnits pulumi.IntInput `pulumi:"maximumThroughputUnits"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkRulesets` block as defined below.
-	NetworkRulesets interface{}
+	NetworkRulesets EventHubNamespaceNetworkRulesetsInput `pulumi:"networkRulesets"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Valid options are `Basic` and `Standard`.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventHubNamespace resource.
 type EventHubNamespaceArgs struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
-	AutoInflateEnabled interface{}
+	AutoInflateEnabled pulumi.BoolInput `pulumi:"autoInflateEnabled"`
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
-	Capacity interface{}
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-	KafkaEnabled interface{}
+	KafkaEnabled pulumi.BoolInput `pulumi:"kafkaEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-	MaximumThroughputUnits interface{}
+	MaximumThroughputUnits pulumi.IntInput `pulumi:"maximumThroughputUnits"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkRulesets` block as defined below.
-	NetworkRulesets interface{}
+	NetworkRulesets EventHubNamespaceNetworkRulesetsInput `pulumi:"networkRulesets"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Valid options are `Basic` and `Standard`.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type EventHubNamespaceNetworkRulesets struct {
+	DefaultAction string `pulumi:"defaultAction"`
+	IpRule *EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRule"`
+	VirtualNetworkRules *[]EventHubNamespaceNetworkRulesetsVirtualNetworkRules `pulumi:"virtualNetworkRules"`
+}
+var eventHubNamespaceNetworkRulesetsType = reflect.TypeOf((*EventHubNamespaceNetworkRulesets)(nil)).Elem()
+
+type EventHubNamespaceNetworkRulesetsInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceNetworkRulesetsOutput() EventHubNamespaceNetworkRulesetsOutput
+	ToEventHubNamespaceNetworkRulesetsOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsOutput
+}
+
+type EventHubNamespaceNetworkRulesetsArgs struct {
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	IpRule EventHubNamespaceNetworkRulesetsIpRuleInput `pulumi:"ipRule"`
+	VirtualNetworkRules EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (EventHubNamespaceNetworkRulesetsArgs) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsType
+}
+
+func (a EventHubNamespaceNetworkRulesetsArgs) ToEventHubNamespaceNetworkRulesetsOutput() EventHubNamespaceNetworkRulesetsOutput {
+	return pulumi.ToOutput(a).(EventHubNamespaceNetworkRulesetsOutput)
+}
+
+func (a EventHubNamespaceNetworkRulesetsArgs) ToEventHubNamespaceNetworkRulesetsOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventHubNamespaceNetworkRulesetsOutput)
+}
+
+type EventHubNamespaceNetworkRulesetsOutput struct { *pulumi.OutputState }
+
+func (o EventHubNamespaceNetworkRulesetsOutput) DefaultAction() pulumi.StringOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesets) string {
+		return v.DefaultAction
+	}).(pulumi.StringOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsOutput) IpRule() EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesets) EventHubNamespaceNetworkRulesetsIpRule {
+		if v.IpRule == nil { return *new(EventHubNamespaceNetworkRulesetsIpRule) } else { return *v.IpRule }
+	}).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsOutput) VirtualNetworkRules() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsVirtualNetworkRules {
+		if v.VirtualNetworkRules == nil { return *new([]EventHubNamespaceNetworkRulesetsVirtualNetworkRules) } else { return *v.VirtualNetworkRules }
+	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput)
+}
+
+func (EventHubNamespaceNetworkRulesetsOutput) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsType
+}
+
+func (o EventHubNamespaceNetworkRulesetsOutput) ToEventHubNamespaceNetworkRulesetsOutput() EventHubNamespaceNetworkRulesetsOutput {
+	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsOutput) ToEventHubNamespaceNetworkRulesetsOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsOutput{}) }
+
+type EventHubNamespaceNetworkRulesetsIpRule struct {
+	Action *string `pulumi:"action"`
+	IpMask string `pulumi:"ipMask"`
+}
+var eventHubNamespaceNetworkRulesetsIpRuleType = reflect.TypeOf((*EventHubNamespaceNetworkRulesetsIpRule)(nil)).Elem()
+
+type EventHubNamespaceNetworkRulesetsIpRuleInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceNetworkRulesetsIpRuleOutput() EventHubNamespaceNetworkRulesetsIpRuleOutput
+	ToEventHubNamespaceNetworkRulesetsIpRuleOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleOutput
+}
+
+type EventHubNamespaceNetworkRulesetsIpRuleArgs struct {
+	Action pulumi.StringInput `pulumi:"action"`
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (EventHubNamespaceNetworkRulesetsIpRuleArgs) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsIpRuleType
+}
+
+func (a EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRulesetsIpRuleOutput() EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return pulumi.ToOutput(a).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
+}
+
+func (a EventHubNamespaceNetworkRulesetsIpRuleArgs) ToEventHubNamespaceNetworkRulesetsIpRuleOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventHubNamespaceNetworkRulesetsIpRuleOutput)
+}
+
+type EventHubNamespaceNetworkRulesetsIpRuleOutput struct { *pulumi.OutputState }
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesetsIpRule) string {
+		if v.Action == nil { return *new(string) } else { return *v.Action }
+	}).(pulumi.StringOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesetsIpRule) string {
+		return v.IpMask
+	}).(pulumi.StringOutput)
+}
+
+func (EventHubNamespaceNetworkRulesetsIpRuleOutput) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsIpRuleType
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRuleOutput() EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetworkRulesetsIpRuleOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsIpRuleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleOutput{}) }
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRules struct {
+	IgnoreMissingVirtualNetworkServiceEndpoint *bool `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
+	SubnetId string `pulumi:"subnetId"`
+}
+var eventHubNamespaceNetworkRulesetsVirtualNetworkRulesType = reflect.TypeOf((*EventHubNamespaceNetworkRulesetsVirtualNetworkRules)(nil)).Elem()
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRulesInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput
+	ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput
+}
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs struct {
+	IgnoreMissingVirtualNetworkServiceEndpoint pulumi.BoolInput `pulumi:"ignoreMissingVirtualNetworkServiceEndpoint"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsVirtualNetworkRulesType
+}
+
+func (a EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput {
+	return pulumi.ToOutput(a).(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput)
+}
+
+func (a EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput)
+}
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput struct { *pulumi.OutputState }
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput) IgnoreMissingVirtualNetworkServiceEndpoint() pulumi.BoolOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesetsVirtualNetworkRules) bool {
+		if v.IgnoreMissingVirtualNetworkServiceEndpoint == nil { return *new(bool) } else { return *v.IgnoreMissingVirtualNetworkServiceEndpoint }
+	}).(pulumi.BoolOutput)
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v EventHubNamespaceNetworkRulesetsVirtualNetworkRules) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsVirtualNetworkRulesType
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput {
+	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput{}) }
+
+var eventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayType = reflect.TypeOf((*[]EventHubNamespaceNetworkRulesetsVirtualNetworkRules)(nil)).Elem()
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput
+	ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput
+}
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayArgs []EventHubNamespaceNetworkRulesetsVirtualNetworkRulesInput
+
+func (EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayArgs) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayType
+}
+
+func (a EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayArgs) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput {
+	return pulumi.ToOutput(a).(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput)
+}
+
+func (a EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayArgs) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput)
+}
+
+type EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) EventHubNamespaceNetworkRulesetsVirtualNetworkRules {
+		return vs[0].([]EventHubNamespaceNetworkRulesetsVirtualNetworkRules)[vs[1].(int)]
+	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesOutput)
+}
+
+func (EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput) ElementType() reflect.Type {
+	return eventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayType
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput() EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput {
+	return o
+}
+
+func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput) ToEventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArrayOutput{}) }
+

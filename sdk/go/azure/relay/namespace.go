@@ -4,6 +4,8 @@
 package relay
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,171 +14,182 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
 type Namespace struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The Identifier for Azure Insights metrics.
+	MetricId pulumi.StringOutput `pulumi:"metricId"`
+
+	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+
+	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+
+	// The name of the resource group in which to create the Azure Relay Namespace.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+
+	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+
+	// ) A `sku` block as described below.
+	Sku NamespaceSkuOutput `pulumi:"sku"`
+
+	// The name of the SKU to use. At this time the only supported value is `Standard`.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
 func NewNamespace(ctx *pulumi.Context,
-	name string, args *NamespaceArgs, opts ...pulumi.ResourceOpt) (*Namespace, error) {
+	name string, args *NamespaceArgs, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["skuName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["skuName"] = args.SkuName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToNamespaceSkuOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["metricId"] = nil
-	inputs["primaryConnectionString"] = nil
-	inputs["primaryKey"] = nil
-	inputs["secondaryConnectionString"] = nil
-	inputs["secondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:relay/namespace:Namespace", name, true, inputs, opts...)
+	var resource Namespace
+	err := ctx.RegisterResource("azure:relay/namespace:Namespace", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
+	return &resource, nil
 }
 
 // GetNamespace gets an existing Namespace resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNamespace(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NamespaceState, opts ...pulumi.ResourceOpt) (*Namespace, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["metricId"] = state.MetricId
-		inputs["name"] = state.Name
-		inputs["primaryConnectionString"] = state.PrimaryConnectionString
-		inputs["primaryKey"] = state.PrimaryKey
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
-		inputs["secondaryKey"] = state.SecondaryKey
-		inputs["sku"] = state.Sku
-		inputs["skuName"] = state.SkuName
-		inputs["tags"] = state.Tags
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MetricId; i != nil { inputs["metricId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryConnectionString; i != nil { inputs["primaryConnectionString"] = i.ToStringOutput() }
+		if i := state.PrimaryKey; i != nil { inputs["primaryKey"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryConnectionString; i != nil { inputs["secondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.SecondaryKey; i != nil { inputs["secondaryKey"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToNamespaceSkuOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:relay/namespace:Namespace", name, id, inputs, opts...)
+	var resource Namespace
+	err := ctx.ReadResource("azure:relay/namespace:Namespace", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
-func (r *Namespace) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The Identifier for Azure Insights metrics.
-func (r *Namespace) MetricId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metricId"])
-}
-
-// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-func (r *Namespace) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) PrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
-}
-
-// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) PrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryKey"])
-}
-
-// The name of the resource group in which to create the Azure Relay Namespace.
-func (r *Namespace) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) SecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
-}
-
-// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) SecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
-}
-
-// ) A `sku` block as described below.
-func (r *Namespace) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// The name of the SKU to use. At this time the only supported value is `Standard`.
-func (r *Namespace) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Namespace) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Namespace resources.
 type NamespaceState struct {
 	// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The Identifier for Azure Insights metrics.
-	MetricId interface{}
+	MetricId pulumi.StringInput `pulumi:"metricId"`
 	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
-	PrimaryConnectionString interface{}
+	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-	PrimaryKey interface{}
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// The name of the resource group in which to create the Azure Relay Namespace.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
-	SecondaryConnectionString interface{}
+	SecondaryConnectionString pulumi.StringInput `pulumi:"secondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-	SecondaryKey interface{}
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku NamespaceSkuInput `pulumi:"sku"`
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
 	// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Azure Relay Namespace.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku NamespaceSkuInput `pulumi:"sku"`
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type NamespaceSku struct {
+	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var namespaceSkuType = reflect.TypeOf((*NamespaceSku)(nil)).Elem()
+
+type NamespaceSkuInput interface {
+	pulumi.Input
+
+	ToNamespaceSkuOutput() NamespaceSkuOutput
+	ToNamespaceSkuOutputWithContext(ctx context.Context) NamespaceSkuOutput
+}
+
+type NamespaceSkuArgs struct {
+	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (NamespaceSkuArgs) ElementType() reflect.Type {
+	return namespaceSkuType
+}
+
+func (a NamespaceSkuArgs) ToNamespaceSkuOutput() NamespaceSkuOutput {
+	return pulumi.ToOutput(a).(NamespaceSkuOutput)
+}
+
+func (a NamespaceSkuArgs) ToNamespaceSkuOutputWithContext(ctx context.Context) NamespaceSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NamespaceSkuOutput)
+}
+
+type NamespaceSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
+func (o NamespaceSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v NamespaceSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (NamespaceSkuOutput) ElementType() reflect.Type {
+	return namespaceSkuType
+}
+
+func (o NamespaceSkuOutput) ToNamespaceSkuOutput() NamespaceSkuOutput {
+	return o
+}
+
+func (o NamespaceSkuOutput) ToNamespaceSkuOutputWithContext(ctx context.Context) NamespaceSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NamespaceSkuOutput{}) }
+

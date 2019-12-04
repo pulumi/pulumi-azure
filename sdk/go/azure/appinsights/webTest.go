@@ -12,12 +12,52 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
 type WebTest struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
+	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
+
+	// An XML configuration specification for a WebTest.
+	Configuration pulumi.StringOutput `pulumi:"configuration"`
+
+	// Purpose/user defined descriptive test for this WebTest.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Is the test actively being monitored.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Interval in seconds between test runs for this WebTest. Default is `300`.
+	Frequency pulumi.IntOutput `pulumi:"frequency"`
+
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	GeoLocations pulumi.StringArrayOutput `pulumi:"geoLocations"`
+
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// The location of the resource group.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Application Insights WebTest. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Allow for retries should this WebTest fail.
+	RetryEnabled pulumi.BoolOutput `pulumi:"retryEnabled"`
+
+	SyntheticMonitorId pulumi.StringOutput `pulumi:"syntheticMonitorId"`
+
+	// Resource tags.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Seconds until this WebTest will timeout and fail. Default is `30`.
+	Timeout pulumi.IntOutput `pulumi:"timeout"`
 }
 
 // NewWebTest registers a new resource with the given unique name, arguments, and options.
 func NewWebTest(ctx *pulumi.Context,
-	name string, args *WebTestArgs, opts ...pulumi.ResourceOpt) (*WebTest, error) {
+	name string, args *WebTestArgs, opts ...pulumi.ResourceOption) (*WebTest, error) {
 	if args == nil || args.ApplicationInsightsId == nil {
 		return nil, errors.New("missing required argument 'ApplicationInsightsId'")
 	}
@@ -33,205 +73,114 @@ func NewWebTest(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationInsightsId"] = nil
-		inputs["configuration"] = nil
-		inputs["description"] = nil
-		inputs["enabled"] = nil
-		inputs["frequency"] = nil
-		inputs["geoLocations"] = nil
-		inputs["kind"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["retryEnabled"] = nil
-		inputs["tags"] = nil
-		inputs["timeout"] = nil
-	} else {
-		inputs["applicationInsightsId"] = args.ApplicationInsightsId
-		inputs["configuration"] = args.Configuration
-		inputs["description"] = args.Description
-		inputs["enabled"] = args.Enabled
-		inputs["frequency"] = args.Frequency
-		inputs["geoLocations"] = args.GeoLocations
-		inputs["kind"] = args.Kind
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["retryEnabled"] = args.RetryEnabled
-		inputs["tags"] = args.Tags
-		inputs["timeout"] = args.Timeout
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationInsightsId; i != nil { inputs["applicationInsightsId"] = i.ToStringOutput() }
+		if i := args.Configuration; i != nil { inputs["configuration"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Frequency; i != nil { inputs["frequency"] = i.ToIntOutput() }
+		if i := args.GeoLocations; i != nil { inputs["geoLocations"] = i.ToStringArrayOutput() }
+		if i := args.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RetryEnabled; i != nil { inputs["retryEnabled"] = i.ToBoolOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Timeout; i != nil { inputs["timeout"] = i.ToIntOutput() }
 	}
-	inputs["syntheticMonitorId"] = nil
-	s, err := ctx.RegisterResource("azure:appinsights/webTest:WebTest", name, true, inputs, opts...)
+	var resource WebTest
+	err := ctx.RegisterResource("azure:appinsights/webTest:WebTest", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WebTest{s: s}, nil
+	return &resource, nil
 }
 
 // GetWebTest gets an existing WebTest resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWebTest(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WebTestState, opts ...pulumi.ResourceOpt) (*WebTest, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WebTestState, opts ...pulumi.ResourceOption) (*WebTest, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationInsightsId"] = state.ApplicationInsightsId
-		inputs["configuration"] = state.Configuration
-		inputs["description"] = state.Description
-		inputs["enabled"] = state.Enabled
-		inputs["frequency"] = state.Frequency
-		inputs["geoLocations"] = state.GeoLocations
-		inputs["kind"] = state.Kind
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["retryEnabled"] = state.RetryEnabled
-		inputs["syntheticMonitorId"] = state.SyntheticMonitorId
-		inputs["tags"] = state.Tags
-		inputs["timeout"] = state.Timeout
+		if i := state.ApplicationInsightsId; i != nil { inputs["applicationInsightsId"] = i.ToStringOutput() }
+		if i := state.Configuration; i != nil { inputs["configuration"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Frequency; i != nil { inputs["frequency"] = i.ToIntOutput() }
+		if i := state.GeoLocations; i != nil { inputs["geoLocations"] = i.ToStringArrayOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RetryEnabled; i != nil { inputs["retryEnabled"] = i.ToBoolOutput() }
+		if i := state.SyntheticMonitorId; i != nil { inputs["syntheticMonitorId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Timeout; i != nil { inputs["timeout"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appinsights/webTest:WebTest", name, id, inputs, opts...)
+	var resource WebTest
+	err := ctx.ReadResource("azure:appinsights/webTest:WebTest", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WebTest{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *WebTest) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *WebTest) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-func (r *WebTest) ApplicationInsightsId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationInsightsId"])
-}
-
-// An XML configuration specification for a WebTest.
-func (r *WebTest) Configuration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["configuration"])
-}
-
-// Purpose/user defined descriptive test for this WebTest.
-func (r *WebTest) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Is the test actively being monitored.
-func (r *WebTest) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Interval in seconds between test runs for this WebTest. Default is `300`.
-func (r *WebTest) Frequency() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["frequency"])
-}
-
-// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-func (r *WebTest) GeoLocations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["geoLocations"])
-}
-
-func (r *WebTest) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// The location of the resource group.
-func (r *WebTest) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Application Insights WebTest. Changing this forces a
-// new resource to be created.
-func (r *WebTest) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *WebTest) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Allow for retries should this WebTest fail.
-func (r *WebTest) RetryEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["retryEnabled"])
-}
-
-func (r *WebTest) SyntheticMonitorId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["syntheticMonitorId"])
-}
-
-// Resource tags.
-func (r *WebTest) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Seconds until this WebTest will timeout and fail. Default is `30`.
-func (r *WebTest) Timeout() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["timeout"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering WebTest resources.
 type WebTestState struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-	ApplicationInsightsId interface{}
+	ApplicationInsightsId pulumi.StringInput `pulumi:"applicationInsightsId"`
 	// An XML configuration specification for a WebTest.
-	Configuration interface{}
+	Configuration pulumi.StringInput `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Is the test actively being monitored.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Interval in seconds between test runs for this WebTest. Default is `300`.
-	Frequency interface{}
+	Frequency pulumi.IntInput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	GeoLocations interface{}
-	Kind interface{}
+	GeoLocations pulumi.StringArrayInput `pulumi:"geoLocations"`
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The location of the resource group.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
-	RetryEnabled interface{}
-	SyntheticMonitorId interface{}
+	RetryEnabled pulumi.BoolInput `pulumi:"retryEnabled"`
+	SyntheticMonitorId pulumi.StringInput `pulumi:"syntheticMonitorId"`
 	// Resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
-	Timeout interface{}
+	Timeout pulumi.IntInput `pulumi:"timeout"`
 }
 
 // The set of arguments for constructing a WebTest resource.
 type WebTestArgs struct {
 	// The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
-	ApplicationInsightsId interface{}
+	ApplicationInsightsId pulumi.StringInput `pulumi:"applicationInsightsId"`
 	// An XML configuration specification for a WebTest.
-	Configuration interface{}
+	Configuration pulumi.StringInput `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Is the test actively being monitored.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Interval in seconds between test runs for this WebTest. Default is `300`.
-	Frequency interface{}
+	Frequency pulumi.IntInput `pulumi:"frequency"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	GeoLocations interface{}
-	Kind interface{}
+	GeoLocations pulumi.StringArrayInput `pulumi:"geoLocations"`
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The location of the resource group.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Application Insights WebTest. Changing this forces a
 	// new resource to be created.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Allow for retries should this WebTest fail.
-	RetryEnabled interface{}
+	RetryEnabled pulumi.BoolInput `pulumi:"retryEnabled"`
 	// Resource tags.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
-	Timeout interface{}
+	Timeout pulumi.IntInput `pulumi:"timeout"`
 }

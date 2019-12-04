@@ -10,39 +10,34 @@ import (
 // Use this data source to access information about an existing Load Balancer's Backend Address Pool.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
-func LookupBackendAddressPool(ctx *pulumi.Context, args *GetBackendAddressPoolArgs) (*GetBackendAddressPoolResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["loadbalancerId"] = args.LoadbalancerId
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", inputs)
+func LookupBackendAddressPool(ctx *pulumi.Context, args *GetBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*GetBackendAddressPoolResult, error) {
+	var rv GetBackendAddressPoolResult
+	err := ctx.Invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetBackendAddressPoolResult{
-		BackendIpConfigurations: outputs["backendIpConfigurations"],
-		LoadbalancerId: outputs["loadbalancerId"],
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getBackendAddressPool.
 type GetBackendAddressPoolArgs struct {
 	// The ID of the Load Balancer in which the Backend Address Pool exists.
-	LoadbalancerId interface{}
+	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Backend Address Pool.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getBackendAddressPool.
 type GetBackendAddressPoolResult struct {
 	// An array of references to IP addresses defined in network interfaces.
-	BackendIpConfigurations interface{}
-	LoadbalancerId interface{}
+	BackendIpConfigurations []GetBackendAddressPoolBackendIpConfigurationsResult `pulumi:"backendIpConfigurations"`
+	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// The name of the Backend Address Pool.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetBackendAddressPoolBackendIpConfigurationsResult struct {
+	// The ID of the Backend Address Pool.
+	Id string `pulumi:"id"`
 }

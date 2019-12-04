@@ -12,187 +12,145 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_legacy.html.markdown.
 type Namespace struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+	Capacity pulumi.IntOutput `pulumi:"capacity"`
+
+	// The primary connection string for the authorization
+	// rule `RootManageSharedAccessKey`.
+	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
+
+	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
+	DefaultPrimaryKey pulumi.StringOutput `pulumi:"defaultPrimaryKey"`
+
+	// The secondary connection string for the
+	// authorization rule `RootManageSharedAccessKey`.
+	DefaultSecondaryConnectionString pulumi.StringOutput `pulumi:"defaultSecondaryConnectionString"`
+
+	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the namespace.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Defines which tier to use. Options are basic, standard or premium.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
 func NewNamespace(ctx *pulumi.Context,
-	name string, args *NamespaceArgs, opts ...pulumi.ResourceOpt) (*Namespace, error) {
+	name string, args *NamespaceArgs, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["capacity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-		inputs["zoneRedundant"] = nil
-	} else {
-		inputs["capacity"] = args.Capacity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
-		inputs["zoneRedundant"] = args.ZoneRedundant
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Capacity; i != nil { inputs["capacity"] = i.ToIntOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.ZoneRedundant; i != nil { inputs["zoneRedundant"] = i.ToBoolOutput() }
 	}
-	inputs["defaultPrimaryConnectionString"] = nil
-	inputs["defaultPrimaryKey"] = nil
-	inputs["defaultSecondaryConnectionString"] = nil
-	inputs["defaultSecondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/namespace:Namespace", name, true, inputs, opts...)
+	var resource Namespace
+	err := ctx.RegisterResource("azure:eventhub/namespace:Namespace", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
+	return &resource, nil
 }
 
 // GetNamespace gets an existing Namespace resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNamespace(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NamespaceState, opts ...pulumi.ResourceOpt) (*Namespace, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["capacity"] = state.Capacity
-		inputs["defaultPrimaryConnectionString"] = state.DefaultPrimaryConnectionString
-		inputs["defaultPrimaryKey"] = state.DefaultPrimaryKey
-		inputs["defaultSecondaryConnectionString"] = state.DefaultSecondaryConnectionString
-		inputs["defaultSecondaryKey"] = state.DefaultSecondaryKey
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["zoneRedundant"] = state.ZoneRedundant
+		if i := state.Capacity; i != nil { inputs["capacity"] = i.ToIntOutput() }
+		if i := state.DefaultPrimaryConnectionString; i != nil { inputs["defaultPrimaryConnectionString"] = i.ToStringOutput() }
+		if i := state.DefaultPrimaryKey; i != nil { inputs["defaultPrimaryKey"] = i.ToStringOutput() }
+		if i := state.DefaultSecondaryConnectionString; i != nil { inputs["defaultSecondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.DefaultSecondaryKey; i != nil { inputs["defaultSecondaryKey"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ZoneRedundant; i != nil { inputs["zoneRedundant"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/namespace:Namespace", name, id, inputs, opts...)
+	var resource Namespace
+	err := ctx.ReadResource("azure:eventhub/namespace:Namespace", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-func (r *Namespace) Capacity() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["capacity"])
-}
-
-// The primary connection string for the authorization
-// rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultPrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
-}
-
-// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultPrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
-}
-
-// The secondary connection string for the
-// authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultSecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
-}
-
-// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultSecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Namespace) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-// new resource to be created.
-func (r *Namespace) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the namespace.
-func (r *Namespace) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Defines which tier to use. Options are basic, standard or premium.
-func (r *Namespace) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Namespace) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
-func (r *Namespace) ZoneRedundant() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["zoneRedundant"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Namespace resources.
 type NamespaceState struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-	Capacity interface{}
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
-	DefaultPrimaryConnectionString interface{}
+	DefaultPrimaryConnectionString pulumi.StringInput `pulumi:"defaultPrimaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultPrimaryKey interface{}
+	DefaultPrimaryKey pulumi.StringInput `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryConnectionString interface{}
+	DefaultSecondaryConnectionString pulumi.StringInput `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryKey interface{}
+	DefaultSecondaryKey pulumi.StringInput `pulumi:"defaultSecondaryKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the namespace.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Options are basic, standard or premium.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
-	ZoneRedundant interface{}
+	ZoneRedundant pulumi.BoolInput `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
 	// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-	Capacity interface{}
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the namespace.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Defines which tier to use. Options are basic, standard or premium.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
-	ZoneRedundant interface{}
+	ZoneRedundant pulumi.BoolInput `pulumi:"zoneRedundant"`
 }

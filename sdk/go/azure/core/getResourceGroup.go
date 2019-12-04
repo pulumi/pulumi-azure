@@ -10,36 +10,28 @@ import (
 // Use this data source to access information about an existing Resource Group.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
-func LookupResourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetResourceGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("azure:core/getResourceGroup:getResourceGroup", inputs)
+func LookupResourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs, opts ...pulumi.InvokeOption) (*GetResourceGroupResult, error) {
+	var rv GetResourceGroupResult
+	err := ctx.Invoke("azure:core/getResourceGroup:getResourceGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetResourceGroupResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getResourceGroup.
 type GetResourceGroupArgs struct {
 	// Specifies the name of the resource group.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getResourceGroup.
 type GetResourceGroupResult struct {
 	// The location of the resource group.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// A mapping of tags assigned to the resource group.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -4,6 +4,8 @@
 package cosmosdb
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,80 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+	Capabilities AccountCapabilitiesArrayOutput `pulumi:"capabilities"`
+
+	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
+	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
+
+	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
+
+	// Enable automatic fail over for this Cosmos DB account.
+	EnableAutomaticFailover pulumi.BoolOutput `pulumi:"enableAutomaticFailover"`
+
+	// Enable multi-master support for this Cosmos DB account.
+	EnableMultipleWriteLocations pulumi.BoolOutput `pulumi:"enableMultipleWriteLocations"`
+
+	// The endpoint used to connect to the CosmosDB account.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+
+	FailoverPolicies AccountFailoverPoliciesArrayOutput `pulumi:"failoverPolicies"`
+
+	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
+	GeoLocations AccountGeoLocationsArrayOutput `pulumi:"geoLocations"`
+
+	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	IpRangeFilter pulumi.StringOutput `pulumi:"ipRangeFilter"`
+
+	// Enables virtual network filtering for this Cosmos DB account.
+	IsVirtualNetworkFilterEnabled pulumi.BoolOutput `pulumi:"isVirtualNetworkFilterEnabled"`
+
+	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// The name of the Azure region to host replicated data.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+	OfferType pulumi.StringOutput `pulumi:"offerType"`
+
+	// The Primary master key for the CosmosDB Account.
+	PrimaryMasterKey pulumi.StringOutput `pulumi:"primaryMasterKey"`
+
+	// The Primary read-only master Key for the CosmosDB Account.
+	PrimaryReadonlyMasterKey pulumi.StringOutput `pulumi:"primaryReadonlyMasterKey"`
+
+	// A list of read endpoints available for this CosmosDB account.
+	ReadEndpoints pulumi.StringArrayOutput `pulumi:"readEndpoints"`
+
+	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Secondary master key for the CosmosDB Account.
+	SecondaryMasterKey pulumi.StringOutput `pulumi:"secondaryMasterKey"`
+
+	// The Secondary read-only master key for the CosmosDB Account.
+	SecondaryReadonlyMasterKey pulumi.StringOutput `pulumi:"secondaryReadonlyMasterKey"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	VirtualNetworkRules AccountVirtualNetworkRulesArrayOutput `pulumi:"virtualNetworkRules"`
+
+	// A list of write endpoints available for this CosmosDB account.
+	WriteEndpoints pulumi.StringArrayOutput `pulumi:"writeEndpoints"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ConsistencyPolicy == nil {
 		return nil, errors.New("missing required argument 'ConsistencyPolicy'")
 	}
@@ -27,294 +97,667 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["capabilities"] = nil
-		inputs["consistencyPolicy"] = nil
-		inputs["enableAutomaticFailover"] = nil
-		inputs["enableMultipleWriteLocations"] = nil
-		inputs["failoverPolicies"] = nil
-		inputs["geoLocations"] = nil
-		inputs["ipRangeFilter"] = nil
-		inputs["isVirtualNetworkFilterEnabled"] = nil
-		inputs["kind"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["offerType"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["virtualNetworkRules"] = nil
-	} else {
-		inputs["capabilities"] = args.Capabilities
-		inputs["consistencyPolicy"] = args.ConsistencyPolicy
-		inputs["enableAutomaticFailover"] = args.EnableAutomaticFailover
-		inputs["enableMultipleWriteLocations"] = args.EnableMultipleWriteLocations
-		inputs["failoverPolicies"] = args.FailoverPolicies
-		inputs["geoLocations"] = args.GeoLocations
-		inputs["ipRangeFilter"] = args.IpRangeFilter
-		inputs["isVirtualNetworkFilterEnabled"] = args.IsVirtualNetworkFilterEnabled
-		inputs["kind"] = args.Kind
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["offerType"] = args.OfferType
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["virtualNetworkRules"] = args.VirtualNetworkRules
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Capabilities; i != nil { inputs["capabilities"] = i.ToAccountCapabilitiesArrayOutput() }
+		if i := args.ConsistencyPolicy; i != nil { inputs["consistencyPolicy"] = i.ToAccountConsistencyPolicyOutput() }
+		if i := args.EnableAutomaticFailover; i != nil { inputs["enableAutomaticFailover"] = i.ToBoolOutput() }
+		if i := args.EnableMultipleWriteLocations; i != nil { inputs["enableMultipleWriteLocations"] = i.ToBoolOutput() }
+		if i := args.FailoverPolicies; i != nil { inputs["failoverPolicies"] = i.ToAccountFailoverPoliciesArrayOutput() }
+		if i := args.GeoLocations; i != nil { inputs["geoLocations"] = i.ToAccountGeoLocationsArrayOutput() }
+		if i := args.IpRangeFilter; i != nil { inputs["ipRangeFilter"] = i.ToStringOutput() }
+		if i := args.IsVirtualNetworkFilterEnabled; i != nil { inputs["isVirtualNetworkFilterEnabled"] = i.ToBoolOutput() }
+		if i := args.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OfferType; i != nil { inputs["offerType"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VirtualNetworkRules; i != nil { inputs["virtualNetworkRules"] = i.ToAccountVirtualNetworkRulesArrayOutput() }
 	}
-	inputs["connectionStrings"] = nil
-	inputs["endpoint"] = nil
-	inputs["primaryMasterKey"] = nil
-	inputs["primaryReadonlyMasterKey"] = nil
-	inputs["readEndpoints"] = nil
-	inputs["secondaryMasterKey"] = nil
-	inputs["secondaryReadonlyMasterKey"] = nil
-	inputs["writeEndpoints"] = nil
-	s, err := ctx.RegisterResource("azure:cosmosdb/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:cosmosdb/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["capabilities"] = state.Capabilities
-		inputs["connectionStrings"] = state.ConnectionStrings
-		inputs["consistencyPolicy"] = state.ConsistencyPolicy
-		inputs["enableAutomaticFailover"] = state.EnableAutomaticFailover
-		inputs["enableMultipleWriteLocations"] = state.EnableMultipleWriteLocations
-		inputs["endpoint"] = state.Endpoint
-		inputs["failoverPolicies"] = state.FailoverPolicies
-		inputs["geoLocations"] = state.GeoLocations
-		inputs["ipRangeFilter"] = state.IpRangeFilter
-		inputs["isVirtualNetworkFilterEnabled"] = state.IsVirtualNetworkFilterEnabled
-		inputs["kind"] = state.Kind
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["offerType"] = state.OfferType
-		inputs["primaryMasterKey"] = state.PrimaryMasterKey
-		inputs["primaryReadonlyMasterKey"] = state.PrimaryReadonlyMasterKey
-		inputs["readEndpoints"] = state.ReadEndpoints
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryMasterKey"] = state.SecondaryMasterKey
-		inputs["secondaryReadonlyMasterKey"] = state.SecondaryReadonlyMasterKey
-		inputs["tags"] = state.Tags
-		inputs["virtualNetworkRules"] = state.VirtualNetworkRules
-		inputs["writeEndpoints"] = state.WriteEndpoints
+		if i := state.Capabilities; i != nil { inputs["capabilities"] = i.ToAccountCapabilitiesArrayOutput() }
+		if i := state.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToStringArrayOutput() }
+		if i := state.ConsistencyPolicy; i != nil { inputs["consistencyPolicy"] = i.ToAccountConsistencyPolicyOutput() }
+		if i := state.EnableAutomaticFailover; i != nil { inputs["enableAutomaticFailover"] = i.ToBoolOutput() }
+		if i := state.EnableMultipleWriteLocations; i != nil { inputs["enableMultipleWriteLocations"] = i.ToBoolOutput() }
+		if i := state.Endpoint; i != nil { inputs["endpoint"] = i.ToStringOutput() }
+		if i := state.FailoverPolicies; i != nil { inputs["failoverPolicies"] = i.ToAccountFailoverPoliciesArrayOutput() }
+		if i := state.GeoLocations; i != nil { inputs["geoLocations"] = i.ToAccountGeoLocationsArrayOutput() }
+		if i := state.IpRangeFilter; i != nil { inputs["ipRangeFilter"] = i.ToStringOutput() }
+		if i := state.IsVirtualNetworkFilterEnabled; i != nil { inputs["isVirtualNetworkFilterEnabled"] = i.ToBoolOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OfferType; i != nil { inputs["offerType"] = i.ToStringOutput() }
+		if i := state.PrimaryMasterKey; i != nil { inputs["primaryMasterKey"] = i.ToStringOutput() }
+		if i := state.PrimaryReadonlyMasterKey; i != nil { inputs["primaryReadonlyMasterKey"] = i.ToStringOutput() }
+		if i := state.ReadEndpoints; i != nil { inputs["readEndpoints"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryMasterKey; i != nil { inputs["secondaryMasterKey"] = i.ToStringOutput() }
+		if i := state.SecondaryReadonlyMasterKey; i != nil { inputs["secondaryReadonlyMasterKey"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualNetworkRules; i != nil { inputs["virtualNetworkRules"] = i.ToAccountVirtualNetworkRulesArrayOutput() }
+		if i := state.WriteEndpoints; i != nil { inputs["writeEndpoints"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:cosmosdb/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:cosmosdb/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-func (r *Account) Capabilities() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["capabilities"])
-}
-
-// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
-func (r *Account) ConnectionStrings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
-}
-
-// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
-func (r *Account) ConsistencyPolicy() pulumi.Output {
-	return r.s.State["consistencyPolicy"]
-}
-
-// Enable automatic fail over for this Cosmos DB account.
-func (r *Account) EnableAutomaticFailover() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableAutomaticFailover"])
-}
-
-// Enable multi-master support for this Cosmos DB account.
-func (r *Account) EnableMultipleWriteLocations() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableMultipleWriteLocations"])
-}
-
-// The endpoint used to connect to the CosmosDB account.
-func (r *Account) Endpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endpoint"])
-}
-
-func (r *Account) FailoverPolicies() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["failoverPolicies"])
-}
-
-// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
-func (r *Account) GeoLocations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["geoLocations"])
-}
-
-// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-func (r *Account) IpRangeFilter() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipRangeFilter"])
-}
-
-// Enables virtual network filtering for this Cosmos DB account.
-func (r *Account) IsVirtualNetworkFilterEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isVirtualNetworkFilterEnabled"])
-}
-
-// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-func (r *Account) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// The name of the Azure region to host replicated data.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-func (r *Account) OfferType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["offerType"])
-}
-
-// The Primary master key for the CosmosDB Account.
-func (r *Account) PrimaryMasterKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryMasterKey"])
-}
-
-// The Primary read-only master Key for the CosmosDB Account.
-func (r *Account) PrimaryReadonlyMasterKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryReadonlyMasterKey"])
-}
-
-// A list of read endpoints available for this CosmosDB account.
-func (r *Account) ReadEndpoints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["readEndpoints"])
-}
-
-// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Secondary master key for the CosmosDB Account.
-func (r *Account) SecondaryMasterKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryMasterKey"])
-}
-
-// The Secondary read-only master key for the CosmosDB Account.
-func (r *Account) SecondaryReadonlyMasterKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryReadonlyMasterKey"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Account) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
-func (r *Account) VirtualNetworkRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["virtualNetworkRules"])
-}
-
-// A list of write endpoints available for this CosmosDB account.
-func (r *Account) WriteEndpoints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["writeEndpoints"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-	Capabilities interface{}
+	Capabilities AccountCapabilitiesArrayInput `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
-	ConnectionStrings interface{}
+	ConnectionStrings pulumi.StringArrayInput `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
-	ConsistencyPolicy interface{}
+	ConsistencyPolicy AccountConsistencyPolicyInput `pulumi:"consistencyPolicy"`
 	// Enable automatic fail over for this Cosmos DB account.
-	EnableAutomaticFailover interface{}
+	EnableAutomaticFailover pulumi.BoolInput `pulumi:"enableAutomaticFailover"`
 	// Enable multi-master support for this Cosmos DB account.
-	EnableMultipleWriteLocations interface{}
+	EnableMultipleWriteLocations pulumi.BoolInput `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
-	Endpoint interface{}
-	FailoverPolicies interface{}
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	FailoverPolicies AccountFailoverPoliciesArrayInput `pulumi:"failoverPolicies"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
-	GeoLocations interface{}
+	GeoLocations AccountGeoLocationsArrayInput `pulumi:"geoLocations"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-	IpRangeFilter interface{}
+	IpRangeFilter pulumi.StringInput `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
-	IsVirtualNetworkFilterEnabled interface{}
+	IsVirtualNetworkFilterEnabled pulumi.BoolInput `pulumi:"isVirtualNetworkFilterEnabled"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The name of the Azure region to host replicated data.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-	OfferType interface{}
+	OfferType pulumi.StringInput `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
-	PrimaryMasterKey interface{}
+	PrimaryMasterKey pulumi.StringInput `pulumi:"primaryMasterKey"`
 	// The Primary read-only master Key for the CosmosDB Account.
-	PrimaryReadonlyMasterKey interface{}
+	PrimaryReadonlyMasterKey pulumi.StringInput `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
-	ReadEndpoints interface{}
+	ReadEndpoints pulumi.StringArrayInput `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Secondary master key for the CosmosDB Account.
-	SecondaryMasterKey interface{}
+	SecondaryMasterKey pulumi.StringInput `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only master key for the CosmosDB Account.
-	SecondaryReadonlyMasterKey interface{}
+	SecondaryReadonlyMasterKey pulumi.StringInput `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
-	VirtualNetworkRules interface{}
+	VirtualNetworkRules AccountVirtualNetworkRulesArrayInput `pulumi:"virtualNetworkRules"`
 	// A list of write endpoints available for this CosmosDB account.
-	WriteEndpoints interface{}
+	WriteEndpoints pulumi.StringArrayInput `pulumi:"writeEndpoints"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-	Capabilities interface{}
+	Capabilities AccountCapabilitiesArrayInput `pulumi:"capabilities"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
-	ConsistencyPolicy interface{}
+	ConsistencyPolicy AccountConsistencyPolicyInput `pulumi:"consistencyPolicy"`
 	// Enable automatic fail over for this Cosmos DB account.
-	EnableAutomaticFailover interface{}
+	EnableAutomaticFailover pulumi.BoolInput `pulumi:"enableAutomaticFailover"`
 	// Enable multi-master support for this Cosmos DB account.
-	EnableMultipleWriteLocations interface{}
-	FailoverPolicies interface{}
+	EnableMultipleWriteLocations pulumi.BoolInput `pulumi:"enableMultipleWriteLocations"`
+	FailoverPolicies AccountFailoverPoliciesArrayInput `pulumi:"failoverPolicies"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
-	GeoLocations interface{}
+	GeoLocations AccountGeoLocationsArrayInput `pulumi:"geoLocations"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
-	IpRangeFilter interface{}
+	IpRangeFilter pulumi.StringInput `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
-	IsVirtualNetworkFilterEnabled interface{}
+	IsVirtualNetworkFilterEnabled pulumi.BoolInput `pulumi:"isVirtualNetworkFilterEnabled"`
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// The name of the Azure region to host replicated data.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-	OfferType interface{}
+	OfferType pulumi.StringInput `pulumi:"offerType"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
-	VirtualNetworkRules interface{}
+	VirtualNetworkRules AccountVirtualNetworkRulesArrayInput `pulumi:"virtualNetworkRules"`
 }
+type AccountCapabilities struct {
+	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+	Name string `pulumi:"name"`
+}
+var accountCapabilitiesType = reflect.TypeOf((*AccountCapabilities)(nil)).Elem()
+
+type AccountCapabilitiesInput interface {
+	pulumi.Input
+
+	ToAccountCapabilitiesOutput() AccountCapabilitiesOutput
+	ToAccountCapabilitiesOutputWithContext(ctx context.Context) AccountCapabilitiesOutput
+}
+
+type AccountCapabilitiesArgs struct {
+	// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AccountCapabilitiesArgs) ElementType() reflect.Type {
+	return accountCapabilitiesType
+}
+
+func (a AccountCapabilitiesArgs) ToAccountCapabilitiesOutput() AccountCapabilitiesOutput {
+	return pulumi.ToOutput(a).(AccountCapabilitiesOutput)
+}
+
+func (a AccountCapabilitiesArgs) ToAccountCapabilitiesOutputWithContext(ctx context.Context) AccountCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountCapabilitiesOutput)
+}
+
+type AccountCapabilitiesOutput struct { *pulumi.OutputState }
+
+// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+func (o AccountCapabilitiesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AccountCapabilities) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (AccountCapabilitiesOutput) ElementType() reflect.Type {
+	return accountCapabilitiesType
+}
+
+func (o AccountCapabilitiesOutput) ToAccountCapabilitiesOutput() AccountCapabilitiesOutput {
+	return o
+}
+
+func (o AccountCapabilitiesOutput) ToAccountCapabilitiesOutputWithContext(ctx context.Context) AccountCapabilitiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountCapabilitiesOutput{}) }
+
+var accountCapabilitiesArrayType = reflect.TypeOf((*[]AccountCapabilities)(nil)).Elem()
+
+type AccountCapabilitiesArrayInput interface {
+	pulumi.Input
+
+	ToAccountCapabilitiesArrayOutput() AccountCapabilitiesArrayOutput
+	ToAccountCapabilitiesArrayOutputWithContext(ctx context.Context) AccountCapabilitiesArrayOutput
+}
+
+type AccountCapabilitiesArrayArgs []AccountCapabilitiesInput
+
+func (AccountCapabilitiesArrayArgs) ElementType() reflect.Type {
+	return accountCapabilitiesArrayType
+}
+
+func (a AccountCapabilitiesArrayArgs) ToAccountCapabilitiesArrayOutput() AccountCapabilitiesArrayOutput {
+	return pulumi.ToOutput(a).(AccountCapabilitiesArrayOutput)
+}
+
+func (a AccountCapabilitiesArrayArgs) ToAccountCapabilitiesArrayOutputWithContext(ctx context.Context) AccountCapabilitiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountCapabilitiesArrayOutput)
+}
+
+type AccountCapabilitiesArrayOutput struct { *pulumi.OutputState }
+
+func (o AccountCapabilitiesArrayOutput) Index(i pulumi.IntInput) AccountCapabilitiesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AccountCapabilities {
+		return vs[0].([]AccountCapabilities)[vs[1].(int)]
+	}).(AccountCapabilitiesOutput)
+}
+
+func (AccountCapabilitiesArrayOutput) ElementType() reflect.Type {
+	return accountCapabilitiesArrayType
+}
+
+func (o AccountCapabilitiesArrayOutput) ToAccountCapabilitiesArrayOutput() AccountCapabilitiesArrayOutput {
+	return o
+}
+
+func (o AccountCapabilitiesArrayOutput) ToAccountCapabilitiesArrayOutputWithContext(ctx context.Context) AccountCapabilitiesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountCapabilitiesArrayOutput{}) }
+
+type AccountConsistencyPolicy struct {
+	// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
+	ConsistencyLevel string `pulumi:"consistencyLevel"`
+	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
+	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
+}
+var accountConsistencyPolicyType = reflect.TypeOf((*AccountConsistencyPolicy)(nil)).Elem()
+
+type AccountConsistencyPolicyInput interface {
+	pulumi.Input
+
+	ToAccountConsistencyPolicyOutput() AccountConsistencyPolicyOutput
+	ToAccountConsistencyPolicyOutputWithContext(ctx context.Context) AccountConsistencyPolicyOutput
+}
+
+type AccountConsistencyPolicyArgs struct {
+	// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
+	ConsistencyLevel pulumi.StringInput `pulumi:"consistencyLevel"`
+	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+	MaxIntervalInSeconds pulumi.IntInput `pulumi:"maxIntervalInSeconds"`
+	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+	MaxStalenessPrefix pulumi.IntInput `pulumi:"maxStalenessPrefix"`
+}
+
+func (AccountConsistencyPolicyArgs) ElementType() reflect.Type {
+	return accountConsistencyPolicyType
+}
+
+func (a AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyOutput() AccountConsistencyPolicyOutput {
+	return pulumi.ToOutput(a).(AccountConsistencyPolicyOutput)
+}
+
+func (a AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyOutputWithContext(ctx context.Context) AccountConsistencyPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountConsistencyPolicyOutput)
+}
+
+type AccountConsistencyPolicyOutput struct { *pulumi.OutputState }
+
+// The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
+func (o AccountConsistencyPolicyOutput) ConsistencyLevel() pulumi.StringOutput {
+	return o.Apply(func(v AccountConsistencyPolicy) string {
+		return v.ConsistencyLevel
+	}).(pulumi.StringOutput)
+}
+
+// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+func (o AccountConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v AccountConsistencyPolicy) int {
+		if v.MaxIntervalInSeconds == nil { return *new(int) } else { return *v.MaxIntervalInSeconds }
+	}).(pulumi.IntOutput)
+}
+
+// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+func (o AccountConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntOutput {
+	return o.Apply(func(v AccountConsistencyPolicy) int {
+		if v.MaxStalenessPrefix == nil { return *new(int) } else { return *v.MaxStalenessPrefix }
+	}).(pulumi.IntOutput)
+}
+
+func (AccountConsistencyPolicyOutput) ElementType() reflect.Type {
+	return accountConsistencyPolicyType
+}
+
+func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyOutput() AccountConsistencyPolicyOutput {
+	return o
+}
+
+func (o AccountConsistencyPolicyOutput) ToAccountConsistencyPolicyOutputWithContext(ctx context.Context) AccountConsistencyPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountConsistencyPolicyOutput{}) }
+
+type AccountFailoverPolicies struct {
+	// The ID of the virtual network subnet.
+	Id *string `pulumi:"id"`
+	// The name of the Azure region to host replicated data.
+	Location string `pulumi:"location"`
+	Priority int `pulumi:"priority"`
+}
+var accountFailoverPoliciesType = reflect.TypeOf((*AccountFailoverPolicies)(nil)).Elem()
+
+type AccountFailoverPoliciesInput interface {
+	pulumi.Input
+
+	ToAccountFailoverPoliciesOutput() AccountFailoverPoliciesOutput
+	ToAccountFailoverPoliciesOutputWithContext(ctx context.Context) AccountFailoverPoliciesOutput
+}
+
+type AccountFailoverPoliciesArgs struct {
+	// The ID of the virtual network subnet.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Azure region to host replicated data.
+	Location pulumi.StringInput `pulumi:"location"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (AccountFailoverPoliciesArgs) ElementType() reflect.Type {
+	return accountFailoverPoliciesType
+}
+
+func (a AccountFailoverPoliciesArgs) ToAccountFailoverPoliciesOutput() AccountFailoverPoliciesOutput {
+	return pulumi.ToOutput(a).(AccountFailoverPoliciesOutput)
+}
+
+func (a AccountFailoverPoliciesArgs) ToAccountFailoverPoliciesOutputWithContext(ctx context.Context) AccountFailoverPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountFailoverPoliciesOutput)
+}
+
+type AccountFailoverPoliciesOutput struct { *pulumi.OutputState }
+
+// The ID of the virtual network subnet.
+func (o AccountFailoverPoliciesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AccountFailoverPolicies) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Azure region to host replicated data.
+func (o AccountFailoverPoliciesOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v AccountFailoverPolicies) string {
+		return v.Location
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountFailoverPoliciesOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v AccountFailoverPolicies) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+func (AccountFailoverPoliciesOutput) ElementType() reflect.Type {
+	return accountFailoverPoliciesType
+}
+
+func (o AccountFailoverPoliciesOutput) ToAccountFailoverPoliciesOutput() AccountFailoverPoliciesOutput {
+	return o
+}
+
+func (o AccountFailoverPoliciesOutput) ToAccountFailoverPoliciesOutputWithContext(ctx context.Context) AccountFailoverPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountFailoverPoliciesOutput{}) }
+
+var accountFailoverPoliciesArrayType = reflect.TypeOf((*[]AccountFailoverPolicies)(nil)).Elem()
+
+type AccountFailoverPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToAccountFailoverPoliciesArrayOutput() AccountFailoverPoliciesArrayOutput
+	ToAccountFailoverPoliciesArrayOutputWithContext(ctx context.Context) AccountFailoverPoliciesArrayOutput
+}
+
+type AccountFailoverPoliciesArrayArgs []AccountFailoverPoliciesInput
+
+func (AccountFailoverPoliciesArrayArgs) ElementType() reflect.Type {
+	return accountFailoverPoliciesArrayType
+}
+
+func (a AccountFailoverPoliciesArrayArgs) ToAccountFailoverPoliciesArrayOutput() AccountFailoverPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(AccountFailoverPoliciesArrayOutput)
+}
+
+func (a AccountFailoverPoliciesArrayArgs) ToAccountFailoverPoliciesArrayOutputWithContext(ctx context.Context) AccountFailoverPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountFailoverPoliciesArrayOutput)
+}
+
+type AccountFailoverPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o AccountFailoverPoliciesArrayOutput) Index(i pulumi.IntInput) AccountFailoverPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AccountFailoverPolicies {
+		return vs[0].([]AccountFailoverPolicies)[vs[1].(int)]
+	}).(AccountFailoverPoliciesOutput)
+}
+
+func (AccountFailoverPoliciesArrayOutput) ElementType() reflect.Type {
+	return accountFailoverPoliciesArrayType
+}
+
+func (o AccountFailoverPoliciesArrayOutput) ToAccountFailoverPoliciesArrayOutput() AccountFailoverPoliciesArrayOutput {
+	return o
+}
+
+func (o AccountFailoverPoliciesArrayOutput) ToAccountFailoverPoliciesArrayOutputWithContext(ctx context.Context) AccountFailoverPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountFailoverPoliciesArrayOutput{}) }
+
+type AccountGeoLocations struct {
+	// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
+	FailoverPriority int `pulumi:"failoverPriority"`
+	// The ID of the virtual network subnet.
+	Id *string `pulumi:"id"`
+	// The name of the Azure region to host replicated data.
+	Location string `pulumi:"location"`
+	// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+	Prefix *string `pulumi:"prefix"`
+}
+var accountGeoLocationsType = reflect.TypeOf((*AccountGeoLocations)(nil)).Elem()
+
+type AccountGeoLocationsInput interface {
+	pulumi.Input
+
+	ToAccountGeoLocationsOutput() AccountGeoLocationsOutput
+	ToAccountGeoLocationsOutputWithContext(ctx context.Context) AccountGeoLocationsOutput
+}
+
+type AccountGeoLocationsArgs struct {
+	// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
+	FailoverPriority pulumi.IntInput `pulumi:"failoverPriority"`
+	// The ID of the virtual network subnet.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Azure region to host replicated data.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (AccountGeoLocationsArgs) ElementType() reflect.Type {
+	return accountGeoLocationsType
+}
+
+func (a AccountGeoLocationsArgs) ToAccountGeoLocationsOutput() AccountGeoLocationsOutput {
+	return pulumi.ToOutput(a).(AccountGeoLocationsOutput)
+}
+
+func (a AccountGeoLocationsArgs) ToAccountGeoLocationsOutputWithContext(ctx context.Context) AccountGeoLocationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountGeoLocationsOutput)
+}
+
+type AccountGeoLocationsOutput struct { *pulumi.OutputState }
+
+// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
+func (o AccountGeoLocationsOutput) FailoverPriority() pulumi.IntOutput {
+	return o.Apply(func(v AccountGeoLocations) int {
+		return v.FailoverPriority
+	}).(pulumi.IntOutput)
+}
+
+// The ID of the virtual network subnet.
+func (o AccountGeoLocationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AccountGeoLocations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+// The name of the Azure region to host replicated data.
+func (o AccountGeoLocationsOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v AccountGeoLocations) string {
+		return v.Location
+	}).(pulumi.StringOutput)
+}
+
+// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+func (o AccountGeoLocationsOutput) Prefix() pulumi.StringOutput {
+	return o.Apply(func(v AccountGeoLocations) string {
+		if v.Prefix == nil { return *new(string) } else { return *v.Prefix }
+	}).(pulumi.StringOutput)
+}
+
+func (AccountGeoLocationsOutput) ElementType() reflect.Type {
+	return accountGeoLocationsType
+}
+
+func (o AccountGeoLocationsOutput) ToAccountGeoLocationsOutput() AccountGeoLocationsOutput {
+	return o
+}
+
+func (o AccountGeoLocationsOutput) ToAccountGeoLocationsOutputWithContext(ctx context.Context) AccountGeoLocationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountGeoLocationsOutput{}) }
+
+var accountGeoLocationsArrayType = reflect.TypeOf((*[]AccountGeoLocations)(nil)).Elem()
+
+type AccountGeoLocationsArrayInput interface {
+	pulumi.Input
+
+	ToAccountGeoLocationsArrayOutput() AccountGeoLocationsArrayOutput
+	ToAccountGeoLocationsArrayOutputWithContext(ctx context.Context) AccountGeoLocationsArrayOutput
+}
+
+type AccountGeoLocationsArrayArgs []AccountGeoLocationsInput
+
+func (AccountGeoLocationsArrayArgs) ElementType() reflect.Type {
+	return accountGeoLocationsArrayType
+}
+
+func (a AccountGeoLocationsArrayArgs) ToAccountGeoLocationsArrayOutput() AccountGeoLocationsArrayOutput {
+	return pulumi.ToOutput(a).(AccountGeoLocationsArrayOutput)
+}
+
+func (a AccountGeoLocationsArrayArgs) ToAccountGeoLocationsArrayOutputWithContext(ctx context.Context) AccountGeoLocationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountGeoLocationsArrayOutput)
+}
+
+type AccountGeoLocationsArrayOutput struct { *pulumi.OutputState }
+
+func (o AccountGeoLocationsArrayOutput) Index(i pulumi.IntInput) AccountGeoLocationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AccountGeoLocations {
+		return vs[0].([]AccountGeoLocations)[vs[1].(int)]
+	}).(AccountGeoLocationsOutput)
+}
+
+func (AccountGeoLocationsArrayOutput) ElementType() reflect.Type {
+	return accountGeoLocationsArrayType
+}
+
+func (o AccountGeoLocationsArrayOutput) ToAccountGeoLocationsArrayOutput() AccountGeoLocationsArrayOutput {
+	return o
+}
+
+func (o AccountGeoLocationsArrayOutput) ToAccountGeoLocationsArrayOutputWithContext(ctx context.Context) AccountGeoLocationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountGeoLocationsArrayOutput{}) }
+
+type AccountVirtualNetworkRules struct {
+	// The ID of the virtual network subnet.
+	Id string `pulumi:"id"`
+}
+var accountVirtualNetworkRulesType = reflect.TypeOf((*AccountVirtualNetworkRules)(nil)).Elem()
+
+type AccountVirtualNetworkRulesInput interface {
+	pulumi.Input
+
+	ToAccountVirtualNetworkRulesOutput() AccountVirtualNetworkRulesOutput
+	ToAccountVirtualNetworkRulesOutputWithContext(ctx context.Context) AccountVirtualNetworkRulesOutput
+}
+
+type AccountVirtualNetworkRulesArgs struct {
+	// The ID of the virtual network subnet.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (AccountVirtualNetworkRulesArgs) ElementType() reflect.Type {
+	return accountVirtualNetworkRulesType
+}
+
+func (a AccountVirtualNetworkRulesArgs) ToAccountVirtualNetworkRulesOutput() AccountVirtualNetworkRulesOutput {
+	return pulumi.ToOutput(a).(AccountVirtualNetworkRulesOutput)
+}
+
+func (a AccountVirtualNetworkRulesArgs) ToAccountVirtualNetworkRulesOutputWithContext(ctx context.Context) AccountVirtualNetworkRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountVirtualNetworkRulesOutput)
+}
+
+type AccountVirtualNetworkRulesOutput struct { *pulumi.OutputState }
+
+// The ID of the virtual network subnet.
+func (o AccountVirtualNetworkRulesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AccountVirtualNetworkRules) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (AccountVirtualNetworkRulesOutput) ElementType() reflect.Type {
+	return accountVirtualNetworkRulesType
+}
+
+func (o AccountVirtualNetworkRulesOutput) ToAccountVirtualNetworkRulesOutput() AccountVirtualNetworkRulesOutput {
+	return o
+}
+
+func (o AccountVirtualNetworkRulesOutput) ToAccountVirtualNetworkRulesOutputWithContext(ctx context.Context) AccountVirtualNetworkRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountVirtualNetworkRulesOutput{}) }
+
+var accountVirtualNetworkRulesArrayType = reflect.TypeOf((*[]AccountVirtualNetworkRules)(nil)).Elem()
+
+type AccountVirtualNetworkRulesArrayInput interface {
+	pulumi.Input
+
+	ToAccountVirtualNetworkRulesArrayOutput() AccountVirtualNetworkRulesArrayOutput
+	ToAccountVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) AccountVirtualNetworkRulesArrayOutput
+}
+
+type AccountVirtualNetworkRulesArrayArgs []AccountVirtualNetworkRulesInput
+
+func (AccountVirtualNetworkRulesArrayArgs) ElementType() reflect.Type {
+	return accountVirtualNetworkRulesArrayType
+}
+
+func (a AccountVirtualNetworkRulesArrayArgs) ToAccountVirtualNetworkRulesArrayOutput() AccountVirtualNetworkRulesArrayOutput {
+	return pulumi.ToOutput(a).(AccountVirtualNetworkRulesArrayOutput)
+}
+
+func (a AccountVirtualNetworkRulesArrayArgs) ToAccountVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) AccountVirtualNetworkRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountVirtualNetworkRulesArrayOutput)
+}
+
+type AccountVirtualNetworkRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o AccountVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) AccountVirtualNetworkRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AccountVirtualNetworkRules {
+		return vs[0].([]AccountVirtualNetworkRules)[vs[1].(int)]
+	}).(AccountVirtualNetworkRulesOutput)
+}
+
+func (AccountVirtualNetworkRulesArrayOutput) ElementType() reflect.Type {
+	return accountVirtualNetworkRulesArrayType
+}
+
+func (o AccountVirtualNetworkRulesArrayOutput) ToAccountVirtualNetworkRulesArrayOutput() AccountVirtualNetworkRulesArrayOutput {
+	return o
+}
+
+func (o AccountVirtualNetworkRulesArrayOutput) ToAccountVirtualNetworkRulesArrayOutputWithContext(ctx context.Context) AccountVirtualNetworkRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountVirtualNetworkRulesArrayOutput{}) }
+

@@ -4,6 +4,8 @@
 package devspace
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
 type Controller struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// DNS name for accessing DataPlane services.
+	DataPlaneFqdn pulumi.StringOutput `pulumi:"dataPlaneFqdn"`
+
+	// The host suffix for the DevSpace Controller.
+	HostSuffix pulumi.StringOutput `pulumi:"hostSuffix"`
+
+	// Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `sku` block as documented below. Changing this forces a new resource to be created.
+	Sku ControllerSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+	TargetContainerHostCredentialsBase64 pulumi.StringOutput `pulumi:"targetContainerHostCredentialsBase64"`
+
+	// The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+	TargetContainerHostResourceId pulumi.StringOutput `pulumi:"targetContainerHostResourceId"`
 }
 
 // NewController registers a new resource with the given unique name, arguments, and options.
 func NewController(ctx *pulumi.Context,
-	name string, args *ControllerArgs, opts ...pulumi.ResourceOpt) (*Controller, error) {
+	name string, args *ControllerArgs, opts ...pulumi.ResourceOption) (*Controller, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -30,147 +59,145 @@ func NewController(ctx *pulumi.Context,
 	if args == nil || args.TargetContainerHostResourceId == nil {
 		return nil, errors.New("missing required argument 'TargetContainerHostResourceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-		inputs["targetContainerHostCredentialsBase64"] = nil
-		inputs["targetContainerHostResourceId"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
-		inputs["targetContainerHostCredentialsBase64"] = args.TargetContainerHostCredentialsBase64
-		inputs["targetContainerHostResourceId"] = args.TargetContainerHostResourceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToControllerSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TargetContainerHostCredentialsBase64; i != nil { inputs["targetContainerHostCredentialsBase64"] = i.ToStringOutput() }
+		if i := args.TargetContainerHostResourceId; i != nil { inputs["targetContainerHostResourceId"] = i.ToStringOutput() }
 	}
-	inputs["dataPlaneFqdn"] = nil
-	inputs["hostSuffix"] = nil
-	s, err := ctx.RegisterResource("azure:devspace/controller:Controller", name, true, inputs, opts...)
+	var resource Controller
+	err := ctx.RegisterResource("azure:devspace/controller:Controller", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Controller{s: s}, nil
+	return &resource, nil
 }
 
 // GetController gets an existing Controller resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetController(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ControllerState, opts ...pulumi.ResourceOpt) (*Controller, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ControllerState, opts ...pulumi.ResourceOption) (*Controller, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dataPlaneFqdn"] = state.DataPlaneFqdn
-		inputs["hostSuffix"] = state.HostSuffix
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["targetContainerHostCredentialsBase64"] = state.TargetContainerHostCredentialsBase64
-		inputs["targetContainerHostResourceId"] = state.TargetContainerHostResourceId
+		if i := state.DataPlaneFqdn; i != nil { inputs["dataPlaneFqdn"] = i.ToStringOutput() }
+		if i := state.HostSuffix; i != nil { inputs["hostSuffix"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToControllerSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TargetContainerHostCredentialsBase64; i != nil { inputs["targetContainerHostCredentialsBase64"] = i.ToStringOutput() }
+		if i := state.TargetContainerHostResourceId; i != nil { inputs["targetContainerHostResourceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:devspace/controller:Controller", name, id, inputs, opts...)
+	var resource Controller
+	err := ctx.ReadResource("azure:devspace/controller:Controller", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Controller{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Controller) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Controller) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// DNS name for accessing DataPlane services.
-func (r *Controller) DataPlaneFqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataPlaneFqdn"])
-}
-
-// The host suffix for the DevSpace Controller.
-func (r *Controller) HostSuffix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostSuffix"])
-}
-
-// Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
-func (r *Controller) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-func (r *Controller) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
-func (r *Controller) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `sku` block as documented below. Changing this forces a new resource to be created.
-func (r *Controller) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Controller) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-func (r *Controller) TargetContainerHostCredentialsBase64() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetContainerHostCredentialsBase64"])
-}
-
-// The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-func (r *Controller) TargetContainerHostResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetContainerHostResourceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Controller resources.
 type ControllerState struct {
 	// DNS name for accessing DataPlane services.
-	DataPlaneFqdn interface{}
+	DataPlaneFqdn pulumi.StringInput `pulumi:"dataPlaneFqdn"`
 	// The host suffix for the DevSpace Controller.
-	HostSuffix interface{}
+	HostSuffix pulumi.StringInput `pulumi:"hostSuffix"`
 	// Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku ControllerSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-	TargetContainerHostCredentialsBase64 interface{}
+	TargetContainerHostCredentialsBase64 pulumi.StringInput `pulumi:"targetContainerHostCredentialsBase64"`
 	// The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-	TargetContainerHostResourceId interface{}
+	TargetContainerHostResourceId pulumi.StringInput `pulumi:"targetContainerHostResourceId"`
 }
 
 // The set of arguments for constructing a Controller resource.
 type ControllerArgs struct {
 	// Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku ControllerSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-	TargetContainerHostCredentialsBase64 interface{}
+	TargetContainerHostCredentialsBase64 pulumi.StringInput `pulumi:"targetContainerHostCredentialsBase64"`
 	// The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-	TargetContainerHostResourceId interface{}
+	TargetContainerHostResourceId pulumi.StringInput `pulumi:"targetContainerHostResourceId"`
 }
+type ControllerSku struct {
+	// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Tier string `pulumi:"tier"`
+}
+var controllerSkuType = reflect.TypeOf((*ControllerSku)(nil)).Elem()
+
+type ControllerSkuInput interface {
+	pulumi.Input
+
+	ToControllerSkuOutput() ControllerSkuOutput
+	ToControllerSkuOutputWithContext(ctx context.Context) ControllerSkuOutput
+}
+
+type ControllerSkuArgs struct {
+	// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (ControllerSkuArgs) ElementType() reflect.Type {
+	return controllerSkuType
+}
+
+func (a ControllerSkuArgs) ToControllerSkuOutput() ControllerSkuOutput {
+	return pulumi.ToOutput(a).(ControllerSkuOutput)
+}
+
+func (a ControllerSkuArgs) ToControllerSkuOutputWithContext(ctx context.Context) ControllerSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ControllerSkuOutput)
+}
+
+type ControllerSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+func (o ControllerSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ControllerSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ControllerSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v ControllerSku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (ControllerSkuOutput) ElementType() reflect.Type {
+	return controllerSkuType
+}
+
+func (o ControllerSkuOutput) ToControllerSkuOutput() ControllerSkuOutput {
+	return o
+}
+
+func (o ControllerSkuOutput) ToControllerSkuOutputWithContext(ctx context.Context) ControllerSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ControllerSkuOutput{}) }
+

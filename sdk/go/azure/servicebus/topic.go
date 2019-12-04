@@ -14,285 +14,231 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
 type Topic struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ISO 8601 timespan duration of the idle interval after which the
+	// Topic is automatically deleted, minimum of 5 minutes.
+	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+	// TTL value is set on the message itself.
+	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
+
+	// The ISO 8601 timespan duration during which
+	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
+	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
+
+	// Boolean flag which controls if server-side
+	// batched operations are enabled. Defaults to false.
+	EnableBatchedOperations pulumi.BoolOutput `pulumi:"enableBatchedOperations"`
+
+	// Boolean flag which controls whether Express Entities
+	// are enabled. An express topic holds a message in memory temporarily before writing
+	// it to persistent storage. Defaults to false.
+	EnableExpress pulumi.BoolOutput `pulumi:"enableExpress"`
+
+	EnableFilteringMessagesBeforePublishing pulumi.BoolOutput `pulumi:"enableFilteringMessagesBeforePublishing"`
+
+	// Boolean flag which controls whether to enable
+	// the topic to be partitioned across multiple message brokers. Defaults to false.
+	// Changing this forces a new resource to be created.
+	EnablePartitioning pulumi.BoolOutput `pulumi:"enablePartitioning"`
+
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Integer value which controls the size of
+	// memory allocated for the topic. For supported values see the "Queue/topic size"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
+
+	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the ServiceBus Namespace to create
+	// this topic in. Changing this forces a new resource to be created.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+
+	// Boolean flag which controls whether
+	// the Topic requires duplicate detection. Defaults to false. Changing this forces
+	// a new resource to be created.
+	RequiresDuplicateDetection pulumi.BoolOutput `pulumi:"requiresDuplicateDetection"`
+
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// Boolean flag which controls whether the Topic
+	// supports ordering. Defaults to false.
+	SupportOrdering pulumi.BoolOutput `pulumi:"supportOrdering"`
 }
 
 // NewTopic registers a new resource with the given unique name, arguments, and options.
 func NewTopic(ctx *pulumi.Context,
-	name string, args *TopicArgs, opts ...pulumi.ResourceOpt) (*Topic, error) {
+	name string, args *TopicArgs, opts ...pulumi.ResourceOption) (*Topic, error) {
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoDeleteOnIdle"] = nil
-		inputs["defaultMessageTtl"] = nil
-		inputs["duplicateDetectionHistoryTimeWindow"] = nil
-		inputs["enableBatchedOperations"] = nil
-		inputs["enableExpress"] = nil
-		inputs["enableFilteringMessagesBeforePublishing"] = nil
-		inputs["enablePartitioning"] = nil
-		inputs["location"] = nil
-		inputs["maxSizeInMegabytes"] = nil
-		inputs["name"] = nil
-		inputs["namespaceName"] = nil
-		inputs["requiresDuplicateDetection"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["status"] = nil
-		inputs["supportOrdering"] = nil
-	} else {
-		inputs["autoDeleteOnIdle"] = args.AutoDeleteOnIdle
-		inputs["defaultMessageTtl"] = args.DefaultMessageTtl
-		inputs["duplicateDetectionHistoryTimeWindow"] = args.DuplicateDetectionHistoryTimeWindow
-		inputs["enableBatchedOperations"] = args.EnableBatchedOperations
-		inputs["enableExpress"] = args.EnableExpress
-		inputs["enableFilteringMessagesBeforePublishing"] = args.EnableFilteringMessagesBeforePublishing
-		inputs["enablePartitioning"] = args.EnablePartitioning
-		inputs["location"] = args.Location
-		inputs["maxSizeInMegabytes"] = args.MaxSizeInMegabytes
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["requiresDuplicateDetection"] = args.RequiresDuplicateDetection
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["status"] = args.Status
-		inputs["supportOrdering"] = args.SupportOrdering
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoDeleteOnIdle; i != nil { inputs["autoDeleteOnIdle"] = i.ToStringOutput() }
+		if i := args.DefaultMessageTtl; i != nil { inputs["defaultMessageTtl"] = i.ToStringOutput() }
+		if i := args.DuplicateDetectionHistoryTimeWindow; i != nil { inputs["duplicateDetectionHistoryTimeWindow"] = i.ToStringOutput() }
+		if i := args.EnableBatchedOperations; i != nil { inputs["enableBatchedOperations"] = i.ToBoolOutput() }
+		if i := args.EnableExpress; i != nil { inputs["enableExpress"] = i.ToBoolOutput() }
+		if i := args.EnableFilteringMessagesBeforePublishing; i != nil { inputs["enableFilteringMessagesBeforePublishing"] = i.ToBoolOutput() }
+		if i := args.EnablePartitioning; i != nil { inputs["enablePartitioning"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MaxSizeInMegabytes; i != nil { inputs["maxSizeInMegabytes"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := args.RequiresDuplicateDetection; i != nil { inputs["requiresDuplicateDetection"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := args.SupportOrdering; i != nil { inputs["supportOrdering"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:servicebus/topic:Topic", name, true, inputs, opts...)
+	var resource Topic
+	err := ctx.RegisterResource("azure:servicebus/topic:Topic", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Topic{s: s}, nil
+	return &resource, nil
 }
 
 // GetTopic gets an existing Topic resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTopic(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TopicState, opts ...pulumi.ResourceOpt) (*Topic, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TopicState, opts ...pulumi.ResourceOption) (*Topic, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoDeleteOnIdle"] = state.AutoDeleteOnIdle
-		inputs["defaultMessageTtl"] = state.DefaultMessageTtl
-		inputs["duplicateDetectionHistoryTimeWindow"] = state.DuplicateDetectionHistoryTimeWindow
-		inputs["enableBatchedOperations"] = state.EnableBatchedOperations
-		inputs["enableExpress"] = state.EnableExpress
-		inputs["enableFilteringMessagesBeforePublishing"] = state.EnableFilteringMessagesBeforePublishing
-		inputs["enablePartitioning"] = state.EnablePartitioning
-		inputs["location"] = state.Location
-		inputs["maxSizeInMegabytes"] = state.MaxSizeInMegabytes
-		inputs["name"] = state.Name
-		inputs["namespaceName"] = state.NamespaceName
-		inputs["requiresDuplicateDetection"] = state.RequiresDuplicateDetection
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["status"] = state.Status
-		inputs["supportOrdering"] = state.SupportOrdering
+		if i := state.AutoDeleteOnIdle; i != nil { inputs["autoDeleteOnIdle"] = i.ToStringOutput() }
+		if i := state.DefaultMessageTtl; i != nil { inputs["defaultMessageTtl"] = i.ToStringOutput() }
+		if i := state.DuplicateDetectionHistoryTimeWindow; i != nil { inputs["duplicateDetectionHistoryTimeWindow"] = i.ToStringOutput() }
+		if i := state.EnableBatchedOperations; i != nil { inputs["enableBatchedOperations"] = i.ToBoolOutput() }
+		if i := state.EnableExpress; i != nil { inputs["enableExpress"] = i.ToBoolOutput() }
+		if i := state.EnableFilteringMessagesBeforePublishing; i != nil { inputs["enableFilteringMessagesBeforePublishing"] = i.ToBoolOutput() }
+		if i := state.EnablePartitioning; i != nil { inputs["enablePartitioning"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MaxSizeInMegabytes; i != nil { inputs["maxSizeInMegabytes"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := state.RequiresDuplicateDetection; i != nil { inputs["requiresDuplicateDetection"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.SupportOrdering; i != nil { inputs["supportOrdering"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:servicebus/topic:Topic", name, id, inputs, opts...)
+	var resource Topic
+	err := ctx.ReadResource("azure:servicebus/topic:Topic", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Topic{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Topic) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Topic) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ISO 8601 timespan duration of the idle interval after which the
-// Topic is automatically deleted, minimum of 5 minutes.
-func (r *Topic) AutoDeleteOnIdle() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
-}
-
-// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
-// TTL value is set on the message itself.
-func (r *Topic) DefaultMessageTtl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
-}
-
-// The ISO 8601 timespan duration during which
-// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-func (r *Topic) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
-}
-
-// Boolean flag which controls if server-side
-// batched operations are enabled. Defaults to false.
-func (r *Topic) EnableBatchedOperations() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
-}
-
-// Boolean flag which controls whether Express Entities
-// are enabled. An express topic holds a message in memory temporarily before writing
-// it to persistent storage. Defaults to false.
-func (r *Topic) EnableExpress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableExpress"])
-}
-
-func (r *Topic) EnableFilteringMessagesBeforePublishing() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableFilteringMessagesBeforePublishing"])
-}
-
-// Boolean flag which controls whether to enable
-// the topic to be partitioned across multiple message brokers. Defaults to false.
-// Changing this forces a new resource to be created.
-func (r *Topic) EnablePartitioning() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enablePartitioning"])
-}
-
-// Specifies the supported Azure location where the resource exists.
-// Changing this forces a new resource to be created.
-func (r *Topic) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Integer value which controls the size of
-// memory allocated for the topic. For supported values see the "Queue/topic size"
-// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-func (r *Topic) MaxSizeInMegabytes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxSizeInMegabytes"])
-}
-
-// Specifies the name of the ServiceBus Topic resource. Changing this forces a
-// new resource to be created.
-func (r *Topic) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the ServiceBus Namespace to create
-// this topic in. Changing this forces a new resource to be created.
-func (r *Topic) NamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceName"])
-}
-
-// Boolean flag which controls whether
-// the Topic requires duplicate detection. Defaults to false. Changing this forces
-// a new resource to be created.
-func (r *Topic) RequiresDuplicateDetection() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requiresDuplicateDetection"])
-}
-
-// The name of the resource group in which to
-// create the namespace. Changing this forces a new resource to be created.
-func (r *Topic) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-func (r *Topic) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// Boolean flag which controls whether the Topic
-// supports ordering. Defaults to false.
-func (r *Topic) SupportOrdering() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["supportOrdering"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Topic resources.
 type TopicState struct {
 	// The ISO 8601 timespan duration of the idle interval after which the
 	// Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle interface{}
+	AutoDeleteOnIdle pulumi.StringInput `pulumi:"autoDeleteOnIdle"`
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
 	// TTL value is set on the message itself.
-	DefaultMessageTtl interface{}
+	DefaultMessageTtl pulumi.StringInput `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-	DuplicateDetectionHistoryTimeWindow interface{}
+	DuplicateDetectionHistoryTimeWindow pulumi.StringInput `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls if server-side
 	// batched operations are enabled. Defaults to false.
-	EnableBatchedOperations interface{}
+	EnableBatchedOperations pulumi.BoolInput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
-	EnableExpress interface{}
-	EnableFilteringMessagesBeforePublishing interface{}
+	EnableExpress pulumi.BoolInput `pulumi:"enableExpress"`
+	EnableFilteringMessagesBeforePublishing pulumi.BoolInput `pulumi:"enableFilteringMessagesBeforePublishing"`
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
-	EnablePartitioning interface{}
+	EnablePartitioning pulumi.BoolInput `pulumi:"enablePartitioning"`
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes interface{}
+	MaxSizeInMegabytes pulumi.IntInput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
-	RequiresDuplicateDetection interface{}
+	RequiresDuplicateDetection pulumi.BoolInput `pulumi:"requiresDuplicateDetection"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Boolean flag which controls whether the Topic
 	// supports ordering. Defaults to false.
-	SupportOrdering interface{}
+	SupportOrdering pulumi.BoolInput `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the
 	// Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle interface{}
+	AutoDeleteOnIdle pulumi.StringInput `pulumi:"autoDeleteOnIdle"`
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
 	// TTL value is set on the message itself.
-	DefaultMessageTtl interface{}
+	DefaultMessageTtl pulumi.StringInput `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
-	DuplicateDetectionHistoryTimeWindow interface{}
+	DuplicateDetectionHistoryTimeWindow pulumi.StringInput `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls if server-side
 	// batched operations are enabled. Defaults to false.
-	EnableBatchedOperations interface{}
+	EnableBatchedOperations pulumi.BoolInput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express topic holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to false.
-	EnableExpress interface{}
-	EnableFilteringMessagesBeforePublishing interface{}
+	EnableExpress pulumi.BoolInput `pulumi:"enableExpress"`
+	EnableFilteringMessagesBeforePublishing pulumi.BoolInput `pulumi:"enableFilteringMessagesBeforePublishing"`
 	// Boolean flag which controls whether to enable
 	// the topic to be partitioned across multiple message brokers. Defaults to false.
 	// Changing this forces a new resource to be created.
-	EnablePartitioning interface{}
+	EnablePartitioning pulumi.BoolInput `pulumi:"enablePartitioning"`
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Integer value which controls the size of
 	// memory allocated for the topic. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes interface{}
+	MaxSizeInMegabytes pulumi.IntInput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace to create
 	// this topic in. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
 	// a new resource to be created.
-	RequiresDuplicateDetection interface{}
+	RequiresDuplicateDetection pulumi.BoolInput `pulumi:"requiresDuplicateDetection"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// Boolean flag which controls whether the Topic
 	// supports ordering. Defaults to false.
-	SupportOrdering interface{}
+	SupportOrdering pulumi.BoolInput `pulumi:"supportOrdering"`
 }

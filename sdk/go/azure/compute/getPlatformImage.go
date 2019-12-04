@@ -10,48 +10,35 @@ import (
 // Use this data source to access information about a Platform Image.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
-func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetPlatformImageResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["location"] = args.Location
-		inputs["offer"] = args.Offer
-		inputs["publisher"] = args.Publisher
-		inputs["sku"] = args.Sku
-	}
-	outputs, err := ctx.Invoke("azure:compute/getPlatformImage:getPlatformImage", inputs)
+func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs, opts ...pulumi.InvokeOption) (*GetPlatformImageResult, error) {
+	var rv GetPlatformImageResult
+	err := ctx.Invoke("azure:compute/getPlatformImage:getPlatformImage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPlatformImageResult{
-		Location: outputs["location"],
-		Offer: outputs["offer"],
-		Publisher: outputs["publisher"],
-		Sku: outputs["sku"],
-		Version: outputs["version"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPlatformImage.
 type GetPlatformImageArgs struct {
 	// Specifies the Location to pull information about this Platform Image from.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// Specifies the Offer associated with the Platform Image.
-	Offer interface{}
+	Offer string `pulumi:"offer"`
 	// Specifies the Publisher associated with the Platform Image.
-	Publisher interface{}
+	Publisher string `pulumi:"publisher"`
 	// Specifies the SKU of the Platform Image.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 }
 
 // A collection of values returned by getPlatformImage.
 type GetPlatformImageResult struct {
-	Location interface{}
-	Offer interface{}
-	Publisher interface{}
-	Sku interface{}
+	Location string `pulumi:"location"`
+	Offer string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku string `pulumi:"sku"`
 	// The latest version of the Platform Image.
-	Version interface{}
+	Version string `pulumi:"version"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -10,171 +10,123 @@ import (
 // Use this data source to access information about an existing Storage Account.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
-func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:storage/getAccount:getAccount", inputs)
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.InvokeOption) (*GetAccountResult, error) {
+	var rv GetAccountResult
+	err := ctx.Invoke("azure:storage/getAccount:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccountResult{
-		AccessTier: outputs["accessTier"],
-		AccountEncryptionSource: outputs["accountEncryptionSource"],
-		AccountKind: outputs["accountKind"],
-		AccountReplicationType: outputs["accountReplicationType"],
-		AccountTier: outputs["accountTier"],
-		CustomDomain: outputs["customDomain"],
-		EnableBlobEncryption: outputs["enableBlobEncryption"],
-		EnableFileEncryption: outputs["enableFileEncryption"],
-		EnableHttpsTrafficOnly: outputs["enableHttpsTrafficOnly"],
-		IsHnsEnabled: outputs["isHnsEnabled"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PrimaryAccessKey: outputs["primaryAccessKey"],
-		PrimaryBlobConnectionString: outputs["primaryBlobConnectionString"],
-		PrimaryBlobEndpoint: outputs["primaryBlobEndpoint"],
-		PrimaryBlobHost: outputs["primaryBlobHost"],
-		PrimaryConnectionString: outputs["primaryConnectionString"],
-		PrimaryDfsEndpoint: outputs["primaryDfsEndpoint"],
-		PrimaryDfsHost: outputs["primaryDfsHost"],
-		PrimaryFileEndpoint: outputs["primaryFileEndpoint"],
-		PrimaryFileHost: outputs["primaryFileHost"],
-		PrimaryLocation: outputs["primaryLocation"],
-		PrimaryQueueEndpoint: outputs["primaryQueueEndpoint"],
-		PrimaryQueueHost: outputs["primaryQueueHost"],
-		PrimaryTableEndpoint: outputs["primaryTableEndpoint"],
-		PrimaryTableHost: outputs["primaryTableHost"],
-		PrimaryWebEndpoint: outputs["primaryWebEndpoint"],
-		PrimaryWebHost: outputs["primaryWebHost"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecondaryAccessKey: outputs["secondaryAccessKey"],
-		SecondaryBlobConnectionString: outputs["secondaryBlobConnectionString"],
-		SecondaryBlobEndpoint: outputs["secondaryBlobEndpoint"],
-		SecondaryBlobHost: outputs["secondaryBlobHost"],
-		SecondaryConnectionString: outputs["secondaryConnectionString"],
-		SecondaryDfsEndpoint: outputs["secondaryDfsEndpoint"],
-		SecondaryDfsHost: outputs["secondaryDfsHost"],
-		SecondaryFileEndpoint: outputs["secondaryFileEndpoint"],
-		SecondaryFileHost: outputs["secondaryFileHost"],
-		SecondaryLocation: outputs["secondaryLocation"],
-		SecondaryQueueEndpoint: outputs["secondaryQueueEndpoint"],
-		SecondaryQueueHost: outputs["secondaryQueueHost"],
-		SecondaryTableEndpoint: outputs["secondaryTableEndpoint"],
-		SecondaryTableHost: outputs["secondaryTableHost"],
-		SecondaryWebEndpoint: outputs["secondaryWebEndpoint"],
-		SecondaryWebHost: outputs["secondaryWebHost"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
 	// Specifies the name of the Storage Account
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Storage Account is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
 	// The access tier for `BlobStorage` accounts.
-	AccessTier interface{}
+	AccessTier string `pulumi:"accessTier"`
 	// The Encryption Source for this Storage Account.
-	AccountEncryptionSource interface{}
+	AccountEncryptionSource string `pulumi:"accountEncryptionSource"`
 	// The Kind of account.
-	AccountKind interface{}
+	AccountKind string `pulumi:"accountKind"`
 	// The type of replication used for this storage account.
-	AccountReplicationType interface{}
+	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// The Tier of this storage account.
-	AccountTier interface{}
+	AccountTier string `pulumi:"accountTier"`
 	// A `customDomain` block as documented below.
-	CustomDomain interface{}
+	CustomDomain GetAccountCustomDomainResult `pulumi:"customDomain"`
 	// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
 	// for more information.
-	EnableBlobEncryption interface{}
+	EnableBlobEncryption bool `pulumi:"enableBlobEncryption"`
 	// Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
 	// for more information.
-	EnableFileEncryption interface{}
+	EnableFileEncryption bool `pulumi:"enableFileEncryption"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
-	EnableHttpsTrafficOnly interface{}
+	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
 	// Is Hierarchical Namespace enabled?
-	IsHnsEnabled interface{}
+	IsHnsEnabled bool `pulumi:"isHnsEnabled"`
 	// The Azure location where the Storage Account exists
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The Custom Domain Name used for the Storage Account.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The primary access key for the Storage Account.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// The connection string associated with the primary blob location
-	PrimaryBlobConnectionString interface{}
+	PrimaryBlobConnectionString string `pulumi:"primaryBlobConnectionString"`
 	// The endpoint URL for blob storage in the primary location.
-	PrimaryBlobEndpoint interface{}
+	PrimaryBlobEndpoint string `pulumi:"primaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the primary location.
-	PrimaryBlobHost interface{}
+	PrimaryBlobHost string `pulumi:"primaryBlobHost"`
 	// The connection string associated with the primary location
-	PrimaryConnectionString interface{}
+	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The endpoint URL for DFS storage in the primary location.
-	PrimaryDfsEndpoint interface{}
+	PrimaryDfsEndpoint string `pulumi:"primaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the primary location.
-	PrimaryDfsHost interface{}
+	PrimaryDfsHost string `pulumi:"primaryDfsHost"`
 	// The endpoint URL for file storage in the primary location.
-	PrimaryFileEndpoint interface{}
+	PrimaryFileEndpoint string `pulumi:"primaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the primary location.
-	PrimaryFileHost interface{}
+	PrimaryFileHost string `pulumi:"primaryFileHost"`
 	// The primary location of the Storage Account.
-	PrimaryLocation interface{}
+	PrimaryLocation string `pulumi:"primaryLocation"`
 	// The endpoint URL for queue storage in the primary location.
-	PrimaryQueueEndpoint interface{}
+	PrimaryQueueEndpoint string `pulumi:"primaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the primary location.
-	PrimaryQueueHost interface{}
+	PrimaryQueueHost string `pulumi:"primaryQueueHost"`
 	// The endpoint URL for table storage in the primary location.
-	PrimaryTableEndpoint interface{}
+	PrimaryTableEndpoint string `pulumi:"primaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the primary location.
-	PrimaryTableHost interface{}
+	PrimaryTableHost string `pulumi:"primaryTableHost"`
 	// The endpoint URL for web storage in the primary location.
-	PrimaryWebEndpoint interface{}
+	PrimaryWebEndpoint string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
-	PrimaryWebHost interface{}
-	ResourceGroupName interface{}
+	PrimaryWebHost string `pulumi:"primaryWebHost"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Storage Account.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location
-	SecondaryBlobConnectionString interface{}
+	SecondaryBlobConnectionString string `pulumi:"secondaryBlobConnectionString"`
 	// The endpoint URL for blob storage in the secondary location.
-	SecondaryBlobEndpoint interface{}
+	SecondaryBlobEndpoint string `pulumi:"secondaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the secondary location.
-	SecondaryBlobHost interface{}
+	SecondaryBlobHost string `pulumi:"secondaryBlobHost"`
 	// The connection string associated with the secondary location
-	SecondaryConnectionString interface{}
+	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The endpoint URL for DFS storage in the secondary location.
-	SecondaryDfsEndpoint interface{}
+	SecondaryDfsEndpoint string `pulumi:"secondaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the secondary location.
-	SecondaryDfsHost interface{}
+	SecondaryDfsHost string `pulumi:"secondaryDfsHost"`
 	// The endpoint URL for file storage in the secondary location.
-	SecondaryFileEndpoint interface{}
+	SecondaryFileEndpoint string `pulumi:"secondaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the secondary location.
-	SecondaryFileHost interface{}
+	SecondaryFileHost string `pulumi:"secondaryFileHost"`
 	// The secondary location of the Storage Account.
-	SecondaryLocation interface{}
+	SecondaryLocation string `pulumi:"secondaryLocation"`
 	// The endpoint URL for queue storage in the secondary location.
-	SecondaryQueueEndpoint interface{}
+	SecondaryQueueEndpoint string `pulumi:"secondaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the secondary location.
-	SecondaryQueueHost interface{}
+	SecondaryQueueHost string `pulumi:"secondaryQueueHost"`
 	// The endpoint URL for table storage in the secondary location.
-	SecondaryTableEndpoint interface{}
+	SecondaryTableEndpoint string `pulumi:"secondaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the secondary location.
-	SecondaryTableHost interface{}
+	SecondaryTableHost string `pulumi:"secondaryTableHost"`
 	// The endpoint URL for web storage in the secondary location.
-	SecondaryWebEndpoint interface{}
+	SecondaryWebEndpoint string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost interface{}
+	SecondaryWebHost string `pulumi:"secondaryWebHost"`
 	// A mapping of tags to assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAccountCustomDomainResult struct {
+	// Specifies the name of the Storage Account
+	Name string `pulumi:"name"`
 }

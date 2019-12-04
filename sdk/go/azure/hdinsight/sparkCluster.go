@@ -4,6 +4,8 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_spark_cluster.html.markdown.
 type SparkCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
+
+	// A `componentVersion` block as defined below.
+	ComponentVersion SparkClusterComponentVersionOutput `pulumi:"componentVersion"`
+
+	// A `gateway` block as defined below.
+	Gateway SparkClusterGatewayOutput `pulumi:"gateway"`
+
+	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
+	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+
+	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `roles` block as defined below.
+	Roles SparkClusterRolesOutput `pulumi:"roles"`
+
+	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
+	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
+
+	// One or more `storageAccount` block as defined below.
+	StorageAccounts SparkClusterStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A `storageAccountGen2` block as defined below.
+	StorageAccountGen2 SparkClusterStorageAccountGen2Output `pulumi:"storageAccountGen2"`
+
+	// A map of Tags which should be assigned to this HDInsight Spark Cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewSparkCluster registers a new resource with the given unique name, arguments, and options.
 func NewSparkCluster(ctx *pulumi.Context,
-	name string, args *SparkClusterArgs, opts ...pulumi.ResourceOpt) (*SparkCluster, error) {
+	name string, args *SparkClusterArgs, opts ...pulumi.ResourceOption) (*SparkCluster, error) {
 	if args == nil || args.ClusterVersion == nil {
 		return nil, errors.New("missing required argument 'ClusterVersion'")
 	}
@@ -36,195 +77,761 @@ func NewSparkCluster(ctx *pulumi.Context,
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterVersion"] = nil
-		inputs["componentVersion"] = nil
-		inputs["gateway"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roles"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["storageAccountGen2"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-	} else {
-		inputs["clusterVersion"] = args.ClusterVersion
-		inputs["componentVersion"] = args.ComponentVersion
-		inputs["gateway"] = args.Gateway
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roles"] = args.Roles
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["storageAccountGen2"] = args.StorageAccountGen2
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := args.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToSparkClusterComponentVersionOutput() }
+		if i := args.Gateway; i != nil { inputs["gateway"] = i.ToSparkClusterGatewayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToSparkClusterRolesOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToSparkClusterStorageAccountsArrayOutput() }
+		if i := args.StorageAccountGen2; i != nil { inputs["storageAccountGen2"] = i.ToSparkClusterStorageAccountGen2Output() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	inputs["httpsEndpoint"] = nil
-	inputs["sshEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:hdinsight/sparkCluster:SparkCluster", name, true, inputs, opts...)
+	var resource SparkCluster
+	err := ctx.RegisterResource("azure:hdinsight/sparkCluster:SparkCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SparkCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetSparkCluster gets an existing SparkCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSparkCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SparkClusterState, opts ...pulumi.ResourceOpt) (*SparkCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SparkClusterState, opts ...pulumi.ResourceOption) (*SparkCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterVersion"] = state.ClusterVersion
-		inputs["componentVersion"] = state.ComponentVersion
-		inputs["gateway"] = state.Gateway
-		inputs["httpsEndpoint"] = state.HttpsEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roles"] = state.Roles
-		inputs["sshEndpoint"] = state.SshEndpoint
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["storageAccountGen2"] = state.StorageAccountGen2
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
+		if i := state.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := state.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToSparkClusterComponentVersionOutput() }
+		if i := state.Gateway; i != nil { inputs["gateway"] = i.ToSparkClusterGatewayOutput() }
+		if i := state.HttpsEndpoint; i != nil { inputs["httpsEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToSparkClusterRolesOutput() }
+		if i := state.SshEndpoint; i != nil { inputs["sshEndpoint"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToSparkClusterStorageAccountsArrayOutput() }
+		if i := state.StorageAccountGen2; i != nil { inputs["storageAccountGen2"] = i.ToSparkClusterStorageAccountGen2Output() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:hdinsight/sparkCluster:SparkCluster", name, id, inputs, opts...)
+	var resource SparkCluster
+	err := ctx.ReadResource("azure:hdinsight/sparkCluster:SparkCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SparkCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SparkCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SparkCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *SparkCluster) ClusterVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
-}
-
-// A `componentVersion` block as defined below.
-func (r *SparkCluster) ComponentVersion() pulumi.Output {
-	return r.s.State["componentVersion"]
-}
-
-// A `gateway` block as defined below.
-func (r *SparkCluster) Gateway() pulumi.Output {
-	return r.s.State["gateway"]
-}
-
-// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
-func (r *SparkCluster) HttpsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
-}
-
-// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-func (r *SparkCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-func (r *SparkCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-func (r *SparkCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `roles` block as defined below.
-func (r *SparkCluster) Roles() pulumi.Output {
-	return r.s.State["roles"]
-}
-
-// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
-func (r *SparkCluster) SshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
-}
-
-// One or more `storageAccount` block as defined below.
-func (r *SparkCluster) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A `storageAccountGen2` block as defined below.
-func (r *SparkCluster) StorageAccountGen2() pulumi.Output {
-	return r.s.State["storageAccountGen2"]
-}
-
-// A map of Tags which should be assigned to this HDInsight Spark Cluster.
-func (r *SparkCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *SparkCluster) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SparkCluster resources.
 type SparkClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion SparkClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway SparkClusterGatewayInput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
-	HttpsEndpoint interface{}
+	HttpsEndpoint pulumi.StringInput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles SparkClusterRolesInput `pulumi:"roles"`
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
-	SshEndpoint interface{}
+	SshEndpoint pulumi.StringInput `pulumi:"sshEndpoint"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts SparkClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A `storageAccountGen2` block as defined below.
-	StorageAccountGen2 interface{}
+	StorageAccountGen2 SparkClusterStorageAccountGen2Input `pulumi:"storageAccountGen2"`
 	// A map of Tags which should be assigned to this HDInsight Spark Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a SparkCluster resource.
 type SparkClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion SparkClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway SparkClusterGatewayInput `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles SparkClusterRolesInput `pulumi:"roles"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts SparkClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A `storageAccountGen2` block as defined below.
-	StorageAccountGen2 interface{}
+	StorageAccountGen2 SparkClusterStorageAccountGen2Input `pulumi:"storageAccountGen2"`
 	// A map of Tags which should be assigned to this HDInsight Spark Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
+type SparkClusterComponentVersion struct {
+	Spark string `pulumi:"spark"`
+}
+var sparkClusterComponentVersionType = reflect.TypeOf((*SparkClusterComponentVersion)(nil)).Elem()
+
+type SparkClusterComponentVersionInput interface {
+	pulumi.Input
+
+	ToSparkClusterComponentVersionOutput() SparkClusterComponentVersionOutput
+	ToSparkClusterComponentVersionOutputWithContext(ctx context.Context) SparkClusterComponentVersionOutput
+}
+
+type SparkClusterComponentVersionArgs struct {
+	Spark pulumi.StringInput `pulumi:"spark"`
+}
+
+func (SparkClusterComponentVersionArgs) ElementType() reflect.Type {
+	return sparkClusterComponentVersionType
+}
+
+func (a SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionOutput() SparkClusterComponentVersionOutput {
+	return pulumi.ToOutput(a).(SparkClusterComponentVersionOutput)
+}
+
+func (a SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionOutputWithContext(ctx context.Context) SparkClusterComponentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterComponentVersionOutput)
+}
+
+type SparkClusterComponentVersionOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterComponentVersionOutput) Spark() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterComponentVersion) string {
+		return v.Spark
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterComponentVersionOutput) ElementType() reflect.Type {
+	return sparkClusterComponentVersionType
+}
+
+func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionOutput() SparkClusterComponentVersionOutput {
+	return o
+}
+
+func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionOutputWithContext(ctx context.Context) SparkClusterComponentVersionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterComponentVersionOutput{}) }
+
+type SparkClusterGateway struct {
+	Enabled bool `pulumi:"enabled"`
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var sparkClusterGatewayType = reflect.TypeOf((*SparkClusterGateway)(nil)).Elem()
+
+type SparkClusterGatewayInput interface {
+	pulumi.Input
+
+	ToSparkClusterGatewayOutput() SparkClusterGatewayOutput
+	ToSparkClusterGatewayOutputWithContext(ctx context.Context) SparkClusterGatewayOutput
+}
+
+type SparkClusterGatewayArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (SparkClusterGatewayArgs) ElementType() reflect.Type {
+	return sparkClusterGatewayType
+}
+
+func (a SparkClusterGatewayArgs) ToSparkClusterGatewayOutput() SparkClusterGatewayOutput {
+	return pulumi.ToOutput(a).(SparkClusterGatewayOutput)
+}
+
+func (a SparkClusterGatewayArgs) ToSparkClusterGatewayOutputWithContext(ctx context.Context) SparkClusterGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterGatewayOutput)
+}
+
+type SparkClusterGatewayOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v SparkClusterGateway) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o SparkClusterGatewayOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterGateway) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterGatewayOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterGateway) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterGatewayOutput) ElementType() reflect.Type {
+	return sparkClusterGatewayType
+}
+
+func (o SparkClusterGatewayOutput) ToSparkClusterGatewayOutput() SparkClusterGatewayOutput {
+	return o
+}
+
+func (o SparkClusterGatewayOutput) ToSparkClusterGatewayOutputWithContext(ctx context.Context) SparkClusterGatewayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterGatewayOutput{}) }
+
+type SparkClusterRoles struct {
+	HeadNode SparkClusterRolesHeadNode `pulumi:"headNode"`
+	WorkerNode SparkClusterRolesWorkerNode `pulumi:"workerNode"`
+	ZookeeperNode SparkClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
+}
+var sparkClusterRolesType = reflect.TypeOf((*SparkClusterRoles)(nil)).Elem()
+
+type SparkClusterRolesInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesOutput() SparkClusterRolesOutput
+	ToSparkClusterRolesOutputWithContext(ctx context.Context) SparkClusterRolesOutput
+}
+
+type SparkClusterRolesArgs struct {
+	HeadNode SparkClusterRolesHeadNodeInput `pulumi:"headNode"`
+	WorkerNode SparkClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	ZookeeperNode SparkClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
+}
+
+func (SparkClusterRolesArgs) ElementType() reflect.Type {
+	return sparkClusterRolesType
+}
+
+func (a SparkClusterRolesArgs) ToSparkClusterRolesOutput() SparkClusterRolesOutput {
+	return pulumi.ToOutput(a).(SparkClusterRolesOutput)
+}
+
+func (a SparkClusterRolesArgs) ToSparkClusterRolesOutputWithContext(ctx context.Context) SparkClusterRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterRolesOutput)
+}
+
+type SparkClusterRolesOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterRolesOutput) HeadNode() SparkClusterRolesHeadNodeOutput {
+	return o.Apply(func(v SparkClusterRoles) SparkClusterRolesHeadNode {
+		return v.HeadNode
+	}).(SparkClusterRolesHeadNodeOutput)
+}
+
+func (o SparkClusterRolesOutput) WorkerNode() SparkClusterRolesWorkerNodeOutput {
+	return o.Apply(func(v SparkClusterRoles) SparkClusterRolesWorkerNode {
+		return v.WorkerNode
+	}).(SparkClusterRolesWorkerNodeOutput)
+}
+
+func (o SparkClusterRolesOutput) ZookeeperNode() SparkClusterRolesZookeeperNodeOutput {
+	return o.Apply(func(v SparkClusterRoles) SparkClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(SparkClusterRolesZookeeperNodeOutput)
+}
+
+func (SparkClusterRolesOutput) ElementType() reflect.Type {
+	return sparkClusterRolesType
+}
+
+func (o SparkClusterRolesOutput) ToSparkClusterRolesOutput() SparkClusterRolesOutput {
+	return o
+}
+
+func (o SparkClusterRolesOutput) ToSparkClusterRolesOutputWithContext(ctx context.Context) SparkClusterRolesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterRolesOutput{}) }
+
+type SparkClusterRolesHeadNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var sparkClusterRolesHeadNodeType = reflect.TypeOf((*SparkClusterRolesHeadNode)(nil)).Elem()
+
+type SparkClusterRolesHeadNodeInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesHeadNodeOutput() SparkClusterRolesHeadNodeOutput
+	ToSparkClusterRolesHeadNodeOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeOutput
+}
+
+type SparkClusterRolesHeadNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (SparkClusterRolesHeadNodeArgs) ElementType() reflect.Type {
+	return sparkClusterRolesHeadNodeType
+}
+
+func (a SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodeOutput() SparkClusterRolesHeadNodeOutput {
+	return pulumi.ToOutput(a).(SparkClusterRolesHeadNodeOutput)
+}
+
+func (a SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodeOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterRolesHeadNodeOutput)
+}
+
+type SparkClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterRolesHeadNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesHeadNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v SparkClusterRolesHeadNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SparkClusterRolesHeadNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesHeadNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesHeadNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesHeadNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesHeadNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterRolesHeadNodeOutput) ElementType() reflect.Type {
+	return sparkClusterRolesHeadNodeType
+}
+
+func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodeOutput() SparkClusterRolesHeadNodeOutput {
+	return o
+}
+
+func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodeOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterRolesHeadNodeOutput{}) }
+
+type SparkClusterRolesWorkerNode struct {
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var sparkClusterRolesWorkerNodeType = reflect.TypeOf((*SparkClusterRolesWorkerNode)(nil)).Elem()
+
+type SparkClusterRolesWorkerNodeInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeOutput() SparkClusterRolesWorkerNodeOutput
+	ToSparkClusterRolesWorkerNodeOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeOutput
+}
+
+type SparkClusterRolesWorkerNodeArgs struct {
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (SparkClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
+	return sparkClusterRolesWorkerNodeType
+}
+
+func (a SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodeOutput() SparkClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutput(a).(SparkClusterRolesWorkerNodeOutput)
+}
+
+func (a SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodeOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterRolesWorkerNodeOutput)
+}
+
+type SparkClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) int {
+		if v.MinInstanceCount == nil { return *new(int) } else { return *v.MinInstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesWorkerNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
+	return sparkClusterRolesWorkerNodeType
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodeOutput() SparkClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodeOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeOutput{}) }
+
+type SparkClusterRolesZookeeperNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var sparkClusterRolesZookeeperNodeType = reflect.TypeOf((*SparkClusterRolesZookeeperNode)(nil)).Elem()
+
+type SparkClusterRolesZookeeperNodeInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesZookeeperNodeOutput() SparkClusterRolesZookeeperNodeOutput
+	ToSparkClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeOutput
+}
+
+type SparkClusterRolesZookeeperNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (SparkClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
+	return sparkClusterRolesZookeeperNodeType
+}
+
+func (a SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodeOutput() SparkClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutput(a).(SparkClusterRolesZookeeperNodeOutput)
+}
+
+func (a SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterRolesZookeeperNodeOutput)
+}
+
+type SparkClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterRolesZookeeperNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesZookeeperNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v SparkClusterRolesZookeeperNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesZookeeperNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesZookeeperNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesZookeeperNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterRolesZookeeperNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
+	return sparkClusterRolesZookeeperNodeType
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodeOutput() SparkClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeOutput{}) }
+
+type SparkClusterStorageAccountGen2 struct {
+	FilesystemId string `pulumi:"filesystemId"`
+	IsDefault bool `pulumi:"isDefault"`
+	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
+	StorageResourceId string `pulumi:"storageResourceId"`
+}
+var sparkClusterStorageAccountGen2Type = reflect.TypeOf((*SparkClusterStorageAccountGen2)(nil)).Elem()
+
+type SparkClusterStorageAccountGen2Input interface {
+	pulumi.Input
+
+	ToSparkClusterStorageAccountGen2Output() SparkClusterStorageAccountGen2Output
+	ToSparkClusterStorageAccountGen2OutputWithContext(ctx context.Context) SparkClusterStorageAccountGen2Output
+}
+
+type SparkClusterStorageAccountGen2Args struct {
+	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
+	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+}
+
+func (SparkClusterStorageAccountGen2Args) ElementType() reflect.Type {
+	return sparkClusterStorageAccountGen2Type
+}
+
+func (a SparkClusterStorageAccountGen2Args) ToSparkClusterStorageAccountGen2Output() SparkClusterStorageAccountGen2Output {
+	return pulumi.ToOutput(a).(SparkClusterStorageAccountGen2Output)
+}
+
+func (a SparkClusterStorageAccountGen2Args) ToSparkClusterStorageAccountGen2OutputWithContext(ctx context.Context) SparkClusterStorageAccountGen2Output {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterStorageAccountGen2Output)
+}
+
+type SparkClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+
+func (o SparkClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterStorageAccountGen2) string {
+		return v.FilesystemId
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v SparkClusterStorageAccountGen2) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o SparkClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterStorageAccountGen2) string {
+		return v.ManagedIdentityResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterStorageAccountGen2) string {
+		return v.StorageResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterStorageAccountGen2Output) ElementType() reflect.Type {
+	return sparkClusterStorageAccountGen2Type
+}
+
+func (o SparkClusterStorageAccountGen2Output) ToSparkClusterStorageAccountGen2Output() SparkClusterStorageAccountGen2Output {
+	return o
+}
+
+func (o SparkClusterStorageAccountGen2Output) ToSparkClusterStorageAccountGen2OutputWithContext(ctx context.Context) SparkClusterStorageAccountGen2Output {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterStorageAccountGen2Output{}) }
+
+type SparkClusterStorageAccounts struct {
+	IsDefault bool `pulumi:"isDefault"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+}
+var sparkClusterStorageAccountsType = reflect.TypeOf((*SparkClusterStorageAccounts)(nil)).Elem()
+
+type SparkClusterStorageAccountsInput interface {
+	pulumi.Input
+
+	ToSparkClusterStorageAccountsOutput() SparkClusterStorageAccountsOutput
+	ToSparkClusterStorageAccountsOutputWithContext(ctx context.Context) SparkClusterStorageAccountsOutput
+}
+
+type SparkClusterStorageAccountsArgs struct {
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+}
+
+func (SparkClusterStorageAccountsArgs) ElementType() reflect.Type {
+	return sparkClusterStorageAccountsType
+}
+
+func (a SparkClusterStorageAccountsArgs) ToSparkClusterStorageAccountsOutput() SparkClusterStorageAccountsOutput {
+	return pulumi.ToOutput(a).(SparkClusterStorageAccountsOutput)
+}
+
+func (a SparkClusterStorageAccountsArgs) ToSparkClusterStorageAccountsOutputWithContext(ctx context.Context) SparkClusterStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterStorageAccountsOutput)
+}
+
+type SparkClusterStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterStorageAccountsOutput) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v SparkClusterStorageAccounts) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o SparkClusterStorageAccountsOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterStorageAccounts) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o SparkClusterStorageAccountsOutput) StorageContainerId() pulumi.StringOutput {
+	return o.Apply(func(v SparkClusterStorageAccounts) string {
+		return v.StorageContainerId
+	}).(pulumi.StringOutput)
+}
+
+func (SparkClusterStorageAccountsOutput) ElementType() reflect.Type {
+	return sparkClusterStorageAccountsType
+}
+
+func (o SparkClusterStorageAccountsOutput) ToSparkClusterStorageAccountsOutput() SparkClusterStorageAccountsOutput {
+	return o
+}
+
+func (o SparkClusterStorageAccountsOutput) ToSparkClusterStorageAccountsOutputWithContext(ctx context.Context) SparkClusterStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterStorageAccountsOutput{}) }
+
+var sparkClusterStorageAccountsArrayType = reflect.TypeOf((*[]SparkClusterStorageAccounts)(nil)).Elem()
+
+type SparkClusterStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToSparkClusterStorageAccountsArrayOutput() SparkClusterStorageAccountsArrayOutput
+	ToSparkClusterStorageAccountsArrayOutputWithContext(ctx context.Context) SparkClusterStorageAccountsArrayOutput
+}
+
+type SparkClusterStorageAccountsArrayArgs []SparkClusterStorageAccountsInput
+
+func (SparkClusterStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return sparkClusterStorageAccountsArrayType
+}
+
+func (a SparkClusterStorageAccountsArrayArgs) ToSparkClusterStorageAccountsArrayOutput() SparkClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(SparkClusterStorageAccountsArrayOutput)
+}
+
+func (a SparkClusterStorageAccountsArrayArgs) ToSparkClusterStorageAccountsArrayOutputWithContext(ctx context.Context) SparkClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SparkClusterStorageAccountsArrayOutput)
+}
+
+type SparkClusterStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o SparkClusterStorageAccountsArrayOutput) Index(i pulumi.IntInput) SparkClusterStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SparkClusterStorageAccounts {
+		return vs[0].([]SparkClusterStorageAccounts)[vs[1].(int)]
+	}).(SparkClusterStorageAccountsOutput)
+}
+
+func (SparkClusterStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return sparkClusterStorageAccountsArrayType
+}
+
+func (o SparkClusterStorageAccountsArrayOutput) ToSparkClusterStorageAccountsArrayOutput() SparkClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func (o SparkClusterStorageAccountsArrayOutput) ToSparkClusterStorageAccountsArrayOutputWithContext(ctx context.Context) SparkClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SparkClusterStorageAccountsArrayOutput{}) }
+

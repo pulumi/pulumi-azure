@@ -4,6 +4,8 @@
 package healthcare
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,162 +14,280 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/healthcare_service.html.markdown.
 type Service struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	AccessPolicyObjectIds pulumi.StringArrayOutput `pulumi:"accessPolicyObjectIds"`
+
+	// An `authenticationConfiguration` block as defined below.
+	AuthenticationConfiguration ServiceAuthenticationConfigurationOutput `pulumi:"authenticationConfiguration"`
+
+	// A `corsConfiguration` block as defined below.
+	CorsConfiguration ServiceCorsConfigurationOutput `pulumi:"corsConfiguration"`
+
+	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+	CosmosdbThroughput pulumi.IntOutput `pulumi:"cosmosdbThroughput"`
+
+	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// Specifies the supported Azure Region where the Service should be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the service instance. Used for service endpoint, must be unique within the audience.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which to create the Service.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
-	name string, args *ServiceArgs, opts ...pulumi.ResourceOpt) (*Service, error) {
+	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
 	if args == nil || args.AccessPolicyObjectIds == nil {
 		return nil, errors.New("missing required argument 'AccessPolicyObjectIds'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accessPolicyObjectIds"] = nil
-		inputs["authenticationConfiguration"] = nil
-		inputs["corsConfiguration"] = nil
-		inputs["cosmosdbThroughput"] = nil
-		inputs["kind"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["accessPolicyObjectIds"] = args.AccessPolicyObjectIds
-		inputs["authenticationConfiguration"] = args.AuthenticationConfiguration
-		inputs["corsConfiguration"] = args.CorsConfiguration
-		inputs["cosmosdbThroughput"] = args.CosmosdbThroughput
-		inputs["kind"] = args.Kind
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccessPolicyObjectIds; i != nil { inputs["accessPolicyObjectIds"] = i.ToStringArrayOutput() }
+		if i := args.AuthenticationConfiguration; i != nil { inputs["authenticationConfiguration"] = i.ToServiceAuthenticationConfigurationOutput() }
+		if i := args.CorsConfiguration; i != nil { inputs["corsConfiguration"] = i.ToServiceCorsConfigurationOutput() }
+		if i := args.CosmosdbThroughput; i != nil { inputs["cosmosdbThroughput"] = i.ToIntOutput() }
+		if i := args.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:healthcare/service:Service", name, true, inputs, opts...)
+	var resource Service
+	err := ctx.RegisterResource("azure:healthcare/service:Service", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
+	return &resource, nil
 }
 
 // GetService gets an existing Service resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessPolicyObjectIds"] = state.AccessPolicyObjectIds
-		inputs["authenticationConfiguration"] = state.AuthenticationConfiguration
-		inputs["corsConfiguration"] = state.CorsConfiguration
-		inputs["cosmosdbThroughput"] = state.CosmosdbThroughput
-		inputs["kind"] = state.Kind
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.AccessPolicyObjectIds; i != nil { inputs["accessPolicyObjectIds"] = i.ToStringArrayOutput() }
+		if i := state.AuthenticationConfiguration; i != nil { inputs["authenticationConfiguration"] = i.ToServiceAuthenticationConfigurationOutput() }
+		if i := state.CorsConfiguration; i != nil { inputs["corsConfiguration"] = i.ToServiceCorsConfigurationOutput() }
+		if i := state.CosmosdbThroughput; i != nil { inputs["cosmosdbThroughput"] = i.ToIntOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:healthcare/service:Service", name, id, inputs, opts...)
+	var resource Service
+	err := ctx.ReadResource("azure:healthcare/service:Service", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Service) AccessPolicyObjectIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["accessPolicyObjectIds"])
-}
-
-// An `authenticationConfiguration` block as defined below.
-func (r *Service) AuthenticationConfiguration() pulumi.Output {
-	return r.s.State["authenticationConfiguration"]
-}
-
-// A `corsConfiguration` block as defined below.
-func (r *Service) CorsConfiguration() pulumi.Output {
-	return r.s.State["corsConfiguration"]
-}
-
-// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
-func (r *Service) CosmosdbThroughput() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["cosmosdbThroughput"])
-}
-
-// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-func (r *Service) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// Specifies the supported Azure Region where the Service should be created.
-func (r *Service) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the service instance. Used for service endpoint, must be unique within the audience.
-func (r *Service) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which to create the Service.
-func (r *Service) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Service) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
-	AccessPolicyObjectIds interface{}
+	AccessPolicyObjectIds pulumi.StringArrayInput `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
-	AuthenticationConfiguration interface{}
+	AuthenticationConfiguration ServiceAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
 	// A `corsConfiguration` block as defined below.
-	CorsConfiguration interface{}
+	CorsConfiguration ServiceCorsConfigurationInput `pulumi:"corsConfiguration"`
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
-	CosmosdbThroughput interface{}
+	CosmosdbThroughput pulumi.IntInput `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which to create the Service.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	AccessPolicyObjectIds interface{}
+	AccessPolicyObjectIds pulumi.StringArrayInput `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
-	AuthenticationConfiguration interface{}
+	AuthenticationConfiguration ServiceAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
 	// A `corsConfiguration` block as defined below.
-	CorsConfiguration interface{}
+	CorsConfiguration ServiceCorsConfigurationInput `pulumi:"corsConfiguration"`
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
-	CosmosdbThroughput interface{}
+	CosmosdbThroughput pulumi.IntInput `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which to create the Service.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ServiceAuthenticationConfiguration struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+	Audience *string `pulumi:"audience"`
+	Authority *string `pulumi:"authority"`
+	// Enables the 'SMART on FHIR' option for mobile and web implementations.
+	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
+}
+var serviceAuthenticationConfigurationType = reflect.TypeOf((*ServiceAuthenticationConfiguration)(nil)).Elem()
+
+type ServiceAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceAuthenticationConfigurationOutput() ServiceAuthenticationConfigurationOutput
+	ToServiceAuthenticationConfigurationOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationOutput
+}
+
+type ServiceAuthenticationConfigurationArgs struct {
+	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+	Audience pulumi.StringInput `pulumi:"audience"`
+	Authority pulumi.StringInput `pulumi:"authority"`
+	// Enables the 'SMART on FHIR' option for mobile and web implementations.
+	SmartProxyEnabled pulumi.BoolInput `pulumi:"smartProxyEnabled"`
+}
+
+func (ServiceAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return serviceAuthenticationConfigurationType
+}
+
+func (a ServiceAuthenticationConfigurationArgs) ToServiceAuthenticationConfigurationOutput() ServiceAuthenticationConfigurationOutput {
+	return pulumi.ToOutput(a).(ServiceAuthenticationConfigurationOutput)
+}
+
+func (a ServiceAuthenticationConfigurationArgs) ToServiceAuthenticationConfigurationOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceAuthenticationConfigurationOutput)
+}
+
+type ServiceAuthenticationConfigurationOutput struct { *pulumi.OutputState }
+
+// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+func (o ServiceAuthenticationConfigurationOutput) Audience() pulumi.StringOutput {
+	return o.Apply(func(v ServiceAuthenticationConfiguration) string {
+		if v.Audience == nil { return *new(string) } else { return *v.Audience }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceAuthenticationConfigurationOutput) Authority() pulumi.StringOutput {
+	return o.Apply(func(v ServiceAuthenticationConfiguration) string {
+		if v.Authority == nil { return *new(string) } else { return *v.Authority }
+	}).(pulumi.StringOutput)
+}
+
+// Enables the 'SMART on FHIR' option for mobile and web implementations.
+func (o ServiceAuthenticationConfigurationOutput) SmartProxyEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceAuthenticationConfiguration) bool {
+		if v.SmartProxyEnabled == nil { return *new(bool) } else { return *v.SmartProxyEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return serviceAuthenticationConfigurationType
+}
+
+func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigurationOutput() ServiceAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigurationOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{}) }
+
+type ServiceCorsConfiguration struct {
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+var serviceCorsConfigurationType = reflect.TypeOf((*ServiceCorsConfiguration)(nil)).Elem()
+
+type ServiceCorsConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceCorsConfigurationOutput() ServiceCorsConfigurationOutput
+	ToServiceCorsConfigurationOutputWithContext(ctx context.Context) ServiceCorsConfigurationOutput
+}
+
+type ServiceCorsConfigurationArgs struct {
+	AllowCredentials pulumi.BoolInput `pulumi:"allowCredentials"`
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (ServiceCorsConfigurationArgs) ElementType() reflect.Type {
+	return serviceCorsConfigurationType
+}
+
+func (a ServiceCorsConfigurationArgs) ToServiceCorsConfigurationOutput() ServiceCorsConfigurationOutput {
+	return pulumi.ToOutput(a).(ServiceCorsConfigurationOutput)
+}
+
+func (a ServiceCorsConfigurationArgs) ToServiceCorsConfigurationOutputWithContext(ctx context.Context) ServiceCorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceCorsConfigurationOutput)
+}
+
+type ServiceCorsConfigurationOutput struct { *pulumi.OutputState }
+
+func (o ServiceCorsConfigurationOutput) AllowCredentials() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceCorsConfiguration) bool {
+		if v.AllowCredentials == nil { return *new(bool) } else { return *v.AllowCredentials }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceCorsConfigurationOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.Apply(func(v ServiceCorsConfiguration) []string {
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceCorsConfigurationOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.Apply(func(v ServiceCorsConfiguration) []string {
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceCorsConfigurationOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.Apply(func(v ServiceCorsConfiguration) []string {
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceCorsConfigurationOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.Apply(func(v ServiceCorsConfiguration) int {
+		return v.MaxAgeInSeconds
+	}).(pulumi.IntOutput)
+}
+
+func (ServiceCorsConfigurationOutput) ElementType() reflect.Type {
+	return serviceCorsConfigurationType
+}
+
+func (o ServiceCorsConfigurationOutput) ToServiceCorsConfigurationOutput() ServiceCorsConfigurationOutput {
+	return o
+}
+
+func (o ServiceCorsConfigurationOutput) ToServiceCorsConfigurationOutputWithContext(ctx context.Context) ServiceCorsConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{}) }
+

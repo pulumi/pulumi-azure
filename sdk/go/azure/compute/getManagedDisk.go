@@ -10,68 +10,48 @@ import (
 // Use this data source to access information about an existing Managed Disk.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
-func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManagedDiskResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
-	}
-	outputs, err := ctx.Invoke("azure:compute/getManagedDisk:getManagedDisk", inputs)
+func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs, opts ...pulumi.InvokeOption) (*GetManagedDiskResult, error) {
+	var rv GetManagedDiskResult
+	err := ctx.Invoke("azure:compute/getManagedDisk:getManagedDisk", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetManagedDiskResult{
-		CreateOption: outputs["createOption"],
-		DiskIopsReadWrite: outputs["diskIopsReadWrite"],
-		DiskMbpsReadWrite: outputs["diskMbpsReadWrite"],
-		DiskSizeGb: outputs["diskSizeGb"],
-		Name: outputs["name"],
-		OsType: outputs["osType"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SourceResourceId: outputs["sourceResourceId"],
-		SourceUri: outputs["sourceUri"],
-		StorageAccountType: outputs["storageAccountType"],
-		Tags: outputs["tags"],
-		Zones: outputs["zones"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getManagedDisk.
 type GetManagedDiskArgs struct {
 	// Specifies the name of the Managed Disk.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName interface{}
-	Tags interface{}
-	Zones interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags *map[string]string `pulumi:"tags"`
+	Zones *[]string `pulumi:"zones"`
 }
 
 // A collection of values returned by getManagedDisk.
 type GetManagedDiskResult struct {
-	CreateOption interface{}
+	CreateOption string `pulumi:"createOption"`
 	// The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
-	DiskIopsReadWrite interface{}
+	DiskIopsReadWrite int `pulumi:"diskIopsReadWrite"`
 	// The bandwidth allowed for this disk. 
-	DiskMbpsReadWrite interface{}
+	DiskMbpsReadWrite int `pulumi:"diskMbpsReadWrite"`
 	// The size of the managed disk in gigabytes.
-	DiskSizeGb interface{}
-	Name interface{}
+	DiskSizeGb int `pulumi:"diskSizeGb"`
+	Name string `pulumi:"name"`
 	// The operating system for managed disk. Valid values are `Linux` or `Windows`
-	OsType interface{}
-	ResourceGroupName interface{}
+	OsType string `pulumi:"osType"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// ID of an existing managed disk that the current resource was created from.
-	SourceResourceId interface{}
+	SourceResourceId string `pulumi:"sourceResourceId"`
 	// The source URI for the managed disk
-	SourceUri interface{}
+	SourceUri string `pulumi:"sourceUri"`
 	// The storage account type for the managed disk.
-	StorageAccountType interface{}
+	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// A collection containing the availability zone the managed disk is allocated in.
-	Zones interface{}
+	Zones []string `pulumi:"zones"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

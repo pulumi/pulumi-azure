@@ -10,69 +10,50 @@ import (
 // Use this data source to access information about an existing EventHub Namespace.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
-func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespaceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:eventhub/getNamespace:getNamespace", inputs)
+func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs, opts ...pulumi.InvokeOption) (*GetNamespaceResult, error) {
+	var rv GetNamespaceResult
+	err := ctx.Invoke("azure:eventhub/getNamespace:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNamespaceResult{
-		AutoInflateEnabled: outputs["autoInflateEnabled"],
-		Capacity: outputs["capacity"],
-		DefaultPrimaryConnectionString: outputs["defaultPrimaryConnectionString"],
-		DefaultPrimaryKey: outputs["defaultPrimaryKey"],
-		DefaultSecondaryConnectionString: outputs["defaultSecondaryConnectionString"],
-		DefaultSecondaryKey: outputs["defaultSecondaryKey"],
-		KafkaEnabled: outputs["kafkaEnabled"],
-		Location: outputs["location"],
-		MaximumThroughputUnits: outputs["maximumThroughputUnits"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNamespace.
 type GetNamespaceArgs struct {
 	// The name of the EventHub Namespace.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the EventHub Namespace exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespace.
 type GetNamespaceResult struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
-	AutoInflateEnabled interface{}
+	AutoInflateEnabled bool `pulumi:"autoInflateEnabled"`
 	// The Capacity / Throughput Units for a `Standard` SKU namespace.
-	Capacity interface{}
+	Capacity int `pulumi:"capacity"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
-	DefaultPrimaryConnectionString interface{}
+	DefaultPrimaryConnectionString string `pulumi:"defaultPrimaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultPrimaryKey interface{}
+	DefaultPrimaryKey string `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryConnectionString interface{}
+	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryKey interface{}
-	KafkaEnabled interface{}
+	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
+	KafkaEnabled bool `pulumi:"kafkaEnabled"`
 	// The Azure location where the EventHub Namespace exists
-	Location interface{}
+	Location string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled.
-	MaximumThroughputUnits interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	MaximumThroughputUnits int `pulumi:"maximumThroughputUnits"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Defines which tier to use.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the EventHub Namespace.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

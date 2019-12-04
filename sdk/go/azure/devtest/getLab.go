@@ -10,62 +10,45 @@ import (
 // Use this data source to access information about an existing Dev Test Lab.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
-func LookupLab(ctx *pulumi.Context, args *GetLabArgs) (*GetLabResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:devtest/getLab:getLab", inputs)
+func LookupLab(ctx *pulumi.Context, args *GetLabArgs, opts ...pulumi.InvokeOption) (*GetLabResult, error) {
+	var rv GetLabResult
+	err := ctx.Invoke("azure:devtest/getLab:getLab", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLabResult{
-		ArtifactsStorageAccountId: outputs["artifactsStorageAccountId"],
-		DefaultPremiumStorageAccountId: outputs["defaultPremiumStorageAccountId"],
-		DefaultStorageAccountId: outputs["defaultStorageAccountId"],
-		KeyVaultId: outputs["keyVaultId"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PremiumDataDiskStorageAccountId: outputs["premiumDataDiskStorageAccountId"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		StorageType: outputs["storageType"],
-		Tags: outputs["tags"],
-		UniqueIdentifier: outputs["uniqueIdentifier"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLab.
 type GetLabArgs struct {
 	// The name of the Dev Test Lab.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the Dev Test Lab exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getLab.
 type GetLabResult struct {
 	// The ID of the Storage Account used for Artifact Storage.
-	ArtifactsStorageAccountId interface{}
+	ArtifactsStorageAccountId string `pulumi:"artifactsStorageAccountId"`
 	// The ID of the Default Premium Storage Account for this Dev Test Lab.
-	DefaultPremiumStorageAccountId interface{}
+	DefaultPremiumStorageAccountId string `pulumi:"defaultPremiumStorageAccountId"`
 	// The ID of the Default Storage Account for this Dev Test Lab.
-	DefaultStorageAccountId interface{}
+	DefaultStorageAccountId string `pulumi:"defaultStorageAccountId"`
 	// The ID of the Key used for this Dev Test Lab.
-	KeyVaultId interface{}
+	KeyVaultId string `pulumi:"keyVaultId"`
 	// The Azure location where the Dev Test Lab exists.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// The ID of the Storage Account used for Storage of Premium Data Disk.
-	PremiumDataDiskStorageAccountId interface{}
-	ResourceGroupName interface{}
+	PremiumDataDiskStorageAccountId string `pulumi:"premiumDataDiskStorageAccountId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab.
-	StorageType interface{}
+	StorageType string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The unique immutable identifier of the Dev Test Lab.
-	UniqueIdentifier interface{}
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

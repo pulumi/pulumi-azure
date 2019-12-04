@@ -10,42 +10,41 @@ import (
 // Use this data source to access information about an existing Azure Firewall.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/firewall.html.markdown.
-func LookupFirewall(ctx *pulumi.Context, args *GetFirewallArgs) (*GetFirewallResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getFirewall:getFirewall", inputs)
+func LookupFirewall(ctx *pulumi.Context, args *GetFirewallArgs, opts ...pulumi.InvokeOption) (*GetFirewallResult, error) {
+	var rv GetFirewallResult
+	err := ctx.Invoke("azure:network/getFirewall:getFirewall", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetFirewallResult{
-		IpConfigurations: outputs["ipConfigurations"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getFirewall.
 type GetFirewallArgs struct {
 	// The name of the Azure Firewall.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Firewall exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getFirewall.
 type GetFirewallResult struct {
 	// A `ipConfiguration` block as defined below.
-	IpConfigurations interface{}
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
-	Tags interface{}
+	IpConfigurations []GetFirewallIpConfigurationsResult `pulumi:"ipConfigurations"`
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetFirewallIpConfigurationsResult struct {
+	InternalPublicIpAddressId string `pulumi:"internalPublicIpAddressId"`
+	// The name of the Azure Firewall.
+	Name string `pulumi:"name"`
+	// The private IP address of the Azure Firewall.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// The Resource ID of the subnet where the Azure Firewall is deployed.
+	SubnetId string `pulumi:"subnetId"`
 }

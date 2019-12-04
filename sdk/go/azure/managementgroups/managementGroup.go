@@ -11,99 +11,78 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group_legacy.html.markdown.
 type ManagementGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
+
+	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
+	ParentManagementGroupId pulumi.StringOutput `pulumi:"parentManagementGroupId"`
+
+	// A list of Subscription GUIDs which should be assigned to the Management Group.
+	SubscriptionIds pulumi.StringArrayOutput `pulumi:"subscriptionIds"`
 }
 
 // NewManagementGroup registers a new resource with the given unique name, arguments, and options.
 func NewManagementGroup(ctx *pulumi.Context,
-	name string, args *ManagementGroupArgs, opts ...pulumi.ResourceOpt) (*ManagementGroup, error) {
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["displayName"] = nil
-		inputs["groupId"] = nil
-		inputs["parentManagementGroupId"] = nil
-		inputs["subscriptionIds"] = nil
-	} else {
-		inputs["displayName"] = args.DisplayName
-		inputs["groupId"] = args.GroupId
-		inputs["parentManagementGroupId"] = args.ParentManagementGroupId
-		inputs["subscriptionIds"] = args.SubscriptionIds
+	name string, args *ManagementGroupArgs, opts ...pulumi.ResourceOption) (*ManagementGroup, error) {
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.GroupId; i != nil { inputs["groupId"] = i.ToStringOutput() }
+		if i := args.ParentManagementGroupId; i != nil { inputs["parentManagementGroupId"] = i.ToStringOutput() }
+		if i := args.SubscriptionIds; i != nil { inputs["subscriptionIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:managementgroups/managementGroup:ManagementGroup", name, true, inputs, opts...)
+	var resource ManagementGroup
+	err := ctx.RegisterResource("azure:managementgroups/managementGroup:ManagementGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ManagementGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetManagementGroup gets an existing ManagementGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetManagementGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ManagementGroupState, opts ...pulumi.ResourceOpt) (*ManagementGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ManagementGroupState, opts ...pulumi.ResourceOption) (*ManagementGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["displayName"] = state.DisplayName
-		inputs["groupId"] = state.GroupId
-		inputs["parentManagementGroupId"] = state.ParentManagementGroupId
-		inputs["subscriptionIds"] = state.SubscriptionIds
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.GroupId; i != nil { inputs["groupId"] = i.ToStringOutput() }
+		if i := state.ParentManagementGroupId; i != nil { inputs["parentManagementGroupId"] = i.ToStringOutput() }
+		if i := state.SubscriptionIds; i != nil { inputs["subscriptionIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:managementgroups/managementGroup:ManagementGroup", name, id, inputs, opts...)
+	var resource ManagementGroup
+	err := ctx.ReadResource("azure:managementgroups/managementGroup:ManagementGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ManagementGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ManagementGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ManagementGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
-func (r *ManagementGroup) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
-func (r *ManagementGroup) GroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["groupId"])
-}
-
-// The ID of the Parent Management Group. Changing this forces a new resource to be created.
-func (r *ManagementGroup) ParentManagementGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parentManagementGroupId"])
-}
-
-// A list of Subscription GUIDs which should be assigned to the Management Group.
-func (r *ManagementGroup) SubscriptionIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["subscriptionIds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ManagementGroup resources.
 type ManagementGroupState struct {
 	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
-	GroupId interface{}
+	GroupId pulumi.StringInput `pulumi:"groupId"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
-	ParentManagementGroupId interface{}
+	ParentManagementGroupId pulumi.StringInput `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
-	SubscriptionIds interface{}
+	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
 }
 
 // The set of arguments for constructing a ManagementGroup resource.
 type ManagementGroupArgs struct {
 	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
-	GroupId interface{}
+	GroupId pulumi.StringInput `pulumi:"groupId"`
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
-	ParentManagementGroupId interface{}
+	ParentManagementGroupId pulumi.StringInput `pulumi:"parentManagementGroupId"`
 	// A list of Subscription GUIDs which should be assigned to the Management Group.
-	SubscriptionIds interface{}
+	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
 }

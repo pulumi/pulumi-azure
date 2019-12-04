@@ -12,12 +12,21 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
 type NetworkInterfaceApplicationSecurityGroupAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+	ApplicationSecurityGroupId pulumi.StringOutput `pulumi:"applicationSecurityGroupId"`
+
+	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
+	IpConfigurationName pulumi.StringOutput `pulumi:"ipConfigurationName"`
+
+	// The ID of the Network Interface. Changing this forces a new resource to be created.
+	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 }
 
 // NewNetworkInterfaceApplicationSecurityGroupAssociation registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceApplicationSecurityGroupAssociation(ctx *pulumi.Context,
-	name string, args *NetworkInterfaceApplicationSecurityGroupAssociationArgs, opts ...pulumi.ResourceOpt) (*NetworkInterfaceApplicationSecurityGroupAssociation, error) {
+	name string, args *NetworkInterfaceApplicationSecurityGroupAssociationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceApplicationSecurityGroupAssociation, error) {
 	if args == nil || args.ApplicationSecurityGroupId == nil {
 		return nil, errors.New("missing required argument 'ApplicationSecurityGroupId'")
 	}
@@ -27,81 +36,54 @@ func NewNetworkInterfaceApplicationSecurityGroupAssociation(ctx *pulumi.Context,
 	if args == nil || args.NetworkInterfaceId == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationSecurityGroupId"] = nil
-		inputs["ipConfigurationName"] = nil
-		inputs["networkInterfaceId"] = nil
-	} else {
-		inputs["applicationSecurityGroupId"] = args.ApplicationSecurityGroupId
-		inputs["ipConfigurationName"] = args.IpConfigurationName
-		inputs["networkInterfaceId"] = args.NetworkInterfaceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationSecurityGroupId; i != nil { inputs["applicationSecurityGroupId"] = i.ToStringOutput() }
+		if i := args.IpConfigurationName; i != nil { inputs["ipConfigurationName"] = i.ToStringOutput() }
+		if i := args.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, true, inputs, opts...)
+	var resource NetworkInterfaceApplicationSecurityGroupAssociation
+	err := ctx.RegisterResource("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterfaceApplicationSecurityGroupAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkInterfaceApplicationSecurityGroupAssociation gets an existing NetworkInterfaceApplicationSecurityGroupAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkInterfaceApplicationSecurityGroupAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkInterfaceApplicationSecurityGroupAssociationState, opts ...pulumi.ResourceOpt) (*NetworkInterfaceApplicationSecurityGroupAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkInterfaceApplicationSecurityGroupAssociationState, opts ...pulumi.ResourceOption) (*NetworkInterfaceApplicationSecurityGroupAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationSecurityGroupId"] = state.ApplicationSecurityGroupId
-		inputs["ipConfigurationName"] = state.IpConfigurationName
-		inputs["networkInterfaceId"] = state.NetworkInterfaceId
+		if i := state.ApplicationSecurityGroupId; i != nil { inputs["applicationSecurityGroupId"] = i.ToStringOutput() }
+		if i := state.IpConfigurationName; i != nil { inputs["ipConfigurationName"] = i.ToStringOutput() }
+		if i := state.NetworkInterfaceId; i != nil { inputs["networkInterfaceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, id, inputs, opts...)
+	var resource NetworkInterfaceApplicationSecurityGroupAssociation
+	err := ctx.ReadResource("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkInterfaceApplicationSecurityGroupAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) ApplicationSecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationSecurityGroupId"])
-}
-
-// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) IpConfigurationName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipConfigurationName"])
-}
-
-// The ID of the Network Interface. Changing this forces a new resource to be created.
-func (r *NetworkInterfaceApplicationSecurityGroupAssociation) NetworkInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkInterfaceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkInterfaceApplicationSecurityGroupAssociation resources.
 type NetworkInterfaceApplicationSecurityGroupAssociationState struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-	ApplicationSecurityGroupId interface{}
+	ApplicationSecurityGroupId pulumi.StringInput `pulumi:"applicationSecurityGroupId"`
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName interface{}
+	IpConfigurationName pulumi.StringInput `pulumi:"ipConfigurationName"`
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceApplicationSecurityGroupAssociation resource.
 type NetworkInterfaceApplicationSecurityGroupAssociationArgs struct {
 	// The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-	ApplicationSecurityGroupId interface{}
+	ApplicationSecurityGroupId pulumi.StringInput `pulumi:"applicationSecurityGroupId"`
 	// The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
-	IpConfigurationName interface{}
+	IpConfigurationName pulumi.StringInput `pulumi:"ipConfigurationName"`
 	// The ID of the Network Interface. Changing this forces a new resource to be created.
-	NetworkInterfaceId interface{}
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }

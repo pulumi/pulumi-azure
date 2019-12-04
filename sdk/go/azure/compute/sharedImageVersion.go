@@ -4,6 +4,8 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
 type SharedImageVersion struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
+	ExcludeFromLatest pulumi.BoolOutput `pulumi:"excludeFromLatest"`
+
+	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
+	GalleryName pulumi.StringOutput `pulumi:"galleryName"`
+
+	// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
+	ImageName pulumi.StringOutput `pulumi:"imageName"`
+
+	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	ManagedImageId pulumi.StringOutput `pulumi:"managedImageId"`
+
+	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A collection of tags which should be applied to this resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// One or more `targetRegion` blocks as documented below.
+	TargetRegions SharedImageVersionTargetRegionsArrayOutput `pulumi:"targetRegions"`
 }
 
 // NewSharedImageVersion registers a new resource with the given unique name, arguments, and options.
 func NewSharedImageVersion(ctx *pulumi.Context,
-	name string, args *SharedImageVersionArgs, opts ...pulumi.ResourceOpt) (*SharedImageVersion, error) {
+	name string, args *SharedImageVersionArgs, opts ...pulumi.ResourceOption) (*SharedImageVersion, error) {
 	if args == nil || args.GalleryName == nil {
 		return nil, errors.New("missing required argument 'GalleryName'")
 	}
@@ -33,153 +62,196 @@ func NewSharedImageVersion(ctx *pulumi.Context,
 	if args == nil || args.TargetRegions == nil {
 		return nil, errors.New("missing required argument 'TargetRegions'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["excludeFromLatest"] = nil
-		inputs["galleryName"] = nil
-		inputs["imageName"] = nil
-		inputs["location"] = nil
-		inputs["managedImageId"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["targetRegions"] = nil
-	} else {
-		inputs["excludeFromLatest"] = args.ExcludeFromLatest
-		inputs["galleryName"] = args.GalleryName
-		inputs["imageName"] = args.ImageName
-		inputs["location"] = args.Location
-		inputs["managedImageId"] = args.ManagedImageId
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["targetRegions"] = args.TargetRegions
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ExcludeFromLatest; i != nil { inputs["excludeFromLatest"] = i.ToBoolOutput() }
+		if i := args.GalleryName; i != nil { inputs["galleryName"] = i.ToStringOutput() }
+		if i := args.ImageName; i != nil { inputs["imageName"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.ManagedImageId; i != nil { inputs["managedImageId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TargetRegions; i != nil { inputs["targetRegions"] = i.ToSharedImageVersionTargetRegionsArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/sharedImageVersion:SharedImageVersion", name, true, inputs, opts...)
+	var resource SharedImageVersion
+	err := ctx.RegisterResource("azure:compute/sharedImageVersion:SharedImageVersion", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedImageVersion{s: s}, nil
+	return &resource, nil
 }
 
 // GetSharedImageVersion gets an existing SharedImageVersion resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSharedImageVersion(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SharedImageVersionState, opts ...pulumi.ResourceOpt) (*SharedImageVersion, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SharedImageVersionState, opts ...pulumi.ResourceOption) (*SharedImageVersion, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["excludeFromLatest"] = state.ExcludeFromLatest
-		inputs["galleryName"] = state.GalleryName
-		inputs["imageName"] = state.ImageName
-		inputs["location"] = state.Location
-		inputs["managedImageId"] = state.ManagedImageId
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["targetRegions"] = state.TargetRegions
+		if i := state.ExcludeFromLatest; i != nil { inputs["excludeFromLatest"] = i.ToBoolOutput() }
+		if i := state.GalleryName; i != nil { inputs["galleryName"] = i.ToStringOutput() }
+		if i := state.ImageName; i != nil { inputs["imageName"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.ManagedImageId; i != nil { inputs["managedImageId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TargetRegions; i != nil { inputs["targetRegions"] = i.ToSharedImageVersionTargetRegionsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/sharedImageVersion:SharedImageVersion", name, id, inputs, opts...)
+	var resource SharedImageVersion
+	err := ctx.ReadResource("azure:compute/sharedImageVersion:SharedImageVersion", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedImageVersion{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SharedImageVersion) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SharedImageVersion) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
-func (r *SharedImageVersion) ExcludeFromLatest() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["excludeFromLatest"])
-}
-
-// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
-func (r *SharedImageVersion) GalleryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["galleryName"])
-}
-
-// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
-func (r *SharedImageVersion) ImageName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageName"])
-}
-
-// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-func (r *SharedImageVersion) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
-func (r *SharedImageVersion) ManagedImageId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["managedImageId"])
-}
-
-// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
-func (r *SharedImageVersion) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-func (r *SharedImageVersion) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A collection of tags which should be applied to this resource.
-func (r *SharedImageVersion) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// One or more `targetRegion` blocks as documented below.
-func (r *SharedImageVersion) TargetRegions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["targetRegions"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SharedImageVersion resources.
 type SharedImageVersionState struct {
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
-	ExcludeFromLatest interface{}
+	ExcludeFromLatest pulumi.BoolInput `pulumi:"excludeFromLatest"`
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
-	GalleryName interface{}
+	GalleryName pulumi.StringInput `pulumi:"galleryName"`
 	// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
-	ImageName interface{}
+	ImageName pulumi.StringInput `pulumi:"imageName"`
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
-	ManagedImageId interface{}
+	ManagedImageId pulumi.StringInput `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
-	TargetRegions interface{}
+	TargetRegions SharedImageVersionTargetRegionsArrayInput `pulumi:"targetRegions"`
 }
 
 // The set of arguments for constructing a SharedImageVersion resource.
 type SharedImageVersionArgs struct {
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
-	ExcludeFromLatest interface{}
+	ExcludeFromLatest pulumi.BoolInput `pulumi:"excludeFromLatest"`
 	// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
-	GalleryName interface{}
+	GalleryName pulumi.StringInput `pulumi:"galleryName"`
 	// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
-	ImageName interface{}
+	ImageName pulumi.StringInput `pulumi:"imageName"`
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
-	ManagedImageId interface{}
+	ManagedImageId pulumi.StringInput `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
-	TargetRegions interface{}
+	TargetRegions SharedImageVersionTargetRegionsArrayInput `pulumi:"targetRegions"`
 }
+type SharedImageVersionTargetRegions struct {
+	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
+}
+var sharedImageVersionTargetRegionsType = reflect.TypeOf((*SharedImageVersionTargetRegions)(nil)).Elem()
+
+type SharedImageVersionTargetRegionsInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionTargetRegionsOutput() SharedImageVersionTargetRegionsOutput
+	ToSharedImageVersionTargetRegionsOutputWithContext(ctx context.Context) SharedImageVersionTargetRegionsOutput
+}
+
+type SharedImageVersionTargetRegionsArgs struct {
+	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	RegionalReplicaCount pulumi.IntInput `pulumi:"regionalReplicaCount"`
+}
+
+func (SharedImageVersionTargetRegionsArgs) ElementType() reflect.Type {
+	return sharedImageVersionTargetRegionsType
+}
+
+func (a SharedImageVersionTargetRegionsArgs) ToSharedImageVersionTargetRegionsOutput() SharedImageVersionTargetRegionsOutput {
+	return pulumi.ToOutput(a).(SharedImageVersionTargetRegionsOutput)
+}
+
+func (a SharedImageVersionTargetRegionsArgs) ToSharedImageVersionTargetRegionsOutputWithContext(ctx context.Context) SharedImageVersionTargetRegionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SharedImageVersionTargetRegionsOutput)
+}
+
+type SharedImageVersionTargetRegionsOutput struct { *pulumi.OutputState }
+
+// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+func (o SharedImageVersionTargetRegionsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v SharedImageVersionTargetRegions) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o SharedImageVersionTargetRegionsOutput) RegionalReplicaCount() pulumi.IntOutput {
+	return o.Apply(func(v SharedImageVersionTargetRegions) int {
+		return v.RegionalReplicaCount
+	}).(pulumi.IntOutput)
+}
+
+func (SharedImageVersionTargetRegionsOutput) ElementType() reflect.Type {
+	return sharedImageVersionTargetRegionsType
+}
+
+func (o SharedImageVersionTargetRegionsOutput) ToSharedImageVersionTargetRegionsOutput() SharedImageVersionTargetRegionsOutput {
+	return o
+}
+
+func (o SharedImageVersionTargetRegionsOutput) ToSharedImageVersionTargetRegionsOutputWithContext(ctx context.Context) SharedImageVersionTargetRegionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SharedImageVersionTargetRegionsOutput{}) }
+
+var sharedImageVersionTargetRegionsArrayType = reflect.TypeOf((*[]SharedImageVersionTargetRegions)(nil)).Elem()
+
+type SharedImageVersionTargetRegionsArrayInput interface {
+	pulumi.Input
+
+	ToSharedImageVersionTargetRegionsArrayOutput() SharedImageVersionTargetRegionsArrayOutput
+	ToSharedImageVersionTargetRegionsArrayOutputWithContext(ctx context.Context) SharedImageVersionTargetRegionsArrayOutput
+}
+
+type SharedImageVersionTargetRegionsArrayArgs []SharedImageVersionTargetRegionsInput
+
+func (SharedImageVersionTargetRegionsArrayArgs) ElementType() reflect.Type {
+	return sharedImageVersionTargetRegionsArrayType
+}
+
+func (a SharedImageVersionTargetRegionsArrayArgs) ToSharedImageVersionTargetRegionsArrayOutput() SharedImageVersionTargetRegionsArrayOutput {
+	return pulumi.ToOutput(a).(SharedImageVersionTargetRegionsArrayOutput)
+}
+
+func (a SharedImageVersionTargetRegionsArrayArgs) ToSharedImageVersionTargetRegionsArrayOutputWithContext(ctx context.Context) SharedImageVersionTargetRegionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SharedImageVersionTargetRegionsArrayOutput)
+}
+
+type SharedImageVersionTargetRegionsArrayOutput struct { *pulumi.OutputState }
+
+func (o SharedImageVersionTargetRegionsArrayOutput) Index(i pulumi.IntInput) SharedImageVersionTargetRegionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SharedImageVersionTargetRegions {
+		return vs[0].([]SharedImageVersionTargetRegions)[vs[1].(int)]
+	}).(SharedImageVersionTargetRegionsOutput)
+}
+
+func (SharedImageVersionTargetRegionsArrayOutput) ElementType() reflect.Type {
+	return sharedImageVersionTargetRegionsArrayType
+}
+
+func (o SharedImageVersionTargetRegionsArrayOutput) ToSharedImageVersionTargetRegionsArrayOutput() SharedImageVersionTargetRegionsArrayOutput {
+	return o
+}
+
+func (o SharedImageVersionTargetRegionsArrayOutput) ToSharedImageVersionTargetRegionsArrayOutputWithContext(ctx context.Context) SharedImageVersionTargetRegionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SharedImageVersionTargetRegionsArrayOutput{}) }
+

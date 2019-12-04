@@ -12,159 +12,123 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
 type Service struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Search Service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
+
+	// The Search Service Administration primary key.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+
+	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+	ReplicaCount pulumi.IntOutput `pulumi:"replicaCount"`
+
+	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Search Service Administration secondary key.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+
+	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
-	name string, args *ServiceArgs, opts ...pulumi.ResourceOpt) (*Service, error) {
+	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["partitionCount"] = nil
-		inputs["replicaCount"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["partitionCount"] = args.PartitionCount
-		inputs["replicaCount"] = args.ReplicaCount
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PartitionCount; i != nil { inputs["partitionCount"] = i.ToIntOutput() }
+		if i := args.ReplicaCount; i != nil { inputs["replicaCount"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["primaryKey"] = nil
-	inputs["secondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:search/service:Service", name, true, inputs, opts...)
+	var resource Service
+	err := ctx.RegisterResource("azure:search/service:Service", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
+	return &resource, nil
 }
 
 // GetService gets an existing Service resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["partitionCount"] = state.PartitionCount
-		inputs["primaryKey"] = state.PrimaryKey
-		inputs["replicaCount"] = state.ReplicaCount
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryKey"] = state.SecondaryKey
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PartitionCount; i != nil { inputs["partitionCount"] = i.ToIntOutput() }
+		if i := state.PrimaryKey; i != nil { inputs["primaryKey"] = i.ToStringOutput() }
+		if i := state.ReplicaCount; i != nil { inputs["replicaCount"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryKey; i != nil { inputs["secondaryKey"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:search/service:Service", name, id, inputs, opts...)
+	var resource Service
+	err := ctx.ReadResource("azure:search/service:Service", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Service) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Search Service. Changing this forces a new resource to be created.
-func (r *Service) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-func (r *Service) PartitionCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["partitionCount"])
-}
-
-// The Search Service Administration primary key.
-func (r *Service) PrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryKey"])
-}
-
-// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-func (r *Service) ReplicaCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["replicaCount"])
-}
-
-// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
-func (r *Service) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Search Service Administration secondary key.
-func (r *Service) SecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
-}
-
-// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
-func (r *Service) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Service) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Search Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-	PartitionCount interface{}
+	PartitionCount pulumi.IntInput `pulumi:"partitionCount"`
 	// The Search Service Administration primary key.
-	PrimaryKey interface{}
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-	ReplicaCount interface{}
+	ReplicaCount pulumi.IntInput `pulumi:"replicaCount"`
 	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Search Service Administration secondary key.
-	SecondaryKey interface{}
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Search Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-	PartitionCount interface{}
+	PartitionCount pulumi.IntInput `pulumi:"partitionCount"`
 	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-	ReplicaCount interface{}
+	ReplicaCount pulumi.IntInput `pulumi:"replicaCount"`
 	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

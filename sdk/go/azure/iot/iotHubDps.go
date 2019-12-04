@@ -4,6 +4,8 @@
 package iot
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,165 +14,325 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
 type IotHubDps struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The allocation policy of the IoT Device Provisioning Service.
+	AllocationPolicy pulumi.StringOutput `pulumi:"allocationPolicy"`
+
+	// The device endpoint of the IoT Device Provisioning Service.
+	DeviceProvisioningHostName pulumi.StringOutput `pulumi:"deviceProvisioningHostName"`
+
+	// The unique identifier of the IoT Device Provisioning Service.
+	IdScope pulumi.StringOutput `pulumi:"idScope"`
+
+	// A `linkedHub` block as defined below.
+	LinkedHubs IotHubDpsLinkedHubsArrayOutput `pulumi:"linkedHubs"`
+
+	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The service endpoint of the IoT Device Provisioning Service.
+	ServiceOperationsHostName pulumi.StringOutput `pulumi:"serviceOperationsHostName"`
+
+	// A `sku` block as defined below.
+	Sku IotHubDpsSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewIotHubDps registers a new resource with the given unique name, arguments, and options.
 func NewIotHubDps(ctx *pulumi.Context,
-	name string, args *IotHubDpsArgs, opts ...pulumi.ResourceOpt) (*IotHubDps, error) {
+	name string, args *IotHubDpsArgs, opts ...pulumi.ResourceOption) (*IotHubDps, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["linkedHubs"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["linkedHubs"] = args.LinkedHubs
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.LinkedHubs; i != nil { inputs["linkedHubs"] = i.ToIotHubDpsLinkedHubsArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToIotHubDpsSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["allocationPolicy"] = nil
-	inputs["deviceProvisioningHostName"] = nil
-	inputs["idScope"] = nil
-	inputs["serviceOperationsHostName"] = nil
-	s, err := ctx.RegisterResource("azure:iot/iotHubDps:IotHubDps", name, true, inputs, opts...)
+	var resource IotHubDps
+	err := ctx.RegisterResource("azure:iot/iotHubDps:IotHubDps", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IotHubDps{s: s}, nil
+	return &resource, nil
 }
 
 // GetIotHubDps gets an existing IotHubDps resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIotHubDps(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IotHubDpsState, opts ...pulumi.ResourceOpt) (*IotHubDps, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IotHubDpsState, opts ...pulumi.ResourceOption) (*IotHubDps, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allocationPolicy"] = state.AllocationPolicy
-		inputs["deviceProvisioningHostName"] = state.DeviceProvisioningHostName
-		inputs["idScope"] = state.IdScope
-		inputs["linkedHubs"] = state.LinkedHubs
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serviceOperationsHostName"] = state.ServiceOperationsHostName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.AllocationPolicy; i != nil { inputs["allocationPolicy"] = i.ToStringOutput() }
+		if i := state.DeviceProvisioningHostName; i != nil { inputs["deviceProvisioningHostName"] = i.ToStringOutput() }
+		if i := state.IdScope; i != nil { inputs["idScope"] = i.ToStringOutput() }
+		if i := state.LinkedHubs; i != nil { inputs["linkedHubs"] = i.ToIotHubDpsLinkedHubsArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServiceOperationsHostName; i != nil { inputs["serviceOperationsHostName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToIotHubDpsSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/iotHubDps:IotHubDps", name, id, inputs, opts...)
+	var resource IotHubDps
+	err := ctx.ReadResource("azure:iot/iotHubDps:IotHubDps", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IotHubDps{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IotHubDps) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IotHubDps) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The allocation policy of the IoT Device Provisioning Service.
-func (r *IotHubDps) AllocationPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["allocationPolicy"])
-}
-
-// The device endpoint of the IoT Device Provisioning Service.
-func (r *IotHubDps) DeviceProvisioningHostName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["deviceProvisioningHostName"])
-}
-
-// The unique identifier of the IoT Device Provisioning Service.
-func (r *IotHubDps) IdScope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["idScope"])
-}
-
-// A `linkedHub` block as defined below.
-func (r *IotHubDps) LinkedHubs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["linkedHubs"])
-}
-
-// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-func (r *IotHubDps) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-func (r *IotHubDps) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
-func (r *IotHubDps) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The service endpoint of the IoT Device Provisioning Service.
-func (r *IotHubDps) ServiceOperationsHostName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceOperationsHostName"])
-}
-
-// A `sku` block as defined below.
-func (r *IotHubDps) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *IotHubDps) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IotHubDps resources.
 type IotHubDpsState struct {
 	// The allocation policy of the IoT Device Provisioning Service.
-	AllocationPolicy interface{}
+	AllocationPolicy pulumi.StringInput `pulumi:"allocationPolicy"`
 	// The device endpoint of the IoT Device Provisioning Service.
-	DeviceProvisioningHostName interface{}
+	DeviceProvisioningHostName pulumi.StringInput `pulumi:"deviceProvisioningHostName"`
 	// The unique identifier of the IoT Device Provisioning Service.
-	IdScope interface{}
+	IdScope pulumi.StringInput `pulumi:"idScope"`
 	// A `linkedHub` block as defined below.
-	LinkedHubs interface{}
+	LinkedHubs IotHubDpsLinkedHubsArrayInput `pulumi:"linkedHubs"`
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The service endpoint of the IoT Device Provisioning Service.
-	ServiceOperationsHostName interface{}
+	ServiceOperationsHostName pulumi.StringInput `pulumi:"serviceOperationsHostName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku IotHubDpsSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IotHubDps resource.
 type IotHubDpsArgs struct {
 	// A `linkedHub` block as defined below.
-	LinkedHubs interface{}
+	LinkedHubs IotHubDpsLinkedHubsArrayInput `pulumi:"linkedHubs"`
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku IotHubDpsSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type IotHubDpsLinkedHubs struct {
+	AllocationWeight *int `pulumi:"allocationWeight"`
+	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
+	ConnectionString string `pulumi:"connectionString"`
+	Hostname *string `pulumi:"hostname"`
+	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	Location string `pulumi:"location"`
+}
+var iotHubDpsLinkedHubsType = reflect.TypeOf((*IotHubDpsLinkedHubs)(nil)).Elem()
+
+type IotHubDpsLinkedHubsInput interface {
+	pulumi.Input
+
+	ToIotHubDpsLinkedHubsOutput() IotHubDpsLinkedHubsOutput
+	ToIotHubDpsLinkedHubsOutputWithContext(ctx context.Context) IotHubDpsLinkedHubsOutput
+}
+
+type IotHubDpsLinkedHubsArgs struct {
+	AllocationWeight pulumi.IntInput `pulumi:"allocationWeight"`
+	ApplyAllocationPolicy pulumi.BoolInput `pulumi:"applyAllocationPolicy"`
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+	Location pulumi.StringInput `pulumi:"location"`
+}
+
+func (IotHubDpsLinkedHubsArgs) ElementType() reflect.Type {
+	return iotHubDpsLinkedHubsType
+}
+
+func (a IotHubDpsLinkedHubsArgs) ToIotHubDpsLinkedHubsOutput() IotHubDpsLinkedHubsOutput {
+	return pulumi.ToOutput(a).(IotHubDpsLinkedHubsOutput)
+}
+
+func (a IotHubDpsLinkedHubsArgs) ToIotHubDpsLinkedHubsOutputWithContext(ctx context.Context) IotHubDpsLinkedHubsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IotHubDpsLinkedHubsOutput)
+}
+
+type IotHubDpsLinkedHubsOutput struct { *pulumi.OutputState }
+
+func (o IotHubDpsLinkedHubsOutput) AllocationWeight() pulumi.IntOutput {
+	return o.Apply(func(v IotHubDpsLinkedHubs) int {
+		if v.AllocationWeight == nil { return *new(int) } else { return *v.AllocationWeight }
+	}).(pulumi.IntOutput)
+}
+
+func (o IotHubDpsLinkedHubsOutput) ApplyAllocationPolicy() pulumi.BoolOutput {
+	return o.Apply(func(v IotHubDpsLinkedHubs) bool {
+		if v.ApplyAllocationPolicy == nil { return *new(bool) } else { return *v.ApplyAllocationPolicy }
+	}).(pulumi.BoolOutput)
+}
+
+func (o IotHubDpsLinkedHubsOutput) ConnectionString() pulumi.StringOutput {
+	return o.Apply(func(v IotHubDpsLinkedHubs) string {
+		return v.ConnectionString
+	}).(pulumi.StringOutput)
+}
+
+func (o IotHubDpsLinkedHubsOutput) Hostname() pulumi.StringOutput {
+	return o.Apply(func(v IotHubDpsLinkedHubs) string {
+		if v.Hostname == nil { return *new(string) } else { return *v.Hostname }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+func (o IotHubDpsLinkedHubsOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v IotHubDpsLinkedHubs) string {
+		return v.Location
+	}).(pulumi.StringOutput)
+}
+
+func (IotHubDpsLinkedHubsOutput) ElementType() reflect.Type {
+	return iotHubDpsLinkedHubsType
+}
+
+func (o IotHubDpsLinkedHubsOutput) ToIotHubDpsLinkedHubsOutput() IotHubDpsLinkedHubsOutput {
+	return o
+}
+
+func (o IotHubDpsLinkedHubsOutput) ToIotHubDpsLinkedHubsOutputWithContext(ctx context.Context) IotHubDpsLinkedHubsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IotHubDpsLinkedHubsOutput{}) }
+
+var iotHubDpsLinkedHubsArrayType = reflect.TypeOf((*[]IotHubDpsLinkedHubs)(nil)).Elem()
+
+type IotHubDpsLinkedHubsArrayInput interface {
+	pulumi.Input
+
+	ToIotHubDpsLinkedHubsArrayOutput() IotHubDpsLinkedHubsArrayOutput
+	ToIotHubDpsLinkedHubsArrayOutputWithContext(ctx context.Context) IotHubDpsLinkedHubsArrayOutput
+}
+
+type IotHubDpsLinkedHubsArrayArgs []IotHubDpsLinkedHubsInput
+
+func (IotHubDpsLinkedHubsArrayArgs) ElementType() reflect.Type {
+	return iotHubDpsLinkedHubsArrayType
+}
+
+func (a IotHubDpsLinkedHubsArrayArgs) ToIotHubDpsLinkedHubsArrayOutput() IotHubDpsLinkedHubsArrayOutput {
+	return pulumi.ToOutput(a).(IotHubDpsLinkedHubsArrayOutput)
+}
+
+func (a IotHubDpsLinkedHubsArrayArgs) ToIotHubDpsLinkedHubsArrayOutputWithContext(ctx context.Context) IotHubDpsLinkedHubsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IotHubDpsLinkedHubsArrayOutput)
+}
+
+type IotHubDpsLinkedHubsArrayOutput struct { *pulumi.OutputState }
+
+func (o IotHubDpsLinkedHubsArrayOutput) Index(i pulumi.IntInput) IotHubDpsLinkedHubsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) IotHubDpsLinkedHubs {
+		return vs[0].([]IotHubDpsLinkedHubs)[vs[1].(int)]
+	}).(IotHubDpsLinkedHubsOutput)
+}
+
+func (IotHubDpsLinkedHubsArrayOutput) ElementType() reflect.Type {
+	return iotHubDpsLinkedHubsArrayType
+}
+
+func (o IotHubDpsLinkedHubsArrayOutput) ToIotHubDpsLinkedHubsArrayOutput() IotHubDpsLinkedHubsArrayOutput {
+	return o
+}
+
+func (o IotHubDpsLinkedHubsArrayOutput) ToIotHubDpsLinkedHubsArrayOutputWithContext(ctx context.Context) IotHubDpsLinkedHubsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IotHubDpsLinkedHubsArrayOutput{}) }
+
+type IotHubDpsSku struct {
+	Capacity int `pulumi:"capacity"`
+	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Tier string `pulumi:"tier"`
+}
+var iotHubDpsSkuType = reflect.TypeOf((*IotHubDpsSku)(nil)).Elem()
+
+type IotHubDpsSkuInput interface {
+	pulumi.Input
+
+	ToIotHubDpsSkuOutput() IotHubDpsSkuOutput
+	ToIotHubDpsSkuOutputWithContext(ctx context.Context) IotHubDpsSkuOutput
+}
+
+type IotHubDpsSkuArgs struct {
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (IotHubDpsSkuArgs) ElementType() reflect.Type {
+	return iotHubDpsSkuType
+}
+
+func (a IotHubDpsSkuArgs) ToIotHubDpsSkuOutput() IotHubDpsSkuOutput {
+	return pulumi.ToOutput(a).(IotHubDpsSkuOutput)
+}
+
+func (a IotHubDpsSkuArgs) ToIotHubDpsSkuOutputWithContext(ctx context.Context) IotHubDpsSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IotHubDpsSkuOutput)
+}
+
+type IotHubDpsSkuOutput struct { *pulumi.OutputState }
+
+func (o IotHubDpsSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v IotHubDpsSku) int {
+		return v.Capacity
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+func (o IotHubDpsSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v IotHubDpsSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o IotHubDpsSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v IotHubDpsSku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (IotHubDpsSkuOutput) ElementType() reflect.Type {
+	return iotHubDpsSkuType
+}
+
+func (o IotHubDpsSkuOutput) ToIotHubDpsSkuOutput() IotHubDpsSkuOutput {
+	return o
+}
+
+func (o IotHubDpsSkuOutput) ToIotHubDpsSkuOutputWithContext(ctx context.Context) IotHubDpsSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IotHubDpsSkuOutput{}) }
+

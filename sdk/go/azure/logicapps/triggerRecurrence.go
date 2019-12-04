@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
 type TriggerRecurrence struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
+	Frequency pulumi.StringOutput `pulumi:"frequency"`
+
+	// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+	Interval pulumi.IntOutput `pulumi:"interval"`
+
+	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
+
+	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewTriggerRecurrence registers a new resource with the given unique name, arguments, and options.
 func NewTriggerRecurrence(ctx *pulumi.Context,
-	name string, args *TriggerRecurrenceArgs, opts ...pulumi.ResourceOpt) (*TriggerRecurrence, error) {
+	name string, args *TriggerRecurrenceArgs, opts ...pulumi.ResourceOption) (*TriggerRecurrence, error) {
 	if args == nil || args.Frequency == nil {
 		return nil, errors.New("missing required argument 'Frequency'")
 	}
@@ -27,93 +39,60 @@ func NewTriggerRecurrence(ctx *pulumi.Context,
 	if args == nil || args.LogicAppId == nil {
 		return nil, errors.New("missing required argument 'LogicAppId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["frequency"] = nil
-		inputs["interval"] = nil
-		inputs["logicAppId"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["frequency"] = args.Frequency
-		inputs["interval"] = args.Interval
-		inputs["logicAppId"] = args.LogicAppId
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := args.Interval; i != nil { inputs["interval"] = i.ToIntOutput() }
+		if i := args.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, true, inputs, opts...)
+	var resource TriggerRecurrence
+	err := ctx.RegisterResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerRecurrence{s: s}, nil
+	return &resource, nil
 }
 
 // GetTriggerRecurrence gets an existing TriggerRecurrence resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTriggerRecurrence(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TriggerRecurrenceState, opts ...pulumi.ResourceOpt) (*TriggerRecurrence, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TriggerRecurrenceState, opts ...pulumi.ResourceOption) (*TriggerRecurrence, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["frequency"] = state.Frequency
-		inputs["interval"] = state.Interval
-		inputs["logicAppId"] = state.LogicAppId
-		inputs["name"] = state.Name
+		if i := state.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := state.Interval; i != nil { inputs["interval"] = i.ToIntOutput() }
+		if i := state.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, id, inputs, opts...)
+	var resource TriggerRecurrence
+	err := ctx.ReadResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerRecurrence{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerRecurrence) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerRecurrence) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
-func (r *TriggerRecurrence) Frequency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frequency"])
-}
-
-// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
-func (r *TriggerRecurrence) Interval() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["interval"])
-}
-
-// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerRecurrence) LogicAppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logicAppId"])
-}
-
-// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerRecurrence) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TriggerRecurrence resources.
 type TriggerRecurrenceState struct {
 	// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
-	Interval interface{}
+	Interval pulumi.IntInput `pulumi:"interval"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TriggerRecurrence resource.
 type TriggerRecurrenceArgs struct {
 	// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
-	Interval interface{}
+	Interval pulumi.IntInput `pulumi:"interval"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

@@ -12,150 +12,117 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
 type AvailabilitySet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+	Managed pulumi.BoolOutput `pulumi:"managed"`
+
+	// Specifies the name of the availability set. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the number of fault domains that are used. Defaults to 3.
+	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
+
+	// Specifies the number of update domains that are used. Defaults to 5.
+	PlatformUpdateDomainCount pulumi.IntOutput `pulumi:"platformUpdateDomainCount"`
+
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId pulumi.StringOutput `pulumi:"proximityPlacementGroupId"`
+
+	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewAvailabilitySet registers a new resource with the given unique name, arguments, and options.
 func NewAvailabilitySet(ctx *pulumi.Context,
-	name string, args *AvailabilitySetArgs, opts ...pulumi.ResourceOpt) (*AvailabilitySet, error) {
+	name string, args *AvailabilitySetArgs, opts ...pulumi.ResourceOption) (*AvailabilitySet, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["managed"] = nil
-		inputs["name"] = nil
-		inputs["platformFaultDomainCount"] = nil
-		inputs["platformUpdateDomainCount"] = nil
-		inputs["proximityPlacementGroupId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["managed"] = args.Managed
-		inputs["name"] = args.Name
-		inputs["platformFaultDomainCount"] = args.PlatformFaultDomainCount
-		inputs["platformUpdateDomainCount"] = args.PlatformUpdateDomainCount
-		inputs["proximityPlacementGroupId"] = args.ProximityPlacementGroupId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Managed; i != nil { inputs["managed"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PlatformFaultDomainCount; i != nil { inputs["platformFaultDomainCount"] = i.ToIntOutput() }
+		if i := args.PlatformUpdateDomainCount; i != nil { inputs["platformUpdateDomainCount"] = i.ToIntOutput() }
+		if i := args.ProximityPlacementGroupId; i != nil { inputs["proximityPlacementGroupId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/availabilitySet:AvailabilitySet", name, true, inputs, opts...)
+	var resource AvailabilitySet
+	err := ctx.RegisterResource("azure:compute/availabilitySet:AvailabilitySet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AvailabilitySet{s: s}, nil
+	return &resource, nil
 }
 
 // GetAvailabilitySet gets an existing AvailabilitySet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAvailabilitySet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AvailabilitySetState, opts ...pulumi.ResourceOpt) (*AvailabilitySet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AvailabilitySetState, opts ...pulumi.ResourceOption) (*AvailabilitySet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["managed"] = state.Managed
-		inputs["name"] = state.Name
-		inputs["platformFaultDomainCount"] = state.PlatformFaultDomainCount
-		inputs["platformUpdateDomainCount"] = state.PlatformUpdateDomainCount
-		inputs["proximityPlacementGroupId"] = state.ProximityPlacementGroupId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Managed; i != nil { inputs["managed"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PlatformFaultDomainCount; i != nil { inputs["platformFaultDomainCount"] = i.ToIntOutput() }
+		if i := state.PlatformUpdateDomainCount; i != nil { inputs["platformUpdateDomainCount"] = i.ToIntOutput() }
+		if i := state.ProximityPlacementGroupId; i != nil { inputs["proximityPlacementGroupId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/availabilitySet:AvailabilitySet", name, id, inputs, opts...)
+	var resource AvailabilitySet
+	err := ctx.ReadResource("azure:compute/availabilitySet:AvailabilitySet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AvailabilitySet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AvailabilitySet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AvailabilitySet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AvailabilitySet) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
-func (r *AvailabilitySet) Managed() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["managed"])
-}
-
-// Specifies the name of the availability set. Changing this forces a new resource to be created.
-func (r *AvailabilitySet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the number of fault domains that are used. Defaults to 3.
-func (r *AvailabilitySet) PlatformFaultDomainCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["platformFaultDomainCount"])
-}
-
-// Specifies the number of update domains that are used. Defaults to 5.
-func (r *AvailabilitySet) PlatformUpdateDomainCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["platformUpdateDomainCount"])
-}
-
-// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-func (r *AvailabilitySet) ProximityPlacementGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
-}
-
-// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
-func (r *AvailabilitySet) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *AvailabilitySet) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AvailabilitySet resources.
 type AvailabilitySetState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
-	Managed interface{}
+	Managed pulumi.BoolInput `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the number of fault domains that are used. Defaults to 3.
-	PlatformFaultDomainCount interface{}
+	PlatformFaultDomainCount pulumi.IntInput `pulumi:"platformFaultDomainCount"`
 	// Specifies the number of update domains that are used. Defaults to 5.
-	PlatformUpdateDomainCount interface{}
+	PlatformUpdateDomainCount pulumi.IntInput `pulumi:"platformUpdateDomainCount"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-	ProximityPlacementGroupId interface{}
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AvailabilitySet resource.
 type AvailabilitySetArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
-	Managed interface{}
+	Managed pulumi.BoolInput `pulumi:"managed"`
 	// Specifies the name of the availability set. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the number of fault domains that are used. Defaults to 3.
-	PlatformFaultDomainCount interface{}
+	PlatformFaultDomainCount pulumi.IntInput `pulumi:"platformFaultDomainCount"`
 	// Specifies the number of update domains that are used. Defaults to 5.
-	PlatformUpdateDomainCount interface{}
+	PlatformUpdateDomainCount pulumi.IntInput `pulumi:"platformUpdateDomainCount"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-	ProximityPlacementGroupId interface{}
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
 	// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

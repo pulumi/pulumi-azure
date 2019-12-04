@@ -12,12 +12,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule_legacy.html.markdown.
 type QueueAuthorizationRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
+	Listen pulumi.BoolOutput `pulumi:"listen"`
+
+	// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	Manage pulumi.BoolOutput `pulumi:"manage"`
+
+	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+
+	// The Primary Connection String for the Authorization Rule.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+
+	// The Primary Key for the Authorization Rule.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+
+	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+	QueueName pulumi.StringOutput `pulumi:"queueName"`
+
+	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Secondary Connection String for the Authorization Rule.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+
+	// The Secondary Key for the Authorization Rule.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+
+	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
+	Send pulumi.BoolOutput `pulumi:"send"`
 }
 
 // NewQueueAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewQueueAuthorizationRule(ctx *pulumi.Context,
-	name string, args *QueueAuthorizationRuleArgs, opts ...pulumi.ResourceOpt) (*QueueAuthorizationRule, error) {
+	name string, args *QueueAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*QueueAuthorizationRule, error) {
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
@@ -27,165 +60,90 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["listen"] = nil
-		inputs["manage"] = nil
-		inputs["name"] = nil
-		inputs["namespaceName"] = nil
-		inputs["queueName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["send"] = nil
-	} else {
-		inputs["listen"] = args.Listen
-		inputs["manage"] = args.Manage
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["queueName"] = args.QueueName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["send"] = args.Send
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Listen; i != nil { inputs["listen"] = i.ToBoolOutput() }
+		if i := args.Manage; i != nil { inputs["manage"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := args.QueueName; i != nil { inputs["queueName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Send; i != nil { inputs["send"] = i.ToBoolOutput() }
 	}
-	inputs["primaryConnectionString"] = nil
-	inputs["primaryKey"] = nil
-	inputs["secondaryConnectionString"] = nil
-	inputs["secondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", name, true, inputs, opts...)
+	var resource QueueAuthorizationRule
+	err := ctx.RegisterResource("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &QueueAuthorizationRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetQueueAuthorizationRule gets an existing QueueAuthorizationRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetQueueAuthorizationRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *QueueAuthorizationRuleState, opts ...pulumi.ResourceOpt) (*QueueAuthorizationRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *QueueAuthorizationRuleState, opts ...pulumi.ResourceOption) (*QueueAuthorizationRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["listen"] = state.Listen
-		inputs["manage"] = state.Manage
-		inputs["name"] = state.Name
-		inputs["namespaceName"] = state.NamespaceName
-		inputs["primaryConnectionString"] = state.PrimaryConnectionString
-		inputs["primaryKey"] = state.PrimaryKey
-		inputs["queueName"] = state.QueueName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
-		inputs["secondaryKey"] = state.SecondaryKey
-		inputs["send"] = state.Send
+		if i := state.Listen; i != nil { inputs["listen"] = i.ToBoolOutput() }
+		if i := state.Manage; i != nil { inputs["manage"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := state.PrimaryConnectionString; i != nil { inputs["primaryConnectionString"] = i.ToStringOutput() }
+		if i := state.PrimaryKey; i != nil { inputs["primaryKey"] = i.ToStringOutput() }
+		if i := state.QueueName; i != nil { inputs["queueName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryConnectionString; i != nil { inputs["secondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.SecondaryKey; i != nil { inputs["secondaryKey"] = i.ToStringOutput() }
+		if i := state.Send; i != nil { inputs["send"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", name, id, inputs, opts...)
+	var resource QueueAuthorizationRule
+	err := ctx.ReadResource("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &QueueAuthorizationRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *QueueAuthorizationRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *QueueAuthorizationRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
-func (r *QueueAuthorizationRule) Listen() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["listen"])
-}
-
-// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-func (r *QueueAuthorizationRule) Manage() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["manage"])
-}
-
-// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) NamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceName"])
-}
-
-// The Primary Connection String for the Authorization Rule.
-func (r *QueueAuthorizationRule) PrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
-}
-
-// The Primary Key for the Authorization Rule.
-func (r *QueueAuthorizationRule) PrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryKey"])
-}
-
-// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) QueueName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["queueName"])
-}
-
-// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-func (r *QueueAuthorizationRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Secondary Connection String for the Authorization Rule.
-func (r *QueueAuthorizationRule) SecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
-}
-
-// The Secondary Key for the Authorization Rule.
-func (r *QueueAuthorizationRule) SecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
-}
-
-// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
-func (r *QueueAuthorizationRule) Send() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["send"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering QueueAuthorizationRule resources.
 type QueueAuthorizationRuleState struct {
 	// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
-	Listen interface{}
+	Listen pulumi.BoolInput `pulumi:"listen"`
 	// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-	Manage interface{}
+	Manage pulumi.BoolInput `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// The Primary Connection String for the Authorization Rule.
-	PrimaryConnectionString interface{}
+	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
 	// The Primary Key for the Authorization Rule.
-	PrimaryKey interface{}
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
-	QueueName interface{}
+	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Authorization Rule.
-	SecondaryConnectionString interface{}
+	SecondaryConnectionString pulumi.StringInput `pulumi:"secondaryConnectionString"`
 	// The Secondary Key for the Authorization Rule.
-	SecondaryKey interface{}
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
-	Send interface{}
+	Send pulumi.BoolInput `pulumi:"send"`
 }
 
 // The set of arguments for constructing a QueueAuthorizationRule resource.
 type QueueAuthorizationRuleArgs struct {
 	// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
-	Listen interface{}
+	Listen pulumi.BoolInput `pulumi:"listen"`
 	// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-	Manage interface{}
+	Manage pulumi.BoolInput `pulumi:"manage"`
 	// Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
-	QueueName interface{}
+	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
-	Send interface{}
+	Send pulumi.BoolInput `pulumi:"send"`
 }

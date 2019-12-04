@@ -10,67 +10,46 @@ import (
 // Use this data source to access information about an existing Public IP Address.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
-func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
-	}
-	outputs, err := ctx.Invoke("azure:network/getPublicIP:getPublicIP", inputs)
+func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
+	var rv GetPublicIPResult
+	err := ctx.Invoke("azure:network/getPublicIP:getPublicIP", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPublicIPResult{
-		AllocationMethod: outputs["allocationMethod"],
-		DomainNameLabel: outputs["domainNameLabel"],
-		Fqdn: outputs["fqdn"],
-		IdleTimeoutInMinutes: outputs["idleTimeoutInMinutes"],
-		IpAddress: outputs["ipAddress"],
-		IpVersion: outputs["ipVersion"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ReverseFqdn: outputs["reverseFqdn"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Zones: outputs["zones"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPublicIP.
 type GetPublicIPArgs struct {
 	// Specifies the name of the public IP address.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName interface{}
-	Tags interface{}
-	Zones interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags *map[string]string `pulumi:"tags"`
+	Zones *[]string `pulumi:"zones"`
 }
 
 // A collection of values returned by getPublicIP.
 type GetPublicIPResult struct {
-	AllocationMethod interface{}
+	AllocationMethod string `pulumi:"allocationMethod"`
 	// The label for the Domain Name.
-	DomainNameLabel interface{}
+	DomainNameLabel string `pulumi:"domainNameLabel"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-	Fqdn interface{}
+	Fqdn string `pulumi:"fqdn"`
 	// Specifies the timeout for the TCP idle connection.
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
-	IpAddress interface{}
+	IpAddress string `pulumi:"ipAddress"`
 	// The IP version being used, for example `IPv4` or `IPv6`.
-	IpVersion interface{}
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
-	ReverseFqdn interface{}
-	Sku interface{}
+	IpVersion string `pulumi:"ipVersion"`
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ReverseFqdn string `pulumi:"reverseFqdn"`
+	Sku string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
-	Tags interface{}
-	Zones interface{}
+	Tags map[string]string `pulumi:"tags"`
+	Zones []string `pulumi:"zones"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

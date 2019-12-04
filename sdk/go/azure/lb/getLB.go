@@ -10,54 +10,56 @@ import (
 // Use this data source to access information about an existing Load Balancer
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
-func LookupLB(ctx *pulumi.Context, args *GetLBArgs) (*GetLBResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:lb/getLB:getLB", inputs)
+func LookupLB(ctx *pulumi.Context, args *GetLBArgs, opts ...pulumi.InvokeOption) (*GetLBResult, error) {
+	var rv GetLBResult
+	err := ctx.Invoke("azure:lb/getLB:getLB", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLBResult{
-		FrontendIpConfigurations: outputs["frontendIpConfigurations"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PrivateIpAddress: outputs["privateIpAddress"],
-		PrivateIpAddresses: outputs["privateIpAddresses"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLB.
 type GetLBArgs struct {
 	// Specifies the name of the Load Balancer.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Load Balancer exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getLB.
 type GetLBResult struct {
 	// (Optional) A `frontendIpConfiguration` block as documented below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations []GetLBFrontendIpConfigurationsResult `pulumi:"frontendIpConfigurations"`
 	// The Azure location where the Load Balancer exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the Frontend IP Configuration.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Private IP Address to assign to the Load Balancer.
-	PrivateIpAddress interface{}
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
-	PrivateIpAddresses interface{}
-	ResourceGroupName interface{}
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Load Balancer.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetLBFrontendIpConfigurationsResult struct {
+	// The id of the Frontend IP Configuration.
+	Id string `pulumi:"id"`
+	// Specifies the name of the Load Balancer.
+	Name string `pulumi:"name"`
+	// Private IP Address to assign to the Load Balancer.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The allocation method for the Private IP Address used by this Load Balancer.
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	// The ID of a  Public IP Address which is associated with this Load Balancer.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// The ID of the Subnet which is associated with the IP Configuration.
+	SubnetId string `pulumi:"subnetId"`
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+	Zones []string `pulumi:"zones"`
 }

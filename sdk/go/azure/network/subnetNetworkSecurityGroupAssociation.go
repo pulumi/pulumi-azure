@@ -14,81 +14,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
 type SubnetNetworkSecurityGroupAssociation struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
+
+	// The ID of the Subnet. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewSubnetNetworkSecurityGroupAssociation registers a new resource with the given unique name, arguments, and options.
 func NewSubnetNetworkSecurityGroupAssociation(ctx *pulumi.Context,
-	name string, args *SubnetNetworkSecurityGroupAssociationArgs, opts ...pulumi.ResourceOpt) (*SubnetNetworkSecurityGroupAssociation, error) {
+	name string, args *SubnetNetworkSecurityGroupAssociationArgs, opts ...pulumi.ResourceOption) (*SubnetNetworkSecurityGroupAssociation, error) {
 	if args == nil || args.NetworkSecurityGroupId == nil {
 		return nil, errors.New("missing required argument 'NetworkSecurityGroupId'")
 	}
 	if args == nil || args.SubnetId == nil {
 		return nil, errors.New("missing required argument 'SubnetId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["networkSecurityGroupId"] = nil
-		inputs["subnetId"] = nil
-	} else {
-		inputs["networkSecurityGroupId"] = args.NetworkSecurityGroupId
-		inputs["subnetId"] = args.SubnetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.NetworkSecurityGroupId; i != nil { inputs["networkSecurityGroupId"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, true, inputs, opts...)
+	var resource SubnetNetworkSecurityGroupAssociation
+	err := ctx.RegisterResource("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubnetNetworkSecurityGroupAssociation{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubnetNetworkSecurityGroupAssociation gets an existing SubnetNetworkSecurityGroupAssociation resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubnetNetworkSecurityGroupAssociation(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubnetNetworkSecurityGroupAssociationState, opts ...pulumi.ResourceOpt) (*SubnetNetworkSecurityGroupAssociation, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubnetNetworkSecurityGroupAssociationState, opts ...pulumi.ResourceOption) (*SubnetNetworkSecurityGroupAssociation, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["networkSecurityGroupId"] = state.NetworkSecurityGroupId
-		inputs["subnetId"] = state.SubnetId
+		if i := state.NetworkSecurityGroupId; i != nil { inputs["networkSecurityGroupId"] = i.ToStringOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, id, inputs, opts...)
+	var resource SubnetNetworkSecurityGroupAssociation
+	err := ctx.ReadResource("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SubnetNetworkSecurityGroupAssociation{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SubnetNetworkSecurityGroupAssociation) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SubnetNetworkSecurityGroupAssociation) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
-func (r *SubnetNetworkSecurityGroupAssociation) NetworkSecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
-}
-
-// The ID of the Subnet. Changing this forces a new resource to be created.
-func (r *SubnetNetworkSecurityGroupAssociation) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SubnetNetworkSecurityGroupAssociation resources.
 type SubnetNetworkSecurityGroupAssociationState struct {
 	// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
 	// The ID of the Subnet. Changing this forces a new resource to be created.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a SubnetNetworkSecurityGroupAssociation resource.
 type SubnetNetworkSecurityGroupAssociationArgs struct {
 	// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
 	// The ID of the Subnet. Changing this forces a new resource to be created.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }

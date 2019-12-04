@@ -4,6 +4,8 @@
 package scheduler
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,189 +16,1212 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job.html.markdown.
 type Job struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
+	ActionStorageQueue JobActionStorageQueueOutput `pulumi:"actionStorageQueue"`
+
+	// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
+	ActionWeb JobActionWebOutput `pulumi:"actionWeb"`
+
+	// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
+	ErrorActionStorageQueue JobErrorActionStorageQueueOutput `pulumi:"errorActionStorageQueue"`
+
+	// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
+	ErrorActionWeb JobErrorActionWebOutput `pulumi:"errorActionWeb"`
+
+	// Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
+	JobCollectionName pulumi.StringOutput `pulumi:"jobCollectionName"`
+
+	// The name of the Scheduler Job. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `recurrence` block defining a job occurrence schedule.
+	Recurrence JobRecurrenceOutput `pulumi:"recurrence"`
+
+	// The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `retry` block defining how to retry as described below.
+	Retry JobRetryOutput `pulumi:"retry"`
+
+	// The time the first instance of the job is to start running at.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
+
+	// The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
+	State pulumi.StringOutput `pulumi:"state"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
-	name string, args *JobArgs, opts ...pulumi.ResourceOpt) (*Job, error) {
+	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
 	if args == nil || args.JobCollectionName == nil {
 		return nil, errors.New("missing required argument 'JobCollectionName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["actionStorageQueue"] = nil
-		inputs["actionWeb"] = nil
-		inputs["errorActionStorageQueue"] = nil
-		inputs["errorActionWeb"] = nil
-		inputs["jobCollectionName"] = nil
-		inputs["name"] = nil
-		inputs["recurrence"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["retry"] = nil
-		inputs["startTime"] = nil
-		inputs["state"] = nil
-	} else {
-		inputs["actionStorageQueue"] = args.ActionStorageQueue
-		inputs["actionWeb"] = args.ActionWeb
-		inputs["errorActionStorageQueue"] = args.ErrorActionStorageQueue
-		inputs["errorActionWeb"] = args.ErrorActionWeb
-		inputs["jobCollectionName"] = args.JobCollectionName
-		inputs["name"] = args.Name
-		inputs["recurrence"] = args.Recurrence
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["retry"] = args.Retry
-		inputs["startTime"] = args.StartTime
-		inputs["state"] = args.State
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActionStorageQueue; i != nil { inputs["actionStorageQueue"] = i.ToJobActionStorageQueueOutput() }
+		if i := args.ActionWeb; i != nil { inputs["actionWeb"] = i.ToJobActionWebOutput() }
+		if i := args.ErrorActionStorageQueue; i != nil { inputs["errorActionStorageQueue"] = i.ToJobErrorActionStorageQueueOutput() }
+		if i := args.ErrorActionWeb; i != nil { inputs["errorActionWeb"] = i.ToJobErrorActionWebOutput() }
+		if i := args.JobCollectionName; i != nil { inputs["jobCollectionName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Recurrence; i != nil { inputs["recurrence"] = i.ToJobRecurrenceOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Retry; i != nil { inputs["retry"] = i.ToJobRetryOutput() }
+		if i := args.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
+		if i := args.State; i != nil { inputs["state"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:scheduler/job:Job", name, true, inputs, opts...)
+	var resource Job
+	err := ctx.RegisterResource("azure:scheduler/job:Job", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Job{s: s}, nil
+	return &resource, nil
 }
 
 // GetJob gets an existing Job resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetJob(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *JobState, opts ...pulumi.ResourceOpt) (*Job, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["actionStorageQueue"] = state.ActionStorageQueue
-		inputs["actionWeb"] = state.ActionWeb
-		inputs["errorActionStorageQueue"] = state.ErrorActionStorageQueue
-		inputs["errorActionWeb"] = state.ErrorActionWeb
-		inputs["jobCollectionName"] = state.JobCollectionName
-		inputs["name"] = state.Name
-		inputs["recurrence"] = state.Recurrence
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["retry"] = state.Retry
-		inputs["startTime"] = state.StartTime
-		inputs["state"] = state.State
+		if i := state.ActionStorageQueue; i != nil { inputs["actionStorageQueue"] = i.ToJobActionStorageQueueOutput() }
+		if i := state.ActionWeb; i != nil { inputs["actionWeb"] = i.ToJobActionWebOutput() }
+		if i := state.ErrorActionStorageQueue; i != nil { inputs["errorActionStorageQueue"] = i.ToJobErrorActionStorageQueueOutput() }
+		if i := state.ErrorActionWeb; i != nil { inputs["errorActionWeb"] = i.ToJobErrorActionWebOutput() }
+		if i := state.JobCollectionName; i != nil { inputs["jobCollectionName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Recurrence; i != nil { inputs["recurrence"] = i.ToJobRecurrenceOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Retry; i != nil { inputs["retry"] = i.ToJobRetryOutput() }
+		if i := state.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:scheduler/job:Job", name, id, inputs, opts...)
+	var resource Job
+	err := ctx.ReadResource("azure:scheduler/job:Job", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Job{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Job) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Job) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
-func (r *Job) ActionStorageQueue() pulumi.Output {
-	return r.s.State["actionStorageQueue"]
-}
-
-// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
-func (r *Job) ActionWeb() pulumi.Output {
-	return r.s.State["actionWeb"]
-}
-
-// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
-func (r *Job) ErrorActionStorageQueue() pulumi.Output {
-	return r.s.State["errorActionStorageQueue"]
-}
-
-// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
-func (r *Job) ErrorActionWeb() pulumi.Output {
-	return r.s.State["errorActionWeb"]
-}
-
-// Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
-func (r *Job) JobCollectionName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["jobCollectionName"])
-}
-
-// The name of the Scheduler Job. Changing this forces a new resource to be created.
-func (r *Job) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `recurrence` block defining a job occurrence schedule.
-func (r *Job) Recurrence() pulumi.Output {
-	return r.s.State["recurrence"]
-}
-
-// The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
-func (r *Job) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `retry` block defining how to retry as described below.
-func (r *Job) Retry() pulumi.Output {
-	return r.s.State["retry"]
-}
-
-// The time the first instance of the job is to start running at.
-func (r *Job) StartTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startTime"])
-}
-
-// The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
-func (r *Job) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Job resources.
 type JobState struct {
 	// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
-	ActionStorageQueue interface{}
+	ActionStorageQueue JobActionStorageQueueInput `pulumi:"actionStorageQueue"`
 	// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
-	ActionWeb interface{}
+	ActionWeb JobActionWebInput `pulumi:"actionWeb"`
 	// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
-	ErrorActionStorageQueue interface{}
+	ErrorActionStorageQueue JobErrorActionStorageQueueInput `pulumi:"errorActionStorageQueue"`
 	// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
-	ErrorActionWeb interface{}
+	ErrorActionWeb JobErrorActionWebInput `pulumi:"errorActionWeb"`
 	// Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
-	JobCollectionName interface{}
+	JobCollectionName pulumi.StringInput `pulumi:"jobCollectionName"`
 	// The name of the Scheduler Job. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `recurrence` block defining a job occurrence schedule.
-	Recurrence interface{}
+	Recurrence JobRecurrenceInput `pulumi:"recurrence"`
 	// The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `retry` block defining how to retry as described below.
-	Retry interface{}
+	Retry JobRetryInput `pulumi:"retry"`
 	// The time the first instance of the job is to start running at.
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
 	// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
-	ActionStorageQueue interface{}
+	ActionStorageQueue JobActionStorageQueueInput `pulumi:"actionStorageQueue"`
 	// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
-	ActionWeb interface{}
+	ActionWeb JobActionWebInput `pulumi:"actionWeb"`
 	// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
-	ErrorActionStorageQueue interface{}
+	ErrorActionStorageQueue JobErrorActionStorageQueueInput `pulumi:"errorActionStorageQueue"`
 	// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
-	ErrorActionWeb interface{}
+	ErrorActionWeb JobErrorActionWebInput `pulumi:"errorActionWeb"`
 	// Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
-	JobCollectionName interface{}
+	JobCollectionName pulumi.StringInput `pulumi:"jobCollectionName"`
 	// The name of the Scheduler Job. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `recurrence` block defining a job occurrence schedule.
-	Recurrence interface{}
+	Recurrence JobRecurrenceInput `pulumi:"recurrence"`
 	// The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `retry` block defining how to retry as described below.
-	Retry interface{}
+	Retry JobRetryInput `pulumi:"retry"`
 	// The time the first instance of the job is to start running at.
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 	// The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 }
+type JobActionStorageQueue struct {
+	Message string `pulumi:"message"`
+	SasToken string `pulumi:"sasToken"`
+	StorageAccountName string `pulumi:"storageAccountName"`
+	StorageQueueName string `pulumi:"storageQueueName"`
+}
+var jobActionStorageQueueType = reflect.TypeOf((*JobActionStorageQueue)(nil)).Elem()
+
+type JobActionStorageQueueInput interface {
+	pulumi.Input
+
+	ToJobActionStorageQueueOutput() JobActionStorageQueueOutput
+	ToJobActionStorageQueueOutputWithContext(ctx context.Context) JobActionStorageQueueOutput
+}
+
+type JobActionStorageQueueArgs struct {
+	Message pulumi.StringInput `pulumi:"message"`
+	SasToken pulumi.StringInput `pulumi:"sasToken"`
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	StorageQueueName pulumi.StringInput `pulumi:"storageQueueName"`
+}
+
+func (JobActionStorageQueueArgs) ElementType() reflect.Type {
+	return jobActionStorageQueueType
+}
+
+func (a JobActionStorageQueueArgs) ToJobActionStorageQueueOutput() JobActionStorageQueueOutput {
+	return pulumi.ToOutput(a).(JobActionStorageQueueOutput)
+}
+
+func (a JobActionStorageQueueArgs) ToJobActionStorageQueueOutputWithContext(ctx context.Context) JobActionStorageQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobActionStorageQueueOutput)
+}
+
+type JobActionStorageQueueOutput struct { *pulumi.OutputState }
+
+func (o JobActionStorageQueueOutput) Message() pulumi.StringOutput {
+	return o.Apply(func(v JobActionStorageQueue) string {
+		return v.Message
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionStorageQueueOutput) SasToken() pulumi.StringOutput {
+	return o.Apply(func(v JobActionStorageQueue) string {
+		return v.SasToken
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionStorageQueueOutput) StorageAccountName() pulumi.StringOutput {
+	return o.Apply(func(v JobActionStorageQueue) string {
+		return v.StorageAccountName
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionStorageQueueOutput) StorageQueueName() pulumi.StringOutput {
+	return o.Apply(func(v JobActionStorageQueue) string {
+		return v.StorageQueueName
+	}).(pulumi.StringOutput)
+}
+
+func (JobActionStorageQueueOutput) ElementType() reflect.Type {
+	return jobActionStorageQueueType
+}
+
+func (o JobActionStorageQueueOutput) ToJobActionStorageQueueOutput() JobActionStorageQueueOutput {
+	return o
+}
+
+func (o JobActionStorageQueueOutput) ToJobActionStorageQueueOutputWithContext(ctx context.Context) JobActionStorageQueueOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobActionStorageQueueOutput{}) }
+
+type JobActionWeb struct {
+	AuthenticationActiveDirectory *JobActionWebAuthenticationActiveDirectory `pulumi:"authenticationActiveDirectory"`
+	AuthenticationBasic *JobActionWebAuthenticationBasic `pulumi:"authenticationBasic"`
+	AuthenticationCertificate *JobActionWebAuthenticationCertificate `pulumi:"authenticationCertificate"`
+	Body *string `pulumi:"body"`
+	Headers *map[string]string `pulumi:"headers"`
+	Method string `pulumi:"method"`
+	Url string `pulumi:"url"`
+}
+var jobActionWebType = reflect.TypeOf((*JobActionWeb)(nil)).Elem()
+
+type JobActionWebInput interface {
+	pulumi.Input
+
+	ToJobActionWebOutput() JobActionWebOutput
+	ToJobActionWebOutputWithContext(ctx context.Context) JobActionWebOutput
+}
+
+type JobActionWebArgs struct {
+	AuthenticationActiveDirectory JobActionWebAuthenticationActiveDirectoryInput `pulumi:"authenticationActiveDirectory"`
+	AuthenticationBasic JobActionWebAuthenticationBasicInput `pulumi:"authenticationBasic"`
+	AuthenticationCertificate JobActionWebAuthenticationCertificateInput `pulumi:"authenticationCertificate"`
+	Body pulumi.StringInput `pulumi:"body"`
+	Headers pulumi.StringMapInput `pulumi:"headers"`
+	Method pulumi.StringInput `pulumi:"method"`
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (JobActionWebArgs) ElementType() reflect.Type {
+	return jobActionWebType
+}
+
+func (a JobActionWebArgs) ToJobActionWebOutput() JobActionWebOutput {
+	return pulumi.ToOutput(a).(JobActionWebOutput)
+}
+
+func (a JobActionWebArgs) ToJobActionWebOutputWithContext(ctx context.Context) JobActionWebOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobActionWebOutput)
+}
+
+type JobActionWebOutput struct { *pulumi.OutputState }
+
+func (o JobActionWebOutput) AuthenticationActiveDirectory() JobActionWebAuthenticationActiveDirectoryOutput {
+	return o.Apply(func(v JobActionWeb) JobActionWebAuthenticationActiveDirectory {
+		if v.AuthenticationActiveDirectory == nil { return *new(JobActionWebAuthenticationActiveDirectory) } else { return *v.AuthenticationActiveDirectory }
+	}).(JobActionWebAuthenticationActiveDirectoryOutput)
+}
+
+func (o JobActionWebOutput) AuthenticationBasic() JobActionWebAuthenticationBasicOutput {
+	return o.Apply(func(v JobActionWeb) JobActionWebAuthenticationBasic {
+		if v.AuthenticationBasic == nil { return *new(JobActionWebAuthenticationBasic) } else { return *v.AuthenticationBasic }
+	}).(JobActionWebAuthenticationBasicOutput)
+}
+
+func (o JobActionWebOutput) AuthenticationCertificate() JobActionWebAuthenticationCertificateOutput {
+	return o.Apply(func(v JobActionWeb) JobActionWebAuthenticationCertificate {
+		if v.AuthenticationCertificate == nil { return *new(JobActionWebAuthenticationCertificate) } else { return *v.AuthenticationCertificate }
+	}).(JobActionWebAuthenticationCertificateOutput)
+}
+
+func (o JobActionWebOutput) Body() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWeb) string {
+		if v.Body == nil { return *new(string) } else { return *v.Body }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebOutput) Headers() pulumi.StringMapOutput {
+	return o.Apply(func(v JobActionWeb) map[string]string {
+		if v.Headers == nil { return *new(map[string]string) } else { return *v.Headers }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o JobActionWebOutput) Method() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWeb) string {
+		return v.Method
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWeb) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+func (JobActionWebOutput) ElementType() reflect.Type {
+	return jobActionWebType
+}
+
+func (o JobActionWebOutput) ToJobActionWebOutput() JobActionWebOutput {
+	return o
+}
+
+func (o JobActionWebOutput) ToJobActionWebOutputWithContext(ctx context.Context) JobActionWebOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobActionWebOutput{}) }
+
+type JobActionWebAuthenticationActiveDirectory struct {
+	Audience *string `pulumi:"audience"`
+	ClientId string `pulumi:"clientId"`
+	Secret string `pulumi:"secret"`
+	TenantId string `pulumi:"tenantId"`
+}
+var jobActionWebAuthenticationActiveDirectoryType = reflect.TypeOf((*JobActionWebAuthenticationActiveDirectory)(nil)).Elem()
+
+type JobActionWebAuthenticationActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToJobActionWebAuthenticationActiveDirectoryOutput() JobActionWebAuthenticationActiveDirectoryOutput
+	ToJobActionWebAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) JobActionWebAuthenticationActiveDirectoryOutput
+}
+
+type JobActionWebAuthenticationActiveDirectoryArgs struct {
+	Audience pulumi.StringInput `pulumi:"audience"`
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	Secret pulumi.StringInput `pulumi:"secret"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (JobActionWebAuthenticationActiveDirectoryArgs) ElementType() reflect.Type {
+	return jobActionWebAuthenticationActiveDirectoryType
+}
+
+func (a JobActionWebAuthenticationActiveDirectoryArgs) ToJobActionWebAuthenticationActiveDirectoryOutput() JobActionWebAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(JobActionWebAuthenticationActiveDirectoryOutput)
+}
+
+func (a JobActionWebAuthenticationActiveDirectoryArgs) ToJobActionWebAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) JobActionWebAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobActionWebAuthenticationActiveDirectoryOutput)
+}
+
+type JobActionWebAuthenticationActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o JobActionWebAuthenticationActiveDirectoryOutput) Audience() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationActiveDirectory) string {
+		if v.Audience == nil { return *new(string) } else { return *v.Audience }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebAuthenticationActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationActiveDirectory) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebAuthenticationActiveDirectoryOutput) Secret() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationActiveDirectory) string {
+		return v.Secret
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebAuthenticationActiveDirectoryOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationActiveDirectory) string {
+		return v.TenantId
+	}).(pulumi.StringOutput)
+}
+
+func (JobActionWebAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
+	return jobActionWebAuthenticationActiveDirectoryType
+}
+
+func (o JobActionWebAuthenticationActiveDirectoryOutput) ToJobActionWebAuthenticationActiveDirectoryOutput() JobActionWebAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o JobActionWebAuthenticationActiveDirectoryOutput) ToJobActionWebAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) JobActionWebAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobActionWebAuthenticationActiveDirectoryOutput{}) }
+
+type JobActionWebAuthenticationBasic struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var jobActionWebAuthenticationBasicType = reflect.TypeOf((*JobActionWebAuthenticationBasic)(nil)).Elem()
+
+type JobActionWebAuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToJobActionWebAuthenticationBasicOutput() JobActionWebAuthenticationBasicOutput
+	ToJobActionWebAuthenticationBasicOutputWithContext(ctx context.Context) JobActionWebAuthenticationBasicOutput
+}
+
+type JobActionWebAuthenticationBasicArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (JobActionWebAuthenticationBasicArgs) ElementType() reflect.Type {
+	return jobActionWebAuthenticationBasicType
+}
+
+func (a JobActionWebAuthenticationBasicArgs) ToJobActionWebAuthenticationBasicOutput() JobActionWebAuthenticationBasicOutput {
+	return pulumi.ToOutput(a).(JobActionWebAuthenticationBasicOutput)
+}
+
+func (a JobActionWebAuthenticationBasicArgs) ToJobActionWebAuthenticationBasicOutputWithContext(ctx context.Context) JobActionWebAuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobActionWebAuthenticationBasicOutput)
+}
+
+type JobActionWebAuthenticationBasicOutput struct { *pulumi.OutputState }
+
+func (o JobActionWebAuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationBasic) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebAuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationBasic) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (JobActionWebAuthenticationBasicOutput) ElementType() reflect.Type {
+	return jobActionWebAuthenticationBasicType
+}
+
+func (o JobActionWebAuthenticationBasicOutput) ToJobActionWebAuthenticationBasicOutput() JobActionWebAuthenticationBasicOutput {
+	return o
+}
+
+func (o JobActionWebAuthenticationBasicOutput) ToJobActionWebAuthenticationBasicOutputWithContext(ctx context.Context) JobActionWebAuthenticationBasicOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobActionWebAuthenticationBasicOutput{}) }
+
+type JobActionWebAuthenticationCertificate struct {
+	// (Computed)  The certificate expiration date.
+	Expiration *string `pulumi:"expiration"`
+	Password string `pulumi:"password"`
+	Pfx string `pulumi:"pfx"`
+	// (Computed) The certificate's certificate subject name.
+	SubjectName *string `pulumi:"subjectName"`
+	// (Computed) The certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+var jobActionWebAuthenticationCertificateType = reflect.TypeOf((*JobActionWebAuthenticationCertificate)(nil)).Elem()
+
+type JobActionWebAuthenticationCertificateInput interface {
+	pulumi.Input
+
+	ToJobActionWebAuthenticationCertificateOutput() JobActionWebAuthenticationCertificateOutput
+	ToJobActionWebAuthenticationCertificateOutputWithContext(ctx context.Context) JobActionWebAuthenticationCertificateOutput
+}
+
+type JobActionWebAuthenticationCertificateArgs struct {
+	// (Computed)  The certificate expiration date.
+	Expiration pulumi.StringInput `pulumi:"expiration"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Pfx pulumi.StringInput `pulumi:"pfx"`
+	// (Computed) The certificate's certificate subject name.
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// (Computed) The certificate thumbprint.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (JobActionWebAuthenticationCertificateArgs) ElementType() reflect.Type {
+	return jobActionWebAuthenticationCertificateType
+}
+
+func (a JobActionWebAuthenticationCertificateArgs) ToJobActionWebAuthenticationCertificateOutput() JobActionWebAuthenticationCertificateOutput {
+	return pulumi.ToOutput(a).(JobActionWebAuthenticationCertificateOutput)
+}
+
+func (a JobActionWebAuthenticationCertificateArgs) ToJobActionWebAuthenticationCertificateOutputWithContext(ctx context.Context) JobActionWebAuthenticationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobActionWebAuthenticationCertificateOutput)
+}
+
+type JobActionWebAuthenticationCertificateOutput struct { *pulumi.OutputState }
+
+// (Computed)  The certificate expiration date.
+func (o JobActionWebAuthenticationCertificateOutput) Expiration() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationCertificate) string {
+		if v.Expiration == nil { return *new(string) } else { return *v.Expiration }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebAuthenticationCertificateOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationCertificate) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o JobActionWebAuthenticationCertificateOutput) Pfx() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationCertificate) string {
+		return v.Pfx
+	}).(pulumi.StringOutput)
+}
+
+// (Computed) The certificate's certificate subject name.
+func (o JobActionWebAuthenticationCertificateOutput) SubjectName() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationCertificate) string {
+		if v.SubjectName == nil { return *new(string) } else { return *v.SubjectName }
+	}).(pulumi.StringOutput)
+}
+
+// (Computed) The certificate thumbprint.
+func (o JobActionWebAuthenticationCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.Apply(func(v JobActionWebAuthenticationCertificate) string {
+		if v.Thumbprint == nil { return *new(string) } else { return *v.Thumbprint }
+	}).(pulumi.StringOutput)
+}
+
+func (JobActionWebAuthenticationCertificateOutput) ElementType() reflect.Type {
+	return jobActionWebAuthenticationCertificateType
+}
+
+func (o JobActionWebAuthenticationCertificateOutput) ToJobActionWebAuthenticationCertificateOutput() JobActionWebAuthenticationCertificateOutput {
+	return o
+}
+
+func (o JobActionWebAuthenticationCertificateOutput) ToJobActionWebAuthenticationCertificateOutputWithContext(ctx context.Context) JobActionWebAuthenticationCertificateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobActionWebAuthenticationCertificateOutput{}) }
+
+type JobErrorActionStorageQueue struct {
+	Message string `pulumi:"message"`
+	SasToken string `pulumi:"sasToken"`
+	StorageAccountName string `pulumi:"storageAccountName"`
+	StorageQueueName string `pulumi:"storageQueueName"`
+}
+var jobErrorActionStorageQueueType = reflect.TypeOf((*JobErrorActionStorageQueue)(nil)).Elem()
+
+type JobErrorActionStorageQueueInput interface {
+	pulumi.Input
+
+	ToJobErrorActionStorageQueueOutput() JobErrorActionStorageQueueOutput
+	ToJobErrorActionStorageQueueOutputWithContext(ctx context.Context) JobErrorActionStorageQueueOutput
+}
+
+type JobErrorActionStorageQueueArgs struct {
+	Message pulumi.StringInput `pulumi:"message"`
+	SasToken pulumi.StringInput `pulumi:"sasToken"`
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	StorageQueueName pulumi.StringInput `pulumi:"storageQueueName"`
+}
+
+func (JobErrorActionStorageQueueArgs) ElementType() reflect.Type {
+	return jobErrorActionStorageQueueType
+}
+
+func (a JobErrorActionStorageQueueArgs) ToJobErrorActionStorageQueueOutput() JobErrorActionStorageQueueOutput {
+	return pulumi.ToOutput(a).(JobErrorActionStorageQueueOutput)
+}
+
+func (a JobErrorActionStorageQueueArgs) ToJobErrorActionStorageQueueOutputWithContext(ctx context.Context) JobErrorActionStorageQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobErrorActionStorageQueueOutput)
+}
+
+type JobErrorActionStorageQueueOutput struct { *pulumi.OutputState }
+
+func (o JobErrorActionStorageQueueOutput) Message() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionStorageQueue) string {
+		return v.Message
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionStorageQueueOutput) SasToken() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionStorageQueue) string {
+		return v.SasToken
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionStorageQueueOutput) StorageAccountName() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionStorageQueue) string {
+		return v.StorageAccountName
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionStorageQueueOutput) StorageQueueName() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionStorageQueue) string {
+		return v.StorageQueueName
+	}).(pulumi.StringOutput)
+}
+
+func (JobErrorActionStorageQueueOutput) ElementType() reflect.Type {
+	return jobErrorActionStorageQueueType
+}
+
+func (o JobErrorActionStorageQueueOutput) ToJobErrorActionStorageQueueOutput() JobErrorActionStorageQueueOutput {
+	return o
+}
+
+func (o JobErrorActionStorageQueueOutput) ToJobErrorActionStorageQueueOutputWithContext(ctx context.Context) JobErrorActionStorageQueueOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobErrorActionStorageQueueOutput{}) }
+
+type JobErrorActionWeb struct {
+	AuthenticationActiveDirectory *JobErrorActionWebAuthenticationActiveDirectory `pulumi:"authenticationActiveDirectory"`
+	AuthenticationBasic *JobErrorActionWebAuthenticationBasic `pulumi:"authenticationBasic"`
+	AuthenticationCertificate *JobErrorActionWebAuthenticationCertificate `pulumi:"authenticationCertificate"`
+	Body *string `pulumi:"body"`
+	Headers *map[string]string `pulumi:"headers"`
+	Method string `pulumi:"method"`
+	Url string `pulumi:"url"`
+}
+var jobErrorActionWebType = reflect.TypeOf((*JobErrorActionWeb)(nil)).Elem()
+
+type JobErrorActionWebInput interface {
+	pulumi.Input
+
+	ToJobErrorActionWebOutput() JobErrorActionWebOutput
+	ToJobErrorActionWebOutputWithContext(ctx context.Context) JobErrorActionWebOutput
+}
+
+type JobErrorActionWebArgs struct {
+	AuthenticationActiveDirectory JobErrorActionWebAuthenticationActiveDirectoryInput `pulumi:"authenticationActiveDirectory"`
+	AuthenticationBasic JobErrorActionWebAuthenticationBasicInput `pulumi:"authenticationBasic"`
+	AuthenticationCertificate JobErrorActionWebAuthenticationCertificateInput `pulumi:"authenticationCertificate"`
+	Body pulumi.StringInput `pulumi:"body"`
+	Headers pulumi.StringMapInput `pulumi:"headers"`
+	Method pulumi.StringInput `pulumi:"method"`
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (JobErrorActionWebArgs) ElementType() reflect.Type {
+	return jobErrorActionWebType
+}
+
+func (a JobErrorActionWebArgs) ToJobErrorActionWebOutput() JobErrorActionWebOutput {
+	return pulumi.ToOutput(a).(JobErrorActionWebOutput)
+}
+
+func (a JobErrorActionWebArgs) ToJobErrorActionWebOutputWithContext(ctx context.Context) JobErrorActionWebOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobErrorActionWebOutput)
+}
+
+type JobErrorActionWebOutput struct { *pulumi.OutputState }
+
+func (o JobErrorActionWebOutput) AuthenticationActiveDirectory() JobErrorActionWebAuthenticationActiveDirectoryOutput {
+	return o.Apply(func(v JobErrorActionWeb) JobErrorActionWebAuthenticationActiveDirectory {
+		if v.AuthenticationActiveDirectory == nil { return *new(JobErrorActionWebAuthenticationActiveDirectory) } else { return *v.AuthenticationActiveDirectory }
+	}).(JobErrorActionWebAuthenticationActiveDirectoryOutput)
+}
+
+func (o JobErrorActionWebOutput) AuthenticationBasic() JobErrorActionWebAuthenticationBasicOutput {
+	return o.Apply(func(v JobErrorActionWeb) JobErrorActionWebAuthenticationBasic {
+		if v.AuthenticationBasic == nil { return *new(JobErrorActionWebAuthenticationBasic) } else { return *v.AuthenticationBasic }
+	}).(JobErrorActionWebAuthenticationBasicOutput)
+}
+
+func (o JobErrorActionWebOutput) AuthenticationCertificate() JobErrorActionWebAuthenticationCertificateOutput {
+	return o.Apply(func(v JobErrorActionWeb) JobErrorActionWebAuthenticationCertificate {
+		if v.AuthenticationCertificate == nil { return *new(JobErrorActionWebAuthenticationCertificate) } else { return *v.AuthenticationCertificate }
+	}).(JobErrorActionWebAuthenticationCertificateOutput)
+}
+
+func (o JobErrorActionWebOutput) Body() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWeb) string {
+		if v.Body == nil { return *new(string) } else { return *v.Body }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebOutput) Headers() pulumi.StringMapOutput {
+	return o.Apply(func(v JobErrorActionWeb) map[string]string {
+		if v.Headers == nil { return *new(map[string]string) } else { return *v.Headers }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o JobErrorActionWebOutput) Method() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWeb) string {
+		return v.Method
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWeb) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+func (JobErrorActionWebOutput) ElementType() reflect.Type {
+	return jobErrorActionWebType
+}
+
+func (o JobErrorActionWebOutput) ToJobErrorActionWebOutput() JobErrorActionWebOutput {
+	return o
+}
+
+func (o JobErrorActionWebOutput) ToJobErrorActionWebOutputWithContext(ctx context.Context) JobErrorActionWebOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobErrorActionWebOutput{}) }
+
+type JobErrorActionWebAuthenticationActiveDirectory struct {
+	Audience *string `pulumi:"audience"`
+	ClientId string `pulumi:"clientId"`
+	Secret string `pulumi:"secret"`
+	TenantId string `pulumi:"tenantId"`
+}
+var jobErrorActionWebAuthenticationActiveDirectoryType = reflect.TypeOf((*JobErrorActionWebAuthenticationActiveDirectory)(nil)).Elem()
+
+type JobErrorActionWebAuthenticationActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToJobErrorActionWebAuthenticationActiveDirectoryOutput() JobErrorActionWebAuthenticationActiveDirectoryOutput
+	ToJobErrorActionWebAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationActiveDirectoryOutput
+}
+
+type JobErrorActionWebAuthenticationActiveDirectoryArgs struct {
+	Audience pulumi.StringInput `pulumi:"audience"`
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	Secret pulumi.StringInput `pulumi:"secret"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (JobErrorActionWebAuthenticationActiveDirectoryArgs) ElementType() reflect.Type {
+	return jobErrorActionWebAuthenticationActiveDirectoryType
+}
+
+func (a JobErrorActionWebAuthenticationActiveDirectoryArgs) ToJobErrorActionWebAuthenticationActiveDirectoryOutput() JobErrorActionWebAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(JobErrorActionWebAuthenticationActiveDirectoryOutput)
+}
+
+func (a JobErrorActionWebAuthenticationActiveDirectoryArgs) ToJobErrorActionWebAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobErrorActionWebAuthenticationActiveDirectoryOutput)
+}
+
+type JobErrorActionWebAuthenticationActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o JobErrorActionWebAuthenticationActiveDirectoryOutput) Audience() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationActiveDirectory) string {
+		if v.Audience == nil { return *new(string) } else { return *v.Audience }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebAuthenticationActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationActiveDirectory) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebAuthenticationActiveDirectoryOutput) Secret() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationActiveDirectory) string {
+		return v.Secret
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebAuthenticationActiveDirectoryOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationActiveDirectory) string {
+		return v.TenantId
+	}).(pulumi.StringOutput)
+}
+
+func (JobErrorActionWebAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
+	return jobErrorActionWebAuthenticationActiveDirectoryType
+}
+
+func (o JobErrorActionWebAuthenticationActiveDirectoryOutput) ToJobErrorActionWebAuthenticationActiveDirectoryOutput() JobErrorActionWebAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o JobErrorActionWebAuthenticationActiveDirectoryOutput) ToJobErrorActionWebAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobErrorActionWebAuthenticationActiveDirectoryOutput{}) }
+
+type JobErrorActionWebAuthenticationBasic struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var jobErrorActionWebAuthenticationBasicType = reflect.TypeOf((*JobErrorActionWebAuthenticationBasic)(nil)).Elem()
+
+type JobErrorActionWebAuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToJobErrorActionWebAuthenticationBasicOutput() JobErrorActionWebAuthenticationBasicOutput
+	ToJobErrorActionWebAuthenticationBasicOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationBasicOutput
+}
+
+type JobErrorActionWebAuthenticationBasicArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (JobErrorActionWebAuthenticationBasicArgs) ElementType() reflect.Type {
+	return jobErrorActionWebAuthenticationBasicType
+}
+
+func (a JobErrorActionWebAuthenticationBasicArgs) ToJobErrorActionWebAuthenticationBasicOutput() JobErrorActionWebAuthenticationBasicOutput {
+	return pulumi.ToOutput(a).(JobErrorActionWebAuthenticationBasicOutput)
+}
+
+func (a JobErrorActionWebAuthenticationBasicArgs) ToJobErrorActionWebAuthenticationBasicOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobErrorActionWebAuthenticationBasicOutput)
+}
+
+type JobErrorActionWebAuthenticationBasicOutput struct { *pulumi.OutputState }
+
+func (o JobErrorActionWebAuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationBasic) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebAuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationBasic) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (JobErrorActionWebAuthenticationBasicOutput) ElementType() reflect.Type {
+	return jobErrorActionWebAuthenticationBasicType
+}
+
+func (o JobErrorActionWebAuthenticationBasicOutput) ToJobErrorActionWebAuthenticationBasicOutput() JobErrorActionWebAuthenticationBasicOutput {
+	return o
+}
+
+func (o JobErrorActionWebAuthenticationBasicOutput) ToJobErrorActionWebAuthenticationBasicOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationBasicOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobErrorActionWebAuthenticationBasicOutput{}) }
+
+type JobErrorActionWebAuthenticationCertificate struct {
+	// (Computed)  The certificate expiration date.
+	Expiration *string `pulumi:"expiration"`
+	Password string `pulumi:"password"`
+	Pfx string `pulumi:"pfx"`
+	// (Computed) The certificate's certificate subject name.
+	SubjectName *string `pulumi:"subjectName"`
+	// (Computed) The certificate thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+var jobErrorActionWebAuthenticationCertificateType = reflect.TypeOf((*JobErrorActionWebAuthenticationCertificate)(nil)).Elem()
+
+type JobErrorActionWebAuthenticationCertificateInput interface {
+	pulumi.Input
+
+	ToJobErrorActionWebAuthenticationCertificateOutput() JobErrorActionWebAuthenticationCertificateOutput
+	ToJobErrorActionWebAuthenticationCertificateOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationCertificateOutput
+}
+
+type JobErrorActionWebAuthenticationCertificateArgs struct {
+	// (Computed)  The certificate expiration date.
+	Expiration pulumi.StringInput `pulumi:"expiration"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Pfx pulumi.StringInput `pulumi:"pfx"`
+	// (Computed) The certificate's certificate subject name.
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// (Computed) The certificate thumbprint.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (JobErrorActionWebAuthenticationCertificateArgs) ElementType() reflect.Type {
+	return jobErrorActionWebAuthenticationCertificateType
+}
+
+func (a JobErrorActionWebAuthenticationCertificateArgs) ToJobErrorActionWebAuthenticationCertificateOutput() JobErrorActionWebAuthenticationCertificateOutput {
+	return pulumi.ToOutput(a).(JobErrorActionWebAuthenticationCertificateOutput)
+}
+
+func (a JobErrorActionWebAuthenticationCertificateArgs) ToJobErrorActionWebAuthenticationCertificateOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobErrorActionWebAuthenticationCertificateOutput)
+}
+
+type JobErrorActionWebAuthenticationCertificateOutput struct { *pulumi.OutputState }
+
+// (Computed)  The certificate expiration date.
+func (o JobErrorActionWebAuthenticationCertificateOutput) Expiration() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationCertificate) string {
+		if v.Expiration == nil { return *new(string) } else { return *v.Expiration }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebAuthenticationCertificateOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationCertificate) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o JobErrorActionWebAuthenticationCertificateOutput) Pfx() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationCertificate) string {
+		return v.Pfx
+	}).(pulumi.StringOutput)
+}
+
+// (Computed) The certificate's certificate subject name.
+func (o JobErrorActionWebAuthenticationCertificateOutput) SubjectName() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationCertificate) string {
+		if v.SubjectName == nil { return *new(string) } else { return *v.SubjectName }
+	}).(pulumi.StringOutput)
+}
+
+// (Computed) The certificate thumbprint.
+func (o JobErrorActionWebAuthenticationCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.Apply(func(v JobErrorActionWebAuthenticationCertificate) string {
+		if v.Thumbprint == nil { return *new(string) } else { return *v.Thumbprint }
+	}).(pulumi.StringOutput)
+}
+
+func (JobErrorActionWebAuthenticationCertificateOutput) ElementType() reflect.Type {
+	return jobErrorActionWebAuthenticationCertificateType
+}
+
+func (o JobErrorActionWebAuthenticationCertificateOutput) ToJobErrorActionWebAuthenticationCertificateOutput() JobErrorActionWebAuthenticationCertificateOutput {
+	return o
+}
+
+func (o JobErrorActionWebAuthenticationCertificateOutput) ToJobErrorActionWebAuthenticationCertificateOutputWithContext(ctx context.Context) JobErrorActionWebAuthenticationCertificateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobErrorActionWebAuthenticationCertificateOutput{}) }
+
+type JobRecurrence struct {
+	Count *int `pulumi:"count"`
+	EndTime *string `pulumi:"endTime"`
+	Frequency string `pulumi:"frequency"`
+	Hours *[]int `pulumi:"hours"`
+	Interval *int `pulumi:"interval"`
+	Minutes *[]int `pulumi:"minutes"`
+	MonthDays *[]int `pulumi:"monthDays"`
+	MonthlyOccurrences *[]JobRecurrenceMonthlyOccurrences `pulumi:"monthlyOccurrences"`
+	WeekDays *[]string `pulumi:"weekDays"`
+}
+var jobRecurrenceType = reflect.TypeOf((*JobRecurrence)(nil)).Elem()
+
+type JobRecurrenceInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceOutput() JobRecurrenceOutput
+	ToJobRecurrenceOutputWithContext(ctx context.Context) JobRecurrenceOutput
+}
+
+type JobRecurrenceArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	Interval pulumi.IntInput `pulumi:"interval"`
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
+	MonthlyOccurrences JobRecurrenceMonthlyOccurrencesArrayInput `pulumi:"monthlyOccurrences"`
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (JobRecurrenceArgs) ElementType() reflect.Type {
+	return jobRecurrenceType
+}
+
+func (a JobRecurrenceArgs) ToJobRecurrenceOutput() JobRecurrenceOutput {
+	return pulumi.ToOutput(a).(JobRecurrenceOutput)
+}
+
+func (a JobRecurrenceArgs) ToJobRecurrenceOutputWithContext(ctx context.Context) JobRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobRecurrenceOutput)
+}
+
+type JobRecurrenceOutput struct { *pulumi.OutputState }
+
+func (o JobRecurrenceOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v JobRecurrence) int {
+		if v.Count == nil { return *new(int) } else { return *v.Count }
+	}).(pulumi.IntOutput)
+}
+
+func (o JobRecurrenceOutput) EndTime() pulumi.StringOutput {
+	return o.Apply(func(v JobRecurrence) string {
+		if v.EndTime == nil { return *new(string) } else { return *v.EndTime }
+	}).(pulumi.StringOutput)
+}
+
+func (o JobRecurrenceOutput) Frequency() pulumi.StringOutput {
+	return o.Apply(func(v JobRecurrence) string {
+		return v.Frequency
+	}).(pulumi.StringOutput)
+}
+
+func (o JobRecurrenceOutput) Hours() pulumi.IntArrayOutput {
+	return o.Apply(func(v JobRecurrence) []int {
+		if v.Hours == nil { return *new([]int) } else { return *v.Hours }
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o JobRecurrenceOutput) Interval() pulumi.IntOutput {
+	return o.Apply(func(v JobRecurrence) int {
+		if v.Interval == nil { return *new(int) } else { return *v.Interval }
+	}).(pulumi.IntOutput)
+}
+
+func (o JobRecurrenceOutput) Minutes() pulumi.IntArrayOutput {
+	return o.Apply(func(v JobRecurrence) []int {
+		if v.Minutes == nil { return *new([]int) } else { return *v.Minutes }
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o JobRecurrenceOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.Apply(func(v JobRecurrence) []int {
+		if v.MonthDays == nil { return *new([]int) } else { return *v.MonthDays }
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o JobRecurrenceOutput) MonthlyOccurrences() JobRecurrenceMonthlyOccurrencesArrayOutput {
+	return o.Apply(func(v JobRecurrence) []JobRecurrenceMonthlyOccurrences {
+		if v.MonthlyOccurrences == nil { return *new([]JobRecurrenceMonthlyOccurrences) } else { return *v.MonthlyOccurrences }
+	}).(JobRecurrenceMonthlyOccurrencesArrayOutput)
+}
+
+func (o JobRecurrenceOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.Apply(func(v JobRecurrence) []string {
+		if v.WeekDays == nil { return *new([]string) } else { return *v.WeekDays }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (JobRecurrenceOutput) ElementType() reflect.Type {
+	return jobRecurrenceType
+}
+
+func (o JobRecurrenceOutput) ToJobRecurrenceOutput() JobRecurrenceOutput {
+	return o
+}
+
+func (o JobRecurrenceOutput) ToJobRecurrenceOutputWithContext(ctx context.Context) JobRecurrenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobRecurrenceOutput{}) }
+
+type JobRecurrenceMonthlyOccurrences struct {
+	Day string `pulumi:"day"`
+	Occurrence int `pulumi:"occurrence"`
+}
+var jobRecurrenceMonthlyOccurrencesType = reflect.TypeOf((*JobRecurrenceMonthlyOccurrences)(nil)).Elem()
+
+type JobRecurrenceMonthlyOccurrencesInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceMonthlyOccurrencesOutput() JobRecurrenceMonthlyOccurrencesOutput
+	ToJobRecurrenceMonthlyOccurrencesOutputWithContext(ctx context.Context) JobRecurrenceMonthlyOccurrencesOutput
+}
+
+type JobRecurrenceMonthlyOccurrencesArgs struct {
+	Day pulumi.StringInput `pulumi:"day"`
+	Occurrence pulumi.IntInput `pulumi:"occurrence"`
+}
+
+func (JobRecurrenceMonthlyOccurrencesArgs) ElementType() reflect.Type {
+	return jobRecurrenceMonthlyOccurrencesType
+}
+
+func (a JobRecurrenceMonthlyOccurrencesArgs) ToJobRecurrenceMonthlyOccurrencesOutput() JobRecurrenceMonthlyOccurrencesOutput {
+	return pulumi.ToOutput(a).(JobRecurrenceMonthlyOccurrencesOutput)
+}
+
+func (a JobRecurrenceMonthlyOccurrencesArgs) ToJobRecurrenceMonthlyOccurrencesOutputWithContext(ctx context.Context) JobRecurrenceMonthlyOccurrencesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobRecurrenceMonthlyOccurrencesOutput)
+}
+
+type JobRecurrenceMonthlyOccurrencesOutput struct { *pulumi.OutputState }
+
+func (o JobRecurrenceMonthlyOccurrencesOutput) Day() pulumi.StringOutput {
+	return o.Apply(func(v JobRecurrenceMonthlyOccurrences) string {
+		return v.Day
+	}).(pulumi.StringOutput)
+}
+
+func (o JobRecurrenceMonthlyOccurrencesOutput) Occurrence() pulumi.IntOutput {
+	return o.Apply(func(v JobRecurrenceMonthlyOccurrences) int {
+		return v.Occurrence
+	}).(pulumi.IntOutput)
+}
+
+func (JobRecurrenceMonthlyOccurrencesOutput) ElementType() reflect.Type {
+	return jobRecurrenceMonthlyOccurrencesType
+}
+
+func (o JobRecurrenceMonthlyOccurrencesOutput) ToJobRecurrenceMonthlyOccurrencesOutput() JobRecurrenceMonthlyOccurrencesOutput {
+	return o
+}
+
+func (o JobRecurrenceMonthlyOccurrencesOutput) ToJobRecurrenceMonthlyOccurrencesOutputWithContext(ctx context.Context) JobRecurrenceMonthlyOccurrencesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobRecurrenceMonthlyOccurrencesOutput{}) }
+
+var jobRecurrenceMonthlyOccurrencesArrayType = reflect.TypeOf((*[]JobRecurrenceMonthlyOccurrences)(nil)).Elem()
+
+type JobRecurrenceMonthlyOccurrencesArrayInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceMonthlyOccurrencesArrayOutput() JobRecurrenceMonthlyOccurrencesArrayOutput
+	ToJobRecurrenceMonthlyOccurrencesArrayOutputWithContext(ctx context.Context) JobRecurrenceMonthlyOccurrencesArrayOutput
+}
+
+type JobRecurrenceMonthlyOccurrencesArrayArgs []JobRecurrenceMonthlyOccurrencesInput
+
+func (JobRecurrenceMonthlyOccurrencesArrayArgs) ElementType() reflect.Type {
+	return jobRecurrenceMonthlyOccurrencesArrayType
+}
+
+func (a JobRecurrenceMonthlyOccurrencesArrayArgs) ToJobRecurrenceMonthlyOccurrencesArrayOutput() JobRecurrenceMonthlyOccurrencesArrayOutput {
+	return pulumi.ToOutput(a).(JobRecurrenceMonthlyOccurrencesArrayOutput)
+}
+
+func (a JobRecurrenceMonthlyOccurrencesArrayArgs) ToJobRecurrenceMonthlyOccurrencesArrayOutputWithContext(ctx context.Context) JobRecurrenceMonthlyOccurrencesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobRecurrenceMonthlyOccurrencesArrayOutput)
+}
+
+type JobRecurrenceMonthlyOccurrencesArrayOutput struct { *pulumi.OutputState }
+
+func (o JobRecurrenceMonthlyOccurrencesArrayOutput) Index(i pulumi.IntInput) JobRecurrenceMonthlyOccurrencesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) JobRecurrenceMonthlyOccurrences {
+		return vs[0].([]JobRecurrenceMonthlyOccurrences)[vs[1].(int)]
+	}).(JobRecurrenceMonthlyOccurrencesOutput)
+}
+
+func (JobRecurrenceMonthlyOccurrencesArrayOutput) ElementType() reflect.Type {
+	return jobRecurrenceMonthlyOccurrencesArrayType
+}
+
+func (o JobRecurrenceMonthlyOccurrencesArrayOutput) ToJobRecurrenceMonthlyOccurrencesArrayOutput() JobRecurrenceMonthlyOccurrencesArrayOutput {
+	return o
+}
+
+func (o JobRecurrenceMonthlyOccurrencesArrayOutput) ToJobRecurrenceMonthlyOccurrencesArrayOutputWithContext(ctx context.Context) JobRecurrenceMonthlyOccurrencesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobRecurrenceMonthlyOccurrencesArrayOutput{}) }
+
+type JobRetry struct {
+	Count *int `pulumi:"count"`
+	Interval *string `pulumi:"interval"`
+}
+var jobRetryType = reflect.TypeOf((*JobRetry)(nil)).Elem()
+
+type JobRetryInput interface {
+	pulumi.Input
+
+	ToJobRetryOutput() JobRetryOutput
+	ToJobRetryOutputWithContext(ctx context.Context) JobRetryOutput
+}
+
+type JobRetryArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+	Interval pulumi.StringInput `pulumi:"interval"`
+}
+
+func (JobRetryArgs) ElementType() reflect.Type {
+	return jobRetryType
+}
+
+func (a JobRetryArgs) ToJobRetryOutput() JobRetryOutput {
+	return pulumi.ToOutput(a).(JobRetryOutput)
+}
+
+func (a JobRetryArgs) ToJobRetryOutputWithContext(ctx context.Context) JobRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(JobRetryOutput)
+}
+
+type JobRetryOutput struct { *pulumi.OutputState }
+
+func (o JobRetryOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v JobRetry) int {
+		if v.Count == nil { return *new(int) } else { return *v.Count }
+	}).(pulumi.IntOutput)
+}
+
+func (o JobRetryOutput) Interval() pulumi.StringOutput {
+	return o.Apply(func(v JobRetry) string {
+		if v.Interval == nil { return *new(string) } else { return *v.Interval }
+	}).(pulumi.StringOutput)
+}
+
+func (JobRetryOutput) ElementType() reflect.Type {
+	return jobRetryType
+}
+
+func (o JobRetryOutput) ToJobRetryOutput() JobRetryOutput {
+	return o
+}
+
+func (o JobRetryOutput) ToJobRetryOutputWithContext(ctx context.Context) JobRetryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(JobRetryOutput{}) }
+

@@ -10,48 +10,46 @@ import (
 // Use this data source to access information about a set of existing Public IP Addresses.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
-func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["allocationType"] = args.AllocationType
-		inputs["attached"] = args.Attached
-		inputs["namePrefix"] = args.NamePrefix
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getPublicIPs:getPublicIPs", inputs)
+func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs, opts ...pulumi.InvokeOption) (*GetPublicIPsResult, error) {
+	var rv GetPublicIPsResult
+	err := ctx.Invoke("azure:network/getPublicIPs:getPublicIPs", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPublicIPsResult{
-		AllocationType: outputs["allocationType"],
-		Attached: outputs["attached"],
-		NamePrefix: outputs["namePrefix"],
-		PublicIps: outputs["publicIps"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPublicIPs.
 type GetPublicIPsArgs struct {
 	// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
-	AllocationType interface{}
+	AllocationType *string `pulumi:"allocationType"`
 	// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
-	Attached interface{}
+	Attached *bool `pulumi:"attached"`
 	// A prefix match used for the IP Addresses `name` field, case sensitive.
-	NamePrefix interface{}
+	NamePrefix *string `pulumi:"namePrefix"`
 	// Specifies the name of the resource group.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getPublicIPs.
 type GetPublicIPsResult struct {
-	AllocationType interface{}
-	Attached interface{}
-	NamePrefix interface{}
+	AllocationType *string `pulumi:"allocationType"`
+	Attached *bool `pulumi:"attached"`
+	NamePrefix *string `pulumi:"namePrefix"`
 	// A List of `publicIps` blocks as defined below filtered by the criteria above.
-	PublicIps interface{}
-	ResourceGroupName interface{}
+	PublicIps []GetPublicIPsPublicIpsResult `pulumi:"publicIps"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetPublicIPsPublicIpsResult struct {
+	// The Domain Name Label of the Public IP Address
+	DomainNameLabel string `pulumi:"domainNameLabel"`
+	// The FQDN of the Public IP Address
+	Fqdn string `pulumi:"fqdn"`
+	// The ID of the Public IP Address
+	Id string `pulumi:"id"`
+	IpAddress string `pulumi:"ipAddress"`
+	// The Name of the Public IP Address
+	Name string `pulumi:"name"`
 }

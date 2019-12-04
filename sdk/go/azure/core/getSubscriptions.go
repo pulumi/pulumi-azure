@@ -10,38 +10,45 @@ import (
 // Use this data source to access information about all the Subscriptions currently available.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
-func LookupSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs) (*GetSubscriptionsResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["displayNameContains"] = args.DisplayNameContains
-		inputs["displayNamePrefix"] = args.DisplayNamePrefix
-	}
-	outputs, err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", inputs)
+func LookupSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionsResult, error) {
+	var rv GetSubscriptionsResult
+	err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSubscriptionsResult{
-		DisplayNameContains: outputs["displayNameContains"],
-		DisplayNamePrefix: outputs["displayNamePrefix"],
-		Subscriptions: outputs["subscriptions"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSubscriptions.
 type GetSubscriptionsArgs struct {
 	// A case-insensitive value which must be contained within the `displayName` field, used to filter the results
-	DisplayNameContains interface{}
+	DisplayNameContains *string `pulumi:"displayNameContains"`
 	// A case-insensitive prefix which can be used to filter on the `displayName` field
-	DisplayNamePrefix interface{}
+	DisplayNamePrefix *string `pulumi:"displayNamePrefix"`
 }
 
 // A collection of values returned by getSubscriptions.
 type GetSubscriptionsResult struct {
-	DisplayNameContains interface{}
-	DisplayNamePrefix interface{}
+	DisplayNameContains *string `pulumi:"displayNameContains"`
+	DisplayNamePrefix *string `pulumi:"displayNamePrefix"`
 	// One or more `subscription` blocks as defined below.
-	Subscriptions interface{}
+	Subscriptions []GetSubscriptionsSubscriptionsResult `pulumi:"subscriptions"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSubscriptionsSubscriptionsResult struct {
+	// The subscription display name.
+	DisplayName string `pulumi:"displayName"`
+	// The subscription location placement ID.
+	LocationPlacementId string `pulumi:"locationPlacementId"`
+	// The subscription quota ID.
+	QuotaId string `pulumi:"quotaId"`
+	// The subscription spending limit.
+	SpendingLimit string `pulumi:"spendingLimit"`
+	// The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
+	State string `pulumi:"state"`
+	// The subscription GUID.
+	SubscriptionId string `pulumi:"subscriptionId"`
+	// The subscription tenant ID.
+	TenantId string `pulumi:"tenantId"`
 }

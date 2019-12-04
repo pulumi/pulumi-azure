@@ -17,12 +17,56 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
 type Extension struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies if the platform deploys
+	// the latest minor version update to the `typeHandlerVersion` specified.
+	AutoUpgradeMinorVersion pulumi.BoolOutput `pulumi:"autoUpgradeMinorVersion"`
+
+	// The location where the extension is created. Changing
+	// this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the virtual machine extension peering. Changing
+	// this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The protectedSettings passed to the
+	// extension, like settings, these are specified as a JSON object in a string.
+	ProtectedSettings pulumi.StringOutput `pulumi:"protectedSettings"`
+
+	// The publisher of the extension, available publishers
+	// can be found by using the Azure CLI.
+	Publisher pulumi.StringOutput `pulumi:"publisher"`
+
+	// The name of the resource group in which to
+	// create the virtual network. Changing this forces a new resource to be
+	// created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The settings passed to the extension, these are
+	// specified as a JSON object in a string.
+	Settings pulumi.StringOutput `pulumi:"settings"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The type of extension, available types for a publisher can
+	// be found using the Azure CLI.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// Specifies the version of the extension to
+	// use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
+
+	// The name of the virtual machine. Changing
+	// this forces a new resource to be created.
+	VirtualMachineName pulumi.StringOutput `pulumi:"virtualMachineName"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
 func NewExtension(ctx *pulumi.Context,
-	name string, args *ExtensionArgs, opts ...pulumi.ResourceOpt) (*Extension, error) {
+	name string, args *ExtensionArgs, opts ...pulumi.ResourceOption) (*Extension, error) {
 	if args == nil || args.Publisher == nil {
 		return nil, errors.New("missing required argument 'Publisher'")
 	}
@@ -38,210 +82,124 @@ func NewExtension(ctx *pulumi.Context,
 	if args == nil || args.VirtualMachineName == nil {
 		return nil, errors.New("missing required argument 'VirtualMachineName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoUpgradeMinorVersion"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["protectedSettings"] = nil
-		inputs["publisher"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["settings"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-		inputs["typeHandlerVersion"] = nil
-		inputs["virtualMachineName"] = nil
-	} else {
-		inputs["autoUpgradeMinorVersion"] = args.AutoUpgradeMinorVersion
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["protectedSettings"] = args.ProtectedSettings
-		inputs["publisher"] = args.Publisher
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["settings"] = args.Settings
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
-		inputs["typeHandlerVersion"] = args.TypeHandlerVersion
-		inputs["virtualMachineName"] = args.VirtualMachineName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoUpgradeMinorVersion; i != nil { inputs["autoUpgradeMinorVersion"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ProtectedSettings; i != nil { inputs["protectedSettings"] = i.ToStringOutput() }
+		if i := args.Publisher; i != nil { inputs["publisher"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Settings; i != nil { inputs["settings"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.TypeHandlerVersion; i != nil { inputs["typeHandlerVersion"] = i.ToStringOutput() }
+		if i := args.VirtualMachineName; i != nil { inputs["virtualMachineName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/extension:Extension", name, true, inputs, opts...)
+	var resource Extension
+	err := ctx.RegisterResource("azure:compute/extension:Extension", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Extension{s: s}, nil
+	return &resource, nil
 }
 
 // GetExtension gets an existing Extension resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetExtension(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ExtensionState, opts ...pulumi.ResourceOpt) (*Extension, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ExtensionState, opts ...pulumi.ResourceOption) (*Extension, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoUpgradeMinorVersion"] = state.AutoUpgradeMinorVersion
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["protectedSettings"] = state.ProtectedSettings
-		inputs["publisher"] = state.Publisher
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["settings"] = state.Settings
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
-		inputs["typeHandlerVersion"] = state.TypeHandlerVersion
-		inputs["virtualMachineName"] = state.VirtualMachineName
+		if i := state.AutoUpgradeMinorVersion; i != nil { inputs["autoUpgradeMinorVersion"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ProtectedSettings; i != nil { inputs["protectedSettings"] = i.ToStringOutput() }
+		if i := state.Publisher; i != nil { inputs["publisher"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Settings; i != nil { inputs["settings"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.TypeHandlerVersion; i != nil { inputs["typeHandlerVersion"] = i.ToStringOutput() }
+		if i := state.VirtualMachineName; i != nil { inputs["virtualMachineName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/extension:Extension", name, id, inputs, opts...)
+	var resource Extension
+	err := ctx.ReadResource("azure:compute/extension:Extension", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Extension{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Extension) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Extension) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies if the platform deploys
-// the latest minor version update to the `typeHandlerVersion` specified.
-func (r *Extension) AutoUpgradeMinorVersion() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoUpgradeMinorVersion"])
-}
-
-// The location where the extension is created. Changing
-// this forces a new resource to be created.
-func (r *Extension) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the virtual machine extension peering. Changing
-// this forces a new resource to be created.
-func (r *Extension) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The protectedSettings passed to the
-// extension, like settings, these are specified as a JSON object in a string.
-func (r *Extension) ProtectedSettings() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protectedSettings"])
-}
-
-// The publisher of the extension, available publishers
-// can be found by using the Azure CLI.
-func (r *Extension) Publisher() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publisher"])
-}
-
-// The name of the resource group in which to
-// create the virtual network. Changing this forces a new resource to be
-// created.
-func (r *Extension) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The settings passed to the extension, these are
-// specified as a JSON object in a string.
-func (r *Extension) Settings() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["settings"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Extension) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The type of extension, available types for a publisher can
-// be found using the Azure CLI.
-func (r *Extension) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// Specifies the version of the extension to
-// use, available versions can be found using the Azure CLI.
-func (r *Extension) TypeHandlerVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["typeHandlerVersion"])
-}
-
-// The name of the virtual machine. Changing
-// this forces a new resource to be created.
-func (r *Extension) VirtualMachineName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualMachineName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Extension resources.
 type ExtensionState struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
-	AutoUpgradeMinorVersion interface{}
+	AutoUpgradeMinorVersion pulumi.BoolInput `pulumi:"autoUpgradeMinorVersion"`
 	// The location where the extension is created. Changing
 	// this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
-	ProtectedSettings interface{}
+	ProtectedSettings pulumi.StringInput `pulumi:"protectedSettings"`
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
-	Publisher interface{}
+	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// The name of the resource group in which to
 	// create the virtual network. Changing this forces a new resource to be
 	// created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
-	Settings interface{}
+	Settings pulumi.StringInput `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of extension, available types for a publisher can
 	// be found using the Azure CLI.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
-	TypeHandlerVersion interface{}
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
 	// The name of the virtual machine. Changing
 	// this forces a new resource to be created.
-	VirtualMachineName interface{}
+	VirtualMachineName pulumi.StringInput `pulumi:"virtualMachineName"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
 	// Specifies if the platform deploys
 	// the latest minor version update to the `typeHandlerVersion` specified.
-	AutoUpgradeMinorVersion interface{}
+	AutoUpgradeMinorVersion pulumi.BoolInput `pulumi:"autoUpgradeMinorVersion"`
 	// The location where the extension is created. Changing
 	// this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
-	ProtectedSettings interface{}
+	ProtectedSettings pulumi.StringInput `pulumi:"protectedSettings"`
 	// The publisher of the extension, available publishers
 	// can be found by using the Azure CLI.
-	Publisher interface{}
+	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// The name of the resource group in which to
 	// create the virtual network. Changing this forces a new resource to be
 	// created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
-	Settings interface{}
+	Settings pulumi.StringInput `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of extension, available types for a publisher can
 	// be found using the Azure CLI.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
-	TypeHandlerVersion interface{}
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
 	// The name of the virtual machine. Changing
 	// this forces a new resource to be created.
-	VirtualMachineName interface{}
+	VirtualMachineName pulumi.StringInput `pulumi:"virtualMachineName"`
 }

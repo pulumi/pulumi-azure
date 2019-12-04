@@ -10,58 +10,61 @@ import (
 // Use this data source to access information about an existing Healthcare Service
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/healthcare_service.html.markdown.
-func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("azure:healthcare/getService:getService", inputs)
+func LookupService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
+	var rv GetServiceResult
+	err := ctx.Invoke("azure:healthcare/getService:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServiceResult{
-		AccessPolicyObjectIds: outputs["accessPolicyObjectIds"],
-		AuthenticationConfigurations: outputs["authenticationConfigurations"],
-		CorsConfigurations: outputs["corsConfigurations"],
-		CosmosdbThroughput: outputs["cosmosdbThroughput"],
-		Kind: outputs["kind"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
-	Location interface{}
+	Location string `pulumi:"location"`
 	// Specifies the name of the Healthcare Service.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Healthcare Service exists.
-	ResourceGroupName interface{}
-	Tags interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
-	AccessPolicyObjectIds interface{}
+	AccessPolicyObjectIds []string `pulumi:"accessPolicyObjectIds"`
 	// An `authenticationConfiguration` block as defined below.
-	AuthenticationConfigurations interface{}
+	AuthenticationConfigurations []GetServiceAuthenticationConfigurationsResult `pulumi:"authenticationConfigurations"`
 	// A `corsConfiguration` block as defined below.
-	CorsConfigurations interface{}
-	CosmosdbThroughput interface{}
+	CorsConfigurations []GetServiceCorsConfigurationsResult `pulumi:"corsConfigurations"`
+	CosmosdbThroughput int `pulumi:"cosmosdbThroughput"`
 	// The type of the service.
-	Kind interface{}
+	Kind string `pulumi:"kind"`
 	// The Azure Region where the Service is located.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetServiceAuthenticationConfigurationsResult struct {
+	// The intended audience to receive authentication tokens for the service. 
+	Audience string `pulumi:"audience"`
+	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. 
+	Authority string `pulumi:"authority"`
+	// Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+	SmartProxyEnabled bool `pulumi:"smartProxyEnabled"`
+}
+type GetServiceCorsConfigurationsResult struct {
+	// Are credentials are allowed via CORS?
+	AllowCredentials bool `pulumi:"allowCredentials"`
+	// The set of headers to be allowed via CORS.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// The methods to be allowed via CORS.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// The set of origins to be allowed via CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// The max age to be allowed via CORS.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
 }

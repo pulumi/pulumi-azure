@@ -12,12 +12,37 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_subscription.html.markdown.
 type Subscription struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The display name of this Subscription.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+
+	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	ProductId pulumi.StringOutput `pulumi:"productId"`
+
+	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+
+	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
+	State pulumi.StringOutput `pulumi:"state"`
+
+	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
+	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
+
+	// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
-	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOpt) (*Subscription, error) {
+	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -33,147 +58,86 @@ func NewSubscription(ctx *pulumi.Context,
 	if args == nil || args.UserId == nil {
 		return nil, errors.New("missing required argument 'UserId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["displayName"] = nil
-		inputs["primaryKey"] = nil
-		inputs["productId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["secondaryKey"] = nil
-		inputs["state"] = nil
-		inputs["subscriptionId"] = nil
-		inputs["userId"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["displayName"] = args.DisplayName
-		inputs["primaryKey"] = args.PrimaryKey
-		inputs["productId"] = args.ProductId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["secondaryKey"] = args.SecondaryKey
-		inputs["state"] = args.State
-		inputs["subscriptionId"] = args.SubscriptionId
-		inputs["userId"] = args.UserId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.PrimaryKey; i != nil { inputs["primaryKey"] = i.ToStringOutput() }
+		if i := args.ProductId; i != nil { inputs["productId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SecondaryKey; i != nil { inputs["secondaryKey"] = i.ToStringOutput() }
+		if i := args.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := args.SubscriptionId; i != nil { inputs["subscriptionId"] = i.ToStringOutput() }
+		if i := args.UserId; i != nil { inputs["userId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/subscription:Subscription", name, true, inputs, opts...)
+	var resource Subscription
+	err := ctx.RegisterResource("azure:apimanagement/subscription:Subscription", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subscription{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubscription gets an existing Subscription resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubscription(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubscriptionState, opts ...pulumi.ResourceOpt) (*Subscription, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubscriptionState, opts ...pulumi.ResourceOption) (*Subscription, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["displayName"] = state.DisplayName
-		inputs["primaryKey"] = state.PrimaryKey
-		inputs["productId"] = state.ProductId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryKey"] = state.SecondaryKey
-		inputs["state"] = state.State
-		inputs["subscriptionId"] = state.SubscriptionId
-		inputs["userId"] = state.UserId
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.PrimaryKey; i != nil { inputs["primaryKey"] = i.ToStringOutput() }
+		if i := state.ProductId; i != nil { inputs["productId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryKey; i != nil { inputs["secondaryKey"] = i.ToStringOutput() }
+		if i := state.State; i != nil { inputs["state"] = i.ToStringOutput() }
+		if i := state.SubscriptionId; i != nil { inputs["subscriptionId"] = i.ToStringOutput() }
+		if i := state.UserId; i != nil { inputs["userId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/subscription:Subscription", name, id, inputs, opts...)
+	var resource Subscription
+	err := ctx.ReadResource("azure:apimanagement/subscription:Subscription", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subscription{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Subscription) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Subscription) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
-func (r *Subscription) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The display name of this Subscription.
-func (r *Subscription) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-func (r *Subscription) PrimaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryKey"])
-}
-
-// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-func (r *Subscription) ProductId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["productId"])
-}
-
-// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Subscription) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-func (r *Subscription) SecondaryKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryKey"])
-}
-
-// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
-func (r *Subscription) State() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["state"])
-}
-
-// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
-func (r *Subscription) SubscriptionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subscriptionId"])
-}
-
-// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-func (r *Subscription) UserId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Subscription resources.
 type SubscriptionState struct {
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
-	DisplayName interface{}
-	PrimaryKey interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	ProductId interface{}
+	ProductId pulumi.StringInput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	SecondaryKey interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
-	SubscriptionId interface{}
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
 	// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	UserId interface{}
+	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
-	DisplayName interface{}
-	PrimaryKey interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	ProductId interface{}
+	ProductId pulumi.StringInput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	SecondaryKey interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
-	State interface{}
+	State pulumi.StringInput `pulumi:"state"`
 	// An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
-	SubscriptionId interface{}
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
 	// The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
-	UserId interface{}
+	UserId pulumi.StringInput `pulumi:"userId"`
 }

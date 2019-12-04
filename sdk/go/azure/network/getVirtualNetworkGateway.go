@@ -10,72 +10,112 @@ import (
 // Use this data source to access information about an existing Virtual Network Gateway.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
-func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGatewayArgs) (*GetVirtualNetworkGatewayResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", inputs)
+func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayResult, error) {
+	var rv GetVirtualNetworkGatewayResult
+	err := ctx.Invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVirtualNetworkGatewayResult{
-		ActiveActive: outputs["activeActive"],
-		BgpSettings: outputs["bgpSettings"],
-		DefaultLocalNetworkGatewayId: outputs["defaultLocalNetworkGatewayId"],
-		EnableBgp: outputs["enableBgp"],
-		IpConfigurations: outputs["ipConfigurations"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Type: outputs["type"],
-		VpnClientConfigurations: outputs["vpnClientConfigurations"],
-		VpnType: outputs["vpnType"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVirtualNetworkGateway.
 type GetVirtualNetworkGatewayArgs struct {
 	// Specifies the name of the Virtual Network Gateway.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Virtual Network Gateway is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getVirtualNetworkGateway.
 type GetVirtualNetworkGatewayResult struct {
 	// (Optional) Is this an Active-Active Gateway?
-	ActiveActive interface{}
-	BgpSettings interface{}
+	ActiveActive bool `pulumi:"activeActive"`
+	BgpSettings []GetVirtualNetworkGatewayBgpSettingsResult `pulumi:"bgpSettings"`
 	// The ID of the local network gateway
 	// through which outbound Internet traffic from the virtual network in which the
 	// gateway is created will be routed (*forced tunneling*). Refer to the
 	// [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-	DefaultLocalNetworkGatewayId interface{}
+	DefaultLocalNetworkGatewayId string `pulumi:"defaultLocalNetworkGatewayId"`
 	// Will BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway.
-	EnableBgp interface{}
+	EnableBgp bool `pulumi:"enableBgp"`
 	// One or two `ipConfiguration` blocks documented below.
-	IpConfigurations interface{}
+	IpConfigurations []GetVirtualNetworkGatewayIpConfigurationsResult `pulumi:"ipConfigurations"`
 	// The location/region where the Virtual Network Gateway is located.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The user-defined name of the revoked certificate.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Configuration of the size and capacity of the Virtual Network Gateway.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the Virtual Network Gateway.
-	Type interface{}
+	Type string `pulumi:"type"`
 	// A `vpnClientConfiguration` block which is documented below.
-	VpnClientConfigurations interface{}
+	VpnClientConfigurations []GetVirtualNetworkGatewayVpnClientConfigurationsResult `pulumi:"vpnClientConfigurations"`
 	// The routing type of the Virtual Network Gateway.
-	VpnType interface{}
+	VpnType string `pulumi:"vpnType"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetVirtualNetworkGatewayBgpSettingsResult struct {
+	// The Autonomous System Number (ASN) to use as part of the BGP.
+	Asn int `pulumi:"asn"`
+	// The weight added to routes which have been learned
+	// through BGP peering.
+	PeerWeight int `pulumi:"peerWeight"`
+	// The BGP peer IP address of the virtual network
+	// gateway. This address is needed to configure the created gateway as a BGP Peer
+	// on the on-premises VPN devices.
+	PeeringAddress string `pulumi:"peeringAddress"`
+}
+type GetVirtualNetworkGatewayIpConfigurationsResult struct {
+	// Specifies the name of the Virtual Network Gateway.
+	Name string `pulumi:"name"`
+	// Defines how the private IP address
+	// of the gateways virtual interface is assigned.
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	// The ID of the Public IP Address associated
+	// with the Virtual Network Gateway.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// The ID of the gateway subnet of a virtual network in
+	// which the virtual network gateway will be created. It is mandatory that
+	// the associated subnet is named `GatewaySubnet`. Therefore, each virtual
+	// network can contain at most a single Virtual Network Gateway.
+	SubnetId string `pulumi:"subnetId"`
+}
+type GetVirtualNetworkGatewayVpnClientConfigurationsResult struct {
+	// The address space out of which ip addresses for
+	// vpn clients will be taken. You can provide more than one address space, e.g.
+	// in CIDR notation.
+	AddressSpaces []string `pulumi:"addressSpaces"`
+	// (Optional) The address of the Radius server.
+	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	RadiusServerAddress string `pulumi:"radiusServerAddress"`
+	// (Optional) The secret used by the Radius server.
+	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	RadiusServerSecret string `pulumi:"radiusServerSecret"`
+	// One or more `revokedCertificate` blocks which
+	// are defined below.
+	RevokedCertificates []GetVirtualNetworkGatewayVpnClientConfigurationsRevokedCertificatesResult `pulumi:"revokedCertificates"`
+	// One or more `rootCertificate` blocks which are
+	// defined below. These root certificates are used to sign the client certificate
+	// used by the VPN clients to connect to the gateway.
+	RootCertificates []GetVirtualNetworkGatewayVpnClientConfigurationsRootCertificatesResult `pulumi:"rootCertificates"`
+	// (Optional) List of the protocols supported by the vpn client.
+	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+	VpnClientProtocols []string `pulumi:"vpnClientProtocols"`
+}
+type GetVirtualNetworkGatewayVpnClientConfigurationsRevokedCertificatesResult struct {
+	// Specifies the name of the Virtual Network Gateway.
+	Name string `pulumi:"name"`
+	Thumbprint string `pulumi:"thumbprint"`
+}
+type GetVirtualNetworkGatewayVpnClientConfigurationsRootCertificatesResult struct {
+	// Specifies the name of the Virtual Network Gateway.
+	Name string `pulumi:"name"`
+	// The SHA1 thumbprint of the certificate to be revoked.
+	PublicCertData string `pulumi:"publicCertData"`
 }

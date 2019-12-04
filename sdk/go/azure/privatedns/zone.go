@@ -12,126 +12,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_zone.html.markdown.
 type Zone struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The maximum number of record sets that can be created in this Private DNS zone.
+	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
+
+	// The maximum number of virtual networks that can be linked to this Private DNS zone.
+	MaxNumberOfVirtualNetworkLinks pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinks"`
+
+	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
+	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
+
+	// The name of the Private DNS Zone. Must be a valid domain name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The current number of record sets in this Private DNS zone.
+	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
 func NewZone(ctx *pulumi.Context,
-	name string, args *ZoneArgs, opts ...pulumi.ResourceOpt) (*Zone, error) {
+	name string, args *ZoneArgs, opts ...pulumi.ResourceOption) (*Zone, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["maxNumberOfRecordSets"] = nil
-	inputs["maxNumberOfVirtualNetworkLinks"] = nil
-	inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = nil
-	inputs["numberOfRecordSets"] = nil
-	s, err := ctx.RegisterResource("azure:privatedns/zone:Zone", name, true, inputs, opts...)
+	var resource Zone
+	err := ctx.RegisterResource("azure:privatedns/zone:Zone", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Zone{s: s}, nil
+	return &resource, nil
 }
 
 // GetZone gets an existing Zone resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetZone(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ZoneState, opts ...pulumi.ResourceOpt) (*Zone, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ZoneState, opts ...pulumi.ResourceOption) (*Zone, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["maxNumberOfRecordSets"] = state.MaxNumberOfRecordSets
-		inputs["maxNumberOfVirtualNetworkLinks"] = state.MaxNumberOfVirtualNetworkLinks
-		inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = state.MaxNumberOfVirtualNetworkLinksWithRegistration
-		inputs["name"] = state.Name
-		inputs["numberOfRecordSets"] = state.NumberOfRecordSets
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.MaxNumberOfRecordSets; i != nil { inputs["maxNumberOfRecordSets"] = i.ToIntOutput() }
+		if i := state.MaxNumberOfVirtualNetworkLinks; i != nil { inputs["maxNumberOfVirtualNetworkLinks"] = i.ToIntOutput() }
+		if i := state.MaxNumberOfVirtualNetworkLinksWithRegistration; i != nil { inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NumberOfRecordSets; i != nil { inputs["numberOfRecordSets"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:privatedns/zone:Zone", name, id, inputs, opts...)
+	var resource Zone
+	err := ctx.ReadResource("azure:privatedns/zone:Zone", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Zone{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Zone) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Zone) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The maximum number of record sets that can be created in this Private DNS zone.
-func (r *Zone) MaxNumberOfRecordSets() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
-}
-
-// The maximum number of virtual networks that can be linked to this Private DNS zone.
-func (r *Zone) MaxNumberOfVirtualNetworkLinks() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxNumberOfVirtualNetworkLinks"])
-}
-
-// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
-func (r *Zone) MaxNumberOfVirtualNetworkLinksWithRegistration() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxNumberOfVirtualNetworkLinksWithRegistration"])
-}
-
-// The name of the Private DNS Zone. Must be a valid domain name.
-func (r *Zone) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The current number of record sets in this Private DNS zone.
-func (r *Zone) NumberOfRecordSets() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *Zone) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Zone) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Zone resources.
 type ZoneState struct {
 	// The maximum number of record sets that can be created in this Private DNS zone.
-	MaxNumberOfRecordSets interface{}
+	MaxNumberOfRecordSets pulumi.IntInput `pulumi:"maxNumberOfRecordSets"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone.
-	MaxNumberOfVirtualNetworkLinks interface{}
+	MaxNumberOfVirtualNetworkLinks pulumi.IntInput `pulumi:"maxNumberOfVirtualNetworkLinks"`
 	// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
-	MaxNumberOfVirtualNetworkLinksWithRegistration interface{}
+	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntInput `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
 	// The name of the Private DNS Zone. Must be a valid domain name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone.
-	NumberOfRecordSets interface{}
+	NumberOfRecordSets pulumi.IntInput `pulumi:"numberOfRecordSets"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
 	// The name of the Private DNS Zone. Must be a valid domain name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

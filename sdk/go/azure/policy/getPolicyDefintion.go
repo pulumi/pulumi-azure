@@ -10,56 +10,41 @@ import (
 // Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
-func LookupPolicyDefintion(ctx *pulumi.Context, args *GetPolicyDefintionArgs) (*GetPolicyDefintionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["displayName"] = args.DisplayName
-		inputs["managementGroupId"] = args.ManagementGroupId
-	}
-	outputs, err := ctx.Invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", inputs)
+func LookupPolicyDefintion(ctx *pulumi.Context, args *GetPolicyDefintionArgs, opts ...pulumi.InvokeOption) (*GetPolicyDefintionResult, error) {
+	var rv GetPolicyDefintionResult
+	err := ctx.Invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPolicyDefintionResult{
-		Description: outputs["description"],
-		DisplayName: outputs["displayName"],
-		ManagementGroupId: outputs["managementGroupId"],
-		Metadata: outputs["metadata"],
-		Name: outputs["name"],
-		Parameters: outputs["parameters"],
-		PolicyRule: outputs["policyRule"],
-		PolicyType: outputs["policyType"],
-		Type: outputs["type"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPolicyDefintion.
 type GetPolicyDefintionArgs struct {
 	// Specifies the name of the Policy Definition.
-	DisplayName interface{}
+	DisplayName string `pulumi:"displayName"`
 	// Only retrieve Policy Definitions from this Management Group.
-	ManagementGroupId interface{}
+	ManagementGroupId *string `pulumi:"managementGroupId"`
 }
 
 // A collection of values returned by getPolicyDefintion.
 type GetPolicyDefintionResult struct {
 	// The Description of the Policy.
-	Description interface{}
-	DisplayName interface{}
-	ManagementGroupId interface{}
+	Description string `pulumi:"description"`
+	DisplayName string `pulumi:"displayName"`
+	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Any Metadata defined in the Policy.
-	Metadata interface{}
+	Metadata string `pulumi:"metadata"`
 	// The Name of the Policy Definition.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Any Parameters defined in the Policy.
-	Parameters interface{}
+	Parameters string `pulumi:"parameters"`
 	// The Rule as defined (in JSON) in the Policy.
-	PolicyRule interface{}
+	PolicyRule string `pulumi:"policyRule"`
 	// The Type of the Policy, such as `Microsoft.Authorization/policyDefinitions`.
-	PolicyType interface{}
+	PolicyType string `pulumi:"policyType"`
 	// The Type of Policy.
-	Type interface{}
+	Type string `pulumi:"type"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

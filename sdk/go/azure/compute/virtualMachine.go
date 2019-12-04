@@ -4,18 +4,92 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine.html.markdown.
 type VirtualMachine struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `additionalCapabilities` block.
+	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesOutput `pulumi:"additionalCapabilities"`
+
+	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
+	AvailabilitySetId pulumi.StringOutput `pulumi:"availabilitySetId"`
+
+	// A `bootDiagnostics` block.
+	BootDiagnostics VirtualMachineBootDiagnosticsOutput `pulumi:"bootDiagnostics"`
+
+	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+	DeleteDataDisksOnTermination pulumi.BoolOutput `pulumi:"deleteDataDisksOnTermination"`
+
+	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+	DeleteOsDiskOnTermination pulumi.BoolOutput `pulumi:"deleteOsDiskOnTermination"`
+
+	// A `identity` block.
+	Identity VirtualMachineIdentityOutput `pulumi:"identity"`
+
+	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
+	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
+
+	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of Network Interface ID's which should be associated with the Virtual Machine.
+	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
+
+	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
+	OsProfile VirtualMachineOsProfileOutput `pulumi:"osProfile"`
+
+	// A `osProfileLinuxConfig` block.
+	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigOutput `pulumi:"osProfileLinuxConfig"`
+
+	// One or more `osProfileSecrets` blocks.
+	OsProfileSecrets VirtualMachineOsProfileSecretsArrayOutput `pulumi:"osProfileSecrets"`
+
+	// A `osProfileWindowsConfig` block.
+	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigOutput `pulumi:"osProfileWindowsConfig"`
+
+	// A `plan` block.
+	Plan VirtualMachinePlanOutput `pulumi:"plan"`
+
+	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
+	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
+
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId pulumi.StringOutput `pulumi:"proximityPlacementGroupId"`
+
+	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// One or more `storageDataDisk` blocks.
+	StorageDataDisks VirtualMachineStorageDataDisksArrayOutput `pulumi:"storageDataDisks"`
+
+	// A `storageImageReference` block.
+	StorageImageReference VirtualMachineStorageImageReferenceOutput `pulumi:"storageImageReference"`
+
+	// A `storageOsDisk` block.
+	StorageOsDisk VirtualMachineStorageOsDiskOutput `pulumi:"storageOsDisk"`
+
+	// A mapping of tags to assign to the Virtual Machine.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	VmSize pulumi.StringOutput `pulumi:"vmSize"`
+
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachine(ctx *pulumi.Context,
-	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOpt) (*VirtualMachine, error) {
+	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
 	if args == nil || args.NetworkInterfaceIds == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceIds'")
 	}
@@ -28,333 +102,1543 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.VmSize == nil {
 		return nil, errors.New("missing required argument 'VmSize'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["additionalCapabilities"] = nil
-		inputs["availabilitySetId"] = nil
-		inputs["bootDiagnostics"] = nil
-		inputs["deleteDataDisksOnTermination"] = nil
-		inputs["deleteOsDiskOnTermination"] = nil
-		inputs["identity"] = nil
-		inputs["licenseType"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkInterfaceIds"] = nil
-		inputs["osProfile"] = nil
-		inputs["osProfileLinuxConfig"] = nil
-		inputs["osProfileSecrets"] = nil
-		inputs["osProfileWindowsConfig"] = nil
-		inputs["plan"] = nil
-		inputs["primaryNetworkInterfaceId"] = nil
-		inputs["proximityPlacementGroupId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageDataDisks"] = nil
-		inputs["storageImageReference"] = nil
-		inputs["storageOsDisk"] = nil
-		inputs["tags"] = nil
-		inputs["vmSize"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["additionalCapabilities"] = args.AdditionalCapabilities
-		inputs["availabilitySetId"] = args.AvailabilitySetId
-		inputs["bootDiagnostics"] = args.BootDiagnostics
-		inputs["deleteDataDisksOnTermination"] = args.DeleteDataDisksOnTermination
-		inputs["deleteOsDiskOnTermination"] = args.DeleteOsDiskOnTermination
-		inputs["identity"] = args.Identity
-		inputs["licenseType"] = args.LicenseType
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkInterfaceIds"] = args.NetworkInterfaceIds
-		inputs["osProfile"] = args.OsProfile
-		inputs["osProfileLinuxConfig"] = args.OsProfileLinuxConfig
-		inputs["osProfileSecrets"] = args.OsProfileSecrets
-		inputs["osProfileWindowsConfig"] = args.OsProfileWindowsConfig
-		inputs["plan"] = args.Plan
-		inputs["primaryNetworkInterfaceId"] = args.PrimaryNetworkInterfaceId
-		inputs["proximityPlacementGroupId"] = args.ProximityPlacementGroupId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageDataDisks"] = args.StorageDataDisks
-		inputs["storageImageReference"] = args.StorageImageReference
-		inputs["storageOsDisk"] = args.StorageOsDisk
-		inputs["tags"] = args.Tags
-		inputs["vmSize"] = args.VmSize
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdditionalCapabilities; i != nil { inputs["additionalCapabilities"] = i.ToVirtualMachineAdditionalCapabilitiesOutput() }
+		if i := args.AvailabilitySetId; i != nil { inputs["availabilitySetId"] = i.ToStringOutput() }
+		if i := args.BootDiagnostics; i != nil { inputs["bootDiagnostics"] = i.ToVirtualMachineBootDiagnosticsOutput() }
+		if i := args.DeleteDataDisksOnTermination; i != nil { inputs["deleteDataDisksOnTermination"] = i.ToBoolOutput() }
+		if i := args.DeleteOsDiskOnTermination; i != nil { inputs["deleteOsDiskOnTermination"] = i.ToBoolOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToVirtualMachineIdentityOutput() }
+		if i := args.LicenseType; i != nil { inputs["licenseType"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkInterfaceIds; i != nil { inputs["networkInterfaceIds"] = i.ToStringArrayOutput() }
+		if i := args.OsProfile; i != nil { inputs["osProfile"] = i.ToVirtualMachineOsProfileOutput() }
+		if i := args.OsProfileLinuxConfig; i != nil { inputs["osProfileLinuxConfig"] = i.ToVirtualMachineOsProfileLinuxConfigOutput() }
+		if i := args.OsProfileSecrets; i != nil { inputs["osProfileSecrets"] = i.ToVirtualMachineOsProfileSecretsArrayOutput() }
+		if i := args.OsProfileWindowsConfig; i != nil { inputs["osProfileWindowsConfig"] = i.ToVirtualMachineOsProfileWindowsConfigOutput() }
+		if i := args.Plan; i != nil { inputs["plan"] = i.ToVirtualMachinePlanOutput() }
+		if i := args.PrimaryNetworkInterfaceId; i != nil { inputs["primaryNetworkInterfaceId"] = i.ToStringOutput() }
+		if i := args.ProximityPlacementGroupId; i != nil { inputs["proximityPlacementGroupId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageDataDisks; i != nil { inputs["storageDataDisks"] = i.ToVirtualMachineStorageDataDisksArrayOutput() }
+		if i := args.StorageImageReference; i != nil { inputs["storageImageReference"] = i.ToVirtualMachineStorageImageReferenceOutput() }
+		if i := args.StorageOsDisk; i != nil { inputs["storageOsDisk"] = i.ToVirtualMachineStorageOsDiskOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VmSize; i != nil { inputs["vmSize"] = i.ToStringOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/virtualMachine:VirtualMachine", name, true, inputs, opts...)
+	var resource VirtualMachine
+	err := ctx.RegisterResource("azure:compute/virtualMachine:VirtualMachine", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualMachine{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualMachine gets an existing VirtualMachine resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualMachine(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualMachineState, opts ...pulumi.ResourceOpt) (*VirtualMachine, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualMachineState, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["additionalCapabilities"] = state.AdditionalCapabilities
-		inputs["availabilitySetId"] = state.AvailabilitySetId
-		inputs["bootDiagnostics"] = state.BootDiagnostics
-		inputs["deleteDataDisksOnTermination"] = state.DeleteDataDisksOnTermination
-		inputs["deleteOsDiskOnTermination"] = state.DeleteOsDiskOnTermination
-		inputs["identity"] = state.Identity
-		inputs["licenseType"] = state.LicenseType
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkInterfaceIds"] = state.NetworkInterfaceIds
-		inputs["osProfile"] = state.OsProfile
-		inputs["osProfileLinuxConfig"] = state.OsProfileLinuxConfig
-		inputs["osProfileSecrets"] = state.OsProfileSecrets
-		inputs["osProfileWindowsConfig"] = state.OsProfileWindowsConfig
-		inputs["plan"] = state.Plan
-		inputs["primaryNetworkInterfaceId"] = state.PrimaryNetworkInterfaceId
-		inputs["proximityPlacementGroupId"] = state.ProximityPlacementGroupId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageDataDisks"] = state.StorageDataDisks
-		inputs["storageImageReference"] = state.StorageImageReference
-		inputs["storageOsDisk"] = state.StorageOsDisk
-		inputs["tags"] = state.Tags
-		inputs["vmSize"] = state.VmSize
-		inputs["zones"] = state.Zones
+		if i := state.AdditionalCapabilities; i != nil { inputs["additionalCapabilities"] = i.ToVirtualMachineAdditionalCapabilitiesOutput() }
+		if i := state.AvailabilitySetId; i != nil { inputs["availabilitySetId"] = i.ToStringOutput() }
+		if i := state.BootDiagnostics; i != nil { inputs["bootDiagnostics"] = i.ToVirtualMachineBootDiagnosticsOutput() }
+		if i := state.DeleteDataDisksOnTermination; i != nil { inputs["deleteDataDisksOnTermination"] = i.ToBoolOutput() }
+		if i := state.DeleteOsDiskOnTermination; i != nil { inputs["deleteOsDiskOnTermination"] = i.ToBoolOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToVirtualMachineIdentityOutput() }
+		if i := state.LicenseType; i != nil { inputs["licenseType"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkInterfaceIds; i != nil { inputs["networkInterfaceIds"] = i.ToStringArrayOutput() }
+		if i := state.OsProfile; i != nil { inputs["osProfile"] = i.ToVirtualMachineOsProfileOutput() }
+		if i := state.OsProfileLinuxConfig; i != nil { inputs["osProfileLinuxConfig"] = i.ToVirtualMachineOsProfileLinuxConfigOutput() }
+		if i := state.OsProfileSecrets; i != nil { inputs["osProfileSecrets"] = i.ToVirtualMachineOsProfileSecretsArrayOutput() }
+		if i := state.OsProfileWindowsConfig; i != nil { inputs["osProfileWindowsConfig"] = i.ToVirtualMachineOsProfileWindowsConfigOutput() }
+		if i := state.Plan; i != nil { inputs["plan"] = i.ToVirtualMachinePlanOutput() }
+		if i := state.PrimaryNetworkInterfaceId; i != nil { inputs["primaryNetworkInterfaceId"] = i.ToStringOutput() }
+		if i := state.ProximityPlacementGroupId; i != nil { inputs["proximityPlacementGroupId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageDataDisks; i != nil { inputs["storageDataDisks"] = i.ToVirtualMachineStorageDataDisksArrayOutput() }
+		if i := state.StorageImageReference; i != nil { inputs["storageImageReference"] = i.ToVirtualMachineStorageImageReferenceOutput() }
+		if i := state.StorageOsDisk; i != nil { inputs["storageOsDisk"] = i.ToVirtualMachineStorageOsDiskOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VmSize; i != nil { inputs["vmSize"] = i.ToStringOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/virtualMachine:VirtualMachine", name, id, inputs, opts...)
+	var resource VirtualMachine
+	err := ctx.ReadResource("azure:compute/virtualMachine:VirtualMachine", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualMachine{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualMachine) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualMachine) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `additionalCapabilities` block.
-func (r *VirtualMachine) AdditionalCapabilities() pulumi.Output {
-	return r.s.State["additionalCapabilities"]
-}
-
-// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-func (r *VirtualMachine) AvailabilitySetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["availabilitySetId"])
-}
-
-// A `bootDiagnostics` block.
-func (r *VirtualMachine) BootDiagnostics() pulumi.Output {
-	return r.s.State["bootDiagnostics"]
-}
-
-// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-func (r *VirtualMachine) DeleteDataDisksOnTermination() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deleteDataDisksOnTermination"])
-}
-
-// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-func (r *VirtualMachine) DeleteOsDiskOnTermination() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deleteOsDiskOnTermination"])
-}
-
-// A `identity` block.
-func (r *VirtualMachine) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
-func (r *VirtualMachine) LicenseType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["licenseType"])
-}
-
-// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
-func (r *VirtualMachine) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-func (r *VirtualMachine) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of Network Interface ID's which should be associated with the Virtual Machine.
-func (r *VirtualMachine) NetworkInterfaceIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
-}
-
-// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
-func (r *VirtualMachine) OsProfile() pulumi.Output {
-	return r.s.State["osProfile"]
-}
-
-// A `osProfileLinuxConfig` block.
-func (r *VirtualMachine) OsProfileLinuxConfig() pulumi.Output {
-	return r.s.State["osProfileLinuxConfig"]
-}
-
-// One or more `osProfileSecrets` blocks.
-func (r *VirtualMachine) OsProfileSecrets() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
-}
-
-// A `osProfileWindowsConfig` block.
-func (r *VirtualMachine) OsProfileWindowsConfig() pulumi.Output {
-	return r.s.State["osProfileWindowsConfig"]
-}
-
-// A `plan` block.
-func (r *VirtualMachine) Plan() pulumi.Output {
-	return r.s.State["plan"]
-}
-
-// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
-func (r *VirtualMachine) PrimaryNetworkInterfaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryNetworkInterfaceId"])
-}
-
-// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-func (r *VirtualMachine) ProximityPlacementGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
-}
-
-// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-func (r *VirtualMachine) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// One or more `storageDataDisk` blocks.
-func (r *VirtualMachine) StorageDataDisks() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageDataDisks"])
-}
-
-// A `storageImageReference` block.
-func (r *VirtualMachine) StorageImageReference() pulumi.Output {
-	return r.s.State["storageImageReference"]
-}
-
-// A `storageOsDisk` block.
-func (r *VirtualMachine) StorageOsDisk() pulumi.Output {
-	return r.s.State["storageOsDisk"]
-}
-
-// A mapping of tags to assign to the Virtual Machine.
-func (r *VirtualMachine) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
-func (r *VirtualMachine) VmSize() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vmSize"])
-}
-
-// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
-func (r *VirtualMachine) Zones() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualMachine resources.
 type VirtualMachineState struct {
 	// A `additionalCapabilities` block.
-	AdditionalCapabilities interface{}
+	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesInput `pulumi:"additionalCapabilities"`
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-	AvailabilitySetId interface{}
+	AvailabilitySetId pulumi.StringInput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block.
-	BootDiagnostics interface{}
+	BootDiagnostics VirtualMachineBootDiagnosticsInput `pulumi:"bootDiagnostics"`
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	DeleteDataDisksOnTermination interface{}
+	DeleteDataDisksOnTermination pulumi.BoolInput `pulumi:"deleteDataDisksOnTermination"`
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	DeleteOsDiskOnTermination interface{}
+	DeleteOsDiskOnTermination pulumi.BoolInput `pulumi:"deleteOsDiskOnTermination"`
 	// A `identity` block.
-	Identity interface{}
+	Identity VirtualMachineIdentityInput `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
-	LicenseType interface{}
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
 	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
-	NetworkInterfaceIds interface{}
+	NetworkInterfaceIds pulumi.StringArrayInput `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
-	OsProfile interface{}
+	OsProfile VirtualMachineOsProfileInput `pulumi:"osProfile"`
 	// A `osProfileLinuxConfig` block.
-	OsProfileLinuxConfig interface{}
+	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigInput `pulumi:"osProfileLinuxConfig"`
 	// One or more `osProfileSecrets` blocks.
-	OsProfileSecrets interface{}
+	OsProfileSecrets VirtualMachineOsProfileSecretsArrayInput `pulumi:"osProfileSecrets"`
 	// A `osProfileWindowsConfig` block.
-	OsProfileWindowsConfig interface{}
+	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigInput `pulumi:"osProfileWindowsConfig"`
 	// A `plan` block.
-	Plan interface{}
+	Plan VirtualMachinePlanInput `pulumi:"plan"`
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
-	PrimaryNetworkInterfaceId interface{}
+	PrimaryNetworkInterfaceId pulumi.StringInput `pulumi:"primaryNetworkInterfaceId"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-	ProximityPlacementGroupId interface{}
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks.
-	StorageDataDisks interface{}
+	StorageDataDisks VirtualMachineStorageDataDisksArrayInput `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block.
-	StorageImageReference interface{}
+	StorageImageReference VirtualMachineStorageImageReferenceInput `pulumi:"storageImageReference"`
 	// A `storageOsDisk` block.
-	StorageOsDisk interface{}
+	StorageOsDisk VirtualMachineStorageOsDiskInput `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
-	VmSize interface{}
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
 	// A `additionalCapabilities` block.
-	AdditionalCapabilities interface{}
+	AdditionalCapabilities VirtualMachineAdditionalCapabilitiesInput `pulumi:"additionalCapabilities"`
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-	AvailabilitySetId interface{}
+	AvailabilitySetId pulumi.StringInput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block.
-	BootDiagnostics interface{}
+	BootDiagnostics VirtualMachineBootDiagnosticsInput `pulumi:"bootDiagnostics"`
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	DeleteDataDisksOnTermination interface{}
+	DeleteDataDisksOnTermination pulumi.BoolInput `pulumi:"deleteDataDisksOnTermination"`
 	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	DeleteOsDiskOnTermination interface{}
+	DeleteOsDiskOnTermination pulumi.BoolInput `pulumi:"deleteOsDiskOnTermination"`
 	// A `identity` block.
-	Identity interface{}
+	Identity VirtualMachineIdentityInput `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
-	LicenseType interface{}
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
 	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
-	NetworkInterfaceIds interface{}
+	NetworkInterfaceIds pulumi.StringArrayInput `pulumi:"networkInterfaceIds"`
 	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
-	OsProfile interface{}
+	OsProfile VirtualMachineOsProfileInput `pulumi:"osProfile"`
 	// A `osProfileLinuxConfig` block.
-	OsProfileLinuxConfig interface{}
+	OsProfileLinuxConfig VirtualMachineOsProfileLinuxConfigInput `pulumi:"osProfileLinuxConfig"`
 	// One or more `osProfileSecrets` blocks.
-	OsProfileSecrets interface{}
+	OsProfileSecrets VirtualMachineOsProfileSecretsArrayInput `pulumi:"osProfileSecrets"`
 	// A `osProfileWindowsConfig` block.
-	OsProfileWindowsConfig interface{}
+	OsProfileWindowsConfig VirtualMachineOsProfileWindowsConfigInput `pulumi:"osProfileWindowsConfig"`
 	// A `plan` block.
-	Plan interface{}
+	Plan VirtualMachinePlanInput `pulumi:"plan"`
 	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
-	PrimaryNetworkInterfaceId interface{}
+	PrimaryNetworkInterfaceId pulumi.StringInput `pulumi:"primaryNetworkInterfaceId"`
 	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-	ProximityPlacementGroupId interface{}
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks.
-	StorageDataDisks interface{}
+	StorageDataDisks VirtualMachineStorageDataDisksArrayInput `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block.
-	StorageImageReference interface{}
+	StorageImageReference VirtualMachineStorageImageReferenceInput `pulumi:"storageImageReference"`
 	// A `storageOsDisk` block.
-	StorageOsDisk interface{}
+	StorageOsDisk VirtualMachineStorageOsDiskInput `pulumi:"storageOsDisk"`
 	// A mapping of tags to assign to the Virtual Machine.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
-	VmSize interface{}
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
+type VirtualMachineAdditionalCapabilities struct {
+	UltraSsdEnabled bool `pulumi:"ultraSsdEnabled"`
+}
+var virtualMachineAdditionalCapabilitiesType = reflect.TypeOf((*VirtualMachineAdditionalCapabilities)(nil)).Elem()
+
+type VirtualMachineAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineAdditionalCapabilitiesOutput() VirtualMachineAdditionalCapabilitiesOutput
+	ToVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesOutput
+}
+
+type VirtualMachineAdditionalCapabilitiesArgs struct {
+	UltraSsdEnabled pulumi.BoolInput `pulumi:"ultraSsdEnabled"`
+}
+
+func (VirtualMachineAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return virtualMachineAdditionalCapabilitiesType
+}
+
+func (a VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapabilitiesOutput() VirtualMachineAdditionalCapabilitiesOutput {
+	return pulumi.ToOutput(a).(VirtualMachineAdditionalCapabilitiesOutput)
+}
+
+func (a VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineAdditionalCapabilitiesOutput)
+}
+
+type VirtualMachineAdditionalCapabilitiesOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineAdditionalCapabilities) bool {
+		return v.UltraSsdEnabled
+	}).(pulumi.BoolOutput)
+}
+
+func (VirtualMachineAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return virtualMachineAdditionalCapabilitiesType
+}
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesOutput() VirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o VirtualMachineAdditionalCapabilitiesOutput) ToVirtualMachineAdditionalCapabilitiesOutputWithContext(ctx context.Context) VirtualMachineAdditionalCapabilitiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineAdditionalCapabilitiesOutput{}) }
+
+type VirtualMachineBootDiagnostics struct {
+	Enabled bool `pulumi:"enabled"`
+	StorageUri string `pulumi:"storageUri"`
+}
+var virtualMachineBootDiagnosticsType = reflect.TypeOf((*VirtualMachineBootDiagnostics)(nil)).Elem()
+
+type VirtualMachineBootDiagnosticsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineBootDiagnosticsOutput() VirtualMachineBootDiagnosticsOutput
+	ToVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) VirtualMachineBootDiagnosticsOutput
+}
+
+type VirtualMachineBootDiagnosticsArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	StorageUri pulumi.StringInput `pulumi:"storageUri"`
+}
+
+func (VirtualMachineBootDiagnosticsArgs) ElementType() reflect.Type {
+	return virtualMachineBootDiagnosticsType
+}
+
+func (a VirtualMachineBootDiagnosticsArgs) ToVirtualMachineBootDiagnosticsOutput() VirtualMachineBootDiagnosticsOutput {
+	return pulumi.ToOutput(a).(VirtualMachineBootDiagnosticsOutput)
+}
+
+func (a VirtualMachineBootDiagnosticsArgs) ToVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) VirtualMachineBootDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineBootDiagnosticsOutput)
+}
+
+type VirtualMachineBootDiagnosticsOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineBootDiagnosticsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineBootDiagnostics) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o VirtualMachineBootDiagnosticsOutput) StorageUri() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineBootDiagnostics) string {
+		return v.StorageUri
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineBootDiagnosticsOutput) ElementType() reflect.Type {
+	return virtualMachineBootDiagnosticsType
+}
+
+func (o VirtualMachineBootDiagnosticsOutput) ToVirtualMachineBootDiagnosticsOutput() VirtualMachineBootDiagnosticsOutput {
+	return o
+}
+
+func (o VirtualMachineBootDiagnosticsOutput) ToVirtualMachineBootDiagnosticsOutputWithContext(ctx context.Context) VirtualMachineBootDiagnosticsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineBootDiagnosticsOutput{}) }
+
+type VirtualMachineIdentity struct {
+	IdentityIds *[]string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+	PrincipalId *string `pulumi:"principalId"`
+	Type string `pulumi:"type"`
+}
+var virtualMachineIdentityType = reflect.TypeOf((*VirtualMachineIdentity)(nil)).Elem()
+
+type VirtualMachineIdentityInput interface {
+	pulumi.Input
+
+	ToVirtualMachineIdentityOutput() VirtualMachineIdentityOutput
+	ToVirtualMachineIdentityOutputWithContext(ctx context.Context) VirtualMachineIdentityOutput
+}
+
+type VirtualMachineIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualMachineIdentityArgs) ElementType() reflect.Type {
+	return virtualMachineIdentityType
+}
+
+func (a VirtualMachineIdentityArgs) ToVirtualMachineIdentityOutput() VirtualMachineIdentityOutput {
+	return pulumi.ToOutput(a).(VirtualMachineIdentityOutput)
+}
+
+func (a VirtualMachineIdentityArgs) ToVirtualMachineIdentityOutputWithContext(ctx context.Context) VirtualMachineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineIdentityOutput)
+}
+
+type VirtualMachineIdentityOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v VirtualMachineIdentity) []string {
+		if v.IdentityIds == nil { return *new([]string) } else { return *v.IdentityIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
+func (o VirtualMachineIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineIdentityOutput) ElementType() reflect.Type {
+	return virtualMachineIdentityType
+}
+
+func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityOutput() VirtualMachineIdentityOutput {
+	return o
+}
+
+func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityOutputWithContext(ctx context.Context) VirtualMachineIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineIdentityOutput{}) }
+
+type VirtualMachineOsProfile struct {
+	AdminPassword *string `pulumi:"adminPassword"`
+	AdminUsername string `pulumi:"adminUsername"`
+	ComputerName string `pulumi:"computerName"`
+	CustomData *string `pulumi:"customData"`
+}
+var virtualMachineOsProfileType = reflect.TypeOf((*VirtualMachineOsProfile)(nil)).Elem()
+
+type VirtualMachineOsProfileInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileOutput() VirtualMachineOsProfileOutput
+	ToVirtualMachineOsProfileOutputWithContext(ctx context.Context) VirtualMachineOsProfileOutput
+}
+
+type VirtualMachineOsProfileArgs struct {
+	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+	CustomData pulumi.StringInput `pulumi:"customData"`
+}
+
+func (VirtualMachineOsProfileArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileType
+}
+
+func (a VirtualMachineOsProfileArgs) ToVirtualMachineOsProfileOutput() VirtualMachineOsProfileOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileOutput)
+}
+
+func (a VirtualMachineOsProfileArgs) ToVirtualMachineOsProfileOutputWithContext(ctx context.Context) VirtualMachineOsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileOutput)
+}
+
+type VirtualMachineOsProfileOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileOutput) AdminPassword() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfile) string {
+		if v.AdminPassword == nil { return *new(string) } else { return *v.AdminPassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileOutput) AdminUsername() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfile) string {
+		return v.AdminUsername
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileOutput) ComputerName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfile) string {
+		return v.ComputerName
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileOutput) CustomData() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfile) string {
+		if v.CustomData == nil { return *new(string) } else { return *v.CustomData }
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineOsProfileOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileType
+}
+
+func (o VirtualMachineOsProfileOutput) ToVirtualMachineOsProfileOutput() VirtualMachineOsProfileOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileOutput) ToVirtualMachineOsProfileOutputWithContext(ctx context.Context) VirtualMachineOsProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileOutput{}) }
+
+type VirtualMachineOsProfileLinuxConfig struct {
+	DisablePasswordAuthentication bool `pulumi:"disablePasswordAuthentication"`
+	SshKeys *[]VirtualMachineOsProfileLinuxConfigSshKeys `pulumi:"sshKeys"`
+}
+var virtualMachineOsProfileLinuxConfigType = reflect.TypeOf((*VirtualMachineOsProfileLinuxConfig)(nil)).Elem()
+
+type VirtualMachineOsProfileLinuxConfigInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileLinuxConfigOutput() VirtualMachineOsProfileLinuxConfigOutput
+	ToVirtualMachineOsProfileLinuxConfigOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigOutput
+}
+
+type VirtualMachineOsProfileLinuxConfigArgs struct {
+	DisablePasswordAuthentication pulumi.BoolInput `pulumi:"disablePasswordAuthentication"`
+	SshKeys VirtualMachineOsProfileLinuxConfigSshKeysArrayInput `pulumi:"sshKeys"`
+}
+
+func (VirtualMachineOsProfileLinuxConfigArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileLinuxConfigType
+}
+
+func (a VirtualMachineOsProfileLinuxConfigArgs) ToVirtualMachineOsProfileLinuxConfigOutput() VirtualMachineOsProfileLinuxConfigOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileLinuxConfigOutput)
+}
+
+func (a VirtualMachineOsProfileLinuxConfigArgs) ToVirtualMachineOsProfileLinuxConfigOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileLinuxConfigOutput)
+}
+
+type VirtualMachineOsProfileLinuxConfigOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileLinuxConfigOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineOsProfileLinuxConfig) bool {
+		return v.DisablePasswordAuthentication
+	}).(pulumi.BoolOutput)
+}
+
+func (o VirtualMachineOsProfileLinuxConfigOutput) SshKeys() VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput {
+	return o.Apply(func(v VirtualMachineOsProfileLinuxConfig) []VirtualMachineOsProfileLinuxConfigSshKeys {
+		if v.SshKeys == nil { return *new([]VirtualMachineOsProfileLinuxConfigSshKeys) } else { return *v.SshKeys }
+	}).(VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput)
+}
+
+func (VirtualMachineOsProfileLinuxConfigOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileLinuxConfigType
+}
+
+func (o VirtualMachineOsProfileLinuxConfigOutput) ToVirtualMachineOsProfileLinuxConfigOutput() VirtualMachineOsProfileLinuxConfigOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileLinuxConfigOutput) ToVirtualMachineOsProfileLinuxConfigOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileLinuxConfigOutput{}) }
+
+type VirtualMachineOsProfileLinuxConfigSshKeys struct {
+	KeyData string `pulumi:"keyData"`
+	Path string `pulumi:"path"`
+}
+var virtualMachineOsProfileLinuxConfigSshKeysType = reflect.TypeOf((*VirtualMachineOsProfileLinuxConfigSshKeys)(nil)).Elem()
+
+type VirtualMachineOsProfileLinuxConfigSshKeysInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileLinuxConfigSshKeysOutput() VirtualMachineOsProfileLinuxConfigSshKeysOutput
+	ToVirtualMachineOsProfileLinuxConfigSshKeysOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigSshKeysOutput
+}
+
+type VirtualMachineOsProfileLinuxConfigSshKeysArgs struct {
+	KeyData pulumi.StringInput `pulumi:"keyData"`
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (VirtualMachineOsProfileLinuxConfigSshKeysArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileLinuxConfigSshKeysType
+}
+
+func (a VirtualMachineOsProfileLinuxConfigSshKeysArgs) ToVirtualMachineOsProfileLinuxConfigSshKeysOutput() VirtualMachineOsProfileLinuxConfigSshKeysOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileLinuxConfigSshKeysOutput)
+}
+
+func (a VirtualMachineOsProfileLinuxConfigSshKeysArgs) ToVirtualMachineOsProfileLinuxConfigSshKeysOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigSshKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileLinuxConfigSshKeysOutput)
+}
+
+type VirtualMachineOsProfileLinuxConfigSshKeysOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysOutput) KeyData() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileLinuxConfigSshKeys) string {
+		return v.KeyData
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileLinuxConfigSshKeys) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineOsProfileLinuxConfigSshKeysOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileLinuxConfigSshKeysType
+}
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysOutput) ToVirtualMachineOsProfileLinuxConfigSshKeysOutput() VirtualMachineOsProfileLinuxConfigSshKeysOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysOutput) ToVirtualMachineOsProfileLinuxConfigSshKeysOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigSshKeysOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileLinuxConfigSshKeysOutput{}) }
+
+var virtualMachineOsProfileLinuxConfigSshKeysArrayType = reflect.TypeOf((*[]VirtualMachineOsProfileLinuxConfigSshKeys)(nil)).Elem()
+
+type VirtualMachineOsProfileLinuxConfigSshKeysArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileLinuxConfigSshKeysArrayOutput() VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput
+	ToVirtualMachineOsProfileLinuxConfigSshKeysArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput
+}
+
+type VirtualMachineOsProfileLinuxConfigSshKeysArrayArgs []VirtualMachineOsProfileLinuxConfigSshKeysInput
+
+func (VirtualMachineOsProfileLinuxConfigSshKeysArrayArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileLinuxConfigSshKeysArrayType
+}
+
+func (a VirtualMachineOsProfileLinuxConfigSshKeysArrayArgs) ToVirtualMachineOsProfileLinuxConfigSshKeysArrayOutput() VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput)
+}
+
+func (a VirtualMachineOsProfileLinuxConfigSshKeysArrayArgs) ToVirtualMachineOsProfileLinuxConfigSshKeysArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput)
+}
+
+type VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileLinuxConfigSshKeysOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualMachineOsProfileLinuxConfigSshKeys {
+		return vs[0].([]VirtualMachineOsProfileLinuxConfigSshKeys)[vs[1].(int)]
+	}).(VirtualMachineOsProfileLinuxConfigSshKeysOutput)
+}
+
+func (VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileLinuxConfigSshKeysArrayType
+}
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput) ToVirtualMachineOsProfileLinuxConfigSshKeysArrayOutput() VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput) ToVirtualMachineOsProfileLinuxConfigSshKeysArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileLinuxConfigSshKeysArrayOutput{}) }
+
+type VirtualMachineOsProfileSecrets struct {
+	SourceVaultId string `pulumi:"sourceVaultId"`
+	VaultCertificates *[]VirtualMachineOsProfileSecretsVaultCertificates `pulumi:"vaultCertificates"`
+}
+var virtualMachineOsProfileSecretsType = reflect.TypeOf((*VirtualMachineOsProfileSecrets)(nil)).Elem()
+
+type VirtualMachineOsProfileSecretsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileSecretsOutput() VirtualMachineOsProfileSecretsOutput
+	ToVirtualMachineOsProfileSecretsOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsOutput
+}
+
+type VirtualMachineOsProfileSecretsArgs struct {
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+	VaultCertificates VirtualMachineOsProfileSecretsVaultCertificatesArrayInput `pulumi:"vaultCertificates"`
+}
+
+func (VirtualMachineOsProfileSecretsArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsType
+}
+
+func (a VirtualMachineOsProfileSecretsArgs) ToVirtualMachineOsProfileSecretsOutput() VirtualMachineOsProfileSecretsOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileSecretsOutput)
+}
+
+func (a VirtualMachineOsProfileSecretsArgs) ToVirtualMachineOsProfileSecretsOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileSecretsOutput)
+}
+
+type VirtualMachineOsProfileSecretsOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileSecretsOutput) SourceVaultId() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileSecrets) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileSecretsOutput) VaultCertificates() VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput {
+	return o.Apply(func(v VirtualMachineOsProfileSecrets) []VirtualMachineOsProfileSecretsVaultCertificates {
+		if v.VaultCertificates == nil { return *new([]VirtualMachineOsProfileSecretsVaultCertificates) } else { return *v.VaultCertificates }
+	}).(VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput)
+}
+
+func (VirtualMachineOsProfileSecretsOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsType
+}
+
+func (o VirtualMachineOsProfileSecretsOutput) ToVirtualMachineOsProfileSecretsOutput() VirtualMachineOsProfileSecretsOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileSecretsOutput) ToVirtualMachineOsProfileSecretsOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileSecretsOutput{}) }
+
+var virtualMachineOsProfileSecretsArrayType = reflect.TypeOf((*[]VirtualMachineOsProfileSecrets)(nil)).Elem()
+
+type VirtualMachineOsProfileSecretsArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileSecretsArrayOutput() VirtualMachineOsProfileSecretsArrayOutput
+	ToVirtualMachineOsProfileSecretsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsArrayOutput
+}
+
+type VirtualMachineOsProfileSecretsArrayArgs []VirtualMachineOsProfileSecretsInput
+
+func (VirtualMachineOsProfileSecretsArrayArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsArrayType
+}
+
+func (a VirtualMachineOsProfileSecretsArrayArgs) ToVirtualMachineOsProfileSecretsArrayOutput() VirtualMachineOsProfileSecretsArrayOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileSecretsArrayOutput)
+}
+
+func (a VirtualMachineOsProfileSecretsArrayArgs) ToVirtualMachineOsProfileSecretsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileSecretsArrayOutput)
+}
+
+type VirtualMachineOsProfileSecretsArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileSecretsArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileSecretsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualMachineOsProfileSecrets {
+		return vs[0].([]VirtualMachineOsProfileSecrets)[vs[1].(int)]
+	}).(VirtualMachineOsProfileSecretsOutput)
+}
+
+func (VirtualMachineOsProfileSecretsArrayOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsArrayType
+}
+
+func (o VirtualMachineOsProfileSecretsArrayOutput) ToVirtualMachineOsProfileSecretsArrayOutput() VirtualMachineOsProfileSecretsArrayOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileSecretsArrayOutput) ToVirtualMachineOsProfileSecretsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileSecretsArrayOutput{}) }
+
+type VirtualMachineOsProfileSecretsVaultCertificates struct {
+	CertificateStore *string `pulumi:"certificateStore"`
+	CertificateUrl string `pulumi:"certificateUrl"`
+}
+var virtualMachineOsProfileSecretsVaultCertificatesType = reflect.TypeOf((*VirtualMachineOsProfileSecretsVaultCertificates)(nil)).Elem()
+
+type VirtualMachineOsProfileSecretsVaultCertificatesInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileSecretsVaultCertificatesOutput() VirtualMachineOsProfileSecretsVaultCertificatesOutput
+	ToVirtualMachineOsProfileSecretsVaultCertificatesOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsVaultCertificatesOutput
+}
+
+type VirtualMachineOsProfileSecretsVaultCertificatesArgs struct {
+	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+}
+
+func (VirtualMachineOsProfileSecretsVaultCertificatesArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsVaultCertificatesType
+}
+
+func (a VirtualMachineOsProfileSecretsVaultCertificatesArgs) ToVirtualMachineOsProfileSecretsVaultCertificatesOutput() VirtualMachineOsProfileSecretsVaultCertificatesOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileSecretsVaultCertificatesOutput)
+}
+
+func (a VirtualMachineOsProfileSecretsVaultCertificatesArgs) ToVirtualMachineOsProfileSecretsVaultCertificatesOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsVaultCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileSecretsVaultCertificatesOutput)
+}
+
+type VirtualMachineOsProfileSecretsVaultCertificatesOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesOutput) CertificateStore() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileSecretsVaultCertificates) string {
+		if v.CertificateStore == nil { return *new(string) } else { return *v.CertificateStore }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesOutput) CertificateUrl() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileSecretsVaultCertificates) string {
+		return v.CertificateUrl
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineOsProfileSecretsVaultCertificatesOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsVaultCertificatesType
+}
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesOutput) ToVirtualMachineOsProfileSecretsVaultCertificatesOutput() VirtualMachineOsProfileSecretsVaultCertificatesOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesOutput) ToVirtualMachineOsProfileSecretsVaultCertificatesOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsVaultCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileSecretsVaultCertificatesOutput{}) }
+
+var virtualMachineOsProfileSecretsVaultCertificatesArrayType = reflect.TypeOf((*[]VirtualMachineOsProfileSecretsVaultCertificates)(nil)).Elem()
+
+type VirtualMachineOsProfileSecretsVaultCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileSecretsVaultCertificatesArrayOutput() VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput
+	ToVirtualMachineOsProfileSecretsVaultCertificatesArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput
+}
+
+type VirtualMachineOsProfileSecretsVaultCertificatesArrayArgs []VirtualMachineOsProfileSecretsVaultCertificatesInput
+
+func (VirtualMachineOsProfileSecretsVaultCertificatesArrayArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsVaultCertificatesArrayType
+}
+
+func (a VirtualMachineOsProfileSecretsVaultCertificatesArrayArgs) ToVirtualMachineOsProfileSecretsVaultCertificatesArrayOutput() VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput)
+}
+
+func (a VirtualMachineOsProfileSecretsVaultCertificatesArrayArgs) ToVirtualMachineOsProfileSecretsVaultCertificatesArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput)
+}
+
+type VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileSecretsVaultCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualMachineOsProfileSecretsVaultCertificates {
+		return vs[0].([]VirtualMachineOsProfileSecretsVaultCertificates)[vs[1].(int)]
+	}).(VirtualMachineOsProfileSecretsVaultCertificatesOutput)
+}
+
+func (VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileSecretsVaultCertificatesArrayType
+}
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput) ToVirtualMachineOsProfileSecretsVaultCertificatesArrayOutput() VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput) ToVirtualMachineOsProfileSecretsVaultCertificatesArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileSecretsVaultCertificatesArrayOutput{}) }
+
+type VirtualMachineOsProfileWindowsConfig struct {
+	AdditionalUnattendConfigs *[]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs `pulumi:"additionalUnattendConfigs"`
+	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
+	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
+	Timezone *string `pulumi:"timezone"`
+	Winrms *[]VirtualMachineOsProfileWindowsConfigWinrms `pulumi:"winrms"`
+}
+var virtualMachineOsProfileWindowsConfigType = reflect.TypeOf((*VirtualMachineOsProfileWindowsConfig)(nil)).Elem()
+
+type VirtualMachineOsProfileWindowsConfigInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileWindowsConfigOutput() VirtualMachineOsProfileWindowsConfigOutput
+	ToVirtualMachineOsProfileWindowsConfigOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigOutput
+}
+
+type VirtualMachineOsProfileWindowsConfigArgs struct {
+	AdditionalUnattendConfigs VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayInput `pulumi:"additionalUnattendConfigs"`
+	EnableAutomaticUpgrades pulumi.BoolInput `pulumi:"enableAutomaticUpgrades"`
+	ProvisionVmAgent pulumi.BoolInput `pulumi:"provisionVmAgent"`
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+	Winrms VirtualMachineOsProfileWindowsConfigWinrmsArrayInput `pulumi:"winrms"`
+}
+
+func (VirtualMachineOsProfileWindowsConfigArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigType
+}
+
+func (a VirtualMachineOsProfileWindowsConfigArgs) ToVirtualMachineOsProfileWindowsConfigOutput() VirtualMachineOsProfileWindowsConfigOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileWindowsConfigOutput)
+}
+
+func (a VirtualMachineOsProfileWindowsConfigArgs) ToVirtualMachineOsProfileWindowsConfigOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileWindowsConfigOutput)
+}
+
+type VirtualMachineOsProfileWindowsConfigOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs {
+		if v.AdditionalUnattendConfigs == nil { return *new([]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs) } else { return *v.AdditionalUnattendConfigs }
+	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfig) bool {
+		if v.EnableAutomaticUpgrades == nil { return *new(bool) } else { return *v.EnableAutomaticUpgrades }
+	}).(pulumi.BoolOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfig) bool {
+		if v.ProvisionVmAgent == nil { return *new(bool) } else { return *v.ProvisionVmAgent }
+	}).(pulumi.BoolOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) Timezone() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfig) string {
+		if v.Timezone == nil { return *new(string) } else { return *v.Timezone }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) Winrms() VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfig) []VirtualMachineOsProfileWindowsConfigWinrms {
+		if v.Winrms == nil { return *new([]VirtualMachineOsProfileWindowsConfigWinrms) } else { return *v.Winrms }
+	}).(VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput)
+}
+
+func (VirtualMachineOsProfileWindowsConfigOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigType
+}
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWindowsConfigOutput() VirtualMachineOsProfileWindowsConfigOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileWindowsConfigOutput) ToVirtualMachineOsProfileWindowsConfigOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileWindowsConfigOutput{}) }
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs struct {
+	Component string `pulumi:"component"`
+	Content string `pulumi:"content"`
+	Pass string `pulumi:"pass"`
+	SettingName string `pulumi:"settingName"`
+}
+var virtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsType = reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs)(nil)).Elem()
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput
+	ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput
+}
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs struct {
+	Component pulumi.StringInput `pulumi:"component"`
+	Content pulumi.StringInput `pulumi:"content"`
+	Pass pulumi.StringInput `pulumi:"pass"`
+	SettingName pulumi.StringInput `pulumi:"settingName"`
+}
+
+func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsType
+}
+
+func (a VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput)
+}
+
+func (a VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArgs) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput)
+}
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) Component() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.Component
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) Content() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.Content
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) Pass() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.Pass
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) SettingName() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs) string {
+		return v.SettingName
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsType
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput{}) }
+
+var virtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayType = reflect.TypeOf((*[]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs)(nil)).Elem()
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput
+	ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput
+}
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsInput
+
+func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayType
+}
+
+func (a VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput)
+}
+
+func (a VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayArgs) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput)
+}
+
+type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs {
+		return vs[0].([]VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigs)[vs[1].(int)]
+	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsOutput)
+}
+
+func (VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayType
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput() VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput) ToVirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigsArrayOutput{}) }
+
+type VirtualMachineOsProfileWindowsConfigWinrms struct {
+	CertificateUrl *string `pulumi:"certificateUrl"`
+	Protocol string `pulumi:"protocol"`
+}
+var virtualMachineOsProfileWindowsConfigWinrmsType = reflect.TypeOf((*VirtualMachineOsProfileWindowsConfigWinrms)(nil)).Elem()
+
+type VirtualMachineOsProfileWindowsConfigWinrmsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileWindowsConfigWinrmsOutput() VirtualMachineOsProfileWindowsConfigWinrmsOutput
+	ToVirtualMachineOsProfileWindowsConfigWinrmsOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigWinrmsOutput
+}
+
+type VirtualMachineOsProfileWindowsConfigWinrmsArgs struct {
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (VirtualMachineOsProfileWindowsConfigWinrmsArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigWinrmsType
+}
+
+func (a VirtualMachineOsProfileWindowsConfigWinrmsArgs) ToVirtualMachineOsProfileWindowsConfigWinrmsOutput() VirtualMachineOsProfileWindowsConfigWinrmsOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileWindowsConfigWinrmsOutput)
+}
+
+func (a VirtualMachineOsProfileWindowsConfigWinrmsArgs) ToVirtualMachineOsProfileWindowsConfigWinrmsOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigWinrmsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileWindowsConfigWinrmsOutput)
+}
+
+type VirtualMachineOsProfileWindowsConfigWinrmsOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsOutput) CertificateUrl() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfigWinrms) string {
+		if v.CertificateUrl == nil { return *new(string) } else { return *v.CertificateUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineOsProfileWindowsConfigWinrms) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineOsProfileWindowsConfigWinrmsOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigWinrmsType
+}
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsOutput) ToVirtualMachineOsProfileWindowsConfigWinrmsOutput() VirtualMachineOsProfileWindowsConfigWinrmsOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsOutput) ToVirtualMachineOsProfileWindowsConfigWinrmsOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigWinrmsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileWindowsConfigWinrmsOutput{}) }
+
+var virtualMachineOsProfileWindowsConfigWinrmsArrayType = reflect.TypeOf((*[]VirtualMachineOsProfileWindowsConfigWinrms)(nil)).Elem()
+
+type VirtualMachineOsProfileWindowsConfigWinrmsArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineOsProfileWindowsConfigWinrmsArrayOutput() VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput
+	ToVirtualMachineOsProfileWindowsConfigWinrmsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput
+}
+
+type VirtualMachineOsProfileWindowsConfigWinrmsArrayArgs []VirtualMachineOsProfileWindowsConfigWinrmsInput
+
+func (VirtualMachineOsProfileWindowsConfigWinrmsArrayArgs) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigWinrmsArrayType
+}
+
+func (a VirtualMachineOsProfileWindowsConfigWinrmsArrayArgs) ToVirtualMachineOsProfileWindowsConfigWinrmsArrayOutput() VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput {
+	return pulumi.ToOutput(a).(VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput)
+}
+
+func (a VirtualMachineOsProfileWindowsConfigWinrmsArrayArgs) ToVirtualMachineOsProfileWindowsConfigWinrmsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput)
+}
+
+type VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput) Index(i pulumi.IntInput) VirtualMachineOsProfileWindowsConfigWinrmsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualMachineOsProfileWindowsConfigWinrms {
+		return vs[0].([]VirtualMachineOsProfileWindowsConfigWinrms)[vs[1].(int)]
+	}).(VirtualMachineOsProfileWindowsConfigWinrmsOutput)
+}
+
+func (VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput) ElementType() reflect.Type {
+	return virtualMachineOsProfileWindowsConfigWinrmsArrayType
+}
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput) ToVirtualMachineOsProfileWindowsConfigWinrmsArrayOutput() VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput {
+	return o
+}
+
+func (o VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput) ToVirtualMachineOsProfileWindowsConfigWinrmsArrayOutputWithContext(ctx context.Context) VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineOsProfileWindowsConfigWinrmsArrayOutput{}) }
+
+type VirtualMachinePlan struct {
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Product string `pulumi:"product"`
+	Publisher string `pulumi:"publisher"`
+}
+var virtualMachinePlanType = reflect.TypeOf((*VirtualMachinePlan)(nil)).Elem()
+
+type VirtualMachinePlanInput interface {
+	pulumi.Input
+
+	ToVirtualMachinePlanOutput() VirtualMachinePlanOutput
+	ToVirtualMachinePlanOutputWithContext(ctx context.Context) VirtualMachinePlanOutput
+}
+
+type VirtualMachinePlanArgs struct {
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Product pulumi.StringInput `pulumi:"product"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (VirtualMachinePlanArgs) ElementType() reflect.Type {
+	return virtualMachinePlanType
+}
+
+func (a VirtualMachinePlanArgs) ToVirtualMachinePlanOutput() VirtualMachinePlanOutput {
+	return pulumi.ToOutput(a).(VirtualMachinePlanOutput)
+}
+
+func (a VirtualMachinePlanArgs) ToVirtualMachinePlanOutputWithContext(ctx context.Context) VirtualMachinePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachinePlanOutput)
+}
+
+type VirtualMachinePlanOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachinePlanOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachinePlan) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachinePlanOutput) Product() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachinePlan) string {
+		return v.Product
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachinePlanOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachinePlan) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachinePlanOutput) ElementType() reflect.Type {
+	return virtualMachinePlanType
+}
+
+func (o VirtualMachinePlanOutput) ToVirtualMachinePlanOutput() VirtualMachinePlanOutput {
+	return o
+}
+
+func (o VirtualMachinePlanOutput) ToVirtualMachinePlanOutputWithContext(ctx context.Context) VirtualMachinePlanOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachinePlanOutput{}) }
+
+type VirtualMachineStorageDataDisks struct {
+	Caching *string `pulumi:"caching"`
+	CreateOption string `pulumi:"createOption"`
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	Lun int `pulumi:"lun"`
+	ManagedDiskId *string `pulumi:"managedDiskId"`
+	ManagedDiskType *string `pulumi:"managedDiskType"`
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	VhdUri *string `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
+}
+var virtualMachineStorageDataDisksType = reflect.TypeOf((*VirtualMachineStorageDataDisks)(nil)).Elem()
+
+type VirtualMachineStorageDataDisksInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageDataDisksOutput() VirtualMachineStorageDataDisksOutput
+	ToVirtualMachineStorageDataDisksOutputWithContext(ctx context.Context) VirtualMachineStorageDataDisksOutput
+}
+
+type VirtualMachineStorageDataDisksArgs struct {
+	Caching pulumi.StringInput `pulumi:"caching"`
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	Lun pulumi.IntInput `pulumi:"lun"`
+	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
+	ManagedDiskType pulumi.StringInput `pulumi:"managedDiskType"`
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	VhdUri pulumi.StringInput `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled pulumi.BoolInput `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (VirtualMachineStorageDataDisksArgs) ElementType() reflect.Type {
+	return virtualMachineStorageDataDisksType
+}
+
+func (a VirtualMachineStorageDataDisksArgs) ToVirtualMachineStorageDataDisksOutput() VirtualMachineStorageDataDisksOutput {
+	return pulumi.ToOutput(a).(VirtualMachineStorageDataDisksOutput)
+}
+
+func (a VirtualMachineStorageDataDisksArgs) ToVirtualMachineStorageDataDisksOutputWithContext(ctx context.Context) VirtualMachineStorageDataDisksOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineStorageDataDisksOutput)
+}
+
+type VirtualMachineStorageDataDisksOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineStorageDataDisksOutput) Caching() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) string {
+		if v.Caching == nil { return *new(string) } else { return *v.Caching }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) CreateOption() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) string {
+		return v.CreateOption
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) int {
+		if v.DiskSizeGb == nil { return *new(int) } else { return *v.DiskSizeGb }
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) Lun() pulumi.IntOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) int {
+		return v.Lun
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) ManagedDiskId() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) string {
+		if v.ManagedDiskId == nil { return *new(string) } else { return *v.ManagedDiskId }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) ManagedDiskType() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) string {
+		if v.ManagedDiskType == nil { return *new(string) } else { return *v.ManagedDiskType }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineStorageDataDisksOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) VhdUri() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) string {
+		if v.VhdUri == nil { return *new(string) } else { return *v.VhdUri }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageDataDisksOutput) WriteAcceleratorEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineStorageDataDisks) bool {
+		if v.WriteAcceleratorEnabled == nil { return *new(bool) } else { return *v.WriteAcceleratorEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (VirtualMachineStorageDataDisksOutput) ElementType() reflect.Type {
+	return virtualMachineStorageDataDisksType
+}
+
+func (o VirtualMachineStorageDataDisksOutput) ToVirtualMachineStorageDataDisksOutput() VirtualMachineStorageDataDisksOutput {
+	return o
+}
+
+func (o VirtualMachineStorageDataDisksOutput) ToVirtualMachineStorageDataDisksOutputWithContext(ctx context.Context) VirtualMachineStorageDataDisksOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineStorageDataDisksOutput{}) }
+
+var virtualMachineStorageDataDisksArrayType = reflect.TypeOf((*[]VirtualMachineStorageDataDisks)(nil)).Elem()
+
+type VirtualMachineStorageDataDisksArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageDataDisksArrayOutput() VirtualMachineStorageDataDisksArrayOutput
+	ToVirtualMachineStorageDataDisksArrayOutputWithContext(ctx context.Context) VirtualMachineStorageDataDisksArrayOutput
+}
+
+type VirtualMachineStorageDataDisksArrayArgs []VirtualMachineStorageDataDisksInput
+
+func (VirtualMachineStorageDataDisksArrayArgs) ElementType() reflect.Type {
+	return virtualMachineStorageDataDisksArrayType
+}
+
+func (a VirtualMachineStorageDataDisksArrayArgs) ToVirtualMachineStorageDataDisksArrayOutput() VirtualMachineStorageDataDisksArrayOutput {
+	return pulumi.ToOutput(a).(VirtualMachineStorageDataDisksArrayOutput)
+}
+
+func (a VirtualMachineStorageDataDisksArrayArgs) ToVirtualMachineStorageDataDisksArrayOutputWithContext(ctx context.Context) VirtualMachineStorageDataDisksArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineStorageDataDisksArrayOutput)
+}
+
+type VirtualMachineStorageDataDisksArrayOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineStorageDataDisksArrayOutput) Index(i pulumi.IntInput) VirtualMachineStorageDataDisksOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) VirtualMachineStorageDataDisks {
+		return vs[0].([]VirtualMachineStorageDataDisks)[vs[1].(int)]
+	}).(VirtualMachineStorageDataDisksOutput)
+}
+
+func (VirtualMachineStorageDataDisksArrayOutput) ElementType() reflect.Type {
+	return virtualMachineStorageDataDisksArrayType
+}
+
+func (o VirtualMachineStorageDataDisksArrayOutput) ToVirtualMachineStorageDataDisksArrayOutput() VirtualMachineStorageDataDisksArrayOutput {
+	return o
+}
+
+func (o VirtualMachineStorageDataDisksArrayOutput) ToVirtualMachineStorageDataDisksArrayOutputWithContext(ctx context.Context) VirtualMachineStorageDataDisksArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineStorageDataDisksArrayOutput{}) }
+
+type VirtualMachineStorageImageReference struct {
+	// The ID of the Virtual Machine.
+	Id *string `pulumi:"id"`
+	Offer *string `pulumi:"offer"`
+	Publisher *string `pulumi:"publisher"`
+	Sku *string `pulumi:"sku"`
+	Version *string `pulumi:"version"`
+}
+var virtualMachineStorageImageReferenceType = reflect.TypeOf((*VirtualMachineStorageImageReference)(nil)).Elem()
+
+type VirtualMachineStorageImageReferenceInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageImageReferenceOutput() VirtualMachineStorageImageReferenceOutput
+	ToVirtualMachineStorageImageReferenceOutputWithContext(ctx context.Context) VirtualMachineStorageImageReferenceOutput
+}
+
+type VirtualMachineStorageImageReferenceArgs struct {
+	// The ID of the Virtual Machine.
+	Id pulumi.StringInput `pulumi:"id"`
+	Offer pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku pulumi.StringInput `pulumi:"sku"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (VirtualMachineStorageImageReferenceArgs) ElementType() reflect.Type {
+	return virtualMachineStorageImageReferenceType
+}
+
+func (a VirtualMachineStorageImageReferenceArgs) ToVirtualMachineStorageImageReferenceOutput() VirtualMachineStorageImageReferenceOutput {
+	return pulumi.ToOutput(a).(VirtualMachineStorageImageReferenceOutput)
+}
+
+func (a VirtualMachineStorageImageReferenceArgs) ToVirtualMachineStorageImageReferenceOutputWithContext(ctx context.Context) VirtualMachineStorageImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineStorageImageReferenceOutput)
+}
+
+type VirtualMachineStorageImageReferenceOutput struct { *pulumi.OutputState }
+
+// The ID of the Virtual Machine.
+func (o VirtualMachineStorageImageReferenceOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageImageReference) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageImageReference) string {
+		if v.Offer == nil { return *new(string) } else { return *v.Offer }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageImageReference) string {
+		if v.Publisher == nil { return *new(string) } else { return *v.Publisher }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageImageReference) string {
+		if v.Sku == nil { return *new(string) } else { return *v.Sku }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageImageReference) string {
+		if v.Version == nil { return *new(string) } else { return *v.Version }
+	}).(pulumi.StringOutput)
+}
+
+func (VirtualMachineStorageImageReferenceOutput) ElementType() reflect.Type {
+	return virtualMachineStorageImageReferenceType
+}
+
+func (o VirtualMachineStorageImageReferenceOutput) ToVirtualMachineStorageImageReferenceOutput() VirtualMachineStorageImageReferenceOutput {
+	return o
+}
+
+func (o VirtualMachineStorageImageReferenceOutput) ToVirtualMachineStorageImageReferenceOutputWithContext(ctx context.Context) VirtualMachineStorageImageReferenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineStorageImageReferenceOutput{}) }
+
+type VirtualMachineStorageOsDisk struct {
+	Caching *string `pulumi:"caching"`
+	CreateOption string `pulumi:"createOption"`
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	ImageUri *string `pulumi:"imageUri"`
+	ManagedDiskId *string `pulumi:"managedDiskId"`
+	ManagedDiskType *string `pulumi:"managedDiskType"`
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	OsType *string `pulumi:"osType"`
+	VhdUri *string `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
+}
+var virtualMachineStorageOsDiskType = reflect.TypeOf((*VirtualMachineStorageOsDisk)(nil)).Elem()
+
+type VirtualMachineStorageOsDiskInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageOsDiskOutput() VirtualMachineStorageOsDiskOutput
+	ToVirtualMachineStorageOsDiskOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskOutput
+}
+
+type VirtualMachineStorageOsDiskArgs struct {
+	Caching pulumi.StringInput `pulumi:"caching"`
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
+	ManagedDiskType pulumi.StringInput `pulumi:"managedDiskType"`
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	OsType pulumi.StringInput `pulumi:"osType"`
+	VhdUri pulumi.StringInput `pulumi:"vhdUri"`
+	WriteAcceleratorEnabled pulumi.BoolInput `pulumi:"writeAcceleratorEnabled"`
+}
+
+func (VirtualMachineStorageOsDiskArgs) ElementType() reflect.Type {
+	return virtualMachineStorageOsDiskType
+}
+
+func (a VirtualMachineStorageOsDiskArgs) ToVirtualMachineStorageOsDiskOutput() VirtualMachineStorageOsDiskOutput {
+	return pulumi.ToOutput(a).(VirtualMachineStorageOsDiskOutput)
+}
+
+func (a VirtualMachineStorageOsDiskArgs) ToVirtualMachineStorageOsDiskOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualMachineStorageOsDiskOutput)
+}
+
+type VirtualMachineStorageOsDiskOutput struct { *pulumi.OutputState }
+
+func (o VirtualMachineStorageOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		if v.Caching == nil { return *new(string) } else { return *v.Caching }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		return v.CreateOption
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) int {
+		if v.DiskSizeGb == nil { return *new(int) } else { return *v.DiskSizeGb }
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) ImageUri() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		if v.ImageUri == nil { return *new(string) } else { return *v.ImageUri }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) ManagedDiskId() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		if v.ManagedDiskId == nil { return *new(string) } else { return *v.ManagedDiskId }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) ManagedDiskType() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		if v.ManagedDiskType == nil { return *new(string) } else { return *v.ManagedDiskType }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineStorageOsDiskOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) OsType() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		if v.OsType == nil { return *new(string) } else { return *v.OsType }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) VhdUri() pulumi.StringOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) string {
+		if v.VhdUri == nil { return *new(string) } else { return *v.VhdUri }
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualMachineStorageOsDiskOutput) WriteAcceleratorEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v VirtualMachineStorageOsDisk) bool {
+		if v.WriteAcceleratorEnabled == nil { return *new(bool) } else { return *v.WriteAcceleratorEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (VirtualMachineStorageOsDiskOutput) ElementType() reflect.Type {
+	return virtualMachineStorageOsDiskType
+}
+
+func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskOutput() VirtualMachineStorageOsDiskOutput {
+	return o
+}
+
+func (o VirtualMachineStorageOsDiskOutput) ToVirtualMachineStorageOsDiskOutputWithContext(ctx context.Context) VirtualMachineStorageOsDiskOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualMachineStorageOsDiskOutput{}) }
+

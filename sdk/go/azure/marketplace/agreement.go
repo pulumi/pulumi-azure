@@ -12,12 +12,25 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/marketplace_agreement.html.markdown.
 type Agreement struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	LicenseTextLink pulumi.StringOutput `pulumi:"licenseTextLink"`
+
+	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
+	Offer pulumi.StringOutput `pulumi:"offer"`
+
+	// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
+	Plan pulumi.StringOutput `pulumi:"plan"`
+
+	PrivacyPolicyLink pulumi.StringOutput `pulumi:"privacyPolicyLink"`
+
+	// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
+	Publisher pulumi.StringOutput `pulumi:"publisher"`
 }
 
 // NewAgreement registers a new resource with the given unique name, arguments, and options.
 func NewAgreement(ctx *pulumi.Context,
-	name string, args *AgreementArgs, opts ...pulumi.ResourceOpt) (*Agreement, error) {
+	name string, args *AgreementArgs, opts ...pulumi.ResourceOption) (*Agreement, error) {
 	if args == nil || args.Offer == nil {
 		return nil, errors.New("missing required argument 'Offer'")
 	}
@@ -27,95 +40,58 @@ func NewAgreement(ctx *pulumi.Context,
 	if args == nil || args.Publisher == nil {
 		return nil, errors.New("missing required argument 'Publisher'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["offer"] = nil
-		inputs["plan"] = nil
-		inputs["publisher"] = nil
-	} else {
-		inputs["offer"] = args.Offer
-		inputs["plan"] = args.Plan
-		inputs["publisher"] = args.Publisher
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Offer; i != nil { inputs["offer"] = i.ToStringOutput() }
+		if i := args.Plan; i != nil { inputs["plan"] = i.ToStringOutput() }
+		if i := args.Publisher; i != nil { inputs["publisher"] = i.ToStringOutput() }
 	}
-	inputs["licenseTextLink"] = nil
-	inputs["privacyPolicyLink"] = nil
-	s, err := ctx.RegisterResource("azure:marketplace/agreement:Agreement", name, true, inputs, opts...)
+	var resource Agreement
+	err := ctx.RegisterResource("azure:marketplace/agreement:Agreement", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Agreement{s: s}, nil
+	return &resource, nil
 }
 
 // GetAgreement gets an existing Agreement resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAgreement(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AgreementState, opts ...pulumi.ResourceOpt) (*Agreement, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AgreementState, opts ...pulumi.ResourceOption) (*Agreement, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["licenseTextLink"] = state.LicenseTextLink
-		inputs["offer"] = state.Offer
-		inputs["plan"] = state.Plan
-		inputs["privacyPolicyLink"] = state.PrivacyPolicyLink
-		inputs["publisher"] = state.Publisher
+		if i := state.LicenseTextLink; i != nil { inputs["licenseTextLink"] = i.ToStringOutput() }
+		if i := state.Offer; i != nil { inputs["offer"] = i.ToStringOutput() }
+		if i := state.Plan; i != nil { inputs["plan"] = i.ToStringOutput() }
+		if i := state.PrivacyPolicyLink; i != nil { inputs["privacyPolicyLink"] = i.ToStringOutput() }
+		if i := state.Publisher; i != nil { inputs["publisher"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:marketplace/agreement:Agreement", name, id, inputs, opts...)
+	var resource Agreement
+	err := ctx.ReadResource("azure:marketplace/agreement:Agreement", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Agreement{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Agreement) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Agreement) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Agreement) LicenseTextLink() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["licenseTextLink"])
-}
-
-// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
-func (r *Agreement) Offer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["offer"])
-}
-
-// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-func (r *Agreement) Plan() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["plan"])
-}
-
-func (r *Agreement) PrivacyPolicyLink() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privacyPolicyLink"])
-}
-
-// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-func (r *Agreement) Publisher() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publisher"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Agreement resources.
 type AgreementState struct {
-	LicenseTextLink interface{}
+	LicenseTextLink pulumi.StringInput `pulumi:"licenseTextLink"`
 	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
-	Offer interface{}
+	Offer pulumi.StringInput `pulumi:"offer"`
 	// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-	Plan interface{}
-	PrivacyPolicyLink interface{}
+	Plan pulumi.StringInput `pulumi:"plan"`
+	PrivacyPolicyLink pulumi.StringInput `pulumi:"privacyPolicyLink"`
 	// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-	Publisher interface{}
+	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
 // The set of arguments for constructing a Agreement resource.
 type AgreementArgs struct {
 	// The Offer of the Marketplace Image. Changing this forces a new resource to be created.
-	Offer interface{}
+	Offer pulumi.StringInput `pulumi:"offer"`
 	// The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-	Plan interface{}
+	Plan pulumi.StringInput `pulumi:"plan"`
 	// The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-	Publisher interface{}
+	Publisher pulumi.StringInput `pulumi:"publisher"`
 }

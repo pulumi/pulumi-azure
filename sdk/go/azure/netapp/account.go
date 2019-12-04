@@ -4,6 +4,8 @@
 package netapp
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,102 +16,171 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `activeDirectory` block as defined below.
+	ActiveDirectory AccountActiveDirectoryOutput `pulumi:"activeDirectory"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the NetApp Account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["activeDirectory"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["activeDirectory"] = args.ActiveDirectory
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ActiveDirectory; i != nil { inputs["activeDirectory"] = i.ToAccountActiveDirectoryOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:netapp/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:netapp/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["activeDirectory"] = state.ActiveDirectory
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.ActiveDirectory; i != nil { inputs["activeDirectory"] = i.ToAccountActiveDirectoryOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:netapp/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:netapp/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `activeDirectory` block as defined below.
-func (r *Account) ActiveDirectory() pulumi.Output {
-	return r.s.State["activeDirectory"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the NetApp Account. Changing this forces a new resource to be created.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// A `activeDirectory` block as defined below.
-	ActiveDirectory interface{}
+	ActiveDirectory AccountActiveDirectoryInput `pulumi:"activeDirectory"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// A `activeDirectory` block as defined below.
-	ActiveDirectory interface{}
+	ActiveDirectory AccountActiveDirectoryInput `pulumi:"activeDirectory"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
+type AccountActiveDirectory struct {
+	DnsServers []string `pulumi:"dnsServers"`
+	Domain string `pulumi:"domain"`
+	OrganizationalUnit *string `pulumi:"organizationalUnit"`
+	Password string `pulumi:"password"`
+	SmbServerName string `pulumi:"smbServerName"`
+	Username string `pulumi:"username"`
+}
+var accountActiveDirectoryType = reflect.TypeOf((*AccountActiveDirectory)(nil)).Elem()
+
+type AccountActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToAccountActiveDirectoryOutput() AccountActiveDirectoryOutput
+	ToAccountActiveDirectoryOutputWithContext(ctx context.Context) AccountActiveDirectoryOutput
+}
+
+type AccountActiveDirectoryArgs struct {
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Domain pulumi.StringInput `pulumi:"domain"`
+	OrganizationalUnit pulumi.StringInput `pulumi:"organizationalUnit"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SmbServerName pulumi.StringInput `pulumi:"smbServerName"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (AccountActiveDirectoryArgs) ElementType() reflect.Type {
+	return accountActiveDirectoryType
+}
+
+func (a AccountActiveDirectoryArgs) ToAccountActiveDirectoryOutput() AccountActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(AccountActiveDirectoryOutput)
+}
+
+func (a AccountActiveDirectoryArgs) ToAccountActiveDirectoryOutputWithContext(ctx context.Context) AccountActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountActiveDirectoryOutput)
+}
+
+type AccountActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o AccountActiveDirectoryOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.Apply(func(v AccountActiveDirectory) []string {
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountActiveDirectoryOutput) Domain() pulumi.StringOutput {
+	return o.Apply(func(v AccountActiveDirectory) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountActiveDirectoryOutput) OrganizationalUnit() pulumi.StringOutput {
+	return o.Apply(func(v AccountActiveDirectory) string {
+		if v.OrganizationalUnit == nil { return *new(string) } else { return *v.OrganizationalUnit }
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountActiveDirectoryOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v AccountActiveDirectory) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountActiveDirectoryOutput) SmbServerName() pulumi.StringOutput {
+	return o.Apply(func(v AccountActiveDirectory) string {
+		return v.SmbServerName
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountActiveDirectoryOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v AccountActiveDirectory) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (AccountActiveDirectoryOutput) ElementType() reflect.Type {
+	return accountActiveDirectoryType
+}
+
+func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryOutput() AccountActiveDirectoryOutput {
+	return o
+}
+
+func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryOutputWithContext(ctx context.Context) AccountActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountActiveDirectoryOutput{}) }
+

@@ -4,6 +4,8 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,141 +14,222 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
 type Logger struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// An `applicationInsights` block as documented below.
+	ApplicationInsights LoggerApplicationInsightsOutput `pulumi:"applicationInsights"`
+
+	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
+	Buffered pulumi.BoolOutput `pulumi:"buffered"`
+
+	// A description of this Logger.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// An `eventhub` block as documented below.
+	Eventhub LoggerEventhubOutput `pulumi:"eventhub"`
+
+	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewLogger registers a new resource with the given unique name, arguments, and options.
 func NewLogger(ctx *pulumi.Context,
-	name string, args *LoggerArgs, opts ...pulumi.ResourceOpt) (*Logger, error) {
+	name string, args *LoggerArgs, opts ...pulumi.ResourceOption) (*Logger, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["applicationInsights"] = nil
-		inputs["buffered"] = nil
-		inputs["description"] = nil
-		inputs["eventhub"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["applicationInsights"] = args.ApplicationInsights
-		inputs["buffered"] = args.Buffered
-		inputs["description"] = args.Description
-		inputs["eventhub"] = args.Eventhub
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.ApplicationInsights; i != nil { inputs["applicationInsights"] = i.ToLoggerApplicationInsightsOutput() }
+		if i := args.Buffered; i != nil { inputs["buffered"] = i.ToBoolOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Eventhub; i != nil { inputs["eventhub"] = i.ToLoggerEventhubOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/logger:Logger", name, true, inputs, opts...)
+	var resource Logger
+	err := ctx.RegisterResource("azure:apimanagement/logger:Logger", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Logger{s: s}, nil
+	return &resource, nil
 }
 
 // GetLogger gets an existing Logger resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLogger(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LoggerState, opts ...pulumi.ResourceOpt) (*Logger, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LoggerState, opts ...pulumi.ResourceOption) (*Logger, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["applicationInsights"] = state.ApplicationInsights
-		inputs["buffered"] = state.Buffered
-		inputs["description"] = state.Description
-		inputs["eventhub"] = state.Eventhub
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.ApplicationInsights; i != nil { inputs["applicationInsights"] = i.ToLoggerApplicationInsightsOutput() }
+		if i := state.Buffered; i != nil { inputs["buffered"] = i.ToBoolOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Eventhub; i != nil { inputs["eventhub"] = i.ToLoggerEventhubOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/logger:Logger", name, id, inputs, opts...)
+	var resource Logger
+	err := ctx.ReadResource("azure:apimanagement/logger:Logger", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Logger{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Logger) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Logger) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *Logger) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// An `applicationInsights` block as documented below.
-func (r *Logger) ApplicationInsights() pulumi.Output {
-	return r.s.State["applicationInsights"]
-}
-
-// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
-func (r *Logger) Buffered() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["buffered"])
-}
-
-// A description of this Logger.
-func (r *Logger) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// An `eventhub` block as documented below.
-func (r *Logger) Eventhub() pulumi.Output {
-	return r.s.State["eventhub"]
-}
-
-// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-func (r *Logger) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Logger) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Logger resources.
 type LoggerState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// An `applicationInsights` block as documented below.
-	ApplicationInsights interface{}
+	ApplicationInsights LoggerApplicationInsightsInput `pulumi:"applicationInsights"`
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
-	Buffered interface{}
+	Buffered pulumi.BoolInput `pulumi:"buffered"`
 	// A description of this Logger.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// An `eventhub` block as documented below.
-	Eventhub interface{}
+	Eventhub LoggerEventhubInput `pulumi:"eventhub"`
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Logger resource.
 type LoggerArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// An `applicationInsights` block as documented below.
-	ApplicationInsights interface{}
+	ApplicationInsights LoggerApplicationInsightsInput `pulumi:"applicationInsights"`
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
-	Buffered interface{}
+	Buffered pulumi.BoolInput `pulumi:"buffered"`
 	// A description of this Logger.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// An `eventhub` block as documented below.
-	Eventhub interface{}
+	Eventhub LoggerEventhubInput `pulumi:"eventhub"`
 	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
+type LoggerApplicationInsights struct {
+	InstrumentationKey string `pulumi:"instrumentationKey"`
+}
+var loggerApplicationInsightsType = reflect.TypeOf((*LoggerApplicationInsights)(nil)).Elem()
+
+type LoggerApplicationInsightsInput interface {
+	pulumi.Input
+
+	ToLoggerApplicationInsightsOutput() LoggerApplicationInsightsOutput
+	ToLoggerApplicationInsightsOutputWithContext(ctx context.Context) LoggerApplicationInsightsOutput
+}
+
+type LoggerApplicationInsightsArgs struct {
+	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
+}
+
+func (LoggerApplicationInsightsArgs) ElementType() reflect.Type {
+	return loggerApplicationInsightsType
+}
+
+func (a LoggerApplicationInsightsArgs) ToLoggerApplicationInsightsOutput() LoggerApplicationInsightsOutput {
+	return pulumi.ToOutput(a).(LoggerApplicationInsightsOutput)
+}
+
+func (a LoggerApplicationInsightsArgs) ToLoggerApplicationInsightsOutputWithContext(ctx context.Context) LoggerApplicationInsightsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LoggerApplicationInsightsOutput)
+}
+
+type LoggerApplicationInsightsOutput struct { *pulumi.OutputState }
+
+func (o LoggerApplicationInsightsOutput) InstrumentationKey() pulumi.StringOutput {
+	return o.Apply(func(v LoggerApplicationInsights) string {
+		return v.InstrumentationKey
+	}).(pulumi.StringOutput)
+}
+
+func (LoggerApplicationInsightsOutput) ElementType() reflect.Type {
+	return loggerApplicationInsightsType
+}
+
+func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsOutput() LoggerApplicationInsightsOutput {
+	return o
+}
+
+func (o LoggerApplicationInsightsOutput) ToLoggerApplicationInsightsOutputWithContext(ctx context.Context) LoggerApplicationInsightsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LoggerApplicationInsightsOutput{}) }
+
+type LoggerEventhub struct {
+	ConnectionString string `pulumi:"connectionString"`
+	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var loggerEventhubType = reflect.TypeOf((*LoggerEventhub)(nil)).Elem()
+
+type LoggerEventhubInput interface {
+	pulumi.Input
+
+	ToLoggerEventhubOutput() LoggerEventhubOutput
+	ToLoggerEventhubOutputWithContext(ctx context.Context) LoggerEventhubOutput
+}
+
+type LoggerEventhubArgs struct {
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LoggerEventhubArgs) ElementType() reflect.Type {
+	return loggerEventhubType
+}
+
+func (a LoggerEventhubArgs) ToLoggerEventhubOutput() LoggerEventhubOutput {
+	return pulumi.ToOutput(a).(LoggerEventhubOutput)
+}
+
+func (a LoggerEventhubArgs) ToLoggerEventhubOutputWithContext(ctx context.Context) LoggerEventhubOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LoggerEventhubOutput)
+}
+
+type LoggerEventhubOutput struct { *pulumi.OutputState }
+
+func (o LoggerEventhubOutput) ConnectionString() pulumi.StringOutput {
+	return o.Apply(func(v LoggerEventhub) string {
+		return v.ConnectionString
+	}).(pulumi.StringOutput)
+}
+
+// The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+func (o LoggerEventhubOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v LoggerEventhub) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (LoggerEventhubOutput) ElementType() reflect.Type {
+	return loggerEventhubType
+}
+
+func (o LoggerEventhubOutput) ToLoggerEventhubOutput() LoggerEventhubOutput {
+	return o
+}
+
+func (o LoggerEventhubOutput) ToLoggerEventhubOutputWithContext(ctx context.Context) LoggerEventhubOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LoggerEventhubOutput{}) }
+

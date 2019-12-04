@@ -12,12 +12,71 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_legacy.html.markdown.
 type Subscription struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The idle interval after which the
+	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
+	// TimeSpan format.
+	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolOutput `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+
+	// Boolean flag which controls
+	// whether the Subscription has dead letter support when a message expires. Defaults
+	// to false.
+	DeadLetteringOnMessageExpiration pulumi.BoolOutput `pulumi:"deadLetteringOnMessageExpiration"`
+
+	// The TTL of messages sent to this Subscription
+	// if no TTL value is set on the message itself. Provided in the TimeSpan
+	// format.
+	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
+
+	// Boolean flag which controls whether the
+	// Subscription supports batched operations. Defaults to false.
+	EnableBatchedOperations pulumi.BoolOutput `pulumi:"enableBatchedOperations"`
+
+	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
+	ForwardDeadLetteredMessagesTo pulumi.StringOutput `pulumi:"forwardDeadLetteredMessagesTo"`
+
+	// The name of a Queue or Topic to automatically forward messages to.
+	ForwardTo pulumi.StringOutput `pulumi:"forwardTo"`
+
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The lock duration for the subscription, maximum
+	// supported value is 5 minutes. Defaults to 1 minute.
+	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
+
+	// The maximum number of deliveries.
+	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
+
+	// Specifies the name of the ServiceBus Subscription resource.
+	// Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the ServiceBus Namespace to create
+	// this Subscription in. Changing this forces a new resource to be created.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+
+	// Boolean flag which controls whether this Subscription
+	// supports the concept of a session. Defaults to false. Changing this forces a
+	// new resource to be created.
+	RequiresSession pulumi.BoolOutput `pulumi:"requiresSession"`
+
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the ServiceBus Topic to create
+	// this Subscription in. Changing this forces a new resource to be created.
+	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
-	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOpt) (*Subscription, error) {
+	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
 	if args == nil || args.MaxDeliveryCount == nil {
 		return nil, errors.New("missing required argument 'MaxDeliveryCount'")
 	}
@@ -30,173 +89,60 @@ func NewSubscription(ctx *pulumi.Context,
 	if args == nil || args.TopicName == nil {
 		return nil, errors.New("missing required argument 'TopicName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoDeleteOnIdle"] = nil
-		inputs["deadLetteringOnFilterEvaluationExceptions"] = nil
-		inputs["deadLetteringOnMessageExpiration"] = nil
-		inputs["defaultMessageTtl"] = nil
-		inputs["enableBatchedOperations"] = nil
-		inputs["forwardDeadLetteredMessagesTo"] = nil
-		inputs["forwardTo"] = nil
-		inputs["location"] = nil
-		inputs["lockDuration"] = nil
-		inputs["maxDeliveryCount"] = nil
-		inputs["name"] = nil
-		inputs["namespaceName"] = nil
-		inputs["requiresSession"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["topicName"] = nil
-	} else {
-		inputs["autoDeleteOnIdle"] = args.AutoDeleteOnIdle
-		inputs["deadLetteringOnFilterEvaluationExceptions"] = args.DeadLetteringOnFilterEvaluationExceptions
-		inputs["deadLetteringOnMessageExpiration"] = args.DeadLetteringOnMessageExpiration
-		inputs["defaultMessageTtl"] = args.DefaultMessageTtl
-		inputs["enableBatchedOperations"] = args.EnableBatchedOperations
-		inputs["forwardDeadLetteredMessagesTo"] = args.ForwardDeadLetteredMessagesTo
-		inputs["forwardTo"] = args.ForwardTo
-		inputs["location"] = args.Location
-		inputs["lockDuration"] = args.LockDuration
-		inputs["maxDeliveryCount"] = args.MaxDeliveryCount
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["requiresSession"] = args.RequiresSession
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["topicName"] = args.TopicName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoDeleteOnIdle; i != nil { inputs["autoDeleteOnIdle"] = i.ToStringOutput() }
+		if i := args.DeadLetteringOnFilterEvaluationExceptions; i != nil { inputs["deadLetteringOnFilterEvaluationExceptions"] = i.ToBoolOutput() }
+		if i := args.DeadLetteringOnMessageExpiration; i != nil { inputs["deadLetteringOnMessageExpiration"] = i.ToBoolOutput() }
+		if i := args.DefaultMessageTtl; i != nil { inputs["defaultMessageTtl"] = i.ToStringOutput() }
+		if i := args.EnableBatchedOperations; i != nil { inputs["enableBatchedOperations"] = i.ToBoolOutput() }
+		if i := args.ForwardDeadLetteredMessagesTo; i != nil { inputs["forwardDeadLetteredMessagesTo"] = i.ToStringOutput() }
+		if i := args.ForwardTo; i != nil { inputs["forwardTo"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.LockDuration; i != nil { inputs["lockDuration"] = i.ToStringOutput() }
+		if i := args.MaxDeliveryCount; i != nil { inputs["maxDeliveryCount"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := args.RequiresSession; i != nil { inputs["requiresSession"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.TopicName; i != nil { inputs["topicName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:eventhub/subscription:Subscription", name, true, inputs, opts...)
+	var resource Subscription
+	err := ctx.RegisterResource("azure:eventhub/subscription:Subscription", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subscription{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubscription gets an existing Subscription resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubscription(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubscriptionState, opts ...pulumi.ResourceOpt) (*Subscription, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubscriptionState, opts ...pulumi.ResourceOption) (*Subscription, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoDeleteOnIdle"] = state.AutoDeleteOnIdle
-		inputs["deadLetteringOnFilterEvaluationExceptions"] = state.DeadLetteringOnFilterEvaluationExceptions
-		inputs["deadLetteringOnMessageExpiration"] = state.DeadLetteringOnMessageExpiration
-		inputs["defaultMessageTtl"] = state.DefaultMessageTtl
-		inputs["enableBatchedOperations"] = state.EnableBatchedOperations
-		inputs["forwardDeadLetteredMessagesTo"] = state.ForwardDeadLetteredMessagesTo
-		inputs["forwardTo"] = state.ForwardTo
-		inputs["location"] = state.Location
-		inputs["lockDuration"] = state.LockDuration
-		inputs["maxDeliveryCount"] = state.MaxDeliveryCount
-		inputs["name"] = state.Name
-		inputs["namespaceName"] = state.NamespaceName
-		inputs["requiresSession"] = state.RequiresSession
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["topicName"] = state.TopicName
+		if i := state.AutoDeleteOnIdle; i != nil { inputs["autoDeleteOnIdle"] = i.ToStringOutput() }
+		if i := state.DeadLetteringOnFilterEvaluationExceptions; i != nil { inputs["deadLetteringOnFilterEvaluationExceptions"] = i.ToBoolOutput() }
+		if i := state.DeadLetteringOnMessageExpiration; i != nil { inputs["deadLetteringOnMessageExpiration"] = i.ToBoolOutput() }
+		if i := state.DefaultMessageTtl; i != nil { inputs["defaultMessageTtl"] = i.ToStringOutput() }
+		if i := state.EnableBatchedOperations; i != nil { inputs["enableBatchedOperations"] = i.ToBoolOutput() }
+		if i := state.ForwardDeadLetteredMessagesTo; i != nil { inputs["forwardDeadLetteredMessagesTo"] = i.ToStringOutput() }
+		if i := state.ForwardTo; i != nil { inputs["forwardTo"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.LockDuration; i != nil { inputs["lockDuration"] = i.ToStringOutput() }
+		if i := state.MaxDeliveryCount; i != nil { inputs["maxDeliveryCount"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := state.RequiresSession; i != nil { inputs["requiresSession"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.TopicName; i != nil { inputs["topicName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/subscription:Subscription", name, id, inputs, opts...)
+	var resource Subscription
+	err := ctx.ReadResource("azure:eventhub/subscription:Subscription", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subscription{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Subscription) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Subscription) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The idle interval after which the
-// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-// TimeSpan format.
-func (r *Subscription) AutoDeleteOnIdle() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
-}
-
-func (r *Subscription) DeadLetteringOnFilterEvaluationExceptions() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deadLetteringOnFilterEvaluationExceptions"])
-}
-
-// Boolean flag which controls
-// whether the Subscription has dead letter support when a message expires. Defaults
-// to false.
-func (r *Subscription) DeadLetteringOnMessageExpiration() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deadLetteringOnMessageExpiration"])
-}
-
-// The TTL of messages sent to this Subscription
-// if no TTL value is set on the message itself. Provided in the TimeSpan
-// format.
-func (r *Subscription) DefaultMessageTtl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
-}
-
-// Boolean flag which controls whether the
-// Subscription supports batched operations. Defaults to false.
-func (r *Subscription) EnableBatchedOperations() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
-}
-
-// The name of a Queue or Topic to automatically forward Dead Letter messages to.
-func (r *Subscription) ForwardDeadLetteredMessagesTo() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["forwardDeadLetteredMessagesTo"])
-}
-
-// The name of a Queue or Topic to automatically forward messages to.
-func (r *Subscription) ForwardTo() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["forwardTo"])
-}
-
-// Specifies the supported Azure location where the resource exists.
-// Changing this forces a new resource to be created.
-func (r *Subscription) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The lock duration for the subscription, maximum
-// supported value is 5 minutes. Defaults to 1 minute.
-func (r *Subscription) LockDuration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lockDuration"])
-}
-
-// The maximum number of deliveries.
-func (r *Subscription) MaxDeliveryCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxDeliveryCount"])
-}
-
-// Specifies the name of the ServiceBus Subscription resource.
-// Changing this forces a new resource to be created.
-func (r *Subscription) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the ServiceBus Namespace to create
-// this Subscription in. Changing this forces a new resource to be created.
-func (r *Subscription) NamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceName"])
-}
-
-// Boolean flag which controls whether this Subscription
-// supports the concept of a session. Defaults to false. Changing this forces a
-// new resource to be created.
-func (r *Subscription) RequiresSession() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requiresSession"])
-}
-
-// The name of the resource group in which to
-// create the namespace. Changing this forces a new resource to be created.
-func (r *Subscription) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the ServiceBus Topic to create
-// this Subscription in. Changing this forces a new resource to be created.
-func (r *Subscription) TopicName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["topicName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Subscription resources.
@@ -204,47 +150,47 @@ type SubscriptionState struct {
 	// The idle interval after which the
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
-	AutoDeleteOnIdle interface{}
-	DeadLetteringOnFilterEvaluationExceptions interface{}
+	AutoDeleteOnIdle pulumi.StringInput `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolInput `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
-	DeadLetteringOnMessageExpiration interface{}
+	DeadLetteringOnMessageExpiration pulumi.BoolInput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The TTL of messages sent to this Subscription
 	// if no TTL value is set on the message itself. Provided in the TimeSpan
 	// format.
-	DefaultMessageTtl interface{}
+	DefaultMessageTtl pulumi.StringInput `pulumi:"defaultMessageTtl"`
 	// Boolean flag which controls whether the
 	// Subscription supports batched operations. Defaults to false.
-	EnableBatchedOperations interface{}
+	EnableBatchedOperations pulumi.BoolInput `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
-	ForwardDeadLetteredMessagesTo interface{}
+	ForwardDeadLetteredMessagesTo pulumi.StringInput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
-	ForwardTo interface{}
+	ForwardTo pulumi.StringInput `pulumi:"forwardTo"`
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
-	LockDuration interface{}
+	LockDuration pulumi.StringInput `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
-	MaxDeliveryCount interface{}
+	MaxDeliveryCount pulumi.IntInput `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource.
 	// Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace to create
 	// this Subscription in. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription
 	// supports the concept of a session. Defaults to false. Changing this forces a
 	// new resource to be created.
-	RequiresSession interface{}
+	RequiresSession pulumi.BoolInput `pulumi:"requiresSession"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the ServiceBus Topic to create
 	// this Subscription in. Changing this forces a new resource to be created.
-	TopicName interface{}
+	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Subscription resource.
@@ -252,45 +198,45 @@ type SubscriptionArgs struct {
 	// The idle interval after which the
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
 	// TimeSpan format.
-	AutoDeleteOnIdle interface{}
-	DeadLetteringOnFilterEvaluationExceptions interface{}
+	AutoDeleteOnIdle pulumi.StringInput `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolInput `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
 	// Boolean flag which controls
 	// whether the Subscription has dead letter support when a message expires. Defaults
 	// to false.
-	DeadLetteringOnMessageExpiration interface{}
+	DeadLetteringOnMessageExpiration pulumi.BoolInput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The TTL of messages sent to this Subscription
 	// if no TTL value is set on the message itself. Provided in the TimeSpan
 	// format.
-	DefaultMessageTtl interface{}
+	DefaultMessageTtl pulumi.StringInput `pulumi:"defaultMessageTtl"`
 	// Boolean flag which controls whether the
 	// Subscription supports batched operations. Defaults to false.
-	EnableBatchedOperations interface{}
+	EnableBatchedOperations pulumi.BoolInput `pulumi:"enableBatchedOperations"`
 	// The name of a Queue or Topic to automatically forward Dead Letter messages to.
-	ForwardDeadLetteredMessagesTo interface{}
+	ForwardDeadLetteredMessagesTo pulumi.StringInput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to.
-	ForwardTo interface{}
+	ForwardTo pulumi.StringInput `pulumi:"forwardTo"`
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The lock duration for the subscription, maximum
 	// supported value is 5 minutes. Defaults to 1 minute.
-	LockDuration interface{}
+	LockDuration pulumi.StringInput `pulumi:"lockDuration"`
 	// The maximum number of deliveries.
-	MaxDeliveryCount interface{}
+	MaxDeliveryCount pulumi.IntInput `pulumi:"maxDeliveryCount"`
 	// Specifies the name of the ServiceBus Subscription resource.
 	// Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace to create
 	// this Subscription in. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether this Subscription
 	// supports the concept of a session. Defaults to false. Changing this forces a
 	// new resource to be created.
-	RequiresSession interface{}
+	RequiresSession pulumi.BoolInput `pulumi:"requiresSession"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the ServiceBus Topic to create
 	// this Subscription in. Changing this forces a new resource to be created.
-	TopicName interface{}
+	TopicName pulumi.StringInput `pulumi:"topicName"`
 }

@@ -4,6 +4,8 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,204 +14,306 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_plan.html.markdown.
 type Plan struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId pulumi.StringOutput `pulumi:"appServiceEnvironmentId"`
+
+	IsXenon pulumi.BoolOutput `pulumi:"isXenon"`
+
+	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+	MaximumElasticWorkerCount pulumi.IntOutput `pulumi:"maximumElasticWorkerCount"`
+
+	// The maximum number of workers supported with the App Service Plan's sku.
+	MaximumNumberOfWorkers pulumi.IntOutput `pulumi:"maximumNumberOfWorkers"`
+
+	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling pulumi.BoolOutput `pulumi:"perSiteScaling"`
+
+	Properties PlanPropertiesOutput `pulumi:"properties"`
+
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved pulumi.BoolOutput `pulumi:"reserved"`
+
+	// The name of the resource group in which to create the App Service Plan component.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `sku` block as documented below.
+	Sku PlanSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
 func NewPlan(ctx *pulumi.Context,
-	name string, args *PlanArgs, opts ...pulumi.ResourceOpt) (*Plan, error) {
+	name string, args *PlanArgs, opts ...pulumi.ResourceOption) (*Plan, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appServiceEnvironmentId"] = nil
-		inputs["isXenon"] = nil
-		inputs["kind"] = nil
-		inputs["location"] = nil
-		inputs["maximumElasticWorkerCount"] = nil
-		inputs["name"] = nil
-		inputs["perSiteScaling"] = nil
-		inputs["properties"] = nil
-		inputs["reserved"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["appServiceEnvironmentId"] = args.AppServiceEnvironmentId
-		inputs["isXenon"] = args.IsXenon
-		inputs["kind"] = args.Kind
-		inputs["location"] = args.Location
-		inputs["maximumElasticWorkerCount"] = args.MaximumElasticWorkerCount
-		inputs["name"] = args.Name
-		inputs["perSiteScaling"] = args.PerSiteScaling
-		inputs["properties"] = args.Properties
-		inputs["reserved"] = args.Reserved
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppServiceEnvironmentId; i != nil { inputs["appServiceEnvironmentId"] = i.ToStringOutput() }
+		if i := args.IsXenon; i != nil { inputs["isXenon"] = i.ToBoolOutput() }
+		if i := args.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MaximumElasticWorkerCount; i != nil { inputs["maximumElasticWorkerCount"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PerSiteScaling; i != nil { inputs["perSiteScaling"] = i.ToBoolOutput() }
+		if i := args.Properties; i != nil { inputs["properties"] = i.ToPlanPropertiesOutput() }
+		if i := args.Reserved; i != nil { inputs["reserved"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToPlanSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["maximumNumberOfWorkers"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/plan:Plan", name, true, inputs, opts...)
+	var resource Plan
+	err := ctx.RegisterResource("azure:appservice/plan:Plan", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Plan{s: s}, nil
+	return &resource, nil
 }
 
 // GetPlan gets an existing Plan resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPlan(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PlanState, opts ...pulumi.ResourceOpt) (*Plan, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PlanState, opts ...pulumi.ResourceOption) (*Plan, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServiceEnvironmentId"] = state.AppServiceEnvironmentId
-		inputs["isXenon"] = state.IsXenon
-		inputs["kind"] = state.Kind
-		inputs["location"] = state.Location
-		inputs["maximumElasticWorkerCount"] = state.MaximumElasticWorkerCount
-		inputs["maximumNumberOfWorkers"] = state.MaximumNumberOfWorkers
-		inputs["name"] = state.Name
-		inputs["perSiteScaling"] = state.PerSiteScaling
-		inputs["properties"] = state.Properties
-		inputs["reserved"] = state.Reserved
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.AppServiceEnvironmentId; i != nil { inputs["appServiceEnvironmentId"] = i.ToStringOutput() }
+		if i := state.IsXenon; i != nil { inputs["isXenon"] = i.ToBoolOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MaximumElasticWorkerCount; i != nil { inputs["maximumElasticWorkerCount"] = i.ToIntOutput() }
+		if i := state.MaximumNumberOfWorkers; i != nil { inputs["maximumNumberOfWorkers"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PerSiteScaling; i != nil { inputs["perSiteScaling"] = i.ToBoolOutput() }
+		if i := state.Properties; i != nil { inputs["properties"] = i.ToPlanPropertiesOutput() }
+		if i := state.Reserved; i != nil { inputs["reserved"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToPlanSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/plan:Plan", name, id, inputs, opts...)
+	var resource Plan
+	err := ctx.ReadResource("azure:appservice/plan:Plan", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Plan{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Plan) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Plan) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-func (r *Plan) AppServiceEnvironmentId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServiceEnvironmentId"])
-}
-
-func (r *Plan) IsXenon() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isXenon"])
-}
-
-// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-func (r *Plan) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Plan) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-func (r *Plan) MaximumElasticWorkerCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maximumElasticWorkerCount"])
-}
-
-// The maximum number of workers supported with the App Service Plan's sku.
-func (r *Plan) MaximumNumberOfWorkers() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maximumNumberOfWorkers"])
-}
-
-// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-func (r *Plan) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-func (r *Plan) PerSiteScaling() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["perSiteScaling"])
-}
-
-func (r *Plan) Properties() pulumi.Output {
-	return r.s.State["properties"]
-}
-
-// Is this App Service Plan `Reserved`. Defaults to `false`.
-func (r *Plan) Reserved() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["reserved"])
-}
-
-// The name of the resource group in which to create the App Service Plan component.
-func (r *Plan) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `sku` block as documented below.
-func (r *Plan) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Plan) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Plan resources.
 type PlanState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-	AppServiceEnvironmentId interface{}
-	IsXenon interface{}
+	AppServiceEnvironmentId pulumi.StringInput `pulumi:"appServiceEnvironmentId"`
+	IsXenon pulumi.BoolInput `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-	MaximumElasticWorkerCount interface{}
+	MaximumElasticWorkerCount pulumi.IntInput `pulumi:"maximumElasticWorkerCount"`
 	// The maximum number of workers supported with the App Service Plan's sku.
-	MaximumNumberOfWorkers interface{}
+	MaximumNumberOfWorkers pulumi.IntInput `pulumi:"maximumNumberOfWorkers"`
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-	PerSiteScaling interface{}
-	Properties interface{}
+	PerSiteScaling pulumi.BoolInput `pulumi:"perSiteScaling"`
+	Properties PlanPropertiesInput `pulumi:"properties"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
-	Reserved interface{}
+	Reserved pulumi.BoolInput `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
-	Sku interface{}
+	Sku PlanSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-	AppServiceEnvironmentId interface{}
-	IsXenon interface{}
+	AppServiceEnvironmentId pulumi.StringInput `pulumi:"appServiceEnvironmentId"`
+	IsXenon pulumi.BoolInput `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-	MaximumElasticWorkerCount interface{}
+	MaximumElasticWorkerCount pulumi.IntInput `pulumi:"maximumElasticWorkerCount"`
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-	PerSiteScaling interface{}
-	Properties interface{}
+	PerSiteScaling pulumi.BoolInput `pulumi:"perSiteScaling"`
+	Properties PlanPropertiesInput `pulumi:"properties"`
 	// Is this App Service Plan `Reserved`. Defaults to `false`.
-	Reserved interface{}
+	Reserved pulumi.BoolInput `pulumi:"reserved"`
 	// The name of the resource group in which to create the App Service Plan component.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
-	Sku interface{}
+	Sku PlanSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type PlanProperties struct {
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved *bool `pulumi:"reserved"`
+}
+var planPropertiesType = reflect.TypeOf((*PlanProperties)(nil)).Elem()
+
+type PlanPropertiesInput interface {
+	pulumi.Input
+
+	ToPlanPropertiesOutput() PlanPropertiesOutput
+	ToPlanPropertiesOutputWithContext(ctx context.Context) PlanPropertiesOutput
+}
+
+type PlanPropertiesArgs struct {
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId pulumi.StringInput `pulumi:"appServiceEnvironmentId"`
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling pulumi.BoolInput `pulumi:"perSiteScaling"`
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved pulumi.BoolInput `pulumi:"reserved"`
+}
+
+func (PlanPropertiesArgs) ElementType() reflect.Type {
+	return planPropertiesType
+}
+
+func (a PlanPropertiesArgs) ToPlanPropertiesOutput() PlanPropertiesOutput {
+	return pulumi.ToOutput(a).(PlanPropertiesOutput)
+}
+
+func (a PlanPropertiesArgs) ToPlanPropertiesOutputWithContext(ctx context.Context) PlanPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PlanPropertiesOutput)
+}
+
+type PlanPropertiesOutput struct { *pulumi.OutputState }
+
+// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+func (o PlanPropertiesOutput) AppServiceEnvironmentId() pulumi.StringOutput {
+	return o.Apply(func(v PlanProperties) string {
+		if v.AppServiceEnvironmentId == nil { return *new(string) } else { return *v.AppServiceEnvironmentId }
+	}).(pulumi.StringOutput)
+}
+
+// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+func (o PlanPropertiesOutput) PerSiteScaling() pulumi.BoolOutput {
+	return o.Apply(func(v PlanProperties) bool {
+		if v.PerSiteScaling == nil { return *new(bool) } else { return *v.PerSiteScaling }
+	}).(pulumi.BoolOutput)
+}
+
+// Is this App Service Plan `Reserved`. Defaults to `false`.
+func (o PlanPropertiesOutput) Reserved() pulumi.BoolOutput {
+	return o.Apply(func(v PlanProperties) bool {
+		if v.Reserved == nil { return *new(bool) } else { return *v.Reserved }
+	}).(pulumi.BoolOutput)
+}
+
+func (PlanPropertiesOutput) ElementType() reflect.Type {
+	return planPropertiesType
+}
+
+func (o PlanPropertiesOutput) ToPlanPropertiesOutput() PlanPropertiesOutput {
+	return o
+}
+
+func (o PlanPropertiesOutput) ToPlanPropertiesOutputWithContext(ctx context.Context) PlanPropertiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PlanPropertiesOutput{}) }
+
+type PlanSku struct {
+	// Specifies the number of workers associated with this App Service Plan.
+	Capacity *int `pulumi:"capacity"`
+	// Specifies the plan's instance size.
+	Size string `pulumi:"size"`
+	// Specifies the plan's pricing tier.
+	Tier string `pulumi:"tier"`
+}
+var planSkuType = reflect.TypeOf((*PlanSku)(nil)).Elem()
+
+type PlanSkuInput interface {
+	pulumi.Input
+
+	ToPlanSkuOutput() PlanSkuOutput
+	ToPlanSkuOutputWithContext(ctx context.Context) PlanSkuOutput
+}
+
+type PlanSkuArgs struct {
+	// Specifies the number of workers associated with this App Service Plan.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// Specifies the plan's instance size.
+	Size pulumi.StringInput `pulumi:"size"`
+	// Specifies the plan's pricing tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (PlanSkuArgs) ElementType() reflect.Type {
+	return planSkuType
+}
+
+func (a PlanSkuArgs) ToPlanSkuOutput() PlanSkuOutput {
+	return pulumi.ToOutput(a).(PlanSkuOutput)
+}
+
+func (a PlanSkuArgs) ToPlanSkuOutputWithContext(ctx context.Context) PlanSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PlanSkuOutput)
+}
+
+type PlanSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the number of workers associated with this App Service Plan.
+func (o PlanSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v PlanSku) int {
+		if v.Capacity == nil { return *new(int) } else { return *v.Capacity }
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the plan's instance size.
+func (o PlanSkuOutput) Size() pulumi.StringOutput {
+	return o.Apply(func(v PlanSku) string {
+		return v.Size
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the plan's pricing tier.
+func (o PlanSkuOutput) Tier() pulumi.StringOutput {
+	return o.Apply(func(v PlanSku) string {
+		return v.Tier
+	}).(pulumi.StringOutput)
+}
+
+func (PlanSkuOutput) ElementType() reflect.Type {
+	return planSkuType
+}
+
+func (o PlanSkuOutput) ToPlanSkuOutput() PlanSkuOutput {
+	return o
+}
+
+func (o PlanSkuOutput) ToPlanSkuOutputWithContext(ctx context.Context) PlanSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PlanSkuOutput{}) }
+

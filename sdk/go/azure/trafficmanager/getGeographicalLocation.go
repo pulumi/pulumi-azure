@@ -10,30 +10,24 @@ import (
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location_legacy.html.markdown.
-func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs) (*GetGeographicalLocationResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", inputs)
+func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs, opts ...pulumi.InvokeOption) (*GetGeographicalLocationResult, error) {
+	var rv GetGeographicalLocationResult
+	err := ctx.Invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetGeographicalLocationResult{
-		Name: outputs["name"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getGeographicalLocation.
 type GetGeographicalLocationArgs struct {
 	// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getGeographicalLocation.
 type GetGeographicalLocationResult struct {
-	Name interface{}
+	Name string `pulumi:"name"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

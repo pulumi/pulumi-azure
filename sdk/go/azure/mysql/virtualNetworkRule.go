@@ -14,12 +14,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_virtual_network_rule.html.markdown.
 type VirtualNetworkRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the SQL Server to which this MySQL virtual network rule will be applied to. Changing this forces a new resource to be created.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// The ID of the subnet that the MySQL server will be connected to.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
 // NewVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkRule(ctx *pulumi.Context,
-	name string, args *VirtualNetworkRuleArgs, opts ...pulumi.ResourceOpt) (*VirtualNetworkRule, error) {
+	name string, args *VirtualNetworkRuleArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -29,93 +41,60 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args == nil || args.SubnetId == nil {
 		return nil, errors.New("missing required argument 'SubnetId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serverName"] = nil
-		inputs["subnetId"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["subnetId"] = args.SubnetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, true, inputs, opts...)
+	var resource VirtualNetworkRule
+	err := ctx.RegisterResource("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualNetworkRule gets an existing VirtualNetworkRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualNetworkRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOpt) (*VirtualNetworkRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverName"] = state.ServerName
-		inputs["subnetId"] = state.SubnetId
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, id, inputs, opts...)
+	var resource VirtualNetworkRule
+	err := ctx.ReadResource("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the SQL Server to which this MySQL virtual network rule will be applied to. Changing this forces a new resource to be created.
-func (r *VirtualNetworkRule) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// The ID of the subnet that the MySQL server will be connected to.
-func (r *VirtualNetworkRule) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type VirtualNetworkRuleState struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server to which this MySQL virtual network rule will be applied to. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The ID of the subnet that the MySQL server will be connected to.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server to which this MySQL virtual network rule will be applied to. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The ID of the subnet that the MySQL server will be connected to.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }

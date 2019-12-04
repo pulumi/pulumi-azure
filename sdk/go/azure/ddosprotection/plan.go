@@ -16,111 +16,87 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/ddos_protection_plan.html.markdown.
 type Plan struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the DDoS Protection Plan. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+	VirtualNetworkIds pulumi.StringArrayOutput `pulumi:"virtualNetworkIds"`
 }
 
 // NewPlan registers a new resource with the given unique name, arguments, and options.
 func NewPlan(ctx *pulumi.Context,
-	name string, args *PlanArgs, opts ...pulumi.ResourceOpt) (*Plan, error) {
+	name string, args *PlanArgs, opts ...pulumi.ResourceOption) (*Plan, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["virtualNetworkIds"] = nil
-	s, err := ctx.RegisterResource("azure:ddosprotection/plan:Plan", name, true, inputs, opts...)
+	var resource Plan
+	err := ctx.RegisterResource("azure:ddosprotection/plan:Plan", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Plan{s: s}, nil
+	return &resource, nil
 }
 
 // GetPlan gets an existing Plan resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPlan(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PlanState, opts ...pulumi.ResourceOpt) (*Plan, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PlanState, opts ...pulumi.ResourceOption) (*Plan, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["virtualNetworkIds"] = state.VirtualNetworkIds
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualNetworkIds; i != nil { inputs["virtualNetworkIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:ddosprotection/plan:Plan", name, id, inputs, opts...)
+	var resource Plan
+	err := ctx.ReadResource("azure:ddosprotection/plan:Plan", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Plan{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Plan) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Plan) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Plan) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the DDoS Protection Plan. Changing this forces a new resource to be created.
-func (r *Plan) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-func (r *Plan) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Plan) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
-func (r *Plan) VirtualNetworkIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["virtualNetworkIds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Plan resources.
 type PlanState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the DDoS Protection Plan. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
-	VirtualNetworkIds interface{}
+	VirtualNetworkIds pulumi.StringArrayInput `pulumi:"virtualNetworkIds"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the DDoS Protection Plan. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

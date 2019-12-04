@@ -10,86 +10,71 @@ import (
 // Use this data source to access information about an existing App Service Certificate Order.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
-func LookupCertificateOrder(ctx *pulumi.Context, args *GetCertificateOrderArgs) (*GetCertificateOrderResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:appservice/getCertificateOrder:getCertificateOrder", inputs)
+func LookupCertificateOrder(ctx *pulumi.Context, args *GetCertificateOrderArgs, opts ...pulumi.InvokeOption) (*GetCertificateOrderResult, error) {
+	var rv GetCertificateOrderResult
+	err := ctx.Invoke("azure:appservice/getCertificateOrder:getCertificateOrder", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetCertificateOrderResult{
-		AppServiceCertificateNotRenewableReasons: outputs["appServiceCertificateNotRenewableReasons"],
-		AutoRenew: outputs["autoRenew"],
-		Certificates: outputs["certificates"],
-		Csr: outputs["csr"],
-		DistinguishedName: outputs["distinguishedName"],
-		DomainVerificationToken: outputs["domainVerificationToken"],
-		ExpirationTime: outputs["expirationTime"],
-		IntermediateThumbprint: outputs["intermediateThumbprint"],
-		IsPrivateKeyExternal: outputs["isPrivateKeyExternal"],
-		KeySize: outputs["keySize"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ProductType: outputs["productType"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		RootThumbprint: outputs["rootThumbprint"],
-		SignedCertificateThumbprint: outputs["signedCertificateThumbprint"],
-		Status: outputs["status"],
-		Tags: outputs["tags"],
-		ValidityInYears: outputs["validityInYears"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCertificateOrder.
 type GetCertificateOrderArgs struct {
 	// The name of the App Service.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the App Service exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getCertificateOrder.
 type GetCertificateOrderResult struct {
 	// Reasons why App Service Certificate is not renewable at the current moment.
-	AppServiceCertificateNotRenewableReasons interface{}
+	AppServiceCertificateNotRenewableReasons []string `pulumi:"appServiceCertificateNotRenewableReasons"`
 	// true if the certificate should be automatically renewed when it expires; otherwise, false.
-	AutoRenew interface{}
+	AutoRenew bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret. A `certificates` block as defined below.
-	Certificates interface{}
+	Certificates []GetCertificateOrderCertificatesResult `pulumi:"certificates"`
 	// Last CSR that was created for this order.
-	Csr interface{}
+	Csr string `pulumi:"csr"`
 	// The Distinguished Name for the App Service Certificate Order.
-	DistinguishedName interface{}
+	DistinguishedName string `pulumi:"distinguishedName"`
 	// Domain verification token.
-	DomainVerificationToken interface{}
+	DomainVerificationToken string `pulumi:"domainVerificationToken"`
 	// Certificate expiration time.
-	ExpirationTime interface{}
+	ExpirationTime string `pulumi:"expirationTime"`
 	// Certificate thumbprint intermediate certificate.
-	IntermediateThumbprint interface{}
+	IntermediateThumbprint string `pulumi:"intermediateThumbprint"`
 	// Whether the private key is external or not.
-	IsPrivateKeyExternal interface{}
+	IsPrivateKeyExternal bool `pulumi:"isPrivateKeyExternal"`
 	// Certificate key size.
-	KeySize interface{}
+	KeySize int `pulumi:"keySize"`
 	// The Azure location where the App Service exists.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// Certificate product type, such as `Standard` or `WildCard`.
-	ProductType interface{}
-	ResourceGroupName interface{}
+	ProductType string `pulumi:"productType"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Certificate thumbprint for root certificate.
-	RootThumbprint interface{}
+	RootThumbprint string `pulumi:"rootThumbprint"`
 	// Certificate thumbprint for signed certificate.
-	SignedCertificateThumbprint interface{}
+	SignedCertificateThumbprint string `pulumi:"signedCertificateThumbprint"`
 	// Current order status.
-	Status interface{}
+	Status string `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Duration in years (must be between 1 and 3).
-	ValidityInYears interface{}
+	ValidityInYears int `pulumi:"validityInYears"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetCertificateOrderCertificatesResult struct {
+	// The name of the App Service Certificate.
+	CertificateName string `pulumi:"certificateName"`
+	// Key Vault resource Id.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName string `pulumi:"keyVaultSecretName"`
+	// Status of the Key Vault secret.
+	ProvisioningState string `pulumi:"provisioningState"`
 }

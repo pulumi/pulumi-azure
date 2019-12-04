@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_firewall_rule.html.markdown.
 type AnalyticsFirewallRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The End IP Address for the firewall rule.
+	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
+
+	// Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Data Lake Analytics.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Start IP address for the firewall rule.
+	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 }
 
 // NewAnalyticsFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsFirewallRule(ctx *pulumi.Context,
-	name string, args *AnalyticsFirewallRuleArgs, opts ...pulumi.ResourceOpt) (*AnalyticsFirewallRule, error) {
+	name string, args *AnalyticsFirewallRuleArgs, opts ...pulumi.ResourceOption) (*AnalyticsFirewallRule, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -30,105 +45,66 @@ func NewAnalyticsFirewallRule(ctx *pulumi.Context,
 	if args == nil || args.StartIpAddress == nil {
 		return nil, errors.New("missing required argument 'StartIpAddress'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["endIpAddress"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["startIpAddress"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["endIpAddress"] = args.EndIpAddress
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["startIpAddress"] = args.StartIpAddress
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, true, inputs, opts...)
+	var resource AnalyticsFirewallRule
+	err := ctx.RegisterResource("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AnalyticsFirewallRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetAnalyticsFirewallRule gets an existing AnalyticsFirewallRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAnalyticsFirewallRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AnalyticsFirewallRuleState, opts ...pulumi.ResourceOpt) (*AnalyticsFirewallRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AnalyticsFirewallRuleState, opts ...pulumi.ResourceOption) (*AnalyticsFirewallRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["endIpAddress"] = state.EndIpAddress
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["startIpAddress"] = state.StartIpAddress
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, id, inputs, opts...)
+	var resource AnalyticsFirewallRule
+	err := ctx.ReadResource("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AnalyticsFirewallRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AnalyticsFirewallRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AnalyticsFirewallRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
-func (r *AnalyticsFirewallRule) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The End IP Address for the firewall rule.
-func (r *AnalyticsFirewallRule) EndIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
-}
-
-// Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-func (r *AnalyticsFirewallRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Data Lake Analytics.
-func (r *AnalyticsFirewallRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Start IP address for the firewall rule.
-func (r *AnalyticsFirewallRule) StartIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AnalyticsFirewallRule resources.
 type AnalyticsFirewallRuleState struct {
 	// Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The End IP Address for the firewall rule.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Data Lake Analytics.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Start IP address for the firewall rule.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a AnalyticsFirewallRule resource.
 type AnalyticsFirewallRuleArgs struct {
 	// Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The End IP Address for the firewall rule.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Data Lake Analytics.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Start IP address for the firewall rule.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }

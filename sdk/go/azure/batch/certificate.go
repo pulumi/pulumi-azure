@@ -12,12 +12,38 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_certificate.html.markdown.
 type Certificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The base64-encoded contents of the certificate.
+	Certificate pulumi.StringOutput `pulumi:"certificate"`
+
+	// The format of the certificate. Possible values are `Cer` or `Pfx`.
+	Format pulumi.StringOutput `pulumi:"format"`
+
+	// The generated name of the certificate.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The public key of the certificate.
+	PublicData pulumi.StringOutput `pulumi:"publicData"`
+
+	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
+
+	ThumbprintAlgorithm pulumi.StringOutput `pulumi:"thumbprintAlgorithm"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
-	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
+	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -36,144 +62,82 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.ThumbprintAlgorithm == nil {
 		return nil, errors.New("missing required argument 'ThumbprintAlgorithm'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["certificate"] = nil
-		inputs["format"] = nil
-		inputs["password"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["thumbprint"] = nil
-		inputs["thumbprintAlgorithm"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["certificate"] = args.Certificate
-		inputs["format"] = args.Format
-		inputs["password"] = args.Password
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["thumbprint"] = args.Thumbprint
-		inputs["thumbprintAlgorithm"] = args.ThumbprintAlgorithm
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.Certificate; i != nil { inputs["certificate"] = i.ToStringOutput() }
+		if i := args.Format; i != nil { inputs["format"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Thumbprint; i != nil { inputs["thumbprint"] = i.ToStringOutput() }
+		if i := args.ThumbprintAlgorithm; i != nil { inputs["thumbprintAlgorithm"] = i.ToStringOutput() }
 	}
-	inputs["name"] = nil
-	inputs["publicData"] = nil
-	s, err := ctx.RegisterResource("azure:batch/certificate:Certificate", name, true, inputs, opts...)
+	var resource Certificate
+	err := ctx.RegisterResource("azure:batch/certificate:Certificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificate gets an existing Certificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateState, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["certificate"] = state.Certificate
-		inputs["format"] = state.Format
-		inputs["name"] = state.Name
-		inputs["password"] = state.Password
-		inputs["publicData"] = state.PublicData
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["thumbprint"] = state.Thumbprint
-		inputs["thumbprintAlgorithm"] = state.ThumbprintAlgorithm
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.Certificate; i != nil { inputs["certificate"] = i.ToStringOutput() }
+		if i := state.Format; i != nil { inputs["format"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.PublicData; i != nil { inputs["publicData"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Thumbprint; i != nil { inputs["thumbprint"] = i.ToStringOutput() }
+		if i := state.ThumbprintAlgorithm; i != nil { inputs["thumbprintAlgorithm"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:batch/certificate:Certificate", name, id, inputs, opts...)
+	var resource Certificate
+	err := ctx.ReadResource("azure:batch/certificate:Certificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Batch account. Changing this forces a new resource to be created.
-func (r *Certificate) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The base64-encoded contents of the certificate.
-func (r *Certificate) Certificate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificate"])
-}
-
-// The format of the certificate. Possible values are `Cer` or `Pfx`.
-func (r *Certificate) Format() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["format"])
-}
-
-// The generated name of the certificate.
-func (r *Certificate) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
-func (r *Certificate) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The public key of the certificate.
-func (r *Certificate) PublicData() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publicData"])
-}
-
-// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
-func (r *Certificate) Thumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thumbprint"])
-}
-
-func (r *Certificate) ThumbprintAlgorithm() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thumbprintAlgorithm"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Certificate resources.
 type CertificateState struct {
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The base64-encoded contents of the certificate.
-	Certificate interface{}
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The format of the certificate. Possible values are `Cer` or `Pfx`.
-	Format interface{}
+	Format pulumi.StringInput `pulumi:"format"`
 	// The generated name of the certificate.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The public key of the certificate.
-	PublicData interface{}
+	PublicData pulumi.StringInput `pulumi:"publicData"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
-	Thumbprint interface{}
-	ThumbprintAlgorithm interface{}
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	ThumbprintAlgorithm pulumi.StringInput `pulumi:"thumbprintAlgorithm"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The base64-encoded contents of the certificate.
-	Certificate interface{}
+	Certificate pulumi.StringInput `pulumi:"certificate"`
 	// The format of the certificate. Possible values are `Cer` or `Pfx`.
-	Format interface{}
+	Format pulumi.StringInput `pulumi:"format"`
 	// The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
-	Thumbprint interface{}
-	ThumbprintAlgorithm interface{}
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	ThumbprintAlgorithm pulumi.StringInput `pulumi:"thumbprintAlgorithm"`
 }

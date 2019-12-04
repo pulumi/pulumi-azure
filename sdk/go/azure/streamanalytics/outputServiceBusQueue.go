@@ -4,6 +4,8 @@
 package streamanalytics
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_queue.html.markdown.
 type OutputServiceBusQueue struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Stream Output. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Service Bus Queue.
+	QueueName pulumi.StringOutput `pulumi:"queueName"`
+
+	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `serialization` block as defined below.
+	Serialization OutputServiceBusQueueSerializationOutput `pulumi:"serialization"`
+
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
+	ServicebusNamespace pulumi.StringOutput `pulumi:"servicebusNamespace"`
+
+	// The shared access policy key for the specified shared access policy.
+	SharedAccessPolicyKey pulumi.StringOutput `pulumi:"sharedAccessPolicyKey"`
+
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
+
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
 }
 
 // NewOutputServiceBusQueue registers a new resource with the given unique name, arguments, and options.
 func NewOutputServiceBusQueue(ctx *pulumi.Context,
-	name string, args *OutputServiceBusQueueArgs, opts ...pulumi.ResourceOpt) (*OutputServiceBusQueue, error) {
+	name string, args *OutputServiceBusQueueArgs, opts ...pulumi.ResourceOption) (*OutputServiceBusQueue, error) {
 	if args == nil || args.QueueName == nil {
 		return nil, errors.New("missing required argument 'QueueName'")
 	}
@@ -39,141 +65,158 @@ func NewOutputServiceBusQueue(ctx *pulumi.Context,
 	if args == nil || args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("missing required argument 'StreamAnalyticsJobName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["queueName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serialization"] = nil
-		inputs["servicebusNamespace"] = nil
-		inputs["sharedAccessPolicyKey"] = nil
-		inputs["sharedAccessPolicyName"] = nil
-		inputs["streamAnalyticsJobName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["queueName"] = args.QueueName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serialization"] = args.Serialization
-		inputs["servicebusNamespace"] = args.ServicebusNamespace
-		inputs["sharedAccessPolicyKey"] = args.SharedAccessPolicyKey
-		inputs["sharedAccessPolicyName"] = args.SharedAccessPolicyName
-		inputs["streamAnalyticsJobName"] = args.StreamAnalyticsJobName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.QueueName; i != nil { inputs["queueName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Serialization; i != nil { inputs["serialization"] = i.ToOutputServiceBusQueueSerializationOutput() }
+		if i := args.ServicebusNamespace; i != nil { inputs["servicebusNamespace"] = i.ToStringOutput() }
+		if i := args.SharedAccessPolicyKey; i != nil { inputs["sharedAccessPolicyKey"] = i.ToStringOutput() }
+		if i := args.SharedAccessPolicyName; i != nil { inputs["sharedAccessPolicyName"] = i.ToStringOutput() }
+		if i := args.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, true, inputs, opts...)
+	var resource OutputServiceBusQueue
+	err := ctx.RegisterResource("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OutputServiceBusQueue{s: s}, nil
+	return &resource, nil
 }
 
 // GetOutputServiceBusQueue gets an existing OutputServiceBusQueue resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOutputServiceBusQueue(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OutputServiceBusQueueState, opts ...pulumi.ResourceOpt) (*OutputServiceBusQueue, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OutputServiceBusQueueState, opts ...pulumi.ResourceOption) (*OutputServiceBusQueue, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["queueName"] = state.QueueName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serialization"] = state.Serialization
-		inputs["servicebusNamespace"] = state.ServicebusNamespace
-		inputs["sharedAccessPolicyKey"] = state.SharedAccessPolicyKey
-		inputs["sharedAccessPolicyName"] = state.SharedAccessPolicyName
-		inputs["streamAnalyticsJobName"] = state.StreamAnalyticsJobName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.QueueName; i != nil { inputs["queueName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Serialization; i != nil { inputs["serialization"] = i.ToOutputServiceBusQueueSerializationOutput() }
+		if i := state.ServicebusNamespace; i != nil { inputs["servicebusNamespace"] = i.ToStringOutput() }
+		if i := state.SharedAccessPolicyKey; i != nil { inputs["sharedAccessPolicyKey"] = i.ToStringOutput() }
+		if i := state.SharedAccessPolicyName; i != nil { inputs["sharedAccessPolicyName"] = i.ToStringOutput() }
+		if i := state.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, id, inputs, opts...)
+	var resource OutputServiceBusQueue
+	err := ctx.ReadResource("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OutputServiceBusQueue{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OutputServiceBusQueue) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OutputServiceBusQueue) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Stream Output. Changing this forces a new resource to be created.
-func (r *OutputServiceBusQueue) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Service Bus Queue.
-func (r *OutputServiceBusQueue) QueueName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["queueName"])
-}
-
-// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *OutputServiceBusQueue) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `serialization` block as defined below.
-func (r *OutputServiceBusQueue) Serialization() pulumi.Output {
-	return r.s.State["serialization"]
-}
-
-// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
-func (r *OutputServiceBusQueue) ServicebusNamespace() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["servicebusNamespace"])
-}
-
-// The shared access policy key for the specified shared access policy.
-func (r *OutputServiceBusQueue) SharedAccessPolicyKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sharedAccessPolicyKey"])
-}
-
-// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-func (r *OutputServiceBusQueue) SharedAccessPolicyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sharedAccessPolicyName"])
-}
-
-// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *OutputServiceBusQueue) StreamAnalyticsJobName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OutputServiceBusQueue resources.
 type OutputServiceBusQueueState struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Service Bus Queue.
-	QueueName interface{}
+	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
-	Serialization interface{}
+	Serialization OutputServiceBusQueueSerializationInput `pulumi:"serialization"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	ServicebusNamespace interface{}
+	ServicebusNamespace pulumi.StringInput `pulumi:"servicebusNamespace"`
 	// The shared access policy key for the specified shared access policy.
-	SharedAccessPolicyKey interface{}
+	SharedAccessPolicyKey pulumi.StringInput `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	SharedAccessPolicyName interface{}
+	SharedAccessPolicyName pulumi.StringInput `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 }
 
 // The set of arguments for constructing a OutputServiceBusQueue resource.
 type OutputServiceBusQueueArgs struct {
 	// The name of the Stream Output. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Service Bus Queue.
-	QueueName interface{}
+	QueueName pulumi.StringInput `pulumi:"queueName"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
-	Serialization interface{}
+	Serialization OutputServiceBusQueueSerializationInput `pulumi:"serialization"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	ServicebusNamespace interface{}
+	ServicebusNamespace pulumi.StringInput `pulumi:"servicebusNamespace"`
 	// The shared access policy key for the specified shared access policy.
-	SharedAccessPolicyKey interface{}
+	SharedAccessPolicyKey pulumi.StringInput `pulumi:"sharedAccessPolicyKey"`
 	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-	SharedAccessPolicyName interface{}
+	SharedAccessPolicyName pulumi.StringInput `pulumi:"sharedAccessPolicyName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 }
+type OutputServiceBusQueueSerialization struct {
+	Encoding *string `pulumi:"encoding"`
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	Format *string `pulumi:"format"`
+	Type string `pulumi:"type"`
+}
+var outputServiceBusQueueSerializationType = reflect.TypeOf((*OutputServiceBusQueueSerialization)(nil)).Elem()
+
+type OutputServiceBusQueueSerializationInput interface {
+	pulumi.Input
+
+	ToOutputServiceBusQueueSerializationOutput() OutputServiceBusQueueSerializationOutput
+	ToOutputServiceBusQueueSerializationOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationOutput
+}
+
+type OutputServiceBusQueueSerializationArgs struct {
+	Encoding pulumi.StringInput `pulumi:"encoding"`
+	FieldDelimiter pulumi.StringInput `pulumi:"fieldDelimiter"`
+	Format pulumi.StringInput `pulumi:"format"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OutputServiceBusQueueSerializationArgs) ElementType() reflect.Type {
+	return outputServiceBusQueueSerializationType
+}
+
+func (a OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializationOutput() OutputServiceBusQueueSerializationOutput {
+	return pulumi.ToOutput(a).(OutputServiceBusQueueSerializationOutput)
+}
+
+func (a OutputServiceBusQueueSerializationArgs) ToOutputServiceBusQueueSerializationOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(OutputServiceBusQueueSerializationOutput)
+}
+
+type OutputServiceBusQueueSerializationOutput struct { *pulumi.OutputState }
+
+func (o OutputServiceBusQueueSerializationOutput) Encoding() pulumi.StringOutput {
+	return o.Apply(func(v OutputServiceBusQueueSerialization) string {
+		if v.Encoding == nil { return *new(string) } else { return *v.Encoding }
+	}).(pulumi.StringOutput)
+}
+
+func (o OutputServiceBusQueueSerializationOutput) FieldDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v OutputServiceBusQueueSerialization) string {
+		if v.FieldDelimiter == nil { return *new(string) } else { return *v.FieldDelimiter }
+	}).(pulumi.StringOutput)
+}
+
+func (o OutputServiceBusQueueSerializationOutput) Format() pulumi.StringOutput {
+	return o.Apply(func(v OutputServiceBusQueueSerialization) string {
+		if v.Format == nil { return *new(string) } else { return *v.Format }
+	}).(pulumi.StringOutput)
+}
+
+func (o OutputServiceBusQueueSerializationOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v OutputServiceBusQueueSerialization) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (OutputServiceBusQueueSerializationOutput) ElementType() reflect.Type {
+	return outputServiceBusQueueSerializationType
+}
+
+func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSerializationOutput() OutputServiceBusQueueSerializationOutput {
+	return o
+}
+
+func (o OutputServiceBusQueueSerializationOutput) ToOutputServiceBusQueueSerializationOutputWithContext(ctx context.Context) OutputServiceBusQueueSerializationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(OutputServiceBusQueueSerializationOutput{}) }
+

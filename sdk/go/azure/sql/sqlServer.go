@@ -4,6 +4,8 @@
 package sql
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -15,12 +17,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
 type SqlServer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
+
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+
+	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
+	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
+
+	// An `identity` block as defined below.
+	Identity SqlServerIdentityOutput `pulumi:"identity"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the SQL Server. This needs to be globally unique within Azure.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the SQL Server.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewSqlServer registers a new resource with the given unique name, arguments, and options.
 func NewSqlServer(ctx *pulumi.Context,
-	name string, args *SqlServerArgs, opts ...pulumi.ResourceOpt) (*SqlServer, error) {
+	name string, args *SqlServerArgs, opts ...pulumi.ResourceOption) (*SqlServer, error) {
 	if args == nil || args.AdministratorLogin == nil {
 		return nil, errors.New("missing required argument 'AdministratorLogin'")
 	}
@@ -33,150 +62,159 @@ func NewSqlServer(ctx *pulumi.Context,
 	if args == nil || args.Version == nil {
 		return nil, errors.New("missing required argument 'Version'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["administratorLogin"] = nil
-		inputs["administratorLoginPassword"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["version"] = nil
-	} else {
-		inputs["administratorLogin"] = args.AdministratorLogin
-		inputs["administratorLoginPassword"] = args.AdministratorLoginPassword
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["version"] = args.Version
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdministratorLogin; i != nil { inputs["administratorLogin"] = i.ToStringOutput() }
+		if i := args.AdministratorLoginPassword; i != nil { inputs["administratorLoginPassword"] = i.ToStringOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToSqlServerIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	inputs["fullyQualifiedDomainName"] = nil
-	s, err := ctx.RegisterResource("azure:sql/sqlServer:SqlServer", name, true, inputs, opts...)
+	var resource SqlServer
+	err := ctx.RegisterResource("azure:sql/sqlServer:SqlServer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlServer{s: s}, nil
+	return &resource, nil
 }
 
 // GetSqlServer gets an existing SqlServer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSqlServer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SqlServerState, opts ...pulumi.ResourceOpt) (*SqlServer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SqlServerState, opts ...pulumi.ResourceOption) (*SqlServer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["administratorLogin"] = state.AdministratorLogin
-		inputs["administratorLoginPassword"] = state.AdministratorLoginPassword
-		inputs["fullyQualifiedDomainName"] = state.FullyQualifiedDomainName
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["version"] = state.Version
+		if i := state.AdministratorLogin; i != nil { inputs["administratorLogin"] = i.ToStringOutput() }
+		if i := state.AdministratorLoginPassword; i != nil { inputs["administratorLoginPassword"] = i.ToStringOutput() }
+		if i := state.FullyQualifiedDomainName; i != nil { inputs["fullyQualifiedDomainName"] = i.ToStringOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToSqlServerIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:sql/sqlServer:SqlServer", name, id, inputs, opts...)
+	var resource SqlServer
+	err := ctx.ReadResource("azure:sql/sqlServer:SqlServer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlServer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SqlServer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SqlServer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The administrator login name for the new server. Changing this forces a new resource to be created.
-func (r *SqlServer) AdministratorLogin() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["administratorLogin"])
-}
-
-// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-func (r *SqlServer) AdministratorLoginPassword() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
-}
-
-// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-func (r *SqlServer) FullyQualifiedDomainName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fullyQualifiedDomainName"])
-}
-
-// An `identity` block as defined below.
-func (r *SqlServer) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *SqlServer) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the SQL Server. This needs to be globally unique within Azure.
-func (r *SqlServer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the SQL Server.
-func (r *SqlServer) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *SqlServer) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-func (r *SqlServer) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SqlServer resources.
 type SqlServerState struct {
 	// The administrator login name for the new server. Changing this forces a new resource to be created.
-	AdministratorLogin interface{}
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword interface{}
+	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-	FullyQualifiedDomainName interface{}
+	FullyQualifiedDomainName pulumi.StringInput `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity SqlServerIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the SQL Server. This needs to be globally unique within Azure.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the SQL Server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a SqlServer resource.
 type SqlServerArgs struct {
 	// The administrator login name for the new server. Changing this forces a new resource to be created.
-	AdministratorLogin interface{}
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-	AdministratorLoginPassword interface{}
+	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity SqlServerIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the SQL Server. This needs to be globally unique within Azure.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the SQL Server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
+type SqlServerIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+	TenantId *string `pulumi:"tenantId"`
+	Type string `pulumi:"type"`
+}
+var sqlServerIdentityType = reflect.TypeOf((*SqlServerIdentity)(nil)).Elem()
+
+type SqlServerIdentityInput interface {
+	pulumi.Input
+
+	ToSqlServerIdentityOutput() SqlServerIdentityOutput
+	ToSqlServerIdentityOutputWithContext(ctx context.Context) SqlServerIdentityOutput
+}
+
+type SqlServerIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SqlServerIdentityArgs) ElementType() reflect.Type {
+	return sqlServerIdentityType
+}
+
+func (a SqlServerIdentityArgs) ToSqlServerIdentityOutput() SqlServerIdentityOutput {
+	return pulumi.ToOutput(a).(SqlServerIdentityOutput)
+}
+
+func (a SqlServerIdentityArgs) ToSqlServerIdentityOutputWithContext(ctx context.Context) SqlServerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SqlServerIdentityOutput)
+}
+
+type SqlServerIdentityOutput struct { *pulumi.OutputState }
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+func (o SqlServerIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v SqlServerIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+func (o SqlServerIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v SqlServerIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (o SqlServerIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v SqlServerIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (SqlServerIdentityOutput) ElementType() reflect.Type {
+	return sqlServerIdentityType
+}
+
+func (o SqlServerIdentityOutput) ToSqlServerIdentityOutput() SqlServerIdentityOutput {
+	return o
+}
+
+func (o SqlServerIdentityOutput) ToSqlServerIdentityOutputWithContext(ctx context.Context) SqlServerIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SqlServerIdentityOutput{}) }
+

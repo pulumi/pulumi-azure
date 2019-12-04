@@ -12,12 +12,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_certificate.html.markdown.
 type Certificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+	Data pulumi.StringOutput `pulumi:"data"`
+
+	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
+	Expiration pulumi.StringOutput `pulumi:"expiration"`
+
+	// The name of the API Management Certificate. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The password used for this certificate. Changing this forces a new resource to be created.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Subject of this Certificate.
+	Subject pulumi.StringOutput `pulumi:"subject"`
+
+	// The Thumbprint of this Certificate.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
-	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
+	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -27,132 +51,75 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["data"] = nil
-		inputs["name"] = nil
-		inputs["password"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["data"] = args.Data
-		inputs["name"] = args.Name
-		inputs["password"] = args.Password
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.Data; i != nil { inputs["data"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	inputs["expiration"] = nil
-	inputs["subject"] = nil
-	inputs["thumbprint"] = nil
-	s, err := ctx.RegisterResource("azure:apimanagement/certificate:Certificate", name, true, inputs, opts...)
+	var resource Certificate
+	err := ctx.RegisterResource("azure:apimanagement/certificate:Certificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificate gets an existing Certificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateState, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["data"] = state.Data
-		inputs["expiration"] = state.Expiration
-		inputs["name"] = state.Name
-		inputs["password"] = state.Password
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["subject"] = state.Subject
-		inputs["thumbprint"] = state.Thumbprint
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.Data; i != nil { inputs["data"] = i.ToStringOutput() }
+		if i := state.Expiration; i != nil { inputs["expiration"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Subject; i != nil { inputs["subject"] = i.ToStringOutput() }
+		if i := state.Thumbprint; i != nil { inputs["thumbprint"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/certificate:Certificate", name, id, inputs, opts...)
+	var resource Certificate
+	err := ctx.ReadResource("azure:apimanagement/certificate:Certificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
-func (r *Certificate) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-func (r *Certificate) Data() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["data"])
-}
-
-// The Expiration Date of this Certificate, formatted as an RFC3339 string.
-func (r *Certificate) Expiration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expiration"])
-}
-
-// The name of the API Management Certificate. Changing this forces a new resource to be created.
-func (r *Certificate) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The password used for this certificate. Changing this forces a new resource to be created.
-func (r *Certificate) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Subject of this Certificate.
-func (r *Certificate) Subject() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subject"])
-}
-
-// The Thumbprint of this Certificate.
-func (r *Certificate) Thumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thumbprint"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Certificate resources.
 type CertificateState struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-	Data interface{}
+	Data pulumi.StringInput `pulumi:"data"`
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
-	Expiration interface{}
+	Expiration pulumi.StringInput `pulumi:"expiration"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password used for this certificate. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Subject of this Certificate.
-	Subject interface{}
+	Subject pulumi.StringInput `pulumi:"subject"`
 	// The Thumbprint of this Certificate.
-	Thumbprint interface{}
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-	Data interface{}
+	Data pulumi.StringInput `pulumi:"data"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password used for this certificate. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

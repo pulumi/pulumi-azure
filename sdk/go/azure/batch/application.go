@@ -12,129 +12,102 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_application.html.markdown.
 type Application struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Batch account. Changing this forces a new resource to be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
+	AllowUpdates pulumi.BoolOutput `pulumi:"allowUpdates"`
+
+	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	DefaultVersion pulumi.StringOutput `pulumi:"defaultVersion"`
+
+	// The display name for the application.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
-	name string, args *ApplicationArgs, opts ...pulumi.ResourceOpt) (*Application, error) {
+	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["allowUpdates"] = nil
-		inputs["defaultVersion"] = nil
-		inputs["displayName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["allowUpdates"] = args.AllowUpdates
-		inputs["defaultVersion"] = args.DefaultVersion
-		inputs["displayName"] = args.DisplayName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.AllowUpdates; i != nil { inputs["allowUpdates"] = i.ToBoolOutput() }
+		if i := args.DefaultVersion; i != nil { inputs["defaultVersion"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:batch/application:Application", name, true, inputs, opts...)
+	var resource Application
+	err := ctx.RegisterResource("azure:batch/application:Application", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
+	return &resource, nil
 }
 
 // GetApplication gets an existing Application resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApplication(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApplicationState, opts ...pulumi.ResourceOpt) (*Application, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["allowUpdates"] = state.AllowUpdates
-		inputs["defaultVersion"] = state.DefaultVersion
-		inputs["displayName"] = state.DisplayName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.AllowUpdates; i != nil { inputs["allowUpdates"] = i.ToBoolOutput() }
+		if i := state.DefaultVersion; i != nil { inputs["defaultVersion"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:batch/application:Application", name, id, inputs, opts...)
+	var resource Application
+	err := ctx.ReadResource("azure:batch/application:Application", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Application{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Application) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Application) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Batch account. Changing this forces a new resource to be created.
-func (r *Application) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
-func (r *Application) AllowUpdates() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowUpdates"])
-}
-
-// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-func (r *Application) DefaultVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultVersion"])
-}
-
-// The display name for the application.
-func (r *Application) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
-func (r *Application) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
-func (r *Application) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Application resources.
 type ApplicationState struct {
 	// The name of the Batch account. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
-	AllowUpdates interface{}
+	AllowUpdates pulumi.BoolInput `pulumi:"allowUpdates"`
 	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-	DefaultVersion interface{}
+	DefaultVersion pulumi.StringInput `pulumi:"defaultVersion"`
 	// The display name for the application.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// The name of the Batch account. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
-	AllowUpdates interface{}
+	AllowUpdates pulumi.BoolInput `pulumi:"allowUpdates"`
 	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-	DefaultVersion interface{}
+	DefaultVersion pulumi.StringInput `pulumi:"defaultVersion"`
 	// The display name for the application.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

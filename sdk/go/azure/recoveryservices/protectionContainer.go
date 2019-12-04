@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_container.html.markdown.
 type ProtectionContainer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the network mapping.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Name of fabric that should contain this protection container.
+	RecoveryFabricName pulumi.StringOutput `pulumi:"recoveryFabricName"`
+
+	// The name of the vault that should be updated.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// Name of the resource group where the vault that should be updated is located.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewProtectionContainer registers a new resource with the given unique name, arguments, and options.
 func NewProtectionContainer(ctx *pulumi.Context,
-	name string, args *ProtectionContainerArgs, opts ...pulumi.ResourceOpt) (*ProtectionContainer, error) {
+	name string, args *ProtectionContainerArgs, opts ...pulumi.ResourceOption) (*ProtectionContainer, error) {
 	if args == nil || args.RecoveryFabricName == nil {
 		return nil, errors.New("missing required argument 'RecoveryFabricName'")
 	}
@@ -27,93 +39,60 @@ func NewProtectionContainer(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["recoveryFabricName"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["recoveryFabricName"] = args.RecoveryFabricName
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecoveryFabricName; i != nil { inputs["recoveryFabricName"] = i.ToStringOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/protectionContainer:ProtectionContainer", name, true, inputs, opts...)
+	var resource ProtectionContainer
+	err := ctx.RegisterResource("azure:recoveryservices/protectionContainer:ProtectionContainer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProtectionContainer{s: s}, nil
+	return &resource, nil
 }
 
 // GetProtectionContainer gets an existing ProtectionContainer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProtectionContainer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProtectionContainerState, opts ...pulumi.ResourceOpt) (*ProtectionContainer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProtectionContainerState, opts ...pulumi.ResourceOption) (*ProtectionContainer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["recoveryFabricName"] = state.RecoveryFabricName
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryFabricName; i != nil { inputs["recoveryFabricName"] = i.ToStringOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/protectionContainer:ProtectionContainer", name, id, inputs, opts...)
+	var resource ProtectionContainer
+	err := ctx.ReadResource("azure:recoveryservices/protectionContainer:ProtectionContainer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProtectionContainer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectionContainer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectionContainer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the network mapping.
-func (r *ProtectionContainer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Name of fabric that should contain this protection container.
-func (r *ProtectionContainer) RecoveryFabricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryFabricName"])
-}
-
-// The name of the vault that should be updated.
-func (r *ProtectionContainer) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// Name of the resource group where the vault that should be updated is located.
-func (r *ProtectionContainer) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ProtectionContainer resources.
 type ProtectionContainerState struct {
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Name of fabric that should contain this protection container.
-	RecoveryFabricName interface{}
+	RecoveryFabricName pulumi.StringInput `pulumi:"recoveryFabricName"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ProtectionContainer resource.
 type ProtectionContainerArgs struct {
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Name of fabric that should contain this protection container.
-	RecoveryFabricName interface{}
+	RecoveryFabricName pulumi.StringInput `pulumi:"recoveryFabricName"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

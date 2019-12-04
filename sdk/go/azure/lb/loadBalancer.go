@@ -4,6 +4,8 @@
 package lb
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,144 +14,310 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
 type LoadBalancer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or multiple `frontendIpConfiguration` blocks as documented below.
+	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationsArrayOutput `pulumi:"frontendIpConfigurations"`
+
+	// Specifies the supported Azure Region where the Load Balancer should be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the frontend ip configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+
+	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
+	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
+
+	// The name of the Resource Group in which to create the Load Balancer.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
-	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOpt) (*LoadBalancer, error) {
+	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["frontendIpConfigurations"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["frontendIpConfigurations"] = args.FrontendIpConfigurations
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.FrontendIpConfigurations; i != nil { inputs["frontendIpConfigurations"] = i.ToLoadBalancerFrontendIpConfigurationsArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["privateIpAddress"] = nil
-	inputs["privateIpAddresses"] = nil
-	s, err := ctx.RegisterResource("azure:lb/loadBalancer:LoadBalancer", name, true, inputs, opts...)
+	var resource LoadBalancer
+	err := ctx.RegisterResource("azure:lb/loadBalancer:LoadBalancer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LoadBalancer{s: s}, nil
+	return &resource, nil
 }
 
 // GetLoadBalancer gets an existing LoadBalancer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLoadBalancer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LoadBalancerState, opts ...pulumi.ResourceOpt) (*LoadBalancer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LoadBalancerState, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["frontendIpConfigurations"] = state.FrontendIpConfigurations
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["privateIpAddress"] = state.PrivateIpAddress
-		inputs["privateIpAddresses"] = state.PrivateIpAddresses
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.FrontendIpConfigurations; i != nil { inputs["frontendIpConfigurations"] = i.ToLoadBalancerFrontendIpConfigurationsArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrivateIpAddress; i != nil { inputs["privateIpAddress"] = i.ToStringOutput() }
+		if i := state.PrivateIpAddresses; i != nil { inputs["privateIpAddresses"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:lb/loadBalancer:LoadBalancer", name, id, inputs, opts...)
+	var resource LoadBalancer
+	err := ctx.ReadResource("azure:lb/loadBalancer:LoadBalancer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LoadBalancer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LoadBalancer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LoadBalancer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or multiple `frontendIpConfiguration` blocks as documented below.
-func (r *LoadBalancer) FrontendIpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
-}
-
-// Specifies the supported Azure Region where the Load Balancer should be created.
-func (r *LoadBalancer) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the frontend ip configuration.
-func (r *LoadBalancer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
-func (r *LoadBalancer) PrivateIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateIpAddress"])
-}
-
-// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
-func (r *LoadBalancer) PrivateIpAddresses() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
-}
-
-// The name of the Resource Group in which to create the Load Balancer.
-func (r *LoadBalancer) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-func (r *LoadBalancer) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *LoadBalancer) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type LoadBalancerState struct {
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationsArrayInput `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the frontend ip configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
-	PrivateIpAddress interface{}
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
-	PrivateIpAddresses interface{}
+	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
 	// The name of the Resource Group in which to create the Load Balancer.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
 	// One or multiple `frontendIpConfiguration` blocks as documented below.
-	FrontendIpConfigurations interface{}
+	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationsArrayInput `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the frontend ip configuration.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which to create the Load Balancer.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type LoadBalancerFrontendIpConfigurations struct {
+	// The id of the Frontend IP Configuration.
+	Id *string `pulumi:"id"`
+	InboundNatRules *[]string `pulumi:"inboundNatRules"`
+	LoadBalancerRules *[]string `pulumi:"loadBalancerRules"`
+	// Specifies the name of the frontend ip configuration.
+	Name string `pulumi:"name"`
+	OutboundRules *[]string `pulumi:"outboundRules"`
+	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
+	// The ID of a Public IP Address which should be associated with the Load Balancer.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
+	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+	// The ID of the Subnet which should be associated with the IP Configuration.
+	SubnetId *string `pulumi:"subnetId"`
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+	Zones *string `pulumi:"zones"`
+}
+var loadBalancerFrontendIpConfigurationsType = reflect.TypeOf((*LoadBalancerFrontendIpConfigurations)(nil)).Elem()
+
+type LoadBalancerFrontendIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToLoadBalancerFrontendIpConfigurationsOutput() LoadBalancerFrontendIpConfigurationsOutput
+	ToLoadBalancerFrontendIpConfigurationsOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationsOutput
+}
+
+type LoadBalancerFrontendIpConfigurationsArgs struct {
+	// The id of the Frontend IP Configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	InboundNatRules pulumi.StringArrayInput `pulumi:"inboundNatRules"`
+	LoadBalancerRules pulumi.StringArrayInput `pulumi:"loadBalancerRules"`
+	// Specifies the name of the frontend ip configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	OutboundRules pulumi.StringArrayInput `pulumi:"outboundRules"`
+	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	// The ID of a Public IP Address which should be associated with the Load Balancer.
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
+	// The ID of the Subnet which should be associated with the IP Configuration.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+	Zones pulumi.StringInput `pulumi:"zones"`
+}
+
+func (LoadBalancerFrontendIpConfigurationsArgs) ElementType() reflect.Type {
+	return loadBalancerFrontendIpConfigurationsType
+}
+
+func (a LoadBalancerFrontendIpConfigurationsArgs) ToLoadBalancerFrontendIpConfigurationsOutput() LoadBalancerFrontendIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(LoadBalancerFrontendIpConfigurationsOutput)
+}
+
+func (a LoadBalancerFrontendIpConfigurationsArgs) ToLoadBalancerFrontendIpConfigurationsOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LoadBalancerFrontendIpConfigurationsOutput)
+}
+
+type LoadBalancerFrontendIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// The id of the Frontend IP Configuration.
+func (o LoadBalancerFrontendIpConfigurationsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerFrontendIpConfigurationsOutput) InboundNatRules() pulumi.StringArrayOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) []string {
+		if v.InboundNatRules == nil { return *new([]string) } else { return *v.InboundNatRules }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LoadBalancerFrontendIpConfigurationsOutput) LoadBalancerRules() pulumi.StringArrayOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) []string {
+		if v.LoadBalancerRules == nil { return *new([]string) } else { return *v.LoadBalancerRules }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the frontend ip configuration.
+func (o LoadBalancerFrontendIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerFrontendIpConfigurationsOutput) OutboundRules() pulumi.StringArrayOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) []string {
+		if v.OutboundRules == nil { return *new([]string) } else { return *v.OutboundRules }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+func (o LoadBalancerFrontendIpConfigurationsOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.PrivateIpAddress == nil { return *new(string) } else { return *v.PrivateIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+// The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+func (o LoadBalancerFrontendIpConfigurationsOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.PrivateIpAddressAllocation == nil { return *new(string) } else { return *v.PrivateIpAddressAllocation }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of a Public IP Address which should be associated with the Load Balancer.
+func (o LoadBalancerFrontendIpConfigurationsOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.PublicIpAddressId == nil { return *new(string) } else { return *v.PublicIpAddressId }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+func (o LoadBalancerFrontendIpConfigurationsOutput) PublicIpPrefixId() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.PublicIpPrefixId == nil { return *new(string) } else { return *v.PublicIpPrefixId }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Subnet which should be associated with the IP Configuration.
+func (o LoadBalancerFrontendIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+func (o LoadBalancerFrontendIpConfigurationsOutput) Zones() pulumi.StringOutput {
+	return o.Apply(func(v LoadBalancerFrontendIpConfigurations) string {
+		if v.Zones == nil { return *new(string) } else { return *v.Zones }
+	}).(pulumi.StringOutput)
+}
+
+func (LoadBalancerFrontendIpConfigurationsOutput) ElementType() reflect.Type {
+	return loadBalancerFrontendIpConfigurationsType
+}
+
+func (o LoadBalancerFrontendIpConfigurationsOutput) ToLoadBalancerFrontendIpConfigurationsOutput() LoadBalancerFrontendIpConfigurationsOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIpConfigurationsOutput) ToLoadBalancerFrontendIpConfigurationsOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationsOutput{}) }
+
+var loadBalancerFrontendIpConfigurationsArrayType = reflect.TypeOf((*[]LoadBalancerFrontendIpConfigurations)(nil)).Elem()
+
+type LoadBalancerFrontendIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerFrontendIpConfigurationsArrayOutput() LoadBalancerFrontendIpConfigurationsArrayOutput
+	ToLoadBalancerFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationsArrayOutput
+}
+
+type LoadBalancerFrontendIpConfigurationsArrayArgs []LoadBalancerFrontendIpConfigurationsInput
+
+func (LoadBalancerFrontendIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return loadBalancerFrontendIpConfigurationsArrayType
+}
+
+func (a LoadBalancerFrontendIpConfigurationsArrayArgs) ToLoadBalancerFrontendIpConfigurationsArrayOutput() LoadBalancerFrontendIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(LoadBalancerFrontendIpConfigurationsArrayOutput)
+}
+
+func (a LoadBalancerFrontendIpConfigurationsArrayArgs) ToLoadBalancerFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LoadBalancerFrontendIpConfigurationsArrayOutput)
+}
+
+type LoadBalancerFrontendIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o LoadBalancerFrontendIpConfigurationsArrayOutput) Index(i pulumi.IntInput) LoadBalancerFrontendIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LoadBalancerFrontendIpConfigurations {
+		return vs[0].([]LoadBalancerFrontendIpConfigurations)[vs[1].(int)]
+	}).(LoadBalancerFrontendIpConfigurationsOutput)
+}
+
+func (LoadBalancerFrontendIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return loadBalancerFrontendIpConfigurationsArrayType
+}
+
+func (o LoadBalancerFrontendIpConfigurationsArrayOutput) ToLoadBalancerFrontendIpConfigurationsArrayOutput() LoadBalancerFrontendIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIpConfigurationsArrayOutput) ToLoadBalancerFrontendIpConfigurationsArrayOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LoadBalancerFrontendIpConfigurationsArrayOutput{}) }
+

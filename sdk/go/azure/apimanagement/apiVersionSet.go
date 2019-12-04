@@ -12,12 +12,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_version_set.html.markdown.
 type ApiVersionSet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The description of API Version Set.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The display name of this API Version Set.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The name of the API Version Set. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the Header which should be read from Inbound Requests which defines the API Version.
+	VersionHeaderName pulumi.StringOutput `pulumi:"versionHeaderName"`
+
+	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+	VersionQueryName pulumi.StringOutput `pulumi:"versionQueryName"`
+
+	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
+	VersioningScheme pulumi.StringOutput `pulumi:"versioningScheme"`
 }
 
 // NewApiVersionSet registers a new resource with the given unique name, arguments, and options.
 func NewApiVersionSet(ctx *pulumi.Context,
-	name string, args *ApiVersionSetArgs, opts ...pulumi.ResourceOpt) (*ApiVersionSet, error) {
+	name string, args *ApiVersionSetArgs, opts ...pulumi.ResourceOption) (*ApiVersionSet, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -30,141 +54,84 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	if args == nil || args.VersioningScheme == nil {
 		return nil, errors.New("missing required argument 'VersioningScheme'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["versionHeaderName"] = nil
-		inputs["versionQueryName"] = nil
-		inputs["versioningScheme"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["versionHeaderName"] = args.VersionHeaderName
-		inputs["versionQueryName"] = args.VersionQueryName
-		inputs["versioningScheme"] = args.VersioningScheme
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.VersionHeaderName; i != nil { inputs["versionHeaderName"] = i.ToStringOutput() }
+		if i := args.VersionQueryName; i != nil { inputs["versionQueryName"] = i.ToStringOutput() }
+		if i := args.VersioningScheme; i != nil { inputs["versioningScheme"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/apiVersionSet:ApiVersionSet", name, true, inputs, opts...)
+	var resource ApiVersionSet
+	err := ctx.RegisterResource("azure:apimanagement/apiVersionSet:ApiVersionSet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiVersionSet{s: s}, nil
+	return &resource, nil
 }
 
 // GetApiVersionSet gets an existing ApiVersionSet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApiVersionSet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApiVersionSetState, opts ...pulumi.ResourceOpt) (*ApiVersionSet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApiVersionSetState, opts ...pulumi.ResourceOption) (*ApiVersionSet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["versionHeaderName"] = state.VersionHeaderName
-		inputs["versionQueryName"] = state.VersionQueryName
-		inputs["versioningScheme"] = state.VersioningScheme
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.VersionHeaderName; i != nil { inputs["versionHeaderName"] = i.ToStringOutput() }
+		if i := state.VersionQueryName; i != nil { inputs["versionQueryName"] = i.ToStringOutput() }
+		if i := state.VersioningScheme; i != nil { inputs["versioningScheme"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/apiVersionSet:ApiVersionSet", name, id, inputs, opts...)
+	var resource ApiVersionSet
+	err := ctx.ReadResource("azure:apimanagement/apiVersionSet:ApiVersionSet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiVersionSet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApiVersionSet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApiVersionSet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
-func (r *ApiVersionSet) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The description of API Version Set.
-func (r *ApiVersionSet) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The display name of this API Version Set.
-func (r *ApiVersionSet) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The name of the API Version Set. Changing this forces a new resource to be created.
-func (r *ApiVersionSet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
-func (r *ApiVersionSet) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the Header which should be read from Inbound Requests which defines the API Version.
-func (r *ApiVersionSet) VersionHeaderName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["versionHeaderName"])
-}
-
-// The name of the Query String which should be read from Inbound Requests which defines the API Version.
-func (r *ApiVersionSet) VersionQueryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["versionQueryName"])
-}
-
-// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
-func (r *ApiVersionSet) VersioningScheme() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["versioningScheme"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApiVersionSet resources.
 type ApiVersionSetState struct {
 	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The description of API Version Set.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of this API Version Set.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the API Version Set. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
-	VersionHeaderName interface{}
+	VersionHeaderName pulumi.StringInput `pulumi:"versionHeaderName"`
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
-	VersionQueryName interface{}
+	VersionQueryName pulumi.StringInput `pulumi:"versionQueryName"`
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
-	VersioningScheme interface{}
+	VersioningScheme pulumi.StringInput `pulumi:"versioningScheme"`
 }
 
 // The set of arguments for constructing a ApiVersionSet resource.
 type ApiVersionSetArgs struct {
 	// The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The description of API Version Set.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of this API Version Set.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the API Version Set. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
-	VersionHeaderName interface{}
+	VersionHeaderName pulumi.StringInput `pulumi:"versionHeaderName"`
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
-	VersionQueryName interface{}
+	VersionQueryName pulumi.StringInput `pulumi:"versionQueryName"`
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
-	VersioningScheme interface{}
+	VersioningScheme pulumi.StringInput `pulumi:"versioningScheme"`
 }

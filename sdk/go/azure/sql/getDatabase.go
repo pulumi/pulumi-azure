@@ -10,69 +10,50 @@ import (
 // Use this data source to access information about an existing SQL Azure Database.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_database.html.markdown.
-func LookupDatabase(ctx *pulumi.Context, args *GetDatabaseArgs) (*GetDatabaseResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("azure:sql/getDatabase:getDatabase", inputs)
+func LookupDatabase(ctx *pulumi.Context, args *GetDatabaseArgs, opts ...pulumi.InvokeOption) (*GetDatabaseResult, error) {
+	var rv GetDatabaseResult
+	err := ctx.Invoke("azure:sql/getDatabase:getDatabase", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetDatabaseResult{
-		Collation: outputs["collation"],
-		DefaultSecondaryLocation: outputs["defaultSecondaryLocation"],
-		Edition: outputs["edition"],
-		ElasticPoolName: outputs["elasticPoolName"],
-		FailoverGroupId: outputs["failoverGroupId"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ReadScale: outputs["readScale"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ServerName: outputs["serverName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getDatabase.
 type GetDatabaseArgs struct {
 	// The name of the SQL Database.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Azure SQL Database exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server.
-	ServerName interface{}
-	Tags interface{}
+	ServerName string `pulumi:"serverName"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDatabase.
 type GetDatabaseResult struct {
 	// The name of the collation. 
-	Collation interface{}
+	Collation string `pulumi:"collation"`
 	// The default secondary location of the SQL Database.
-	DefaultSecondaryLocation interface{}
+	DefaultSecondaryLocation string `pulumi:"defaultSecondaryLocation"`
 	// The edition of the database.
-	Edition interface{}
+	Edition string `pulumi:"edition"`
 	// The name of the elastic database pool the database belongs to.
-	ElasticPoolName interface{}
+	ElasticPoolName string `pulumi:"elasticPoolName"`
 	// The ID of the failover group the database belongs to.
-	FailoverGroupId interface{}
+	FailoverGroupId string `pulumi:"failoverGroupId"`
 	// The location of the Resource Group in which the SQL Server exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the database.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Indicate if read-only connections will be redirected to a high-available replica.
-	ReadScale interface{}
+	ReadScale bool `pulumi:"readScale"`
 	// The name of the resource group in which the database resides. This will always be the same resource group as the Database Server.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the database.
-	ServerName interface{}
+	ServerName string `pulumi:"serverName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

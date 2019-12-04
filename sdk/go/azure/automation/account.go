@@ -4,6 +4,8 @@
 package automation
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,153 +14,170 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+	DscPrimaryAccessKey pulumi.StringOutput `pulumi:"dscPrimaryAccessKey"`
+
+	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+	DscSecondaryAccessKey pulumi.StringOutput `pulumi:"dscSecondaryAccessKey"`
+
+	// The DSC Server Endpoint associated with this Automation Account.
+	DscServerEndpoint pulumi.StringOutput `pulumi:"dscServerEndpoint"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// ) A `sku` block as described below.
+	Sku AccountSkuOutput `pulumi:"sku"`
+
+	// The SKU name of the account - only `Basic` is supported at this time.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["skuName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["skuName"] = args.SkuName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToAccountSkuOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["dscPrimaryAccessKey"] = nil
-	inputs["dscSecondaryAccessKey"] = nil
-	inputs["dscServerEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:automation/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:automation/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dscPrimaryAccessKey"] = state.DscPrimaryAccessKey
-		inputs["dscSecondaryAccessKey"] = state.DscSecondaryAccessKey
-		inputs["dscServerEndpoint"] = state.DscServerEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["skuName"] = state.SkuName
-		inputs["tags"] = state.Tags
+		if i := state.DscPrimaryAccessKey; i != nil { inputs["dscPrimaryAccessKey"] = i.ToStringOutput() }
+		if i := state.DscSecondaryAccessKey; i != nil { inputs["dscSecondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.DscServerEndpoint; i != nil { inputs["dscServerEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToAccountSkuOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:automation/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:automation/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
-func (r *Account) DscPrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dscPrimaryAccessKey"])
-}
-
-// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
-func (r *Account) DscSecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dscSecondaryAccessKey"])
-}
-
-// The DSC Server Endpoint associated with this Automation Account.
-func (r *Account) DscServerEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dscServerEndpoint"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// ) A `sku` block as described below.
-func (r *Account) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// The SKU name of the account - only `Basic` is supported at this time.
-func (r *Account) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Account) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
-	DscPrimaryAccessKey interface{}
+	DscPrimaryAccessKey pulumi.StringInput `pulumi:"dscPrimaryAccessKey"`
 	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
-	DscSecondaryAccessKey interface{}
+	DscSecondaryAccessKey pulumi.StringInput `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
-	DscServerEndpoint interface{}
+	DscServerEndpoint pulumi.StringInput `pulumi:"dscServerEndpoint"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku AccountSkuInput `pulumi:"sku"`
 	// The SKU name of the account - only `Basic` is supported at this time.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku AccountSkuInput `pulumi:"sku"`
 	// The SKU name of the account - only `Basic` is supported at this time.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type AccountSku struct {
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+var accountSkuType = reflect.TypeOf((*AccountSku)(nil)).Elem()
+
+type AccountSkuInput interface {
+	pulumi.Input
+
+	ToAccountSkuOutput() AccountSkuOutput
+	ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput
+}
+
+type AccountSkuArgs struct {
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AccountSkuArgs) ElementType() reflect.Type {
+	return accountSkuType
+}
+
+func (a AccountSkuArgs) ToAccountSkuOutput() AccountSkuOutput {
+	return pulumi.ToOutput(a).(AccountSkuOutput)
+}
+
+func (a AccountSkuArgs) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountSkuOutput)
+}
+
+type AccountSkuOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+func (o AccountSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AccountSku) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (AccountSkuOutput) ElementType() reflect.Type {
+	return accountSkuType
+}
+
+func (o AccountSkuOutput) ToAccountSkuOutput() AccountSkuOutput {
+	return o
+}
+
+func (o AccountSkuOutput) ToAccountSkuOutputWithContext(ctx context.Context) AccountSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountSkuOutput{}) }
+

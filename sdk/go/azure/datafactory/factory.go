@@ -4,6 +4,8 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,138 +14,355 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory.html.markdown.
 type Factory struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `githubConfiguration` block as defined below.
+	GithubConfiguration FactoryGithubConfigurationOutput `pulumi:"githubConfiguration"`
+
+	// An `identity` block as defined below.
+	Identity FactoryIdentityOutput `pulumi:"identity"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Data Factory.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A `vstsConfiguration` block as defined below.
+	VstsConfiguration FactoryVstsConfigurationOutput `pulumi:"vstsConfiguration"`
 }
 
 // NewFactory registers a new resource with the given unique name, arguments, and options.
 func NewFactory(ctx *pulumi.Context,
-	name string, args *FactoryArgs, opts ...pulumi.ResourceOpt) (*Factory, error) {
+	name string, args *FactoryArgs, opts ...pulumi.ResourceOption) (*Factory, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["githubConfiguration"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["vstsConfiguration"] = nil
-	} else {
-		inputs["githubConfiguration"] = args.GithubConfiguration
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["vstsConfiguration"] = args.VstsConfiguration
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.GithubConfiguration; i != nil { inputs["githubConfiguration"] = i.ToFactoryGithubConfigurationOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToFactoryIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VstsConfiguration; i != nil { inputs["vstsConfiguration"] = i.ToFactoryVstsConfigurationOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/factory:Factory", name, true, inputs, opts...)
+	var resource Factory
+	err := ctx.RegisterResource("azure:datafactory/factory:Factory", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Factory{s: s}, nil
+	return &resource, nil
 }
 
 // GetFactory gets an existing Factory resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFactory(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FactoryState, opts ...pulumi.ResourceOpt) (*Factory, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FactoryState, opts ...pulumi.ResourceOption) (*Factory, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["githubConfiguration"] = state.GithubConfiguration
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["vstsConfiguration"] = state.VstsConfiguration
+		if i := state.GithubConfiguration; i != nil { inputs["githubConfiguration"] = i.ToFactoryGithubConfigurationOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToFactoryIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VstsConfiguration; i != nil { inputs["vstsConfiguration"] = i.ToFactoryVstsConfigurationOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datafactory/factory:Factory", name, id, inputs, opts...)
+	var resource Factory
+	err := ctx.ReadResource("azure:datafactory/factory:Factory", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Factory{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Factory) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Factory) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `githubConfiguration` block as defined below.
-func (r *Factory) GithubConfiguration() pulumi.Output {
-	return r.s.State["githubConfiguration"]
-}
-
-// An `identity` block as defined below.
-func (r *Factory) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Factory) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *Factory) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Data Factory.
-func (r *Factory) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Factory) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A `vstsConfiguration` block as defined below.
-func (r *Factory) VstsConfiguration() pulumi.Output {
-	return r.s.State["vstsConfiguration"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Factory resources.
 type FactoryState struct {
 	// A `githubConfiguration` block as defined below.
-	GithubConfiguration interface{}
+	GithubConfiguration FactoryGithubConfigurationInput `pulumi:"githubConfiguration"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity FactoryIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Data Factory.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A `vstsConfiguration` block as defined below.
-	VstsConfiguration interface{}
+	VstsConfiguration FactoryVstsConfigurationInput `pulumi:"vstsConfiguration"`
 }
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
 	// A `githubConfiguration` block as defined below.
-	GithubConfiguration interface{}
+	GithubConfiguration FactoryGithubConfigurationInput `pulumi:"githubConfiguration"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity FactoryIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Data Factory.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A `vstsConfiguration` block as defined below.
-	VstsConfiguration interface{}
+	VstsConfiguration FactoryVstsConfigurationInput `pulumi:"vstsConfiguration"`
 }
+type FactoryGithubConfiguration struct {
+	AccountName string `pulumi:"accountName"`
+	BranchName string `pulumi:"branchName"`
+	GitUrl string `pulumi:"gitUrl"`
+	RepositoryName string `pulumi:"repositoryName"`
+	RootFolder string `pulumi:"rootFolder"`
+}
+var factoryGithubConfigurationType = reflect.TypeOf((*FactoryGithubConfiguration)(nil)).Elem()
+
+type FactoryGithubConfigurationInput interface {
+	pulumi.Input
+
+	ToFactoryGithubConfigurationOutput() FactoryGithubConfigurationOutput
+	ToFactoryGithubConfigurationOutputWithContext(ctx context.Context) FactoryGithubConfigurationOutput
+}
+
+type FactoryGithubConfigurationArgs struct {
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	BranchName pulumi.StringInput `pulumi:"branchName"`
+	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+}
+
+func (FactoryGithubConfigurationArgs) ElementType() reflect.Type {
+	return factoryGithubConfigurationType
+}
+
+func (a FactoryGithubConfigurationArgs) ToFactoryGithubConfigurationOutput() FactoryGithubConfigurationOutput {
+	return pulumi.ToOutput(a).(FactoryGithubConfigurationOutput)
+}
+
+func (a FactoryGithubConfigurationArgs) ToFactoryGithubConfigurationOutputWithContext(ctx context.Context) FactoryGithubConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FactoryGithubConfigurationOutput)
+}
+
+type FactoryGithubConfigurationOutput struct { *pulumi.OutputState }
+
+func (o FactoryGithubConfigurationOutput) AccountName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryGithubConfiguration) string {
+		return v.AccountName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryGithubConfiguration) string {
+		return v.BranchName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
+	return o.Apply(func(v FactoryGithubConfiguration) string {
+		return v.GitUrl
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryGithubConfigurationOutput) RepositoryName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryGithubConfiguration) string {
+		return v.RepositoryName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryGithubConfigurationOutput) RootFolder() pulumi.StringOutput {
+	return o.Apply(func(v FactoryGithubConfiguration) string {
+		return v.RootFolder
+	}).(pulumi.StringOutput)
+}
+
+func (FactoryGithubConfigurationOutput) ElementType() reflect.Type {
+	return factoryGithubConfigurationType
+}
+
+func (o FactoryGithubConfigurationOutput) ToFactoryGithubConfigurationOutput() FactoryGithubConfigurationOutput {
+	return o
+}
+
+func (o FactoryGithubConfigurationOutput) ToFactoryGithubConfigurationOutputWithContext(ctx context.Context) FactoryGithubConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FactoryGithubConfigurationOutput{}) }
+
+type FactoryIdentity struct {
+	// The ID of the Principal (Client) in Azure Active Directory
+	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId *string `pulumi:"tenantId"`
+	Type string `pulumi:"type"`
+}
+var factoryIdentityType = reflect.TypeOf((*FactoryIdentity)(nil)).Elem()
+
+type FactoryIdentityInput interface {
+	pulumi.Input
+
+	ToFactoryIdentityOutput() FactoryIdentityOutput
+	ToFactoryIdentityOutputWithContext(ctx context.Context) FactoryIdentityOutput
+}
+
+type FactoryIdentityArgs struct {
+	// The ID of the Principal (Client) in Azure Active Directory
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FactoryIdentityArgs) ElementType() reflect.Type {
+	return factoryIdentityType
+}
+
+func (a FactoryIdentityArgs) ToFactoryIdentityOutput() FactoryIdentityOutput {
+	return pulumi.ToOutput(a).(FactoryIdentityOutput)
+}
+
+func (a FactoryIdentityArgs) ToFactoryIdentityOutputWithContext(ctx context.Context) FactoryIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FactoryIdentityOutput)
+}
+
+type FactoryIdentityOutput struct { *pulumi.OutputState }
+
+// The ID of the Principal (Client) in Azure Active Directory
+func (o FactoryIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v FactoryIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o FactoryIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v FactoryIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FactoryIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (FactoryIdentityOutput) ElementType() reflect.Type {
+	return factoryIdentityType
+}
+
+func (o FactoryIdentityOutput) ToFactoryIdentityOutput() FactoryIdentityOutput {
+	return o
+}
+
+func (o FactoryIdentityOutput) ToFactoryIdentityOutputWithContext(ctx context.Context) FactoryIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FactoryIdentityOutput{}) }
+
+type FactoryVstsConfiguration struct {
+	AccountName string `pulumi:"accountName"`
+	BranchName string `pulumi:"branchName"`
+	ProjectName string `pulumi:"projectName"`
+	RepositoryName string `pulumi:"repositoryName"`
+	RootFolder string `pulumi:"rootFolder"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId string `pulumi:"tenantId"`
+}
+var factoryVstsConfigurationType = reflect.TypeOf((*FactoryVstsConfiguration)(nil)).Elem()
+
+type FactoryVstsConfigurationInput interface {
+	pulumi.Input
+
+	ToFactoryVstsConfigurationOutput() FactoryVstsConfigurationOutput
+	ToFactoryVstsConfigurationOutputWithContext(ctx context.Context) FactoryVstsConfigurationOutput
+}
+
+type FactoryVstsConfigurationArgs struct {
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	BranchName pulumi.StringInput `pulumi:"branchName"`
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	RootFolder pulumi.StringInput `pulumi:"rootFolder"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (FactoryVstsConfigurationArgs) ElementType() reflect.Type {
+	return factoryVstsConfigurationType
+}
+
+func (a FactoryVstsConfigurationArgs) ToFactoryVstsConfigurationOutput() FactoryVstsConfigurationOutput {
+	return pulumi.ToOutput(a).(FactoryVstsConfigurationOutput)
+}
+
+func (a FactoryVstsConfigurationArgs) ToFactoryVstsConfigurationOutputWithContext(ctx context.Context) FactoryVstsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FactoryVstsConfigurationOutput)
+}
+
+type FactoryVstsConfigurationOutput struct { *pulumi.OutputState }
+
+func (o FactoryVstsConfigurationOutput) AccountName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryVstsConfiguration) string {
+		return v.AccountName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryVstsConfigurationOutput) BranchName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryVstsConfiguration) string {
+		return v.BranchName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryVstsConfigurationOutput) ProjectName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryVstsConfiguration) string {
+		return v.ProjectName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryVstsConfigurationOutput) RepositoryName() pulumi.StringOutput {
+	return o.Apply(func(v FactoryVstsConfiguration) string {
+		return v.RepositoryName
+	}).(pulumi.StringOutput)
+}
+
+func (o FactoryVstsConfigurationOutput) RootFolder() pulumi.StringOutput {
+	return o.Apply(func(v FactoryVstsConfiguration) string {
+		return v.RootFolder
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o FactoryVstsConfigurationOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v FactoryVstsConfiguration) string {
+		return v.TenantId
+	}).(pulumi.StringOutput)
+}
+
+func (FactoryVstsConfigurationOutput) ElementType() reflect.Type {
+	return factoryVstsConfigurationType
+}
+
+func (o FactoryVstsConfigurationOutput) ToFactoryVstsConfigurationOutput() FactoryVstsConfigurationOutput {
+	return o
+}
+
+func (o FactoryVstsConfigurationOutput) ToFactoryVstsConfigurationOutputWithContext(ctx context.Context) FactoryVstsConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FactoryVstsConfigurationOutput{}) }
+

@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
 type VirtualNetworkGatewayConnection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The authorization key associated with the
+	// Express Route Circuit. This field is required only if the type is an
+	// ExpressRoute connection.
+	AuthorizationKey pulumi.StringOutput `pulumi:"authorizationKey"`
+
+	// If `true`, BGP (Border Gateway Protocol) is enabled
+	// for this connection. Defaults to `false`.
+	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
+
+	// The ID of the Express Route Circuit
+	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
+	// The Express Route Circuit can be in the same or in a different subscription.
+	ExpressRouteCircuitId pulumi.StringOutput `pulumi:"expressRouteCircuitId"`
+
+	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+	ExpressRouteGatewayBypass pulumi.BoolOutput `pulumi:"expressRouteGatewayBypass"`
+
+	// A `ipsecPolicy` block which is documented below.
+	// Only a single policy can be defined for a connection. For details on
+	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyOutput `pulumi:"ipsecPolicy"`
+
+	// The ID of the local network gateway
+	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+	LocalNetworkGatewayId pulumi.StringOutput `pulumi:"localNetworkGatewayId"`
+
+	// The location/region where the connection is
+	// located. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the connection. Changing the name forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ID of the peer virtual
+	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
+	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
+	// in a different subscription.
+	PeerVirtualNetworkGatewayId pulumi.StringOutput `pulumi:"peerVirtualNetworkGatewayId"`
+
+	// The name of the resource group in which to
+	// create the connection Changing the name forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The routing weight. Defaults to `10`.
+	RoutingWeight pulumi.IntOutput `pulumi:"routingWeight"`
+
+	// The shared IPSec key. A key must be provided if a
+	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
+	// connections do not need a shared key.
+	SharedKey pulumi.StringOutput `pulumi:"sharedKey"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The type of connection. Valid options are `IPsec`
+	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
+	// Each connection type requires different mandatory arguments (refer to the
+	// examples above). Changing the connection type will force a new connection
+	// to be created.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// If `true`, policy-based traffic
+	// selectors are enabled for this connection. Enabling policy-based traffic
+	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
+	UsePolicyBasedTrafficSelectors pulumi.BoolOutput `pulumi:"usePolicyBasedTrafficSelectors"`
+
+	// The ID of the Virtual Network Gateway
+	// in which the connection will be created. Changing the gateway forces a new
+	// resource to be created.
+	VirtualNetworkGatewayId pulumi.StringOutput `pulumi:"virtualNetworkGatewayId"`
 }
 
 // NewVirtualNetworkGatewayConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
-	name string, args *VirtualNetworkGatewayConnectionArgs, opts ...pulumi.ResourceOpt) (*VirtualNetworkGatewayConnection, error) {
+	name string, args *VirtualNetworkGatewayConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGatewayConnection, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -27,191 +101,62 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	if args == nil || args.VirtualNetworkGatewayId == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkGatewayId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["authorizationKey"] = nil
-		inputs["enableBgp"] = nil
-		inputs["expressRouteCircuitId"] = nil
-		inputs["expressRouteGatewayBypass"] = nil
-		inputs["ipsecPolicy"] = nil
-		inputs["localNetworkGatewayId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["peerVirtualNetworkGatewayId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["routingWeight"] = nil
-		inputs["sharedKey"] = nil
-		inputs["tags"] = nil
-		inputs["type"] = nil
-		inputs["usePolicyBasedTrafficSelectors"] = nil
-		inputs["virtualNetworkGatewayId"] = nil
-	} else {
-		inputs["authorizationKey"] = args.AuthorizationKey
-		inputs["enableBgp"] = args.EnableBgp
-		inputs["expressRouteCircuitId"] = args.ExpressRouteCircuitId
-		inputs["expressRouteGatewayBypass"] = args.ExpressRouteGatewayBypass
-		inputs["ipsecPolicy"] = args.IpsecPolicy
-		inputs["localNetworkGatewayId"] = args.LocalNetworkGatewayId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["peerVirtualNetworkGatewayId"] = args.PeerVirtualNetworkGatewayId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["routingWeight"] = args.RoutingWeight
-		inputs["sharedKey"] = args.SharedKey
-		inputs["tags"] = args.Tags
-		inputs["type"] = args.Type
-		inputs["usePolicyBasedTrafficSelectors"] = args.UsePolicyBasedTrafficSelectors
-		inputs["virtualNetworkGatewayId"] = args.VirtualNetworkGatewayId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AuthorizationKey; i != nil { inputs["authorizationKey"] = i.ToStringOutput() }
+		if i := args.EnableBgp; i != nil { inputs["enableBgp"] = i.ToBoolOutput() }
+		if i := args.ExpressRouteCircuitId; i != nil { inputs["expressRouteCircuitId"] = i.ToStringOutput() }
+		if i := args.ExpressRouteGatewayBypass; i != nil { inputs["expressRouteGatewayBypass"] = i.ToBoolOutput() }
+		if i := args.IpsecPolicy; i != nil { inputs["ipsecPolicy"] = i.ToVirtualNetworkGatewayConnectionIpsecPolicyOutput() }
+		if i := args.LocalNetworkGatewayId; i != nil { inputs["localNetworkGatewayId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PeerVirtualNetworkGatewayId; i != nil { inputs["peerVirtualNetworkGatewayId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RoutingWeight; i != nil { inputs["routingWeight"] = i.ToIntOutput() }
+		if i := args.SharedKey; i != nil { inputs["sharedKey"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := args.UsePolicyBasedTrafficSelectors; i != nil { inputs["usePolicyBasedTrafficSelectors"] = i.ToBoolOutput() }
+		if i := args.VirtualNetworkGatewayId; i != nil { inputs["virtualNetworkGatewayId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, true, inputs, opts...)
+	var resource VirtualNetworkGatewayConnection
+	err := ctx.RegisterResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkGatewayConnection{s: s}, nil
+	return &resource, nil
 }
 
 // GetVirtualNetworkGatewayConnection gets an existing VirtualNetworkGatewayConnection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *VirtualNetworkGatewayConnectionState, opts ...pulumi.ResourceOpt) (*VirtualNetworkGatewayConnection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *VirtualNetworkGatewayConnectionState, opts ...pulumi.ResourceOption) (*VirtualNetworkGatewayConnection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["authorizationKey"] = state.AuthorizationKey
-		inputs["enableBgp"] = state.EnableBgp
-		inputs["expressRouteCircuitId"] = state.ExpressRouteCircuitId
-		inputs["expressRouteGatewayBypass"] = state.ExpressRouteGatewayBypass
-		inputs["ipsecPolicy"] = state.IpsecPolicy
-		inputs["localNetworkGatewayId"] = state.LocalNetworkGatewayId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["peerVirtualNetworkGatewayId"] = state.PeerVirtualNetworkGatewayId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["routingWeight"] = state.RoutingWeight
-		inputs["sharedKey"] = state.SharedKey
-		inputs["tags"] = state.Tags
-		inputs["type"] = state.Type
-		inputs["usePolicyBasedTrafficSelectors"] = state.UsePolicyBasedTrafficSelectors
-		inputs["virtualNetworkGatewayId"] = state.VirtualNetworkGatewayId
+		if i := state.AuthorizationKey; i != nil { inputs["authorizationKey"] = i.ToStringOutput() }
+		if i := state.EnableBgp; i != nil { inputs["enableBgp"] = i.ToBoolOutput() }
+		if i := state.ExpressRouteCircuitId; i != nil { inputs["expressRouteCircuitId"] = i.ToStringOutput() }
+		if i := state.ExpressRouteGatewayBypass; i != nil { inputs["expressRouteGatewayBypass"] = i.ToBoolOutput() }
+		if i := state.IpsecPolicy; i != nil { inputs["ipsecPolicy"] = i.ToVirtualNetworkGatewayConnectionIpsecPolicyOutput() }
+		if i := state.LocalNetworkGatewayId; i != nil { inputs["localNetworkGatewayId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PeerVirtualNetworkGatewayId; i != nil { inputs["peerVirtualNetworkGatewayId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RoutingWeight; i != nil { inputs["routingWeight"] = i.ToIntOutput() }
+		if i := state.SharedKey; i != nil { inputs["sharedKey"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.UsePolicyBasedTrafficSelectors; i != nil { inputs["usePolicyBasedTrafficSelectors"] = i.ToBoolOutput() }
+		if i := state.VirtualNetworkGatewayId; i != nil { inputs["virtualNetworkGatewayId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, id, inputs, opts...)
+	var resource VirtualNetworkGatewayConnection
+	err := ctx.ReadResource("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &VirtualNetworkGatewayConnection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualNetworkGatewayConnection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualNetworkGatewayConnection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The authorization key associated with the
-// Express Route Circuit. This field is required only if the type is an
-// ExpressRoute connection.
-func (r *VirtualNetworkGatewayConnection) AuthorizationKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["authorizationKey"])
-}
-
-// If `true`, BGP (Border Gateway Protocol) is enabled
-// for this connection. Defaults to `false`.
-func (r *VirtualNetworkGatewayConnection) EnableBgp() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBgp"])
-}
-
-// The ID of the Express Route Circuit
-// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
-// The Express Route Circuit can be in the same or in a different subscription.
-func (r *VirtualNetworkGatewayConnection) ExpressRouteCircuitId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expressRouteCircuitId"])
-}
-
-// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
-func (r *VirtualNetworkGatewayConnection) ExpressRouteGatewayBypass() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["expressRouteGatewayBypass"])
-}
-
-// A `ipsecPolicy` block which is documented below.
-// Only a single policy can be defined for a connection. For details on
-// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
-func (r *VirtualNetworkGatewayConnection) IpsecPolicy() pulumi.Output {
-	return r.s.State["ipsecPolicy"]
-}
-
-// The ID of the local network gateway
-// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-func (r *VirtualNetworkGatewayConnection) LocalNetworkGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["localNetworkGatewayId"])
-}
-
-// The location/region where the connection is
-// located. Changing this forces a new resource to be created.
-func (r *VirtualNetworkGatewayConnection) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the connection. Changing the name forces a
-// new resource to be created.
-func (r *VirtualNetworkGatewayConnection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ID of the peer virtual
-// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
-// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
-// in a different subscription.
-func (r *VirtualNetworkGatewayConnection) PeerVirtualNetworkGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["peerVirtualNetworkGatewayId"])
-}
-
-// The name of the resource group in which to
-// create the connection Changing the name forces a new resource to be created.
-func (r *VirtualNetworkGatewayConnection) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The routing weight. Defaults to `10`.
-func (r *VirtualNetworkGatewayConnection) RoutingWeight() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["routingWeight"])
-}
-
-// The shared IPSec key. A key must be provided if a
-// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
-// connections do not need a shared key.
-func (r *VirtualNetworkGatewayConnection) SharedKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sharedKey"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *VirtualNetworkGatewayConnection) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The type of connection. Valid options are `IPsec`
-// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
-// Each connection type requires different mandatory arguments (refer to the
-// examples above). Changing the connection type will force a new connection
-// to be created.
-func (r *VirtualNetworkGatewayConnection) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// If `true`, policy-based traffic
-// selectors are enabled for this connection. Enabling policy-based traffic
-// selectors requires an `ipsecPolicy` block. Defaults to `false`.
-func (r *VirtualNetworkGatewayConnection) UsePolicyBasedTrafficSelectors() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["usePolicyBasedTrafficSelectors"])
-}
-
-// The ID of the Virtual Network Gateway
-// in which the connection will be created. Changing the gateway forces a new
-// resource to be created.
-func (r *VirtualNetworkGatewayConnection) VirtualNetworkGatewayId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualNetworkGatewayId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering VirtualNetworkGatewayConnection resources.
@@ -219,59 +164,59 @@ type VirtualNetworkGatewayConnectionState struct {
 	// The authorization key associated with the
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
-	AuthorizationKey interface{}
+	AuthorizationKey pulumi.StringInput `pulumi:"authorizationKey"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
-	EnableBgp interface{}
+	EnableBgp pulumi.BoolInput `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit
 	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
 	// The Express Route Circuit can be in the same or in a different subscription.
-	ExpressRouteCircuitId interface{}
+	ExpressRouteCircuitId pulumi.StringInput `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
-	ExpressRouteGatewayBypass interface{}
+	ExpressRouteGatewayBypass pulumi.BoolInput `pulumi:"expressRouteGatewayBypass"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
-	IpsecPolicy interface{}
+	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyInput `pulumi:"ipsecPolicy"`
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-	LocalNetworkGatewayId interface{}
+	LocalNetworkGatewayId pulumi.StringInput `pulumi:"localNetworkGatewayId"`
 	// The location/region where the connection is
 	// located. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the peer virtual
 	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
 	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
 	// in a different subscription.
-	PeerVirtualNetworkGatewayId interface{}
+	PeerVirtualNetworkGatewayId pulumi.StringInput `pulumi:"peerVirtualNetworkGatewayId"`
 	// The name of the resource group in which to
 	// create the connection Changing the name forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
-	RoutingWeight interface{}
+	RoutingWeight pulumi.IntInput `pulumi:"routingWeight"`
 	// The shared IPSec key. A key must be provided if a
 	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
 	// connections do not need a shared key.
-	SharedKey interface{}
+	SharedKey pulumi.StringInput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the
 	// examples above). Changing the connection type will force a new connection
 	// to be created.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
-	UsePolicyBasedTrafficSelectors interface{}
+	UsePolicyBasedTrafficSelectors pulumi.BoolInput `pulumi:"usePolicyBasedTrafficSelectors"`
 	// The ID of the Virtual Network Gateway
 	// in which the connection will be created. Changing the gateway forces a new
 	// resource to be created.
-	VirtualNetworkGatewayId interface{}
+	VirtualNetworkGatewayId pulumi.StringInput `pulumi:"virtualNetworkGatewayId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
@@ -279,57 +224,163 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// The authorization key associated with the
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
-	AuthorizationKey interface{}
+	AuthorizationKey pulumi.StringInput `pulumi:"authorizationKey"`
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
-	EnableBgp interface{}
+	EnableBgp pulumi.BoolInput `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit
 	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
 	// The Express Route Circuit can be in the same or in a different subscription.
-	ExpressRouteCircuitId interface{}
+	ExpressRouteCircuitId pulumi.StringInput `pulumi:"expressRouteCircuitId"`
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
-	ExpressRouteGatewayBypass interface{}
+	ExpressRouteGatewayBypass pulumi.BoolInput `pulumi:"expressRouteGatewayBypass"`
 	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
-	IpsecPolicy interface{}
+	IpsecPolicy VirtualNetworkGatewayConnectionIpsecPolicyInput `pulumi:"ipsecPolicy"`
 	// The ID of the local network gateway
 	// when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
-	LocalNetworkGatewayId interface{}
+	LocalNetworkGatewayId pulumi.StringInput `pulumi:"localNetworkGatewayId"`
 	// The location/region where the connection is
 	// located. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the connection. Changing the name forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the peer virtual
 	// network gateway when creating a VNet-to-VNet connection (i.e. when `type`
 	// is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
 	// in a different subscription.
-	PeerVirtualNetworkGatewayId interface{}
+	PeerVirtualNetworkGatewayId pulumi.StringInput `pulumi:"peerVirtualNetworkGatewayId"`
 	// The name of the resource group in which to
 	// create the connection Changing the name forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The routing weight. Defaults to `10`.
-	RoutingWeight interface{}
+	RoutingWeight pulumi.IntInput `pulumi:"routingWeight"`
 	// The shared IPSec key. A key must be provided if a
 	// Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
 	// connections do not need a shared key.
-	SharedKey interface{}
+	SharedKey pulumi.StringInput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the
 	// examples above). Changing the connection type will force a new connection
 	// to be created.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
 	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
-	UsePolicyBasedTrafficSelectors interface{}
+	UsePolicyBasedTrafficSelectors pulumi.BoolInput `pulumi:"usePolicyBasedTrafficSelectors"`
 	// The ID of the Virtual Network Gateway
 	// in which the connection will be created. Changing the gateway forces a new
 	// resource to be created.
-	VirtualNetworkGatewayId interface{}
+	VirtualNetworkGatewayId pulumi.StringInput `pulumi:"virtualNetworkGatewayId"`
 }
+type VirtualNetworkGatewayConnectionIpsecPolicy struct {
+	DhGroup string `pulumi:"dhGroup"`
+	IkeEncryption string `pulumi:"ikeEncryption"`
+	IkeIntegrity string `pulumi:"ikeIntegrity"`
+	IpsecEncryption string `pulumi:"ipsecEncryption"`
+	IpsecIntegrity string `pulumi:"ipsecIntegrity"`
+	PfsGroup string `pulumi:"pfsGroup"`
+	SaDatasize *int `pulumi:"saDatasize"`
+	SaLifetime *int `pulumi:"saLifetime"`
+}
+var virtualNetworkGatewayConnectionIpsecPolicyType = reflect.TypeOf((*VirtualNetworkGatewayConnectionIpsecPolicy)(nil)).Elem()
+
+type VirtualNetworkGatewayConnectionIpsecPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionIpsecPolicyOutput() VirtualNetworkGatewayConnectionIpsecPolicyOutput
+	ToVirtualNetworkGatewayConnectionIpsecPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionIpsecPolicyOutput
+}
+
+type VirtualNetworkGatewayConnectionIpsecPolicyArgs struct {
+	DhGroup pulumi.StringInput `pulumi:"dhGroup"`
+	IkeEncryption pulumi.StringInput `pulumi:"ikeEncryption"`
+	IkeIntegrity pulumi.StringInput `pulumi:"ikeIntegrity"`
+	IpsecEncryption pulumi.StringInput `pulumi:"ipsecEncryption"`
+	IpsecIntegrity pulumi.StringInput `pulumi:"ipsecIntegrity"`
+	PfsGroup pulumi.StringInput `pulumi:"pfsGroup"`
+	SaDatasize pulumi.IntInput `pulumi:"saDatasize"`
+	SaLifetime pulumi.IntInput `pulumi:"saLifetime"`
+}
+
+func (VirtualNetworkGatewayConnectionIpsecPolicyArgs) ElementType() reflect.Type {
+	return virtualNetworkGatewayConnectionIpsecPolicyType
+}
+
+func (a VirtualNetworkGatewayConnectionIpsecPolicyArgs) ToVirtualNetworkGatewayConnectionIpsecPolicyOutput() VirtualNetworkGatewayConnectionIpsecPolicyOutput {
+	return pulumi.ToOutput(a).(VirtualNetworkGatewayConnectionIpsecPolicyOutput)
+}
+
+func (a VirtualNetworkGatewayConnectionIpsecPolicyArgs) ToVirtualNetworkGatewayConnectionIpsecPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionIpsecPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(VirtualNetworkGatewayConnectionIpsecPolicyOutput)
+}
+
+type VirtualNetworkGatewayConnectionIpsecPolicyOutput struct { *pulumi.OutputState }
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) DhGroup() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string {
+		return v.DhGroup
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IkeEncryption() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string {
+		return v.IkeEncryption
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IkeIntegrity() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string {
+		return v.IkeIntegrity
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IpsecEncryption() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string {
+		return v.IpsecEncryption
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IpsecIntegrity() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string {
+		return v.IpsecIntegrity
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) PfsGroup() pulumi.StringOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string {
+		return v.PfsGroup
+	}).(pulumi.StringOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) SaDatasize() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) int {
+		if v.SaDatasize == nil { return *new(int) } else { return *v.SaDatasize }
+	}).(pulumi.IntOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) SaLifetime() pulumi.IntOutput {
+	return o.Apply(func(v VirtualNetworkGatewayConnectionIpsecPolicy) int {
+		if v.SaLifetime == nil { return *new(int) } else { return *v.SaLifetime }
+	}).(pulumi.IntOutput)
+}
+
+func (VirtualNetworkGatewayConnectionIpsecPolicyOutput) ElementType() reflect.Type {
+	return virtualNetworkGatewayConnectionIpsecPolicyType
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) ToVirtualNetworkGatewayConnectionIpsecPolicyOutput() VirtualNetworkGatewayConnectionIpsecPolicyOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) ToVirtualNetworkGatewayConnectionIpsecPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionIpsecPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyOutput{}) }
+

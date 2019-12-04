@@ -4,6 +4,8 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,81 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
 type Service struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `additionalLocation` blocks as defined below.
+	AdditionalLocations ServiceAdditionalLocationsArrayOutput `pulumi:"additionalLocations"`
+
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificates ServiceCertificatesArrayOutput `pulumi:"certificates"`
+
+	// The URL of the Regional Gateway for the API Management Service in the specified region.
+	GatewayRegionalUrl pulumi.StringOutput `pulumi:"gatewayRegionalUrl"`
+
+	// The URL of the Gateway for the API Management Service.
+	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
+
+	// A `hostnameConfiguration` block as defined below.
+	HostnameConfiguration ServiceHostnameConfigurationOutput `pulumi:"hostnameConfiguration"`
+
+	// An `identity` block is documented below.
+	Identity ServiceIdentityOutput `pulumi:"identity"`
+
+	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The URL for the Management API associated with this API Management service.
+	ManagementApiUrl pulumi.StringOutput `pulumi:"managementApiUrl"`
+
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Email address from which the notification will be sent.
+	NotificationSenderEmail pulumi.StringOutput `pulumi:"notificationSenderEmail"`
+
+	// A `policy` block as defined below.
+	Policy ServicePolicyOutput `pulumi:"policy"`
+
+	// The URL for the Publisher Portal associated with this API Management service.
+	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
+
+	// The email of publisher/company.
+	PublisherEmail pulumi.StringOutput `pulumi:"publisherEmail"`
+
+	// The name of publisher/company.
+	PublisherName pulumi.StringOutput `pulumi:"publisherName"`
+
+	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
+	ScmUrl pulumi.StringOutput `pulumi:"scmUrl"`
+
+	// A `security` block as defined below.
+	Security ServiceSecurityOutput `pulumi:"security"`
+
+	// A `signIn` block as defined below.
+	SignIn ServiceSignInOutput `pulumi:"signIn"`
+
+	// A `signUp` block as defined below.
+	SignUp ServiceSignUpOutput `pulumi:"signUp"`
+
+	// A `sku` block as documented below
+	Sku ServiceSkuOutput `pulumi:"sku"`
+
+	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
-	name string, args *ServiceArgs, opts ...pulumi.ResourceOpt) (*Service, error) {
+	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
 	if args == nil || args.PublisherEmail == nil {
 		return nil, errors.New("missing required argument 'PublisherEmail'")
 	}
@@ -27,303 +98,1516 @@ func NewService(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["additionalLocations"] = nil
-		inputs["certificates"] = nil
-		inputs["hostnameConfiguration"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["notificationSenderEmail"] = nil
-		inputs["policy"] = nil
-		inputs["publisherEmail"] = nil
-		inputs["publisherName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["security"] = nil
-		inputs["signIn"] = nil
-		inputs["signUp"] = nil
-		inputs["sku"] = nil
-		inputs["skuName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["additionalLocations"] = args.AdditionalLocations
-		inputs["certificates"] = args.Certificates
-		inputs["hostnameConfiguration"] = args.HostnameConfiguration
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["notificationSenderEmail"] = args.NotificationSenderEmail
-		inputs["policy"] = args.Policy
-		inputs["publisherEmail"] = args.PublisherEmail
-		inputs["publisherName"] = args.PublisherName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["security"] = args.Security
-		inputs["signIn"] = args.SignIn
-		inputs["signUp"] = args.SignUp
-		inputs["sku"] = args.Sku
-		inputs["skuName"] = args.SkuName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdditionalLocations; i != nil { inputs["additionalLocations"] = i.ToServiceAdditionalLocationsArrayOutput() }
+		if i := args.Certificates; i != nil { inputs["certificates"] = i.ToServiceCertificatesArrayOutput() }
+		if i := args.HostnameConfiguration; i != nil { inputs["hostnameConfiguration"] = i.ToServiceHostnameConfigurationOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToServiceIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NotificationSenderEmail; i != nil { inputs["notificationSenderEmail"] = i.ToStringOutput() }
+		if i := args.Policy; i != nil { inputs["policy"] = i.ToServicePolicyOutput() }
+		if i := args.PublisherEmail; i != nil { inputs["publisherEmail"] = i.ToStringOutput() }
+		if i := args.PublisherName; i != nil { inputs["publisherName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Security; i != nil { inputs["security"] = i.ToServiceSecurityOutput() }
+		if i := args.SignIn; i != nil { inputs["signIn"] = i.ToServiceSignInOutput() }
+		if i := args.SignUp; i != nil { inputs["signUp"] = i.ToServiceSignUpOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToServiceSkuOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["gatewayRegionalUrl"] = nil
-	inputs["gatewayUrl"] = nil
-	inputs["managementApiUrl"] = nil
-	inputs["portalUrl"] = nil
-	inputs["publicIpAddresses"] = nil
-	inputs["scmUrl"] = nil
-	s, err := ctx.RegisterResource("azure:apimanagement/service:Service", name, true, inputs, opts...)
+	var resource Service
+	err := ctx.RegisterResource("azure:apimanagement/service:Service", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
+	return &resource, nil
 }
 
 // GetService gets an existing Service resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["additionalLocations"] = state.AdditionalLocations
-		inputs["certificates"] = state.Certificates
-		inputs["gatewayRegionalUrl"] = state.GatewayRegionalUrl
-		inputs["gatewayUrl"] = state.GatewayUrl
-		inputs["hostnameConfiguration"] = state.HostnameConfiguration
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["managementApiUrl"] = state.ManagementApiUrl
-		inputs["name"] = state.Name
-		inputs["notificationSenderEmail"] = state.NotificationSenderEmail
-		inputs["policy"] = state.Policy
-		inputs["portalUrl"] = state.PortalUrl
-		inputs["publicIpAddresses"] = state.PublicIpAddresses
-		inputs["publisherEmail"] = state.PublisherEmail
-		inputs["publisherName"] = state.PublisherName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["scmUrl"] = state.ScmUrl
-		inputs["security"] = state.Security
-		inputs["signIn"] = state.SignIn
-		inputs["signUp"] = state.SignUp
-		inputs["sku"] = state.Sku
-		inputs["skuName"] = state.SkuName
-		inputs["tags"] = state.Tags
+		if i := state.AdditionalLocations; i != nil { inputs["additionalLocations"] = i.ToServiceAdditionalLocationsArrayOutput() }
+		if i := state.Certificates; i != nil { inputs["certificates"] = i.ToServiceCertificatesArrayOutput() }
+		if i := state.GatewayRegionalUrl; i != nil { inputs["gatewayRegionalUrl"] = i.ToStringOutput() }
+		if i := state.GatewayUrl; i != nil { inputs["gatewayUrl"] = i.ToStringOutput() }
+		if i := state.HostnameConfiguration; i != nil { inputs["hostnameConfiguration"] = i.ToServiceHostnameConfigurationOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToServiceIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.ManagementApiUrl; i != nil { inputs["managementApiUrl"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NotificationSenderEmail; i != nil { inputs["notificationSenderEmail"] = i.ToStringOutput() }
+		if i := state.Policy; i != nil { inputs["policy"] = i.ToServicePolicyOutput() }
+		if i := state.PortalUrl; i != nil { inputs["portalUrl"] = i.ToStringOutput() }
+		if i := state.PublicIpAddresses; i != nil { inputs["publicIpAddresses"] = i.ToStringArrayOutput() }
+		if i := state.PublisherEmail; i != nil { inputs["publisherEmail"] = i.ToStringOutput() }
+		if i := state.PublisherName; i != nil { inputs["publisherName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ScmUrl; i != nil { inputs["scmUrl"] = i.ToStringOutput() }
+		if i := state.Security; i != nil { inputs["security"] = i.ToServiceSecurityOutput() }
+		if i := state.SignIn; i != nil { inputs["signIn"] = i.ToServiceSignInOutput() }
+		if i := state.SignUp; i != nil { inputs["signUp"] = i.ToServiceSignUpOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToServiceSkuOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/service:Service", name, id, inputs, opts...)
+	var resource Service
+	err := ctx.ReadResource("azure:apimanagement/service:Service", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `additionalLocation` blocks as defined below.
-func (r *Service) AdditionalLocations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["additionalLocations"])
-}
-
-// One or more (up to 10) `certificate` blocks as defined below.
-func (r *Service) Certificates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["certificates"])
-}
-
-// The URL of the Regional Gateway for the API Management Service in the specified region.
-func (r *Service) GatewayRegionalUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayRegionalUrl"])
-}
-
-// The URL of the Gateway for the API Management Service.
-func (r *Service) GatewayUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayUrl"])
-}
-
-// A `hostnameConfiguration` block as defined below.
-func (r *Service) HostnameConfiguration() pulumi.Output {
-	return r.s.State["hostnameConfiguration"]
-}
-
-// An `identity` block is documented below.
-func (r *Service) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Service) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The URL for the Management API associated with this API Management service.
-func (r *Service) ManagementApiUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["managementApiUrl"])
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *Service) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Email address from which the notification will be sent.
-func (r *Service) NotificationSenderEmail() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notificationSenderEmail"])
-}
-
-// A `policy` block as defined below.
-func (r *Service) Policy() pulumi.Output {
-	return r.s.State["policy"]
-}
-
-// The URL for the Publisher Portal associated with this API Management service.
-func (r *Service) PortalUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["portalUrl"])
-}
-
-// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-func (r *Service) PublicIpAddresses() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["publicIpAddresses"])
-}
-
-// The email of publisher/company.
-func (r *Service) PublisherEmail() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publisherEmail"])
-}
-
-// The name of publisher/company.
-func (r *Service) PublisherName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["publisherName"])
-}
-
-// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-func (r *Service) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-func (r *Service) ScmUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scmUrl"])
-}
-
-// A `security` block as defined below.
-func (r *Service) Security() pulumi.Output {
-	return r.s.State["security"]
-}
-
-// A `signIn` block as defined below.
-func (r *Service) SignIn() pulumi.Output {
-	return r.s.State["signIn"]
-}
-
-// A `signUp` block as defined below.
-func (r *Service) SignUp() pulumi.Output {
-	return r.s.State["signUp"]
-}
-
-// A `sku` block as documented below
-func (r *Service) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-func (r *Service) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
-}
-
-// A mapping of tags assigned to the resource.
-func (r *Service) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
 	// One or more `additionalLocation` blocks as defined below.
-	AdditionalLocations interface{}
+	AdditionalLocations ServiceAdditionalLocationsArrayInput `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
-	Certificates interface{}
+	Certificates ServiceCertificatesArrayInput `pulumi:"certificates"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
-	GatewayRegionalUrl interface{}
+	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
 	// The URL of the Gateway for the API Management Service.
-	GatewayUrl interface{}
+	GatewayUrl pulumi.StringInput `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
-	HostnameConfiguration interface{}
+	HostnameConfiguration ServiceHostnameConfigurationInput `pulumi:"hostnameConfiguration"`
 	// An `identity` block is documented below.
-	Identity interface{}
+	Identity ServiceIdentityInput `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The URL for the Management API associated with this API Management service.
-	ManagementApiUrl interface{}
+	ManagementApiUrl pulumi.StringInput `pulumi:"managementApiUrl"`
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Email address from which the notification will be sent.
-	NotificationSenderEmail interface{}
+	NotificationSenderEmail pulumi.StringInput `pulumi:"notificationSenderEmail"`
 	// A `policy` block as defined below.
-	Policy interface{}
+	Policy ServicePolicyInput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
-	PortalUrl interface{}
+	PortalUrl pulumi.StringInput `pulumi:"portalUrl"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-	PublicIpAddresses interface{}
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
 	// The email of publisher/company.
-	PublisherEmail interface{}
+	PublisherEmail pulumi.StringInput `pulumi:"publisherEmail"`
 	// The name of publisher/company.
-	PublisherName interface{}
+	PublisherName pulumi.StringInput `pulumi:"publisherName"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-	ScmUrl interface{}
+	ScmUrl pulumi.StringInput `pulumi:"scmUrl"`
 	// A `security` block as defined below.
-	Security interface{}
+	Security ServiceSecurityInput `pulumi:"security"`
 	// A `signIn` block as defined below.
-	SignIn interface{}
+	SignIn ServiceSignInInput `pulumi:"signIn"`
 	// A `signUp` block as defined below.
-	SignUp interface{}
+	SignUp ServiceSignUpInput `pulumi:"signUp"`
 	// A `sku` block as documented below
-	Sku interface{}
+	Sku ServiceSkuInput `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// One or more `additionalLocation` blocks as defined below.
-	AdditionalLocations interface{}
+	AdditionalLocations ServiceAdditionalLocationsArrayInput `pulumi:"additionalLocations"`
 	// One or more (up to 10) `certificate` blocks as defined below.
-	Certificates interface{}
+	Certificates ServiceCertificatesArrayInput `pulumi:"certificates"`
 	// A `hostnameConfiguration` block as defined below.
-	HostnameConfiguration interface{}
+	HostnameConfiguration ServiceHostnameConfigurationInput `pulumi:"hostnameConfiguration"`
 	// An `identity` block is documented below.
-	Identity interface{}
+	Identity ServiceIdentityInput `pulumi:"identity"`
 	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Email address from which the notification will be sent.
-	NotificationSenderEmail interface{}
+	NotificationSenderEmail pulumi.StringInput `pulumi:"notificationSenderEmail"`
 	// A `policy` block as defined below.
-	Policy interface{}
+	Policy ServicePolicyInput `pulumi:"policy"`
 	// The email of publisher/company.
-	PublisherEmail interface{}
+	PublisherEmail pulumi.StringInput `pulumi:"publisherEmail"`
 	// The name of publisher/company.
-	PublisherName interface{}
+	PublisherName pulumi.StringInput `pulumi:"publisherName"`
 	// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `security` block as defined below.
-	Security interface{}
+	Security ServiceSecurityInput `pulumi:"security"`
 	// A `signIn` block as defined below.
-	SignIn interface{}
+	SignIn ServiceSignInInput `pulumi:"signIn"`
 	// A `signUp` block as defined below.
-	SignUp interface{}
+	SignUp ServiceSignUpInput `pulumi:"signUp"`
 	// A `sku` block as documented below
-	Sku interface{}
+	Sku ServiceSkuInput `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ServiceAdditionalLocations struct {
+	// The URL of the Regional Gateway for the API Management Service in the specified region.
+	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
+	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+	Location string `pulumi:"location"`
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+	PublicIpAddresses *[]string `pulumi:"publicIpAddresses"`
+}
+var serviceAdditionalLocationsType = reflect.TypeOf((*ServiceAdditionalLocations)(nil)).Elem()
+
+type ServiceAdditionalLocationsInput interface {
+	pulumi.Input
+
+	ToServiceAdditionalLocationsOutput() ServiceAdditionalLocationsOutput
+	ToServiceAdditionalLocationsOutputWithContext(ctx context.Context) ServiceAdditionalLocationsOutput
+}
+
+type ServiceAdditionalLocationsArgs struct {
+	// The URL of the Regional Gateway for the API Management Service in the specified region.
+	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
+	// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+}
+
+func (ServiceAdditionalLocationsArgs) ElementType() reflect.Type {
+	return serviceAdditionalLocationsType
+}
+
+func (a ServiceAdditionalLocationsArgs) ToServiceAdditionalLocationsOutput() ServiceAdditionalLocationsOutput {
+	return pulumi.ToOutput(a).(ServiceAdditionalLocationsOutput)
+}
+
+func (a ServiceAdditionalLocationsArgs) ToServiceAdditionalLocationsOutputWithContext(ctx context.Context) ServiceAdditionalLocationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceAdditionalLocationsOutput)
+}
+
+type ServiceAdditionalLocationsOutput struct { *pulumi.OutputState }
+
+// The URL of the Regional Gateway for the API Management Service in the specified region.
+func (o ServiceAdditionalLocationsOutput) GatewayRegionalUrl() pulumi.StringOutput {
+	return o.Apply(func(v ServiceAdditionalLocations) string {
+		if v.GatewayRegionalUrl == nil { return *new(string) } else { return *v.GatewayRegionalUrl }
+	}).(pulumi.StringOutput)
+}
+
+// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+func (o ServiceAdditionalLocationsOutput) Location() pulumi.StringOutput {
+	return o.Apply(func(v ServiceAdditionalLocations) string {
+		return v.Location
+	}).(pulumi.StringOutput)
+}
+
+// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+func (o ServiceAdditionalLocationsOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v ServiceAdditionalLocations) []string {
+		if v.PublicIpAddresses == nil { return *new([]string) } else { return *v.PublicIpAddresses }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ServiceAdditionalLocationsOutput) ElementType() reflect.Type {
+	return serviceAdditionalLocationsType
+}
+
+func (o ServiceAdditionalLocationsOutput) ToServiceAdditionalLocationsOutput() ServiceAdditionalLocationsOutput {
+	return o
+}
+
+func (o ServiceAdditionalLocationsOutput) ToServiceAdditionalLocationsOutputWithContext(ctx context.Context) ServiceAdditionalLocationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceAdditionalLocationsOutput{}) }
+
+var serviceAdditionalLocationsArrayType = reflect.TypeOf((*[]ServiceAdditionalLocations)(nil)).Elem()
+
+type ServiceAdditionalLocationsArrayInput interface {
+	pulumi.Input
+
+	ToServiceAdditionalLocationsArrayOutput() ServiceAdditionalLocationsArrayOutput
+	ToServiceAdditionalLocationsArrayOutputWithContext(ctx context.Context) ServiceAdditionalLocationsArrayOutput
+}
+
+type ServiceAdditionalLocationsArrayArgs []ServiceAdditionalLocationsInput
+
+func (ServiceAdditionalLocationsArrayArgs) ElementType() reflect.Type {
+	return serviceAdditionalLocationsArrayType
+}
+
+func (a ServiceAdditionalLocationsArrayArgs) ToServiceAdditionalLocationsArrayOutput() ServiceAdditionalLocationsArrayOutput {
+	return pulumi.ToOutput(a).(ServiceAdditionalLocationsArrayOutput)
+}
+
+func (a ServiceAdditionalLocationsArrayArgs) ToServiceAdditionalLocationsArrayOutputWithContext(ctx context.Context) ServiceAdditionalLocationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceAdditionalLocationsArrayOutput)
+}
+
+type ServiceAdditionalLocationsArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceAdditionalLocationsArrayOutput) Index(i pulumi.IntInput) ServiceAdditionalLocationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceAdditionalLocations {
+		return vs[0].([]ServiceAdditionalLocations)[vs[1].(int)]
+	}).(ServiceAdditionalLocationsOutput)
+}
+
+func (ServiceAdditionalLocationsArrayOutput) ElementType() reflect.Type {
+	return serviceAdditionalLocationsArrayType
+}
+
+func (o ServiceAdditionalLocationsArrayOutput) ToServiceAdditionalLocationsArrayOutput() ServiceAdditionalLocationsArrayOutput {
+	return o
+}
+
+func (o ServiceAdditionalLocationsArrayOutput) ToServiceAdditionalLocationsArrayOutputWithContext(ctx context.Context) ServiceAdditionalLocationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceAdditionalLocationsArrayOutput{}) }
+
+type ServiceCertificates struct {
+	CertificatePassword string `pulumi:"certificatePassword"`
+	EncodedCertificate string `pulumi:"encodedCertificate"`
+	StoreName string `pulumi:"storeName"`
+}
+var serviceCertificatesType = reflect.TypeOf((*ServiceCertificates)(nil)).Elem()
+
+type ServiceCertificatesInput interface {
+	pulumi.Input
+
+	ToServiceCertificatesOutput() ServiceCertificatesOutput
+	ToServiceCertificatesOutputWithContext(ctx context.Context) ServiceCertificatesOutput
+}
+
+type ServiceCertificatesArgs struct {
+	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
+	EncodedCertificate pulumi.StringInput `pulumi:"encodedCertificate"`
+	StoreName pulumi.StringInput `pulumi:"storeName"`
+}
+
+func (ServiceCertificatesArgs) ElementType() reflect.Type {
+	return serviceCertificatesType
+}
+
+func (a ServiceCertificatesArgs) ToServiceCertificatesOutput() ServiceCertificatesOutput {
+	return pulumi.ToOutput(a).(ServiceCertificatesOutput)
+}
+
+func (a ServiceCertificatesArgs) ToServiceCertificatesOutputWithContext(ctx context.Context) ServiceCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceCertificatesOutput)
+}
+
+type ServiceCertificatesOutput struct { *pulumi.OutputState }
+
+func (o ServiceCertificatesOutput) CertificatePassword() pulumi.StringOutput {
+	return o.Apply(func(v ServiceCertificates) string {
+		return v.CertificatePassword
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceCertificatesOutput) EncodedCertificate() pulumi.StringOutput {
+	return o.Apply(func(v ServiceCertificates) string {
+		return v.EncodedCertificate
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceCertificatesOutput) StoreName() pulumi.StringOutput {
+	return o.Apply(func(v ServiceCertificates) string {
+		return v.StoreName
+	}).(pulumi.StringOutput)
+}
+
+func (ServiceCertificatesOutput) ElementType() reflect.Type {
+	return serviceCertificatesType
+}
+
+func (o ServiceCertificatesOutput) ToServiceCertificatesOutput() ServiceCertificatesOutput {
+	return o
+}
+
+func (o ServiceCertificatesOutput) ToServiceCertificatesOutputWithContext(ctx context.Context) ServiceCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceCertificatesOutput{}) }
+
+var serviceCertificatesArrayType = reflect.TypeOf((*[]ServiceCertificates)(nil)).Elem()
+
+type ServiceCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToServiceCertificatesArrayOutput() ServiceCertificatesArrayOutput
+	ToServiceCertificatesArrayOutputWithContext(ctx context.Context) ServiceCertificatesArrayOutput
+}
+
+type ServiceCertificatesArrayArgs []ServiceCertificatesInput
+
+func (ServiceCertificatesArrayArgs) ElementType() reflect.Type {
+	return serviceCertificatesArrayType
+}
+
+func (a ServiceCertificatesArrayArgs) ToServiceCertificatesArrayOutput() ServiceCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(ServiceCertificatesArrayOutput)
+}
+
+func (a ServiceCertificatesArrayArgs) ToServiceCertificatesArrayOutputWithContext(ctx context.Context) ServiceCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceCertificatesArrayOutput)
+}
+
+type ServiceCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceCertificatesArrayOutput) Index(i pulumi.IntInput) ServiceCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceCertificates {
+		return vs[0].([]ServiceCertificates)[vs[1].(int)]
+	}).(ServiceCertificatesOutput)
+}
+
+func (ServiceCertificatesArrayOutput) ElementType() reflect.Type {
+	return serviceCertificatesArrayType
+}
+
+func (o ServiceCertificatesArrayOutput) ToServiceCertificatesArrayOutput() ServiceCertificatesArrayOutput {
+	return o
+}
+
+func (o ServiceCertificatesArrayOutput) ToServiceCertificatesArrayOutputWithContext(ctx context.Context) ServiceCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceCertificatesArrayOutput{}) }
+
+type ServiceHostnameConfiguration struct {
+	Managements *[]ServiceHostnameConfigurationManagements `pulumi:"managements"`
+	Portals *[]ServiceHostnameConfigurationPortals `pulumi:"portals"`
+	Proxies *[]ServiceHostnameConfigurationProxies `pulumi:"proxies"`
+	Scms *[]ServiceHostnameConfigurationScms `pulumi:"scms"`
+}
+var serviceHostnameConfigurationType = reflect.TypeOf((*ServiceHostnameConfiguration)(nil)).Elem()
+
+type ServiceHostnameConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationOutput() ServiceHostnameConfigurationOutput
+	ToServiceHostnameConfigurationOutputWithContext(ctx context.Context) ServiceHostnameConfigurationOutput
+}
+
+type ServiceHostnameConfigurationArgs struct {
+	Managements ServiceHostnameConfigurationManagementsArrayInput `pulumi:"managements"`
+	Portals ServiceHostnameConfigurationPortalsArrayInput `pulumi:"portals"`
+	Proxies ServiceHostnameConfigurationProxiesArrayInput `pulumi:"proxies"`
+	Scms ServiceHostnameConfigurationScmsArrayInput `pulumi:"scms"`
+}
+
+func (ServiceHostnameConfigurationArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationType
+}
+
+func (a ServiceHostnameConfigurationArgs) ToServiceHostnameConfigurationOutput() ServiceHostnameConfigurationOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationOutput)
+}
+
+func (a ServiceHostnameConfigurationArgs) ToServiceHostnameConfigurationOutputWithContext(ctx context.Context) ServiceHostnameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationOutput)
+}
+
+type ServiceHostnameConfigurationOutput struct { *pulumi.OutputState }
+
+func (o ServiceHostnameConfigurationOutput) Managements() ServiceHostnameConfigurationManagementsArrayOutput {
+	return o.Apply(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationManagements {
+		if v.Managements == nil { return *new([]ServiceHostnameConfigurationManagements) } else { return *v.Managements }
+	}).(ServiceHostnameConfigurationManagementsArrayOutput)
+}
+
+func (o ServiceHostnameConfigurationOutput) Portals() ServiceHostnameConfigurationPortalsArrayOutput {
+	return o.Apply(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationPortals {
+		if v.Portals == nil { return *new([]ServiceHostnameConfigurationPortals) } else { return *v.Portals }
+	}).(ServiceHostnameConfigurationPortalsArrayOutput)
+}
+
+func (o ServiceHostnameConfigurationOutput) Proxies() ServiceHostnameConfigurationProxiesArrayOutput {
+	return o.Apply(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationProxies {
+		if v.Proxies == nil { return *new([]ServiceHostnameConfigurationProxies) } else { return *v.Proxies }
+	}).(ServiceHostnameConfigurationProxiesArrayOutput)
+}
+
+func (o ServiceHostnameConfigurationOutput) Scms() ServiceHostnameConfigurationScmsArrayOutput {
+	return o.Apply(func(v ServiceHostnameConfiguration) []ServiceHostnameConfigurationScms {
+		if v.Scms == nil { return *new([]ServiceHostnameConfigurationScms) } else { return *v.Scms }
+	}).(ServiceHostnameConfigurationScmsArrayOutput)
+}
+
+func (ServiceHostnameConfigurationOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationType
+}
+
+func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationOutput() ServiceHostnameConfigurationOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationOutput) ToServiceHostnameConfigurationOutputWithContext(ctx context.Context) ServiceHostnameConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationOutput{}) }
+
+type ServiceHostnameConfigurationManagements struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate *string `pulumi:"certificate"`
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	HostName string `pulumi:"hostName"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+var serviceHostnameConfigurationManagementsType = reflect.TypeOf((*ServiceHostnameConfigurationManagements)(nil)).Elem()
+
+type ServiceHostnameConfigurationManagementsInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationManagementsOutput() ServiceHostnameConfigurationManagementsOutput
+	ToServiceHostnameConfigurationManagementsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementsOutput
+}
+
+type ServiceHostnameConfigurationManagementsArgs struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate pulumi.StringInput `pulumi:"certificate"`
+	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (ServiceHostnameConfigurationManagementsArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationManagementsType
+}
+
+func (a ServiceHostnameConfigurationManagementsArgs) ToServiceHostnameConfigurationManagementsOutput() ServiceHostnameConfigurationManagementsOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationManagementsOutput)
+}
+
+func (a ServiceHostnameConfigurationManagementsArgs) ToServiceHostnameConfigurationManagementsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationManagementsOutput)
+}
+
+type ServiceHostnameConfigurationManagementsOutput struct { *pulumi.OutputState }
+
+// One or more (up to 10) `certificate` blocks as defined below.
+func (o ServiceHostnameConfigurationManagementsOutput) Certificate() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationManagements) string {
+		if v.Certificate == nil { return *new(string) } else { return *v.Certificate }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationManagementsOutput) CertificatePassword() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationManagements) string {
+		if v.CertificatePassword == nil { return *new(string) } else { return *v.CertificatePassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationManagementsOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationManagements) string {
+		return v.HostName
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationManagementsOutput) KeyVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationManagements) string {
+		if v.KeyVaultId == nil { return *new(string) } else { return *v.KeyVaultId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationManagementsOutput) NegotiateClientCertificate() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationManagements) bool {
+		if v.NegotiateClientCertificate == nil { return *new(bool) } else { return *v.NegotiateClientCertificate }
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceHostnameConfigurationManagementsOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationManagementsType
+}
+
+func (o ServiceHostnameConfigurationManagementsOutput) ToServiceHostnameConfigurationManagementsOutput() ServiceHostnameConfigurationManagementsOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationManagementsOutput) ToServiceHostnameConfigurationManagementsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationManagementsOutput{}) }
+
+var serviceHostnameConfigurationManagementsArrayType = reflect.TypeOf((*[]ServiceHostnameConfigurationManagements)(nil)).Elem()
+
+type ServiceHostnameConfigurationManagementsArrayInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationManagementsArrayOutput() ServiceHostnameConfigurationManagementsArrayOutput
+	ToServiceHostnameConfigurationManagementsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementsArrayOutput
+}
+
+type ServiceHostnameConfigurationManagementsArrayArgs []ServiceHostnameConfigurationManagementsInput
+
+func (ServiceHostnameConfigurationManagementsArrayArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationManagementsArrayType
+}
+
+func (a ServiceHostnameConfigurationManagementsArrayArgs) ToServiceHostnameConfigurationManagementsArrayOutput() ServiceHostnameConfigurationManagementsArrayOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationManagementsArrayOutput)
+}
+
+func (a ServiceHostnameConfigurationManagementsArrayArgs) ToServiceHostnameConfigurationManagementsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationManagementsArrayOutput)
+}
+
+type ServiceHostnameConfigurationManagementsArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceHostnameConfigurationManagementsArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationManagementsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceHostnameConfigurationManagements {
+		return vs[0].([]ServiceHostnameConfigurationManagements)[vs[1].(int)]
+	}).(ServiceHostnameConfigurationManagementsOutput)
+}
+
+func (ServiceHostnameConfigurationManagementsArrayOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationManagementsArrayType
+}
+
+func (o ServiceHostnameConfigurationManagementsArrayOutput) ToServiceHostnameConfigurationManagementsArrayOutput() ServiceHostnameConfigurationManagementsArrayOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationManagementsArrayOutput) ToServiceHostnameConfigurationManagementsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationManagementsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationManagementsArrayOutput{}) }
+
+type ServiceHostnameConfigurationPortals struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate *string `pulumi:"certificate"`
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	HostName string `pulumi:"hostName"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+var serviceHostnameConfigurationPortalsType = reflect.TypeOf((*ServiceHostnameConfigurationPortals)(nil)).Elem()
+
+type ServiceHostnameConfigurationPortalsInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationPortalsOutput() ServiceHostnameConfigurationPortalsOutput
+	ToServiceHostnameConfigurationPortalsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalsOutput
+}
+
+type ServiceHostnameConfigurationPortalsArgs struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate pulumi.StringInput `pulumi:"certificate"`
+	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (ServiceHostnameConfigurationPortalsArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationPortalsType
+}
+
+func (a ServiceHostnameConfigurationPortalsArgs) ToServiceHostnameConfigurationPortalsOutput() ServiceHostnameConfigurationPortalsOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationPortalsOutput)
+}
+
+func (a ServiceHostnameConfigurationPortalsArgs) ToServiceHostnameConfigurationPortalsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationPortalsOutput)
+}
+
+type ServiceHostnameConfigurationPortalsOutput struct { *pulumi.OutputState }
+
+// One or more (up to 10) `certificate` blocks as defined below.
+func (o ServiceHostnameConfigurationPortalsOutput) Certificate() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationPortals) string {
+		if v.Certificate == nil { return *new(string) } else { return *v.Certificate }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationPortalsOutput) CertificatePassword() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationPortals) string {
+		if v.CertificatePassword == nil { return *new(string) } else { return *v.CertificatePassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationPortalsOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationPortals) string {
+		return v.HostName
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationPortalsOutput) KeyVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationPortals) string {
+		if v.KeyVaultId == nil { return *new(string) } else { return *v.KeyVaultId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationPortalsOutput) NegotiateClientCertificate() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationPortals) bool {
+		if v.NegotiateClientCertificate == nil { return *new(bool) } else { return *v.NegotiateClientCertificate }
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceHostnameConfigurationPortalsOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationPortalsType
+}
+
+func (o ServiceHostnameConfigurationPortalsOutput) ToServiceHostnameConfigurationPortalsOutput() ServiceHostnameConfigurationPortalsOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationPortalsOutput) ToServiceHostnameConfigurationPortalsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationPortalsOutput{}) }
+
+var serviceHostnameConfigurationPortalsArrayType = reflect.TypeOf((*[]ServiceHostnameConfigurationPortals)(nil)).Elem()
+
+type ServiceHostnameConfigurationPortalsArrayInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationPortalsArrayOutput() ServiceHostnameConfigurationPortalsArrayOutput
+	ToServiceHostnameConfigurationPortalsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalsArrayOutput
+}
+
+type ServiceHostnameConfigurationPortalsArrayArgs []ServiceHostnameConfigurationPortalsInput
+
+func (ServiceHostnameConfigurationPortalsArrayArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationPortalsArrayType
+}
+
+func (a ServiceHostnameConfigurationPortalsArrayArgs) ToServiceHostnameConfigurationPortalsArrayOutput() ServiceHostnameConfigurationPortalsArrayOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationPortalsArrayOutput)
+}
+
+func (a ServiceHostnameConfigurationPortalsArrayArgs) ToServiceHostnameConfigurationPortalsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationPortalsArrayOutput)
+}
+
+type ServiceHostnameConfigurationPortalsArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceHostnameConfigurationPortalsArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationPortalsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceHostnameConfigurationPortals {
+		return vs[0].([]ServiceHostnameConfigurationPortals)[vs[1].(int)]
+	}).(ServiceHostnameConfigurationPortalsOutput)
+}
+
+func (ServiceHostnameConfigurationPortalsArrayOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationPortalsArrayType
+}
+
+func (o ServiceHostnameConfigurationPortalsArrayOutput) ToServiceHostnameConfigurationPortalsArrayOutput() ServiceHostnameConfigurationPortalsArrayOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationPortalsArrayOutput) ToServiceHostnameConfigurationPortalsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationPortalsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationPortalsArrayOutput{}) }
+
+type ServiceHostnameConfigurationProxies struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate *string `pulumi:"certificate"`
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
+	HostName string `pulumi:"hostName"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+var serviceHostnameConfigurationProxiesType = reflect.TypeOf((*ServiceHostnameConfigurationProxies)(nil)).Elem()
+
+type ServiceHostnameConfigurationProxiesInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationProxiesOutput() ServiceHostnameConfigurationProxiesOutput
+	ToServiceHostnameConfigurationProxiesOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxiesOutput
+}
+
+type ServiceHostnameConfigurationProxiesArgs struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate pulumi.StringInput `pulumi:"certificate"`
+	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
+	DefaultSslBinding pulumi.BoolInput `pulumi:"defaultSslBinding"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (ServiceHostnameConfigurationProxiesArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationProxiesType
+}
+
+func (a ServiceHostnameConfigurationProxiesArgs) ToServiceHostnameConfigurationProxiesOutput() ServiceHostnameConfigurationProxiesOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationProxiesOutput)
+}
+
+func (a ServiceHostnameConfigurationProxiesArgs) ToServiceHostnameConfigurationProxiesOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxiesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationProxiesOutput)
+}
+
+type ServiceHostnameConfigurationProxiesOutput struct { *pulumi.OutputState }
+
+// One or more (up to 10) `certificate` blocks as defined below.
+func (o ServiceHostnameConfigurationProxiesOutput) Certificate() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationProxies) string {
+		if v.Certificate == nil { return *new(string) } else { return *v.Certificate }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) CertificatePassword() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationProxies) string {
+		if v.CertificatePassword == nil { return *new(string) } else { return *v.CertificatePassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) DefaultSslBinding() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationProxies) bool {
+		if v.DefaultSslBinding == nil { return *new(bool) } else { return *v.DefaultSslBinding }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationProxies) string {
+		return v.HostName
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) KeyVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationProxies) string {
+		if v.KeyVaultId == nil { return *new(string) } else { return *v.KeyVaultId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) NegotiateClientCertificate() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationProxies) bool {
+		if v.NegotiateClientCertificate == nil { return *new(bool) } else { return *v.NegotiateClientCertificate }
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceHostnameConfigurationProxiesOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationProxiesType
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) ToServiceHostnameConfigurationProxiesOutput() ServiceHostnameConfigurationProxiesOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationProxiesOutput) ToServiceHostnameConfigurationProxiesOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxiesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationProxiesOutput{}) }
+
+var serviceHostnameConfigurationProxiesArrayType = reflect.TypeOf((*[]ServiceHostnameConfigurationProxies)(nil)).Elem()
+
+type ServiceHostnameConfigurationProxiesArrayInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationProxiesArrayOutput() ServiceHostnameConfigurationProxiesArrayOutput
+	ToServiceHostnameConfigurationProxiesArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxiesArrayOutput
+}
+
+type ServiceHostnameConfigurationProxiesArrayArgs []ServiceHostnameConfigurationProxiesInput
+
+func (ServiceHostnameConfigurationProxiesArrayArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationProxiesArrayType
+}
+
+func (a ServiceHostnameConfigurationProxiesArrayArgs) ToServiceHostnameConfigurationProxiesArrayOutput() ServiceHostnameConfigurationProxiesArrayOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationProxiesArrayOutput)
+}
+
+func (a ServiceHostnameConfigurationProxiesArrayArgs) ToServiceHostnameConfigurationProxiesArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationProxiesArrayOutput)
+}
+
+type ServiceHostnameConfigurationProxiesArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceHostnameConfigurationProxiesArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationProxiesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceHostnameConfigurationProxies {
+		return vs[0].([]ServiceHostnameConfigurationProxies)[vs[1].(int)]
+	}).(ServiceHostnameConfigurationProxiesOutput)
+}
+
+func (ServiceHostnameConfigurationProxiesArrayOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationProxiesArrayType
+}
+
+func (o ServiceHostnameConfigurationProxiesArrayOutput) ToServiceHostnameConfigurationProxiesArrayOutput() ServiceHostnameConfigurationProxiesArrayOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationProxiesArrayOutput) ToServiceHostnameConfigurationProxiesArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationProxiesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationProxiesArrayOutput{}) }
+
+type ServiceHostnameConfigurationScms struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate *string `pulumi:"certificate"`
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	HostName string `pulumi:"hostName"`
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+var serviceHostnameConfigurationScmsType = reflect.TypeOf((*ServiceHostnameConfigurationScms)(nil)).Elem()
+
+type ServiceHostnameConfigurationScmsInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationScmsOutput() ServiceHostnameConfigurationScmsOutput
+	ToServiceHostnameConfigurationScmsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmsOutput
+}
+
+type ServiceHostnameConfigurationScmsArgs struct {
+	// One or more (up to 10) `certificate` blocks as defined below.
+	Certificate pulumi.StringInput `pulumi:"certificate"`
+	CertificatePassword pulumi.StringInput `pulumi:"certificatePassword"`
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (ServiceHostnameConfigurationScmsArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationScmsType
+}
+
+func (a ServiceHostnameConfigurationScmsArgs) ToServiceHostnameConfigurationScmsOutput() ServiceHostnameConfigurationScmsOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationScmsOutput)
+}
+
+func (a ServiceHostnameConfigurationScmsArgs) ToServiceHostnameConfigurationScmsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationScmsOutput)
+}
+
+type ServiceHostnameConfigurationScmsOutput struct { *pulumi.OutputState }
+
+// One or more (up to 10) `certificate` blocks as defined below.
+func (o ServiceHostnameConfigurationScmsOutput) Certificate() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationScms) string {
+		if v.Certificate == nil { return *new(string) } else { return *v.Certificate }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationScmsOutput) CertificatePassword() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationScms) string {
+		if v.CertificatePassword == nil { return *new(string) } else { return *v.CertificatePassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationScmsOutput) HostName() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationScms) string {
+		return v.HostName
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationScmsOutput) KeyVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationScms) string {
+		if v.KeyVaultId == nil { return *new(string) } else { return *v.KeyVaultId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceHostnameConfigurationScmsOutput) NegotiateClientCertificate() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceHostnameConfigurationScms) bool {
+		if v.NegotiateClientCertificate == nil { return *new(bool) } else { return *v.NegotiateClientCertificate }
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceHostnameConfigurationScmsOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationScmsType
+}
+
+func (o ServiceHostnameConfigurationScmsOutput) ToServiceHostnameConfigurationScmsOutput() ServiceHostnameConfigurationScmsOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationScmsOutput) ToServiceHostnameConfigurationScmsOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationScmsOutput{}) }
+
+var serviceHostnameConfigurationScmsArrayType = reflect.TypeOf((*[]ServiceHostnameConfigurationScms)(nil)).Elem()
+
+type ServiceHostnameConfigurationScmsArrayInput interface {
+	pulumi.Input
+
+	ToServiceHostnameConfigurationScmsArrayOutput() ServiceHostnameConfigurationScmsArrayOutput
+	ToServiceHostnameConfigurationScmsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmsArrayOutput
+}
+
+type ServiceHostnameConfigurationScmsArrayArgs []ServiceHostnameConfigurationScmsInput
+
+func (ServiceHostnameConfigurationScmsArrayArgs) ElementType() reflect.Type {
+	return serviceHostnameConfigurationScmsArrayType
+}
+
+func (a ServiceHostnameConfigurationScmsArrayArgs) ToServiceHostnameConfigurationScmsArrayOutput() ServiceHostnameConfigurationScmsArrayOutput {
+	return pulumi.ToOutput(a).(ServiceHostnameConfigurationScmsArrayOutput)
+}
+
+func (a ServiceHostnameConfigurationScmsArrayArgs) ToServiceHostnameConfigurationScmsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceHostnameConfigurationScmsArrayOutput)
+}
+
+type ServiceHostnameConfigurationScmsArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceHostnameConfigurationScmsArrayOutput) Index(i pulumi.IntInput) ServiceHostnameConfigurationScmsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceHostnameConfigurationScms {
+		return vs[0].([]ServiceHostnameConfigurationScms)[vs[1].(int)]
+	}).(ServiceHostnameConfigurationScmsOutput)
+}
+
+func (ServiceHostnameConfigurationScmsArrayOutput) ElementType() reflect.Type {
+	return serviceHostnameConfigurationScmsArrayType
+}
+
+func (o ServiceHostnameConfigurationScmsArrayOutput) ToServiceHostnameConfigurationScmsArrayOutput() ServiceHostnameConfigurationScmsArrayOutput {
+	return o
+}
+
+func (o ServiceHostnameConfigurationScmsArrayOutput) ToServiceHostnameConfigurationScmsArrayOutputWithContext(ctx context.Context) ServiceHostnameConfigurationScmsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceHostnameConfigurationScmsArrayOutput{}) }
+
+type ServiceIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	Type string `pulumi:"type"`
+}
+var serviceIdentityType = reflect.TypeOf((*ServiceIdentity)(nil)).Elem()
+
+type ServiceIdentityInput interface {
+	pulumi.Input
+
+	ToServiceIdentityOutput() ServiceIdentityOutput
+	ToServiceIdentityOutputWithContext(ctx context.Context) ServiceIdentityOutput
+}
+
+type ServiceIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceIdentityArgs) ElementType() reflect.Type {
+	return serviceIdentityType
+}
+
+func (a ServiceIdentityArgs) ToServiceIdentityOutput() ServiceIdentityOutput {
+	return pulumi.ToOutput(a).(ServiceIdentityOutput)
+}
+
+func (a ServiceIdentityArgs) ToServiceIdentityOutputWithContext(ctx context.Context) ServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceIdentityOutput)
+}
+
+type ServiceIdentityOutput struct { *pulumi.OutputState }
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v ServiceIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v ServiceIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v ServiceIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (ServiceIdentityOutput) ElementType() reflect.Type {
+	return serviceIdentityType
+}
+
+func (o ServiceIdentityOutput) ToServiceIdentityOutput() ServiceIdentityOutput {
+	return o
+}
+
+func (o ServiceIdentityOutput) ToServiceIdentityOutputWithContext(ctx context.Context) ServiceIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceIdentityOutput{}) }
+
+type ServicePolicy struct {
+	XmlContent *string `pulumi:"xmlContent"`
+	XmlLink *string `pulumi:"xmlLink"`
+}
+var servicePolicyType = reflect.TypeOf((*ServicePolicy)(nil)).Elem()
+
+type ServicePolicyInput interface {
+	pulumi.Input
+
+	ToServicePolicyOutput() ServicePolicyOutput
+	ToServicePolicyOutputWithContext(ctx context.Context) ServicePolicyOutput
+}
+
+type ServicePolicyArgs struct {
+	XmlContent pulumi.StringInput `pulumi:"xmlContent"`
+	XmlLink pulumi.StringInput `pulumi:"xmlLink"`
+}
+
+func (ServicePolicyArgs) ElementType() reflect.Type {
+	return servicePolicyType
+}
+
+func (a ServicePolicyArgs) ToServicePolicyOutput() ServicePolicyOutput {
+	return pulumi.ToOutput(a).(ServicePolicyOutput)
+}
+
+func (a ServicePolicyArgs) ToServicePolicyOutputWithContext(ctx context.Context) ServicePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServicePolicyOutput)
+}
+
+type ServicePolicyOutput struct { *pulumi.OutputState }
+
+func (o ServicePolicyOutput) XmlContent() pulumi.StringOutput {
+	return o.Apply(func(v ServicePolicy) string {
+		if v.XmlContent == nil { return *new(string) } else { return *v.XmlContent }
+	}).(pulumi.StringOutput)
+}
+
+func (o ServicePolicyOutput) XmlLink() pulumi.StringOutput {
+	return o.Apply(func(v ServicePolicy) string {
+		if v.XmlLink == nil { return *new(string) } else { return *v.XmlLink }
+	}).(pulumi.StringOutput)
+}
+
+func (ServicePolicyOutput) ElementType() reflect.Type {
+	return servicePolicyType
+}
+
+func (o ServicePolicyOutput) ToServicePolicyOutput() ServicePolicyOutput {
+	return o
+}
+
+func (o ServicePolicyOutput) ToServicePolicyOutputWithContext(ctx context.Context) ServicePolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServicePolicyOutput{}) }
+
+type ServiceSecurity struct {
+	DisableBackendSsl30 *bool `pulumi:"disableBackendSsl30"`
+	DisableBackendTls10 *bool `pulumi:"disableBackendTls10"`
+	DisableBackendTls11 *bool `pulumi:"disableBackendTls11"`
+	DisableFrontendSsl30 *bool `pulumi:"disableFrontendSsl30"`
+	DisableFrontendTls10 *bool `pulumi:"disableFrontendTls10"`
+	DisableFrontendTls11 *bool `pulumi:"disableFrontendTls11"`
+	DisableTripleDesChipers *bool `pulumi:"disableTripleDesChipers"`
+	DisableTripleDesCiphers *bool `pulumi:"disableTripleDesCiphers"`
+	EnableBackendSsl30 *bool `pulumi:"enableBackendSsl30"`
+	EnableBackendTls10 *bool `pulumi:"enableBackendTls10"`
+	EnableBackendTls11 *bool `pulumi:"enableBackendTls11"`
+	EnableFrontendSsl30 *bool `pulumi:"enableFrontendSsl30"`
+	EnableFrontendTls10 *bool `pulumi:"enableFrontendTls10"`
+	EnableFrontendTls11 *bool `pulumi:"enableFrontendTls11"`
+	EnableTripleDesCiphers *bool `pulumi:"enableTripleDesCiphers"`
+}
+var serviceSecurityType = reflect.TypeOf((*ServiceSecurity)(nil)).Elem()
+
+type ServiceSecurityInput interface {
+	pulumi.Input
+
+	ToServiceSecurityOutput() ServiceSecurityOutput
+	ToServiceSecurityOutputWithContext(ctx context.Context) ServiceSecurityOutput
+}
+
+type ServiceSecurityArgs struct {
+	DisableBackendSsl30 pulumi.BoolInput `pulumi:"disableBackendSsl30"`
+	DisableBackendTls10 pulumi.BoolInput `pulumi:"disableBackendTls10"`
+	DisableBackendTls11 pulumi.BoolInput `pulumi:"disableBackendTls11"`
+	DisableFrontendSsl30 pulumi.BoolInput `pulumi:"disableFrontendSsl30"`
+	DisableFrontendTls10 pulumi.BoolInput `pulumi:"disableFrontendTls10"`
+	DisableFrontendTls11 pulumi.BoolInput `pulumi:"disableFrontendTls11"`
+	DisableTripleDesChipers pulumi.BoolInput `pulumi:"disableTripleDesChipers"`
+	DisableTripleDesCiphers pulumi.BoolInput `pulumi:"disableTripleDesCiphers"`
+	EnableBackendSsl30 pulumi.BoolInput `pulumi:"enableBackendSsl30"`
+	EnableBackendTls10 pulumi.BoolInput `pulumi:"enableBackendTls10"`
+	EnableBackendTls11 pulumi.BoolInput `pulumi:"enableBackendTls11"`
+	EnableFrontendSsl30 pulumi.BoolInput `pulumi:"enableFrontendSsl30"`
+	EnableFrontendTls10 pulumi.BoolInput `pulumi:"enableFrontendTls10"`
+	EnableFrontendTls11 pulumi.BoolInput `pulumi:"enableFrontendTls11"`
+	EnableTripleDesCiphers pulumi.BoolInput `pulumi:"enableTripleDesCiphers"`
+}
+
+func (ServiceSecurityArgs) ElementType() reflect.Type {
+	return serviceSecurityType
+}
+
+func (a ServiceSecurityArgs) ToServiceSecurityOutput() ServiceSecurityOutput {
+	return pulumi.ToOutput(a).(ServiceSecurityOutput)
+}
+
+func (a ServiceSecurityArgs) ToServiceSecurityOutputWithContext(ctx context.Context) ServiceSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceSecurityOutput)
+}
+
+type ServiceSecurityOutput struct { *pulumi.OutputState }
+
+func (o ServiceSecurityOutput) DisableBackendSsl30() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableBackendSsl30 == nil { return *new(bool) } else { return *v.DisableBackendSsl30 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableBackendTls10() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableBackendTls10 == nil { return *new(bool) } else { return *v.DisableBackendTls10 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableBackendTls11() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableBackendTls11 == nil { return *new(bool) } else { return *v.DisableBackendTls11 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableFrontendSsl30() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableFrontendSsl30 == nil { return *new(bool) } else { return *v.DisableFrontendSsl30 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableFrontendTls10() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableFrontendTls10 == nil { return *new(bool) } else { return *v.DisableFrontendTls10 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableFrontendTls11() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableFrontendTls11 == nil { return *new(bool) } else { return *v.DisableFrontendTls11 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableTripleDesChipers() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableTripleDesChipers == nil { return *new(bool) } else { return *v.DisableTripleDesChipers }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) DisableTripleDesCiphers() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.DisableTripleDesCiphers == nil { return *new(bool) } else { return *v.DisableTripleDesCiphers }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableBackendSsl30() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableBackendSsl30 == nil { return *new(bool) } else { return *v.EnableBackendSsl30 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableBackendTls10() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableBackendTls10 == nil { return *new(bool) } else { return *v.EnableBackendTls10 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableBackendTls11() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableBackendTls11 == nil { return *new(bool) } else { return *v.EnableBackendTls11 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableFrontendSsl30() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableFrontendSsl30 == nil { return *new(bool) } else { return *v.EnableFrontendSsl30 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableFrontendTls10() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableFrontendTls10 == nil { return *new(bool) } else { return *v.EnableFrontendTls10 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableFrontendTls11() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableFrontendTls11 == nil { return *new(bool) } else { return *v.EnableFrontendTls11 }
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSecurityOutput) EnableTripleDesCiphers() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSecurity) bool {
+		if v.EnableTripleDesCiphers == nil { return *new(bool) } else { return *v.EnableTripleDesCiphers }
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceSecurityOutput) ElementType() reflect.Type {
+	return serviceSecurityType
+}
+
+func (o ServiceSecurityOutput) ToServiceSecurityOutput() ServiceSecurityOutput {
+	return o
+}
+
+func (o ServiceSecurityOutput) ToServiceSecurityOutputWithContext(ctx context.Context) ServiceSecurityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceSecurityOutput{}) }
+
+type ServiceSignIn struct {
+	Enabled bool `pulumi:"enabled"`
+}
+var serviceSignInType = reflect.TypeOf((*ServiceSignIn)(nil)).Elem()
+
+type ServiceSignInInput interface {
+	pulumi.Input
+
+	ToServiceSignInOutput() ServiceSignInOutput
+	ToServiceSignInOutputWithContext(ctx context.Context) ServiceSignInOutput
+}
+
+type ServiceSignInArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ServiceSignInArgs) ElementType() reflect.Type {
+	return serviceSignInType
+}
+
+func (a ServiceSignInArgs) ToServiceSignInOutput() ServiceSignInOutput {
+	return pulumi.ToOutput(a).(ServiceSignInOutput)
+}
+
+func (a ServiceSignInArgs) ToServiceSignInOutputWithContext(ctx context.Context) ServiceSignInOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceSignInOutput)
+}
+
+type ServiceSignInOutput struct { *pulumi.OutputState }
+
+func (o ServiceSignInOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSignIn) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (ServiceSignInOutput) ElementType() reflect.Type {
+	return serviceSignInType
+}
+
+func (o ServiceSignInOutput) ToServiceSignInOutput() ServiceSignInOutput {
+	return o
+}
+
+func (o ServiceSignInOutput) ToServiceSignInOutputWithContext(ctx context.Context) ServiceSignInOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceSignInOutput{}) }
+
+type ServiceSignUp struct {
+	Enabled bool `pulumi:"enabled"`
+	TermsOfService ServiceSignUpTermsOfService `pulumi:"termsOfService"`
+}
+var serviceSignUpType = reflect.TypeOf((*ServiceSignUp)(nil)).Elem()
+
+type ServiceSignUpInput interface {
+	pulumi.Input
+
+	ToServiceSignUpOutput() ServiceSignUpOutput
+	ToServiceSignUpOutputWithContext(ctx context.Context) ServiceSignUpOutput
+}
+
+type ServiceSignUpArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	TermsOfService ServiceSignUpTermsOfServiceInput `pulumi:"termsOfService"`
+}
+
+func (ServiceSignUpArgs) ElementType() reflect.Type {
+	return serviceSignUpType
+}
+
+func (a ServiceSignUpArgs) ToServiceSignUpOutput() ServiceSignUpOutput {
+	return pulumi.ToOutput(a).(ServiceSignUpOutput)
+}
+
+func (a ServiceSignUpArgs) ToServiceSignUpOutputWithContext(ctx context.Context) ServiceSignUpOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceSignUpOutput)
+}
+
+type ServiceSignUpOutput struct { *pulumi.OutputState }
+
+func (o ServiceSignUpOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSignUp) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSignUpOutput) TermsOfService() ServiceSignUpTermsOfServiceOutput {
+	return o.Apply(func(v ServiceSignUp) ServiceSignUpTermsOfService {
+		return v.TermsOfService
+	}).(ServiceSignUpTermsOfServiceOutput)
+}
+
+func (ServiceSignUpOutput) ElementType() reflect.Type {
+	return serviceSignUpType
+}
+
+func (o ServiceSignUpOutput) ToServiceSignUpOutput() ServiceSignUpOutput {
+	return o
+}
+
+func (o ServiceSignUpOutput) ToServiceSignUpOutputWithContext(ctx context.Context) ServiceSignUpOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceSignUpOutput{}) }
+
+type ServiceSignUpTermsOfService struct {
+	ConsentRequired bool `pulumi:"consentRequired"`
+	Enabled bool `pulumi:"enabled"`
+	Text *string `pulumi:"text"`
+}
+var serviceSignUpTermsOfServiceType = reflect.TypeOf((*ServiceSignUpTermsOfService)(nil)).Elem()
+
+type ServiceSignUpTermsOfServiceInput interface {
+	pulumi.Input
+
+	ToServiceSignUpTermsOfServiceOutput() ServiceSignUpTermsOfServiceOutput
+	ToServiceSignUpTermsOfServiceOutputWithContext(ctx context.Context) ServiceSignUpTermsOfServiceOutput
+}
+
+type ServiceSignUpTermsOfServiceArgs struct {
+	ConsentRequired pulumi.BoolInput `pulumi:"consentRequired"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (ServiceSignUpTermsOfServiceArgs) ElementType() reflect.Type {
+	return serviceSignUpTermsOfServiceType
+}
+
+func (a ServiceSignUpTermsOfServiceArgs) ToServiceSignUpTermsOfServiceOutput() ServiceSignUpTermsOfServiceOutput {
+	return pulumi.ToOutput(a).(ServiceSignUpTermsOfServiceOutput)
+}
+
+func (a ServiceSignUpTermsOfServiceArgs) ToServiceSignUpTermsOfServiceOutputWithContext(ctx context.Context) ServiceSignUpTermsOfServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceSignUpTermsOfServiceOutput)
+}
+
+type ServiceSignUpTermsOfServiceOutput struct { *pulumi.OutputState }
+
+func (o ServiceSignUpTermsOfServiceOutput) ConsentRequired() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSignUpTermsOfService) bool {
+		return v.ConsentRequired
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSignUpTermsOfServiceOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ServiceSignUpTermsOfService) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o ServiceSignUpTermsOfServiceOutput) Text() pulumi.StringOutput {
+	return o.Apply(func(v ServiceSignUpTermsOfService) string {
+		if v.Text == nil { return *new(string) } else { return *v.Text }
+	}).(pulumi.StringOutput)
+}
+
+func (ServiceSignUpTermsOfServiceOutput) ElementType() reflect.Type {
+	return serviceSignUpTermsOfServiceType
+}
+
+func (o ServiceSignUpTermsOfServiceOutput) ToServiceSignUpTermsOfServiceOutput() ServiceSignUpTermsOfServiceOutput {
+	return o
+}
+
+func (o ServiceSignUpTermsOfServiceOutput) ToServiceSignUpTermsOfServiceOutputWithContext(ctx context.Context) ServiceSignUpTermsOfServiceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceSignUpTermsOfServiceOutput{}) }
+
+type ServiceSku struct {
+	Capacity *int `pulumi:"capacity"`
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var serviceSkuType = reflect.TypeOf((*ServiceSku)(nil)).Elem()
+
+type ServiceSkuInput interface {
+	pulumi.Input
+
+	ToServiceSkuOutput() ServiceSkuOutput
+	ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput
+}
+
+type ServiceSkuArgs struct {
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceSkuArgs) ElementType() reflect.Type {
+	return serviceSkuType
+}
+
+func (a ServiceSkuArgs) ToServiceSkuOutput() ServiceSkuOutput {
+	return pulumi.ToOutput(a).(ServiceSkuOutput)
+}
+
+func (a ServiceSkuArgs) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceSkuOutput)
+}
+
+type ServiceSkuOutput struct { *pulumi.OutputState }
+
+func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v ServiceSku) int {
+		if v.Capacity == nil { return *new(int) } else { return *v.Capacity }
+	}).(pulumi.IntOutput)
+}
+
+// The name of the API Management Service. Changing this forces a new resource to be created.
+func (o ServiceSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ServiceSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ServiceSkuOutput) ElementType() reflect.Type {
+	return serviceSkuType
+}
+
+func (o ServiceSkuOutput) ToServiceSkuOutput() ServiceSkuOutput {
+	return o
+}
+
+func (o ServiceSkuOutput) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceSkuOutput{}) }
+

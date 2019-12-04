@@ -4,6 +4,8 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_interactive_query_cluster.html.markdown.
 type InteractiveQueryCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
+
+	// A `componentVersion` block as defined below.
+	ComponentVersion InteractiveQueryClusterComponentVersionOutput `pulumi:"componentVersion"`
+
+	// A `gateway` block as defined below.
+	Gateway InteractiveQueryClusterGatewayOutput `pulumi:"gateway"`
+
+	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
+	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+
+	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `roles` block as defined below.
+	Roles InteractiveQueryClusterRolesOutput `pulumi:"roles"`
+
+	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
+	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
+
+	// One or more `storageAccount` block as defined below.
+	StorageAccounts InteractiveQueryClusterStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A `storageAccountGen2` block as defined below.
+	StorageAccountGen2 InteractiveQueryClusterStorageAccountGen2Output `pulumi:"storageAccountGen2"`
+
+	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewInteractiveQueryCluster registers a new resource with the given unique name, arguments, and options.
 func NewInteractiveQueryCluster(ctx *pulumi.Context,
-	name string, args *InteractiveQueryClusterArgs, opts ...pulumi.ResourceOpt) (*InteractiveQueryCluster, error) {
+	name string, args *InteractiveQueryClusterArgs, opts ...pulumi.ResourceOption) (*InteractiveQueryCluster, error) {
 	if args == nil || args.ClusterVersion == nil {
 		return nil, errors.New("missing required argument 'ClusterVersion'")
 	}
@@ -36,195 +77,761 @@ func NewInteractiveQueryCluster(ctx *pulumi.Context,
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterVersion"] = nil
-		inputs["componentVersion"] = nil
-		inputs["gateway"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roles"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["storageAccountGen2"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-	} else {
-		inputs["clusterVersion"] = args.ClusterVersion
-		inputs["componentVersion"] = args.ComponentVersion
-		inputs["gateway"] = args.Gateway
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roles"] = args.Roles
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["storageAccountGen2"] = args.StorageAccountGen2
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := args.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToInteractiveQueryClusterComponentVersionOutput() }
+		if i := args.Gateway; i != nil { inputs["gateway"] = i.ToInteractiveQueryClusterGatewayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToInteractiveQueryClusterRolesOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToInteractiveQueryClusterStorageAccountsArrayOutput() }
+		if i := args.StorageAccountGen2; i != nil { inputs["storageAccountGen2"] = i.ToInteractiveQueryClusterStorageAccountGen2Output() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	inputs["httpsEndpoint"] = nil
-	inputs["sshEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, true, inputs, opts...)
+	var resource InteractiveQueryCluster
+	err := ctx.RegisterResource("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &InteractiveQueryCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetInteractiveQueryCluster gets an existing InteractiveQueryCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetInteractiveQueryCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *InteractiveQueryClusterState, opts ...pulumi.ResourceOpt) (*InteractiveQueryCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *InteractiveQueryClusterState, opts ...pulumi.ResourceOption) (*InteractiveQueryCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterVersion"] = state.ClusterVersion
-		inputs["componentVersion"] = state.ComponentVersion
-		inputs["gateway"] = state.Gateway
-		inputs["httpsEndpoint"] = state.HttpsEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roles"] = state.Roles
-		inputs["sshEndpoint"] = state.SshEndpoint
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["storageAccountGen2"] = state.StorageAccountGen2
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
+		if i := state.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := state.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToInteractiveQueryClusterComponentVersionOutput() }
+		if i := state.Gateway; i != nil { inputs["gateway"] = i.ToInteractiveQueryClusterGatewayOutput() }
+		if i := state.HttpsEndpoint; i != nil { inputs["httpsEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToInteractiveQueryClusterRolesOutput() }
+		if i := state.SshEndpoint; i != nil { inputs["sshEndpoint"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToInteractiveQueryClusterStorageAccountsArrayOutput() }
+		if i := state.StorageAccountGen2; i != nil { inputs["storageAccountGen2"] = i.ToInteractiveQueryClusterStorageAccountGen2Output() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, id, inputs, opts...)
+	var resource InteractiveQueryCluster
+	err := ctx.ReadResource("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &InteractiveQueryCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *InteractiveQueryCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *InteractiveQueryCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) ClusterVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
-}
-
-// A `componentVersion` block as defined below.
-func (r *InteractiveQueryCluster) ComponentVersion() pulumi.Output {
-	return r.s.State["componentVersion"]
-}
-
-// A `gateway` block as defined below.
-func (r *InteractiveQueryCluster) Gateway() pulumi.Output {
-	return r.s.State["gateway"]
-}
-
-// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-func (r *InteractiveQueryCluster) HttpsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
-}
-
-// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `roles` block as defined below.
-func (r *InteractiveQueryCluster) Roles() pulumi.Output {
-	return r.s.State["roles"]
-}
-
-// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-func (r *InteractiveQueryCluster) SshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
-}
-
-// One or more `storageAccount` block as defined below.
-func (r *InteractiveQueryCluster) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A `storageAccountGen2` block as defined below.
-func (r *InteractiveQueryCluster) StorageAccountGen2() pulumi.Output {
-	return r.s.State["storageAccountGen2"]
-}
-
-// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
-func (r *InteractiveQueryCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *InteractiveQueryCluster) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering InteractiveQueryCluster resources.
 type InteractiveQueryClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion InteractiveQueryClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway InteractiveQueryClusterGatewayInput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-	HttpsEndpoint interface{}
+	HttpsEndpoint pulumi.StringInput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles InteractiveQueryClusterRolesInput `pulumi:"roles"`
 	// The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-	SshEndpoint interface{}
+	SshEndpoint pulumi.StringInput `pulumi:"sshEndpoint"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts InteractiveQueryClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A `storageAccountGen2` block as defined below.
-	StorageAccountGen2 interface{}
+	StorageAccountGen2 InteractiveQueryClusterStorageAccountGen2Input `pulumi:"storageAccountGen2"`
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a InteractiveQueryCluster resource.
 type InteractiveQueryClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion InteractiveQueryClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway InteractiveQueryClusterGatewayInput `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles InteractiveQueryClusterRolesInput `pulumi:"roles"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts InteractiveQueryClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A `storageAccountGen2` block as defined below.
-	StorageAccountGen2 interface{}
+	StorageAccountGen2 InteractiveQueryClusterStorageAccountGen2Input `pulumi:"storageAccountGen2"`
 	// A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
+type InteractiveQueryClusterComponentVersion struct {
+	InteractiveHive string `pulumi:"interactiveHive"`
+}
+var interactiveQueryClusterComponentVersionType = reflect.TypeOf((*InteractiveQueryClusterComponentVersion)(nil)).Elem()
+
+type InteractiveQueryClusterComponentVersionInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterComponentVersionOutput() InteractiveQueryClusterComponentVersionOutput
+	ToInteractiveQueryClusterComponentVersionOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionOutput
+}
+
+type InteractiveQueryClusterComponentVersionArgs struct {
+	InteractiveHive pulumi.StringInput `pulumi:"interactiveHive"`
+}
+
+func (InteractiveQueryClusterComponentVersionArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterComponentVersionType
+}
+
+func (a InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterComponentVersionOutput() InteractiveQueryClusterComponentVersionOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterComponentVersionOutput)
+}
+
+func (a InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterComponentVersionOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterComponentVersionOutput)
+}
+
+type InteractiveQueryClusterComponentVersionOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterComponentVersionOutput) InteractiveHive() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterComponentVersion) string {
+		return v.InteractiveHive
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterComponentVersionOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterComponentVersionType
+}
+
+func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryClusterComponentVersionOutput() InteractiveQueryClusterComponentVersionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryClusterComponentVersionOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionOutput{}) }
+
+type InteractiveQueryClusterGateway struct {
+	Enabled bool `pulumi:"enabled"`
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var interactiveQueryClusterGatewayType = reflect.TypeOf((*InteractiveQueryClusterGateway)(nil)).Elem()
+
+type InteractiveQueryClusterGatewayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterGatewayOutput() InteractiveQueryClusterGatewayOutput
+	ToInteractiveQueryClusterGatewayOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayOutput
+}
+
+type InteractiveQueryClusterGatewayArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (InteractiveQueryClusterGatewayArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterGatewayType
+}
+
+func (a InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayOutput() InteractiveQueryClusterGatewayOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterGatewayOutput)
+}
+
+func (a InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterGatewayOutput)
+}
+
+type InteractiveQueryClusterGatewayOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v InteractiveQueryClusterGateway) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o InteractiveQueryClusterGatewayOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterGateway) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterGatewayOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterGateway) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterGatewayOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterGatewayType
+}
+
+func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayOutput() InteractiveQueryClusterGatewayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterGatewayOutput{}) }
+
+type InteractiveQueryClusterRoles struct {
+	HeadNode InteractiveQueryClusterRolesHeadNode `pulumi:"headNode"`
+	WorkerNode InteractiveQueryClusterRolesWorkerNode `pulumi:"workerNode"`
+	ZookeeperNode InteractiveQueryClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
+}
+var interactiveQueryClusterRolesType = reflect.TypeOf((*InteractiveQueryClusterRoles)(nil)).Elem()
+
+type InteractiveQueryClusterRolesInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesOutput() InteractiveQueryClusterRolesOutput
+	ToInteractiveQueryClusterRolesOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesOutput
+}
+
+type InteractiveQueryClusterRolesArgs struct {
+	HeadNode InteractiveQueryClusterRolesHeadNodeInput `pulumi:"headNode"`
+	WorkerNode InteractiveQueryClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	ZookeeperNode InteractiveQueryClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
+}
+
+func (InteractiveQueryClusterRolesArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesType
+}
+
+func (a InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesOutput() InteractiveQueryClusterRolesOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterRolesOutput)
+}
+
+func (a InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterRolesOutput)
+}
+
+type InteractiveQueryClusterRolesOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterRolesOutput) HeadNode() InteractiveQueryClusterRolesHeadNodeOutput {
+	return o.Apply(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesHeadNode {
+		return v.HeadNode
+	}).(InteractiveQueryClusterRolesHeadNodeOutput)
+}
+
+func (o InteractiveQueryClusterRolesOutput) WorkerNode() InteractiveQueryClusterRolesWorkerNodeOutput {
+	return o.Apply(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesWorkerNode {
+		return v.WorkerNode
+	}).(InteractiveQueryClusterRolesWorkerNodeOutput)
+}
+
+func (o InteractiveQueryClusterRolesOutput) ZookeeperNode() InteractiveQueryClusterRolesZookeeperNodeOutput {
+	return o.Apply(func(v InteractiveQueryClusterRoles) InteractiveQueryClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(InteractiveQueryClusterRolesZookeeperNodeOutput)
+}
+
+func (InteractiveQueryClusterRolesOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesType
+}
+
+func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesOutput() InteractiveQueryClusterRolesOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterRolesOutput{}) }
+
+type InteractiveQueryClusterRolesHeadNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var interactiveQueryClusterRolesHeadNodeType = reflect.TypeOf((*InteractiveQueryClusterRolesHeadNode)(nil)).Elem()
+
+type InteractiveQueryClusterRolesHeadNodeInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesHeadNodeOutput() InteractiveQueryClusterRolesHeadNodeOutput
+	ToInteractiveQueryClusterRolesHeadNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeOutput
+}
+
+type InteractiveQueryClusterRolesHeadNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (InteractiveQueryClusterRolesHeadNodeArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesHeadNodeType
+}
+
+func (a InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRolesHeadNodeOutput() InteractiveQueryClusterRolesHeadNodeOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterRolesHeadNodeOutput)
+}
+
+func (a InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRolesHeadNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterRolesHeadNodeOutput)
+}
+
+type InteractiveQueryClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesHeadNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesHeadNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesHeadNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesHeadNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesHeadNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesHeadNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterRolesHeadNodeOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesHeadNodeType
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRolesHeadNodeOutput() InteractiveQueryClusterRolesHeadNodeOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRolesHeadNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeOutput{}) }
+
+type InteractiveQueryClusterRolesWorkerNode struct {
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var interactiveQueryClusterRolesWorkerNodeType = reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNode)(nil)).Elem()
+
+type InteractiveQueryClusterRolesWorkerNodeInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeOutput() InteractiveQueryClusterRolesWorkerNodeOutput
+	ToInteractiveQueryClusterRolesWorkerNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeArgs struct {
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesWorkerNodeType
+}
+
+func (a InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRolesWorkerNodeOutput() InteractiveQueryClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterRolesWorkerNodeOutput)
+}
+
+func (a InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRolesWorkerNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterRolesWorkerNodeOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) int {
+		if v.MinInstanceCount == nil { return *new(int) } else { return *v.MinInstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesWorkerNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesWorkerNodeType
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterRolesWorkerNodeOutput() InteractiveQueryClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterRolesWorkerNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeOutput{}) }
+
+type InteractiveQueryClusterRolesZookeeperNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var interactiveQueryClusterRolesZookeeperNodeType = reflect.TypeOf((*InteractiveQueryClusterRolesZookeeperNode)(nil)).Elem()
+
+type InteractiveQueryClusterRolesZookeeperNodeInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesZookeeperNodeOutput() InteractiveQueryClusterRolesZookeeperNodeOutput
+	ToInteractiveQueryClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeOutput
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (InteractiveQueryClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesZookeeperNodeType
+}
+
+func (a InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryClusterRolesZookeeperNodeOutput() InteractiveQueryClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterRolesZookeeperNodeOutput)
+}
+
+func (a InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterRolesZookeeperNodeOutput)
+}
+
+type InteractiveQueryClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesZookeeperNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesZookeeperNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesZookeeperNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesZookeeperNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesZookeeperNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterRolesZookeeperNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterRolesZookeeperNodeType
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClusterRolesZookeeperNodeOutput() InteractiveQueryClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeOutput{}) }
+
+type InteractiveQueryClusterStorageAccountGen2 struct {
+	FilesystemId string `pulumi:"filesystemId"`
+	IsDefault bool `pulumi:"isDefault"`
+	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
+	StorageResourceId string `pulumi:"storageResourceId"`
+}
+var interactiveQueryClusterStorageAccountGen2Type = reflect.TypeOf((*InteractiveQueryClusterStorageAccountGen2)(nil)).Elem()
+
+type InteractiveQueryClusterStorageAccountGen2Input interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterStorageAccountGen2Output() InteractiveQueryClusterStorageAccountGen2Output
+	ToInteractiveQueryClusterStorageAccountGen2OutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountGen2Output
+}
+
+type InteractiveQueryClusterStorageAccountGen2Args struct {
+	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
+	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+}
+
+func (InteractiveQueryClusterStorageAccountGen2Args) ElementType() reflect.Type {
+	return interactiveQueryClusterStorageAccountGen2Type
+}
+
+func (a InteractiveQueryClusterStorageAccountGen2Args) ToInteractiveQueryClusterStorageAccountGen2Output() InteractiveQueryClusterStorageAccountGen2Output {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterStorageAccountGen2Output)
+}
+
+func (a InteractiveQueryClusterStorageAccountGen2Args) ToInteractiveQueryClusterStorageAccountGen2OutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountGen2Output {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterStorageAccountGen2Output)
+}
+
+type InteractiveQueryClusterStorageAccountGen2Output struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccountGen2) string {
+		return v.FilesystemId
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccountGen2) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o InteractiveQueryClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccountGen2) string {
+		return v.ManagedIdentityResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccountGen2) string {
+		return v.StorageResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterStorageAccountGen2Output) ElementType() reflect.Type {
+	return interactiveQueryClusterStorageAccountGen2Type
+}
+
+func (o InteractiveQueryClusterStorageAccountGen2Output) ToInteractiveQueryClusterStorageAccountGen2Output() InteractiveQueryClusterStorageAccountGen2Output {
+	return o
+}
+
+func (o InteractiveQueryClusterStorageAccountGen2Output) ToInteractiveQueryClusterStorageAccountGen2OutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountGen2Output {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountGen2Output{}) }
+
+type InteractiveQueryClusterStorageAccounts struct {
+	IsDefault bool `pulumi:"isDefault"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+}
+var interactiveQueryClusterStorageAccountsType = reflect.TypeOf((*InteractiveQueryClusterStorageAccounts)(nil)).Elem()
+
+type InteractiveQueryClusterStorageAccountsInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterStorageAccountsOutput() InteractiveQueryClusterStorageAccountsOutput
+	ToInteractiveQueryClusterStorageAccountsOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountsOutput
+}
+
+type InteractiveQueryClusterStorageAccountsArgs struct {
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+}
+
+func (InteractiveQueryClusterStorageAccountsArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterStorageAccountsType
+}
+
+func (a InteractiveQueryClusterStorageAccountsArgs) ToInteractiveQueryClusterStorageAccountsOutput() InteractiveQueryClusterStorageAccountsOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterStorageAccountsOutput)
+}
+
+func (a InteractiveQueryClusterStorageAccountsArgs) ToInteractiveQueryClusterStorageAccountsOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterStorageAccountsOutput)
+}
+
+type InteractiveQueryClusterStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterStorageAccountsOutput) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccounts) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o InteractiveQueryClusterStorageAccountsOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccounts) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o InteractiveQueryClusterStorageAccountsOutput) StorageContainerId() pulumi.StringOutput {
+	return o.Apply(func(v InteractiveQueryClusterStorageAccounts) string {
+		return v.StorageContainerId
+	}).(pulumi.StringOutput)
+}
+
+func (InteractiveQueryClusterStorageAccountsOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterStorageAccountsType
+}
+
+func (o InteractiveQueryClusterStorageAccountsOutput) ToInteractiveQueryClusterStorageAccountsOutput() InteractiveQueryClusterStorageAccountsOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterStorageAccountsOutput) ToInteractiveQueryClusterStorageAccountsOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountsOutput{}) }
+
+var interactiveQueryClusterStorageAccountsArrayType = reflect.TypeOf((*[]InteractiveQueryClusterStorageAccounts)(nil)).Elem()
+
+type InteractiveQueryClusterStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterStorageAccountsArrayOutput() InteractiveQueryClusterStorageAccountsArrayOutput
+	ToInteractiveQueryClusterStorageAccountsArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountsArrayOutput
+}
+
+type InteractiveQueryClusterStorageAccountsArrayArgs []InteractiveQueryClusterStorageAccountsInput
+
+func (InteractiveQueryClusterStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return interactiveQueryClusterStorageAccountsArrayType
+}
+
+func (a InteractiveQueryClusterStorageAccountsArrayArgs) ToInteractiveQueryClusterStorageAccountsArrayOutput() InteractiveQueryClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(InteractiveQueryClusterStorageAccountsArrayOutput)
+}
+
+func (a InteractiveQueryClusterStorageAccountsArrayArgs) ToInteractiveQueryClusterStorageAccountsArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(InteractiveQueryClusterStorageAccountsArrayOutput)
+}
+
+type InteractiveQueryClusterStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o InteractiveQueryClusterStorageAccountsArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) InteractiveQueryClusterStorageAccounts {
+		return vs[0].([]InteractiveQueryClusterStorageAccounts)[vs[1].(int)]
+	}).(InteractiveQueryClusterStorageAccountsOutput)
+}
+
+func (InteractiveQueryClusterStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return interactiveQueryClusterStorageAccountsArrayType
+}
+
+func (o InteractiveQueryClusterStorageAccountsArrayOutput) ToInteractiveQueryClusterStorageAccountsArrayOutput() InteractiveQueryClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterStorageAccountsArrayOutput) ToInteractiveQueryClusterStorageAccountsArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountsArrayOutput{}) }
+

@@ -4,6 +4,8 @@
 package devtest
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_linux_virtual_machine.html.markdown.
 type LinuxVirtualMachine struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Can this Virtual Machine be claimed by users? Defaults to `true`.
+	AllowClaim pulumi.BoolOutput `pulumi:"allowClaim"`
+
+	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
+	DisallowPublicIpAddress pulumi.BoolOutput `pulumi:"disallowPublicIpAddress"`
+
+	// The FQDN of the Virtual Machine.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// A `galleryImageReference` block as defined below.
+	GalleryImageReference LinuxVirtualMachineGalleryImageReferenceOutput `pulumi:"galleryImageReference"`
+
+	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	InboundNatRules LinuxVirtualMachineInboundNatRulesArrayOutput `pulumi:"inboundNatRules"`
+
+	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
+	LabName pulumi.StringOutput `pulumi:"labName"`
+
+	// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
+	LabSubnetName pulumi.StringOutput `pulumi:"labSubnetName"`
+
+	// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
+	LabVirtualNetworkId pulumi.StringOutput `pulumi:"labVirtualNetworkId"`
+
+	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Any notes about the Virtual Machine.
+	Notes pulumi.StringOutput `pulumi:"notes"`
+
+	// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	Size pulumi.StringOutput `pulumi:"size"`
+
+	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	SshKey pulumi.StringOutput `pulumi:"sshKey"`
+
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	StorageType pulumi.StringOutput `pulumi:"storageType"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The unique immutable identifier of the Virtual Machine.
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
+
+	// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewLinuxVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewLinuxVirtualMachine(ctx *pulumi.Context,
-	name string, args *LinuxVirtualMachineArgs, opts ...pulumi.ResourceOpt) (*LinuxVirtualMachine, error) {
+	name string, args *LinuxVirtualMachineArgs, opts ...pulumi.ResourceOption) (*LinuxVirtualMachine, error) {
 	if args == nil || args.GalleryImageReference == nil {
 		return nil, errors.New("missing required argument 'GalleryImageReference'")
 	}
@@ -42,267 +101,332 @@ func NewLinuxVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Username == nil {
 		return nil, errors.New("missing required argument 'Username'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowClaim"] = nil
-		inputs["disallowPublicIpAddress"] = nil
-		inputs["galleryImageReference"] = nil
-		inputs["inboundNatRules"] = nil
-		inputs["labName"] = nil
-		inputs["labSubnetName"] = nil
-		inputs["labVirtualNetworkId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["notes"] = nil
-		inputs["password"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["size"] = nil
-		inputs["sshKey"] = nil
-		inputs["storageType"] = nil
-		inputs["tags"] = nil
-		inputs["username"] = nil
-	} else {
-		inputs["allowClaim"] = args.AllowClaim
-		inputs["disallowPublicIpAddress"] = args.DisallowPublicIpAddress
-		inputs["galleryImageReference"] = args.GalleryImageReference
-		inputs["inboundNatRules"] = args.InboundNatRules
-		inputs["labName"] = args.LabName
-		inputs["labSubnetName"] = args.LabSubnetName
-		inputs["labVirtualNetworkId"] = args.LabVirtualNetworkId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["notes"] = args.Notes
-		inputs["password"] = args.Password
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["size"] = args.Size
-		inputs["sshKey"] = args.SshKey
-		inputs["storageType"] = args.StorageType
-		inputs["tags"] = args.Tags
-		inputs["username"] = args.Username
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowClaim; i != nil { inputs["allowClaim"] = i.ToBoolOutput() }
+		if i := args.DisallowPublicIpAddress; i != nil { inputs["disallowPublicIpAddress"] = i.ToBoolOutput() }
+		if i := args.GalleryImageReference; i != nil { inputs["galleryImageReference"] = i.ToLinuxVirtualMachineGalleryImageReferenceOutput() }
+		if i := args.InboundNatRules; i != nil { inputs["inboundNatRules"] = i.ToLinuxVirtualMachineInboundNatRulesArrayOutput() }
+		if i := args.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := args.LabSubnetName; i != nil { inputs["labSubnetName"] = i.ToStringOutput() }
+		if i := args.LabVirtualNetworkId; i != nil { inputs["labVirtualNetworkId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Notes; i != nil { inputs["notes"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Size; i != nil { inputs["size"] = i.ToStringOutput() }
+		if i := args.SshKey; i != nil { inputs["sshKey"] = i.ToStringOutput() }
+		if i := args.StorageType; i != nil { inputs["storageType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	inputs["fqdn"] = nil
-	inputs["uniqueIdentifier"] = nil
-	s, err := ctx.RegisterResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, true, inputs, opts...)
+	var resource LinuxVirtualMachine
+	err := ctx.RegisterResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LinuxVirtualMachine{s: s}, nil
+	return &resource, nil
 }
 
 // GetLinuxVirtualMachine gets an existing LinuxVirtualMachine resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLinuxVirtualMachine(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LinuxVirtualMachineState, opts ...pulumi.ResourceOpt) (*LinuxVirtualMachine, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LinuxVirtualMachineState, opts ...pulumi.ResourceOption) (*LinuxVirtualMachine, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowClaim"] = state.AllowClaim
-		inputs["disallowPublicIpAddress"] = state.DisallowPublicIpAddress
-		inputs["fqdn"] = state.Fqdn
-		inputs["galleryImageReference"] = state.GalleryImageReference
-		inputs["inboundNatRules"] = state.InboundNatRules
-		inputs["labName"] = state.LabName
-		inputs["labSubnetName"] = state.LabSubnetName
-		inputs["labVirtualNetworkId"] = state.LabVirtualNetworkId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["notes"] = state.Notes
-		inputs["password"] = state.Password
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["size"] = state.Size
-		inputs["sshKey"] = state.SshKey
-		inputs["storageType"] = state.StorageType
-		inputs["tags"] = state.Tags
-		inputs["uniqueIdentifier"] = state.UniqueIdentifier
-		inputs["username"] = state.Username
+		if i := state.AllowClaim; i != nil { inputs["allowClaim"] = i.ToBoolOutput() }
+		if i := state.DisallowPublicIpAddress; i != nil { inputs["disallowPublicIpAddress"] = i.ToBoolOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.GalleryImageReference; i != nil { inputs["galleryImageReference"] = i.ToLinuxVirtualMachineGalleryImageReferenceOutput() }
+		if i := state.InboundNatRules; i != nil { inputs["inboundNatRules"] = i.ToLinuxVirtualMachineInboundNatRulesArrayOutput() }
+		if i := state.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := state.LabSubnetName; i != nil { inputs["labSubnetName"] = i.ToStringOutput() }
+		if i := state.LabVirtualNetworkId; i != nil { inputs["labVirtualNetworkId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Notes; i != nil { inputs["notes"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Size; i != nil { inputs["size"] = i.ToStringOutput() }
+		if i := state.SshKey; i != nil { inputs["sshKey"] = i.ToStringOutput() }
+		if i := state.StorageType; i != nil { inputs["storageType"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UniqueIdentifier; i != nil { inputs["uniqueIdentifier"] = i.ToStringOutput() }
+		if i := state.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, id, inputs, opts...)
+	var resource LinuxVirtualMachine
+	err := ctx.ReadResource("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LinuxVirtualMachine{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LinuxVirtualMachine) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LinuxVirtualMachine) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Can this Virtual Machine be claimed by users? Defaults to `true`.
-func (r *LinuxVirtualMachine) AllowClaim() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowClaim"])
-}
-
-// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) DisallowPublicIpAddress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["disallowPublicIpAddress"])
-}
-
-// The FQDN of the Virtual Machine.
-func (r *LinuxVirtualMachine) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// A `galleryImageReference` block as defined below.
-func (r *LinuxVirtualMachine) GalleryImageReference() pulumi.Output {
-	return r.s.State["galleryImageReference"]
-}
-
-// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) InboundNatRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["inboundNatRules"])
-}
-
-// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) LabName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labName"])
-}
-
-// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) LabSubnetName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labSubnetName"])
-}
-
-// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) LabVirtualNetworkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labVirtualNetworkId"])
-}
-
-// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Any notes about the Virtual Machine.
-func (r *LinuxVirtualMachine) Notes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notes"])
-}
-
-// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) Size() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["size"])
-}
-
-// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) SshKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshKey"])
-}
-
-// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-func (r *LinuxVirtualMachine) StorageType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageType"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *LinuxVirtualMachine) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The unique immutable identifier of the Virtual Machine.
-func (r *LinuxVirtualMachine) UniqueIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
-}
-
-// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-func (r *LinuxVirtualMachine) Username() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["username"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LinuxVirtualMachine resources.
 type LinuxVirtualMachineState struct {
 	// Can this Virtual Machine be claimed by users? Defaults to `true`.
-	AllowClaim interface{}
+	AllowClaim pulumi.BoolInput `pulumi:"allowClaim"`
 	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-	DisallowPublicIpAddress interface{}
+	DisallowPublicIpAddress pulumi.BoolInput `pulumi:"disallowPublicIpAddress"`
 	// The FQDN of the Virtual Machine.
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// A `galleryImageReference` block as defined below.
-	GalleryImageReference interface{}
+	GalleryImageReference LinuxVirtualMachineGalleryImageReferenceInput `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-	InboundNatRules interface{}
+	InboundNatRules LinuxVirtualMachineInboundNatRulesArrayInput `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-	LabSubnetName interface{}
+	LabSubnetName pulumi.StringInput `pulumi:"labSubnetName"`
 	// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabVirtualNetworkId interface{}
+	LabVirtualNetworkId pulumi.StringInput `pulumi:"labVirtualNetworkId"`
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Any notes about the Virtual Machine.
-	Notes interface{}
+	Notes pulumi.StringInput `pulumi:"notes"`
 	// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-	Size interface{}
+	Size pulumi.StringInput `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-	SshKey interface{}
+	SshKey pulumi.StringInput `pulumi:"sshKey"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-	StorageType interface{}
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The unique immutable identifier of the Virtual Machine.
-	UniqueIdentifier interface{}
+	UniqueIdentifier pulumi.StringInput `pulumi:"uniqueIdentifier"`
 	// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 // The set of arguments for constructing a LinuxVirtualMachine resource.
 type LinuxVirtualMachineArgs struct {
 	// Can this Virtual Machine be claimed by users? Defaults to `true`.
-	AllowClaim interface{}
+	AllowClaim pulumi.BoolInput `pulumi:"allowClaim"`
 	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-	DisallowPublicIpAddress interface{}
+	DisallowPublicIpAddress pulumi.BoolInput `pulumi:"disallowPublicIpAddress"`
 	// A `galleryImageReference` block as defined below.
-	GalleryImageReference interface{}
+	GalleryImageReference LinuxVirtualMachineGalleryImageReferenceInput `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-	InboundNatRules interface{}
+	InboundNatRules LinuxVirtualMachineInboundNatRulesArrayInput `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-	LabSubnetName interface{}
+	LabSubnetName pulumi.StringInput `pulumi:"labSubnetName"`
 	// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabVirtualNetworkId interface{}
+	LabVirtualNetworkId pulumi.StringInput `pulumi:"labVirtualNetworkId"`
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Any notes about the Virtual Machine.
-	Notes interface{}
+	Notes pulumi.StringInput `pulumi:"notes"`
 	// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-	Size interface{}
+	Size pulumi.StringInput `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-	SshKey interface{}
+	SshKey pulumi.StringInput `pulumi:"sshKey"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-	StorageType interface{}
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
+type LinuxVirtualMachineGalleryImageReference struct {
+	Offer string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku string `pulumi:"sku"`
+	Version string `pulumi:"version"`
+}
+var linuxVirtualMachineGalleryImageReferenceType = reflect.TypeOf((*LinuxVirtualMachineGalleryImageReference)(nil)).Elem()
+
+type LinuxVirtualMachineGalleryImageReferenceInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineGalleryImageReferenceOutput() LinuxVirtualMachineGalleryImageReferenceOutput
+	ToLinuxVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferenceOutput
+}
+
+type LinuxVirtualMachineGalleryImageReferenceArgs struct {
+	Offer pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku pulumi.StringInput `pulumi:"sku"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (LinuxVirtualMachineGalleryImageReferenceArgs) ElementType() reflect.Type {
+	return linuxVirtualMachineGalleryImageReferenceType
+}
+
+func (a LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalleryImageReferenceOutput() LinuxVirtualMachineGalleryImageReferenceOutput {
+	return pulumi.ToOutput(a).(LinuxVirtualMachineGalleryImageReferenceOutput)
+}
+
+func (a LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LinuxVirtualMachineGalleryImageReferenceOutput)
+}
+
+type LinuxVirtualMachineGalleryImageReferenceOutput struct { *pulumi.OutputState }
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.Apply(func(v LinuxVirtualMachineGalleryImageReference) string {
+		return v.Offer
+	}).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v LinuxVirtualMachineGalleryImageReference) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v LinuxVirtualMachineGalleryImageReference) string {
+		return v.Sku
+	}).(pulumi.StringOutput)
+}
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v LinuxVirtualMachineGalleryImageReference) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (LinuxVirtualMachineGalleryImageReferenceOutput) ElementType() reflect.Type {
+	return linuxVirtualMachineGalleryImageReferenceType
+}
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGalleryImageReferenceOutput() LinuxVirtualMachineGalleryImageReferenceOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineGalleryImageReferenceOutput) ToLinuxVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryImageReferenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LinuxVirtualMachineGalleryImageReferenceOutput{}) }
+
+type LinuxVirtualMachineInboundNatRules struct {
+	BackendPort int `pulumi:"backendPort"`
+	// The frontend port associated with this Inbound NAT Rule.
+	FrontendPort *int `pulumi:"frontendPort"`
+	Protocol string `pulumi:"protocol"`
+}
+var linuxVirtualMachineInboundNatRulesType = reflect.TypeOf((*LinuxVirtualMachineInboundNatRules)(nil)).Elem()
+
+type LinuxVirtualMachineInboundNatRulesInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineInboundNatRulesOutput() LinuxVirtualMachineInboundNatRulesOutput
+	ToLinuxVirtualMachineInboundNatRulesOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRulesOutput
+}
+
+type LinuxVirtualMachineInboundNatRulesArgs struct {
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The frontend port associated with this Inbound NAT Rule.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (LinuxVirtualMachineInboundNatRulesArgs) ElementType() reflect.Type {
+	return linuxVirtualMachineInboundNatRulesType
+}
+
+func (a LinuxVirtualMachineInboundNatRulesArgs) ToLinuxVirtualMachineInboundNatRulesOutput() LinuxVirtualMachineInboundNatRulesOutput {
+	return pulumi.ToOutput(a).(LinuxVirtualMachineInboundNatRulesOutput)
+}
+
+func (a LinuxVirtualMachineInboundNatRulesArgs) ToLinuxVirtualMachineInboundNatRulesOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LinuxVirtualMachineInboundNatRulesOutput)
+}
+
+type LinuxVirtualMachineInboundNatRulesOutput struct { *pulumi.OutputState }
+
+func (o LinuxVirtualMachineInboundNatRulesOutput) BackendPort() pulumi.IntOutput {
+	return o.Apply(func(v LinuxVirtualMachineInboundNatRules) int {
+		return v.BackendPort
+	}).(pulumi.IntOutput)
+}
+
+// The frontend port associated with this Inbound NAT Rule.
+func (o LinuxVirtualMachineInboundNatRulesOutput) FrontendPort() pulumi.IntOutput {
+	return o.Apply(func(v LinuxVirtualMachineInboundNatRules) int {
+		if v.FrontendPort == nil { return *new(int) } else { return *v.FrontendPort }
+	}).(pulumi.IntOutput)
+}
+
+func (o LinuxVirtualMachineInboundNatRulesOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v LinuxVirtualMachineInboundNatRules) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (LinuxVirtualMachineInboundNatRulesOutput) ElementType() reflect.Type {
+	return linuxVirtualMachineInboundNatRulesType
+}
+
+func (o LinuxVirtualMachineInboundNatRulesOutput) ToLinuxVirtualMachineInboundNatRulesOutput() LinuxVirtualMachineInboundNatRulesOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineInboundNatRulesOutput) ToLinuxVirtualMachineInboundNatRulesOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LinuxVirtualMachineInboundNatRulesOutput{}) }
+
+var linuxVirtualMachineInboundNatRulesArrayType = reflect.TypeOf((*[]LinuxVirtualMachineInboundNatRules)(nil)).Elem()
+
+type LinuxVirtualMachineInboundNatRulesArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineInboundNatRulesArrayOutput() LinuxVirtualMachineInboundNatRulesArrayOutput
+	ToLinuxVirtualMachineInboundNatRulesArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRulesArrayOutput
+}
+
+type LinuxVirtualMachineInboundNatRulesArrayArgs []LinuxVirtualMachineInboundNatRulesInput
+
+func (LinuxVirtualMachineInboundNatRulesArrayArgs) ElementType() reflect.Type {
+	return linuxVirtualMachineInboundNatRulesArrayType
+}
+
+func (a LinuxVirtualMachineInboundNatRulesArrayArgs) ToLinuxVirtualMachineInboundNatRulesArrayOutput() LinuxVirtualMachineInboundNatRulesArrayOutput {
+	return pulumi.ToOutput(a).(LinuxVirtualMachineInboundNatRulesArrayOutput)
+}
+
+func (a LinuxVirtualMachineInboundNatRulesArrayArgs) ToLinuxVirtualMachineInboundNatRulesArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LinuxVirtualMachineInboundNatRulesArrayOutput)
+}
+
+type LinuxVirtualMachineInboundNatRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o LinuxVirtualMachineInboundNatRulesArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineInboundNatRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LinuxVirtualMachineInboundNatRules {
+		return vs[0].([]LinuxVirtualMachineInboundNatRules)[vs[1].(int)]
+	}).(LinuxVirtualMachineInboundNatRulesOutput)
+}
+
+func (LinuxVirtualMachineInboundNatRulesArrayOutput) ElementType() reflect.Type {
+	return linuxVirtualMachineInboundNatRulesArrayType
+}
+
+func (o LinuxVirtualMachineInboundNatRulesArrayOutput) ToLinuxVirtualMachineInboundNatRulesArrayOutput() LinuxVirtualMachineInboundNatRulesArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineInboundNatRulesArrayOutput) ToLinuxVirtualMachineInboundNatRulesArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineInboundNatRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LinuxVirtualMachineInboundNatRulesArrayOutput{}) }
+

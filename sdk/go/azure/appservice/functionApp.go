@@ -4,6 +4,8 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
 type FunctionApp struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the App Service Plan within which to create this Function App.
+	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
+
+	// A key-value pair of App Settings.
+	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
+
+	// A `authSettings` block as defined below.
+	AuthSettings FunctionAppAuthSettingsOutput `pulumi:"authSettings"`
+
+	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
+
+	// An `connectionString` block as defined below.
+	ConnectionStrings FunctionAppConnectionStringsArrayOutput `pulumi:"connectionStrings"`
+
+	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
+	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
+
+	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	EnableBuiltinLogging pulumi.BoolOutput `pulumi:"enableBuiltinLogging"`
+
+	// Is the Function App enabled?
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+	HttpsOnly pulumi.BoolOutput `pulumi:"httpsOnly"`
+
+	// An `identity` block as defined below.
+	Identity FunctionAppIdentityOutput `pulumi:"identity"`
+
+	// The Function App kind - such as `functionapp,linux,container`
+	Kind pulumi.StringOutput `pulumi:"kind"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Connection String.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
+
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+
+	// The name of the resource group in which to create the Function App.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `siteConfig` object as defined below.
+	SiteConfig FunctionAppSiteConfigOutput `pulumi:"siteConfig"`
+
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	SiteCredential FunctionAppSiteCredentialOutput `pulumi:"siteCredential"`
+
+	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
+	StorageConnectionString pulumi.StringOutput `pulumi:"storageConnectionString"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The runtime version associated with the Function App. Defaults to `~1`.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewFunctionApp registers a new resource with the given unique name, arguments, and options.
 func NewFunctionApp(ctx *pulumi.Context,
-	name string, args *FunctionAppArgs, opts ...pulumi.ResourceOpt) (*FunctionApp, error) {
+	name string, args *FunctionAppArgs, opts ...pulumi.ResourceOption) (*FunctionApp, error) {
 	if args == nil || args.AppServicePlanId == nil {
 		return nil, errors.New("missing required argument 'AppServicePlanId'")
 	}
@@ -27,282 +92,1062 @@ func NewFunctionApp(ctx *pulumi.Context,
 	if args == nil || args.StorageConnectionString == nil {
 		return nil, errors.New("missing required argument 'StorageConnectionString'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appServicePlanId"] = nil
-		inputs["appSettings"] = nil
-		inputs["authSettings"] = nil
-		inputs["clientAffinityEnabled"] = nil
-		inputs["connectionStrings"] = nil
-		inputs["enableBuiltinLogging"] = nil
-		inputs["enabled"] = nil
-		inputs["httpsOnly"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["siteConfig"] = nil
-		inputs["storageConnectionString"] = nil
-		inputs["tags"] = nil
-		inputs["version"] = nil
-	} else {
-		inputs["appServicePlanId"] = args.AppServicePlanId
-		inputs["appSettings"] = args.AppSettings
-		inputs["authSettings"] = args.AuthSettings
-		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
-		inputs["connectionStrings"] = args.ConnectionStrings
-		inputs["enableBuiltinLogging"] = args.EnableBuiltinLogging
-		inputs["enabled"] = args.Enabled
-		inputs["httpsOnly"] = args.HttpsOnly
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["siteConfig"] = args.SiteConfig
-		inputs["storageConnectionString"] = args.StorageConnectionString
-		inputs["tags"] = args.Tags
-		inputs["version"] = args.Version
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppServicePlanId; i != nil { inputs["appServicePlanId"] = i.ToStringOutput() }
+		if i := args.AppSettings; i != nil { inputs["appSettings"] = i.ToStringMapOutput() }
+		if i := args.AuthSettings; i != nil { inputs["authSettings"] = i.ToFunctionAppAuthSettingsOutput() }
+		if i := args.ClientAffinityEnabled; i != nil { inputs["clientAffinityEnabled"] = i.ToBoolOutput() }
+		if i := args.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToFunctionAppConnectionStringsArrayOutput() }
+		if i := args.EnableBuiltinLogging; i != nil { inputs["enableBuiltinLogging"] = i.ToBoolOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.HttpsOnly; i != nil { inputs["httpsOnly"] = i.ToBoolOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToFunctionAppIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SiteConfig; i != nil { inputs["siteConfig"] = i.ToFunctionAppSiteConfigOutput() }
+		if i := args.StorageConnectionString; i != nil { inputs["storageConnectionString"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	inputs["defaultHostname"] = nil
-	inputs["kind"] = nil
-	inputs["outboundIpAddresses"] = nil
-	inputs["possibleOutboundIpAddresses"] = nil
-	inputs["siteCredential"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, true, inputs, opts...)
+	var resource FunctionApp
+	err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FunctionApp{s: s}, nil
+	return &resource, nil
 }
 
 // GetFunctionApp gets an existing FunctionApp resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFunctionApp(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FunctionAppState, opts ...pulumi.ResourceOpt) (*FunctionApp, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FunctionAppState, opts ...pulumi.ResourceOption) (*FunctionApp, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServicePlanId"] = state.AppServicePlanId
-		inputs["appSettings"] = state.AppSettings
-		inputs["authSettings"] = state.AuthSettings
-		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
-		inputs["connectionStrings"] = state.ConnectionStrings
-		inputs["defaultHostname"] = state.DefaultHostname
-		inputs["enableBuiltinLogging"] = state.EnableBuiltinLogging
-		inputs["enabled"] = state.Enabled
-		inputs["httpsOnly"] = state.HttpsOnly
-		inputs["identity"] = state.Identity
-		inputs["kind"] = state.Kind
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
-		inputs["possibleOutboundIpAddresses"] = state.PossibleOutboundIpAddresses
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["siteConfig"] = state.SiteConfig
-		inputs["siteCredential"] = state.SiteCredential
-		inputs["storageConnectionString"] = state.StorageConnectionString
-		inputs["tags"] = state.Tags
-		inputs["version"] = state.Version
+		if i := state.AppServicePlanId; i != nil { inputs["appServicePlanId"] = i.ToStringOutput() }
+		if i := state.AppSettings; i != nil { inputs["appSettings"] = i.ToStringMapOutput() }
+		if i := state.AuthSettings; i != nil { inputs["authSettings"] = i.ToFunctionAppAuthSettingsOutput() }
+		if i := state.ClientAffinityEnabled; i != nil { inputs["clientAffinityEnabled"] = i.ToBoolOutput() }
+		if i := state.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToFunctionAppConnectionStringsArrayOutput() }
+		if i := state.DefaultHostname; i != nil { inputs["defaultHostname"] = i.ToStringOutput() }
+		if i := state.EnableBuiltinLogging; i != nil { inputs["enableBuiltinLogging"] = i.ToBoolOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.HttpsOnly; i != nil { inputs["httpsOnly"] = i.ToBoolOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToFunctionAppIdentityOutput() }
+		if i := state.Kind; i != nil { inputs["kind"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OutboundIpAddresses; i != nil { inputs["outboundIpAddresses"] = i.ToStringOutput() }
+		if i := state.PossibleOutboundIpAddresses; i != nil { inputs["possibleOutboundIpAddresses"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SiteConfig; i != nil { inputs["siteConfig"] = i.ToFunctionAppSiteConfigOutput() }
+		if i := state.SiteCredential; i != nil { inputs["siteCredential"] = i.ToFunctionAppSiteCredentialOutput() }
+		if i := state.StorageConnectionString; i != nil { inputs["storageConnectionString"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/functionApp:FunctionApp", name, id, inputs, opts...)
+	var resource FunctionApp
+	err := ctx.ReadResource("azure:appservice/functionApp:FunctionApp", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FunctionApp{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FunctionApp) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FunctionApp) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the App Service Plan within which to create this Function App.
-func (r *FunctionApp) AppServicePlanId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServicePlanId"])
-}
-
-// A key-value pair of App Settings.
-func (r *FunctionApp) AppSettings() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["appSettings"])
-}
-
-// A `authSettings` block as defined below.
-func (r *FunctionApp) AuthSettings() pulumi.Output {
-	return r.s.State["authSettings"]
-}
-
-// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-func (r *FunctionApp) ClientAffinityEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
-}
-
-// An `connectionString` block as defined below.
-func (r *FunctionApp) ConnectionStrings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
-}
-
-// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
-func (r *FunctionApp) DefaultHostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultHostname"])
-}
-
-// Should the built-in logging of this Function App be enabled? Defaults to `true`.
-func (r *FunctionApp) EnableBuiltinLogging() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBuiltinLogging"])
-}
-
-// Is the Function App enabled?
-func (r *FunctionApp) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Can the Function App only be accessed via HTTPS? Defaults to `false`.
-func (r *FunctionApp) HttpsOnly() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["httpsOnly"])
-}
-
-// An `identity` block as defined below.
-func (r *FunctionApp) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// The Function App kind - such as `functionapp,linux,container`
-func (r *FunctionApp) Kind() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kind"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *FunctionApp) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Connection String.
-func (r *FunctionApp) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-func (r *FunctionApp) OutboundIpAddresses() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
-}
-
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-func (r *FunctionApp) PossibleOutboundIpAddresses() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
-}
-
-// The name of the resource group in which to create the Function App.
-func (r *FunctionApp) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `siteConfig` object as defined below.
-func (r *FunctionApp) SiteConfig() pulumi.Output {
-	return r.s.State["siteConfig"]
-}
-
-// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-func (r *FunctionApp) SiteCredential() pulumi.Output {
-	return r.s.State["siteCredential"]
-}
-
-// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
-func (r *FunctionApp) StorageConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageConnectionString"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *FunctionApp) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The runtime version associated with the Function App. Defaults to `~1`.
-func (r *FunctionApp) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FunctionApp resources.
 type FunctionAppState struct {
 	// The ID of the App Service Plan within which to create this Function App.
-	AppServicePlanId interface{}
+	AppServicePlanId pulumi.StringInput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
-	AppSettings interface{}
+	AppSettings pulumi.StringMapInput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings interface{}
+	AuthSettings FunctionAppAuthSettingsInput `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled pulumi.BoolInput `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings FunctionAppConnectionStringsArrayInput `pulumi:"connectionStrings"`
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
-	DefaultHostname interface{}
+	DefaultHostname pulumi.StringInput `pulumi:"defaultHostname"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
-	EnableBuiltinLogging interface{}
+	EnableBuiltinLogging pulumi.BoolInput `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
-	HttpsOnly interface{}
+	HttpsOnly pulumi.BoolInput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity FunctionAppIdentityInput `pulumi:"identity"`
 	// The Function App kind - such as `functionapp,linux,container`
-	Kind interface{}
+	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Connection String.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-	OutboundIpAddresses interface{}
+	OutboundIpAddresses pulumi.StringInput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses interface{}
+	PossibleOutboundIpAddresses pulumi.StringInput `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the resource group in which to create the Function App.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
-	SiteConfig interface{}
+	SiteConfig FunctionAppSiteConfigInput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential interface{}
+	SiteCredential FunctionAppSiteCredentialInput `pulumi:"siteCredential"`
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
-	StorageConnectionString interface{}
+	StorageConnectionString pulumi.StringInput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 // The set of arguments for constructing a FunctionApp resource.
 type FunctionAppArgs struct {
 	// The ID of the App Service Plan within which to create this Function App.
-	AppServicePlanId interface{}
+	AppServicePlanId pulumi.StringInput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
-	AppSettings interface{}
+	AppSettings pulumi.StringMapInput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings interface{}
+	AuthSettings FunctionAppAuthSettingsInput `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled pulumi.BoolInput `pulumi:"clientAffinityEnabled"`
 	// An `connectionString` block as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings FunctionAppConnectionStringsArrayInput `pulumi:"connectionStrings"`
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
-	EnableBuiltinLogging interface{}
+	EnableBuiltinLogging pulumi.BoolInput `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
-	HttpsOnly interface{}
+	HttpsOnly pulumi.BoolInput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity FunctionAppIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Connection String.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Function App.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
-	SiteConfig interface{}
+	SiteConfig FunctionAppSiteConfigInput `pulumi:"siteConfig"`
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
-	StorageConnectionString interface{}
+	StorageConnectionString pulumi.StringInput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The runtime version associated with the Function App. Defaults to `~1`.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 }
+type FunctionAppAuthSettings struct {
+	ActiveDirectory *FunctionAppAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	AdditionalLoginParams *map[string]string `pulumi:"additionalLoginParams"`
+	AllowedExternalRedirectUrls *[]string `pulumi:"allowedExternalRedirectUrls"`
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is the Function App enabled?
+	Enabled bool `pulumi:"enabled"`
+	Facebook *FunctionAppAuthSettingsFacebook `pulumi:"facebook"`
+	Google *FunctionAppAuthSettingsGoogle `pulumi:"google"`
+	Issuer *string `pulumi:"issuer"`
+	Microsoft *FunctionAppAuthSettingsMicrosoft `pulumi:"microsoft"`
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	Twitter *FunctionAppAuthSettingsTwitter `pulumi:"twitter"`
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
+}
+var functionAppAuthSettingsType = reflect.TypeOf((*FunctionAppAuthSettings)(nil)).Elem()
+
+type FunctionAppAuthSettingsInput interface {
+	pulumi.Input
+
+	ToFunctionAppAuthSettingsOutput() FunctionAppAuthSettingsOutput
+	ToFunctionAppAuthSettingsOutputWithContext(ctx context.Context) FunctionAppAuthSettingsOutput
+}
+
+type FunctionAppAuthSettingsArgs struct {
+	ActiveDirectory FunctionAppAuthSettingsActiveDirectoryInput `pulumi:"activeDirectory"`
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// Is the Function App enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Facebook FunctionAppAuthSettingsFacebookInput `pulumi:"facebook"`
+	Google FunctionAppAuthSettingsGoogleInput `pulumi:"google"`
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	Microsoft FunctionAppAuthSettingsMicrosoftInput `pulumi:"microsoft"`
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours pulumi.Float64Input `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	Twitter FunctionAppAuthSettingsTwitterInput `pulumi:"twitter"`
+	UnauthenticatedClientAction pulumi.StringInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (FunctionAppAuthSettingsArgs) ElementType() reflect.Type {
+	return functionAppAuthSettingsType
+}
+
+func (a FunctionAppAuthSettingsArgs) ToFunctionAppAuthSettingsOutput() FunctionAppAuthSettingsOutput {
+	return pulumi.ToOutput(a).(FunctionAppAuthSettingsOutput)
+}
+
+func (a FunctionAppAuthSettingsArgs) ToFunctionAppAuthSettingsOutputWithContext(ctx context.Context) FunctionAppAuthSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppAuthSettingsOutput)
+}
+
+type FunctionAppAuthSettingsOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppAuthSettingsOutput) ActiveDirectory() FunctionAppAuthSettingsActiveDirectoryOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) FunctionAppAuthSettingsActiveDirectory {
+		if v.ActiveDirectory == nil { return *new(FunctionAppAuthSettingsActiveDirectory) } else { return *v.ActiveDirectory }
+	}).(FunctionAppAuthSettingsActiveDirectoryOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) map[string]string {
+		if v.AdditionalLoginParams == nil { return *new(map[string]string) } else { return *v.AdditionalLoginParams }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) []string {
+		if v.AllowedExternalRedirectUrls == nil { return *new([]string) } else { return *v.AllowedExternalRedirectUrls }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) DefaultProvider() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) string {
+		if v.DefaultProvider == nil { return *new(string) } else { return *v.DefaultProvider }
+	}).(pulumi.StringOutput)
+}
+
+// Is the Function App enabled?
+func (o FunctionAppAuthSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) Facebook() FunctionAppAuthSettingsFacebookOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) FunctionAppAuthSettingsFacebook {
+		if v.Facebook == nil { return *new(FunctionAppAuthSettingsFacebook) } else { return *v.Facebook }
+	}).(FunctionAppAuthSettingsFacebookOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) Google() FunctionAppAuthSettingsGoogleOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) FunctionAppAuthSettingsGoogle {
+		if v.Google == nil { return *new(FunctionAppAuthSettingsGoogle) } else { return *v.Google }
+	}).(FunctionAppAuthSettingsGoogleOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) Issuer() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) string {
+		if v.Issuer == nil { return *new(string) } else { return *v.Issuer }
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) Microsoft() FunctionAppAuthSettingsMicrosoftOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) FunctionAppAuthSettingsMicrosoft {
+		if v.Microsoft == nil { return *new(FunctionAppAuthSettingsMicrosoft) } else { return *v.Microsoft }
+	}).(FunctionAppAuthSettingsMicrosoftOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) string {
+		if v.RuntimeVersion == nil { return *new(string) } else { return *v.RuntimeVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64Output {
+	return o.Apply(func(v FunctionAppAuthSettings) float64 {
+		if v.TokenRefreshExtensionHours == nil { return *new(float64) } else { return *v.TokenRefreshExtensionHours }
+	}).(pulumi.Float64Output)
+}
+
+func (o FunctionAppAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) bool {
+		if v.TokenStoreEnabled == nil { return *new(bool) } else { return *v.TokenStoreEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) Twitter() FunctionAppAuthSettingsTwitterOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) FunctionAppAuthSettingsTwitter {
+		if v.Twitter == nil { return *new(FunctionAppAuthSettingsTwitter) } else { return *v.Twitter }
+	}).(FunctionAppAuthSettingsTwitterOutput)
+}
+
+func (o FunctionAppAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettings) string {
+		if v.UnauthenticatedClientAction == nil { return *new(string) } else { return *v.UnauthenticatedClientAction }
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionAppAuthSettingsOutput) ElementType() reflect.Type {
+	return functionAppAuthSettingsType
+}
+
+func (o FunctionAppAuthSettingsOutput) ToFunctionAppAuthSettingsOutput() FunctionAppAuthSettingsOutput {
+	return o
+}
+
+func (o FunctionAppAuthSettingsOutput) ToFunctionAppAuthSettingsOutputWithContext(ctx context.Context) FunctionAppAuthSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppAuthSettingsOutput{}) }
+
+type FunctionAppAuthSettingsActiveDirectory struct {
+	AllowedAudiences *[]string `pulumi:"allowedAudiences"`
+	ClientId string `pulumi:"clientId"`
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+var functionAppAuthSettingsActiveDirectoryType = reflect.TypeOf((*FunctionAppAuthSettingsActiveDirectory)(nil)).Elem()
+
+type FunctionAppAuthSettingsActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToFunctionAppAuthSettingsActiveDirectoryOutput() FunctionAppAuthSettingsActiveDirectoryOutput
+	ToFunctionAppAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) FunctionAppAuthSettingsActiveDirectoryOutput
+}
+
+type FunctionAppAuthSettingsActiveDirectoryArgs struct {
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (FunctionAppAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
+	return functionAppAuthSettingsActiveDirectoryType
+}
+
+func (a FunctionAppAuthSettingsActiveDirectoryArgs) ToFunctionAppAuthSettingsActiveDirectoryOutput() FunctionAppAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(FunctionAppAuthSettingsActiveDirectoryOutput)
+}
+
+func (a FunctionAppAuthSettingsActiveDirectoryArgs) ToFunctionAppAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) FunctionAppAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppAuthSettingsActiveDirectoryOutput)
+}
+
+type FunctionAppAuthSettingsActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsActiveDirectory) []string {
+		if v.AllowedAudiences == nil { return *new([]string) } else { return *v.AllowedAudiences }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FunctionAppAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsActiveDirectory) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsActiveDirectory) string {
+		if v.ClientSecret == nil { return *new(string) } else { return *v.ClientSecret }
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionAppAuthSettingsActiveDirectoryOutput) ElementType() reflect.Type {
+	return functionAppAuthSettingsActiveDirectoryType
+}
+
+func (o FunctionAppAuthSettingsActiveDirectoryOutput) ToFunctionAppAuthSettingsActiveDirectoryOutput() FunctionAppAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func (o FunctionAppAuthSettingsActiveDirectoryOutput) ToFunctionAppAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) FunctionAppAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppAuthSettingsActiveDirectoryOutput{}) }
+
+type FunctionAppAuthSettingsFacebook struct {
+	AppId string `pulumi:"appId"`
+	AppSecret string `pulumi:"appSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var functionAppAuthSettingsFacebookType = reflect.TypeOf((*FunctionAppAuthSettingsFacebook)(nil)).Elem()
+
+type FunctionAppAuthSettingsFacebookInput interface {
+	pulumi.Input
+
+	ToFunctionAppAuthSettingsFacebookOutput() FunctionAppAuthSettingsFacebookOutput
+	ToFunctionAppAuthSettingsFacebookOutputWithContext(ctx context.Context) FunctionAppAuthSettingsFacebookOutput
+}
+
+type FunctionAppAuthSettingsFacebookArgs struct {
+	AppId pulumi.StringInput `pulumi:"appId"`
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (FunctionAppAuthSettingsFacebookArgs) ElementType() reflect.Type {
+	return functionAppAuthSettingsFacebookType
+}
+
+func (a FunctionAppAuthSettingsFacebookArgs) ToFunctionAppAuthSettingsFacebookOutput() FunctionAppAuthSettingsFacebookOutput {
+	return pulumi.ToOutput(a).(FunctionAppAuthSettingsFacebookOutput)
+}
+
+func (a FunctionAppAuthSettingsFacebookArgs) ToFunctionAppAuthSettingsFacebookOutputWithContext(ctx context.Context) FunctionAppAuthSettingsFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppAuthSettingsFacebookOutput)
+}
+
+type FunctionAppAuthSettingsFacebookOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsFacebook) string {
+		return v.AppId
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsFacebook) string {
+		return v.AppSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsFacebook) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (FunctionAppAuthSettingsFacebookOutput) ElementType() reflect.Type {
+	return functionAppAuthSettingsFacebookType
+}
+
+func (o FunctionAppAuthSettingsFacebookOutput) ToFunctionAppAuthSettingsFacebookOutput() FunctionAppAuthSettingsFacebookOutput {
+	return o
+}
+
+func (o FunctionAppAuthSettingsFacebookOutput) ToFunctionAppAuthSettingsFacebookOutputWithContext(ctx context.Context) FunctionAppAuthSettingsFacebookOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppAuthSettingsFacebookOutput{}) }
+
+type FunctionAppAuthSettingsGoogle struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var functionAppAuthSettingsGoogleType = reflect.TypeOf((*FunctionAppAuthSettingsGoogle)(nil)).Elem()
+
+type FunctionAppAuthSettingsGoogleInput interface {
+	pulumi.Input
+
+	ToFunctionAppAuthSettingsGoogleOutput() FunctionAppAuthSettingsGoogleOutput
+	ToFunctionAppAuthSettingsGoogleOutputWithContext(ctx context.Context) FunctionAppAuthSettingsGoogleOutput
+}
+
+type FunctionAppAuthSettingsGoogleArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (FunctionAppAuthSettingsGoogleArgs) ElementType() reflect.Type {
+	return functionAppAuthSettingsGoogleType
+}
+
+func (a FunctionAppAuthSettingsGoogleArgs) ToFunctionAppAuthSettingsGoogleOutput() FunctionAppAuthSettingsGoogleOutput {
+	return pulumi.ToOutput(a).(FunctionAppAuthSettingsGoogleOutput)
+}
+
+func (a FunctionAppAuthSettingsGoogleArgs) ToFunctionAppAuthSettingsGoogleOutputWithContext(ctx context.Context) FunctionAppAuthSettingsGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppAuthSettingsGoogleOutput)
+}
+
+type FunctionAppAuthSettingsGoogleOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsGoogle) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsGoogle) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsGoogle) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (FunctionAppAuthSettingsGoogleOutput) ElementType() reflect.Type {
+	return functionAppAuthSettingsGoogleType
+}
+
+func (o FunctionAppAuthSettingsGoogleOutput) ToFunctionAppAuthSettingsGoogleOutput() FunctionAppAuthSettingsGoogleOutput {
+	return o
+}
+
+func (o FunctionAppAuthSettingsGoogleOutput) ToFunctionAppAuthSettingsGoogleOutputWithContext(ctx context.Context) FunctionAppAuthSettingsGoogleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppAuthSettingsGoogleOutput{}) }
+
+type FunctionAppAuthSettingsMicrosoft struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var functionAppAuthSettingsMicrosoftType = reflect.TypeOf((*FunctionAppAuthSettingsMicrosoft)(nil)).Elem()
+
+type FunctionAppAuthSettingsMicrosoftInput interface {
+	pulumi.Input
+
+	ToFunctionAppAuthSettingsMicrosoftOutput() FunctionAppAuthSettingsMicrosoftOutput
+	ToFunctionAppAuthSettingsMicrosoftOutputWithContext(ctx context.Context) FunctionAppAuthSettingsMicrosoftOutput
+}
+
+type FunctionAppAuthSettingsMicrosoftArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (FunctionAppAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
+	return functionAppAuthSettingsMicrosoftType
+}
+
+func (a FunctionAppAuthSettingsMicrosoftArgs) ToFunctionAppAuthSettingsMicrosoftOutput() FunctionAppAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutput(a).(FunctionAppAuthSettingsMicrosoftOutput)
+}
+
+func (a FunctionAppAuthSettingsMicrosoftArgs) ToFunctionAppAuthSettingsMicrosoftOutputWithContext(ctx context.Context) FunctionAppAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppAuthSettingsMicrosoftOutput)
+}
+
+type FunctionAppAuthSettingsMicrosoftOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsMicrosoft) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsMicrosoft) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsMicrosoft) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (FunctionAppAuthSettingsMicrosoftOutput) ElementType() reflect.Type {
+	return functionAppAuthSettingsMicrosoftType
+}
+
+func (o FunctionAppAuthSettingsMicrosoftOutput) ToFunctionAppAuthSettingsMicrosoftOutput() FunctionAppAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func (o FunctionAppAuthSettingsMicrosoftOutput) ToFunctionAppAuthSettingsMicrosoftOutputWithContext(ctx context.Context) FunctionAppAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppAuthSettingsMicrosoftOutput{}) }
+
+type FunctionAppAuthSettingsTwitter struct {
+	ConsumerKey string `pulumi:"consumerKey"`
+	ConsumerSecret string `pulumi:"consumerSecret"`
+}
+var functionAppAuthSettingsTwitterType = reflect.TypeOf((*FunctionAppAuthSettingsTwitter)(nil)).Elem()
+
+type FunctionAppAuthSettingsTwitterInput interface {
+	pulumi.Input
+
+	ToFunctionAppAuthSettingsTwitterOutput() FunctionAppAuthSettingsTwitterOutput
+	ToFunctionAppAuthSettingsTwitterOutputWithContext(ctx context.Context) FunctionAppAuthSettingsTwitterOutput
+}
+
+type FunctionAppAuthSettingsTwitterArgs struct {
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+}
+
+func (FunctionAppAuthSettingsTwitterArgs) ElementType() reflect.Type {
+	return functionAppAuthSettingsTwitterType
+}
+
+func (a FunctionAppAuthSettingsTwitterArgs) ToFunctionAppAuthSettingsTwitterOutput() FunctionAppAuthSettingsTwitterOutput {
+	return pulumi.ToOutput(a).(FunctionAppAuthSettingsTwitterOutput)
+}
+
+func (a FunctionAppAuthSettingsTwitterArgs) ToFunctionAppAuthSettingsTwitterOutputWithContext(ctx context.Context) FunctionAppAuthSettingsTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppAuthSettingsTwitterOutput)
+}
+
+type FunctionAppAuthSettingsTwitterOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsTwitter) string {
+		return v.ConsumerKey
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionAppAuthSettingsTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppAuthSettingsTwitter) string {
+		return v.ConsumerSecret
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionAppAuthSettingsTwitterOutput) ElementType() reflect.Type {
+	return functionAppAuthSettingsTwitterType
+}
+
+func (o FunctionAppAuthSettingsTwitterOutput) ToFunctionAppAuthSettingsTwitterOutput() FunctionAppAuthSettingsTwitterOutput {
+	return o
+}
+
+func (o FunctionAppAuthSettingsTwitterOutput) ToFunctionAppAuthSettingsTwitterOutputWithContext(ctx context.Context) FunctionAppAuthSettingsTwitterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppAuthSettingsTwitterOutput{}) }
+
+type FunctionAppConnectionStrings struct {
+	// The name of the Connection String.
+	Name string `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
+	Value string `pulumi:"value"`
+}
+var functionAppConnectionStringsType = reflect.TypeOf((*FunctionAppConnectionStrings)(nil)).Elem()
+
+type FunctionAppConnectionStringsInput interface {
+	pulumi.Input
+
+	ToFunctionAppConnectionStringsOutput() FunctionAppConnectionStringsOutput
+	ToFunctionAppConnectionStringsOutputWithContext(ctx context.Context) FunctionAppConnectionStringsOutput
+}
+
+type FunctionAppConnectionStringsArgs struct {
+	// The name of the Connection String.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the Connection String.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FunctionAppConnectionStringsArgs) ElementType() reflect.Type {
+	return functionAppConnectionStringsType
+}
+
+func (a FunctionAppConnectionStringsArgs) ToFunctionAppConnectionStringsOutput() FunctionAppConnectionStringsOutput {
+	return pulumi.ToOutput(a).(FunctionAppConnectionStringsOutput)
+}
+
+func (a FunctionAppConnectionStringsArgs) ToFunctionAppConnectionStringsOutputWithContext(ctx context.Context) FunctionAppConnectionStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppConnectionStringsOutput)
+}
+
+type FunctionAppConnectionStringsOutput struct { *pulumi.OutputState }
+
+// The name of the Connection String.
+func (o FunctionAppConnectionStringsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppConnectionStrings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+func (o FunctionAppConnectionStringsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppConnectionStrings) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The value for the Connection String.
+func (o FunctionAppConnectionStringsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppConnectionStrings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionAppConnectionStringsOutput) ElementType() reflect.Type {
+	return functionAppConnectionStringsType
+}
+
+func (o FunctionAppConnectionStringsOutput) ToFunctionAppConnectionStringsOutput() FunctionAppConnectionStringsOutput {
+	return o
+}
+
+func (o FunctionAppConnectionStringsOutput) ToFunctionAppConnectionStringsOutputWithContext(ctx context.Context) FunctionAppConnectionStringsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppConnectionStringsOutput{}) }
+
+var functionAppConnectionStringsArrayType = reflect.TypeOf((*[]FunctionAppConnectionStrings)(nil)).Elem()
+
+type FunctionAppConnectionStringsArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppConnectionStringsArrayOutput() FunctionAppConnectionStringsArrayOutput
+	ToFunctionAppConnectionStringsArrayOutputWithContext(ctx context.Context) FunctionAppConnectionStringsArrayOutput
+}
+
+type FunctionAppConnectionStringsArrayArgs []FunctionAppConnectionStringsInput
+
+func (FunctionAppConnectionStringsArrayArgs) ElementType() reflect.Type {
+	return functionAppConnectionStringsArrayType
+}
+
+func (a FunctionAppConnectionStringsArrayArgs) ToFunctionAppConnectionStringsArrayOutput() FunctionAppConnectionStringsArrayOutput {
+	return pulumi.ToOutput(a).(FunctionAppConnectionStringsArrayOutput)
+}
+
+func (a FunctionAppConnectionStringsArrayArgs) ToFunctionAppConnectionStringsArrayOutputWithContext(ctx context.Context) FunctionAppConnectionStringsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppConnectionStringsArrayOutput)
+}
+
+type FunctionAppConnectionStringsArrayOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppConnectionStringsArrayOutput) Index(i pulumi.IntInput) FunctionAppConnectionStringsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FunctionAppConnectionStrings {
+		return vs[0].([]FunctionAppConnectionStrings)[vs[1].(int)]
+	}).(FunctionAppConnectionStringsOutput)
+}
+
+func (FunctionAppConnectionStringsArrayOutput) ElementType() reflect.Type {
+	return functionAppConnectionStringsArrayType
+}
+
+func (o FunctionAppConnectionStringsArrayOutput) ToFunctionAppConnectionStringsArrayOutput() FunctionAppConnectionStringsArrayOutput {
+	return o
+}
+
+func (o FunctionAppConnectionStringsArrayOutput) ToFunctionAppConnectionStringsArrayOutputWithContext(ctx context.Context) FunctionAppConnectionStringsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppConnectionStringsArrayOutput{}) }
+
+type FunctionAppIdentity struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type string `pulumi:"type"`
+}
+var functionAppIdentityType = reflect.TypeOf((*FunctionAppIdentity)(nil)).Elem()
+
+type FunctionAppIdentityInput interface {
+	pulumi.Input
+
+	ToFunctionAppIdentityOutput() FunctionAppIdentityOutput
+	ToFunctionAppIdentityOutputWithContext(ctx context.Context) FunctionAppIdentityOutput
+}
+
+type FunctionAppIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionAppIdentityArgs) ElementType() reflect.Type {
+	return functionAppIdentityType
+}
+
+func (a FunctionAppIdentityArgs) ToFunctionAppIdentityOutput() FunctionAppIdentityOutput {
+	return pulumi.ToOutput(a).(FunctionAppIdentityOutput)
+}
+
+func (a FunctionAppIdentityArgs) ToFunctionAppIdentityOutputWithContext(ctx context.Context) FunctionAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppIdentityOutput)
+}
+
+type FunctionAppIdentityOutput struct { *pulumi.OutputState }
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o FunctionAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o FunctionAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+func (o FunctionAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionAppIdentityOutput) ElementType() reflect.Type {
+	return functionAppIdentityType
+}
+
+func (o FunctionAppIdentityOutput) ToFunctionAppIdentityOutput() FunctionAppIdentityOutput {
+	return o
+}
+
+func (o FunctionAppIdentityOutput) ToFunctionAppIdentityOutputWithContext(ctx context.Context) FunctionAppIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppIdentityOutput{}) }
+
+type FunctionAppSiteConfig struct {
+	// Should the Function App be loaded at all times? Defaults to `false`.
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// A `cors` block as defined below.
+	Cors *FunctionAppSiteConfigCors `pulumi:"cors"`
+	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
+	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service should be attached to.
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+}
+var functionAppSiteConfigType = reflect.TypeOf((*FunctionAppSiteConfig)(nil)).Elem()
+
+type FunctionAppSiteConfigInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigOutput() FunctionAppSiteConfigOutput
+	ToFunctionAppSiteConfigOutputWithContext(ctx context.Context) FunctionAppSiteConfigOutput
+}
+
+type FunctionAppSiteConfigArgs struct {
+	// Should the Function App be loaded at all times? Defaults to `false`.
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	// A `cors` block as defined below.
+	Cors FunctionAppSiteConfigCorsInput `pulumi:"cors"`
+	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
+	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service should be attached to.
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
+	// Should WebSockets be enabled?
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+}
+
+func (FunctionAppSiteConfigArgs) ElementType() reflect.Type {
+	return functionAppSiteConfigType
+}
+
+func (a FunctionAppSiteConfigArgs) ToFunctionAppSiteConfigOutput() FunctionAppSiteConfigOutput {
+	return pulumi.ToOutput(a).(FunctionAppSiteConfigOutput)
+}
+
+func (a FunctionAppSiteConfigArgs) ToFunctionAppSiteConfigOutputWithContext(ctx context.Context) FunctionAppSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppSiteConfigOutput)
+}
+
+type FunctionAppSiteConfigOutput struct { *pulumi.OutputState }
+
+// Should the Function App be loaded at all times? Defaults to `false`.
+func (o FunctionAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) bool {
+		if v.AlwaysOn == nil { return *new(bool) } else { return *v.AlwaysOn }
+	}).(pulumi.BoolOutput)
+}
+
+// A `cors` block as defined below.
+func (o FunctionAppSiteConfigOutput) Cors() FunctionAppSiteConfigCorsOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) FunctionAppSiteConfigCors {
+		if v.Cors == nil { return *new(FunctionAppSiteConfigCors) } else { return *v.Cors }
+	}).(FunctionAppSiteConfigCorsOutput)
+}
+
+// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
+func (o FunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) bool {
+		if v.Http2Enabled == nil { return *new(bool) } else { return *v.Http2Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+func (o FunctionAppSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) string {
+		if v.LinuxFxVersion == nil { return *new(string) } else { return *v.LinuxFxVersion }
+	}).(pulumi.StringOutput)
+}
+
+// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+func (o FunctionAppSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) bool {
+		if v.Use32BitWorkerProcess == nil { return *new(bool) } else { return *v.Use32BitWorkerProcess }
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the Virtual Network which this App Service should be attached to.
+func (o FunctionAppSiteConfigOutput) VirtualNetworkName() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) string {
+		if v.VirtualNetworkName == nil { return *new(string) } else { return *v.VirtualNetworkName }
+	}).(pulumi.StringOutput)
+}
+
+// Should WebSockets be enabled?
+func (o FunctionAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppSiteConfig) bool {
+		if v.WebsocketsEnabled == nil { return *new(bool) } else { return *v.WebsocketsEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (FunctionAppSiteConfigOutput) ElementType() reflect.Type {
+	return functionAppSiteConfigType
+}
+
+func (o FunctionAppSiteConfigOutput) ToFunctionAppSiteConfigOutput() FunctionAppSiteConfigOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigOutput) ToFunctionAppSiteConfigOutputWithContext(ctx context.Context) FunctionAppSiteConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppSiteConfigOutput{}) }
+
+type FunctionAppSiteConfigCors struct {
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool `pulumi:"supportCredentials"`
+}
+var functionAppSiteConfigCorsType = reflect.TypeOf((*FunctionAppSiteConfigCors)(nil)).Elem()
+
+type FunctionAppSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigCorsOutput() FunctionAppSiteConfigCorsOutput
+	ToFunctionAppSiteConfigCorsOutputWithContext(ctx context.Context) FunctionAppSiteConfigCorsOutput
+}
+
+type FunctionAppSiteConfigCorsArgs struct {
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
+}
+
+func (FunctionAppSiteConfigCorsArgs) ElementType() reflect.Type {
+	return functionAppSiteConfigCorsType
+}
+
+func (a FunctionAppSiteConfigCorsArgs) ToFunctionAppSiteConfigCorsOutput() FunctionAppSiteConfigCorsOutput {
+	return pulumi.ToOutput(a).(FunctionAppSiteConfigCorsOutput)
+}
+
+func (a FunctionAppSiteConfigCorsArgs) ToFunctionAppSiteConfigCorsOutputWithContext(ctx context.Context) FunctionAppSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppSiteConfigCorsOutput)
+}
+
+type FunctionAppSiteConfigCorsOutput struct { *pulumi.OutputState }
+
+func (o FunctionAppSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.Apply(func(v FunctionAppSiteConfigCors) []string {
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FunctionAppSiteConfigCorsOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.Apply(func(v FunctionAppSiteConfigCors) bool {
+		if v.SupportCredentials == nil { return *new(bool) } else { return *v.SupportCredentials }
+	}).(pulumi.BoolOutput)
+}
+
+func (FunctionAppSiteConfigCorsOutput) ElementType() reflect.Type {
+	return functionAppSiteConfigCorsType
+}
+
+func (o FunctionAppSiteConfigCorsOutput) ToFunctionAppSiteConfigCorsOutput() FunctionAppSiteConfigCorsOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigCorsOutput) ToFunctionAppSiteConfigCorsOutputWithContext(ctx context.Context) FunctionAppSiteConfigCorsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppSiteConfigCorsOutput{}) }
+
+type FunctionAppSiteCredential struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password string `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username string `pulumi:"username"`
+}
+var functionAppSiteCredentialType = reflect.TypeOf((*FunctionAppSiteCredential)(nil)).Elem()
+
+type FunctionAppSiteCredentialInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteCredentialOutput() FunctionAppSiteCredentialOutput
+	ToFunctionAppSiteCredentialOutputWithContext(ctx context.Context) FunctionAppSiteCredentialOutput
+}
+
+type FunctionAppSiteCredentialArgs struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (FunctionAppSiteCredentialArgs) ElementType() reflect.Type {
+	return functionAppSiteCredentialType
+}
+
+func (a FunctionAppSiteCredentialArgs) ToFunctionAppSiteCredentialOutput() FunctionAppSiteCredentialOutput {
+	return pulumi.ToOutput(a).(FunctionAppSiteCredentialOutput)
+}
+
+func (a FunctionAppSiteCredentialArgs) ToFunctionAppSiteCredentialOutputWithContext(ctx context.Context) FunctionAppSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionAppSiteCredentialOutput)
+}
+
+type FunctionAppSiteCredentialOutput struct { *pulumi.OutputState }
+
+// The password associated with the username, which can be used to publish to this App Service.
+func (o FunctionAppSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppSiteCredential) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The username which can be used to publish to this App Service
+func (o FunctionAppSiteCredentialOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v FunctionAppSiteCredential) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionAppSiteCredentialOutput) ElementType() reflect.Type {
+	return functionAppSiteCredentialType
+}
+
+func (o FunctionAppSiteCredentialOutput) ToFunctionAppSiteCredentialOutput() FunctionAppSiteCredentialOutput {
+	return o
+}
+
+func (o FunctionAppSiteCredentialOutput) ToFunctionAppSiteCredentialOutputWithContext(ctx context.Context) FunctionAppSiteCredentialOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionAppSiteCredentialOutput{}) }
+

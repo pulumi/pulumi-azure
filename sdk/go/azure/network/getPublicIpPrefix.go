@@ -10,55 +10,40 @@ import (
 // Use this data source to access information about an existing Public IP Prefix.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip_prefix.html.markdown.
-func LookupPublicIpPrefix(ctx *pulumi.Context, args *GetPublicIpPrefixArgs) (*GetPublicIpPrefixResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["zones"] = args.Zones
-	}
-	outputs, err := ctx.Invoke("azure:network/getPublicIpPrefix:getPublicIpPrefix", inputs)
+func LookupPublicIpPrefix(ctx *pulumi.Context, args *GetPublicIpPrefixArgs, opts ...pulumi.InvokeOption) (*GetPublicIpPrefixResult, error) {
+	var rv GetPublicIpPrefixResult
+	err := ctx.Invoke("azure:network/getPublicIpPrefix:getPublicIpPrefix", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPublicIpPrefixResult{
-		IpPrefix: outputs["ipPrefix"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PrefixLength: outputs["prefixLength"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Zones: outputs["zones"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPublicIpPrefix.
 type GetPublicIpPrefixArgs struct {
 	// Specifies the name of the public IP prefix.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group.
-	ResourceGroupName interface{}
-	Zones interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Zones *[]string `pulumi:"zones"`
 }
 
 // A collection of values returned by getPublicIpPrefix.
 type GetPublicIpPrefixResult struct {
-	IpPrefix interface{}
+	IpPrefix string `pulumi:"ipPrefix"`
 	// The supported Azure location where the resource exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the Public IP prefix resource.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The number of bits of the prefix.
-	PrefixLength interface{}
+	PrefixLength int `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the public IP.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags to assigned to the resource.
-	Tags interface{}
-	Zones interface{}
+	Tags map[string]string `pulumi:"tags"`
+	Zones []string `pulumi:"zones"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

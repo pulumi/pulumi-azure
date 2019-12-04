@@ -10,59 +10,43 @@ import (
 // Use this data source to access information about an existing Container Registry.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.html.markdown.
-func LookupRegistry(ctx *pulumi.Context, args *GetRegistryArgs) (*GetRegistryResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:containerservice/getRegistry:getRegistry", inputs)
+func LookupRegistry(ctx *pulumi.Context, args *GetRegistryArgs, opts ...pulumi.InvokeOption) (*GetRegistryResult, error) {
+	var rv GetRegistryResult
+	err := ctx.Invoke("azure:containerservice/getRegistry:getRegistry", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRegistryResult{
-		AdminEnabled: outputs["adminEnabled"],
-		AdminPassword: outputs["adminPassword"],
-		AdminUsername: outputs["adminUsername"],
-		Location: outputs["location"],
-		LoginServer: outputs["loginServer"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		StorageAccountId: outputs["storageAccountId"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRegistry.
 type GetRegistryArgs struct {
 	// The name of the Container Registry.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where this Container Registry exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getRegistry.
 type GetRegistryResult struct {
 	// Is the Administrator account enabled for this Container Registry.
-	AdminEnabled interface{}
+	AdminEnabled bool `pulumi:"adminEnabled"`
 	// The Password associated with the Container Registry Admin account - if the admin account is enabled.
-	AdminPassword interface{}
+	AdminPassword string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
-	AdminUsername interface{}
+	AdminUsername string `pulumi:"adminUsername"`
 	// The Azure Region in which this Container Registry exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
-	LoginServer interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	LoginServer string `pulumi:"loginServer"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of this Container Registry, such as `Basic`.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
-	StorageAccountId interface{}
+	StorageAccountId string `pulumi:"storageAccountId"`
 	// A map of tags assigned to the Container Registry.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

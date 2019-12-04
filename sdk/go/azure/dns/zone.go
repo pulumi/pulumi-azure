@@ -12,153 +12,117 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
 type Zone struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
+
+	// The name of the DNS Zone. Must be a valid domain name.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// (Optional) A list of values that make up the NS record for the zone.
+	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
+
+	// (Optional) The number of records already in the zone.
+	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
+
+	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
+	RegistrationVirtualNetworkIds pulumi.StringArrayOutput `pulumi:"registrationVirtualNetworkIds"`
+
+	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
+	ResolutionVirtualNetworkIds pulumi.StringArrayOutput `pulumi:"resolutionVirtualNetworkIds"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
+	ZoneType pulumi.StringOutput `pulumi:"zoneType"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
 func NewZone(ctx *pulumi.Context,
-	name string, args *ZoneArgs, opts ...pulumi.ResourceOpt) (*Zone, error) {
+	name string, args *ZoneArgs, opts ...pulumi.ResourceOption) (*Zone, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["registrationVirtualNetworkIds"] = nil
-		inputs["resolutionVirtualNetworkIds"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["zoneType"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["registrationVirtualNetworkIds"] = args.RegistrationVirtualNetworkIds
-		inputs["resolutionVirtualNetworkIds"] = args.ResolutionVirtualNetworkIds
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["zoneType"] = args.ZoneType
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RegistrationVirtualNetworkIds; i != nil { inputs["registrationVirtualNetworkIds"] = i.ToStringArrayOutput() }
+		if i := args.ResolutionVirtualNetworkIds; i != nil { inputs["resolutionVirtualNetworkIds"] = i.ToStringArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.ZoneType; i != nil { inputs["zoneType"] = i.ToStringOutput() }
 	}
-	inputs["maxNumberOfRecordSets"] = nil
-	inputs["nameServers"] = nil
-	inputs["numberOfRecordSets"] = nil
-	s, err := ctx.RegisterResource("azure:dns/zone:Zone", name, true, inputs, opts...)
+	var resource Zone
+	err := ctx.RegisterResource("azure:dns/zone:Zone", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Zone{s: s}, nil
+	return &resource, nil
 }
 
 // GetZone gets an existing Zone resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetZone(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ZoneState, opts ...pulumi.ResourceOpt) (*Zone, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ZoneState, opts ...pulumi.ResourceOption) (*Zone, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["maxNumberOfRecordSets"] = state.MaxNumberOfRecordSets
-		inputs["name"] = state.Name
-		inputs["nameServers"] = state.NameServers
-		inputs["numberOfRecordSets"] = state.NumberOfRecordSets
-		inputs["registrationVirtualNetworkIds"] = state.RegistrationVirtualNetworkIds
-		inputs["resolutionVirtualNetworkIds"] = state.ResolutionVirtualNetworkIds
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["zoneType"] = state.ZoneType
+		if i := state.MaxNumberOfRecordSets; i != nil { inputs["maxNumberOfRecordSets"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NameServers; i != nil { inputs["nameServers"] = i.ToStringArrayOutput() }
+		if i := state.NumberOfRecordSets; i != nil { inputs["numberOfRecordSets"] = i.ToIntOutput() }
+		if i := state.RegistrationVirtualNetworkIds; i != nil { inputs["registrationVirtualNetworkIds"] = i.ToStringArrayOutput() }
+		if i := state.ResolutionVirtualNetworkIds; i != nil { inputs["resolutionVirtualNetworkIds"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ZoneType; i != nil { inputs["zoneType"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:dns/zone:Zone", name, id, inputs, opts...)
+	var resource Zone
+	err := ctx.ReadResource("azure:dns/zone:Zone", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Zone{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Zone) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Zone) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-func (r *Zone) MaxNumberOfRecordSets() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
-}
-
-// The name of the DNS Zone. Must be a valid domain name.
-func (r *Zone) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// (Optional) A list of values that make up the NS record for the zone.
-func (r *Zone) NameServers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["nameServers"])
-}
-
-// (Optional) The number of records already in the zone.
-func (r *Zone) NumberOfRecordSets() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
-}
-
-// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-func (r *Zone) RegistrationVirtualNetworkIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["registrationVirtualNetworkIds"])
-}
-
-// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-func (r *Zone) ResolutionVirtualNetworkIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["resolutionVirtualNetworkIds"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *Zone) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Zone) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-func (r *Zone) ZoneType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneType"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Zone resources.
 type ZoneState struct {
 	// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-	MaxNumberOfRecordSets interface{}
+	MaxNumberOfRecordSets pulumi.IntInput `pulumi:"maxNumberOfRecordSets"`
 	// The name of the DNS Zone. Must be a valid domain name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// (Optional) A list of values that make up the NS record for the zone.
-	NameServers interface{}
+	NameServers pulumi.StringArrayInput `pulumi:"nameServers"`
 	// (Optional) The number of records already in the zone.
-	NumberOfRecordSets interface{}
+	NumberOfRecordSets pulumi.IntInput `pulumi:"numberOfRecordSets"`
 	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds interface{}
+	RegistrationVirtualNetworkIds pulumi.StringArrayInput `pulumi:"registrationVirtualNetworkIds"`
 	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds interface{}
+	ResolutionVirtualNetworkIds pulumi.StringArrayInput `pulumi:"resolutionVirtualNetworkIds"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType interface{}
+	ZoneType pulumi.StringInput `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
 	// The name of the DNS Zone. Must be a valid domain name.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	RegistrationVirtualNetworkIds interface{}
+	RegistrationVirtualNetworkIds pulumi.StringArrayInput `pulumi:"registrationVirtualNetworkIds"`
 	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
-	ResolutionVirtualNetworkIds interface{}
+	ResolutionVirtualNetworkIds pulumi.StringArrayInput `pulumi:"resolutionVirtualNetworkIds"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-	ZoneType interface{}
+	ZoneType pulumi.StringInput `pulumi:"zoneType"`
 }

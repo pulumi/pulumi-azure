@@ -4,6 +4,8 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,68 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
 type AuthorizationServer struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The OAUTH Authorization Endpoint.
+	AuthorizationEndpoint pulumi.StringOutput `pulumi:"authorizationEndpoint"`
+
+	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+	AuthorizationMethods pulumi.StringArrayOutput `pulumi:"authorizationMethods"`
+
+	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
+	BearerTokenSendingMethods pulumi.StringArrayOutput `pulumi:"bearerTokenSendingMethods"`
+
+	// The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
+	ClientAuthenticationMethods pulumi.StringArrayOutput `pulumi:"clientAuthenticationMethods"`
+
+	// The Client/App ID registered with this Authorization Server.
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+
+	// The URI of page where Client/App Registration is performed for this Authorization Server.
+	ClientRegistrationEndpoint pulumi.StringOutput `pulumi:"clientRegistrationEndpoint"`
+
+	// The Client/App Secret registered with this Authorization Server.
+	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
+
+	// The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
+	DefaultScope pulumi.StringOutput `pulumi:"defaultScope"`
+
+	// A description of the Authorization Server, which may contain HTML formatting tags.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The user-friendly name of this Authorization Server.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
+	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
+
+	// The name of this Authorization Server. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The password associated with the Resource Owner.
+	ResourceOwnerPassword pulumi.StringOutput `pulumi:"resourceOwnerPassword"`
+
+	// The username associated with the Resource Owner.
+	ResourceOwnerUsername pulumi.StringOutput `pulumi:"resourceOwnerUsername"`
+
+	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
+	SupportState pulumi.BoolOutput `pulumi:"supportState"`
+
+	TokenBodyParameters AuthorizationServerTokenBodyParametersArrayOutput `pulumi:"tokenBodyParameters"`
+
+	// The OAUTH Token Endpoint.
+	TokenEndpoint pulumi.StringOutput `pulumi:"tokenEndpoint"`
 }
 
 // NewAuthorizationServer registers a new resource with the given unique name, arguments, and options.
 func NewAuthorizationServer(ctx *pulumi.Context,
-	name string, args *AuthorizationServerArgs, opts ...pulumi.ResourceOpt) (*AuthorizationServer, error) {
+	name string, args *AuthorizationServerArgs, opts ...pulumi.ResourceOption) (*AuthorizationServer, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -42,270 +100,254 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["authorizationEndpoint"] = nil
-		inputs["authorizationMethods"] = nil
-		inputs["bearerTokenSendingMethods"] = nil
-		inputs["clientAuthenticationMethods"] = nil
-		inputs["clientId"] = nil
-		inputs["clientRegistrationEndpoint"] = nil
-		inputs["clientSecret"] = nil
-		inputs["defaultScope"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["grantTypes"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["resourceOwnerPassword"] = nil
-		inputs["resourceOwnerUsername"] = nil
-		inputs["supportState"] = nil
-		inputs["tokenBodyParameters"] = nil
-		inputs["tokenEndpoint"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["authorizationEndpoint"] = args.AuthorizationEndpoint
-		inputs["authorizationMethods"] = args.AuthorizationMethods
-		inputs["bearerTokenSendingMethods"] = args.BearerTokenSendingMethods
-		inputs["clientAuthenticationMethods"] = args.ClientAuthenticationMethods
-		inputs["clientId"] = args.ClientId
-		inputs["clientRegistrationEndpoint"] = args.ClientRegistrationEndpoint
-		inputs["clientSecret"] = args.ClientSecret
-		inputs["defaultScope"] = args.DefaultScope
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["grantTypes"] = args.GrantTypes
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["resourceOwnerPassword"] = args.ResourceOwnerPassword
-		inputs["resourceOwnerUsername"] = args.ResourceOwnerUsername
-		inputs["supportState"] = args.SupportState
-		inputs["tokenBodyParameters"] = args.TokenBodyParameters
-		inputs["tokenEndpoint"] = args.TokenEndpoint
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.AuthorizationEndpoint; i != nil { inputs["authorizationEndpoint"] = i.ToStringOutput() }
+		if i := args.AuthorizationMethods; i != nil { inputs["authorizationMethods"] = i.ToStringArrayOutput() }
+		if i := args.BearerTokenSendingMethods; i != nil { inputs["bearerTokenSendingMethods"] = i.ToStringArrayOutput() }
+		if i := args.ClientAuthenticationMethods; i != nil { inputs["clientAuthenticationMethods"] = i.ToStringArrayOutput() }
+		if i := args.ClientId; i != nil { inputs["clientId"] = i.ToStringOutput() }
+		if i := args.ClientRegistrationEndpoint; i != nil { inputs["clientRegistrationEndpoint"] = i.ToStringOutput() }
+		if i := args.ClientSecret; i != nil { inputs["clientSecret"] = i.ToStringOutput() }
+		if i := args.DefaultScope; i != nil { inputs["defaultScope"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.GrantTypes; i != nil { inputs["grantTypes"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ResourceOwnerPassword; i != nil { inputs["resourceOwnerPassword"] = i.ToStringOutput() }
+		if i := args.ResourceOwnerUsername; i != nil { inputs["resourceOwnerUsername"] = i.ToStringOutput() }
+		if i := args.SupportState; i != nil { inputs["supportState"] = i.ToBoolOutput() }
+		if i := args.TokenBodyParameters; i != nil { inputs["tokenBodyParameters"] = i.ToAuthorizationServerTokenBodyParametersArrayOutput() }
+		if i := args.TokenEndpoint; i != nil { inputs["tokenEndpoint"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/authorizationServer:AuthorizationServer", name, true, inputs, opts...)
+	var resource AuthorizationServer
+	err := ctx.RegisterResource("azure:apimanagement/authorizationServer:AuthorizationServer", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AuthorizationServer{s: s}, nil
+	return &resource, nil
 }
 
 // GetAuthorizationServer gets an existing AuthorizationServer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAuthorizationServer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AuthorizationServerState, opts ...pulumi.ResourceOpt) (*AuthorizationServer, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AuthorizationServerState, opts ...pulumi.ResourceOption) (*AuthorizationServer, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["authorizationEndpoint"] = state.AuthorizationEndpoint
-		inputs["authorizationMethods"] = state.AuthorizationMethods
-		inputs["bearerTokenSendingMethods"] = state.BearerTokenSendingMethods
-		inputs["clientAuthenticationMethods"] = state.ClientAuthenticationMethods
-		inputs["clientId"] = state.ClientId
-		inputs["clientRegistrationEndpoint"] = state.ClientRegistrationEndpoint
-		inputs["clientSecret"] = state.ClientSecret
-		inputs["defaultScope"] = state.DefaultScope
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["grantTypes"] = state.GrantTypes
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["resourceOwnerPassword"] = state.ResourceOwnerPassword
-		inputs["resourceOwnerUsername"] = state.ResourceOwnerUsername
-		inputs["supportState"] = state.SupportState
-		inputs["tokenBodyParameters"] = state.TokenBodyParameters
-		inputs["tokenEndpoint"] = state.TokenEndpoint
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.AuthorizationEndpoint; i != nil { inputs["authorizationEndpoint"] = i.ToStringOutput() }
+		if i := state.AuthorizationMethods; i != nil { inputs["authorizationMethods"] = i.ToStringArrayOutput() }
+		if i := state.BearerTokenSendingMethods; i != nil { inputs["bearerTokenSendingMethods"] = i.ToStringArrayOutput() }
+		if i := state.ClientAuthenticationMethods; i != nil { inputs["clientAuthenticationMethods"] = i.ToStringArrayOutput() }
+		if i := state.ClientId; i != nil { inputs["clientId"] = i.ToStringOutput() }
+		if i := state.ClientRegistrationEndpoint; i != nil { inputs["clientRegistrationEndpoint"] = i.ToStringOutput() }
+		if i := state.ClientSecret; i != nil { inputs["clientSecret"] = i.ToStringOutput() }
+		if i := state.DefaultScope; i != nil { inputs["defaultScope"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.GrantTypes; i != nil { inputs["grantTypes"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ResourceOwnerPassword; i != nil { inputs["resourceOwnerPassword"] = i.ToStringOutput() }
+		if i := state.ResourceOwnerUsername; i != nil { inputs["resourceOwnerUsername"] = i.ToStringOutput() }
+		if i := state.SupportState; i != nil { inputs["supportState"] = i.ToBoolOutput() }
+		if i := state.TokenBodyParameters; i != nil { inputs["tokenBodyParameters"] = i.ToAuthorizationServerTokenBodyParametersArrayOutput() }
+		if i := state.TokenEndpoint; i != nil { inputs["tokenEndpoint"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/authorizationServer:AuthorizationServer", name, id, inputs, opts...)
+	var resource AuthorizationServer
+	err := ctx.ReadResource("azure:apimanagement/authorizationServer:AuthorizationServer", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AuthorizationServer{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AuthorizationServer) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AuthorizationServer) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
-func (r *AuthorizationServer) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The OAUTH Authorization Endpoint.
-func (r *AuthorizationServer) AuthorizationEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["authorizationEndpoint"])
-}
-
-// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
-func (r *AuthorizationServer) AuthorizationMethods() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["authorizationMethods"])
-}
-
-// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
-func (r *AuthorizationServer) BearerTokenSendingMethods() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["bearerTokenSendingMethods"])
-}
-
-// The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
-func (r *AuthorizationServer) ClientAuthenticationMethods() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["clientAuthenticationMethods"])
-}
-
-// The Client/App ID registered with this Authorization Server.
-func (r *AuthorizationServer) ClientId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientId"])
-}
-
-// The URI of page where Client/App Registration is performed for this Authorization Server.
-func (r *AuthorizationServer) ClientRegistrationEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientRegistrationEndpoint"])
-}
-
-// The Client/App Secret registered with this Authorization Server.
-func (r *AuthorizationServer) ClientSecret() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientSecret"])
-}
-
-// The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
-func (r *AuthorizationServer) DefaultScope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultScope"])
-}
-
-// A description of the Authorization Server, which may contain HTML formatting tags.
-func (r *AuthorizationServer) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The user-friendly name of this Authorization Server.
-func (r *AuthorizationServer) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
-func (r *AuthorizationServer) GrantTypes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["grantTypes"])
-}
-
-// The name of this Authorization Server. Changing this forces a new resource to be created.
-func (r *AuthorizationServer) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *AuthorizationServer) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The password associated with the Resource Owner.
-func (r *AuthorizationServer) ResourceOwnerPassword() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceOwnerPassword"])
-}
-
-// The username associated with the Resource Owner.
-func (r *AuthorizationServer) ResourceOwnerUsername() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceOwnerUsername"])
-}
-
-// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-func (r *AuthorizationServer) SupportState() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["supportState"])
-}
-
-func (r *AuthorizationServer) TokenBodyParameters() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["tokenBodyParameters"])
-}
-
-// The OAUTH Token Endpoint.
-func (r *AuthorizationServer) TokenEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tokenEndpoint"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AuthorizationServer resources.
 type AuthorizationServerState struct {
 	// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The OAUTH Authorization Endpoint.
-	AuthorizationEndpoint interface{}
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
-	AuthorizationMethods interface{}
+	AuthorizationMethods pulumi.StringArrayInput `pulumi:"authorizationMethods"`
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
-	BearerTokenSendingMethods interface{}
+	BearerTokenSendingMethods pulumi.StringArrayInput `pulumi:"bearerTokenSendingMethods"`
 	// The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
-	ClientAuthenticationMethods interface{}
+	ClientAuthenticationMethods pulumi.StringArrayInput `pulumi:"clientAuthenticationMethods"`
 	// The Client/App ID registered with this Authorization Server.
-	ClientId interface{}
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The URI of page where Client/App Registration is performed for this Authorization Server.
-	ClientRegistrationEndpoint interface{}
+	ClientRegistrationEndpoint pulumi.StringInput `pulumi:"clientRegistrationEndpoint"`
 	// The Client/App Secret registered with this Authorization Server.
-	ClientSecret interface{}
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 	// The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
-	DefaultScope interface{}
+	DefaultScope pulumi.StringInput `pulumi:"defaultScope"`
 	// A description of the Authorization Server, which may contain HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The user-friendly name of this Authorization Server.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
-	GrantTypes interface{}
+	GrantTypes pulumi.StringArrayInput `pulumi:"grantTypes"`
 	// The name of this Authorization Server. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The password associated with the Resource Owner.
-	ResourceOwnerPassword interface{}
+	ResourceOwnerPassword pulumi.StringInput `pulumi:"resourceOwnerPassword"`
 	// The username associated with the Resource Owner.
-	ResourceOwnerUsername interface{}
+	ResourceOwnerUsername pulumi.StringInput `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState interface{}
-	TokenBodyParameters interface{}
+	SupportState pulumi.BoolInput `pulumi:"supportState"`
+	TokenBodyParameters AuthorizationServerTokenBodyParametersArrayInput `pulumi:"tokenBodyParameters"`
 	// The OAUTH Token Endpoint.
-	TokenEndpoint interface{}
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
 }
 
 // The set of arguments for constructing a AuthorizationServer resource.
 type AuthorizationServerArgs struct {
 	// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The OAUTH Authorization Endpoint.
-	AuthorizationEndpoint interface{}
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
-	AuthorizationMethods interface{}
+	AuthorizationMethods pulumi.StringArrayInput `pulumi:"authorizationMethods"`
 	// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
-	BearerTokenSendingMethods interface{}
+	BearerTokenSendingMethods pulumi.StringArrayInput `pulumi:"bearerTokenSendingMethods"`
 	// The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
-	ClientAuthenticationMethods interface{}
+	ClientAuthenticationMethods pulumi.StringArrayInput `pulumi:"clientAuthenticationMethods"`
 	// The Client/App ID registered with this Authorization Server.
-	ClientId interface{}
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The URI of page where Client/App Registration is performed for this Authorization Server.
-	ClientRegistrationEndpoint interface{}
+	ClientRegistrationEndpoint pulumi.StringInput `pulumi:"clientRegistrationEndpoint"`
 	// The Client/App Secret registered with this Authorization Server.
-	ClientSecret interface{}
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 	// The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
-	DefaultScope interface{}
+	DefaultScope pulumi.StringInput `pulumi:"defaultScope"`
 	// A description of the Authorization Server, which may contain HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The user-friendly name of this Authorization Server.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
-	GrantTypes interface{}
+	GrantTypes pulumi.StringArrayInput `pulumi:"grantTypes"`
 	// The name of this Authorization Server. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The password associated with the Resource Owner.
-	ResourceOwnerPassword interface{}
+	ResourceOwnerPassword pulumi.StringInput `pulumi:"resourceOwnerPassword"`
 	// The username associated with the Resource Owner.
-	ResourceOwnerUsername interface{}
+	ResourceOwnerUsername pulumi.StringInput `pulumi:"resourceOwnerUsername"`
 	// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-	SupportState interface{}
-	TokenBodyParameters interface{}
+	SupportState pulumi.BoolInput `pulumi:"supportState"`
+	TokenBodyParameters AuthorizationServerTokenBodyParametersArrayInput `pulumi:"tokenBodyParameters"`
 	// The OAUTH Token Endpoint.
-	TokenEndpoint interface{}
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
 }
+type AuthorizationServerTokenBodyParameters struct {
+	// The name of this Authorization Server. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+var authorizationServerTokenBodyParametersType = reflect.TypeOf((*AuthorizationServerTokenBodyParameters)(nil)).Elem()
+
+type AuthorizationServerTokenBodyParametersInput interface {
+	pulumi.Input
+
+	ToAuthorizationServerTokenBodyParametersOutput() AuthorizationServerTokenBodyParametersOutput
+	ToAuthorizationServerTokenBodyParametersOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParametersOutput
+}
+
+type AuthorizationServerTokenBodyParametersArgs struct {
+	// The name of this Authorization Server. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AuthorizationServerTokenBodyParametersArgs) ElementType() reflect.Type {
+	return authorizationServerTokenBodyParametersType
+}
+
+func (a AuthorizationServerTokenBodyParametersArgs) ToAuthorizationServerTokenBodyParametersOutput() AuthorizationServerTokenBodyParametersOutput {
+	return pulumi.ToOutput(a).(AuthorizationServerTokenBodyParametersOutput)
+}
+
+func (a AuthorizationServerTokenBodyParametersArgs) ToAuthorizationServerTokenBodyParametersOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AuthorizationServerTokenBodyParametersOutput)
+}
+
+type AuthorizationServerTokenBodyParametersOutput struct { *pulumi.OutputState }
+
+// The name of this Authorization Server. Changing this forces a new resource to be created.
+func (o AuthorizationServerTokenBodyParametersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AuthorizationServerTokenBodyParameters) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AuthorizationServerTokenBodyParametersOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v AuthorizationServerTokenBodyParameters) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (AuthorizationServerTokenBodyParametersOutput) ElementType() reflect.Type {
+	return authorizationServerTokenBodyParametersType
+}
+
+func (o AuthorizationServerTokenBodyParametersOutput) ToAuthorizationServerTokenBodyParametersOutput() AuthorizationServerTokenBodyParametersOutput {
+	return o
+}
+
+func (o AuthorizationServerTokenBodyParametersOutput) ToAuthorizationServerTokenBodyParametersOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParametersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AuthorizationServerTokenBodyParametersOutput{}) }
+
+var authorizationServerTokenBodyParametersArrayType = reflect.TypeOf((*[]AuthorizationServerTokenBodyParameters)(nil)).Elem()
+
+type AuthorizationServerTokenBodyParametersArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizationServerTokenBodyParametersArrayOutput() AuthorizationServerTokenBodyParametersArrayOutput
+	ToAuthorizationServerTokenBodyParametersArrayOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParametersArrayOutput
+}
+
+type AuthorizationServerTokenBodyParametersArrayArgs []AuthorizationServerTokenBodyParametersInput
+
+func (AuthorizationServerTokenBodyParametersArrayArgs) ElementType() reflect.Type {
+	return authorizationServerTokenBodyParametersArrayType
+}
+
+func (a AuthorizationServerTokenBodyParametersArrayArgs) ToAuthorizationServerTokenBodyParametersArrayOutput() AuthorizationServerTokenBodyParametersArrayOutput {
+	return pulumi.ToOutput(a).(AuthorizationServerTokenBodyParametersArrayOutput)
+}
+
+func (a AuthorizationServerTokenBodyParametersArrayArgs) ToAuthorizationServerTokenBodyParametersArrayOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AuthorizationServerTokenBodyParametersArrayOutput)
+}
+
+type AuthorizationServerTokenBodyParametersArrayOutput struct { *pulumi.OutputState }
+
+func (o AuthorizationServerTokenBodyParametersArrayOutput) Index(i pulumi.IntInput) AuthorizationServerTokenBodyParametersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AuthorizationServerTokenBodyParameters {
+		return vs[0].([]AuthorizationServerTokenBodyParameters)[vs[1].(int)]
+	}).(AuthorizationServerTokenBodyParametersOutput)
+}
+
+func (AuthorizationServerTokenBodyParametersArrayOutput) ElementType() reflect.Type {
+	return authorizationServerTokenBodyParametersArrayType
+}
+
+func (o AuthorizationServerTokenBodyParametersArrayOutput) ToAuthorizationServerTokenBodyParametersArrayOutput() AuthorizationServerTokenBodyParametersArrayOutput {
+	return o
+}
+
+func (o AuthorizationServerTokenBodyParametersArrayOutput) ToAuthorizationServerTokenBodyParametersArrayOutputWithContext(ctx context.Context) AuthorizationServerTokenBodyParametersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AuthorizationServerTokenBodyParametersArrayOutput{}) }
+

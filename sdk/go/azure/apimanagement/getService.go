@@ -10,80 +10,115 @@ import (
 // Use this data source to access information about an existing API Management Service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
-func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:apimanagement/getService:getService", inputs)
+func LookupService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
+	var rv GetServiceResult
+	err := ctx.Invoke("azure:apimanagement/getService:getService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServiceResult{
-		AdditionalLocations: outputs["additionalLocations"],
-		GatewayRegionalUrl: outputs["gatewayRegionalUrl"],
-		GatewayUrl: outputs["gatewayUrl"],
-		HostnameConfigurations: outputs["hostnameConfigurations"],
-		Location: outputs["location"],
-		ManagementApiUrl: outputs["managementApiUrl"],
-		Name: outputs["name"],
-		NotificationSenderEmail: outputs["notificationSenderEmail"],
-		PortalUrl: outputs["portalUrl"],
-		PublicIpAddresses: outputs["publicIpAddresses"],
-		PublisherEmail: outputs["publisherEmail"],
-		PublisherName: outputs["publisherName"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ScmUrl: outputs["scmUrl"],
-		Sku: outputs["sku"],
-		SkuName: outputs["skuName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getService.
 type GetServiceArgs struct {
 	// The name of the API Management service.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group in which the API Management Service exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
 	// One or more `additionalLocation` blocks as defined below
-	AdditionalLocations interface{}
+	AdditionalLocations []GetServiceAdditionalLocationsResult `pulumi:"additionalLocations"`
 	// Gateway URL of the API Management service in the Region.
-	GatewayRegionalUrl interface{}
+	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
 	// The URL for the API Management Service's Gateway.
-	GatewayUrl interface{}
+	GatewayUrl string `pulumi:"gatewayUrl"`
 	// A `hostnameConfiguration` block as defined below.
-	HostnameConfigurations interface{}
+	HostnameConfigurations []GetServiceHostnameConfigurationsResult `pulumi:"hostnameConfigurations"`
 	// The location name of the additional region among Azure Data center regions.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The URL for the Management API.
-	ManagementApiUrl interface{}
+	ManagementApiUrl string `pulumi:"managementApiUrl"`
 	// Specifies the plan's pricing tier.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The email address from which the notification will be sent.
-	NotificationSenderEmail interface{}
+	NotificationSenderEmail string `pulumi:"notificationSenderEmail"`
 	// The URL of the Publisher Portal.
-	PortalUrl interface{}
+	PortalUrl string `pulumi:"portalUrl"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-	PublicIpAddresses interface{}
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// The email of Publisher/Company of the API Management Service.
-	PublisherEmail interface{}
+	PublisherEmail string `pulumi:"publisherEmail"`
 	// The name of the Publisher/Company of the API Management Service.
-	PublisherName interface{}
-	ResourceGroupName interface{}
+	PublisherName string `pulumi:"publisherName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SCM (Source Code Management) endpoint.
-	ScmUrl interface{}
+	ScmUrl string `pulumi:"scmUrl"`
 	// A `sku` block as documented below.
-	Sku interface{}
-	SkuName interface{}
+	Sku GetServiceSkuResult `pulumi:"sku"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetServiceAdditionalLocationsResult struct {
+	// Gateway URL of the API Management service in the Region.
+	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
+	// The location name of the additional region among Azure Data center regions.
+	Location string `pulumi:"location"`
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+}
+type GetServiceHostnameConfigurationsManagementsResult struct {
+	// The Hostname used for the SCM URL.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret which contains the SSL Certificate.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Is Client Certificate Negotiation enabled?
+	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
+}
+type GetServiceHostnameConfigurationsPortalsResult struct {
+	// The Hostname used for the SCM URL.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret which contains the SSL Certificate.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Is Client Certificate Negotiation enabled?
+	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
+}
+type GetServiceHostnameConfigurationsProxiesResult struct {
+	// Is this the default SSL Binding?
+	DefaultSslBinding bool `pulumi:"defaultSslBinding"`
+	// The Hostname used for the SCM URL.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret which contains the SSL Certificate.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Is Client Certificate Negotiation enabled?
+	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
+}
+type GetServiceHostnameConfigurationsResult struct {
+	// One or more `management` blocks as documented below.
+	Managements []GetServiceHostnameConfigurationsManagementsResult `pulumi:"managements"`
+	// One or more `portal` blocks as documented below.
+	Portals []GetServiceHostnameConfigurationsPortalsResult `pulumi:"portals"`
+	// One or more `proxy` blocks as documented below.
+	Proxies []GetServiceHostnameConfigurationsProxiesResult `pulumi:"proxies"`
+	// One or more `scm` blocks as documented below.
+	Scms []GetServiceHostnameConfigurationsScmsResult `pulumi:"scms"`
+}
+type GetServiceHostnameConfigurationsScmsResult struct {
+	// The Hostname used for the SCM URL.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret which contains the SSL Certificate.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// Is Client Certificate Negotiation enabled?
+	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
+}
+type GetServiceSkuResult struct {
+	// Specifies the number of units associated with this API Management service.
+	Capacity int `pulumi:"capacity"`
+	// The name of the API Management service.
+	Name string `pulumi:"name"`
 }

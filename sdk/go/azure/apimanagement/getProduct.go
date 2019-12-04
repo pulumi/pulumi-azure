@@ -10,61 +10,44 @@ import (
 // Use this data source to access information about an existing API Management Product.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
-func LookupProduct(ctx *pulumi.Context, args *GetProductArgs) (*GetProductResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["productId"] = args.ProductId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:apimanagement/getProduct:getProduct", inputs)
+func LookupProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
+	var rv GetProductResult
+	err := ctx.Invoke("azure:apimanagement/getProduct:getProduct", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetProductResult{
-		ApiManagementName: outputs["apiManagementName"],
-		ApprovalRequired: outputs["approvalRequired"],
-		Description: outputs["description"],
-		DisplayName: outputs["displayName"],
-		ProductId: outputs["productId"],
-		Published: outputs["published"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SubscriptionRequired: outputs["subscriptionRequired"],
-		SubscriptionsLimit: outputs["subscriptionsLimit"],
-		Terms: outputs["terms"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getProduct.
 type GetProductArgs struct {
 	// The Name of the API Management Service in which this Product exists.
-	ApiManagementName interface{}
+	ApiManagementName string `pulumi:"apiManagementName"`
 	// The Identifier for the API Management Product.
-	ProductId interface{}
+	ProductId string `pulumi:"productId"`
 	// The Name of the Resource Group in which the API Management Service exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getProduct.
 type GetProductResult struct {
-	ApiManagementName interface{}
+	ApiManagementName string `pulumi:"apiManagementName"`
 	// Do subscribers need to be approved prior to being able to use the Product?
-	ApprovalRequired interface{}
+	ApprovalRequired bool `pulumi:"approvalRequired"`
 	// The description of this Product, which may include HTML formatting tags.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// The Display Name for this API Management Product.
-	DisplayName interface{}
-	ProductId interface{}
+	DisplayName string `pulumi:"displayName"`
+	ProductId string `pulumi:"productId"`
 	// Is this Product Published?
-	Published interface{}
-	ResourceGroupName interface{}
+	Published bool `pulumi:"published"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Is a Subscription required to access API's included in this Product?
-	SubscriptionRequired interface{}
+	SubscriptionRequired bool `pulumi:"subscriptionRequired"`
 	// The number of subscriptions a user can have to this Product at the same time.
-	SubscriptionsLimit interface{}
+	SubscriptionsLimit int `pulumi:"subscriptionsLimit"`
 	// Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-	Terms interface{}
+	Terms string `pulumi:"terms"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

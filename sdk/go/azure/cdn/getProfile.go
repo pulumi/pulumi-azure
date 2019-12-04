@@ -10,44 +10,33 @@ import (
 // Use this data source to access information about an existing CDN Profile.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
-func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:cdn/getProfile:getProfile", inputs)
+func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs, opts ...pulumi.InvokeOption) (*GetProfileResult, error) {
+	var rv GetProfileResult
+	err := ctx.Invoke("azure:cdn/getProfile:getProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetProfileResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getProfile.
 type GetProfileArgs struct {
 	// The name of the CDN Profile.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the CDN Profile exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getProfile.
 type GetProfileResult struct {
 	// The Azure Region where the resource exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The pricing related information of current CDN profile.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

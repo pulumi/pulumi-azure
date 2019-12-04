@@ -4,6 +4,8 @@
 package cosmosdb
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,35 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
 type MongoCollection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+
+	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
+	DefaultTtlSeconds pulumi.IntOutput `pulumi:"defaultTtlSeconds"`
+
+	// One or more `indexes` blocks as defined below.
+	Indexes MongoCollectionIndexesArrayOutput `pulumi:"indexes"`
+
+	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the key to partition on for sharding. There must not be any other unique index keys.
+	ShardKey pulumi.StringOutput `pulumi:"shardKey"`
+
+	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
+	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
 // NewMongoCollection registers a new resource with the given unique name, arguments, and options.
 func NewMongoCollection(ctx *pulumi.Context,
-	name string, args *MongoCollectionArgs, opts ...pulumi.ResourceOpt) (*MongoCollection, error) {
+	name string, args *MongoCollectionArgs, opts ...pulumi.ResourceOption) (*MongoCollection, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -27,138 +52,185 @@ func NewMongoCollection(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["databaseName"] = nil
-		inputs["defaultTtlSeconds"] = nil
-		inputs["indexes"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["shardKey"] = nil
-		inputs["throughput"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["databaseName"] = args.DatabaseName
-		inputs["defaultTtlSeconds"] = args.DefaultTtlSeconds
-		inputs["indexes"] = args.Indexes
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["shardKey"] = args.ShardKey
-		inputs["throughput"] = args.Throughput
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := args.DefaultTtlSeconds; i != nil { inputs["defaultTtlSeconds"] = i.ToIntOutput() }
+		if i := args.Indexes; i != nil { inputs["indexes"] = i.ToMongoCollectionIndexesArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ShardKey; i != nil { inputs["shardKey"] = i.ToStringOutput() }
+		if i := args.Throughput; i != nil { inputs["throughput"] = i.ToIntOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:cosmosdb/mongoCollection:MongoCollection", name, true, inputs, opts...)
+	var resource MongoCollection
+	err := ctx.RegisterResource("azure:cosmosdb/mongoCollection:MongoCollection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MongoCollection{s: s}, nil
+	return &resource, nil
 }
 
 // GetMongoCollection gets an existing MongoCollection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetMongoCollection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *MongoCollectionState, opts ...pulumi.ResourceOpt) (*MongoCollection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *MongoCollectionState, opts ...pulumi.ResourceOption) (*MongoCollection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["databaseName"] = state.DatabaseName
-		inputs["defaultTtlSeconds"] = state.DefaultTtlSeconds
-		inputs["indexes"] = state.Indexes
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["shardKey"] = state.ShardKey
-		inputs["throughput"] = state.Throughput
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := state.DefaultTtlSeconds; i != nil { inputs["defaultTtlSeconds"] = i.ToIntOutput() }
+		if i := state.Indexes; i != nil { inputs["indexes"] = i.ToMongoCollectionIndexesArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ShardKey; i != nil { inputs["shardKey"] = i.ToStringOutput() }
+		if i := state.Throughput; i != nil { inputs["throughput"] = i.ToIntOutput() }
 	}
-	s, err := ctx.ReadResource("azure:cosmosdb/mongoCollection:MongoCollection", name, id, inputs, opts...)
+	var resource MongoCollection
+	err := ctx.ReadResource("azure:cosmosdb/mongoCollection:MongoCollection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &MongoCollection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *MongoCollection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *MongoCollection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *MongoCollection) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-func (r *MongoCollection) DatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["databaseName"])
-}
-
-// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-func (r *MongoCollection) DefaultTtlSeconds() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["defaultTtlSeconds"])
-}
-
-// One or more `indexes` blocks as defined below.
-func (r *MongoCollection) Indexes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["indexes"])
-}
-
-// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-func (r *MongoCollection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-func (r *MongoCollection) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the key to partition on for sharding. There must not be any other unique index keys.
-func (r *MongoCollection) ShardKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["shardKey"])
-}
-
-// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-func (r *MongoCollection) Throughput() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["throughput"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering MongoCollection resources.
 type MongoCollectionState struct {
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-	DefaultTtlSeconds interface{}
+	DefaultTtlSeconds pulumi.IntInput `pulumi:"defaultTtlSeconds"`
 	// One or more `indexes` blocks as defined below.
-	Indexes interface{}
+	Indexes MongoCollectionIndexesArrayInput `pulumi:"indexes"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey interface{}
+	ShardKey pulumi.StringInput `pulumi:"shardKey"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-	Throughput interface{}
+	Throughput pulumi.IntInput `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a MongoCollection resource.
 type MongoCollectionArgs struct {
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
-	DefaultTtlSeconds interface{}
+	DefaultTtlSeconds pulumi.IntInput `pulumi:"defaultTtlSeconds"`
 	// One or more `indexes` blocks as defined below.
-	Indexes interface{}
+	Indexes MongoCollectionIndexesArrayInput `pulumi:"indexes"`
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
-	ShardKey interface{}
+	ShardKey pulumi.StringInput `pulumi:"shardKey"`
 	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-	Throughput interface{}
+	Throughput pulumi.IntInput `pulumi:"throughput"`
 }
+type MongoCollectionIndexes struct {
+	Key string `pulumi:"key"`
+	Unique *bool `pulumi:"unique"`
+}
+var mongoCollectionIndexesType = reflect.TypeOf((*MongoCollectionIndexes)(nil)).Elem()
+
+type MongoCollectionIndexesInput interface {
+	pulumi.Input
+
+	ToMongoCollectionIndexesOutput() MongoCollectionIndexesOutput
+	ToMongoCollectionIndexesOutputWithContext(ctx context.Context) MongoCollectionIndexesOutput
+}
+
+type MongoCollectionIndexesArgs struct {
+	Key pulumi.StringInput `pulumi:"key"`
+	Unique pulumi.BoolInput `pulumi:"unique"`
+}
+
+func (MongoCollectionIndexesArgs) ElementType() reflect.Type {
+	return mongoCollectionIndexesType
+}
+
+func (a MongoCollectionIndexesArgs) ToMongoCollectionIndexesOutput() MongoCollectionIndexesOutput {
+	return pulumi.ToOutput(a).(MongoCollectionIndexesOutput)
+}
+
+func (a MongoCollectionIndexesArgs) ToMongoCollectionIndexesOutputWithContext(ctx context.Context) MongoCollectionIndexesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MongoCollectionIndexesOutput)
+}
+
+type MongoCollectionIndexesOutput struct { *pulumi.OutputState }
+
+func (o MongoCollectionIndexesOutput) Key() pulumi.StringOutput {
+	return o.Apply(func(v MongoCollectionIndexes) string {
+		return v.Key
+	}).(pulumi.StringOutput)
+}
+
+func (o MongoCollectionIndexesOutput) Unique() pulumi.BoolOutput {
+	return o.Apply(func(v MongoCollectionIndexes) bool {
+		if v.Unique == nil { return *new(bool) } else { return *v.Unique }
+	}).(pulumi.BoolOutput)
+}
+
+func (MongoCollectionIndexesOutput) ElementType() reflect.Type {
+	return mongoCollectionIndexesType
+}
+
+func (o MongoCollectionIndexesOutput) ToMongoCollectionIndexesOutput() MongoCollectionIndexesOutput {
+	return o
+}
+
+func (o MongoCollectionIndexesOutput) ToMongoCollectionIndexesOutputWithContext(ctx context.Context) MongoCollectionIndexesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MongoCollectionIndexesOutput{}) }
+
+var mongoCollectionIndexesArrayType = reflect.TypeOf((*[]MongoCollectionIndexes)(nil)).Elem()
+
+type MongoCollectionIndexesArrayInput interface {
+	pulumi.Input
+
+	ToMongoCollectionIndexesArrayOutput() MongoCollectionIndexesArrayOutput
+	ToMongoCollectionIndexesArrayOutputWithContext(ctx context.Context) MongoCollectionIndexesArrayOutput
+}
+
+type MongoCollectionIndexesArrayArgs []MongoCollectionIndexesInput
+
+func (MongoCollectionIndexesArrayArgs) ElementType() reflect.Type {
+	return mongoCollectionIndexesArrayType
+}
+
+func (a MongoCollectionIndexesArrayArgs) ToMongoCollectionIndexesArrayOutput() MongoCollectionIndexesArrayOutput {
+	return pulumi.ToOutput(a).(MongoCollectionIndexesArrayOutput)
+}
+
+func (a MongoCollectionIndexesArrayArgs) ToMongoCollectionIndexesArrayOutputWithContext(ctx context.Context) MongoCollectionIndexesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(MongoCollectionIndexesArrayOutput)
+}
+
+type MongoCollectionIndexesArrayOutput struct { *pulumi.OutputState }
+
+func (o MongoCollectionIndexesArrayOutput) Index(i pulumi.IntInput) MongoCollectionIndexesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) MongoCollectionIndexes {
+		return vs[0].([]MongoCollectionIndexes)[vs[1].(int)]
+	}).(MongoCollectionIndexesOutput)
+}
+
+func (MongoCollectionIndexesArrayOutput) ElementType() reflect.Type {
+	return mongoCollectionIndexesArrayType
+}
+
+func (o MongoCollectionIndexesArrayOutput) ToMongoCollectionIndexesArrayOutput() MongoCollectionIndexesArrayOutput {
+	return o
+}
+
+func (o MongoCollectionIndexesArrayOutput) ToMongoCollectionIndexesArrayOutputWithContext(ctx context.Context) MongoCollectionIndexesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(MongoCollectionIndexesArrayOutput{}) }
+

@@ -4,6 +4,8 @@
 package notificationhub
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,150 +14,170 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
 type Namespace struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Is this Notification Hub Namespace enabled? Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// The Azure Region in which this Notification Hub Namespace should be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
+	NamespaceType pulumi.StringOutput `pulumi:"namespaceType"`
+
+	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The ServiceBus Endpoint for this Notification Hub Namespace.
+	ServicebusEndpoint pulumi.StringOutput `pulumi:"servicebusEndpoint"`
+
+	// ) A `sku` block as described below.
+	Sku NamespaceSkuOutput `pulumi:"sku"`
+
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
 func NewNamespace(ctx *pulumi.Context,
-	name string, args *NamespaceArgs, opts ...pulumi.ResourceOpt) (*Namespace, error) {
+	name string, args *NamespaceArgs, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	if args == nil || args.NamespaceType == nil {
 		return nil, errors.New("missing required argument 'NamespaceType'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["enabled"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["namespaceType"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["skuName"] = nil
-	} else {
-		inputs["enabled"] = args.Enabled
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["namespaceType"] = args.NamespaceType
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["skuName"] = args.SkuName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceType; i != nil { inputs["namespaceType"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToNamespaceSkuOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
 	}
-	inputs["servicebusEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:notificationhub/namespace:Namespace", name, true, inputs, opts...)
+	var resource Namespace
+	err := ctx.RegisterResource("azure:notificationhub/namespace:Namespace", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
+	return &resource, nil
 }
 
 // GetNamespace gets an existing Namespace resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNamespace(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NamespaceState, opts ...pulumi.ResourceOpt) (*Namespace, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NamespaceState, opts ...pulumi.ResourceOption) (*Namespace, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["enabled"] = state.Enabled
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["namespaceType"] = state.NamespaceType
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["servicebusEndpoint"] = state.ServicebusEndpoint
-		inputs["sku"] = state.Sku
-		inputs["skuName"] = state.SkuName
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceType; i != nil { inputs["namespaceType"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServicebusEndpoint; i != nil { inputs["servicebusEndpoint"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToNamespaceSkuOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:notificationhub/namespace:Namespace", name, id, inputs, opts...)
+	var resource Namespace
+	err := ctx.ReadResource("azure:notificationhub/namespace:Namespace", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Is this Notification Hub Namespace enabled? Defaults to `true`.
-func (r *Namespace) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// The Azure Region in which this Notification Hub Namespace should be created.
-func (r *Namespace) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-func (r *Namespace) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
-func (r *Namespace) NamespaceType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceType"])
-}
-
-// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-func (r *Namespace) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The ServiceBus Endpoint for this Notification Hub Namespace.
-func (r *Namespace) ServicebusEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["servicebusEndpoint"])
-}
-
-// ) A `sku` block as described below.
-func (r *Namespace) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
-func (r *Namespace) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Namespace resources.
 type NamespaceState struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The Azure Region in which this Notification Hub Namespace should be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
-	NamespaceType interface{}
+	NamespaceType pulumi.StringInput `pulumi:"namespaceType"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
-	ServicebusEndpoint interface{}
+	ServicebusEndpoint pulumi.StringInput `pulumi:"servicebusEndpoint"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku NamespaceSkuInput `pulumi:"sku"`
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
 	// Is this Notification Hub Namespace enabled? Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The Azure Region in which this Notification Hub Namespace should be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
-	NamespaceType interface{}
+	NamespaceType pulumi.StringInput `pulumi:"namespaceType"`
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ) A `sku` block as described below.
-	Sku interface{}
+	Sku NamespaceSkuInput `pulumi:"sku"`
 	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 }
+type NamespaceSku struct {
+	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var namespaceSkuType = reflect.TypeOf((*NamespaceSku)(nil)).Elem()
+
+type NamespaceSkuInput interface {
+	pulumi.Input
+
+	ToNamespaceSkuOutput() NamespaceSkuOutput
+	ToNamespaceSkuOutputWithContext(ctx context.Context) NamespaceSkuOutput
+}
+
+type NamespaceSkuArgs struct {
+	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (NamespaceSkuArgs) ElementType() reflect.Type {
+	return namespaceSkuType
+}
+
+func (a NamespaceSkuArgs) ToNamespaceSkuOutput() NamespaceSkuOutput {
+	return pulumi.ToOutput(a).(NamespaceSkuOutput)
+}
+
+func (a NamespaceSkuArgs) ToNamespaceSkuOutputWithContext(ctx context.Context) NamespaceSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NamespaceSkuOutput)
+}
+
+type NamespaceSkuOutput struct { *pulumi.OutputState }
+
+// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
+func (o NamespaceSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v NamespaceSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (NamespaceSkuOutput) ElementType() reflect.Type {
+	return namespaceSkuType
+}
+
+func (o NamespaceSkuOutput) ToNamespaceSkuOutput() NamespaceSkuOutput {
+	return o
+}
+
+func (o NamespaceSkuOutput) ToNamespaceSkuOutputWithContext(ctx context.Context) NamespaceSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NamespaceSkuOutput{}) }
+

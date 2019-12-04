@@ -12,198 +12,147 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate.html.markdown.
 type Certificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The expiration date for the certificate.
+	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
+
+	// The friendly name of the certificate.
+	FriendlyName pulumi.StringOutput `pulumi:"friendlyName"`
+
+	// List of host names the certificate applies to.
+	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
+
+	// The issue date for the certificate.
+	IssueDate pulumi.StringOutput `pulumi:"issueDate"`
+
+	// The name of the certificate issuer.
+	Issuer pulumi.StringOutput `pulumi:"issuer"`
+
+	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	KeyVaultSecretId pulumi.StringOutput `pulumi:"keyVaultSecretId"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the certificate. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The password to access the certificate's private key. Changing this forces a new resource to be created.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+	PfxBlob pulumi.StringOutput `pulumi:"pfxBlob"`
+
+	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The subject name of the certificate.
+	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
+
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The thumbprint for the certificate.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
-	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
+	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["keyVaultSecretId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["password"] = nil
-		inputs["pfxBlob"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["keyVaultSecretId"] = args.KeyVaultSecretId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["password"] = args.Password
-		inputs["pfxBlob"] = args.PfxBlob
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.KeyVaultSecretId; i != nil { inputs["keyVaultSecretId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.PfxBlob; i != nil { inputs["pfxBlob"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["expirationDate"] = nil
-	inputs["friendlyName"] = nil
-	inputs["hostNames"] = nil
-	inputs["issueDate"] = nil
-	inputs["issuer"] = nil
-	inputs["subjectName"] = nil
-	inputs["thumbprint"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/certificate:Certificate", name, true, inputs, opts...)
+	var resource Certificate
+	err := ctx.RegisterResource("azure:appservice/certificate:Certificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetCertificate gets an existing Certificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertificateState, opts ...pulumi.ResourceOpt) (*Certificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["expirationDate"] = state.ExpirationDate
-		inputs["friendlyName"] = state.FriendlyName
-		inputs["hostNames"] = state.HostNames
-		inputs["issueDate"] = state.IssueDate
-		inputs["issuer"] = state.Issuer
-		inputs["keyVaultSecretId"] = state.KeyVaultSecretId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["password"] = state.Password
-		inputs["pfxBlob"] = state.PfxBlob
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["subjectName"] = state.SubjectName
-		inputs["tags"] = state.Tags
-		inputs["thumbprint"] = state.Thumbprint
+		if i := state.ExpirationDate; i != nil { inputs["expirationDate"] = i.ToStringOutput() }
+		if i := state.FriendlyName; i != nil { inputs["friendlyName"] = i.ToStringOutput() }
+		if i := state.HostNames; i != nil { inputs["hostNames"] = i.ToStringArrayOutput() }
+		if i := state.IssueDate; i != nil { inputs["issueDate"] = i.ToStringOutput() }
+		if i := state.Issuer; i != nil { inputs["issuer"] = i.ToStringOutput() }
+		if i := state.KeyVaultSecretId; i != nil { inputs["keyVaultSecretId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.PfxBlob; i != nil { inputs["pfxBlob"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SubjectName; i != nil { inputs["subjectName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Thumbprint; i != nil { inputs["thumbprint"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/certificate:Certificate", name, id, inputs, opts...)
+	var resource Certificate
+	err := ctx.ReadResource("azure:appservice/certificate:Certificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Certificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Certificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The expiration date for the certificate.
-func (r *Certificate) ExpirationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expirationDate"])
-}
-
-// The friendly name of the certificate.
-func (r *Certificate) FriendlyName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["friendlyName"])
-}
-
-// List of host names the certificate applies to.
-func (r *Certificate) HostNames() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["hostNames"])
-}
-
-// The issue date for the certificate.
-func (r *Certificate) IssueDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["issueDate"])
-}
-
-// The name of the certificate issuer.
-func (r *Certificate) Issuer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["issuer"])
-}
-
-// The ID of the Key Vault secret. Changing this forces a new resource to be created.
-func (r *Certificate) KeyVaultSecretId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyVaultSecretId"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Certificate) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the certificate. Changing this forces a new resource to be created.
-func (r *Certificate) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The password to access the certificate's private key. Changing this forces a new resource to be created.
-func (r *Certificate) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
-func (r *Certificate) PfxBlob() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["pfxBlob"])
-}
-
-// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-func (r *Certificate) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The subject name of the certificate.
-func (r *Certificate) SubjectName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subjectName"])
-}
-
-func (r *Certificate) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The thumbprint for the certificate.
-func (r *Certificate) Thumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thumbprint"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Certificate resources.
 type CertificateState struct {
 	// The expiration date for the certificate.
-	ExpirationDate interface{}
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
 	// The friendly name of the certificate.
-	FriendlyName interface{}
+	FriendlyName pulumi.StringInput `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
-	HostNames interface{}
+	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
 	// The issue date for the certificate.
-	IssueDate interface{}
+	IssueDate pulumi.StringInput `pulumi:"issueDate"`
 	// The name of the certificate issuer.
-	Issuer interface{}
+	Issuer pulumi.StringInput `pulumi:"issuer"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
-	KeyVaultSecretId interface{}
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
-	PfxBlob interface{}
+	PfxBlob pulumi.StringInput `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName interface{}
-	Tags interface{}
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The thumbprint for the certificate.
-	Thumbprint interface{}
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
-	KeyVaultSecretId interface{}
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The password to access the certificate's private key. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
-	PfxBlob interface{}
+	PfxBlob pulumi.StringInput `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	Tags interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

@@ -12,12 +12,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group.html.markdown.
 type Group struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The description of this API Management Group.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The display name of this API Management Group.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
+	ExternalId pulumi.StringOutput `pulumi:"externalId"`
+
+	// The name of the API Management Group. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
-	name string, args *GroupArgs, opts ...pulumi.ResourceOpt) (*Group, error) {
+	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -27,129 +48,78 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["externalId"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["externalId"] = args.ExternalId
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.ExternalId; i != nil { inputs["externalId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/group:Group", name, true, inputs, opts...)
+	var resource Group
+	err := ctx.RegisterResource("azure:apimanagement/group:Group", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Group{s: s}, nil
+	return &resource, nil
 }
 
 // GetGroup gets an existing Group resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GroupState, opts ...pulumi.ResourceOpt) (*Group, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GroupState, opts ...pulumi.ResourceOption) (*Group, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["externalId"] = state.ExternalId
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["type"] = state.Type
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.ExternalId; i != nil { inputs["externalId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/group:Group", name, id, inputs, opts...)
+	var resource Group
+	err := ctx.ReadResource("azure:apimanagement/group:Group", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Group{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Group) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Group) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
-func (r *Group) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The description of this API Management Group.
-func (r *Group) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The display name of this API Management Group.
-func (r *Group) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
-func (r *Group) ExternalId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["externalId"])
-}
-
-// The name of the API Management Group. Changing this forces a new resource to be created.
-func (r *Group) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-func (r *Group) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
-func (r *Group) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Group resources.
 type GroupState struct {
 	// The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The description of this API Management Group.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of this API Management Group.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
-	ExternalId interface{}
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
 	// The name of the API Management Group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The description of this API Management Group.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of this API Management Group.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
-	ExternalId interface{}
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
 	// The name of the API Management Group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }

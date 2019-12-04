@@ -10,60 +10,50 @@ import (
 // Use this data source to access information about an existing Batch Account.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_account.html.markdown.
-func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:batch/getAccount:getAccount", inputs)
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.InvokeOption) (*GetAccountResult, error) {
+	var rv GetAccountResult
+	err := ctx.Invoke("azure:batch/getAccount:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccountResult{
-		AccountEndpoint: outputs["accountEndpoint"],
-		KeyVaultReferences: outputs["keyVaultReferences"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PoolAllocationMode: outputs["poolAllocationMode"],
-		PrimaryAccessKey: outputs["primaryAccessKey"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecondaryAccessKey: outputs["secondaryAccessKey"],
-		StorageAccountId: outputs["storageAccountId"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
 	// The name of the Batch account.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where this Batch account exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
-	AccountEndpoint interface{}
+	AccountEndpoint string `pulumi:"accountEndpoint"`
 	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
-	KeyVaultReferences interface{}
+	KeyVaultReferences []GetAccountKeyVaultReferencesResult `pulumi:"keyVaultReferences"`
 	// The Azure Region in which this Batch account exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The Batch account name.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The pool allocation mode configured for this Batch account.
-	PoolAllocationMode interface{}
+	PoolAllocationMode string `pulumi:"poolAllocationMode"`
 	// The Batch account primary access key.
-	PrimaryAccessKey interface{}
-	ResourceGroupName interface{}
+	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The ID of the Storage Account used for this Batch account.
-	StorageAccountId interface{}
+	StorageAccountId string `pulumi:"storageAccountId"`
 	// A map of tags assigned to the Batch account.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAccountKeyVaultReferencesResult struct {
+	// The Azure identifier of the Azure KeyVault reference.
+	Id string `pulumi:"id"`
+	// The HTTPS URL of the Azure KeyVault reference.
+	Url string `pulumi:"url"`
 }

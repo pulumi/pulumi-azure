@@ -10,41 +10,31 @@ import (
 // Use this data source to access information about an existing Network Watcher.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_watcher.html.markdown.
-func LookupNetworkWatcher(ctx *pulumi.Context, args *GetNetworkWatcherArgs) (*GetNetworkWatcherResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getNetworkWatcher:getNetworkWatcher", inputs)
+func LookupNetworkWatcher(ctx *pulumi.Context, args *GetNetworkWatcherArgs, opts ...pulumi.InvokeOption) (*GetNetworkWatcherResult, error) {
+	var rv GetNetworkWatcherResult
+	err := ctx.Invoke("azure:network/getNetworkWatcher:getNetworkWatcher", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNetworkWatcherResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNetworkWatcher.
 type GetNetworkWatcherArgs struct {
 	// Specifies the Name of the Network Watcher.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the Name of the Resource Group within which the Network Watcher exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNetworkWatcher.
 type GetNetworkWatcherResult struct {
 	// The supported Azure location where the resource exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

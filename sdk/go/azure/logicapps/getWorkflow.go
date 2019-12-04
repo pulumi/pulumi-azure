@@ -10,53 +10,39 @@ import (
 // Use this data source to access information about an existing Logic App Workflow.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
-func LookupWorkflow(ctx *pulumi.Context, args *GetWorkflowArgs) (*GetWorkflowResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:logicapps/getWorkflow:getWorkflow", inputs)
+func LookupWorkflow(ctx *pulumi.Context, args *GetWorkflowArgs, opts ...pulumi.InvokeOption) (*GetWorkflowResult, error) {
+	var rv GetWorkflowResult
+	err := ctx.Invoke("azure:logicapps/getWorkflow:getWorkflow", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetWorkflowResult{
-		AccessEndpoint: outputs["accessEndpoint"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		Parameters: outputs["parameters"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		WorkflowSchema: outputs["workflowSchema"],
-		WorkflowVersion: outputs["workflowVersion"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getWorkflow.
 type GetWorkflowArgs struct {
 	// The name of the Logic App Workflow.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Logic App Workflow exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getWorkflow.
 type GetWorkflowResult struct {
 	// The Access Endpoint for the Logic App Workflow
-	AccessEndpoint interface{}
+	AccessEndpoint string `pulumi:"accessEndpoint"`
 	// The Azure location where the Logic App Workflow exists.
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// A map of Key-Value pairs.
-	Parameters interface{}
-	ResourceGroupName interface{}
+	Parameters map[string]string `pulumi:"parameters"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The Schema used for this Logic App Workflow.
-	WorkflowSchema interface{}
+	WorkflowSchema string `pulumi:"workflowSchema"`
 	// The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
-	WorkflowVersion interface{}
+	WorkflowVersion string `pulumi:"workflowVersion"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

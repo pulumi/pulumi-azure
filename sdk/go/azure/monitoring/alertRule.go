@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,54 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/metric_alertrule.html.markdown.
 type AlertRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
+	Aggregation pulumi.StringOutput `pulumi:"aggregation"`
+
+	// A verbose description of the alert rule that will be included in the alert email.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A `emailAction` block as defined below.
+	EmailAction AlertRuleEmailActionOutput `pulumi:"emailAction"`
+
+	// If `true`, the alert rule is enabled. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The metric that defines what the rule monitors.
+	MetricName pulumi.StringOutput `pulumi:"metricName"`
+
+	// Specifies the name of the alert rule. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
+	Operator pulumi.StringOutput `pulumi:"operator"`
+
+	// The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
+	Period pulumi.StringOutput `pulumi:"period"`
+
+	// The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The ID of the resource monitored by the alert rule.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+
+	// The threshold value that activates the alert.
+	Threshold pulumi.Float64Output `pulumi:"threshold"`
+
+	// A `webhookAction` block as defined below.
+	WebhookAction AlertRuleWebhookActionOutput `pulumi:"webhookAction"`
 }
 
 // NewAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewAlertRule(ctx *pulumi.Context,
-	name string, args *AlertRuleArgs, opts ...pulumi.ResourceOpt) (*AlertRule, error) {
+	name string, args *AlertRuleArgs, opts ...pulumi.ResourceOption) (*AlertRule, error) {
 	if args == nil || args.Aggregation == nil {
 		return nil, errors.New("missing required argument 'Aggregation'")
 	}
@@ -41,213 +85,248 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args == nil || args.Threshold == nil {
 		return nil, errors.New("missing required argument 'Threshold'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["aggregation"] = nil
-		inputs["description"] = nil
-		inputs["emailAction"] = nil
-		inputs["enabled"] = nil
-		inputs["location"] = nil
-		inputs["metricName"] = nil
-		inputs["name"] = nil
-		inputs["operator"] = nil
-		inputs["period"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["resourceId"] = nil
-		inputs["tags"] = nil
-		inputs["threshold"] = nil
-		inputs["webhookAction"] = nil
-	} else {
-		inputs["aggregation"] = args.Aggregation
-		inputs["description"] = args.Description
-		inputs["emailAction"] = args.EmailAction
-		inputs["enabled"] = args.Enabled
-		inputs["location"] = args.Location
-		inputs["metricName"] = args.MetricName
-		inputs["name"] = args.Name
-		inputs["operator"] = args.Operator
-		inputs["period"] = args.Period
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["resourceId"] = args.ResourceId
-		inputs["tags"] = args.Tags
-		inputs["threshold"] = args.Threshold
-		inputs["webhookAction"] = args.WebhookAction
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Aggregation; i != nil { inputs["aggregation"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EmailAction; i != nil { inputs["emailAction"] = i.ToAlertRuleEmailActionOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Operator; i != nil { inputs["operator"] = i.ToStringOutput() }
+		if i := args.Period; i != nil { inputs["period"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ResourceId; i != nil { inputs["resourceId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
+		if i := args.Threshold; i != nil { inputs["threshold"] = i.ToFloat64Output() }
+		if i := args.WebhookAction; i != nil { inputs["webhookAction"] = i.ToAlertRuleWebhookActionOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/alertRule:AlertRule", name, true, inputs, opts...)
+	var resource AlertRule
+	err := ctx.RegisterResource("azure:monitoring/alertRule:AlertRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AlertRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetAlertRule gets an existing AlertRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAlertRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AlertRuleState, opts ...pulumi.ResourceOpt) (*AlertRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AlertRuleState, opts ...pulumi.ResourceOption) (*AlertRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["aggregation"] = state.Aggregation
-		inputs["description"] = state.Description
-		inputs["emailAction"] = state.EmailAction
-		inputs["enabled"] = state.Enabled
-		inputs["location"] = state.Location
-		inputs["metricName"] = state.MetricName
-		inputs["name"] = state.Name
-		inputs["operator"] = state.Operator
-		inputs["period"] = state.Period
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["resourceId"] = state.ResourceId
-		inputs["tags"] = state.Tags
-		inputs["threshold"] = state.Threshold
-		inputs["webhookAction"] = state.WebhookAction
+		if i := state.Aggregation; i != nil { inputs["aggregation"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EmailAction; i != nil { inputs["emailAction"] = i.ToAlertRuleEmailActionOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MetricName; i != nil { inputs["metricName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Operator; i != nil { inputs["operator"] = i.ToStringOutput() }
+		if i := state.Period; i != nil { inputs["period"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ResourceId; i != nil { inputs["resourceId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToStringMapOutput() }
+		if i := state.Threshold; i != nil { inputs["threshold"] = i.ToFloat64Output() }
+		if i := state.WebhookAction; i != nil { inputs["webhookAction"] = i.ToAlertRuleWebhookActionOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/alertRule:AlertRule", name, id, inputs, opts...)
+	var resource AlertRule
+	err := ctx.ReadResource("azure:monitoring/alertRule:AlertRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AlertRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AlertRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AlertRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
-func (r *AlertRule) Aggregation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["aggregation"])
-}
-
-// A verbose description of the alert rule that will be included in the alert email.
-func (r *AlertRule) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A `emailAction` block as defined below.
-func (r *AlertRule) EmailAction() pulumi.Output {
-	return r.s.State["emailAction"]
-}
-
-// If `true`, the alert rule is enabled. Defaults to `true`.
-func (r *AlertRule) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AlertRule) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The metric that defines what the rule monitors.
-func (r *AlertRule) MetricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metricName"])
-}
-
-// Specifies the name of the alert rule. Changing this forces a new resource to be created.
-func (r *AlertRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
-func (r *AlertRule) Operator() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["operator"])
-}
-
-// The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
-func (r *AlertRule) Period() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["period"])
-}
-
-// The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
-func (r *AlertRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The ID of the resource monitored by the alert rule.
-func (r *AlertRule) ResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceId"])
-}
-
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-func (r *AlertRule) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The threshold value that activates the alert.
-func (r *AlertRule) Threshold() pulumi.Float64Output {
-	return (pulumi.Float64Output)(r.s.State["threshold"])
-}
-
-// A `webhookAction` block as defined below.
-func (r *AlertRule) WebhookAction() pulumi.Output {
-	return r.s.State["webhookAction"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AlertRule resources.
 type AlertRuleState struct {
 	// Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
-	Aggregation interface{}
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
 	// A verbose description of the alert rule that will be included in the alert email.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A `emailAction` block as defined below.
-	EmailAction interface{}
+	EmailAction AlertRuleEmailActionInput `pulumi:"emailAction"`
 	// If `true`, the alert rule is enabled. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The metric that defines what the rule monitors.
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// Specifies the name of the alert rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
-	Operator interface{}
+	Operator pulumi.StringInput `pulumi:"operator"`
 	// The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
-	Period interface{}
+	Period pulumi.StringInput `pulumi:"period"`
 	// The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The ID of the resource monitored by the alert rule.
-	ResourceId interface{}
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The threshold value that activates the alert.
-	Threshold interface{}
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// A `webhookAction` block as defined below.
-	WebhookAction interface{}
+	WebhookAction AlertRuleWebhookActionInput `pulumi:"webhookAction"`
 }
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
 	// Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
-	Aggregation interface{}
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
 	// A verbose description of the alert rule that will be included in the alert email.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A `emailAction` block as defined below.
-	EmailAction interface{}
+	EmailAction AlertRuleEmailActionInput `pulumi:"emailAction"`
 	// If `true`, the alert rule is enabled. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The metric that defines what the rule monitors.
-	MetricName interface{}
+	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// Specifies the name of the alert rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
-	Operator interface{}
+	Operator pulumi.StringInput `pulumi:"operator"`
 	// The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
-	Period interface{}
+	Period pulumi.StringInput `pulumi:"period"`
 	// The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The ID of the resource monitored by the alert rule.
-	ResourceId interface{}
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags interface{}
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The threshold value that activates the alert.
-	Threshold interface{}
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// A `webhookAction` block as defined below.
-	WebhookAction interface{}
+	WebhookAction AlertRuleWebhookActionInput `pulumi:"webhookAction"`
 }
+type AlertRuleEmailAction struct {
+	// A list of email addresses to be notified when the alert is triggered.
+	CustomEmails *[]string `pulumi:"customEmails"`
+	// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
+	SendToServiceOwners *bool `pulumi:"sendToServiceOwners"`
+}
+var alertRuleEmailActionType = reflect.TypeOf((*AlertRuleEmailAction)(nil)).Elem()
+
+type AlertRuleEmailActionInput interface {
+	pulumi.Input
+
+	ToAlertRuleEmailActionOutput() AlertRuleEmailActionOutput
+	ToAlertRuleEmailActionOutputWithContext(ctx context.Context) AlertRuleEmailActionOutput
+}
+
+type AlertRuleEmailActionArgs struct {
+	// A list of email addresses to be notified when the alert is triggered.
+	CustomEmails pulumi.StringArrayInput `pulumi:"customEmails"`
+	// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
+	SendToServiceOwners pulumi.BoolInput `pulumi:"sendToServiceOwners"`
+}
+
+func (AlertRuleEmailActionArgs) ElementType() reflect.Type {
+	return alertRuleEmailActionType
+}
+
+func (a AlertRuleEmailActionArgs) ToAlertRuleEmailActionOutput() AlertRuleEmailActionOutput {
+	return pulumi.ToOutput(a).(AlertRuleEmailActionOutput)
+}
+
+func (a AlertRuleEmailActionArgs) ToAlertRuleEmailActionOutputWithContext(ctx context.Context) AlertRuleEmailActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AlertRuleEmailActionOutput)
+}
+
+type AlertRuleEmailActionOutput struct { *pulumi.OutputState }
+
+// A list of email addresses to be notified when the alert is triggered.
+func (o AlertRuleEmailActionOutput) CustomEmails() pulumi.StringArrayOutput {
+	return o.Apply(func(v AlertRuleEmailAction) []string {
+		if v.CustomEmails == nil { return *new([]string) } else { return *v.CustomEmails }
+	}).(pulumi.StringArrayOutput)
+}
+
+// If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
+func (o AlertRuleEmailActionOutput) SendToServiceOwners() pulumi.BoolOutput {
+	return o.Apply(func(v AlertRuleEmailAction) bool {
+		if v.SendToServiceOwners == nil { return *new(bool) } else { return *v.SendToServiceOwners }
+	}).(pulumi.BoolOutput)
+}
+
+func (AlertRuleEmailActionOutput) ElementType() reflect.Type {
+	return alertRuleEmailActionType
+}
+
+func (o AlertRuleEmailActionOutput) ToAlertRuleEmailActionOutput() AlertRuleEmailActionOutput {
+	return o
+}
+
+func (o AlertRuleEmailActionOutput) ToAlertRuleEmailActionOutputWithContext(ctx context.Context) AlertRuleEmailActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AlertRuleEmailActionOutput{}) }
+
+type AlertRuleWebhookAction struct {
+	// A dictionary of custom properties to include with the webhook POST operation payload.
+	Properties *map[string]string `pulumi:"properties"`
+	// The service uri of the webhook to POST the notification when the alert is triggered.
+	ServiceUri string `pulumi:"serviceUri"`
+}
+var alertRuleWebhookActionType = reflect.TypeOf((*AlertRuleWebhookAction)(nil)).Elem()
+
+type AlertRuleWebhookActionInput interface {
+	pulumi.Input
+
+	ToAlertRuleWebhookActionOutput() AlertRuleWebhookActionOutput
+	ToAlertRuleWebhookActionOutputWithContext(ctx context.Context) AlertRuleWebhookActionOutput
+}
+
+type AlertRuleWebhookActionArgs struct {
+	// A dictionary of custom properties to include with the webhook POST operation payload.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// The service uri of the webhook to POST the notification when the alert is triggered.
+	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
+}
+
+func (AlertRuleWebhookActionArgs) ElementType() reflect.Type {
+	return alertRuleWebhookActionType
+}
+
+func (a AlertRuleWebhookActionArgs) ToAlertRuleWebhookActionOutput() AlertRuleWebhookActionOutput {
+	return pulumi.ToOutput(a).(AlertRuleWebhookActionOutput)
+}
+
+func (a AlertRuleWebhookActionArgs) ToAlertRuleWebhookActionOutputWithContext(ctx context.Context) AlertRuleWebhookActionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AlertRuleWebhookActionOutput)
+}
+
+type AlertRuleWebhookActionOutput struct { *pulumi.OutputState }
+
+// A dictionary of custom properties to include with the webhook POST operation payload.
+func (o AlertRuleWebhookActionOutput) Properties() pulumi.StringMapOutput {
+	return o.Apply(func(v AlertRuleWebhookAction) map[string]string {
+		if v.Properties == nil { return *new(map[string]string) } else { return *v.Properties }
+	}).(pulumi.StringMapOutput)
+}
+
+// The service uri of the webhook to POST the notification when the alert is triggered.
+func (o AlertRuleWebhookActionOutput) ServiceUri() pulumi.StringOutput {
+	return o.Apply(func(v AlertRuleWebhookAction) string {
+		return v.ServiceUri
+	}).(pulumi.StringOutput)
+}
+
+func (AlertRuleWebhookActionOutput) ElementType() reflect.Type {
+	return alertRuleWebhookActionType
+}
+
+func (o AlertRuleWebhookActionOutput) ToAlertRuleWebhookActionOutput() AlertRuleWebhookActionOutput {
+	return o
+}
+
+func (o AlertRuleWebhookActionOutput) ToAlertRuleWebhookActionOutputWithContext(ctx context.Context) AlertRuleWebhookActionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AlertRuleWebhookActionOutput{}) }
+

@@ -12,12 +12,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_eventhub_data_connection.html.markdown.
 type EventhubDataConnection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+
+	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
+
+	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+	DataFormat pulumi.StringOutput `pulumi:"dataFormat"`
+
+	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+
+	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
+	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
+
+	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	MappingRuleName pulumi.StringOutput `pulumi:"mappingRuleName"`
+
+	// The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
 // NewEventhubDataConnection registers a new resource with the given unique name, arguments, and options.
 func NewEventhubDataConnection(ctx *pulumi.Context,
-	name string, args *EventhubDataConnectionArgs, opts ...pulumi.ResourceOpt) (*EventhubDataConnection, error) {
+	name string, args *EventhubDataConnectionArgs, opts ...pulumi.ResourceOption) (*EventhubDataConnection, error) {
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
@@ -33,165 +63,96 @@ func NewEventhubDataConnection(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterName"] = nil
-		inputs["consumerGroup"] = nil
-		inputs["dataFormat"] = nil
-		inputs["databaseName"] = nil
-		inputs["eventhubId"] = nil
-		inputs["location"] = nil
-		inputs["mappingRuleName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tableName"] = nil
-	} else {
-		inputs["clusterName"] = args.ClusterName
-		inputs["consumerGroup"] = args.ConsumerGroup
-		inputs["dataFormat"] = args.DataFormat
-		inputs["databaseName"] = args.DatabaseName
-		inputs["eventhubId"] = args.EventhubId
-		inputs["location"] = args.Location
-		inputs["mappingRuleName"] = args.MappingRuleName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tableName"] = args.TableName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := args.ConsumerGroup; i != nil { inputs["consumerGroup"] = i.ToStringOutput() }
+		if i := args.DataFormat; i != nil { inputs["dataFormat"] = i.ToStringOutput() }
+		if i := args.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := args.EventhubId; i != nil { inputs["eventhubId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MappingRuleName; i != nil { inputs["mappingRuleName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.TableName; i != nil { inputs["tableName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:kusto/eventhubDataConnection:EventhubDataConnection", name, true, inputs, opts...)
+	var resource EventhubDataConnection
+	err := ctx.RegisterResource("azure:kusto/eventhubDataConnection:EventhubDataConnection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventhubDataConnection{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventhubDataConnection gets an existing EventhubDataConnection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventhubDataConnection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventhubDataConnectionState, opts ...pulumi.ResourceOpt) (*EventhubDataConnection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventhubDataConnectionState, opts ...pulumi.ResourceOption) (*EventhubDataConnection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterName"] = state.ClusterName
-		inputs["consumerGroup"] = state.ConsumerGroup
-		inputs["dataFormat"] = state.DataFormat
-		inputs["databaseName"] = state.DatabaseName
-		inputs["eventhubId"] = state.EventhubId
-		inputs["location"] = state.Location
-		inputs["mappingRuleName"] = state.MappingRuleName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tableName"] = state.TableName
+		if i := state.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := state.ConsumerGroup; i != nil { inputs["consumerGroup"] = i.ToStringOutput() }
+		if i := state.DataFormat; i != nil { inputs["dataFormat"] = i.ToStringOutput() }
+		if i := state.DatabaseName; i != nil { inputs["databaseName"] = i.ToStringOutput() }
+		if i := state.EventhubId; i != nil { inputs["eventhubId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MappingRuleName; i != nil { inputs["mappingRuleName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.TableName; i != nil { inputs["tableName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:kusto/eventhubDataConnection:EventhubDataConnection", name, id, inputs, opts...)
+	var resource EventhubDataConnection
+	err := ctx.ReadResource("azure:kusto/eventhubDataConnection:EventhubDataConnection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventhubDataConnection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventhubDataConnection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventhubDataConnection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) ClusterName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterName"])
-}
-
-// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) ConsumerGroup() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["consumerGroup"])
-}
-
-// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
-func (r *EventhubDataConnection) DataFormat() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataFormat"])
-}
-
-// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) DatabaseName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["databaseName"])
-}
-
-// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) EventhubId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["eventhubId"])
-}
-
-// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
-func (r *EventhubDataConnection) MappingRuleName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["mappingRuleName"])
-}
-
-// The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-func (r *EventhubDataConnection) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
-func (r *EventhubDataConnection) TableName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tableName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventhubDataConnection resources.
 type EventhubDataConnectionState struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-	ConsumerGroup interface{}
+	ConsumerGroup pulumi.StringInput `pulumi:"consumerGroup"`
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
-	DataFormat interface{}
+	DataFormat pulumi.StringInput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
-	EventhubId interface{}
+	EventhubId pulumi.StringInput `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
-	MappingRuleName interface{}
+	MappingRuleName pulumi.StringInput `pulumi:"mappingRuleName"`
 	// The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
-	TableName interface{}
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a EventhubDataConnection resource.
 type EventhubDataConnectionArgs struct {
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-	ConsumerGroup interface{}
+	ConsumerGroup pulumi.StringInput `pulumi:"consumerGroup"`
 	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
-	DataFormat interface{}
+	DataFormat pulumi.StringInput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-	DatabaseName interface{}
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
-	EventhubId interface{}
+	EventhubId pulumi.StringInput `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
-	MappingRuleName interface{}
+	MappingRuleName pulumi.StringInput `pulumi:"mappingRuleName"`
 	// The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
-	TableName interface{}
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }

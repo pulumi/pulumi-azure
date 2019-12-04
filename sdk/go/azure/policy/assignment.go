@@ -4,6 +4,8 @@
 package policy
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,162 +14,198 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
 type Assignment struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A description to use for this Policy Assignment. Changing this forces a new resource to be created.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// An `identity` block.
+	Identity AssignmentIdentityOutput `pulumi:"identity"`
+
+	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Policy Assignment. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
+
+	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+	Parameters pulumi.StringOutput `pulumi:"parameters"`
+
+	// The ID of the Policy Definition to be applied at the specified Scope.
+	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
+
+	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
 func NewAssignment(ctx *pulumi.Context,
-	name string, args *AssignmentArgs, opts ...pulumi.ResourceOpt) (*Assignment, error) {
+	name string, args *AssignmentArgs, opts ...pulumi.ResourceOption) (*Assignment, error) {
 	if args == nil || args.PolicyDefinitionId == nil {
 		return nil, errors.New("missing required argument 'PolicyDefinitionId'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["notScopes"] = nil
-		inputs["parameters"] = nil
-		inputs["policyDefinitionId"] = nil
-		inputs["scope"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["notScopes"] = args.NotScopes
-		inputs["parameters"] = args.Parameters
-		inputs["policyDefinitionId"] = args.PolicyDefinitionId
-		inputs["scope"] = args.Scope
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToAssignmentIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NotScopes; i != nil { inputs["notScopes"] = i.ToStringArrayOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringOutput() }
+		if i := args.PolicyDefinitionId; i != nil { inputs["policyDefinitionId"] = i.ToStringOutput() }
+		if i := args.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:policy/assignment:Assignment", name, true, inputs, opts...)
+	var resource Assignment
+	err := ctx.RegisterResource("azure:policy/assignment:Assignment", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Assignment{s: s}, nil
+	return &resource, nil
 }
 
 // GetAssignment gets an existing Assignment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAssignment(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AssignmentState, opts ...pulumi.ResourceOpt) (*Assignment, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AssignmentState, opts ...pulumi.ResourceOption) (*Assignment, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["notScopes"] = state.NotScopes
-		inputs["parameters"] = state.Parameters
-		inputs["policyDefinitionId"] = state.PolicyDefinitionId
-		inputs["scope"] = state.Scope
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToAssignmentIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NotScopes; i != nil { inputs["notScopes"] = i.ToStringArrayOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringOutput() }
+		if i := state.PolicyDefinitionId; i != nil { inputs["policyDefinitionId"] = i.ToStringOutput() }
+		if i := state.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:policy/assignment:Assignment", name, id, inputs, opts...)
+	var resource Assignment
+	err := ctx.ReadResource("azure:policy/assignment:Assignment", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Assignment{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Assignment) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Assignment) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A description to use for this Policy Assignment. Changing this forces a new resource to be created.
-func (r *Assignment) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
-func (r *Assignment) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// An `identity` block.
-func (r *Assignment) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
-func (r *Assignment) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Policy Assignment. Changing this forces a new resource to be created.
-func (r *Assignment) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
-func (r *Assignment) NotScopes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["notScopes"])
-}
-
-// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
-func (r *Assignment) Parameters() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["parameters"])
-}
-
-// The ID of the Policy Definition to be applied at the specified Scope.
-func (r *Assignment) PolicyDefinitionId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policyDefinitionId"])
-}
-
-func (r *Assignment) Scope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scope"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Assignment resources.
 type AssignmentState struct {
 	// A description to use for this Policy Assignment. Changing this forces a new resource to be created.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// An `identity` block.
-	Identity interface{}
+	Identity AssignmentIdentityInput `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
-	NotScopes interface{}
+	NotScopes pulumi.StringArrayInput `pulumi:"notScopes"`
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
-	Parameters interface{}
+	Parameters pulumi.StringInput `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
-	PolicyDefinitionId interface{}
-	Scope interface{}
+	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
+	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
 	// A description to use for this Policy Assignment. Changing this forces a new resource to be created.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// An `identity` block.
-	Identity interface{}
+	Identity AssignmentIdentityInput `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
-	NotScopes interface{}
+	NotScopes pulumi.StringArrayInput `pulumi:"notScopes"`
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
-	Parameters interface{}
+	Parameters pulumi.StringInput `pulumi:"parameters"`
 	// The ID of the Policy Definition to be applied at the specified Scope.
-	PolicyDefinitionId interface{}
-	Scope interface{}
+	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
+	Scope pulumi.StringInput `pulumi:"scope"`
 }
+type AssignmentIdentity struct {
+	// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
+	TenantId *string `pulumi:"tenantId"`
+	Type *string `pulumi:"type"`
+}
+var assignmentIdentityType = reflect.TypeOf((*AssignmentIdentity)(nil)).Elem()
+
+type AssignmentIdentityInput interface {
+	pulumi.Input
+
+	ToAssignmentIdentityOutput() AssignmentIdentityOutput
+	ToAssignmentIdentityOutputWithContext(ctx context.Context) AssignmentIdentityOutput
+}
+
+type AssignmentIdentityArgs struct {
+	// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssignmentIdentityArgs) ElementType() reflect.Type {
+	return assignmentIdentityType
+}
+
+func (a AssignmentIdentityArgs) ToAssignmentIdentityOutput() AssignmentIdentityOutput {
+	return pulumi.ToOutput(a).(AssignmentIdentityOutput)
+}
+
+func (a AssignmentIdentityArgs) ToAssignmentIdentityOutputWithContext(ctx context.Context) AssignmentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AssignmentIdentityOutput)
+}
+
+type AssignmentIdentityOutput struct { *pulumi.OutputState }
+
+// The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
+func (o AssignmentIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v AssignmentIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
+func (o AssignmentIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v AssignmentIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (o AssignmentIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v AssignmentIdentity) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (AssignmentIdentityOutput) ElementType() reflect.Type {
+	return assignmentIdentityType
+}
+
+func (o AssignmentIdentityOutput) ToAssignmentIdentityOutput() AssignmentIdentityOutput {
+	return o
+}
+
+func (o AssignmentIdentityOutput) ToAssignmentIdentityOutputWithContext(ctx context.Context) AssignmentIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AssignmentIdentityOutput{}) }
+

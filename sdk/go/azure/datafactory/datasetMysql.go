@@ -4,6 +4,8 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
 type DatasetMysql struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A map of additional properties to associate with the Data Factory Dataset MySQL.
+	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
+
+	// List of tags that can be used for describing the Data Factory Dataset MySQL.
+	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
+
+	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
+	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
+
+	// The description for the Data Factory Dataset MySQL.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
+	Folder pulumi.StringOutput `pulumi:"folder"`
+
+	// The Data Factory Linked Service name in which to associate the Dataset with.
+	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
+
+	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A map of parameters to associate with the Data Factory Dataset MySQL.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+
+	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `schemaColumn` block as defined below.
+	SchemaColumns DatasetMysqlSchemaColumnsArrayOutput `pulumi:"schemaColumns"`
+
+	// The table name of the Data Factory Dataset MySQL.
+	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
 // NewDatasetMysql registers a new resource with the given unique name, arguments, and options.
 func NewDatasetMysql(ctx *pulumi.Context,
-	name string, args *DatasetMysqlArgs, opts ...pulumi.ResourceOpt) (*DatasetMysql, error) {
+	name string, args *DatasetMysqlArgs, opts ...pulumi.ResourceOption) (*DatasetMysql, error) {
 	if args == nil || args.DataFactoryName == nil {
 		return nil, errors.New("missing required argument 'DataFactoryName'")
 	}
@@ -27,177 +62,219 @@ func NewDatasetMysql(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["additionalProperties"] = nil
-		inputs["annotations"] = nil
-		inputs["dataFactoryName"] = nil
-		inputs["description"] = nil
-		inputs["folder"] = nil
-		inputs["linkedServiceName"] = nil
-		inputs["name"] = nil
-		inputs["parameters"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["schemaColumns"] = nil
-		inputs["tableName"] = nil
-	} else {
-		inputs["additionalProperties"] = args.AdditionalProperties
-		inputs["annotations"] = args.Annotations
-		inputs["dataFactoryName"] = args.DataFactoryName
-		inputs["description"] = args.Description
-		inputs["folder"] = args.Folder
-		inputs["linkedServiceName"] = args.LinkedServiceName
-		inputs["name"] = args.Name
-		inputs["parameters"] = args.Parameters
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["schemaColumns"] = args.SchemaColumns
-		inputs["tableName"] = args.TableName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdditionalProperties; i != nil { inputs["additionalProperties"] = i.ToStringMapOutput() }
+		if i := args.Annotations; i != nil { inputs["annotations"] = i.ToStringArrayOutput() }
+		if i := args.DataFactoryName; i != nil { inputs["dataFactoryName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Folder; i != nil { inputs["folder"] = i.ToStringOutput() }
+		if i := args.LinkedServiceName; i != nil { inputs["linkedServiceName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SchemaColumns; i != nil { inputs["schemaColumns"] = i.ToDatasetMysqlSchemaColumnsArrayOutput() }
+		if i := args.TableName; i != nil { inputs["tableName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/datasetMysql:DatasetMysql", name, true, inputs, opts...)
+	var resource DatasetMysql
+	err := ctx.RegisterResource("azure:datafactory/datasetMysql:DatasetMysql", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DatasetMysql{s: s}, nil
+	return &resource, nil
 }
 
 // GetDatasetMysql gets an existing DatasetMysql resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDatasetMysql(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DatasetMysqlState, opts ...pulumi.ResourceOpt) (*DatasetMysql, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DatasetMysqlState, opts ...pulumi.ResourceOption) (*DatasetMysql, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["additionalProperties"] = state.AdditionalProperties
-		inputs["annotations"] = state.Annotations
-		inputs["dataFactoryName"] = state.DataFactoryName
-		inputs["description"] = state.Description
-		inputs["folder"] = state.Folder
-		inputs["linkedServiceName"] = state.LinkedServiceName
-		inputs["name"] = state.Name
-		inputs["parameters"] = state.Parameters
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["schemaColumns"] = state.SchemaColumns
-		inputs["tableName"] = state.TableName
+		if i := state.AdditionalProperties; i != nil { inputs["additionalProperties"] = i.ToStringMapOutput() }
+		if i := state.Annotations; i != nil { inputs["annotations"] = i.ToStringArrayOutput() }
+		if i := state.DataFactoryName; i != nil { inputs["dataFactoryName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Folder; i != nil { inputs["folder"] = i.ToStringOutput() }
+		if i := state.LinkedServiceName; i != nil { inputs["linkedServiceName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SchemaColumns; i != nil { inputs["schemaColumns"] = i.ToDatasetMysqlSchemaColumnsArrayOutput() }
+		if i := state.TableName; i != nil { inputs["tableName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datafactory/datasetMysql:DatasetMysql", name, id, inputs, opts...)
+	var resource DatasetMysql
+	err := ctx.ReadResource("azure:datafactory/datasetMysql:DatasetMysql", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &DatasetMysql{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *DatasetMysql) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *DatasetMysql) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A map of additional properties to associate with the Data Factory Dataset MySQL.
-func (r *DatasetMysql) AdditionalProperties() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["additionalProperties"])
-}
-
-// List of tags that can be used for describing the Data Factory Dataset MySQL.
-func (r *DatasetMysql) Annotations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["annotations"])
-}
-
-// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-func (r *DatasetMysql) DataFactoryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
-}
-
-// The description for the Data Factory Dataset MySQL.
-func (r *DatasetMysql) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-func (r *DatasetMysql) Folder() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["folder"])
-}
-
-// The Data Factory Linked Service name in which to associate the Dataset with.
-func (r *DatasetMysql) LinkedServiceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["linkedServiceName"])
-}
-
-// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *DatasetMysql) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A map of parameters to associate with the Data Factory Dataset MySQL.
-func (r *DatasetMysql) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
-}
-
-// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-func (r *DatasetMysql) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `schemaColumn` block as defined below.
-func (r *DatasetMysql) SchemaColumns() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["schemaColumns"])
-}
-
-// The table name of the Data Factory Dataset MySQL.
-func (r *DatasetMysql) TableName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tableName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering DatasetMysql resources.
 type DatasetMysqlState struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
-	AdditionalProperties interface{}
+	AdditionalProperties pulumi.StringMapInput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
-	Annotations interface{}
+	Annotations pulumi.StringArrayInput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName interface{}
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset MySQL.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-	Folder interface{}
+	Folder pulumi.StringInput `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
-	LinkedServiceName interface{}
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
-	SchemaColumns interface{}
+	SchemaColumns DatasetMysqlSchemaColumnsArrayInput `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset MySQL.
-	TableName interface{}
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a DatasetMysql resource.
 type DatasetMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
-	AdditionalProperties interface{}
+	AdditionalProperties pulumi.StringMapInput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
-	Annotations interface{}
+	Annotations pulumi.StringArrayInput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-	DataFactoryName interface{}
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset MySQL.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-	Folder interface{}
+	Folder pulumi.StringInput `pulumi:"folder"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
-	LinkedServiceName interface{}
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Dataset MySQL.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `schemaColumn` block as defined below.
-	SchemaColumns interface{}
+	SchemaColumns DatasetMysqlSchemaColumnsArrayInput `pulumi:"schemaColumns"`
 	// The table name of the Data Factory Dataset MySQL.
-	TableName interface{}
+	TableName pulumi.StringInput `pulumi:"tableName"`
 }
+type DatasetMysqlSchemaColumns struct {
+	// The description for the Data Factory Dataset MySQL.
+	Description *string `pulumi:"description"`
+	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	Name string `pulumi:"name"`
+	Type *string `pulumi:"type"`
+}
+var datasetMysqlSchemaColumnsType = reflect.TypeOf((*DatasetMysqlSchemaColumns)(nil)).Elem()
+
+type DatasetMysqlSchemaColumnsInput interface {
+	pulumi.Input
+
+	ToDatasetMysqlSchemaColumnsOutput() DatasetMysqlSchemaColumnsOutput
+	ToDatasetMysqlSchemaColumnsOutputWithContext(ctx context.Context) DatasetMysqlSchemaColumnsOutput
+}
+
+type DatasetMysqlSchemaColumnsArgs struct {
+	// The description for the Data Factory Dataset MySQL.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatasetMysqlSchemaColumnsArgs) ElementType() reflect.Type {
+	return datasetMysqlSchemaColumnsType
+}
+
+func (a DatasetMysqlSchemaColumnsArgs) ToDatasetMysqlSchemaColumnsOutput() DatasetMysqlSchemaColumnsOutput {
+	return pulumi.ToOutput(a).(DatasetMysqlSchemaColumnsOutput)
+}
+
+func (a DatasetMysqlSchemaColumnsArgs) ToDatasetMysqlSchemaColumnsOutputWithContext(ctx context.Context) DatasetMysqlSchemaColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DatasetMysqlSchemaColumnsOutput)
+}
+
+type DatasetMysqlSchemaColumnsOutput struct { *pulumi.OutputState }
+
+// The description for the Data Factory Dataset MySQL.
+func (o DatasetMysqlSchemaColumnsOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v DatasetMysqlSchemaColumns) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+func (o DatasetMysqlSchemaColumnsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v DatasetMysqlSchemaColumns) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o DatasetMysqlSchemaColumnsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v DatasetMysqlSchemaColumns) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (DatasetMysqlSchemaColumnsOutput) ElementType() reflect.Type {
+	return datasetMysqlSchemaColumnsType
+}
+
+func (o DatasetMysqlSchemaColumnsOutput) ToDatasetMysqlSchemaColumnsOutput() DatasetMysqlSchemaColumnsOutput {
+	return o
+}
+
+func (o DatasetMysqlSchemaColumnsOutput) ToDatasetMysqlSchemaColumnsOutputWithContext(ctx context.Context) DatasetMysqlSchemaColumnsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DatasetMysqlSchemaColumnsOutput{}) }
+
+var datasetMysqlSchemaColumnsArrayType = reflect.TypeOf((*[]DatasetMysqlSchemaColumns)(nil)).Elem()
+
+type DatasetMysqlSchemaColumnsArrayInput interface {
+	pulumi.Input
+
+	ToDatasetMysqlSchemaColumnsArrayOutput() DatasetMysqlSchemaColumnsArrayOutput
+	ToDatasetMysqlSchemaColumnsArrayOutputWithContext(ctx context.Context) DatasetMysqlSchemaColumnsArrayOutput
+}
+
+type DatasetMysqlSchemaColumnsArrayArgs []DatasetMysqlSchemaColumnsInput
+
+func (DatasetMysqlSchemaColumnsArrayArgs) ElementType() reflect.Type {
+	return datasetMysqlSchemaColumnsArrayType
+}
+
+func (a DatasetMysqlSchemaColumnsArrayArgs) ToDatasetMysqlSchemaColumnsArrayOutput() DatasetMysqlSchemaColumnsArrayOutput {
+	return pulumi.ToOutput(a).(DatasetMysqlSchemaColumnsArrayOutput)
+}
+
+func (a DatasetMysqlSchemaColumnsArrayArgs) ToDatasetMysqlSchemaColumnsArrayOutputWithContext(ctx context.Context) DatasetMysqlSchemaColumnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DatasetMysqlSchemaColumnsArrayOutput)
+}
+
+type DatasetMysqlSchemaColumnsArrayOutput struct { *pulumi.OutputState }
+
+func (o DatasetMysqlSchemaColumnsArrayOutput) Index(i pulumi.IntInput) DatasetMysqlSchemaColumnsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) DatasetMysqlSchemaColumns {
+		return vs[0].([]DatasetMysqlSchemaColumns)[vs[1].(int)]
+	}).(DatasetMysqlSchemaColumnsOutput)
+}
+
+func (DatasetMysqlSchemaColumnsArrayOutput) ElementType() reflect.Type {
+	return datasetMysqlSchemaColumnsArrayType
+}
+
+func (o DatasetMysqlSchemaColumnsArrayOutput) ToDatasetMysqlSchemaColumnsArrayOutput() DatasetMysqlSchemaColumnsArrayOutput {
+	return o
+}
+
+func (o DatasetMysqlSchemaColumnsArrayOutput) ToDatasetMysqlSchemaColumnsArrayOutputWithContext(ctx context.Context) DatasetMysqlSchemaColumnsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DatasetMysqlSchemaColumnsArrayOutput{}) }
+

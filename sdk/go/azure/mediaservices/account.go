@@ -4,6 +4,8 @@
 package mediaservices
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,105 +14,190 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
 type Account struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts AccountStorageAccountsArrayOutput `pulumi:"storageAccounts"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
-	name string, args *AccountArgs, opts ...pulumi.ResourceOpt) (*Account, error) {
+	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.StorageAccounts == nil {
 		return nil, errors.New("missing required argument 'StorageAccounts'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageAccounts"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageAccounts"] = args.StorageAccounts
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToAccountStorageAccountsArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:mediaservices/account:Account", name, true, inputs, opts...)
+	var resource Account
+	err := ctx.RegisterResource("azure:mediaservices/account:Account", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccount gets an existing Account resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccount(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageAccounts"] = state.StorageAccounts
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToAccountStorageAccountsArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:mediaservices/account:Account", name, id, inputs, opts...)
+	var resource Account
+	err := ctx.ReadResource("azure:mediaservices/account:Account", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Account{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Account) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Account) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Account) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
-func (r *Account) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-func (r *Account) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// One or more `storageAccount` blocks as defined below.
-func (r *Account) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
-	StorageAccounts interface{}
+	StorageAccounts AccountStorageAccountsArrayInput `pulumi:"storageAccounts"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `storageAccount` blocks as defined below.
-	StorageAccounts interface{}
+	StorageAccounts AccountStorageAccountsArrayInput `pulumi:"storageAccounts"`
 }
+type AccountStorageAccounts struct {
+	// The Resource ID of the Media Services Account.
+	Id string `pulumi:"id"`
+	IsPrimary *bool `pulumi:"isPrimary"`
+}
+var accountStorageAccountsType = reflect.TypeOf((*AccountStorageAccounts)(nil)).Elem()
+
+type AccountStorageAccountsInput interface {
+	pulumi.Input
+
+	ToAccountStorageAccountsOutput() AccountStorageAccountsOutput
+	ToAccountStorageAccountsOutputWithContext(ctx context.Context) AccountStorageAccountsOutput
+}
+
+type AccountStorageAccountsArgs struct {
+	// The Resource ID of the Media Services Account.
+	Id pulumi.StringInput `pulumi:"id"`
+	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+}
+
+func (AccountStorageAccountsArgs) ElementType() reflect.Type {
+	return accountStorageAccountsType
+}
+
+func (a AccountStorageAccountsArgs) ToAccountStorageAccountsOutput() AccountStorageAccountsOutput {
+	return pulumi.ToOutput(a).(AccountStorageAccountsOutput)
+}
+
+func (a AccountStorageAccountsArgs) ToAccountStorageAccountsOutputWithContext(ctx context.Context) AccountStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountStorageAccountsOutput)
+}
+
+type AccountStorageAccountsOutput struct { *pulumi.OutputState }
+
+// The Resource ID of the Media Services Account.
+func (o AccountStorageAccountsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v AccountStorageAccounts) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountStorageAccountsOutput) IsPrimary() pulumi.BoolOutput {
+	return o.Apply(func(v AccountStorageAccounts) bool {
+		if v.IsPrimary == nil { return *new(bool) } else { return *v.IsPrimary }
+	}).(pulumi.BoolOutput)
+}
+
+func (AccountStorageAccountsOutput) ElementType() reflect.Type {
+	return accountStorageAccountsType
+}
+
+func (o AccountStorageAccountsOutput) ToAccountStorageAccountsOutput() AccountStorageAccountsOutput {
+	return o
+}
+
+func (o AccountStorageAccountsOutput) ToAccountStorageAccountsOutputWithContext(ctx context.Context) AccountStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountStorageAccountsOutput{}) }
+
+var accountStorageAccountsArrayType = reflect.TypeOf((*[]AccountStorageAccounts)(nil)).Elem()
+
+type AccountStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToAccountStorageAccountsArrayOutput() AccountStorageAccountsArrayOutput
+	ToAccountStorageAccountsArrayOutputWithContext(ctx context.Context) AccountStorageAccountsArrayOutput
+}
+
+type AccountStorageAccountsArrayArgs []AccountStorageAccountsInput
+
+func (AccountStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return accountStorageAccountsArrayType
+}
+
+func (a AccountStorageAccountsArrayArgs) ToAccountStorageAccountsArrayOutput() AccountStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(AccountStorageAccountsArrayOutput)
+}
+
+func (a AccountStorageAccountsArrayArgs) ToAccountStorageAccountsArrayOutputWithContext(ctx context.Context) AccountStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AccountStorageAccountsArrayOutput)
+}
+
+type AccountStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o AccountStorageAccountsArrayOutput) Index(i pulumi.IntInput) AccountStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AccountStorageAccounts {
+		return vs[0].([]AccountStorageAccounts)[vs[1].(int)]
+	}).(AccountStorageAccountsOutput)
+}
+
+func (AccountStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return accountStorageAccountsArrayType
+}
+
+func (o AccountStorageAccountsArrayOutput) ToAccountStorageAccountsArrayOutput() AccountStorageAccountsArrayOutput {
+	return o
+}
+
+func (o AccountStorageAccountsArrayOutput) ToAccountStorageAccountsArrayOutputWithContext(ctx context.Context) AccountStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AccountStorageAccountsArrayOutput{}) }
+

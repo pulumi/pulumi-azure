@@ -4,6 +4,8 @@
 package containerservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -15,198 +17,504 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
 type Registry struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether the admin user is enabled. Defaults to `false`.
+	AdminEnabled pulumi.BoolOutput `pulumi:"adminEnabled"`
+
+	// The Password associated with the Container Registry Admin account - if the admin account is enabled.
+	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
+
+	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
+	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
+
+	// A list of Azure locations where the container registry should be geo-replicated.
+	GeoreplicationLocations pulumi.StringArrayOutput `pulumi:"georeplicationLocations"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The URL that can be used to log into the container registry.
+	LoginServer pulumi.StringOutput `pulumi:"loginServer"`
+
+	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `networkRuleSet` block as documented below.
+	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
+
+	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	StorageAccount RegistryStorageAccountOutput `pulumi:"storageAccount"`
+
+	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
 func NewRegistry(ctx *pulumi.Context,
-	name string, args *RegistryArgs, opts ...pulumi.ResourceOpt) (*Registry, error) {
+	name string, args *RegistryArgs, opts ...pulumi.ResourceOption) (*Registry, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["adminEnabled"] = nil
-		inputs["georeplicationLocations"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkRuleSet"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["storageAccount"] = nil
-		inputs["storageAccountId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["adminEnabled"] = args.AdminEnabled
-		inputs["georeplicationLocations"] = args.GeoreplicationLocations
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkRuleSet"] = args.NetworkRuleSet
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["storageAccount"] = args.StorageAccount
-		inputs["storageAccountId"] = args.StorageAccountId
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdminEnabled; i != nil { inputs["adminEnabled"] = i.ToBoolOutput() }
+		if i := args.GeoreplicationLocations; i != nil { inputs["georeplicationLocations"] = i.ToStringArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkRuleSet; i != nil { inputs["networkRuleSet"] = i.ToRegistryNetworkRuleSetOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.StorageAccount; i != nil { inputs["storageAccount"] = i.ToRegistryStorageAccountOutput() }
+		if i := args.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["adminPassword"] = nil
-	inputs["adminUsername"] = nil
-	inputs["loginServer"] = nil
-	s, err := ctx.RegisterResource("azure:containerservice/registry:Registry", name, true, inputs, opts...)
+	var resource Registry
+	err := ctx.RegisterResource("azure:containerservice/registry:Registry", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Registry{s: s}, nil
+	return &resource, nil
 }
 
 // GetRegistry gets an existing Registry resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRegistry(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RegistryState, opts ...pulumi.ResourceOpt) (*Registry, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RegistryState, opts ...pulumi.ResourceOption) (*Registry, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["adminEnabled"] = state.AdminEnabled
-		inputs["adminPassword"] = state.AdminPassword
-		inputs["adminUsername"] = state.AdminUsername
-		inputs["georeplicationLocations"] = state.GeoreplicationLocations
-		inputs["location"] = state.Location
-		inputs["loginServer"] = state.LoginServer
-		inputs["name"] = state.Name
-		inputs["networkRuleSet"] = state.NetworkRuleSet
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["storageAccount"] = state.StorageAccount
-		inputs["storageAccountId"] = state.StorageAccountId
-		inputs["tags"] = state.Tags
+		if i := state.AdminEnabled; i != nil { inputs["adminEnabled"] = i.ToBoolOutput() }
+		if i := state.AdminPassword; i != nil { inputs["adminPassword"] = i.ToStringOutput() }
+		if i := state.AdminUsername; i != nil { inputs["adminUsername"] = i.ToStringOutput() }
+		if i := state.GeoreplicationLocations; i != nil { inputs["georeplicationLocations"] = i.ToStringArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.LoginServer; i != nil { inputs["loginServer"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkRuleSet; i != nil { inputs["networkRuleSet"] = i.ToRegistryNetworkRuleSetOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.StorageAccount; i != nil { inputs["storageAccount"] = i.ToRegistryStorageAccountOutput() }
+		if i := state.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:containerservice/registry:Registry", name, id, inputs, opts...)
+	var resource Registry
+	err := ctx.ReadResource("azure:containerservice/registry:Registry", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Registry{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Registry) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Registry) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether the admin user is enabled. Defaults to `false`.
-func (r *Registry) AdminEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["adminEnabled"])
-}
-
-// The Password associated with the Container Registry Admin account - if the admin account is enabled.
-func (r *Registry) AdminPassword() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["adminPassword"])
-}
-
-// The Username associated with the Container Registry Admin account - if the admin account is enabled.
-func (r *Registry) AdminUsername() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["adminUsername"])
-}
-
-// A list of Azure locations where the container registry should be geo-replicated.
-func (r *Registry) GeoreplicationLocations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["georeplicationLocations"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Registry) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The URL that can be used to log into the container registry.
-func (r *Registry) LoginServer() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loginServer"])
-}
-
-// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-func (r *Registry) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `networkRuleSet` block as documented below.
-func (r *Registry) NetworkRuleSet() pulumi.Output {
-	return r.s.State["networkRuleSet"]
-}
-
-// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-func (r *Registry) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
-func (r *Registry) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-func (r *Registry) StorageAccount() pulumi.Output {
-	return r.s.State["storageAccount"]
-}
-
-// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
-func (r *Registry) StorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Registry) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Registry resources.
 type RegistryState struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
-	AdminEnabled interface{}
+	AdminEnabled pulumi.BoolInput `pulumi:"adminEnabled"`
 	// The Password associated with the Container Registry Admin account - if the admin account is enabled.
-	AdminPassword interface{}
+	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
-	AdminUsername interface{}
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// A list of Azure locations where the container registry should be geo-replicated.
-	GeoreplicationLocations interface{}
+	GeoreplicationLocations pulumi.StringArrayInput `pulumi:"georeplicationLocations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
-	LoginServer interface{}
+	LoginServer pulumi.StringInput `pulumi:"loginServer"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkRuleSet` block as documented below.
-	NetworkRuleSet interface{}
+	NetworkRuleSet RegistryNetworkRuleSetInput `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
-	Sku interface{}
-	StorageAccount interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
+	StorageAccount RegistryStorageAccountInput `pulumi:"storageAccount"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
-	AdminEnabled interface{}
+	AdminEnabled pulumi.BoolInput `pulumi:"adminEnabled"`
 	// A list of Azure locations where the container registry should be geo-replicated.
-	GeoreplicationLocations interface{}
+	GeoreplicationLocations pulumi.StringArrayInput `pulumi:"georeplicationLocations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `networkRuleSet` block as documented below.
-	NetworkRuleSet interface{}
+	NetworkRuleSet RegistryNetworkRuleSetInput `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
-	Sku interface{}
-	StorageAccount interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
+	StorageAccount RegistryStorageAccountInput `pulumi:"storageAccount"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type RegistryNetworkRuleSet struct {
+	// The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+	DefaultAction *string `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules *[]RegistryNetworkRuleSetIpRules `pulumi:"ipRules"`
+	// One or more `virtualNetwork` blocks as defined below.
+	VirtualNetworks *[]RegistryNetworkRuleSetVirtualNetworks `pulumi:"virtualNetworks"`
+}
+var registryNetworkRuleSetType = reflect.TypeOf((*RegistryNetworkRuleSet)(nil)).Elem()
+
+type RegistryNetworkRuleSetInput interface {
+	pulumi.Input
+
+	ToRegistryNetworkRuleSetOutput() RegistryNetworkRuleSetOutput
+	ToRegistryNetworkRuleSetOutputWithContext(ctx context.Context) RegistryNetworkRuleSetOutput
+}
+
+type RegistryNetworkRuleSetArgs struct {
+	// The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	// One or more `ipRule` blocks as defined below.
+	IpRules RegistryNetworkRuleSetIpRulesArrayInput `pulumi:"ipRules"`
+	// One or more `virtualNetwork` blocks as defined below.
+	VirtualNetworks RegistryNetworkRuleSetVirtualNetworksArrayInput `pulumi:"virtualNetworks"`
+}
+
+func (RegistryNetworkRuleSetArgs) ElementType() reflect.Type {
+	return registryNetworkRuleSetType
+}
+
+func (a RegistryNetworkRuleSetArgs) ToRegistryNetworkRuleSetOutput() RegistryNetworkRuleSetOutput {
+	return pulumi.ToOutput(a).(RegistryNetworkRuleSetOutput)
+}
+
+func (a RegistryNetworkRuleSetArgs) ToRegistryNetworkRuleSetOutputWithContext(ctx context.Context) RegistryNetworkRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegistryNetworkRuleSetOutput)
+}
+
+type RegistryNetworkRuleSetOutput struct { *pulumi.OutputState }
+
+// The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringOutput {
+	return o.Apply(func(v RegistryNetworkRuleSet) string {
+		if v.DefaultAction == nil { return *new(string) } else { return *v.DefaultAction }
+	}).(pulumi.StringOutput)
+}
+
+// One or more `ipRule` blocks as defined below.
+func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRulesArrayOutput {
+	return o.Apply(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRules {
+		if v.IpRules == nil { return *new([]RegistryNetworkRuleSetIpRules) } else { return *v.IpRules }
+	}).(RegistryNetworkRuleSetIpRulesArrayOutput)
+}
+
+// One or more `virtualNetwork` blocks as defined below.
+func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworksArrayOutput {
+	return o.Apply(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetworks {
+		if v.VirtualNetworks == nil { return *new([]RegistryNetworkRuleSetVirtualNetworks) } else { return *v.VirtualNetworks }
+	}).(RegistryNetworkRuleSetVirtualNetworksArrayOutput)
+}
+
+func (RegistryNetworkRuleSetOutput) ElementType() reflect.Type {
+	return registryNetworkRuleSetType
+}
+
+func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetOutput() RegistryNetworkRuleSetOutput {
+	return o
+}
+
+func (o RegistryNetworkRuleSetOutput) ToRegistryNetworkRuleSetOutputWithContext(ctx context.Context) RegistryNetworkRuleSetOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegistryNetworkRuleSetOutput{}) }
+
+type RegistryNetworkRuleSetIpRules struct {
+	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+	Action string `pulumi:"action"`
+	// The CIDR block from which requests will match the rule.
+	IpRange string `pulumi:"ipRange"`
+}
+var registryNetworkRuleSetIpRulesType = reflect.TypeOf((*RegistryNetworkRuleSetIpRules)(nil)).Elem()
+
+type RegistryNetworkRuleSetIpRulesInput interface {
+	pulumi.Input
+
+	ToRegistryNetworkRuleSetIpRulesOutput() RegistryNetworkRuleSetIpRulesOutput
+	ToRegistryNetworkRuleSetIpRulesOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRulesOutput
+}
+
+type RegistryNetworkRuleSetIpRulesArgs struct {
+	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The CIDR block from which requests will match the rule.
+	IpRange pulumi.StringInput `pulumi:"ipRange"`
+}
+
+func (RegistryNetworkRuleSetIpRulesArgs) ElementType() reflect.Type {
+	return registryNetworkRuleSetIpRulesType
+}
+
+func (a RegistryNetworkRuleSetIpRulesArgs) ToRegistryNetworkRuleSetIpRulesOutput() RegistryNetworkRuleSetIpRulesOutput {
+	return pulumi.ToOutput(a).(RegistryNetworkRuleSetIpRulesOutput)
+}
+
+func (a RegistryNetworkRuleSetIpRulesArgs) ToRegistryNetworkRuleSetIpRulesOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegistryNetworkRuleSetIpRulesOutput)
+}
+
+type RegistryNetworkRuleSetIpRulesOutput struct { *pulumi.OutputState }
+
+// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+func (o RegistryNetworkRuleSetIpRulesOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v RegistryNetworkRuleSetIpRules) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+// The CIDR block from which requests will match the rule.
+func (o RegistryNetworkRuleSetIpRulesOutput) IpRange() pulumi.StringOutput {
+	return o.Apply(func(v RegistryNetworkRuleSetIpRules) string {
+		return v.IpRange
+	}).(pulumi.StringOutput)
+}
+
+func (RegistryNetworkRuleSetIpRulesOutput) ElementType() reflect.Type {
+	return registryNetworkRuleSetIpRulesType
+}
+
+func (o RegistryNetworkRuleSetIpRulesOutput) ToRegistryNetworkRuleSetIpRulesOutput() RegistryNetworkRuleSetIpRulesOutput {
+	return o
+}
+
+func (o RegistryNetworkRuleSetIpRulesOutput) ToRegistryNetworkRuleSetIpRulesOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRulesOutput{}) }
+
+var registryNetworkRuleSetIpRulesArrayType = reflect.TypeOf((*[]RegistryNetworkRuleSetIpRules)(nil)).Elem()
+
+type RegistryNetworkRuleSetIpRulesArrayInput interface {
+	pulumi.Input
+
+	ToRegistryNetworkRuleSetIpRulesArrayOutput() RegistryNetworkRuleSetIpRulesArrayOutput
+	ToRegistryNetworkRuleSetIpRulesArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRulesArrayOutput
+}
+
+type RegistryNetworkRuleSetIpRulesArrayArgs []RegistryNetworkRuleSetIpRulesInput
+
+func (RegistryNetworkRuleSetIpRulesArrayArgs) ElementType() reflect.Type {
+	return registryNetworkRuleSetIpRulesArrayType
+}
+
+func (a RegistryNetworkRuleSetIpRulesArrayArgs) ToRegistryNetworkRuleSetIpRulesArrayOutput() RegistryNetworkRuleSetIpRulesArrayOutput {
+	return pulumi.ToOutput(a).(RegistryNetworkRuleSetIpRulesArrayOutput)
+}
+
+func (a RegistryNetworkRuleSetIpRulesArrayArgs) ToRegistryNetworkRuleSetIpRulesArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegistryNetworkRuleSetIpRulesArrayOutput)
+}
+
+type RegistryNetworkRuleSetIpRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o RegistryNetworkRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetIpRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RegistryNetworkRuleSetIpRules {
+		return vs[0].([]RegistryNetworkRuleSetIpRules)[vs[1].(int)]
+	}).(RegistryNetworkRuleSetIpRulesOutput)
+}
+
+func (RegistryNetworkRuleSetIpRulesArrayOutput) ElementType() reflect.Type {
+	return registryNetworkRuleSetIpRulesArrayType
+}
+
+func (o RegistryNetworkRuleSetIpRulesArrayOutput) ToRegistryNetworkRuleSetIpRulesArrayOutput() RegistryNetworkRuleSetIpRulesArrayOutput {
+	return o
+}
+
+func (o RegistryNetworkRuleSetIpRulesArrayOutput) ToRegistryNetworkRuleSetIpRulesArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetIpRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRulesArrayOutput{}) }
+
+type RegistryNetworkRuleSetVirtualNetworks struct {
+	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+	Action string `pulumi:"action"`
+	// The subnet id from which requests will match the rule.
+	SubnetId string `pulumi:"subnetId"`
+}
+var registryNetworkRuleSetVirtualNetworksType = reflect.TypeOf((*RegistryNetworkRuleSetVirtualNetworks)(nil)).Elem()
+
+type RegistryNetworkRuleSetVirtualNetworksInput interface {
+	pulumi.Input
+
+	ToRegistryNetworkRuleSetVirtualNetworksOutput() RegistryNetworkRuleSetVirtualNetworksOutput
+	ToRegistryNetworkRuleSetVirtualNetworksOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworksOutput
+}
+
+type RegistryNetworkRuleSetVirtualNetworksArgs struct {
+	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+	Action pulumi.StringInput `pulumi:"action"`
+	// The subnet id from which requests will match the rule.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (RegistryNetworkRuleSetVirtualNetworksArgs) ElementType() reflect.Type {
+	return registryNetworkRuleSetVirtualNetworksType
+}
+
+func (a RegistryNetworkRuleSetVirtualNetworksArgs) ToRegistryNetworkRuleSetVirtualNetworksOutput() RegistryNetworkRuleSetVirtualNetworksOutput {
+	return pulumi.ToOutput(a).(RegistryNetworkRuleSetVirtualNetworksOutput)
+}
+
+func (a RegistryNetworkRuleSetVirtualNetworksArgs) ToRegistryNetworkRuleSetVirtualNetworksOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworksOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegistryNetworkRuleSetVirtualNetworksOutput)
+}
+
+type RegistryNetworkRuleSetVirtualNetworksOutput struct { *pulumi.OutputState }
+
+// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+func (o RegistryNetworkRuleSetVirtualNetworksOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v RegistryNetworkRuleSetVirtualNetworks) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+// The subnet id from which requests will match the rule.
+func (o RegistryNetworkRuleSetVirtualNetworksOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v RegistryNetworkRuleSetVirtualNetworks) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (RegistryNetworkRuleSetVirtualNetworksOutput) ElementType() reflect.Type {
+	return registryNetworkRuleSetVirtualNetworksType
+}
+
+func (o RegistryNetworkRuleSetVirtualNetworksOutput) ToRegistryNetworkRuleSetVirtualNetworksOutput() RegistryNetworkRuleSetVirtualNetworksOutput {
+	return o
+}
+
+func (o RegistryNetworkRuleSetVirtualNetworksOutput) ToRegistryNetworkRuleSetVirtualNetworksOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworksOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworksOutput{}) }
+
+var registryNetworkRuleSetVirtualNetworksArrayType = reflect.TypeOf((*[]RegistryNetworkRuleSetVirtualNetworks)(nil)).Elem()
+
+type RegistryNetworkRuleSetVirtualNetworksArrayInput interface {
+	pulumi.Input
+
+	ToRegistryNetworkRuleSetVirtualNetworksArrayOutput() RegistryNetworkRuleSetVirtualNetworksArrayOutput
+	ToRegistryNetworkRuleSetVirtualNetworksArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworksArrayOutput
+}
+
+type RegistryNetworkRuleSetVirtualNetworksArrayArgs []RegistryNetworkRuleSetVirtualNetworksInput
+
+func (RegistryNetworkRuleSetVirtualNetworksArrayArgs) ElementType() reflect.Type {
+	return registryNetworkRuleSetVirtualNetworksArrayType
+}
+
+func (a RegistryNetworkRuleSetVirtualNetworksArrayArgs) ToRegistryNetworkRuleSetVirtualNetworksArrayOutput() RegistryNetworkRuleSetVirtualNetworksArrayOutput {
+	return pulumi.ToOutput(a).(RegistryNetworkRuleSetVirtualNetworksArrayOutput)
+}
+
+func (a RegistryNetworkRuleSetVirtualNetworksArrayArgs) ToRegistryNetworkRuleSetVirtualNetworksArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworksArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegistryNetworkRuleSetVirtualNetworksArrayOutput)
+}
+
+type RegistryNetworkRuleSetVirtualNetworksArrayOutput struct { *pulumi.OutputState }
+
+func (o RegistryNetworkRuleSetVirtualNetworksArrayOutput) Index(i pulumi.IntInput) RegistryNetworkRuleSetVirtualNetworksOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RegistryNetworkRuleSetVirtualNetworks {
+		return vs[0].([]RegistryNetworkRuleSetVirtualNetworks)[vs[1].(int)]
+	}).(RegistryNetworkRuleSetVirtualNetworksOutput)
+}
+
+func (RegistryNetworkRuleSetVirtualNetworksArrayOutput) ElementType() reflect.Type {
+	return registryNetworkRuleSetVirtualNetworksArrayType
+}
+
+func (o RegistryNetworkRuleSetVirtualNetworksArrayOutput) ToRegistryNetworkRuleSetVirtualNetworksArrayOutput() RegistryNetworkRuleSetVirtualNetworksArrayOutput {
+	return o
+}
+
+func (o RegistryNetworkRuleSetVirtualNetworksArrayOutput) ToRegistryNetworkRuleSetVirtualNetworksArrayOutputWithContext(ctx context.Context) RegistryNetworkRuleSetVirtualNetworksArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworksArrayOutput{}) }
+
+type RegistryStorageAccount struct {
+	AccessKey string `pulumi:"accessKey"`
+	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var registryStorageAccountType = reflect.TypeOf((*RegistryStorageAccount)(nil)).Elem()
+
+type RegistryStorageAccountInput interface {
+	pulumi.Input
+
+	ToRegistryStorageAccountOutput() RegistryStorageAccountOutput
+	ToRegistryStorageAccountOutputWithContext(ctx context.Context) RegistryStorageAccountOutput
+}
+
+type RegistryStorageAccountArgs struct {
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RegistryStorageAccountArgs) ElementType() reflect.Type {
+	return registryStorageAccountType
+}
+
+func (a RegistryStorageAccountArgs) ToRegistryStorageAccountOutput() RegistryStorageAccountOutput {
+	return pulumi.ToOutput(a).(RegistryStorageAccountOutput)
+}
+
+func (a RegistryStorageAccountArgs) ToRegistryStorageAccountOutputWithContext(ctx context.Context) RegistryStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RegistryStorageAccountOutput)
+}
+
+type RegistryStorageAccountOutput struct { *pulumi.OutputState }
+
+func (o RegistryStorageAccountOutput) AccessKey() pulumi.StringOutput {
+	return o.Apply(func(v RegistryStorageAccount) string {
+		return v.AccessKey
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+func (o RegistryStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v RegistryStorageAccount) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (RegistryStorageAccountOutput) ElementType() reflect.Type {
+	return registryStorageAccountType
+}
+
+func (o RegistryStorageAccountOutput) ToRegistryStorageAccountOutput() RegistryStorageAccountOutput {
+	return o
+}
+
+func (o RegistryStorageAccountOutput) ToRegistryStorageAccountOutputWithContext(ctx context.Context) RegistryStorageAccountOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RegistryStorageAccountOutput{}) }
+

@@ -12,147 +12,114 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip_prefix.html.markdown.
 type PublicIpPrefix struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The IP address prefix value that was allocated.
+	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+	PrefixLength pulumi.IntOutput `pulumi:"prefixLength"`
+
+	// The name of the resource group in which to create the public IP.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A collection containing the availability zone to allocate the Public IP in.
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewPublicIpPrefix registers a new resource with the given unique name, arguments, and options.
 func NewPublicIpPrefix(ctx *pulumi.Context,
-	name string, args *PublicIpPrefixArgs, opts ...pulumi.ResourceOpt) (*PublicIpPrefix, error) {
+	name string, args *PublicIpPrefixArgs, opts ...pulumi.ResourceOption) (*PublicIpPrefix, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["prefixLength"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["prefixLength"] = args.PrefixLength
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PrefixLength; i != nil { inputs["prefixLength"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	inputs["ipPrefix"] = nil
-	s, err := ctx.RegisterResource("azure:network/publicIpPrefix:PublicIpPrefix", name, true, inputs, opts...)
+	var resource PublicIpPrefix
+	err := ctx.RegisterResource("azure:network/publicIpPrefix:PublicIpPrefix", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PublicIpPrefix{s: s}, nil
+	return &resource, nil
 }
 
 // GetPublicIpPrefix gets an existing PublicIpPrefix resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPublicIpPrefix(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PublicIpPrefixState, opts ...pulumi.ResourceOpt) (*PublicIpPrefix, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PublicIpPrefixState, opts ...pulumi.ResourceOption) (*PublicIpPrefix, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["ipPrefix"] = state.IpPrefix
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["prefixLength"] = state.PrefixLength
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["zones"] = state.Zones
+		if i := state.IpPrefix; i != nil { inputs["ipPrefix"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrefixLength; i != nil { inputs["prefixLength"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/publicIpPrefix:PublicIpPrefix", name, id, inputs, opts...)
+	var resource PublicIpPrefix
+	err := ctx.ReadResource("azure:network/publicIpPrefix:PublicIpPrefix", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &PublicIpPrefix{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *PublicIpPrefix) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *PublicIpPrefix) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The IP address prefix value that was allocated.
-func (r *PublicIpPrefix) IpPrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipPrefix"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) PrefixLength() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["prefixLength"])
-}
-
-// The name of the resource group in which to create the public IP.
-func (r *PublicIpPrefix) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-func (r *PublicIpPrefix) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *PublicIpPrefix) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A collection containing the availability zone to allocate the Public IP in.
-func (r *PublicIpPrefix) Zones() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering PublicIpPrefix resources.
 type PublicIpPrefixState struct {
 	// The IP address prefix value that was allocated.
-	IpPrefix interface{}
+	IpPrefix pulumi.StringInput `pulumi:"ipPrefix"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
-	PrefixLength interface{}
+	PrefixLength pulumi.IntInput `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the public IP.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a PublicIpPrefix resource.
 type PublicIpPrefixArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
-	PrefixLength interface{}
+	PrefixLength pulumi.IntInput `pulumi:"prefixLength"`
 	// The name of the resource group in which to create the public IP.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-	Sku interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }

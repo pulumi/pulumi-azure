@@ -4,6 +4,8 @@
 package dns
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_srv_record.html.markdown.
 type SrvRecord struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the DNS SRV Record.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	Records SrvRecordRecordsArrayOutput `pulumi:"records"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewSrvRecord registers a new resource with the given unique name, arguments, and options.
 func NewSrvRecord(ctx *pulumi.Context,
-	name string, args *SrvRecordArgs, opts ...pulumi.ResourceOpt) (*SrvRecord, error) {
+	name string, args *SrvRecordArgs, opts ...pulumi.ResourceOption) (*SrvRecord, error) {
 	if args == nil || args.Records == nil {
 		return nil, errors.New("missing required argument 'Records'")
 	}
@@ -30,117 +50,191 @@ func NewSrvRecord(ctx *pulumi.Context,
 	if args == nil || args.ZoneName == nil {
 		return nil, errors.New("missing required argument 'ZoneName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["records"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["ttl"] = nil
-		inputs["zoneName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["records"] = args.Records
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["ttl"] = args.Ttl
-		inputs["zoneName"] = args.ZoneName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Records; i != nil { inputs["records"] = i.ToSrvRecordRecordsArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:dns/srvRecord:SrvRecord", name, true, inputs, opts...)
+	var resource SrvRecord
+	err := ctx.RegisterResource("azure:dns/srvRecord:SrvRecord", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SrvRecord{s: s}, nil
+	return &resource, nil
 }
 
 // GetSrvRecord gets an existing SrvRecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSrvRecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SrvRecordState, opts ...pulumi.ResourceOpt) (*SrvRecord, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SrvRecordState, opts ...pulumi.ResourceOption) (*SrvRecord, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["records"] = state.Records
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["ttl"] = state.Ttl
-		inputs["zoneName"] = state.ZoneName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Records; i != nil { inputs["records"] = i.ToSrvRecordRecordsArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:dns/srvRecord:SrvRecord", name, id, inputs, opts...)
+	var resource SrvRecord
+	err := ctx.ReadResource("azure:dns/srvRecord:SrvRecord", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SrvRecord{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SrvRecord) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SrvRecord) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the DNS SRV Record.
-func (r *SrvRecord) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of values that make up the SRV record. Each `record` block supports fields documented below.
-func (r *SrvRecord) Records() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["records"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *SrvRecord) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *SrvRecord) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Time To Live (TTL) of the DNS record in seconds.
-func (r *SrvRecord) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *SrvRecord) ZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SrvRecord resources.
 type SrvRecordState struct {
 	// The name of the DNS SRV Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
-	Records interface{}
+	Records SrvRecordRecordsArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a SrvRecord resource.
 type SrvRecordArgs struct {
 	// The name of the DNS SRV Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
-	Records interface{}
+	Records SrvRecordRecordsArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
+type SrvRecordRecords struct {
+	Port int `pulumi:"port"`
+	Priority int `pulumi:"priority"`
+	Target string `pulumi:"target"`
+	Weight int `pulumi:"weight"`
+}
+var srvRecordRecordsType = reflect.TypeOf((*SrvRecordRecords)(nil)).Elem()
+
+type SrvRecordRecordsInput interface {
+	pulumi.Input
+
+	ToSrvRecordRecordsOutput() SrvRecordRecordsOutput
+	ToSrvRecordRecordsOutputWithContext(ctx context.Context) SrvRecordRecordsOutput
+}
+
+type SrvRecordRecordsArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	Target pulumi.StringInput `pulumi:"target"`
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (SrvRecordRecordsArgs) ElementType() reflect.Type {
+	return srvRecordRecordsType
+}
+
+func (a SrvRecordRecordsArgs) ToSrvRecordRecordsOutput() SrvRecordRecordsOutput {
+	return pulumi.ToOutput(a).(SrvRecordRecordsOutput)
+}
+
+func (a SrvRecordRecordsArgs) ToSrvRecordRecordsOutputWithContext(ctx context.Context) SrvRecordRecordsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SrvRecordRecordsOutput)
+}
+
+type SrvRecordRecordsOutput struct { *pulumi.OutputState }
+
+func (o SrvRecordRecordsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v SrvRecordRecords) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+func (o SrvRecordRecordsOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v SrvRecordRecords) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+func (o SrvRecordRecordsOutput) Target() pulumi.StringOutput {
+	return o.Apply(func(v SrvRecordRecords) string {
+		return v.Target
+	}).(pulumi.StringOutput)
+}
+
+func (o SrvRecordRecordsOutput) Weight() pulumi.IntOutput {
+	return o.Apply(func(v SrvRecordRecords) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+func (SrvRecordRecordsOutput) ElementType() reflect.Type {
+	return srvRecordRecordsType
+}
+
+func (o SrvRecordRecordsOutput) ToSrvRecordRecordsOutput() SrvRecordRecordsOutput {
+	return o
+}
+
+func (o SrvRecordRecordsOutput) ToSrvRecordRecordsOutputWithContext(ctx context.Context) SrvRecordRecordsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SrvRecordRecordsOutput{}) }
+
+var srvRecordRecordsArrayType = reflect.TypeOf((*[]SrvRecordRecords)(nil)).Elem()
+
+type SrvRecordRecordsArrayInput interface {
+	pulumi.Input
+
+	ToSrvRecordRecordsArrayOutput() SrvRecordRecordsArrayOutput
+	ToSrvRecordRecordsArrayOutputWithContext(ctx context.Context) SrvRecordRecordsArrayOutput
+}
+
+type SrvRecordRecordsArrayArgs []SrvRecordRecordsInput
+
+func (SrvRecordRecordsArrayArgs) ElementType() reflect.Type {
+	return srvRecordRecordsArrayType
+}
+
+func (a SrvRecordRecordsArrayArgs) ToSrvRecordRecordsArrayOutput() SrvRecordRecordsArrayOutput {
+	return pulumi.ToOutput(a).(SrvRecordRecordsArrayOutput)
+}
+
+func (a SrvRecordRecordsArrayArgs) ToSrvRecordRecordsArrayOutputWithContext(ctx context.Context) SrvRecordRecordsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SrvRecordRecordsArrayOutput)
+}
+
+type SrvRecordRecordsArrayOutput struct { *pulumi.OutputState }
+
+func (o SrvRecordRecordsArrayOutput) Index(i pulumi.IntInput) SrvRecordRecordsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SrvRecordRecords {
+		return vs[0].([]SrvRecordRecords)[vs[1].(int)]
+	}).(SrvRecordRecordsOutput)
+}
+
+func (SrvRecordRecordsArrayOutput) ElementType() reflect.Type {
+	return srvRecordRecordsArrayType
+}
+
+func (o SrvRecordRecordsArrayOutput) ToSrvRecordRecordsArrayOutput() SrvRecordRecordsArrayOutput {
+	return o
+}
+
+func (o SrvRecordRecordsArrayOutput) ToSrvRecordRecordsArrayOutputWithContext(ctx context.Context) SrvRecordRecordsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SrvRecordRecordsArrayOutput{}) }
+

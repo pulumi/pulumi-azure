@@ -4,6 +4,8 @@
 package recoveryservices
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_policy_vm.html.markdown.
 type ProtectionPolicyVM struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+	Backup ProtectionPolicyVMBackupOutput `pulumi:"backup"`
+
+	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
+	RetentionDaily ProtectionPolicyVMRetentionDailyOutput `pulumi:"retentionDaily"`
+
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+	RetentionMonthly ProtectionPolicyVMRetentionMonthlyOutput `pulumi:"retentionMonthly"`
+
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
+	RetentionWeekly ProtectionPolicyVMRetentionWeeklyOutput `pulumi:"retentionWeekly"`
+
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
+	RetentionYearly ProtectionPolicyVMRetentionYearlyOutput `pulumi:"retentionYearly"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the timezone. Defaults to `UTC`
+	Timezone pulumi.StringOutput `pulumi:"timezone"`
 }
 
 // NewProtectionPolicyVM registers a new resource with the given unique name, arguments, and options.
 func NewProtectionPolicyVM(ctx *pulumi.Context,
-	name string, args *ProtectionPolicyVMArgs, opts ...pulumi.ResourceOpt) (*ProtectionPolicyVM, error) {
+	name string, args *ProtectionPolicyVMArgs, opts ...pulumi.ResourceOption) (*ProtectionPolicyVM, error) {
 	if args == nil || args.Backup == nil {
 		return nil, errors.New("missing required argument 'Backup'")
 	}
@@ -27,165 +59,410 @@ func NewProtectionPolicyVM(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["backup"] = nil
-		inputs["name"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["retentionDaily"] = nil
-		inputs["retentionMonthly"] = nil
-		inputs["retentionWeekly"] = nil
-		inputs["retentionYearly"] = nil
-		inputs["tags"] = nil
-		inputs["timezone"] = nil
-	} else {
-		inputs["backup"] = args.Backup
-		inputs["name"] = args.Name
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["retentionDaily"] = args.RetentionDaily
-		inputs["retentionMonthly"] = args.RetentionMonthly
-		inputs["retentionWeekly"] = args.RetentionWeekly
-		inputs["retentionYearly"] = args.RetentionYearly
-		inputs["tags"] = args.Tags
-		inputs["timezone"] = args.Timezone
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Backup; i != nil { inputs["backup"] = i.ToProtectionPolicyVMBackupOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RetentionDaily; i != nil { inputs["retentionDaily"] = i.ToProtectionPolicyVMRetentionDailyOutput() }
+		if i := args.RetentionMonthly; i != nil { inputs["retentionMonthly"] = i.ToProtectionPolicyVMRetentionMonthlyOutput() }
+		if i := args.RetentionWeekly; i != nil { inputs["retentionWeekly"] = i.ToProtectionPolicyVMRetentionWeeklyOutput() }
+		if i := args.RetentionYearly; i != nil { inputs["retentionYearly"] = i.ToProtectionPolicyVMRetentionYearlyOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Timezone; i != nil { inputs["timezone"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, true, inputs, opts...)
+	var resource ProtectionPolicyVM
+	err := ctx.RegisterResource("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProtectionPolicyVM{s: s}, nil
+	return &resource, nil
 }
 
 // GetProtectionPolicyVM gets an existing ProtectionPolicyVM resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProtectionPolicyVM(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProtectionPolicyVMState, opts ...pulumi.ResourceOpt) (*ProtectionPolicyVM, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProtectionPolicyVMState, opts ...pulumi.ResourceOption) (*ProtectionPolicyVM, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backup"] = state.Backup
-		inputs["name"] = state.Name
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["retentionDaily"] = state.RetentionDaily
-		inputs["retentionMonthly"] = state.RetentionMonthly
-		inputs["retentionWeekly"] = state.RetentionWeekly
-		inputs["retentionYearly"] = state.RetentionYearly
-		inputs["tags"] = state.Tags
-		inputs["timezone"] = state.Timezone
+		if i := state.Backup; i != nil { inputs["backup"] = i.ToProtectionPolicyVMBackupOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RetentionDaily; i != nil { inputs["retentionDaily"] = i.ToProtectionPolicyVMRetentionDailyOutput() }
+		if i := state.RetentionMonthly; i != nil { inputs["retentionMonthly"] = i.ToProtectionPolicyVMRetentionMonthlyOutput() }
+		if i := state.RetentionWeekly; i != nil { inputs["retentionWeekly"] = i.ToProtectionPolicyVMRetentionWeeklyOutput() }
+		if i := state.RetentionYearly; i != nil { inputs["retentionYearly"] = i.ToProtectionPolicyVMRetentionYearlyOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Timezone; i != nil { inputs["timezone"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, id, inputs, opts...)
+	var resource ProtectionPolicyVM
+	err := ctx.ReadResource("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProtectionPolicyVM{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ProtectionPolicyVM) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ProtectionPolicyVM) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
-func (r *ProtectionPolicyVM) Backup() pulumi.Output {
-	return r.s.State["backup"]
-}
-
-// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
-func (r *ProtectionPolicyVM) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-func (r *ProtectionPolicyVM) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-func (r *ProtectionPolicyVM) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
-func (r *ProtectionPolicyVM) RetentionDaily() pulumi.Output {
-	return r.s.State["retentionDaily"]
-}
-
-// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
-func (r *ProtectionPolicyVM) RetentionMonthly() pulumi.Output {
-	return r.s.State["retentionMonthly"]
-}
-
-// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
-func (r *ProtectionPolicyVM) RetentionWeekly() pulumi.Output {
-	return r.s.State["retentionWeekly"]
-}
-
-// Configures the policy yearly retention as documented in the `retentionYearly` block below.
-func (r *ProtectionPolicyVM) RetentionYearly() pulumi.Output {
-	return r.s.State["retentionYearly"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ProtectionPolicyVM) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the timezone. Defaults to `UTC`
-func (r *ProtectionPolicyVM) Timezone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timezone"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ProtectionPolicyVM resources.
 type ProtectionPolicyVMState struct {
 	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
-	Backup interface{}
+	Backup ProtectionPolicyVMBackupInput `pulumi:"backup"`
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
-	RetentionDaily interface{}
+	RetentionDaily ProtectionPolicyVMRetentionDailyInput `pulumi:"retentionDaily"`
 	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
-	RetentionMonthly interface{}
+	RetentionMonthly ProtectionPolicyVMRetentionMonthlyInput `pulumi:"retentionMonthly"`
 	// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
-	RetentionWeekly interface{}
+	RetentionWeekly ProtectionPolicyVMRetentionWeeklyInput `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
-	RetentionYearly interface{}
+	RetentionYearly ProtectionPolicyVMRetentionYearlyInput `pulumi:"retentionYearly"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the timezone. Defaults to `UTC`
-	Timezone interface{}
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 }
 
 // The set of arguments for constructing a ProtectionPolicyVM resource.
 type ProtectionPolicyVMArgs struct {
 	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
-	Backup interface{}
+	Backup ProtectionPolicyVMBackupInput `pulumi:"backup"`
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
-	RetentionDaily interface{}
+	RetentionDaily ProtectionPolicyVMRetentionDailyInput `pulumi:"retentionDaily"`
 	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
-	RetentionMonthly interface{}
+	RetentionMonthly ProtectionPolicyVMRetentionMonthlyInput `pulumi:"retentionMonthly"`
 	// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
-	RetentionWeekly interface{}
+	RetentionWeekly ProtectionPolicyVMRetentionWeeklyInput `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
-	RetentionYearly interface{}
+	RetentionYearly ProtectionPolicyVMRetentionYearlyInput `pulumi:"retentionYearly"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the timezone. Defaults to `UTC`
-	Timezone interface{}
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 }
+type ProtectionPolicyVMBackup struct {
+	Frequency string `pulumi:"frequency"`
+	Time string `pulumi:"time"`
+	Weekdays *[]string `pulumi:"weekdays"`
+}
+var protectionPolicyVMBackupType = reflect.TypeOf((*ProtectionPolicyVMBackup)(nil)).Elem()
+
+type ProtectionPolicyVMBackupInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyVMBackupOutput() ProtectionPolicyVMBackupOutput
+	ToProtectionPolicyVMBackupOutputWithContext(ctx context.Context) ProtectionPolicyVMBackupOutput
+}
+
+type ProtectionPolicyVMBackupArgs struct {
+	Frequency pulumi.StringInput `pulumi:"frequency"`
+	Time pulumi.StringInput `pulumi:"time"`
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+}
+
+func (ProtectionPolicyVMBackupArgs) ElementType() reflect.Type {
+	return protectionPolicyVMBackupType
+}
+
+func (a ProtectionPolicyVMBackupArgs) ToProtectionPolicyVMBackupOutput() ProtectionPolicyVMBackupOutput {
+	return pulumi.ToOutput(a).(ProtectionPolicyVMBackupOutput)
+}
+
+func (a ProtectionPolicyVMBackupArgs) ToProtectionPolicyVMBackupOutputWithContext(ctx context.Context) ProtectionPolicyVMBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProtectionPolicyVMBackupOutput)
+}
+
+type ProtectionPolicyVMBackupOutput struct { *pulumi.OutputState }
+
+func (o ProtectionPolicyVMBackupOutput) Frequency() pulumi.StringOutput {
+	return o.Apply(func(v ProtectionPolicyVMBackup) string {
+		return v.Frequency
+	}).(pulumi.StringOutput)
+}
+
+func (o ProtectionPolicyVMBackupOutput) Time() pulumi.StringOutput {
+	return o.Apply(func(v ProtectionPolicyVMBackup) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+func (o ProtectionPolicyVMBackupOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMBackup) []string {
+		if v.Weekdays == nil { return *new([]string) } else { return *v.Weekdays }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ProtectionPolicyVMBackupOutput) ElementType() reflect.Type {
+	return protectionPolicyVMBackupType
+}
+
+func (o ProtectionPolicyVMBackupOutput) ToProtectionPolicyVMBackupOutput() ProtectionPolicyVMBackupOutput {
+	return o
+}
+
+func (o ProtectionPolicyVMBackupOutput) ToProtectionPolicyVMBackupOutputWithContext(ctx context.Context) ProtectionPolicyVMBackupOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProtectionPolicyVMBackupOutput{}) }
+
+type ProtectionPolicyVMRetentionDaily struct {
+	Count int `pulumi:"count"`
+}
+var protectionPolicyVMRetentionDailyType = reflect.TypeOf((*ProtectionPolicyVMRetentionDaily)(nil)).Elem()
+
+type ProtectionPolicyVMRetentionDailyInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyVMRetentionDailyOutput() ProtectionPolicyVMRetentionDailyOutput
+	ToProtectionPolicyVMRetentionDailyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionDailyOutput
+}
+
+type ProtectionPolicyVMRetentionDailyArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+}
+
+func (ProtectionPolicyVMRetentionDailyArgs) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionDailyType
+}
+
+func (a ProtectionPolicyVMRetentionDailyArgs) ToProtectionPolicyVMRetentionDailyOutput() ProtectionPolicyVMRetentionDailyOutput {
+	return pulumi.ToOutput(a).(ProtectionPolicyVMRetentionDailyOutput)
+}
+
+func (a ProtectionPolicyVMRetentionDailyArgs) ToProtectionPolicyVMRetentionDailyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionDailyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProtectionPolicyVMRetentionDailyOutput)
+}
+
+type ProtectionPolicyVMRetentionDailyOutput struct { *pulumi.OutputState }
+
+func (o ProtectionPolicyVMRetentionDailyOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionDaily) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+func (ProtectionPolicyVMRetentionDailyOutput) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionDailyType
+}
+
+func (o ProtectionPolicyVMRetentionDailyOutput) ToProtectionPolicyVMRetentionDailyOutput() ProtectionPolicyVMRetentionDailyOutput {
+	return o
+}
+
+func (o ProtectionPolicyVMRetentionDailyOutput) ToProtectionPolicyVMRetentionDailyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionDailyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProtectionPolicyVMRetentionDailyOutput{}) }
+
+type ProtectionPolicyVMRetentionMonthly struct {
+	Count int `pulumi:"count"`
+	Weekdays []string `pulumi:"weekdays"`
+	Weeks []string `pulumi:"weeks"`
+}
+var protectionPolicyVMRetentionMonthlyType = reflect.TypeOf((*ProtectionPolicyVMRetentionMonthly)(nil)).Elem()
+
+type ProtectionPolicyVMRetentionMonthlyInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyVMRetentionMonthlyOutput() ProtectionPolicyVMRetentionMonthlyOutput
+	ToProtectionPolicyVMRetentionMonthlyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionMonthlyOutput
+}
+
+type ProtectionPolicyVMRetentionMonthlyArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+	Weeks pulumi.StringArrayInput `pulumi:"weeks"`
+}
+
+func (ProtectionPolicyVMRetentionMonthlyArgs) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionMonthlyType
+}
+
+func (a ProtectionPolicyVMRetentionMonthlyArgs) ToProtectionPolicyVMRetentionMonthlyOutput() ProtectionPolicyVMRetentionMonthlyOutput {
+	return pulumi.ToOutput(a).(ProtectionPolicyVMRetentionMonthlyOutput)
+}
+
+func (a ProtectionPolicyVMRetentionMonthlyArgs) ToProtectionPolicyVMRetentionMonthlyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProtectionPolicyVMRetentionMonthlyOutput)
+}
+
+type ProtectionPolicyVMRetentionMonthlyOutput struct { *pulumi.OutputState }
+
+func (o ProtectionPolicyVMRetentionMonthlyOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionMonthly) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+func (o ProtectionPolicyVMRetentionMonthlyOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionMonthly) []string {
+		return v.Weekdays
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProtectionPolicyVMRetentionMonthlyOutput) Weeks() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionMonthly) []string {
+		return v.Weeks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ProtectionPolicyVMRetentionMonthlyOutput) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionMonthlyType
+}
+
+func (o ProtectionPolicyVMRetentionMonthlyOutput) ToProtectionPolicyVMRetentionMonthlyOutput() ProtectionPolicyVMRetentionMonthlyOutput {
+	return o
+}
+
+func (o ProtectionPolicyVMRetentionMonthlyOutput) ToProtectionPolicyVMRetentionMonthlyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionMonthlyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProtectionPolicyVMRetentionMonthlyOutput{}) }
+
+type ProtectionPolicyVMRetentionWeekly struct {
+	Count int `pulumi:"count"`
+	Weekdays []string `pulumi:"weekdays"`
+}
+var protectionPolicyVMRetentionWeeklyType = reflect.TypeOf((*ProtectionPolicyVMRetentionWeekly)(nil)).Elem()
+
+type ProtectionPolicyVMRetentionWeeklyInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyVMRetentionWeeklyOutput() ProtectionPolicyVMRetentionWeeklyOutput
+	ToProtectionPolicyVMRetentionWeeklyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionWeeklyOutput
+}
+
+type ProtectionPolicyVMRetentionWeeklyArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+}
+
+func (ProtectionPolicyVMRetentionWeeklyArgs) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionWeeklyType
+}
+
+func (a ProtectionPolicyVMRetentionWeeklyArgs) ToProtectionPolicyVMRetentionWeeklyOutput() ProtectionPolicyVMRetentionWeeklyOutput {
+	return pulumi.ToOutput(a).(ProtectionPolicyVMRetentionWeeklyOutput)
+}
+
+func (a ProtectionPolicyVMRetentionWeeklyArgs) ToProtectionPolicyVMRetentionWeeklyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionWeeklyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProtectionPolicyVMRetentionWeeklyOutput)
+}
+
+type ProtectionPolicyVMRetentionWeeklyOutput struct { *pulumi.OutputState }
+
+func (o ProtectionPolicyVMRetentionWeeklyOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionWeekly) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+func (o ProtectionPolicyVMRetentionWeeklyOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionWeekly) []string {
+		return v.Weekdays
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ProtectionPolicyVMRetentionWeeklyOutput) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionWeeklyType
+}
+
+func (o ProtectionPolicyVMRetentionWeeklyOutput) ToProtectionPolicyVMRetentionWeeklyOutput() ProtectionPolicyVMRetentionWeeklyOutput {
+	return o
+}
+
+func (o ProtectionPolicyVMRetentionWeeklyOutput) ToProtectionPolicyVMRetentionWeeklyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionWeeklyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProtectionPolicyVMRetentionWeeklyOutput{}) }
+
+type ProtectionPolicyVMRetentionYearly struct {
+	Count int `pulumi:"count"`
+	Months []string `pulumi:"months"`
+	Weekdays []string `pulumi:"weekdays"`
+	Weeks []string `pulumi:"weeks"`
+}
+var protectionPolicyVMRetentionYearlyType = reflect.TypeOf((*ProtectionPolicyVMRetentionYearly)(nil)).Elem()
+
+type ProtectionPolicyVMRetentionYearlyInput interface {
+	pulumi.Input
+
+	ToProtectionPolicyVMRetentionYearlyOutput() ProtectionPolicyVMRetentionYearlyOutput
+	ToProtectionPolicyVMRetentionYearlyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionYearlyOutput
+}
+
+type ProtectionPolicyVMRetentionYearlyArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+	Months pulumi.StringArrayInput `pulumi:"months"`
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+	Weeks pulumi.StringArrayInput `pulumi:"weeks"`
+}
+
+func (ProtectionPolicyVMRetentionYearlyArgs) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionYearlyType
+}
+
+func (a ProtectionPolicyVMRetentionYearlyArgs) ToProtectionPolicyVMRetentionYearlyOutput() ProtectionPolicyVMRetentionYearlyOutput {
+	return pulumi.ToOutput(a).(ProtectionPolicyVMRetentionYearlyOutput)
+}
+
+func (a ProtectionPolicyVMRetentionYearlyArgs) ToProtectionPolicyVMRetentionYearlyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionYearlyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ProtectionPolicyVMRetentionYearlyOutput)
+}
+
+type ProtectionPolicyVMRetentionYearlyOutput struct { *pulumi.OutputState }
+
+func (o ProtectionPolicyVMRetentionYearlyOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionYearly) int {
+		return v.Count
+	}).(pulumi.IntOutput)
+}
+
+func (o ProtectionPolicyVMRetentionYearlyOutput) Months() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionYearly) []string {
+		return v.Months
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProtectionPolicyVMRetentionYearlyOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionYearly) []string {
+		return v.Weekdays
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProtectionPolicyVMRetentionYearlyOutput) Weeks() pulumi.StringArrayOutput {
+	return o.Apply(func(v ProtectionPolicyVMRetentionYearly) []string {
+		return v.Weeks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ProtectionPolicyVMRetentionYearlyOutput) ElementType() reflect.Type {
+	return protectionPolicyVMRetentionYearlyType
+}
+
+func (o ProtectionPolicyVMRetentionYearlyOutput) ToProtectionPolicyVMRetentionYearlyOutput() ProtectionPolicyVMRetentionYearlyOutput {
+	return o
+}
+
+func (o ProtectionPolicyVMRetentionYearlyOutput) ToProtectionPolicyVMRetentionYearlyOutputWithContext(ctx context.Context) ProtectionPolicyVMRetentionYearlyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ProtectionPolicyVMRetentionYearlyOutput{}) }
+

@@ -16,12 +16,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_rule.html.markdown.
 type NatRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	BackendIpConfigurationId pulumi.StringOutput `pulumi:"backendIpConfigurationId"`
+
+	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
+
+	// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
+
+	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+
+	// The name of the frontend IP configuration exposing this rule.
+	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
+
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	FrontendPort pulumi.IntOutput `pulumi:"frontendPort"`
+
+	// The ID of the Load Balancer in which to create the NAT Rule.
+	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the NAT Rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+
+	// The name of the resource group in which to create the resource.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewNatRule registers a new resource with the given unique name, arguments, and options.
 func NewNatRule(ctx *pulumi.Context,
-	name string, args *NatRuleArgs, opts ...pulumi.ResourceOpt) (*NatRule, error) {
+	name string, args *NatRuleArgs, opts ...pulumi.ResourceOption) (*NatRule, error) {
 	if args == nil || args.BackendPort == nil {
 		return nil, errors.New("missing required argument 'BackendPort'")
 	}
@@ -40,164 +70,92 @@ func NewNatRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["backendPort"] = nil
-		inputs["enableFloatingIp"] = nil
-		inputs["frontendIpConfigurationName"] = nil
-		inputs["frontendPort"] = nil
-		inputs["loadbalancerId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["protocol"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["backendPort"] = args.BackendPort
-		inputs["enableFloatingIp"] = args.EnableFloatingIp
-		inputs["frontendIpConfigurationName"] = args.FrontendIpConfigurationName
-		inputs["frontendPort"] = args.FrontendPort
-		inputs["loadbalancerId"] = args.LoadbalancerId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["protocol"] = args.Protocol
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BackendPort; i != nil { inputs["backendPort"] = i.ToIntOutput() }
+		if i := args.EnableFloatingIp; i != nil { inputs["enableFloatingIp"] = i.ToBoolOutput() }
+		if i := args.FrontendIpConfigurationName; i != nil { inputs["frontendIpConfigurationName"] = i.ToStringOutput() }
+		if i := args.FrontendPort; i != nil { inputs["frontendPort"] = i.ToIntOutput() }
+		if i := args.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	inputs["backendIpConfigurationId"] = nil
-	inputs["frontendIpConfigurationId"] = nil
-	s, err := ctx.RegisterResource("azure:lb/natRule:NatRule", name, true, inputs, opts...)
+	var resource NatRule
+	err := ctx.RegisterResource("azure:lb/natRule:NatRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NatRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetNatRule gets an existing NatRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNatRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NatRuleState, opts ...pulumi.ResourceOpt) (*NatRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NatRuleState, opts ...pulumi.ResourceOption) (*NatRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backendIpConfigurationId"] = state.BackendIpConfigurationId
-		inputs["backendPort"] = state.BackendPort
-		inputs["enableFloatingIp"] = state.EnableFloatingIp
-		inputs["frontendIpConfigurationId"] = state.FrontendIpConfigurationId
-		inputs["frontendIpConfigurationName"] = state.FrontendIpConfigurationName
-		inputs["frontendPort"] = state.FrontendPort
-		inputs["loadbalancerId"] = state.LoadbalancerId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["protocol"] = state.Protocol
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.BackendIpConfigurationId; i != nil { inputs["backendIpConfigurationId"] = i.ToStringOutput() }
+		if i := state.BackendPort; i != nil { inputs["backendPort"] = i.ToIntOutput() }
+		if i := state.EnableFloatingIp; i != nil { inputs["enableFloatingIp"] = i.ToBoolOutput() }
+		if i := state.FrontendIpConfigurationId; i != nil { inputs["frontendIpConfigurationId"] = i.ToStringOutput() }
+		if i := state.FrontendIpConfigurationName; i != nil { inputs["frontendIpConfigurationName"] = i.ToStringOutput() }
+		if i := state.FrontendPort; i != nil { inputs["frontendPort"] = i.ToIntOutput() }
+		if i := state.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:lb/natRule:NatRule", name, id, inputs, opts...)
+	var resource NatRule
+	err := ctx.ReadResource("azure:lb/natRule:NatRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NatRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NatRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NatRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *NatRule) BackendIpConfigurationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["backendIpConfigurationId"])
-}
-
-// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-func (r *NatRule) BackendPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["backendPort"])
-}
-
-// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
-func (r *NatRule) EnableFloatingIp() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableFloatingIp"])
-}
-
-func (r *NatRule) FrontendIpConfigurationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
-}
-
-// The name of the frontend IP configuration exposing this rule.
-func (r *NatRule) FrontendIpConfigurationName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
-}
-
-// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
-func (r *NatRule) FrontendPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["frontendPort"])
-}
-
-// The ID of the Load Balancer in which to create the NAT Rule.
-func (r *NatRule) LoadbalancerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
-}
-
-func (r *NatRule) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the NAT Rule.
-func (r *NatRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-func (r *NatRule) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
-}
-
-// The name of the resource group in which to create the resource.
-func (r *NatRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NatRule resources.
 type NatRuleState struct {
-	BackendIpConfigurationId interface{}
+	BackendIpConfigurationId pulumi.StringInput `pulumi:"backendIpConfigurationId"`
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort interface{}
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
-	EnableFloatingIp interface{}
-	FrontendIpConfigurationId interface{}
+	EnableFloatingIp pulumi.BoolInput `pulumi:"enableFloatingIp"`
+	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration exposing this rule.
-	FrontendIpConfigurationName interface{}
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
-	FrontendPort interface{}
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a NatRule resource.
 type NatRuleArgs struct {
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-	BackendPort interface{}
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
-	EnableFloatingIp interface{}
+	EnableFloatingIp pulumi.BoolInput `pulumi:"enableFloatingIp"`
 	// The name of the frontend IP configuration exposing this rule.
-	FrontendIpConfigurationName interface{}
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
-	FrontendPort interface{}
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

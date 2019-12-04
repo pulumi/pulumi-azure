@@ -12,138 +12,108 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_database.html.markdown.
 type Database struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
+	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+
+	// The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+	HotCachePeriod pulumi.StringOutput `pulumi:"hotCachePeriod"`
+
+	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Kusto Database to create. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The size of the database in bytes.
+	Size pulumi.Float64Output `pulumi:"size"`
+
+	// The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+	SoftDeletePeriod pulumi.StringOutput `pulumi:"softDeletePeriod"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
 func NewDatabase(ctx *pulumi.Context,
-	name string, args *DatabaseArgs, opts ...pulumi.ResourceOpt) (*Database, error) {
+	name string, args *DatabaseArgs, opts ...pulumi.ResourceOption) (*Database, error) {
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterName"] = nil
-		inputs["hotCachePeriod"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["softDeletePeriod"] = nil
-	} else {
-		inputs["clusterName"] = args.ClusterName
-		inputs["hotCachePeriod"] = args.HotCachePeriod
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["softDeletePeriod"] = args.SoftDeletePeriod
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := args.HotCachePeriod; i != nil { inputs["hotCachePeriod"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SoftDeletePeriod; i != nil { inputs["softDeletePeriod"] = i.ToStringOutput() }
 	}
-	inputs["size"] = nil
-	s, err := ctx.RegisterResource("azure:kusto/database:Database", name, true, inputs, opts...)
+	var resource Database
+	err := ctx.RegisterResource("azure:kusto/database:Database", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Database{s: s}, nil
+	return &resource, nil
 }
 
 // GetDatabase gets an existing Database resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDatabase(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DatabaseState, opts ...pulumi.ResourceOpt) (*Database, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterName"] = state.ClusterName
-		inputs["hotCachePeriod"] = state.HotCachePeriod
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["size"] = state.Size
-		inputs["softDeletePeriod"] = state.SoftDeletePeriod
+		if i := state.ClusterName; i != nil { inputs["clusterName"] = i.ToStringOutput() }
+		if i := state.HotCachePeriod; i != nil { inputs["hotCachePeriod"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Size; i != nil { inputs["size"] = i.ToFloat64Output() }
+		if i := state.SoftDeletePeriod; i != nil { inputs["softDeletePeriod"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:kusto/database:Database", name, id, inputs, opts...)
+	var resource Database
+	err := ctx.ReadResource("azure:kusto/database:Database", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Database{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Database) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Database) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
-func (r *Database) ClusterName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterName"])
-}
-
-// The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-func (r *Database) HotCachePeriod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hotCachePeriod"])
-}
-
-// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-func (r *Database) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Kusto Database to create. Changing this forces a new resource to be created.
-func (r *Database) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-func (r *Database) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The size of the database in bytes.
-func (r *Database) Size() pulumi.Float64Output {
-	return (pulumi.Float64Output)(r.s.State["size"])
-}
-
-// The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-func (r *Database) SoftDeletePeriod() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["softDeletePeriod"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Database resources.
 type DatabaseState struct {
 	// Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-	HotCachePeriod interface{}
+	HotCachePeriod pulumi.StringInput `pulumi:"hotCachePeriod"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Kusto Database to create. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The size of the database in bytes.
-	Size interface{}
+	Size pulumi.Float64Input `pulumi:"size"`
 	// The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-	SoftDeletePeriod interface{}
+	SoftDeletePeriod pulumi.StringInput `pulumi:"softDeletePeriod"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
 	// Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
-	ClusterName interface{}
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-	HotCachePeriod interface{}
+	HotCachePeriod pulumi.StringInput `pulumi:"hotCachePeriod"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Kusto Database to create. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-	SoftDeletePeriod interface{}
+	SoftDeletePeriod pulumi.StringInput `pulumi:"softDeletePeriod"`
 }

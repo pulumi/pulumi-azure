@@ -12,12 +12,28 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_firewall_rule.html.markdown.
 type FirewallRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ending IP address to allow through the firewall for this rule.
+	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
+
+	// The name of the firewall rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the sql server.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the SQL Server on which to create the Firewall Rule.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// The starting IP address to allow through the firewall for this rule.
+	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 }
 
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
-	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOpt) (*FirewallRule, error) {
+	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	if args == nil || args.EndIpAddress == nil {
 		return nil, errors.New("missing required argument 'EndIpAddress'")
 	}
@@ -30,108 +46,68 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args == nil || args.StartIpAddress == nil {
 		return nil, errors.New("missing required argument 'StartIpAddress'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["endIpAddress"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serverName"] = nil
-		inputs["startIpAddress"] = nil
-	} else {
-		inputs["endIpAddress"] = args.EndIpAddress
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["startIpAddress"] = args.StartIpAddress
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:sql/firewallRule:FirewallRule", name, true, inputs, opts...)
+	var resource FirewallRule
+	err := ctx.RegisterResource("azure:sql/firewallRule:FirewallRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetFirewallRule gets an existing FirewallRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFirewallRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FirewallRuleState, opts ...pulumi.ResourceOpt) (*FirewallRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["endIpAddress"] = state.EndIpAddress
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverName"] = state.ServerName
-		inputs["startIpAddress"] = state.StartIpAddress
+		if i := state.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:sql/firewallRule:FirewallRule", name, id, inputs, opts...)
+	var resource FirewallRule
+	err := ctx.ReadResource("azure:sql/firewallRule:FirewallRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ending IP address to allow through the firewall for this rule.
-func (r *FirewallRule) EndIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
-}
-
-// The name of the firewall rule.
-func (r *FirewallRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the sql server.
-func (r *FirewallRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the SQL Server on which to create the Firewall Rule.
-func (r *FirewallRule) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// The starting IP address to allow through the firewall for this rule.
-func (r *FirewallRule) StartIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type FirewallRuleState struct {
 	// The ending IP address to allow through the firewall for this rule.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// The name of the firewall rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the sql server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the Firewall Rule.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The starting IP address to allow through the firewall for this rule.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
 	// The ending IP address to allow through the firewall for this rule.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// The name of the firewall rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the sql server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the Firewall Rule.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The starting IP address to allow through the firewall for this rule.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }

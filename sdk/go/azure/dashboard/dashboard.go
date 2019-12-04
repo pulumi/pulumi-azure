@@ -12,117 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dashboard.html.markdown.
 type Dashboard struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+	DashboardProperties pulumi.StringOutput `pulumi:"dashboardProperties"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the dashboard.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
 func NewDashboard(ctx *pulumi.Context,
-	name string, args *DashboardArgs, opts ...pulumi.ResourceOpt) (*Dashboard, error) {
+	name string, args *DashboardArgs, opts ...pulumi.ResourceOption) (*Dashboard, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dashboardProperties"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["dashboardProperties"] = args.DashboardProperties
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DashboardProperties; i != nil { inputs["dashboardProperties"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:dashboard/dashboard:Dashboard", name, true, inputs, opts...)
+	var resource Dashboard
+	err := ctx.RegisterResource("azure:dashboard/dashboard:Dashboard", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Dashboard{s: s}, nil
+	return &resource, nil
 }
 
 // GetDashboard gets an existing Dashboard resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDashboard(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DashboardState, opts ...pulumi.ResourceOpt) (*Dashboard, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DashboardState, opts ...pulumi.ResourceOption) (*Dashboard, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dashboardProperties"] = state.DashboardProperties
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.DashboardProperties; i != nil { inputs["dashboardProperties"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:dashboard/dashboard:Dashboard", name, id, inputs, opts...)
+	var resource Dashboard
+	err := ctx.ReadResource("azure:dashboard/dashboard:Dashboard", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Dashboard{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Dashboard) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Dashboard) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
-func (r *Dashboard) DashboardProperties() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dashboardProperties"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Dashboard) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-func (r *Dashboard) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the dashboard.
-func (r *Dashboard) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Dashboard) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Dashboard resources.
 type DashboardState struct {
 	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
-	DashboardProperties interface{}
+	DashboardProperties pulumi.StringInput `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the dashboard.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
 	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
-	DashboardProperties interface{}
+	DashboardProperties pulumi.StringInput `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the dashboard.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

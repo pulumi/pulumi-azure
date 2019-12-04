@@ -4,6 +4,8 @@
 package containerservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
 type KubernetesCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
+
+	// One or more `agentPoolProfile` blocks as defined below.
+	AgentPoolProfiles KubernetesClusterAgentPoolProfilesArrayOutput `pulumi:"agentPoolProfiles"`
+
+	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
+
+	// A `defaultNodePool` block as defined below.
+	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
+
+	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	DnsPrefix pulumi.StringOutput `pulumi:"dnsPrefix"`
+
+	EnablePodSecurityPolicy pulumi.BoolOutput `pulumi:"enablePodSecurityPolicy"`
+
+	// The FQDN of the Azure Kubernetes Managed Cluster.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfig KubernetesClusterKubeAdminConfigOutput `pulumi:"kubeAdminConfig"`
+
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
+
+	// A `kubeConfig` block as defined below.
+	KubeConfig KubernetesClusterKubeConfigOutput `pulumi:"kubeConfig"`
+
+	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
+
+	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
+
+	LinuxProfile KubernetesClusterLinuxProfileOutput `pulumi:"linuxProfile"`
+
+	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	NetworkProfile KubernetesClusterNetworkProfileOutput `pulumi:"networkProfile"`
+
+	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
+
+	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlOutput `pulumi:"roleBasedAccessControl"`
+
+	// A `servicePrincipal` block as documented below.
+	ServicePrincipal KubernetesClusterServicePrincipalOutput `pulumi:"servicePrincipal"`
+
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	WindowsProfile KubernetesClusterWindowsProfileOutput `pulumi:"windowsProfile"`
 }
 
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesCluster(ctx *pulumi.Context,
-	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOpt) (*KubernetesCluster, error) {
+	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOption) (*KubernetesCluster, error) {
 	if args == nil || args.DnsPrefix == nil {
 		return nil, errors.New("missing required argument 'DnsPrefix'")
 	}
@@ -29,267 +88,1540 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	if args == nil || args.ServicePrincipal == nil {
 		return nil, errors.New("missing required argument 'ServicePrincipal'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addonProfile"] = nil
-		inputs["agentPoolProfiles"] = nil
-		inputs["apiServerAuthorizedIpRanges"] = nil
-		inputs["defaultNodePool"] = nil
-		inputs["dnsPrefix"] = nil
-		inputs["enablePodSecurityPolicy"] = nil
-		inputs["kubernetesVersion"] = nil
-		inputs["linuxProfile"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkProfile"] = nil
-		inputs["nodeResourceGroup"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roleBasedAccessControl"] = nil
-		inputs["servicePrincipal"] = nil
-		inputs["tags"] = nil
-		inputs["windowsProfile"] = nil
-	} else {
-		inputs["addonProfile"] = args.AddonProfile
-		inputs["agentPoolProfiles"] = args.AgentPoolProfiles
-		inputs["apiServerAuthorizedIpRanges"] = args.ApiServerAuthorizedIpRanges
-		inputs["defaultNodePool"] = args.DefaultNodePool
-		inputs["dnsPrefix"] = args.DnsPrefix
-		inputs["enablePodSecurityPolicy"] = args.EnablePodSecurityPolicy
-		inputs["kubernetesVersion"] = args.KubernetesVersion
-		inputs["linuxProfile"] = args.LinuxProfile
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkProfile"] = args.NetworkProfile
-		inputs["nodeResourceGroup"] = args.NodeResourceGroup
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roleBasedAccessControl"] = args.RoleBasedAccessControl
-		inputs["servicePrincipal"] = args.ServicePrincipal
-		inputs["tags"] = args.Tags
-		inputs["windowsProfile"] = args.WindowsProfile
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddonProfile; i != nil { inputs["addonProfile"] = i.ToKubernetesClusterAddonProfileOutput() }
+		if i := args.AgentPoolProfiles; i != nil { inputs["agentPoolProfiles"] = i.ToKubernetesClusterAgentPoolProfilesArrayOutput() }
+		if i := args.ApiServerAuthorizedIpRanges; i != nil { inputs["apiServerAuthorizedIpRanges"] = i.ToStringArrayOutput() }
+		if i := args.DefaultNodePool; i != nil { inputs["defaultNodePool"] = i.ToKubernetesClusterDefaultNodePoolOutput() }
+		if i := args.DnsPrefix; i != nil { inputs["dnsPrefix"] = i.ToStringOutput() }
+		if i := args.EnablePodSecurityPolicy; i != nil { inputs["enablePodSecurityPolicy"] = i.ToBoolOutput() }
+		if i := args.KubernetesVersion; i != nil { inputs["kubernetesVersion"] = i.ToStringOutput() }
+		if i := args.LinuxProfile; i != nil { inputs["linuxProfile"] = i.ToKubernetesClusterLinuxProfileOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkProfile; i != nil { inputs["networkProfile"] = i.ToKubernetesClusterNetworkProfileOutput() }
+		if i := args.NodeResourceGroup; i != nil { inputs["nodeResourceGroup"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RoleBasedAccessControl; i != nil { inputs["roleBasedAccessControl"] = i.ToKubernetesClusterRoleBasedAccessControlOutput() }
+		if i := args.ServicePrincipal; i != nil { inputs["servicePrincipal"] = i.ToKubernetesClusterServicePrincipalOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.WindowsProfile; i != nil { inputs["windowsProfile"] = i.ToKubernetesClusterWindowsProfileOutput() }
 	}
-	inputs["fqdn"] = nil
-	inputs["kubeAdminConfig"] = nil
-	inputs["kubeAdminConfigRaw"] = nil
-	inputs["kubeConfig"] = nil
-	inputs["kubeConfigRaw"] = nil
-	s, err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, true, inputs, opts...)
+	var resource KubernetesCluster
+	err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &KubernetesCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetKubernetesCluster gets an existing KubernetesCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetKubernetesCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *KubernetesClusterState, opts ...pulumi.ResourceOpt) (*KubernetesCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *KubernetesClusterState, opts ...pulumi.ResourceOption) (*KubernetesCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addonProfile"] = state.AddonProfile
-		inputs["agentPoolProfiles"] = state.AgentPoolProfiles
-		inputs["apiServerAuthorizedIpRanges"] = state.ApiServerAuthorizedIpRanges
-		inputs["defaultNodePool"] = state.DefaultNodePool
-		inputs["dnsPrefix"] = state.DnsPrefix
-		inputs["enablePodSecurityPolicy"] = state.EnablePodSecurityPolicy
-		inputs["fqdn"] = state.Fqdn
-		inputs["kubeAdminConfig"] = state.KubeAdminConfig
-		inputs["kubeAdminConfigRaw"] = state.KubeAdminConfigRaw
-		inputs["kubeConfig"] = state.KubeConfig
-		inputs["kubeConfigRaw"] = state.KubeConfigRaw
-		inputs["kubernetesVersion"] = state.KubernetesVersion
-		inputs["linuxProfile"] = state.LinuxProfile
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkProfile"] = state.NetworkProfile
-		inputs["nodeResourceGroup"] = state.NodeResourceGroup
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roleBasedAccessControl"] = state.RoleBasedAccessControl
-		inputs["servicePrincipal"] = state.ServicePrincipal
-		inputs["tags"] = state.Tags
-		inputs["windowsProfile"] = state.WindowsProfile
+		if i := state.AddonProfile; i != nil { inputs["addonProfile"] = i.ToKubernetesClusterAddonProfileOutput() }
+		if i := state.AgentPoolProfiles; i != nil { inputs["agentPoolProfiles"] = i.ToKubernetesClusterAgentPoolProfilesArrayOutput() }
+		if i := state.ApiServerAuthorizedIpRanges; i != nil { inputs["apiServerAuthorizedIpRanges"] = i.ToStringArrayOutput() }
+		if i := state.DefaultNodePool; i != nil { inputs["defaultNodePool"] = i.ToKubernetesClusterDefaultNodePoolOutput() }
+		if i := state.DnsPrefix; i != nil { inputs["dnsPrefix"] = i.ToStringOutput() }
+		if i := state.EnablePodSecurityPolicy; i != nil { inputs["enablePodSecurityPolicy"] = i.ToBoolOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.KubeAdminConfig; i != nil { inputs["kubeAdminConfig"] = i.ToKubernetesClusterKubeAdminConfigOutput() }
+		if i := state.KubeAdminConfigRaw; i != nil { inputs["kubeAdminConfigRaw"] = i.ToStringOutput() }
+		if i := state.KubeConfig; i != nil { inputs["kubeConfig"] = i.ToKubernetesClusterKubeConfigOutput() }
+		if i := state.KubeConfigRaw; i != nil { inputs["kubeConfigRaw"] = i.ToStringOutput() }
+		if i := state.KubernetesVersion; i != nil { inputs["kubernetesVersion"] = i.ToStringOutput() }
+		if i := state.LinuxProfile; i != nil { inputs["linuxProfile"] = i.ToKubernetesClusterLinuxProfileOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkProfile; i != nil { inputs["networkProfile"] = i.ToKubernetesClusterNetworkProfileOutput() }
+		if i := state.NodeResourceGroup; i != nil { inputs["nodeResourceGroup"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RoleBasedAccessControl; i != nil { inputs["roleBasedAccessControl"] = i.ToKubernetesClusterRoleBasedAccessControlOutput() }
+		if i := state.ServicePrincipal; i != nil { inputs["servicePrincipal"] = i.ToKubernetesClusterServicePrincipalOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.WindowsProfile; i != nil { inputs["windowsProfile"] = i.ToKubernetesClusterWindowsProfileOutput() }
 	}
-	s, err := ctx.ReadResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, id, inputs, opts...)
+	var resource KubernetesCluster
+	err := ctx.ReadResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &KubernetesCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *KubernetesCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *KubernetesCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *KubernetesCluster) AddonProfile() pulumi.Output {
-	return r.s.State["addonProfile"]
-}
-
-// One or more `agentPoolProfile` blocks as defined below.
-func (r *KubernetesCluster) AgentPoolProfiles() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["agentPoolProfiles"])
-}
-
-func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
-}
-
-// A `defaultNodePool` block as defined below.
-func (r *KubernetesCluster) DefaultNodePool() pulumi.Output {
-	return r.s.State["defaultNodePool"]
-}
-
-// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) DnsPrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dnsPrefix"])
-}
-
-func (r *KubernetesCluster) EnablePodSecurityPolicy() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enablePodSecurityPolicy"])
-}
-
-// The FQDN of the Azure Kubernetes Managed Cluster.
-func (r *KubernetesCluster) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-func (r *KubernetesCluster) KubeAdminConfig() pulumi.Output {
-	return r.s.State["kubeAdminConfig"]
-}
-
-// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-func (r *KubernetesCluster) KubeAdminConfigRaw() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kubeAdminConfigRaw"])
-}
-
-// A `kubeConfig` block as defined below.
-func (r *KubernetesCluster) KubeConfig() pulumi.Output {
-	return r.s.State["kubeConfig"]
-}
-
-// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
-func (r *KubernetesCluster) KubeConfigRaw() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kubeConfigRaw"])
-}
-
-func (r *KubernetesCluster) KubernetesVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["kubernetesVersion"])
-}
-
-func (r *KubernetesCluster) LinuxProfile() pulumi.Output {
-	return r.s.State["linuxProfile"]
-}
-
-// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *KubernetesCluster) NetworkProfile() pulumi.Output {
-	return r.s.State["networkProfile"]
-}
-
-// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
-func (r *KubernetesCluster) NodeResourceGroup() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeResourceGroup"])
-}
-
-// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-func (r *KubernetesCluster) RoleBasedAccessControl() pulumi.Output {
-	return r.s.State["roleBasedAccessControl"]
-}
-
-// A `servicePrincipal` block as documented below.
-func (r *KubernetesCluster) ServicePrincipal() pulumi.Output {
-	return r.s.State["servicePrincipal"]
-}
-
-func (r *KubernetesCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *KubernetesCluster) WindowsProfile() pulumi.Output {
-	return r.s.State["windowsProfile"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type KubernetesClusterState struct {
-	AddonProfile interface{}
+	AddonProfile KubernetesClusterAddonProfileInput `pulumi:"addonProfile"`
 	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles interface{}
-	ApiServerAuthorizedIpRanges interface{}
+	AgentPoolProfiles KubernetesClusterAgentPoolProfilesArrayInput `pulumi:"agentPoolProfiles"`
+	ApiServerAuthorizedIpRanges pulumi.StringArrayInput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool interface{}
+	DefaultNodePool KubernetesClusterDefaultNodePoolInput `pulumi:"defaultNodePool"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix interface{}
-	EnablePodSecurityPolicy interface{}
+	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
+	EnablePodSecurityPolicy pulumi.BoolInput `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig interface{}
+	KubeAdminConfig KubernetesClusterKubeAdminConfigInput `pulumi:"kubeAdminConfig"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfigRaw interface{}
+	KubeAdminConfigRaw pulumi.StringInput `pulumi:"kubeAdminConfigRaw"`
 	// A `kubeConfig` block as defined below.
-	KubeConfig interface{}
+	KubeConfig KubernetesClusterKubeConfigInput `pulumi:"kubeConfig"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
-	KubeConfigRaw interface{}
-	KubernetesVersion interface{}
-	LinuxProfile interface{}
+	KubeConfigRaw pulumi.StringInput `pulumi:"kubeConfigRaw"`
+	KubernetesVersion pulumi.StringInput `pulumi:"kubernetesVersion"`
+	LinuxProfile KubernetesClusterLinuxProfileInput `pulumi:"linuxProfile"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-	Name interface{}
-	NetworkProfile interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	NetworkProfile KubernetesClusterNetworkProfileInput `pulumi:"networkProfile"`
 	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
-	NodeResourceGroup interface{}
+	NodeResourceGroup pulumi.StringInput `pulumi:"nodeResourceGroup"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	RoleBasedAccessControl interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlInput `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
-	ServicePrincipal interface{}
-	Tags interface{}
-	WindowsProfile interface{}
+	ServicePrincipal KubernetesClusterServicePrincipalInput `pulumi:"servicePrincipal"`
+	Tags pulumi.MapInput `pulumi:"tags"`
+	WindowsProfile KubernetesClusterWindowsProfileInput `pulumi:"windowsProfile"`
 }
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
-	AddonProfile interface{}
+	AddonProfile KubernetesClusterAddonProfileInput `pulumi:"addonProfile"`
 	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles interface{}
-	ApiServerAuthorizedIpRanges interface{}
+	AgentPoolProfiles KubernetesClusterAgentPoolProfilesArrayInput `pulumi:"agentPoolProfiles"`
+	ApiServerAuthorizedIpRanges pulumi.StringArrayInput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool interface{}
+	DefaultNodePool KubernetesClusterDefaultNodePoolInput `pulumi:"defaultNodePool"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix interface{}
-	EnablePodSecurityPolicy interface{}
-	KubernetesVersion interface{}
-	LinuxProfile interface{}
+	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
+	EnablePodSecurityPolicy pulumi.BoolInput `pulumi:"enablePodSecurityPolicy"`
+	KubernetesVersion pulumi.StringInput `pulumi:"kubernetesVersion"`
+	LinuxProfile KubernetesClusterLinuxProfileInput `pulumi:"linuxProfile"`
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-	Name interface{}
-	NetworkProfile interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	NetworkProfile KubernetesClusterNetworkProfileInput `pulumi:"networkProfile"`
 	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
-	NodeResourceGroup interface{}
+	NodeResourceGroup pulumi.StringInput `pulumi:"nodeResourceGroup"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	RoleBasedAccessControl interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlInput `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
-	ServicePrincipal interface{}
-	Tags interface{}
-	WindowsProfile interface{}
+	ServicePrincipal KubernetesClusterServicePrincipalInput `pulumi:"servicePrincipal"`
+	Tags pulumi.MapInput `pulumi:"tags"`
+	WindowsProfile KubernetesClusterWindowsProfileInput `pulumi:"windowsProfile"`
 }
+type KubernetesClusterAddonProfile struct {
+	AciConnectorLinux *KubernetesClusterAddonProfileAciConnectorLinux `pulumi:"aciConnectorLinux"`
+	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
+	// A `httpApplicationRouting` block as defined below.
+	HttpApplicationRouting *KubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRouting"`
+	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
+	OmsAgent *KubernetesClusterAddonProfileOmsAgent `pulumi:"omsAgent"`
+}
+var kubernetesClusterAddonProfileType = reflect.TypeOf((*KubernetesClusterAddonProfile)(nil)).Elem()
+
+type KubernetesClusterAddonProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileOutput() KubernetesClusterAddonProfileOutput
+	ToKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOutput
+}
+
+type KubernetesClusterAddonProfileArgs struct {
+	AciConnectorLinux KubernetesClusterAddonProfileAciConnectorLinuxInput `pulumi:"aciConnectorLinux"`
+	AzurePolicy KubernetesClusterAddonProfileAzurePolicyInput `pulumi:"azurePolicy"`
+	// A `httpApplicationRouting` block as defined below.
+	HttpApplicationRouting KubernetesClusterAddonProfileHttpApplicationRoutingInput `pulumi:"httpApplicationRouting"`
+	KubeDashboard KubernetesClusterAddonProfileKubeDashboardInput `pulumi:"kubeDashboard"`
+	OmsAgent KubernetesClusterAddonProfileOmsAgentInput `pulumi:"omsAgent"`
+}
+
+func (KubernetesClusterAddonProfileArgs) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileType
+}
+
+func (a KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfileOutput() KubernetesClusterAddonProfileOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAddonProfileOutput)
+}
+
+func (a KubernetesClusterAddonProfileArgs) ToKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAddonProfileOutput)
+}
+
+type KubernetesClusterAddonProfileOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAddonProfileOutput) AciConnectorLinux() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfile) KubernetesClusterAddonProfileAciConnectorLinux {
+		if v.AciConnectorLinux == nil { return *new(KubernetesClusterAddonProfileAciConnectorLinux) } else { return *v.AciConnectorLinux }
+	}).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
+}
+
+func (o KubernetesClusterAddonProfileOutput) AzurePolicy() KubernetesClusterAddonProfileAzurePolicyOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfile) KubernetesClusterAddonProfileAzurePolicy {
+		if v.AzurePolicy == nil { return *new(KubernetesClusterAddonProfileAzurePolicy) } else { return *v.AzurePolicy }
+	}).(KubernetesClusterAddonProfileAzurePolicyOutput)
+}
+
+// A `httpApplicationRouting` block as defined below.
+func (o KubernetesClusterAddonProfileOutput) HttpApplicationRouting() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfile) KubernetesClusterAddonProfileHttpApplicationRouting {
+		if v.HttpApplicationRouting == nil { return *new(KubernetesClusterAddonProfileHttpApplicationRouting) } else { return *v.HttpApplicationRouting }
+	}).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
+}
+
+func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfile) KubernetesClusterAddonProfileKubeDashboard {
+		if v.KubeDashboard == nil { return *new(KubernetesClusterAddonProfileKubeDashboard) } else { return *v.KubeDashboard }
+	}).(KubernetesClusterAddonProfileKubeDashboardOutput)
+}
+
+func (o KubernetesClusterAddonProfileOutput) OmsAgent() KubernetesClusterAddonProfileOmsAgentOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfile) KubernetesClusterAddonProfileOmsAgent {
+		if v.OmsAgent == nil { return *new(KubernetesClusterAddonProfileOmsAgent) } else { return *v.OmsAgent }
+	}).(KubernetesClusterAddonProfileOmsAgentOutput)
+}
+
+func (KubernetesClusterAddonProfileOutput) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileType
+}
+
+func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfileOutput() KubernetesClusterAddonProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOutput) ToKubernetesClusterAddonProfileOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAddonProfileOutput{}) }
+
+type KubernetesClusterAddonProfileAciConnectorLinux struct {
+	Enabled bool `pulumi:"enabled"`
+	SubnetName *string `pulumi:"subnetName"`
+}
+var kubernetesClusterAddonProfileAciConnectorLinuxType = reflect.TypeOf((*KubernetesClusterAddonProfileAciConnectorLinux)(nil)).Elem()
+
+type KubernetesClusterAddonProfileAciConnectorLinuxInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileAciConnectorLinuxOutput() KubernetesClusterAddonProfileAciConnectorLinuxOutput
+	ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxOutput
+}
+
+type KubernetesClusterAddonProfileAciConnectorLinuxArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	SubnetName pulumi.StringInput `pulumi:"subnetName"`
+}
+
+func (KubernetesClusterAddonProfileAciConnectorLinuxArgs) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileAciConnectorLinuxType
+}
+
+func (a KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterAddonProfileAciConnectorLinuxOutput() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
+}
+
+func (a KubernetesClusterAddonProfileAciConnectorLinuxArgs) ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAddonProfileAciConnectorLinuxOutput)
+}
+
+type KubernetesClusterAddonProfileAciConnectorLinuxOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileAciConnectorLinux) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) SubnetName() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileAciConnectorLinux) string {
+		if v.SubnetName == nil { return *new(string) } else { return *v.SubnetName }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterAddonProfileAciConnectorLinuxOutput) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileAciConnectorLinuxType
+}
+
+func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxOutput() KubernetesClusterAddonProfileAciConnectorLinuxOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAciConnectorLinuxOutput) ToKubernetesClusterAddonProfileAciConnectorLinuxOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAciConnectorLinuxOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAddonProfileAciConnectorLinuxOutput{}) }
+
+type KubernetesClusterAddonProfileAzurePolicy struct {
+	Enabled bool `pulumi:"enabled"`
+}
+var kubernetesClusterAddonProfileAzurePolicyType = reflect.TypeOf((*KubernetesClusterAddonProfileAzurePolicy)(nil)).Elem()
+
+type KubernetesClusterAddonProfileAzurePolicyInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileAzurePolicyOutput() KubernetesClusterAddonProfileAzurePolicyOutput
+	ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyOutput
+}
+
+type KubernetesClusterAddonProfileAzurePolicyArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (KubernetesClusterAddonProfileAzurePolicyArgs) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileAzurePolicyType
+}
+
+func (a KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonProfileAzurePolicyOutput() KubernetesClusterAddonProfileAzurePolicyOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAddonProfileAzurePolicyOutput)
+}
+
+func (a KubernetesClusterAddonProfileAzurePolicyArgs) ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAddonProfileAzurePolicyOutput)
+}
+
+type KubernetesClusterAddonProfileAzurePolicyOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAddonProfileAzurePolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileAzurePolicy) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (KubernetesClusterAddonProfileAzurePolicyOutput) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileAzurePolicyType
+}
+
+func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyOutput() KubernetesClusterAddonProfileAzurePolicyOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileAzurePolicyOutput) ToKubernetesClusterAddonProfileAzurePolicyOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileAzurePolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzurePolicyOutput{}) }
+
+type KubernetesClusterAddonProfileHttpApplicationRouting struct {
+	Enabled bool `pulumi:"enabled"`
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName *string `pulumi:"httpApplicationRoutingZoneName"`
+}
+var kubernetesClusterAddonProfileHttpApplicationRoutingType = reflect.TypeOf((*KubernetesClusterAddonProfileHttpApplicationRouting)(nil)).Elem()
+
+type KubernetesClusterAddonProfileHttpApplicationRoutingInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileHttpApplicationRoutingOutput() KubernetesClusterAddonProfileHttpApplicationRoutingOutput
+	ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingOutput
+}
+
+type KubernetesClusterAddonProfileHttpApplicationRoutingArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The Zone Name of the HTTP Application Routing.
+	HttpApplicationRoutingZoneName pulumi.StringInput `pulumi:"httpApplicationRoutingZoneName"`
+}
+
+func (KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileHttpApplicationRoutingType
+}
+
+func (a KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutput() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
+}
+
+func (a KubernetesClusterAddonProfileHttpApplicationRoutingArgs) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAddonProfileHttpApplicationRoutingOutput)
+}
+
+type KubernetesClusterAddonProfileHttpApplicationRoutingOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileHttpApplicationRouting) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+// The Zone Name of the HTTP Application Routing.
+func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) HttpApplicationRoutingZoneName() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileHttpApplicationRouting) string {
+		if v.HttpApplicationRoutingZoneName == nil { return *new(string) } else { return *v.HttpApplicationRoutingZoneName }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileHttpApplicationRoutingType
+}
+
+func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutput() KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileHttpApplicationRoutingOutput) ToKubernetesClusterAddonProfileHttpApplicationRoutingOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileHttpApplicationRoutingOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingOutput{}) }
+
+type KubernetesClusterAddonProfileKubeDashboard struct {
+	Enabled bool `pulumi:"enabled"`
+}
+var kubernetesClusterAddonProfileKubeDashboardType = reflect.TypeOf((*KubernetesClusterAddonProfileKubeDashboard)(nil)).Elem()
+
+type KubernetesClusterAddonProfileKubeDashboardInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileKubeDashboardOutput() KubernetesClusterAddonProfileKubeDashboardOutput
+	ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardOutput
+}
+
+type KubernetesClusterAddonProfileKubeDashboardArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (KubernetesClusterAddonProfileKubeDashboardArgs) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileKubeDashboardType
+}
+
+func (a KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddonProfileKubeDashboardOutput() KubernetesClusterAddonProfileKubeDashboardOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAddonProfileKubeDashboardOutput)
+}
+
+func (a KubernetesClusterAddonProfileKubeDashboardArgs) ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAddonProfileKubeDashboardOutput)
+}
+
+type KubernetesClusterAddonProfileKubeDashboardOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAddonProfileKubeDashboardOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileKubeDashboard) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (KubernetesClusterAddonProfileKubeDashboardOutput) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileKubeDashboardType
+}
+
+func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardOutput() KubernetesClusterAddonProfileKubeDashboardOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileKubeDashboardOutput) ToKubernetesClusterAddonProfileKubeDashboardOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileKubeDashboardOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardOutput{}) }
+
+type KubernetesClusterAddonProfileOmsAgent struct {
+	Enabled bool `pulumi:"enabled"`
+	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
+}
+var kubernetesClusterAddonProfileOmsAgentType = reflect.TypeOf((*KubernetesClusterAddonProfileOmsAgent)(nil)).Elem()
+
+type KubernetesClusterAddonProfileOmsAgentInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileOmsAgentOutput() KubernetesClusterAddonProfileOmsAgentOutput
+	ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOutput
+}
+
+type KubernetesClusterAddonProfileOmsAgentArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+}
+
+func (KubernetesClusterAddonProfileOmsAgentArgs) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileOmsAgentType
+}
+
+func (a KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfileOmsAgentOutput() KubernetesClusterAddonProfileOmsAgentOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAddonProfileOmsAgentOutput)
+}
+
+func (a KubernetesClusterAddonProfileOmsAgentArgs) ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAddonProfileOmsAgentOutput)
+}
+
+type KubernetesClusterAddonProfileOmsAgentOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAddonProfileOmsAgentOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileOmsAgent) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAddonProfileOmsAgent) string {
+		if v.LogAnalyticsWorkspaceId == nil { return *new(string) } else { return *v.LogAnalyticsWorkspaceId }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterAddonProfileOmsAgentOutput) ElementType() reflect.Type {
+	return kubernetesClusterAddonProfileOmsAgentType
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentOutput() KubernetesClusterAddonProfileOmsAgentOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileOmsAgentOutput) ToKubernetesClusterAddonProfileOmsAgentOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileOmsAgentOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOutput{}) }
+
+type KubernetesClusterAgentPoolProfiles struct {
+	AvailabilityZones *[]string `pulumi:"availabilityZones"`
+	Count *int `pulumi:"count"`
+	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// The FQDN of the Azure Kubernetes Managed Cluster.
+	Fqdn *string `pulumi:"fqdn"`
+	MaxCount *int `pulumi:"maxCount"`
+	MaxPods *int `pulumi:"maxPods"`
+	MinCount *int `pulumi:"minCount"`
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	NodeTaints *[]string `pulumi:"nodeTaints"`
+	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
+	OsType *string `pulumi:"osType"`
+	Type *string `pulumi:"type"`
+	VmSize string `pulumi:"vmSize"`
+	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+}
+var kubernetesClusterAgentPoolProfilesType = reflect.TypeOf((*KubernetesClusterAgentPoolProfiles)(nil)).Elem()
+
+type KubernetesClusterAgentPoolProfilesInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAgentPoolProfilesOutput() KubernetesClusterAgentPoolProfilesOutput
+	ToKubernetesClusterAgentPoolProfilesOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfilesOutput
+}
+
+type KubernetesClusterAgentPoolProfilesArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	Count pulumi.IntInput `pulumi:"count"`
+	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
+	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
+	// The FQDN of the Azure Kubernetes Managed Cluster.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	MaxPods pulumi.IntInput `pulumi:"maxPods"`
+	MinCount pulumi.IntInput `pulumi:"minCount"`
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
+	OsType pulumi.StringInput `pulumi:"osType"`
+	Type pulumi.StringInput `pulumi:"type"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VnetSubnetId pulumi.StringInput `pulumi:"vnetSubnetId"`
+}
+
+func (KubernetesClusterAgentPoolProfilesArgs) ElementType() reflect.Type {
+	return kubernetesClusterAgentPoolProfilesType
+}
+
+func (a KubernetesClusterAgentPoolProfilesArgs) ToKubernetesClusterAgentPoolProfilesOutput() KubernetesClusterAgentPoolProfilesOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAgentPoolProfilesOutput)
+}
+
+func (a KubernetesClusterAgentPoolProfilesArgs) ToKubernetesClusterAgentPoolProfilesOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAgentPoolProfilesOutput)
+}
+
+type KubernetesClusterAgentPoolProfilesOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAgentPoolProfilesOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) []string {
+		if v.AvailabilityZones == nil { return *new([]string) } else { return *v.AvailabilityZones }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) int {
+		if v.Count == nil { return *new(int) } else { return *v.Count }
+	}).(pulumi.IntOutput)
+}
+
+// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+func (o KubernetesClusterAgentPoolProfilesOutput) DnsPrefix() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		if v.DnsPrefix == nil { return *new(string) } else { return *v.DnsPrefix }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) EnableAutoScaling() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) bool {
+		if v.EnableAutoScaling == nil { return *new(bool) } else { return *v.EnableAutoScaling }
+	}).(pulumi.BoolOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) EnableNodePublicIp() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) bool {
+		if v.EnableNodePublicIp == nil { return *new(bool) } else { return *v.EnableNodePublicIp }
+	}).(pulumi.BoolOutput)
+}
+
+// The FQDN of the Azure Kubernetes Managed Cluster.
+func (o KubernetesClusterAgentPoolProfilesOutput) Fqdn() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		if v.Fqdn == nil { return *new(string) } else { return *v.Fqdn }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) MaxCount() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) int {
+		if v.MaxCount == nil { return *new(int) } else { return *v.MaxCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) MaxPods() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) int {
+		if v.MaxPods == nil { return *new(int) } else { return *v.MaxPods }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) MinCount() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) int {
+		if v.MinCount == nil { return *new(int) } else { return *v.MinCount }
+	}).(pulumi.IntOutput)
+}
+
+// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+func (o KubernetesClusterAgentPoolProfilesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) NodeTaints() pulumi.StringArrayOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) []string {
+		if v.NodeTaints == nil { return *new([]string) } else { return *v.NodeTaints }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) OsDiskSizeGb() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) int {
+		if v.OsDiskSizeGb == nil { return *new(int) } else { return *v.OsDiskSizeGb }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) OsType() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		if v.OsType == nil { return *new(string) } else { return *v.OsType }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) VnetSubnetId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterAgentPoolProfiles) string {
+		if v.VnetSubnetId == nil { return *new(string) } else { return *v.VnetSubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterAgentPoolProfilesOutput) ElementType() reflect.Type {
+	return kubernetesClusterAgentPoolProfilesType
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) ToKubernetesClusterAgentPoolProfilesOutput() KubernetesClusterAgentPoolProfilesOutput {
+	return o
+}
+
+func (o KubernetesClusterAgentPoolProfilesOutput) ToKubernetesClusterAgentPoolProfilesOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfilesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAgentPoolProfilesOutput{}) }
+
+var kubernetesClusterAgentPoolProfilesArrayType = reflect.TypeOf((*[]KubernetesClusterAgentPoolProfiles)(nil)).Elem()
+
+type KubernetesClusterAgentPoolProfilesArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAgentPoolProfilesArrayOutput() KubernetesClusterAgentPoolProfilesArrayOutput
+	ToKubernetesClusterAgentPoolProfilesArrayOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfilesArrayOutput
+}
+
+type KubernetesClusterAgentPoolProfilesArrayArgs []KubernetesClusterAgentPoolProfilesInput
+
+func (KubernetesClusterAgentPoolProfilesArrayArgs) ElementType() reflect.Type {
+	return kubernetesClusterAgentPoolProfilesArrayType
+}
+
+func (a KubernetesClusterAgentPoolProfilesArrayArgs) ToKubernetesClusterAgentPoolProfilesArrayOutput() KubernetesClusterAgentPoolProfilesArrayOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterAgentPoolProfilesArrayOutput)
+}
+
+func (a KubernetesClusterAgentPoolProfilesArrayArgs) ToKubernetesClusterAgentPoolProfilesArrayOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfilesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterAgentPoolProfilesArrayOutput)
+}
+
+type KubernetesClusterAgentPoolProfilesArrayOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterAgentPoolProfilesArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAgentPoolProfilesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) KubernetesClusterAgentPoolProfiles {
+		return vs[0].([]KubernetesClusterAgentPoolProfiles)[vs[1].(int)]
+	}).(KubernetesClusterAgentPoolProfilesOutput)
+}
+
+func (KubernetesClusterAgentPoolProfilesArrayOutput) ElementType() reflect.Type {
+	return kubernetesClusterAgentPoolProfilesArrayType
+}
+
+func (o KubernetesClusterAgentPoolProfilesArrayOutput) ToKubernetesClusterAgentPoolProfilesArrayOutput() KubernetesClusterAgentPoolProfilesArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAgentPoolProfilesArrayOutput) ToKubernetesClusterAgentPoolProfilesArrayOutputWithContext(ctx context.Context) KubernetesClusterAgentPoolProfilesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterAgentPoolProfilesArrayOutput{}) }
+
+type KubernetesClusterDefaultNodePool struct {
+	AvailabilityZones *[]string `pulumi:"availabilityZones"`
+	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	MaxCount *int `pulumi:"maxCount"`
+	MaxPods *int `pulumi:"maxPods"`
+	MinCount *int `pulumi:"minCount"`
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	NodeCount *int `pulumi:"nodeCount"`
+	NodeTaints *[]string `pulumi:"nodeTaints"`
+	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
+	Type *string `pulumi:"type"`
+	VmSize string `pulumi:"vmSize"`
+	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+}
+var kubernetesClusterDefaultNodePoolType = reflect.TypeOf((*KubernetesClusterDefaultNodePool)(nil)).Elem()
+
+type KubernetesClusterDefaultNodePoolInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolOutput() KubernetesClusterDefaultNodePoolOutput
+	ToKubernetesClusterDefaultNodePoolOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolOutput
+}
+
+type KubernetesClusterDefaultNodePoolArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
+	MaxCount pulumi.IntInput `pulumi:"maxCount"`
+	MaxPods pulumi.IntInput `pulumi:"maxPods"`
+	MinCount pulumi.IntInput `pulumi:"minCount"`
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
+	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	OsDiskSizeGb pulumi.IntInput `pulumi:"osDiskSizeGb"`
+	Type pulumi.StringInput `pulumi:"type"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VnetSubnetId pulumi.StringInput `pulumi:"vnetSubnetId"`
+}
+
+func (KubernetesClusterDefaultNodePoolArgs) ElementType() reflect.Type {
+	return kubernetesClusterDefaultNodePoolType
+}
+
+func (a KubernetesClusterDefaultNodePoolArgs) ToKubernetesClusterDefaultNodePoolOutput() KubernetesClusterDefaultNodePoolOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterDefaultNodePoolOutput)
+}
+
+func (a KubernetesClusterDefaultNodePoolArgs) ToKubernetesClusterDefaultNodePoolOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterDefaultNodePoolOutput)
+}
+
+type KubernetesClusterDefaultNodePoolOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterDefaultNodePoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) []string {
+		if v.AvailabilityZones == nil { return *new([]string) } else { return *v.AvailabilityZones }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) EnableAutoScaling() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) bool {
+		if v.EnableAutoScaling == nil { return *new(bool) } else { return *v.EnableAutoScaling }
+	}).(pulumi.BoolOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) bool {
+		if v.EnableNodePublicIp == nil { return *new(bool) } else { return *v.EnableNodePublicIp }
+	}).(pulumi.BoolOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) MaxCount() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) int {
+		if v.MaxCount == nil { return *new(int) } else { return *v.MaxCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) int {
+		if v.MaxPods == nil { return *new(int) } else { return *v.MaxPods }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) int {
+		if v.MinCount == nil { return *new(int) } else { return *v.MinCount }
+	}).(pulumi.IntOutput)
+}
+
+// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) int {
+		if v.NodeCount == nil { return *new(int) } else { return *v.NodeCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) []string {
+		if v.NodeTaints == nil { return *new([]string) } else { return *v.NodeTaints }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) int {
+		if v.OsDiskSizeGb == nil { return *new(int) } else { return *v.OsDiskSizeGb }
+	}).(pulumi.IntOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterDefaultNodePool) string {
+		if v.VnetSubnetId == nil { return *new(string) } else { return *v.VnetSubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterDefaultNodePoolOutput) ElementType() reflect.Type {
+	return kubernetesClusterDefaultNodePoolType
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePoolOutput() KubernetesClusterDefaultNodePoolOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePoolOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{}) }
+
+type KubernetesClusterKubeAdminConfig struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate string `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey string `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate string `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host string `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password string `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username string `pulumi:"username"`
+}
+var kubernetesClusterKubeAdminConfigType = reflect.TypeOf((*KubernetesClusterKubeAdminConfig)(nil)).Elem()
+
+type KubernetesClusterKubeAdminConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterKubeAdminConfigOutput() KubernetesClusterKubeAdminConfigOutput
+	ToKubernetesClusterKubeAdminConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigOutput
+}
+
+type KubernetesClusterKubeAdminConfigArgs struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate pulumi.StringInput `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey pulumi.StringInput `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate pulumi.StringInput `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host pulumi.StringInput `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password pulumi.StringInput `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (KubernetesClusterKubeAdminConfigArgs) ElementType() reflect.Type {
+	return kubernetesClusterKubeAdminConfigType
+}
+
+func (a KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfigOutput() KubernetesClusterKubeAdminConfigOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterKubeAdminConfigOutput)
+}
+
+func (a KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterKubeAdminConfigOutput)
+}
+
+type KubernetesClusterKubeAdminConfigOutput struct { *pulumi.OutputState }
+
+// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeAdminConfigOutput) ClientCertificate() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeAdminConfig) string {
+		return v.ClientCertificate
+	}).(pulumi.StringOutput)
+}
+
+// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeAdminConfigOutput) ClientKey() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeAdminConfig) string {
+		return v.ClientKey
+	}).(pulumi.StringOutput)
+}
+
+// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+func (o KubernetesClusterKubeAdminConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeAdminConfig) string {
+		return v.ClusterCaCertificate
+	}).(pulumi.StringOutput)
+}
+
+// The Kubernetes cluster server host.
+func (o KubernetesClusterKubeAdminConfigOutput) Host() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeAdminConfig) string {
+		return v.Host
+	}).(pulumi.StringOutput)
+}
+
+// A password or token used to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeAdminConfigOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeAdminConfig) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// A username used to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeAdminConfigOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeAdminConfig) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterKubeAdminConfigOutput) ElementType() reflect.Type {
+	return kubernetesClusterKubeAdminConfigType
+}
+
+func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigOutput() KubernetesClusterKubeAdminConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigOutput{}) }
+
+type KubernetesClusterKubeConfig struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate string `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey string `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate string `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host string `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password string `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username string `pulumi:"username"`
+}
+var kubernetesClusterKubeConfigType = reflect.TypeOf((*KubernetesClusterKubeConfig)(nil)).Elem()
+
+type KubernetesClusterKubeConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterKubeConfigOutput() KubernetesClusterKubeConfigOutput
+	ToKubernetesClusterKubeConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigOutput
+}
+
+type KubernetesClusterKubeConfigArgs struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate pulumi.StringInput `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey pulumi.StringInput `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate pulumi.StringInput `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host pulumi.StringInput `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password pulumi.StringInput `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (KubernetesClusterKubeConfigArgs) ElementType() reflect.Type {
+	return kubernetesClusterKubeConfigType
+}
+
+func (a KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigOutput() KubernetesClusterKubeConfigOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterKubeConfigOutput)
+}
+
+func (a KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterKubeConfigOutput)
+}
+
+type KubernetesClusterKubeConfigOutput struct { *pulumi.OutputState }
+
+// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeConfigOutput) ClientCertificate() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeConfig) string {
+		return v.ClientCertificate
+	}).(pulumi.StringOutput)
+}
+
+// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeConfigOutput) ClientKey() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeConfig) string {
+		return v.ClientKey
+	}).(pulumi.StringOutput)
+}
+
+// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+func (o KubernetesClusterKubeConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeConfig) string {
+		return v.ClusterCaCertificate
+	}).(pulumi.StringOutput)
+}
+
+// The Kubernetes cluster server host.
+func (o KubernetesClusterKubeConfigOutput) Host() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeConfig) string {
+		return v.Host
+	}).(pulumi.StringOutput)
+}
+
+// A password or token used to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeConfigOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeConfig) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// A username used to authenticate to the Kubernetes cluster.
+func (o KubernetesClusterKubeConfigOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterKubeConfig) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterKubeConfigOutput) ElementType() reflect.Type {
+	return kubernetesClusterKubeConfigType
+}
+
+func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutput() KubernetesClusterKubeConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterKubeConfigOutput{}) }
+
+type KubernetesClusterLinuxProfile struct {
+	AdminUsername string `pulumi:"adminUsername"`
+	SshKey KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
+}
+var kubernetesClusterLinuxProfileType = reflect.TypeOf((*KubernetesClusterLinuxProfile)(nil)).Elem()
+
+type KubernetesClusterLinuxProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterLinuxProfileOutput() KubernetesClusterLinuxProfileOutput
+	ToKubernetesClusterLinuxProfileOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileOutput
+}
+
+type KubernetesClusterLinuxProfileArgs struct {
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	SshKey KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
+}
+
+func (KubernetesClusterLinuxProfileArgs) ElementType() reflect.Type {
+	return kubernetesClusterLinuxProfileType
+}
+
+func (a KubernetesClusterLinuxProfileArgs) ToKubernetesClusterLinuxProfileOutput() KubernetesClusterLinuxProfileOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterLinuxProfileOutput)
+}
+
+func (a KubernetesClusterLinuxProfileArgs) ToKubernetesClusterLinuxProfileOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterLinuxProfileOutput)
+}
+
+type KubernetesClusterLinuxProfileOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterLinuxProfile) string {
+		return v.AdminUsername
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterLinuxProfileOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
+	return o.Apply(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey {
+		return v.SshKey
+	}).(KubernetesClusterLinuxProfileSshKeyOutput)
+}
+
+func (KubernetesClusterLinuxProfileOutput) ElementType() reflect.Type {
+	return kubernetesClusterLinuxProfileType
+}
+
+func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfileOutput() KubernetesClusterLinuxProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterLinuxProfileOutput) ToKubernetesClusterLinuxProfileOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterLinuxProfileOutput{}) }
+
+type KubernetesClusterLinuxProfileSshKey struct {
+	KeyData string `pulumi:"keyData"`
+}
+var kubernetesClusterLinuxProfileSshKeyType = reflect.TypeOf((*KubernetesClusterLinuxProfileSshKey)(nil)).Elem()
+
+type KubernetesClusterLinuxProfileSshKeyInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterLinuxProfileSshKeyOutput() KubernetesClusterLinuxProfileSshKeyOutput
+	ToKubernetesClusterLinuxProfileSshKeyOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileSshKeyOutput
+}
+
+type KubernetesClusterLinuxProfileSshKeyArgs struct {
+	KeyData pulumi.StringInput `pulumi:"keyData"`
+}
+
+func (KubernetesClusterLinuxProfileSshKeyArgs) ElementType() reflect.Type {
+	return kubernetesClusterLinuxProfileSshKeyType
+}
+
+func (a KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfileSshKeyOutput() KubernetesClusterLinuxProfileSshKeyOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterLinuxProfileSshKeyOutput)
+}
+
+func (a KubernetesClusterLinuxProfileSshKeyArgs) ToKubernetesClusterLinuxProfileSshKeyOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileSshKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterLinuxProfileSshKeyOutput)
+}
+
+type KubernetesClusterLinuxProfileSshKeyOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterLinuxProfileSshKeyOutput) KeyData() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterLinuxProfileSshKey) string {
+		return v.KeyData
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterLinuxProfileSshKeyOutput) ElementType() reflect.Type {
+	return kubernetesClusterLinuxProfileSshKeyType
+}
+
+func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfileSshKeyOutput() KubernetesClusterLinuxProfileSshKeyOutput {
+	return o
+}
+
+func (o KubernetesClusterLinuxProfileSshKeyOutput) ToKubernetesClusterLinuxProfileSshKeyOutputWithContext(ctx context.Context) KubernetesClusterLinuxProfileSshKeyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyOutput{}) }
+
+type KubernetesClusterNetworkProfile struct {
+	DnsServiceIp *string `pulumi:"dnsServiceIp"`
+	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	NetworkPlugin string `pulumi:"networkPlugin"`
+	NetworkPolicy *string `pulumi:"networkPolicy"`
+	PodCidr *string `pulumi:"podCidr"`
+	ServiceCidr *string `pulumi:"serviceCidr"`
+}
+var kubernetesClusterNetworkProfileType = reflect.TypeOf((*KubernetesClusterNetworkProfile)(nil)).Elem()
+
+type KubernetesClusterNetworkProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNetworkProfileOutput() KubernetesClusterNetworkProfileOutput
+	ToKubernetesClusterNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileOutput
+}
+
+type KubernetesClusterNetworkProfileArgs struct {
+	DnsServiceIp pulumi.StringInput `pulumi:"dnsServiceIp"`
+	DockerBridgeCidr pulumi.StringInput `pulumi:"dockerBridgeCidr"`
+	LoadBalancerSku pulumi.StringInput `pulumi:"loadBalancerSku"`
+	NetworkPlugin pulumi.StringInput `pulumi:"networkPlugin"`
+	NetworkPolicy pulumi.StringInput `pulumi:"networkPolicy"`
+	PodCidr pulumi.StringInput `pulumi:"podCidr"`
+	ServiceCidr pulumi.StringInput `pulumi:"serviceCidr"`
+}
+
+func (KubernetesClusterNetworkProfileArgs) ElementType() reflect.Type {
+	return kubernetesClusterNetworkProfileType
+}
+
+func (a KubernetesClusterNetworkProfileArgs) ToKubernetesClusterNetworkProfileOutput() KubernetesClusterNetworkProfileOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterNetworkProfileOutput)
+}
+
+func (a KubernetesClusterNetworkProfileArgs) ToKubernetesClusterNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterNetworkProfileOutput)
+}
+
+type KubernetesClusterNetworkProfileOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		if v.DnsServiceIp == nil { return *new(string) } else { return *v.DnsServiceIp }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		if v.DockerBridgeCidr == nil { return *new(string) } else { return *v.DockerBridgeCidr }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) LoadBalancerSku() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		if v.LoadBalancerSku == nil { return *new(string) } else { return *v.LoadBalancerSku }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) NetworkPlugin() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		return v.NetworkPlugin
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		if v.NetworkPolicy == nil { return *new(string) } else { return *v.NetworkPolicy }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		if v.PodCidr == nil { return *new(string) } else { return *v.PodCidr }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterNetworkProfile) string {
+		if v.ServiceCidr == nil { return *new(string) } else { return *v.ServiceCidr }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterNetworkProfileOutput) ElementType() reflect.Type {
+	return kubernetesClusterNetworkProfileType
+}
+
+func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfileOutput() KubernetesClusterNetworkProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfileOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterNetworkProfileOutput{}) }
+
+type KubernetesClusterRoleBasedAccessControl struct {
+	AzureActiveDirectory *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory `pulumi:"azureActiveDirectory"`
+	Enabled bool `pulumi:"enabled"`
+}
+var kubernetesClusterRoleBasedAccessControlType = reflect.TypeOf((*KubernetesClusterRoleBasedAccessControl)(nil)).Elem()
+
+type KubernetesClusterRoleBasedAccessControlInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterRoleBasedAccessControlOutput() KubernetesClusterRoleBasedAccessControlOutput
+	ToKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlOutput
+}
+
+type KubernetesClusterRoleBasedAccessControlArgs struct {
+	AzureActiveDirectory KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput `pulumi:"azureActiveDirectory"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (KubernetesClusterRoleBasedAccessControlArgs) ElementType() reflect.Type {
+	return kubernetesClusterRoleBasedAccessControlType
+}
+
+func (a KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBasedAccessControlOutput() KubernetesClusterRoleBasedAccessControlOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterRoleBasedAccessControlOutput)
+}
+
+func (a KubernetesClusterRoleBasedAccessControlArgs) ToKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterRoleBasedAccessControlOutput)
+}
+
+type KubernetesClusterRoleBasedAccessControlOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterRoleBasedAccessControlOutput) AzureActiveDirectory() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
+	return o.Apply(func(v KubernetesClusterRoleBasedAccessControl) KubernetesClusterRoleBasedAccessControlAzureActiveDirectory {
+		if v.AzureActiveDirectory == nil { return *new(KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) } else { return *v.AzureActiveDirectory }
+	}).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
+}
+
+func (o KubernetesClusterRoleBasedAccessControlOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v KubernetesClusterRoleBasedAccessControl) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (KubernetesClusterRoleBasedAccessControlOutput) ElementType() reflect.Type {
+	return kubernetesClusterRoleBasedAccessControlType
+}
+
+func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlOutput() KubernetesClusterRoleBasedAccessControlOutput {
+	return o
+}
+
+func (o KubernetesClusterRoleBasedAccessControlOutput) ToKubernetesClusterRoleBasedAccessControlOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlOutput{}) }
+
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
+	ClientAppId string `pulumi:"clientAppId"`
+	ServerAppId string `pulumi:"serverAppId"`
+	ServerAppSecret string `pulumi:"serverAppSecret"`
+	TenantId *string `pulumi:"tenantId"`
+}
+var kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryType = reflect.TypeOf((*KubernetesClusterRoleBasedAccessControlAzureActiveDirectory)(nil)).Elem()
+
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput
+	ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput
+}
+
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
+	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
+	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
+	ServerAppSecret pulumi.StringInput `pulumi:"serverAppSecret"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ElementType() reflect.Type {
+	return kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryType
+}
+
+func (a KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
+}
+
+func (a KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput)
+}
+
+type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string {
+		return v.ClientAppId
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string {
+		return v.ServerAppId
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ServerAppSecret() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string {
+		return v.ServerAppSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ElementType() reflect.Type {
+	return kubernetesClusterRoleBasedAccessControlAzureActiveDirectoryType
+}
+
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput() KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
+	return o
+}
+
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ToKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutputWithContext(ctx context.Context) KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput{}) }
+
+type KubernetesClusterServicePrincipal struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+}
+var kubernetesClusterServicePrincipalType = reflect.TypeOf((*KubernetesClusterServicePrincipal)(nil)).Elem()
+
+type KubernetesClusterServicePrincipalInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterServicePrincipalOutput() KubernetesClusterServicePrincipalOutput
+	ToKubernetesClusterServicePrincipalOutputWithContext(ctx context.Context) KubernetesClusterServicePrincipalOutput
+}
+
+type KubernetesClusterServicePrincipalArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (KubernetesClusterServicePrincipalArgs) ElementType() reflect.Type {
+	return kubernetesClusterServicePrincipalType
+}
+
+func (a KubernetesClusterServicePrincipalArgs) ToKubernetesClusterServicePrincipalOutput() KubernetesClusterServicePrincipalOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterServicePrincipalOutput)
+}
+
+func (a KubernetesClusterServicePrincipalArgs) ToKubernetesClusterServicePrincipalOutputWithContext(ctx context.Context) KubernetesClusterServicePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterServicePrincipalOutput)
+}
+
+type KubernetesClusterServicePrincipalOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterServicePrincipalOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterServicePrincipal) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterServicePrincipalOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterServicePrincipal) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterServicePrincipalOutput) ElementType() reflect.Type {
+	return kubernetesClusterServicePrincipalType
+}
+
+func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrincipalOutput() KubernetesClusterServicePrincipalOutput {
+	return o
+}
+
+func (o KubernetesClusterServicePrincipalOutput) ToKubernetesClusterServicePrincipalOutputWithContext(ctx context.Context) KubernetesClusterServicePrincipalOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterServicePrincipalOutput{}) }
+
+type KubernetesClusterWindowsProfile struct {
+	AdminPassword *string `pulumi:"adminPassword"`
+	AdminUsername string `pulumi:"adminUsername"`
+}
+var kubernetesClusterWindowsProfileType = reflect.TypeOf((*KubernetesClusterWindowsProfile)(nil)).Elem()
+
+type KubernetesClusterWindowsProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWindowsProfileOutput() KubernetesClusterWindowsProfileOutput
+	ToKubernetesClusterWindowsProfileOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileOutput
+}
+
+type KubernetesClusterWindowsProfileArgs struct {
+	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+}
+
+func (KubernetesClusterWindowsProfileArgs) ElementType() reflect.Type {
+	return kubernetesClusterWindowsProfileType
+}
+
+func (a KubernetesClusterWindowsProfileArgs) ToKubernetesClusterWindowsProfileOutput() KubernetesClusterWindowsProfileOutput {
+	return pulumi.ToOutput(a).(KubernetesClusterWindowsProfileOutput)
+}
+
+func (a KubernetesClusterWindowsProfileArgs) ToKubernetesClusterWindowsProfileOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(KubernetesClusterWindowsProfileOutput)
+}
+
+type KubernetesClusterWindowsProfileOutput struct { *pulumi.OutputState }
+
+func (o KubernetesClusterWindowsProfileOutput) AdminPassword() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterWindowsProfile) string {
+		if v.AdminPassword == nil { return *new(string) } else { return *v.AdminPassword }
+	}).(pulumi.StringOutput)
+}
+
+func (o KubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
+	return o.Apply(func(v KubernetesClusterWindowsProfile) string {
+		return v.AdminUsername
+	}).(pulumi.StringOutput)
+}
+
+func (KubernetesClusterWindowsProfileOutput) ElementType() reflect.Type {
+	return kubernetesClusterWindowsProfileType
+}
+
+func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfileOutput() KubernetesClusterWindowsProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterWindowsProfileOutput) ToKubernetesClusterWindowsProfileOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{}) }
+

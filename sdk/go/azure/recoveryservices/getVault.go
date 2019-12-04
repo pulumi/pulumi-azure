@@ -10,44 +10,33 @@ import (
 // Use this data source to access information about an existing Recovery Services Vault.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.html.markdown.
-func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:recoveryservices/getVault:getVault", inputs)
+func LookupVault(ctx *pulumi.Context, args *GetVaultArgs, opts ...pulumi.InvokeOption) (*GetVaultResult, error) {
+	var rv GetVaultResult
+	err := ctx.Invoke("azure:recoveryservices/getVault:getVault", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVaultResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVault.
 type GetVaultArgs struct {
 	// Specifies the name of the Recovery Services Vault.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the Recovery Services Vault resides.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getVault.
 type GetVaultResult struct {
 	// The Azure location where the resource resides.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The vault's current SKU.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

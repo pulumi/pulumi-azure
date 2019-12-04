@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_group.html.markdown.
 type ProductGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
+
+	// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+	ProductId pulumi.StringOutput `pulumi:"productId"`
+
+	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewProductGroup registers a new resource with the given unique name, arguments, and options.
 func NewProductGroup(ctx *pulumi.Context,
-	name string, args *ProductGroupArgs, opts ...pulumi.ResourceOpt) (*ProductGroup, error) {
+	name string, args *ProductGroupArgs, opts ...pulumi.ResourceOption) (*ProductGroup, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -30,93 +42,60 @@ func NewProductGroup(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["groupName"] = nil
-		inputs["productId"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["groupName"] = args.GroupName
-		inputs["productId"] = args.ProductId
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.GroupName; i != nil { inputs["groupName"] = i.ToStringOutput() }
+		if i := args.ProductId; i != nil { inputs["productId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/productGroup:ProductGroup", name, true, inputs, opts...)
+	var resource ProductGroup
+	err := ctx.RegisterResource("azure:apimanagement/productGroup:ProductGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProductGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetProductGroup gets an existing ProductGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetProductGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ProductGroupState, opts ...pulumi.ResourceOpt) (*ProductGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ProductGroupState, opts ...pulumi.ResourceOption) (*ProductGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["groupName"] = state.GroupName
-		inputs["productId"] = state.ProductId
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.GroupName; i != nil { inputs["groupName"] = i.ToStringOutput() }
+		if i := state.ProductId; i != nil { inputs["productId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/productGroup:ProductGroup", name, id, inputs, opts...)
+	var resource ProductGroup
+	err := ctx.ReadResource("azure:apimanagement/productGroup:ProductGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ProductGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ProductGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ProductGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductGroup) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductGroup) GroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["groupName"])
-}
-
-// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
-func (r *ProductGroup) ProductId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["productId"])
-}
-
-// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ProductGroup) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ProductGroup resources.
 type ProductGroupState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
-	GroupName interface{}
+	GroupName pulumi.StringInput `pulumi:"groupName"`
 	// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
-	ProductId interface{}
+	ProductId pulumi.StringInput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ProductGroup resource.
 type ProductGroupArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
-	GroupName interface{}
+	GroupName pulumi.StringInput `pulumi:"groupName"`
 	// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
-	ProductId interface{}
+	ProductId pulumi.StringInput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

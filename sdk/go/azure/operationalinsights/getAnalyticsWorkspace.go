@@ -10,58 +10,42 @@ import (
 // Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
-func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *GetAnalyticsWorkspaceArgs) (*GetAnalyticsWorkspaceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", inputs)
+func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *GetAnalyticsWorkspaceArgs, opts ...pulumi.InvokeOption) (*GetAnalyticsWorkspaceResult, error) {
+	var rv GetAnalyticsWorkspaceResult
+	err := ctx.Invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAnalyticsWorkspaceResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		PortalUrl: outputs["portalUrl"],
-		PrimarySharedKey: outputs["primarySharedKey"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		RetentionInDays: outputs["retentionInDays"],
-		SecondarySharedKey: outputs["secondarySharedKey"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		WorkspaceId: outputs["workspaceId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAnalyticsWorkspace.
 type GetAnalyticsWorkspaceArgs struct {
 	// Specifies the name of the Log Analytics Workspace.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the Log Analytics workspace is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAnalyticsWorkspace.
 type GetAnalyticsWorkspaceResult struct {
-	Location interface{}
-	Name interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
 	// The Portal URL for the Log Analytics Workspace.
-	PortalUrl interface{}
+	PortalUrl string `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
-	PrimarySharedKey interface{}
-	ResourceGroupName interface{}
+	PrimarySharedKey string `pulumi:"primarySharedKey"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The workspace data retention in days.
-	RetentionInDays interface{}
+	RetentionInDays int `pulumi:"retentionInDays"`
 	// The Secondary shared key for the Log Analytics Workspace.
-	SecondarySharedKey interface{}
+	SecondarySharedKey string `pulumi:"secondarySharedKey"`
 	// The Sku of the Log Analytics Workspace.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
-	WorkspaceId interface{}
+	WorkspaceId string `pulumi:"workspaceId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

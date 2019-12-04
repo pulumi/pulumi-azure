@@ -4,6 +4,8 @@
 package datafactory
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,50 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_integration_runtime_managed.html.markdown.
 type IntegrationRuntimeManaged struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `catalogInfo` block as defined below.
+	CatalogInfo IntegrationRuntimeManagedCatalogInfoOutput `pulumi:"catalogInfo"`
+
+	// A `customSetupScript` block as defined below.
+	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptOutput `pulumi:"customSetupScript"`
+
+	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
+
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+	Edition pulumi.StringOutput `pulumi:"edition"`
+
+	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	MaxParallelExecutionsPerNode pulumi.IntOutput `pulumi:"maxParallelExecutionsPerNode"`
+
+	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
+	NodeSize pulumi.StringOutput `pulumi:"nodeSize"`
+
+	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
+	NumberOfNodes pulumi.IntOutput `pulumi:"numberOfNodes"`
+
+	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `vnetIntegration` block as defined below.
+	VnetIntegration IntegrationRuntimeManagedVnetIntegrationOutput `pulumi:"vnetIntegration"`
 }
 
 // NewIntegrationRuntimeManaged registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationRuntimeManaged(ctx *pulumi.Context,
-	name string, args *IntegrationRuntimeManagedArgs, opts ...pulumi.ResourceOpt) (*IntegrationRuntimeManaged, error) {
+	name string, args *IntegrationRuntimeManagedArgs, opts ...pulumi.ResourceOption) (*IntegrationRuntimeManaged, error) {
 	if args == nil || args.DataFactoryName == nil {
 		return nil, errors.New("missing required argument 'DataFactoryName'")
 	}
@@ -27,198 +67,302 @@ func NewIntegrationRuntimeManaged(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["catalogInfo"] = nil
-		inputs["customSetupScript"] = nil
-		inputs["dataFactoryName"] = nil
-		inputs["description"] = nil
-		inputs["edition"] = nil
-		inputs["licenseType"] = nil
-		inputs["location"] = nil
-		inputs["maxParallelExecutionsPerNode"] = nil
-		inputs["name"] = nil
-		inputs["nodeSize"] = nil
-		inputs["numberOfNodes"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["vnetIntegration"] = nil
-	} else {
-		inputs["catalogInfo"] = args.CatalogInfo
-		inputs["customSetupScript"] = args.CustomSetupScript
-		inputs["dataFactoryName"] = args.DataFactoryName
-		inputs["description"] = args.Description
-		inputs["edition"] = args.Edition
-		inputs["licenseType"] = args.LicenseType
-		inputs["location"] = args.Location
-		inputs["maxParallelExecutionsPerNode"] = args.MaxParallelExecutionsPerNode
-		inputs["name"] = args.Name
-		inputs["nodeSize"] = args.NodeSize
-		inputs["numberOfNodes"] = args.NumberOfNodes
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["vnetIntegration"] = args.VnetIntegration
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CatalogInfo; i != nil { inputs["catalogInfo"] = i.ToIntegrationRuntimeManagedCatalogInfoOutput() }
+		if i := args.CustomSetupScript; i != nil { inputs["customSetupScript"] = i.ToIntegrationRuntimeManagedCustomSetupScriptOutput() }
+		if i := args.DataFactoryName; i != nil { inputs["dataFactoryName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := args.LicenseType; i != nil { inputs["licenseType"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MaxParallelExecutionsPerNode; i != nil { inputs["maxParallelExecutionsPerNode"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NodeSize; i != nil { inputs["nodeSize"] = i.ToStringOutput() }
+		if i := args.NumberOfNodes; i != nil { inputs["numberOfNodes"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.VnetIntegration; i != nil { inputs["vnetIntegration"] = i.ToIntegrationRuntimeManagedVnetIntegrationOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, true, inputs, opts...)
+	var resource IntegrationRuntimeManaged
+	err := ctx.RegisterResource("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IntegrationRuntimeManaged{s: s}, nil
+	return &resource, nil
 }
 
 // GetIntegrationRuntimeManaged gets an existing IntegrationRuntimeManaged resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIntegrationRuntimeManaged(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IntegrationRuntimeManagedState, opts ...pulumi.ResourceOpt) (*IntegrationRuntimeManaged, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IntegrationRuntimeManagedState, opts ...pulumi.ResourceOption) (*IntegrationRuntimeManaged, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["catalogInfo"] = state.CatalogInfo
-		inputs["customSetupScript"] = state.CustomSetupScript
-		inputs["dataFactoryName"] = state.DataFactoryName
-		inputs["description"] = state.Description
-		inputs["edition"] = state.Edition
-		inputs["licenseType"] = state.LicenseType
-		inputs["location"] = state.Location
-		inputs["maxParallelExecutionsPerNode"] = state.MaxParallelExecutionsPerNode
-		inputs["name"] = state.Name
-		inputs["nodeSize"] = state.NodeSize
-		inputs["numberOfNodes"] = state.NumberOfNodes
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["vnetIntegration"] = state.VnetIntegration
+		if i := state.CatalogInfo; i != nil { inputs["catalogInfo"] = i.ToIntegrationRuntimeManagedCatalogInfoOutput() }
+		if i := state.CustomSetupScript; i != nil { inputs["customSetupScript"] = i.ToIntegrationRuntimeManagedCustomSetupScriptOutput() }
+		if i := state.DataFactoryName; i != nil { inputs["dataFactoryName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := state.LicenseType; i != nil { inputs["licenseType"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MaxParallelExecutionsPerNode; i != nil { inputs["maxParallelExecutionsPerNode"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NodeSize; i != nil { inputs["nodeSize"] = i.ToStringOutput() }
+		if i := state.NumberOfNodes; i != nil { inputs["numberOfNodes"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.VnetIntegration; i != nil { inputs["vnetIntegration"] = i.ToIntegrationRuntimeManagedVnetIntegrationOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, id, inputs, opts...)
+	var resource IntegrationRuntimeManaged
+	err := ctx.ReadResource("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IntegrationRuntimeManaged{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IntegrationRuntimeManaged) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IntegrationRuntimeManaged) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `catalogInfo` block as defined below.
-func (r *IntegrationRuntimeManaged) CatalogInfo() pulumi.Output {
-	return r.s.State["catalogInfo"]
-}
-
-// A `customSetupScript` block as defined below.
-func (r *IntegrationRuntimeManaged) CustomSetupScript() pulumi.Output {
-	return r.s.State["customSetupScript"]
-}
-
-// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-func (r *IntegrationRuntimeManaged) DataFactoryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
-}
-
-func (r *IntegrationRuntimeManaged) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
-func (r *IntegrationRuntimeManaged) Edition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["edition"])
-}
-
-// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
-func (r *IntegrationRuntimeManaged) LicenseType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["licenseType"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *IntegrationRuntimeManaged) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
-func (r *IntegrationRuntimeManaged) MaxParallelExecutionsPerNode() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxParallelExecutionsPerNode"])
-}
-
-// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *IntegrationRuntimeManaged) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-func (r *IntegrationRuntimeManaged) NodeSize() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeSize"])
-}
-
-// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-func (r *IntegrationRuntimeManaged) NumberOfNodes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["numberOfNodes"])
-}
-
-// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-func (r *IntegrationRuntimeManaged) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `vnetIntegration` block as defined below.
-func (r *IntegrationRuntimeManaged) VnetIntegration() pulumi.Output {
-	return r.s.State["vnetIntegration"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IntegrationRuntimeManaged resources.
 type IntegrationRuntimeManagedState struct {
 	// A `catalogInfo` block as defined below.
-	CatalogInfo interface{}
+	CatalogInfo IntegrationRuntimeManagedCatalogInfoInput `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
-	CustomSetupScript interface{}
+	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptInput `pulumi:"customSetupScript"`
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName interface{}
-	Description interface{}
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
-	LicenseType interface{}
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
-	MaxParallelExecutionsPerNode interface{}
+	MaxParallelExecutionsPerNode pulumi.IntInput `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-	NodeSize interface{}
+	NodeSize pulumi.StringInput `pulumi:"nodeSize"`
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-	NumberOfNodes interface{}
+	NumberOfNodes pulumi.IntInput `pulumi:"numberOfNodes"`
 	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
-	VnetIntegration interface{}
+	VnetIntegration IntegrationRuntimeManagedVnetIntegrationInput `pulumi:"vnetIntegration"`
 }
 
 // The set of arguments for constructing a IntegrationRuntimeManaged resource.
 type IntegrationRuntimeManagedArgs struct {
 	// A `catalogInfo` block as defined below.
-	CatalogInfo interface{}
+	CatalogInfo IntegrationRuntimeManagedCatalogInfoInput `pulumi:"catalogInfo"`
 	// A `customSetupScript` block as defined below.
-	CustomSetupScript interface{}
+	CustomSetupScript IntegrationRuntimeManagedCustomSetupScriptInput `pulumi:"customSetupScript"`
 	// Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-	DataFactoryName interface{}
-	Description interface{}
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
-	LicenseType interface{}
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
-	MaxParallelExecutionsPerNode interface{}
+	MaxParallelExecutionsPerNode pulumi.IntInput `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-	NodeSize interface{}
+	NodeSize pulumi.StringInput `pulumi:"nodeSize"`
 	// Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-	NumberOfNodes interface{}
+	NumberOfNodes pulumi.IntInput `pulumi:"numberOfNodes"`
 	// The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `vnetIntegration` block as defined below.
-	VnetIntegration interface{}
+	VnetIntegration IntegrationRuntimeManagedVnetIntegrationInput `pulumi:"vnetIntegration"`
 }
+type IntegrationRuntimeManagedCatalogInfo struct {
+	AdministratorLogin string `pulumi:"administratorLogin"`
+	AdministratorPassword string `pulumi:"administratorPassword"`
+	PricingTier *string `pulumi:"pricingTier"`
+	ServerEndpoint string `pulumi:"serverEndpoint"`
+}
+var integrationRuntimeManagedCatalogInfoType = reflect.TypeOf((*IntegrationRuntimeManagedCatalogInfo)(nil)).Elem()
+
+type IntegrationRuntimeManagedCatalogInfoInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeManagedCatalogInfoOutput() IntegrationRuntimeManagedCatalogInfoOutput
+	ToIntegrationRuntimeManagedCatalogInfoOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCatalogInfoOutput
+}
+
+type IntegrationRuntimeManagedCatalogInfoArgs struct {
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	AdministratorPassword pulumi.StringInput `pulumi:"administratorPassword"`
+	PricingTier pulumi.StringInput `pulumi:"pricingTier"`
+	ServerEndpoint pulumi.StringInput `pulumi:"serverEndpoint"`
+}
+
+func (IntegrationRuntimeManagedCatalogInfoArgs) ElementType() reflect.Type {
+	return integrationRuntimeManagedCatalogInfoType
+}
+
+func (a IntegrationRuntimeManagedCatalogInfoArgs) ToIntegrationRuntimeManagedCatalogInfoOutput() IntegrationRuntimeManagedCatalogInfoOutput {
+	return pulumi.ToOutput(a).(IntegrationRuntimeManagedCatalogInfoOutput)
+}
+
+func (a IntegrationRuntimeManagedCatalogInfoArgs) ToIntegrationRuntimeManagedCatalogInfoOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCatalogInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IntegrationRuntimeManagedCatalogInfoOutput)
+}
+
+type IntegrationRuntimeManagedCatalogInfoOutput struct { *pulumi.OutputState }
+
+func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedCatalogInfo) string {
+		return v.AdministratorLogin
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorPassword() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedCatalogInfo) string {
+		return v.AdministratorPassword
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeManagedCatalogInfoOutput) PricingTier() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedCatalogInfo) string {
+		if v.PricingTier == nil { return *new(string) } else { return *v.PricingTier }
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeManagedCatalogInfoOutput) ServerEndpoint() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedCatalogInfo) string {
+		return v.ServerEndpoint
+	}).(pulumi.StringOutput)
+}
+
+func (IntegrationRuntimeManagedCatalogInfoOutput) ElementType() reflect.Type {
+	return integrationRuntimeManagedCatalogInfoType
+}
+
+func (o IntegrationRuntimeManagedCatalogInfoOutput) ToIntegrationRuntimeManagedCatalogInfoOutput() IntegrationRuntimeManagedCatalogInfoOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedCatalogInfoOutput) ToIntegrationRuntimeManagedCatalogInfoOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCatalogInfoOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IntegrationRuntimeManagedCatalogInfoOutput{}) }
+
+type IntegrationRuntimeManagedCustomSetupScript struct {
+	BlobContainerUri string `pulumi:"blobContainerUri"`
+	SasToken string `pulumi:"sasToken"`
+}
+var integrationRuntimeManagedCustomSetupScriptType = reflect.TypeOf((*IntegrationRuntimeManagedCustomSetupScript)(nil)).Elem()
+
+type IntegrationRuntimeManagedCustomSetupScriptInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeManagedCustomSetupScriptOutput() IntegrationRuntimeManagedCustomSetupScriptOutput
+	ToIntegrationRuntimeManagedCustomSetupScriptOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCustomSetupScriptOutput
+}
+
+type IntegrationRuntimeManagedCustomSetupScriptArgs struct {
+	BlobContainerUri pulumi.StringInput `pulumi:"blobContainerUri"`
+	SasToken pulumi.StringInput `pulumi:"sasToken"`
+}
+
+func (IntegrationRuntimeManagedCustomSetupScriptArgs) ElementType() reflect.Type {
+	return integrationRuntimeManagedCustomSetupScriptType
+}
+
+func (a IntegrationRuntimeManagedCustomSetupScriptArgs) ToIntegrationRuntimeManagedCustomSetupScriptOutput() IntegrationRuntimeManagedCustomSetupScriptOutput {
+	return pulumi.ToOutput(a).(IntegrationRuntimeManagedCustomSetupScriptOutput)
+}
+
+func (a IntegrationRuntimeManagedCustomSetupScriptArgs) ToIntegrationRuntimeManagedCustomSetupScriptOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCustomSetupScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IntegrationRuntimeManagedCustomSetupScriptOutput)
+}
+
+type IntegrationRuntimeManagedCustomSetupScriptOutput struct { *pulumi.OutputState }
+
+func (o IntegrationRuntimeManagedCustomSetupScriptOutput) BlobContainerUri() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedCustomSetupScript) string {
+		return v.BlobContainerUri
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeManagedCustomSetupScriptOutput) SasToken() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedCustomSetupScript) string {
+		return v.SasToken
+	}).(pulumi.StringOutput)
+}
+
+func (IntegrationRuntimeManagedCustomSetupScriptOutput) ElementType() reflect.Type {
+	return integrationRuntimeManagedCustomSetupScriptType
+}
+
+func (o IntegrationRuntimeManagedCustomSetupScriptOutput) ToIntegrationRuntimeManagedCustomSetupScriptOutput() IntegrationRuntimeManagedCustomSetupScriptOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedCustomSetupScriptOutput) ToIntegrationRuntimeManagedCustomSetupScriptOutputWithContext(ctx context.Context) IntegrationRuntimeManagedCustomSetupScriptOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IntegrationRuntimeManagedCustomSetupScriptOutput{}) }
+
+type IntegrationRuntimeManagedVnetIntegration struct {
+	SubnetName string `pulumi:"subnetName"`
+	VnetId string `pulumi:"vnetId"`
+}
+var integrationRuntimeManagedVnetIntegrationType = reflect.TypeOf((*IntegrationRuntimeManagedVnetIntegration)(nil)).Elem()
+
+type IntegrationRuntimeManagedVnetIntegrationInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeManagedVnetIntegrationOutput() IntegrationRuntimeManagedVnetIntegrationOutput
+	ToIntegrationRuntimeManagedVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeManagedVnetIntegrationOutput
+}
+
+type IntegrationRuntimeManagedVnetIntegrationArgs struct {
+	SubnetName pulumi.StringInput `pulumi:"subnetName"`
+	VnetId pulumi.StringInput `pulumi:"vnetId"`
+}
+
+func (IntegrationRuntimeManagedVnetIntegrationArgs) ElementType() reflect.Type {
+	return integrationRuntimeManagedVnetIntegrationType
+}
+
+func (a IntegrationRuntimeManagedVnetIntegrationArgs) ToIntegrationRuntimeManagedVnetIntegrationOutput() IntegrationRuntimeManagedVnetIntegrationOutput {
+	return pulumi.ToOutput(a).(IntegrationRuntimeManagedVnetIntegrationOutput)
+}
+
+func (a IntegrationRuntimeManagedVnetIntegrationArgs) ToIntegrationRuntimeManagedVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeManagedVnetIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(IntegrationRuntimeManagedVnetIntegrationOutput)
+}
+
+type IntegrationRuntimeManagedVnetIntegrationOutput struct { *pulumi.OutputState }
+
+func (o IntegrationRuntimeManagedVnetIntegrationOutput) SubnetName() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedVnetIntegration) string {
+		return v.SubnetName
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeManagedVnetIntegrationOutput) VnetId() pulumi.StringOutput {
+	return o.Apply(func(v IntegrationRuntimeManagedVnetIntegration) string {
+		return v.VnetId
+	}).(pulumi.StringOutput)
+}
+
+func (IntegrationRuntimeManagedVnetIntegrationOutput) ElementType() reflect.Type {
+	return integrationRuntimeManagedVnetIntegrationType
+}
+
+func (o IntegrationRuntimeManagedVnetIntegrationOutput) ToIntegrationRuntimeManagedVnetIntegrationOutput() IntegrationRuntimeManagedVnetIntegrationOutput {
+	return o
+}
+
+func (o IntegrationRuntimeManagedVnetIntegrationOutput) ToIntegrationRuntimeManagedVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeManagedVnetIntegrationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(IntegrationRuntimeManagedVnetIntegrationOutput{}) }
+

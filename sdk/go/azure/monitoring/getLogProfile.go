@@ -10,44 +10,39 @@ import (
 // Use this data source to access the properties of a Log Profile.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
-func LookupLogProfile(ctx *pulumi.Context, args *GetLogProfileArgs) (*GetLogProfileResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-	}
-	outputs, err := ctx.Invoke("azure:monitoring/getLogProfile:getLogProfile", inputs)
+func LookupLogProfile(ctx *pulumi.Context, args *GetLogProfileArgs, opts ...pulumi.InvokeOption) (*GetLogProfileResult, error) {
+	var rv GetLogProfileResult
+	err := ctx.Invoke("azure:monitoring/getLogProfile:getLogProfile", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetLogProfileResult{
-		Categories: outputs["categories"],
-		Locations: outputs["locations"],
-		Name: outputs["name"],
-		RetentionPolicy: outputs["retentionPolicy"],
-		ServicebusRuleId: outputs["servicebusRuleId"],
-		StorageAccountId: outputs["storageAccountId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getLogProfile.
 type GetLogProfileArgs struct {
 	// Specifies the Name of the Log Profile.
-	Name interface{}
+	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getLogProfile.
 type GetLogProfileResult struct {
 	// List of categories of the logs.
-	Categories interface{}
+	Categories []string `pulumi:"categories"`
 	// List of regions for which Activity Log events are stored or streamed.
-	Locations interface{}
-	Name interface{}
-	RetentionPolicy interface{}
+	Locations []string `pulumi:"locations"`
+	Name string `pulumi:"name"`
+	RetentionPolicy GetLogProfileRetentionPolicyResult `pulumi:"retentionPolicy"`
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
-	ServicebusRuleId interface{}
+	ServicebusRuleId string `pulumi:"servicebusRuleId"`
 	// The resource id of the storage account in which the Activity Log is stored.
-	StorageAccountId interface{}
+	StorageAccountId string `pulumi:"storageAccountId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetLogProfileRetentionPolicyResult struct {
+	// The number of days for the retention policy.
+	Days int `pulumi:"days"`
+	// A boolean value indicating whether the retention policy is enabled.
+	Enabled bool `pulumi:"enabled"`
 }

@@ -12,93 +12,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_custom.html.markdown.
 type ActionCustom struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the JSON Blob defining the Body of this Custom Action.
+	Body pulumi.StringOutput `pulumi:"body"`
+
+	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
+
+	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewActionCustom registers a new resource with the given unique name, arguments, and options.
 func NewActionCustom(ctx *pulumi.Context,
-	name string, args *ActionCustomArgs, opts ...pulumi.ResourceOpt) (*ActionCustom, error) {
+	name string, args *ActionCustomArgs, opts ...pulumi.ResourceOption) (*ActionCustom, error) {
 	if args == nil || args.Body == nil {
 		return nil, errors.New("missing required argument 'Body'")
 	}
 	if args == nil || args.LogicAppId == nil {
 		return nil, errors.New("missing required argument 'LogicAppId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["body"] = nil
-		inputs["logicAppId"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["body"] = args.Body
-		inputs["logicAppId"] = args.LogicAppId
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := args.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:logicapps/actionCustom:ActionCustom", name, true, inputs, opts...)
+	var resource ActionCustom
+	err := ctx.RegisterResource("azure:logicapps/actionCustom:ActionCustom", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ActionCustom{s: s}, nil
+	return &resource, nil
 }
 
 // GetActionCustom gets an existing ActionCustom resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetActionCustom(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ActionCustomState, opts ...pulumi.ResourceOpt) (*ActionCustom, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ActionCustomState, opts ...pulumi.ResourceOption) (*ActionCustom, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["body"] = state.Body
-		inputs["logicAppId"] = state.LogicAppId
-		inputs["name"] = state.Name
+		if i := state.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := state.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:logicapps/actionCustom:ActionCustom", name, id, inputs, opts...)
+	var resource ActionCustom
+	err := ctx.ReadResource("azure:logicapps/actionCustom:ActionCustom", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ActionCustom{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ActionCustom) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ActionCustom) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the JSON Blob defining the Body of this Custom Action.
-func (r *ActionCustom) Body() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["body"])
-}
-
-// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *ActionCustom) LogicAppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logicAppId"])
-}
-
-// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *ActionCustom) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ActionCustom resources.
 type ActionCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ActionCustom resource.
 type ActionCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

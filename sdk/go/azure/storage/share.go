@@ -4,6 +4,8 @@
 package storage
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,141 +14,328 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
 type Share struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `acl` blocks as defined below.
+	Acls ShareAclsArrayOutput `pulumi:"acls"`
+
+	// A mapping of MetaData for this File Share.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
+
+	// The name of the share. Must be unique within the storage account where the share is located.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
+	Quota pulumi.IntOutput `pulumi:"quota"`
+
+	// The name of the resource group in which to
+	// create the share. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the storage account in which to create the share.
+	// Changing this forces a new resource to be created.
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+
+	// The URL of the File Share
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewShare registers a new resource with the given unique name, arguments, and options.
 func NewShare(ctx *pulumi.Context,
-	name string, args *ShareArgs, opts ...pulumi.ResourceOpt) (*Share, error) {
+	name string, args *ShareArgs, opts ...pulumi.ResourceOption) (*Share, error) {
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["acls"] = nil
-		inputs["metadata"] = nil
-		inputs["name"] = nil
-		inputs["quota"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageAccountName"] = nil
-	} else {
-		inputs["acls"] = args.Acls
-		inputs["metadata"] = args.Metadata
-		inputs["name"] = args.Name
-		inputs["quota"] = args.Quota
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageAccountName"] = args.StorageAccountName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Acls; i != nil { inputs["acls"] = i.ToShareAclsArrayOutput() }
+		if i := args.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Quota; i != nil { inputs["quota"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	inputs["url"] = nil
-	s, err := ctx.RegisterResource("azure:storage/share:Share", name, true, inputs, opts...)
+	var resource Share
+	err := ctx.RegisterResource("azure:storage/share:Share", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Share{s: s}, nil
+	return &resource, nil
 }
 
 // GetShare gets an existing Share resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetShare(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ShareState, opts ...pulumi.ResourceOpt) (*Share, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ShareState, opts ...pulumi.ResourceOption) (*Share, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["acls"] = state.Acls
-		inputs["metadata"] = state.Metadata
-		inputs["name"] = state.Name
-		inputs["quota"] = state.Quota
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageAccountName"] = state.StorageAccountName
-		inputs["url"] = state.Url
+		if i := state.Acls; i != nil { inputs["acls"] = i.ToShareAclsArrayOutput() }
+		if i := state.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Quota; i != nil { inputs["quota"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
+		if i := state.Url; i != nil { inputs["url"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/share:Share", name, id, inputs, opts...)
+	var resource Share
+	err := ctx.ReadResource("azure:storage/share:Share", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Share{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Share) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Share) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `acl` blocks as defined below.
-func (r *Share) Acls() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["acls"])
-}
-
-// A mapping of MetaData for this File Share.
-func (r *Share) Metadata() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["metadata"])
-}
-
-// The name of the share. Must be unique within the storage account where the share is located.
-func (r *Share) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
-func (r *Share) Quota() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["quota"])
-}
-
-// The name of the resource group in which to
-// create the share. Changing this forces a new resource to be created.
-func (r *Share) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the storage account in which to create the share.
-// Changing this forces a new resource to be created.
-func (r *Share) StorageAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
-}
-
-// The URL of the File Share
-func (r *Share) Url() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["url"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Share resources.
 type ShareState struct {
 	// One or more `acl` blocks as defined below.
-	Acls interface{}
+	Acls ShareAclsArrayInput `pulumi:"acls"`
 	// A mapping of MetaData for this File Share.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the share. Must be unique within the storage account where the share is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
-	Quota interface{}
+	Quota pulumi.IntInput `pulumi:"quota"`
 	// The name of the resource group in which to
 	// create the share. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the share.
 	// Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// The URL of the File Share
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
 	// One or more `acl` blocks as defined below.
-	Acls interface{}
+	Acls ShareAclsArrayInput `pulumi:"acls"`
 	// A mapping of MetaData for this File Share.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the share. Must be unique within the storage account where the share is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
-	Quota interface{}
+	Quota pulumi.IntInput `pulumi:"quota"`
 	// The name of the resource group in which to
 	// create the share. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the storage account in which to create the share.
 	// Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }
+type ShareAcls struct {
+	AccessPolicies *[]ShareAclsAccessPolicies `pulumi:"accessPolicies"`
+	// The ID of the File Share.
+	Id string `pulumi:"id"`
+}
+var shareAclsType = reflect.TypeOf((*ShareAcls)(nil)).Elem()
+
+type ShareAclsInput interface {
+	pulumi.Input
+
+	ToShareAclsOutput() ShareAclsOutput
+	ToShareAclsOutputWithContext(ctx context.Context) ShareAclsOutput
+}
+
+type ShareAclsArgs struct {
+	AccessPolicies ShareAclsAccessPoliciesArrayInput `pulumi:"accessPolicies"`
+	// The ID of the File Share.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ShareAclsArgs) ElementType() reflect.Type {
+	return shareAclsType
+}
+
+func (a ShareAclsArgs) ToShareAclsOutput() ShareAclsOutput {
+	return pulumi.ToOutput(a).(ShareAclsOutput)
+}
+
+func (a ShareAclsArgs) ToShareAclsOutputWithContext(ctx context.Context) ShareAclsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ShareAclsOutput)
+}
+
+type ShareAclsOutput struct { *pulumi.OutputState }
+
+func (o ShareAclsOutput) AccessPolicies() ShareAclsAccessPoliciesArrayOutput {
+	return o.Apply(func(v ShareAcls) []ShareAclsAccessPolicies {
+		if v.AccessPolicies == nil { return *new([]ShareAclsAccessPolicies) } else { return *v.AccessPolicies }
+	}).(ShareAclsAccessPoliciesArrayOutput)
+}
+
+// The ID of the File Share.
+func (o ShareAclsOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v ShareAcls) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (ShareAclsOutput) ElementType() reflect.Type {
+	return shareAclsType
+}
+
+func (o ShareAclsOutput) ToShareAclsOutput() ShareAclsOutput {
+	return o
+}
+
+func (o ShareAclsOutput) ToShareAclsOutputWithContext(ctx context.Context) ShareAclsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ShareAclsOutput{}) }
+
+type ShareAclsAccessPolicies struct {
+	Expiry string `pulumi:"expiry"`
+	Permissions string `pulumi:"permissions"`
+	Start string `pulumi:"start"`
+}
+var shareAclsAccessPoliciesType = reflect.TypeOf((*ShareAclsAccessPolicies)(nil)).Elem()
+
+type ShareAclsAccessPoliciesInput interface {
+	pulumi.Input
+
+	ToShareAclsAccessPoliciesOutput() ShareAclsAccessPoliciesOutput
+	ToShareAclsAccessPoliciesOutputWithContext(ctx context.Context) ShareAclsAccessPoliciesOutput
+}
+
+type ShareAclsAccessPoliciesArgs struct {
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	Permissions pulumi.StringInput `pulumi:"permissions"`
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (ShareAclsAccessPoliciesArgs) ElementType() reflect.Type {
+	return shareAclsAccessPoliciesType
+}
+
+func (a ShareAclsAccessPoliciesArgs) ToShareAclsAccessPoliciesOutput() ShareAclsAccessPoliciesOutput {
+	return pulumi.ToOutput(a).(ShareAclsAccessPoliciesOutput)
+}
+
+func (a ShareAclsAccessPoliciesArgs) ToShareAclsAccessPoliciesOutputWithContext(ctx context.Context) ShareAclsAccessPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ShareAclsAccessPoliciesOutput)
+}
+
+type ShareAclsAccessPoliciesOutput struct { *pulumi.OutputState }
+
+func (o ShareAclsAccessPoliciesOutput) Expiry() pulumi.StringOutput {
+	return o.Apply(func(v ShareAclsAccessPolicies) string {
+		return v.Expiry
+	}).(pulumi.StringOutput)
+}
+
+func (o ShareAclsAccessPoliciesOutput) Permissions() pulumi.StringOutput {
+	return o.Apply(func(v ShareAclsAccessPolicies) string {
+		return v.Permissions
+	}).(pulumi.StringOutput)
+}
+
+func (o ShareAclsAccessPoliciesOutput) Start() pulumi.StringOutput {
+	return o.Apply(func(v ShareAclsAccessPolicies) string {
+		return v.Start
+	}).(pulumi.StringOutput)
+}
+
+func (ShareAclsAccessPoliciesOutput) ElementType() reflect.Type {
+	return shareAclsAccessPoliciesType
+}
+
+func (o ShareAclsAccessPoliciesOutput) ToShareAclsAccessPoliciesOutput() ShareAclsAccessPoliciesOutput {
+	return o
+}
+
+func (o ShareAclsAccessPoliciesOutput) ToShareAclsAccessPoliciesOutputWithContext(ctx context.Context) ShareAclsAccessPoliciesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ShareAclsAccessPoliciesOutput{}) }
+
+var shareAclsAccessPoliciesArrayType = reflect.TypeOf((*[]ShareAclsAccessPolicies)(nil)).Elem()
+
+type ShareAclsAccessPoliciesArrayInput interface {
+	pulumi.Input
+
+	ToShareAclsAccessPoliciesArrayOutput() ShareAclsAccessPoliciesArrayOutput
+	ToShareAclsAccessPoliciesArrayOutputWithContext(ctx context.Context) ShareAclsAccessPoliciesArrayOutput
+}
+
+type ShareAclsAccessPoliciesArrayArgs []ShareAclsAccessPoliciesInput
+
+func (ShareAclsAccessPoliciesArrayArgs) ElementType() reflect.Type {
+	return shareAclsAccessPoliciesArrayType
+}
+
+func (a ShareAclsAccessPoliciesArrayArgs) ToShareAclsAccessPoliciesArrayOutput() ShareAclsAccessPoliciesArrayOutput {
+	return pulumi.ToOutput(a).(ShareAclsAccessPoliciesArrayOutput)
+}
+
+func (a ShareAclsAccessPoliciesArrayArgs) ToShareAclsAccessPoliciesArrayOutputWithContext(ctx context.Context) ShareAclsAccessPoliciesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ShareAclsAccessPoliciesArrayOutput)
+}
+
+type ShareAclsAccessPoliciesArrayOutput struct { *pulumi.OutputState }
+
+func (o ShareAclsAccessPoliciesArrayOutput) Index(i pulumi.IntInput) ShareAclsAccessPoliciesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ShareAclsAccessPolicies {
+		return vs[0].([]ShareAclsAccessPolicies)[vs[1].(int)]
+	}).(ShareAclsAccessPoliciesOutput)
+}
+
+func (ShareAclsAccessPoliciesArrayOutput) ElementType() reflect.Type {
+	return shareAclsAccessPoliciesArrayType
+}
+
+func (o ShareAclsAccessPoliciesArrayOutput) ToShareAclsAccessPoliciesArrayOutput() ShareAclsAccessPoliciesArrayOutput {
+	return o
+}
+
+func (o ShareAclsAccessPoliciesArrayOutput) ToShareAclsAccessPoliciesArrayOutputWithContext(ctx context.Context) ShareAclsAccessPoliciesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ShareAclsAccessPoliciesArrayOutput{}) }
+
+var shareAclsArrayType = reflect.TypeOf((*[]ShareAcls)(nil)).Elem()
+
+type ShareAclsArrayInput interface {
+	pulumi.Input
+
+	ToShareAclsArrayOutput() ShareAclsArrayOutput
+	ToShareAclsArrayOutputWithContext(ctx context.Context) ShareAclsArrayOutput
+}
+
+type ShareAclsArrayArgs []ShareAclsInput
+
+func (ShareAclsArrayArgs) ElementType() reflect.Type {
+	return shareAclsArrayType
+}
+
+func (a ShareAclsArrayArgs) ToShareAclsArrayOutput() ShareAclsArrayOutput {
+	return pulumi.ToOutput(a).(ShareAclsArrayOutput)
+}
+
+func (a ShareAclsArrayArgs) ToShareAclsArrayOutputWithContext(ctx context.Context) ShareAclsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ShareAclsArrayOutput)
+}
+
+type ShareAclsArrayOutput struct { *pulumi.OutputState }
+
+func (o ShareAclsArrayOutput) Index(i pulumi.IntInput) ShareAclsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ShareAcls {
+		return vs[0].([]ShareAcls)[vs[1].(int)]
+	}).(ShareAclsOutput)
+}
+
+func (ShareAclsArrayOutput) ElementType() reflect.Type {
+	return shareAclsArrayType
+}
+
+func (o ShareAclsArrayOutput) ToShareAclsArrayOutput() ShareAclsArrayOutput {
+	return o
+}
+
+func (o ShareAclsArrayOutput) ToShareAclsArrayOutputWithContext(ctx context.Context) ShareAclsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ShareAclsArrayOutput{}) }
+

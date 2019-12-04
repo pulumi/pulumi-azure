@@ -10,46 +10,34 @@ import (
 // Use this data source to access information about an existing Shared Image Gallery.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
-func LookupSharedImageGallery(ctx *pulumi.Context, args *GetSharedImageGalleryArgs) (*GetSharedImageGalleryResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:compute/getSharedImageGallery:getSharedImageGallery", inputs)
+func LookupSharedImageGallery(ctx *pulumi.Context, args *GetSharedImageGalleryArgs, opts ...pulumi.InvokeOption) (*GetSharedImageGalleryResult, error) {
+	var rv GetSharedImageGalleryResult
+	err := ctx.Invoke("azure:compute/getSharedImageGallery:getSharedImageGallery", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSharedImageGalleryResult{
-		Description: outputs["description"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		UniqueName: outputs["uniqueName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSharedImageGallery.
 type GetSharedImageGalleryArgs struct {
 	// The name of the Shared Image Gallery.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getSharedImageGallery.
 type GetSharedImageGalleryResult struct {
 	// A description for the Shared Image Gallery.
-	Description interface{}
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Description string `pulumi:"description"`
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which are assigned to the Shared Image Gallery.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The unique name assigned to the Shared Image Gallery.
-	UniqueName interface{}
+	UniqueName string `pulumi:"uniqueName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -16,81 +16,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.html.markdown.
 type Workspace struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
+	Scope pulumi.StringOutput `pulumi:"scope"`
+
+	// The ID of the Log Analytics Workspace to save the data in.
+	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewWorkspace(ctx *pulumi.Context,
-	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOpt) (*Workspace, error) {
+	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
 	}
 	if args == nil || args.WorkspaceId == nil {
 		return nil, errors.New("missing required argument 'WorkspaceId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["scope"] = nil
-		inputs["workspaceId"] = nil
-	} else {
-		inputs["scope"] = args.Scope
-		inputs["workspaceId"] = args.WorkspaceId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
+		if i := args.WorkspaceId; i != nil { inputs["workspaceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:securitycenter/workspace:Workspace", name, true, inputs, opts...)
+	var resource Workspace
+	err := ctx.RegisterResource("azure:securitycenter/workspace:Workspace", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Workspace{s: s}, nil
+	return &resource, nil
 }
 
 // GetWorkspace gets an existing Workspace resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWorkspace(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WorkspaceState, opts ...pulumi.ResourceOpt) (*Workspace, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WorkspaceState, opts ...pulumi.ResourceOption) (*Workspace, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["scope"] = state.Scope
-		inputs["workspaceId"] = state.WorkspaceId
+		if i := state.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
+		if i := state.WorkspaceId; i != nil { inputs["workspaceId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:securitycenter/workspace:Workspace", name, id, inputs, opts...)
+	var resource Workspace
+	err := ctx.ReadResource("azure:securitycenter/workspace:Workspace", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Workspace{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Workspace) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Workspace) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
-func (r *Workspace) Scope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scope"])
-}
-
-// The ID of the Log Analytics Workspace to save the data in.
-func (r *Workspace) WorkspaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["workspaceId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Workspace resources.
 type WorkspaceState struct {
 	// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 	// The ID of the Log Analytics Workspace to save the data in.
-	WorkspaceId interface{}
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
 	// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 	// The ID of the Log Analytics Workspace to save the data in.
-	WorkspaceId interface{}
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }

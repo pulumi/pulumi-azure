@@ -12,315 +12,255 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
 type Queue struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ISO 8601 timespan duration of the idle interval after which the
+	// Queue is automatically deleted, minimum of 5 minutes.
+	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+
+	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+	DeadLetteringOnMessageExpiration pulumi.BoolOutput `pulumi:"deadLetteringOnMessageExpiration"`
+
+	// The ISO 8601 timespan duration of the TTL of messages sent to this
+	// queue. This is the default value used when TTL is not set on message itself.
+	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
+
+	// The ISO 8601 timespan duration during which
+	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
+
+	EnableBatchedOperations pulumi.BoolOutput `pulumi:"enableBatchedOperations"`
+
+	// Boolean flag which controls whether Express Entities
+	// are enabled. An express queue holds a message in memory temporarily before writing
+	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
+	// be set to `false`.
+	EnableExpress pulumi.BoolOutput `pulumi:"enableExpress"`
+
+	// Boolean flag which controls whether to enable
+	// the queue to be partitioned across multiple message brokers. Changing this forces
+	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
+	// be set to `true`.
+	EnablePartitioning pulumi.BoolOutput `pulumi:"enablePartitioning"`
+
+	// Specifies the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
+
+	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+	MaxDeliveryCount pulumi.IntOutput `pulumi:"maxDeliveryCount"`
+
+	// Integer value which controls the size of
+	// memory allocated for the queue. For supported values see the "Queue/topic size"
+	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
+
+	// Specifies the name of the ServiceBus Queue resource. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the ServiceBus Namespace to create
+	// this queue in. Changing this forces a new resource to be created.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+
+	// Boolean flag which controls whether
+	// the Queue requires duplicate detection. Changing this forces
+	// a new resource to be created. Defaults to `false`.
+	RequiresDuplicateDetection pulumi.BoolOutput `pulumi:"requiresDuplicateDetection"`
+
+	// Boolean flag which controls whether the Queue requires sessions.
+	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+	// a queue can guarantee first-in-first-out delivery of messages.
+	// Changing this forces a new resource to be created. Defaults to `false`.
+	RequiresSession pulumi.BoolOutput `pulumi:"requiresSession"`
+
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	SupportOrdering pulumi.BoolOutput `pulumi:"supportOrdering"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
 func NewQueue(ctx *pulumi.Context,
-	name string, args *QueueArgs, opts ...pulumi.ResourceOpt) (*Queue, error) {
+	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoDeleteOnIdle"] = nil
-		inputs["deadLetteringOnMessageExpiration"] = nil
-		inputs["defaultMessageTtl"] = nil
-		inputs["duplicateDetectionHistoryTimeWindow"] = nil
-		inputs["enableBatchedOperations"] = nil
-		inputs["enableExpress"] = nil
-		inputs["enablePartitioning"] = nil
-		inputs["location"] = nil
-		inputs["lockDuration"] = nil
-		inputs["maxDeliveryCount"] = nil
-		inputs["maxSizeInMegabytes"] = nil
-		inputs["name"] = nil
-		inputs["namespaceName"] = nil
-		inputs["requiresDuplicateDetection"] = nil
-		inputs["requiresSession"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["supportOrdering"] = nil
-	} else {
-		inputs["autoDeleteOnIdle"] = args.AutoDeleteOnIdle
-		inputs["deadLetteringOnMessageExpiration"] = args.DeadLetteringOnMessageExpiration
-		inputs["defaultMessageTtl"] = args.DefaultMessageTtl
-		inputs["duplicateDetectionHistoryTimeWindow"] = args.DuplicateDetectionHistoryTimeWindow
-		inputs["enableBatchedOperations"] = args.EnableBatchedOperations
-		inputs["enableExpress"] = args.EnableExpress
-		inputs["enablePartitioning"] = args.EnablePartitioning
-		inputs["location"] = args.Location
-		inputs["lockDuration"] = args.LockDuration
-		inputs["maxDeliveryCount"] = args.MaxDeliveryCount
-		inputs["maxSizeInMegabytes"] = args.MaxSizeInMegabytes
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["requiresDuplicateDetection"] = args.RequiresDuplicateDetection
-		inputs["requiresSession"] = args.RequiresSession
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["supportOrdering"] = args.SupportOrdering
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoDeleteOnIdle; i != nil { inputs["autoDeleteOnIdle"] = i.ToStringOutput() }
+		if i := args.DeadLetteringOnMessageExpiration; i != nil { inputs["deadLetteringOnMessageExpiration"] = i.ToBoolOutput() }
+		if i := args.DefaultMessageTtl; i != nil { inputs["defaultMessageTtl"] = i.ToStringOutput() }
+		if i := args.DuplicateDetectionHistoryTimeWindow; i != nil { inputs["duplicateDetectionHistoryTimeWindow"] = i.ToStringOutput() }
+		if i := args.EnableBatchedOperations; i != nil { inputs["enableBatchedOperations"] = i.ToBoolOutput() }
+		if i := args.EnableExpress; i != nil { inputs["enableExpress"] = i.ToBoolOutput() }
+		if i := args.EnablePartitioning; i != nil { inputs["enablePartitioning"] = i.ToBoolOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.LockDuration; i != nil { inputs["lockDuration"] = i.ToStringOutput() }
+		if i := args.MaxDeliveryCount; i != nil { inputs["maxDeliveryCount"] = i.ToIntOutput() }
+		if i := args.MaxSizeInMegabytes; i != nil { inputs["maxSizeInMegabytes"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := args.RequiresDuplicateDetection; i != nil { inputs["requiresDuplicateDetection"] = i.ToBoolOutput() }
+		if i := args.RequiresSession; i != nil { inputs["requiresSession"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SupportOrdering; i != nil { inputs["supportOrdering"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:eventhub/queue:Queue", name, true, inputs, opts...)
+	var resource Queue
+	err := ctx.RegisterResource("azure:eventhub/queue:Queue", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Queue{s: s}, nil
+	return &resource, nil
 }
 
 // GetQueue gets an existing Queue resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetQueue(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *QueueState, opts ...pulumi.ResourceOpt) (*Queue, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *QueueState, opts ...pulumi.ResourceOption) (*Queue, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoDeleteOnIdle"] = state.AutoDeleteOnIdle
-		inputs["deadLetteringOnMessageExpiration"] = state.DeadLetteringOnMessageExpiration
-		inputs["defaultMessageTtl"] = state.DefaultMessageTtl
-		inputs["duplicateDetectionHistoryTimeWindow"] = state.DuplicateDetectionHistoryTimeWindow
-		inputs["enableBatchedOperations"] = state.EnableBatchedOperations
-		inputs["enableExpress"] = state.EnableExpress
-		inputs["enablePartitioning"] = state.EnablePartitioning
-		inputs["location"] = state.Location
-		inputs["lockDuration"] = state.LockDuration
-		inputs["maxDeliveryCount"] = state.MaxDeliveryCount
-		inputs["maxSizeInMegabytes"] = state.MaxSizeInMegabytes
-		inputs["name"] = state.Name
-		inputs["namespaceName"] = state.NamespaceName
-		inputs["requiresDuplicateDetection"] = state.RequiresDuplicateDetection
-		inputs["requiresSession"] = state.RequiresSession
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["supportOrdering"] = state.SupportOrdering
+		if i := state.AutoDeleteOnIdle; i != nil { inputs["autoDeleteOnIdle"] = i.ToStringOutput() }
+		if i := state.DeadLetteringOnMessageExpiration; i != nil { inputs["deadLetteringOnMessageExpiration"] = i.ToBoolOutput() }
+		if i := state.DefaultMessageTtl; i != nil { inputs["defaultMessageTtl"] = i.ToStringOutput() }
+		if i := state.DuplicateDetectionHistoryTimeWindow; i != nil { inputs["duplicateDetectionHistoryTimeWindow"] = i.ToStringOutput() }
+		if i := state.EnableBatchedOperations; i != nil { inputs["enableBatchedOperations"] = i.ToBoolOutput() }
+		if i := state.EnableExpress; i != nil { inputs["enableExpress"] = i.ToBoolOutput() }
+		if i := state.EnablePartitioning; i != nil { inputs["enablePartitioning"] = i.ToBoolOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.LockDuration; i != nil { inputs["lockDuration"] = i.ToStringOutput() }
+		if i := state.MaxDeliveryCount; i != nil { inputs["maxDeliveryCount"] = i.ToIntOutput() }
+		if i := state.MaxSizeInMegabytes; i != nil { inputs["maxSizeInMegabytes"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := state.RequiresDuplicateDetection; i != nil { inputs["requiresDuplicateDetection"] = i.ToBoolOutput() }
+		if i := state.RequiresSession; i != nil { inputs["requiresSession"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SupportOrdering; i != nil { inputs["supportOrdering"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/queue:Queue", name, id, inputs, opts...)
+	var resource Queue
+	err := ctx.ReadResource("azure:eventhub/queue:Queue", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Queue{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Queue) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Queue) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ISO 8601 timespan duration of the idle interval after which the
-// Queue is automatically deleted, minimum of 5 minutes.
-func (r *Queue) AutoDeleteOnIdle() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
-}
-
-// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-func (r *Queue) DeadLetteringOnMessageExpiration() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["deadLetteringOnMessageExpiration"])
-}
-
-// The ISO 8601 timespan duration of the TTL of messages sent to this
-// queue. This is the default value used when TTL is not set on message itself.
-func (r *Queue) DefaultMessageTtl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
-}
-
-// The ISO 8601 timespan duration during which
-// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
-func (r *Queue) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
-}
-
-func (r *Queue) EnableBatchedOperations() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableBatchedOperations"])
-}
-
-// Boolean flag which controls whether Express Entities
-// are enabled. An express queue holds a message in memory temporarily before writing
-// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-// be set to `false`.
-func (r *Queue) EnableExpress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableExpress"])
-}
-
-// Boolean flag which controls whether to enable
-// the queue to be partitioned across multiple message brokers. Changing this forces
-// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-// be set to `true`.
-func (r *Queue) EnablePartitioning() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enablePartitioning"])
-}
-
-// Specifies the supported Azure location where the resource exists.
-// Changing this forces a new resource to be created.
-func (r *Queue) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
-func (r *Queue) LockDuration() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lockDuration"])
-}
-
-// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
-func (r *Queue) MaxDeliveryCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxDeliveryCount"])
-}
-
-// Integer value which controls the size of
-// memory allocated for the queue. For supported values see the "Queue/topic size"
-// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-func (r *Queue) MaxSizeInMegabytes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxSizeInMegabytes"])
-}
-
-// Specifies the name of the ServiceBus Queue resource. Changing this forces a
-// new resource to be created.
-func (r *Queue) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the ServiceBus Namespace to create
-// this queue in. Changing this forces a new resource to be created.
-func (r *Queue) NamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceName"])
-}
-
-// Boolean flag which controls whether
-// the Queue requires duplicate detection. Changing this forces
-// a new resource to be created. Defaults to `false`.
-func (r *Queue) RequiresDuplicateDetection() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requiresDuplicateDetection"])
-}
-
-// Boolean flag which controls whether the Queue requires sessions.
-// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-// a queue can guarantee first-in-first-out delivery of messages.
-// Changing this forces a new resource to be created. Defaults to `false`.
-func (r *Queue) RequiresSession() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requiresSession"])
-}
-
-// The name of the resource group in which to
-// create the namespace. Changing this forces a new resource to be created.
-func (r *Queue) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-func (r *Queue) SupportOrdering() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["supportOrdering"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Queue resources.
 type QueueState struct {
 	// The ISO 8601 timespan duration of the idle interval after which the
 	// Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle interface{}
+	AutoDeleteOnIdle pulumi.StringInput `pulumi:"autoDeleteOnIdle"`
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-	DeadLetteringOnMessageExpiration interface{}
+	DeadLetteringOnMessageExpiration pulumi.BoolInput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this
 	// queue. This is the default value used when TTL is not set on message itself.
-	DefaultMessageTtl interface{}
+	DefaultMessageTtl pulumi.StringInput `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
-	DuplicateDetectionHistoryTimeWindow interface{}
-	EnableBatchedOperations interface{}
+	DuplicateDetectionHistoryTimeWindow pulumi.StringInput `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations pulumi.BoolInput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `false`.
-	EnableExpress interface{}
+	EnableExpress pulumi.BoolInput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable
 	// the queue to be partitioned across multiple message brokers. Changing this forces
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
-	EnablePartitioning interface{}
+	EnablePartitioning pulumi.BoolInput `pulumi:"enablePartitioning"`
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
-	LockDuration interface{}
+	LockDuration pulumi.StringInput `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
-	MaxDeliveryCount interface{}
+	MaxDeliveryCount pulumi.IntInput `pulumi:"maxDeliveryCount"`
 	// Integer value which controls the size of
 	// memory allocated for the queue. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes interface{}
+	MaxSizeInMegabytes pulumi.IntInput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace to create
 	// this queue in. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether
 	// the Queue requires duplicate detection. Changing this forces
 	// a new resource to be created. Defaults to `false`.
-	RequiresDuplicateDetection interface{}
+	RequiresDuplicateDetection pulumi.BoolInput `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions.
 	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
 	// a queue can guarantee first-in-first-out delivery of messages.
 	// Changing this forces a new resource to be created. Defaults to `false`.
-	RequiresSession interface{}
+	RequiresSession pulumi.BoolInput `pulumi:"requiresSession"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	SupportOrdering interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	SupportOrdering pulumi.BoolInput `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the
 	// Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle interface{}
+	AutoDeleteOnIdle pulumi.StringInput `pulumi:"autoDeleteOnIdle"`
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
-	DeadLetteringOnMessageExpiration interface{}
+	DeadLetteringOnMessageExpiration pulumi.BoolInput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this
 	// queue. This is the default value used when TTL is not set on message itself.
-	DefaultMessageTtl interface{}
+	DefaultMessageTtl pulumi.StringInput `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
-	DuplicateDetectionHistoryTimeWindow interface{}
-	EnableBatchedOperations interface{}
+	DuplicateDetectionHistoryTimeWindow pulumi.StringInput `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations pulumi.BoolInput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `false`.
-	EnableExpress interface{}
+	EnableExpress pulumi.BoolInput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable
 	// the queue to be partitioned across multiple message brokers. Changing this forces
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
-	EnablePartitioning interface{}
+	EnablePartitioning pulumi.BoolInput `pulumi:"enablePartitioning"`
 	// Specifies the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
-	LockDuration interface{}
+	LockDuration pulumi.StringInput `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
-	MaxDeliveryCount interface{}
+	MaxDeliveryCount pulumi.IntInput `pulumi:"maxDeliveryCount"`
 	// Integer value which controls the size of
 	// memory allocated for the queue. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes interface{}
+	MaxSizeInMegabytes pulumi.IntInput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the ServiceBus Namespace to create
 	// this queue in. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether
 	// the Queue requires duplicate detection. Changing this forces
 	// a new resource to be created. Defaults to `false`.
-	RequiresDuplicateDetection interface{}
+	RequiresDuplicateDetection pulumi.BoolInput `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions.
 	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
 	// a queue can guarantee first-in-first-out delivery of messages.
 	// Changing this forces a new resource to be created. Defaults to `false`.
-	RequiresSession interface{}
+	RequiresSession pulumi.BoolInput `pulumi:"requiresSession"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
-	SupportOrdering interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	SupportOrdering pulumi.BoolInput `pulumi:"supportOrdering"`
 }

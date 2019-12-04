@@ -4,6 +4,8 @@
 package kusto
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,135 +14,166 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Kusto Cluster URI to be used for data ingestion.
+	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
+
+	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `sku` block as defined below.
+	Sku ClusterSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The FQDN of the Azure Kusto Cluster.
+	Uri pulumi.StringOutput `pulumi:"uri"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToClusterSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["dataIngestionUri"] = nil
-	inputs["uri"] = nil
-	s, err := ctx.RegisterResource("azure:kusto/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("azure:kusto/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dataIngestionUri"] = state.DataIngestionUri
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
-		inputs["uri"] = state.Uri
+		if i := state.DataIngestionUri; i != nil { inputs["dataIngestionUri"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToClusterSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Uri; i != nil { inputs["uri"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:kusto/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("azure:kusto/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Kusto Cluster URI to be used for data ingestion.
-func (r *Cluster) DataIngestionUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataIngestionUri"])
-}
-
-// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
-func (r *Cluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
-func (r *Cluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-func (r *Cluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `sku` block as defined below.
-func (r *Cluster) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The FQDN of the Azure Kusto Cluster.
-func (r *Cluster) Uri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uri"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// The Kusto Cluster URI to be used for data ingestion.
-	DataIngestionUri interface{}
+	DataIngestionUri pulumi.StringInput `pulumi:"dataIngestionUri"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku ClusterSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The FQDN of the Azure Kusto Cluster.
-	Uri interface{}
+	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku ClusterSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ClusterSku struct {
+	Capacity int `pulumi:"capacity"`
+	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var clusterSkuType = reflect.TypeOf((*ClusterSku)(nil)).Elem()
+
+type ClusterSkuInput interface {
+	pulumi.Input
+
+	ToClusterSkuOutput() ClusterSkuOutput
+	ToClusterSkuOutputWithContext(ctx context.Context) ClusterSkuOutput
+}
+
+type ClusterSkuArgs struct {
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ClusterSkuArgs) ElementType() reflect.Type {
+	return clusterSkuType
+}
+
+func (a ClusterSkuArgs) ToClusterSkuOutput() ClusterSkuOutput {
+	return pulumi.ToOutput(a).(ClusterSkuOutput)
+}
+
+func (a ClusterSkuArgs) ToClusterSkuOutputWithContext(ctx context.Context) ClusterSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterSkuOutput)
+}
+
+type ClusterSkuOutput struct { *pulumi.OutputState }
+
+func (o ClusterSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v ClusterSku) int {
+		return v.Capacity
+	}).(pulumi.IntOutput)
+}
+
+// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+func (o ClusterSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterSkuOutput) ElementType() reflect.Type {
+	return clusterSkuType
+}
+
+func (o ClusterSkuOutput) ToClusterSkuOutput() ClusterSkuOutput {
+	return o
+}
+
+func (o ClusterSkuOutput) ToClusterSkuOutputWithContext(ctx context.Context) ClusterSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterSkuOutput{}) }
+

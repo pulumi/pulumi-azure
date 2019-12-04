@@ -14,120 +14,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_backend_address_pool.html.markdown.
 type BackendAddressPool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Backend IP Configurations associated with this Backend Address Pool.
+	BackendIpConfigurations pulumi.StringArrayOutput `pulumi:"backendIpConfigurations"`
+
+	// The Load Balancing Rules associated with this Backend Address Pool.
+	LoadBalancingRules pulumi.StringArrayOutput `pulumi:"loadBalancingRules"`
+
+	// The ID of the Load Balancer in which to create the Backend Address Pool.
+	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Backend Address Pool.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the resource.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewBackendAddressPool registers a new resource with the given unique name, arguments, and options.
 func NewBackendAddressPool(ctx *pulumi.Context,
-	name string, args *BackendAddressPoolArgs, opts ...pulumi.ResourceOpt) (*BackendAddressPool, error) {
+	name string, args *BackendAddressPoolArgs, opts ...pulumi.ResourceOption) (*BackendAddressPool, error) {
 	if args == nil || args.LoadbalancerId == nil {
 		return nil, errors.New("missing required argument 'LoadbalancerId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["loadbalancerId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["loadbalancerId"] = args.LoadbalancerId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	inputs["backendIpConfigurations"] = nil
-	inputs["loadBalancingRules"] = nil
-	s, err := ctx.RegisterResource("azure:lb/backendAddressPool:BackendAddressPool", name, true, inputs, opts...)
+	var resource BackendAddressPool
+	err := ctx.RegisterResource("azure:lb/backendAddressPool:BackendAddressPool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BackendAddressPool{s: s}, nil
+	return &resource, nil
 }
 
 // GetBackendAddressPool gets an existing BackendAddressPool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBackendAddressPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BackendAddressPoolState, opts ...pulumi.ResourceOpt) (*BackendAddressPool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BackendAddressPoolState, opts ...pulumi.ResourceOption) (*BackendAddressPool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backendIpConfigurations"] = state.BackendIpConfigurations
-		inputs["loadBalancingRules"] = state.LoadBalancingRules
-		inputs["loadbalancerId"] = state.LoadbalancerId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.BackendIpConfigurations; i != nil { inputs["backendIpConfigurations"] = i.ToStringArrayOutput() }
+		if i := state.LoadBalancingRules; i != nil { inputs["loadBalancingRules"] = i.ToStringArrayOutput() }
+		if i := state.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:lb/backendAddressPool:BackendAddressPool", name, id, inputs, opts...)
+	var resource BackendAddressPool
+	err := ctx.ReadResource("azure:lb/backendAddressPool:BackendAddressPool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BackendAddressPool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *BackendAddressPool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *BackendAddressPool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Backend IP Configurations associated with this Backend Address Pool.
-func (r *BackendAddressPool) BackendIpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["backendIpConfigurations"])
-}
-
-// The Load Balancing Rules associated with this Backend Address Pool.
-func (r *BackendAddressPool) LoadBalancingRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["loadBalancingRules"])
-}
-
-// The ID of the Load Balancer in which to create the Backend Address Pool.
-func (r *BackendAddressPool) LoadbalancerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
-}
-
-func (r *BackendAddressPool) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Backend Address Pool.
-func (r *BackendAddressPool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the resource.
-func (r *BackendAddressPool) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering BackendAddressPool resources.
 type BackendAddressPoolState struct {
 	// The Backend IP Configurations associated with this Backend Address Pool.
-	BackendIpConfigurations interface{}
+	BackendIpConfigurations pulumi.StringArrayInput `pulumi:"backendIpConfigurations"`
 	// The Load Balancing Rules associated with this Backend Address Pool.
-	LoadBalancingRules interface{}
+	LoadBalancingRules pulumi.StringArrayInput `pulumi:"loadBalancingRules"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Backend Address Pool.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a BackendAddressPool resource.
 type BackendAddressPoolArgs struct {
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Backend Address Pool.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

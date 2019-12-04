@@ -4,6 +4,8 @@
 package redis
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -39,12 +41,74 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
 type Cache struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+	Capacity pulumi.IntOutput `pulumi:"capacity"`
+
+	// Enable the non-SSL port (6379) - disabled by default.
+	EnableNonSslPort pulumi.BoolOutput `pulumi:"enableNonSslPort"`
+
+	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
+	Family pulumi.StringOutput `pulumi:"family"`
+
+	// The Hostname of the Redis Instance
+	Hostname pulumi.StringOutput `pulumi:"hostname"`
+
+	// The location of the resource group.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The minimum TLS version.  Defaults to `1.0`.
+	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
+
+	// The name of the Redis instance. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
+	PatchSchedules CachePatchSchedulesArrayOutput `pulumi:"patchSchedules"`
+
+	// The non-SSL Port of the Redis Instance
+	Port pulumi.IntOutput `pulumi:"port"`
+
+	// The Primary Access Key for the Redis Instance
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+	PrivateStaticIpAddress pulumi.StringOutput `pulumi:"privateStaticIpAddress"`
+
+	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	RedisConfiguration CacheRedisConfigurationOutput `pulumi:"redisConfiguration"`
+
+	// The name of the resource group in which to
+	// create the Redis instance.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Secondary Access Key for the Redis Instance
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
+
+	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+	SkuName pulumi.StringOutput `pulumi:"skuName"`
+
+	// The SSL Port of the Redis Instance
+	SslPort pulumi.IntOutput `pulumi:"sslPort"`
+
+	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
-	name string, args *CacheArgs, opts ...pulumi.ResourceOpt) (*Cache, error) {
+	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
 	if args == nil || args.Capacity == nil {
 		return nil, errors.New("missing required argument 'Capacity'")
 	}
@@ -57,276 +121,405 @@ func NewCache(ctx *pulumi.Context,
 	if args == nil || args.SkuName == nil {
 		return nil, errors.New("missing required argument 'SkuName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["capacity"] = nil
-		inputs["enableNonSslPort"] = nil
-		inputs["family"] = nil
-		inputs["location"] = nil
-		inputs["minimumTlsVersion"] = nil
-		inputs["name"] = nil
-		inputs["patchSchedules"] = nil
-		inputs["privateStaticIpAddress"] = nil
-		inputs["redisConfiguration"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["shardCount"] = nil
-		inputs["skuName"] = nil
-		inputs["subnetId"] = nil
-		inputs["tags"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["capacity"] = args.Capacity
-		inputs["enableNonSslPort"] = args.EnableNonSslPort
-		inputs["family"] = args.Family
-		inputs["location"] = args.Location
-		inputs["minimumTlsVersion"] = args.MinimumTlsVersion
-		inputs["name"] = args.Name
-		inputs["patchSchedules"] = args.PatchSchedules
-		inputs["privateStaticIpAddress"] = args.PrivateStaticIpAddress
-		inputs["redisConfiguration"] = args.RedisConfiguration
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["shardCount"] = args.ShardCount
-		inputs["skuName"] = args.SkuName
-		inputs["subnetId"] = args.SubnetId
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Capacity; i != nil { inputs["capacity"] = i.ToIntOutput() }
+		if i := args.EnableNonSslPort; i != nil { inputs["enableNonSslPort"] = i.ToBoolOutput() }
+		if i := args.Family; i != nil { inputs["family"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MinimumTlsVersion; i != nil { inputs["minimumTlsVersion"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PatchSchedules; i != nil { inputs["patchSchedules"] = i.ToCachePatchSchedulesArrayOutput() }
+		if i := args.PrivateStaticIpAddress; i != nil { inputs["privateStaticIpAddress"] = i.ToStringOutput() }
+		if i := args.RedisConfiguration; i != nil { inputs["redisConfiguration"] = i.ToCacheRedisConfigurationOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ShardCount; i != nil { inputs["shardCount"] = i.ToIntOutput() }
+		if i := args.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := args.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	inputs["hostname"] = nil
-	inputs["port"] = nil
-	inputs["primaryAccessKey"] = nil
-	inputs["secondaryAccessKey"] = nil
-	inputs["sslPort"] = nil
-	s, err := ctx.RegisterResource("azure:redis/cache:Cache", name, true, inputs, opts...)
+	var resource Cache
+	err := ctx.RegisterResource("azure:redis/cache:Cache", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cache{s: s}, nil
+	return &resource, nil
 }
 
 // GetCache gets an existing Cache resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCache(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CacheState, opts ...pulumi.ResourceOpt) (*Cache, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CacheState, opts ...pulumi.ResourceOption) (*Cache, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["capacity"] = state.Capacity
-		inputs["enableNonSslPort"] = state.EnableNonSslPort
-		inputs["family"] = state.Family
-		inputs["hostname"] = state.Hostname
-		inputs["location"] = state.Location
-		inputs["minimumTlsVersion"] = state.MinimumTlsVersion
-		inputs["name"] = state.Name
-		inputs["patchSchedules"] = state.PatchSchedules
-		inputs["port"] = state.Port
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["privateStaticIpAddress"] = state.PrivateStaticIpAddress
-		inputs["redisConfiguration"] = state.RedisConfiguration
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["shardCount"] = state.ShardCount
-		inputs["skuName"] = state.SkuName
-		inputs["sslPort"] = state.SslPort
-		inputs["subnetId"] = state.SubnetId
-		inputs["tags"] = state.Tags
-		inputs["zones"] = state.Zones
+		if i := state.Capacity; i != nil { inputs["capacity"] = i.ToIntOutput() }
+		if i := state.EnableNonSslPort; i != nil { inputs["enableNonSslPort"] = i.ToBoolOutput() }
+		if i := state.Family; i != nil { inputs["family"] = i.ToStringOutput() }
+		if i := state.Hostname; i != nil { inputs["hostname"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MinimumTlsVersion; i != nil { inputs["minimumTlsVersion"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PatchSchedules; i != nil { inputs["patchSchedules"] = i.ToCachePatchSchedulesArrayOutput() }
+		if i := state.Port; i != nil { inputs["port"] = i.ToIntOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.PrivateStaticIpAddress; i != nil { inputs["privateStaticIpAddress"] = i.ToStringOutput() }
+		if i := state.RedisConfiguration; i != nil { inputs["redisConfiguration"] = i.ToCacheRedisConfigurationOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.ShardCount; i != nil { inputs["shardCount"] = i.ToIntOutput() }
+		if i := state.SkuName; i != nil { inputs["skuName"] = i.ToStringOutput() }
+		if i := state.SslPort; i != nil { inputs["sslPort"] = i.ToIntOutput() }
+		if i := state.SubnetId; i != nil { inputs["subnetId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:redis/cache:Cache", name, id, inputs, opts...)
+	var resource Cache
+	err := ctx.ReadResource("azure:redis/cache:Cache", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cache{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cache) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cache) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
-func (r *Cache) Capacity() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["capacity"])
-}
-
-// Enable the non-SSL port (6379) - disabled by default.
-func (r *Cache) EnableNonSslPort() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableNonSslPort"])
-}
-
-// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-func (r *Cache) Family() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["family"])
-}
-
-// The Hostname of the Redis Instance
-func (r *Cache) Hostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostname"])
-}
-
-// The location of the resource group.
-func (r *Cache) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The minimum TLS version.  Defaults to `1.0`.
-func (r *Cache) MinimumTlsVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["minimumTlsVersion"])
-}
-
-// The name of the Redis instance. Changing this forces a
-// new resource to be created.
-func (r *Cache) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
-func (r *Cache) PatchSchedules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["patchSchedules"])
-}
-
-// The non-SSL Port of the Redis Instance
-func (r *Cache) Port() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["port"])
-}
-
-// The Primary Access Key for the Redis Instance
-func (r *Cache) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
-func (r *Cache) PrivateStaticIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateStaticIpAddress"])
-}
-
-// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
-func (r *Cache) RedisConfiguration() pulumi.Output {
-	return r.s.State["redisConfiguration"]
-}
-
-// The name of the resource group in which to
-// create the Redis instance.
-func (r *Cache) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Secondary Access Key for the Redis Instance
-func (r *Cache) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
-func (r *Cache) ShardCount() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["shardCount"])
-}
-
-// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
-func (r *Cache) SkuName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["skuName"])
-}
-
-// The SSL Port of the Redis Instance
-func (r *Cache) SslPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["sslPort"])
-}
-
-// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
-func (r *Cache) SubnetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["subnetId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Cache) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
-func (r *Cache) Zones() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cache resources.
 type CacheState struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
-	Capacity interface{}
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
-	EnableNonSslPort interface{}
+	EnableNonSslPort pulumi.BoolInput `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-	Family interface{}
+	Family pulumi.StringInput `pulumi:"family"`
 	// The Hostname of the Redis Instance
-	Hostname interface{}
+	Hostname pulumi.StringInput `pulumi:"hostname"`
 	// The location of the resource group.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The minimum TLS version.  Defaults to `1.0`.
-	MinimumTlsVersion interface{}
+	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
-	PatchSchedules interface{}
+	PatchSchedules CachePatchSchedulesArrayInput `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
-	Port interface{}
+	Port pulumi.IntInput `pulumi:"port"`
 	// The Primary Access Key for the Redis Instance
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
-	PrivateStaticIpAddress interface{}
+	PrivateStaticIpAddress pulumi.StringInput `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
-	RedisConfiguration interface{}
+	RedisConfiguration CacheRedisConfigurationInput `pulumi:"redisConfiguration"`
 	// The name of the resource group in which to
 	// create the Redis instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Redis Instance
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
-	ShardCount interface{}
+	ShardCount pulumi.IntInput `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
-	SslPort interface{}
+	SslPort pulumi.IntInput `pulumi:"sslPort"`
 	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
-	Capacity interface{}
+	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
-	EnableNonSslPort interface{}
+	EnableNonSslPort pulumi.BoolInput `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-	Family interface{}
+	Family pulumi.StringInput `pulumi:"family"`
 	// The location of the resource group.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The minimum TLS version.  Defaults to `1.0`.
-	MinimumTlsVersion interface{}
+	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
-	PatchSchedules interface{}
+	PatchSchedules CachePatchSchedulesArrayInput `pulumi:"patchSchedules"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
-	PrivateStaticIpAddress interface{}
+	PrivateStaticIpAddress pulumi.StringInput `pulumi:"privateStaticIpAddress"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
-	RedisConfiguration interface{}
+	RedisConfiguration CacheRedisConfigurationInput `pulumi:"redisConfiguration"`
 	// The name of the resource group in which to
 	// create the Redis instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
-	ShardCount interface{}
+	ShardCount pulumi.IntInput `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
-	SkuName interface{}
+	SkuName pulumi.StringInput `pulumi:"skuName"`
 	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
-	SubnetId interface{}
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
+type CachePatchSchedules struct {
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	StartHourUtc *int `pulumi:"startHourUtc"`
+}
+var cachePatchSchedulesType = reflect.TypeOf((*CachePatchSchedules)(nil)).Elem()
+
+type CachePatchSchedulesInput interface {
+	pulumi.Input
+
+	ToCachePatchSchedulesOutput() CachePatchSchedulesOutput
+	ToCachePatchSchedulesOutputWithContext(ctx context.Context) CachePatchSchedulesOutput
+}
+
+type CachePatchSchedulesArgs struct {
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
+}
+
+func (CachePatchSchedulesArgs) ElementType() reflect.Type {
+	return cachePatchSchedulesType
+}
+
+func (a CachePatchSchedulesArgs) ToCachePatchSchedulesOutput() CachePatchSchedulesOutput {
+	return pulumi.ToOutput(a).(CachePatchSchedulesOutput)
+}
+
+func (a CachePatchSchedulesArgs) ToCachePatchSchedulesOutputWithContext(ctx context.Context) CachePatchSchedulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CachePatchSchedulesOutput)
+}
+
+type CachePatchSchedulesOutput struct { *pulumi.OutputState }
+
+func (o CachePatchSchedulesOutput) DayOfWeek() pulumi.StringOutput {
+	return o.Apply(func(v CachePatchSchedules) string {
+		return v.DayOfWeek
+	}).(pulumi.StringOutput)
+}
+
+func (o CachePatchSchedulesOutput) StartHourUtc() pulumi.IntOutput {
+	return o.Apply(func(v CachePatchSchedules) int {
+		if v.StartHourUtc == nil { return *new(int) } else { return *v.StartHourUtc }
+	}).(pulumi.IntOutput)
+}
+
+func (CachePatchSchedulesOutput) ElementType() reflect.Type {
+	return cachePatchSchedulesType
+}
+
+func (o CachePatchSchedulesOutput) ToCachePatchSchedulesOutput() CachePatchSchedulesOutput {
+	return o
+}
+
+func (o CachePatchSchedulesOutput) ToCachePatchSchedulesOutputWithContext(ctx context.Context) CachePatchSchedulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CachePatchSchedulesOutput{}) }
+
+var cachePatchSchedulesArrayType = reflect.TypeOf((*[]CachePatchSchedules)(nil)).Elem()
+
+type CachePatchSchedulesArrayInput interface {
+	pulumi.Input
+
+	ToCachePatchSchedulesArrayOutput() CachePatchSchedulesArrayOutput
+	ToCachePatchSchedulesArrayOutputWithContext(ctx context.Context) CachePatchSchedulesArrayOutput
+}
+
+type CachePatchSchedulesArrayArgs []CachePatchSchedulesInput
+
+func (CachePatchSchedulesArrayArgs) ElementType() reflect.Type {
+	return cachePatchSchedulesArrayType
+}
+
+func (a CachePatchSchedulesArrayArgs) ToCachePatchSchedulesArrayOutput() CachePatchSchedulesArrayOutput {
+	return pulumi.ToOutput(a).(CachePatchSchedulesArrayOutput)
+}
+
+func (a CachePatchSchedulesArrayArgs) ToCachePatchSchedulesArrayOutputWithContext(ctx context.Context) CachePatchSchedulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CachePatchSchedulesArrayOutput)
+}
+
+type CachePatchSchedulesArrayOutput struct { *pulumi.OutputState }
+
+func (o CachePatchSchedulesArrayOutput) Index(i pulumi.IntInput) CachePatchSchedulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) CachePatchSchedules {
+		return vs[0].([]CachePatchSchedules)[vs[1].(int)]
+	}).(CachePatchSchedulesOutput)
+}
+
+func (CachePatchSchedulesArrayOutput) ElementType() reflect.Type {
+	return cachePatchSchedulesArrayType
+}
+
+func (o CachePatchSchedulesArrayOutput) ToCachePatchSchedulesArrayOutput() CachePatchSchedulesArrayOutput {
+	return o
+}
+
+func (o CachePatchSchedulesArrayOutput) ToCachePatchSchedulesArrayOutputWithContext(ctx context.Context) CachePatchSchedulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CachePatchSchedulesArrayOutput{}) }
+
+type CacheRedisConfiguration struct {
+	AofBackupEnabled *bool `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
+	EnableAuthentication *bool `pulumi:"enableAuthentication"`
+	// Returns the max number of connected clients at the same time.
+	Maxclients *int `pulumi:"maxclients"`
+	MaxfragmentationmemoryReserved *int `pulumi:"maxfragmentationmemoryReserved"`
+	MaxmemoryDelta *int `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
+	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
+	RdbBackupEnabled *bool `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency *int `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount *int `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
+}
+var cacheRedisConfigurationType = reflect.TypeOf((*CacheRedisConfiguration)(nil)).Elem()
+
+type CacheRedisConfigurationInput interface {
+	pulumi.Input
+
+	ToCacheRedisConfigurationOutput() CacheRedisConfigurationOutput
+	ToCacheRedisConfigurationOutputWithContext(ctx context.Context) CacheRedisConfigurationOutput
+}
+
+type CacheRedisConfigurationArgs struct {
+	AofBackupEnabled pulumi.BoolInput `pulumi:"aofBackupEnabled"`
+	AofStorageConnectionString0 pulumi.StringInput `pulumi:"aofStorageConnectionString0"`
+	AofStorageConnectionString1 pulumi.StringInput `pulumi:"aofStorageConnectionString1"`
+	EnableAuthentication pulumi.BoolInput `pulumi:"enableAuthentication"`
+	// Returns the max number of connected clients at the same time.
+	Maxclients pulumi.IntInput `pulumi:"maxclients"`
+	MaxfragmentationmemoryReserved pulumi.IntInput `pulumi:"maxfragmentationmemoryReserved"`
+	MaxmemoryDelta pulumi.IntInput `pulumi:"maxmemoryDelta"`
+	MaxmemoryPolicy pulumi.StringInput `pulumi:"maxmemoryPolicy"`
+	MaxmemoryReserved pulumi.IntInput `pulumi:"maxmemoryReserved"`
+	NotifyKeyspaceEvents pulumi.StringInput `pulumi:"notifyKeyspaceEvents"`
+	RdbBackupEnabled pulumi.BoolInput `pulumi:"rdbBackupEnabled"`
+	RdbBackupFrequency pulumi.IntInput `pulumi:"rdbBackupFrequency"`
+	RdbBackupMaxSnapshotCount pulumi.IntInput `pulumi:"rdbBackupMaxSnapshotCount"`
+	RdbStorageConnectionString pulumi.StringInput `pulumi:"rdbStorageConnectionString"`
+}
+
+func (CacheRedisConfigurationArgs) ElementType() reflect.Type {
+	return cacheRedisConfigurationType
+}
+
+func (a CacheRedisConfigurationArgs) ToCacheRedisConfigurationOutput() CacheRedisConfigurationOutput {
+	return pulumi.ToOutput(a).(CacheRedisConfigurationOutput)
+}
+
+func (a CacheRedisConfigurationArgs) ToCacheRedisConfigurationOutputWithContext(ctx context.Context) CacheRedisConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(CacheRedisConfigurationOutput)
+}
+
+type CacheRedisConfigurationOutput struct { *pulumi.OutputState }
+
+func (o CacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v CacheRedisConfiguration) bool {
+		if v.AofBackupEnabled == nil { return *new(bool) } else { return *v.AofBackupEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o CacheRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringOutput {
+	return o.Apply(func(v CacheRedisConfiguration) string {
+		if v.AofStorageConnectionString0 == nil { return *new(string) } else { return *v.AofStorageConnectionString0 }
+	}).(pulumi.StringOutput)
+}
+
+func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringOutput {
+	return o.Apply(func(v CacheRedisConfiguration) string {
+		if v.AofStorageConnectionString1 == nil { return *new(string) } else { return *v.AofStorageConnectionString1 }
+	}).(pulumi.StringOutput)
+}
+
+func (o CacheRedisConfigurationOutput) EnableAuthentication() pulumi.BoolOutput {
+	return o.Apply(func(v CacheRedisConfiguration) bool {
+		if v.EnableAuthentication == nil { return *new(bool) } else { return *v.EnableAuthentication }
+	}).(pulumi.BoolOutput)
+}
+
+// Returns the max number of connected clients at the same time.
+func (o CacheRedisConfigurationOutput) Maxclients() pulumi.IntOutput {
+	return o.Apply(func(v CacheRedisConfiguration) int {
+		if v.Maxclients == nil { return *new(int) } else { return *v.Maxclients }
+	}).(pulumi.IntOutput)
+}
+
+func (o CacheRedisConfigurationOutput) MaxfragmentationmemoryReserved() pulumi.IntOutput {
+	return o.Apply(func(v CacheRedisConfiguration) int {
+		if v.MaxfragmentationmemoryReserved == nil { return *new(int) } else { return *v.MaxfragmentationmemoryReserved }
+	}).(pulumi.IntOutput)
+}
+
+func (o CacheRedisConfigurationOutput) MaxmemoryDelta() pulumi.IntOutput {
+	return o.Apply(func(v CacheRedisConfiguration) int {
+		if v.MaxmemoryDelta == nil { return *new(int) } else { return *v.MaxmemoryDelta }
+	}).(pulumi.IntOutput)
+}
+
+func (o CacheRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringOutput {
+	return o.Apply(func(v CacheRedisConfiguration) string {
+		if v.MaxmemoryPolicy == nil { return *new(string) } else { return *v.MaxmemoryPolicy }
+	}).(pulumi.StringOutput)
+}
+
+func (o CacheRedisConfigurationOutput) MaxmemoryReserved() pulumi.IntOutput {
+	return o.Apply(func(v CacheRedisConfiguration) int {
+		if v.MaxmemoryReserved == nil { return *new(int) } else { return *v.MaxmemoryReserved }
+	}).(pulumi.IntOutput)
+}
+
+func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringOutput {
+	return o.Apply(func(v CacheRedisConfiguration) string {
+		if v.NotifyKeyspaceEvents == nil { return *new(string) } else { return *v.NotifyKeyspaceEvents }
+	}).(pulumi.StringOutput)
+}
+
+func (o CacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v CacheRedisConfiguration) bool {
+		if v.RdbBackupEnabled == nil { return *new(bool) } else { return *v.RdbBackupEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o CacheRedisConfigurationOutput) RdbBackupFrequency() pulumi.IntOutput {
+	return o.Apply(func(v CacheRedisConfiguration) int {
+		if v.RdbBackupFrequency == nil { return *new(int) } else { return *v.RdbBackupFrequency }
+	}).(pulumi.IntOutput)
+}
+
+func (o CacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.IntOutput {
+	return o.Apply(func(v CacheRedisConfiguration) int {
+		if v.RdbBackupMaxSnapshotCount == nil { return *new(int) } else { return *v.RdbBackupMaxSnapshotCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringOutput {
+	return o.Apply(func(v CacheRedisConfiguration) string {
+		if v.RdbStorageConnectionString == nil { return *new(string) } else { return *v.RdbStorageConnectionString }
+	}).(pulumi.StringOutput)
+}
+
+func (CacheRedisConfigurationOutput) ElementType() reflect.Type {
+	return cacheRedisConfigurationType
+}
+
+func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationOutput() CacheRedisConfigurationOutput {
+	return o
+}
+
+func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationOutputWithContext(ctx context.Context) CacheRedisConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(CacheRedisConfigurationOutput{}) }
+

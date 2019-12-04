@@ -12,12 +12,59 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
 type Blob struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
+
+	// The number of attempts to make per page or block when uploading. Defaults to `1`.
+	Attempts pulumi.IntOutput `pulumi:"attempts"`
+
+	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
+	ContentType pulumi.StringOutput `pulumi:"contentType"`
+
+	// A map of custom blob metadata.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
+
+	// The name of the storage blob. Must be unique within the storage container the blob is located.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+	Parallelism pulumi.IntOutput `pulumi:"parallelism"`
+
+	// The name of the resource group in which to create the storage container.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+	Size pulumi.IntOutput `pulumi:"size"`
+
+	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
+	Source pulumi.StringOutput `pulumi:"source"`
+
+	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
+	SourceContent pulumi.StringOutput `pulumi:"sourceContent"`
+
+	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
+	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
+	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
+
+	// Specifies the storage account in which to create the storage container.
+	// Changing this forces a new resource to be created.
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+
+	// The name of the storage container in which this blob should be created.
+	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
+
+	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
+	Type pulumi.StringOutput `pulumi:"type"`
+
+	// The URL of the blob
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewBlob registers a new resource with the given unique name, arguments, and options.
 func NewBlob(ctx *pulumi.Context,
-	name string, args *BlobArgs, opts ...pulumi.ResourceOpt) (*Blob, error) {
+	name string, args *BlobArgs, opts ...pulumi.ResourceOption) (*Blob, error) {
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
@@ -27,228 +74,127 @@ func NewBlob(ctx *pulumi.Context,
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accessTier"] = nil
-		inputs["attempts"] = nil
-		inputs["contentType"] = nil
-		inputs["metadata"] = nil
-		inputs["name"] = nil
-		inputs["parallelism"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["size"] = nil
-		inputs["source"] = nil
-		inputs["sourceContent"] = nil
-		inputs["sourceUri"] = nil
-		inputs["storageAccountName"] = nil
-		inputs["storageContainerName"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["accessTier"] = args.AccessTier
-		inputs["attempts"] = args.Attempts
-		inputs["contentType"] = args.ContentType
-		inputs["metadata"] = args.Metadata
-		inputs["name"] = args.Name
-		inputs["parallelism"] = args.Parallelism
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["size"] = args.Size
-		inputs["source"] = args.Source
-		inputs["sourceContent"] = args.SourceContent
-		inputs["sourceUri"] = args.SourceUri
-		inputs["storageAccountName"] = args.StorageAccountName
-		inputs["storageContainerName"] = args.StorageContainerName
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccessTier; i != nil { inputs["accessTier"] = i.ToStringOutput() }
+		if i := args.Attempts; i != nil { inputs["attempts"] = i.ToIntOutput() }
+		if i := args.ContentType; i != nil { inputs["contentType"] = i.ToStringOutput() }
+		if i := args.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Parallelism; i != nil { inputs["parallelism"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Size; i != nil { inputs["size"] = i.ToIntOutput() }
+		if i := args.Source; i != nil { inputs["source"] = i.ToStringOutput() }
+		if i := args.SourceContent; i != nil { inputs["sourceContent"] = i.ToStringOutput() }
+		if i := args.SourceUri; i != nil { inputs["sourceUri"] = i.ToStringOutput() }
+		if i := args.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
+		if i := args.StorageContainerName; i != nil { inputs["storageContainerName"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	inputs["url"] = nil
-	s, err := ctx.RegisterResource("azure:storage/blob:Blob", name, true, inputs, opts...)
+	var resource Blob
+	err := ctx.RegisterResource("azure:storage/blob:Blob", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Blob{s: s}, nil
+	return &resource, nil
 }
 
 // GetBlob gets an existing Blob resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBlob(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BlobState, opts ...pulumi.ResourceOpt) (*Blob, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BlobState, opts ...pulumi.ResourceOption) (*Blob, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accessTier"] = state.AccessTier
-		inputs["attempts"] = state.Attempts
-		inputs["contentType"] = state.ContentType
-		inputs["metadata"] = state.Metadata
-		inputs["name"] = state.Name
-		inputs["parallelism"] = state.Parallelism
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["size"] = state.Size
-		inputs["source"] = state.Source
-		inputs["sourceContent"] = state.SourceContent
-		inputs["sourceUri"] = state.SourceUri
-		inputs["storageAccountName"] = state.StorageAccountName
-		inputs["storageContainerName"] = state.StorageContainerName
-		inputs["type"] = state.Type
-		inputs["url"] = state.Url
+		if i := state.AccessTier; i != nil { inputs["accessTier"] = i.ToStringOutput() }
+		if i := state.Attempts; i != nil { inputs["attempts"] = i.ToIntOutput() }
+		if i := state.ContentType; i != nil { inputs["contentType"] = i.ToStringOutput() }
+		if i := state.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Parallelism; i != nil { inputs["parallelism"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Size; i != nil { inputs["size"] = i.ToIntOutput() }
+		if i := state.Source; i != nil { inputs["source"] = i.ToStringOutput() }
+		if i := state.SourceContent; i != nil { inputs["sourceContent"] = i.ToStringOutput() }
+		if i := state.SourceUri; i != nil { inputs["sourceUri"] = i.ToStringOutput() }
+		if i := state.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
+		if i := state.StorageContainerName; i != nil { inputs["storageContainerName"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
+		if i := state.Url; i != nil { inputs["url"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/blob:Blob", name, id, inputs, opts...)
+	var resource Blob
+	err := ctx.ReadResource("azure:storage/blob:Blob", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Blob{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Blob) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Blob) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
-func (r *Blob) AccessTier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accessTier"])
-}
-
-// The number of attempts to make per page or block when uploading. Defaults to `1`.
-func (r *Blob) Attempts() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["attempts"])
-}
-
-// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
-func (r *Blob) ContentType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["contentType"])
-}
-
-// A map of custom blob metadata.
-func (r *Blob) Metadata() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["metadata"])
-}
-
-// The name of the storage blob. Must be unique within the storage container the blob is located.
-func (r *Blob) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-func (r *Blob) Parallelism() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["parallelism"])
-}
-
-// The name of the resource group in which to create the storage container.
-func (r *Blob) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-func (r *Blob) Size() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["size"])
-}
-
-// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-func (r *Blob) Source() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["source"])
-}
-
-// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
-func (r *Blob) SourceContent() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceContent"])
-}
-
-// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
-func (r *Blob) SourceUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceUri"])
-}
-
-// Specifies the storage account in which to create the storage container.
-// Changing this forces a new resource to be created.
-func (r *Blob) StorageAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
-}
-
-// The name of the storage container in which this blob should be created.
-func (r *Blob) StorageContainerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageContainerName"])
-}
-
-// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
-func (r *Blob) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
-}
-
-// The URL of the blob
-func (r *Blob) Url() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["url"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Blob resources.
 type BlobState struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
-	AccessTier interface{}
+	AccessTier pulumi.StringInput `pulumi:"accessTier"`
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts interface{}
+	Attempts pulumi.IntInput `pulumi:"attempts"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
-	ContentType interface{}
+	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// A map of custom blob metadata.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-	Parallelism interface{}
+	Parallelism pulumi.IntInput `pulumi:"parallelism"`
 	// The name of the resource group in which to create the storage container.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-	Size interface{}
+	Size pulumi.IntInput `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source interface{}
+	Source pulumi.StringInput `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
-	SourceContent interface{}
+	SourceContent pulumi.StringInput `pulumi:"sourceContent"`
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
 	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
-	SourceUri interface{}
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container.
 	// Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// The name of the storage container in which this blob should be created.
-	StorageContainerName interface{}
+	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 	// The URL of the blob
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Blob resource.
 type BlobArgs struct {
 	// The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
-	AccessTier interface{}
+	AccessTier pulumi.StringInput `pulumi:"accessTier"`
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
-	Attempts interface{}
+	Attempts pulumi.IntInput `pulumi:"attempts"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
-	ContentType interface{}
+	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// A map of custom blob metadata.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-	Parallelism interface{}
+	Parallelism pulumi.IntInput `pulumi:"parallelism"`
 	// The name of the resource group in which to create the storage container.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-	Size interface{}
+	Size pulumi.IntInput `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
-	Source interface{}
+	Source pulumi.StringInput `pulumi:"source"`
 	// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
-	SourceContent interface{}
+	SourceContent pulumi.StringInput `pulumi:"sourceContent"`
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
 	// for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
-	SourceUri interface{}
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container.
 	// Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// The name of the storage container in which this blob should be created.
-	StorageContainerName interface{}
+	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }

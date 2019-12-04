@@ -10,49 +10,37 @@ import (
 // Use this data source to access information about an existing Subscription.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
-func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSubscriptionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["subscriptionId"] = args.SubscriptionId
-	}
-	outputs, err := ctx.Invoke("azure:core/getSubscription:getSubscription", inputs)
+func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs, opts ...pulumi.InvokeOption) (*GetSubscriptionResult, error) {
+	var rv GetSubscriptionResult
+	err := ctx.Invoke("azure:core/getSubscription:getSubscription", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSubscriptionResult{
-		DisplayName: outputs["displayName"],
-		LocationPlacementId: outputs["locationPlacementId"],
-		QuotaId: outputs["quotaId"],
-		SpendingLimit: outputs["spendingLimit"],
-		State: outputs["state"],
-		SubscriptionId: outputs["subscriptionId"],
-		TenantId: outputs["tenantId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSubscription.
 type GetSubscriptionArgs struct {
 	// Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
-	SubscriptionId interface{}
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // A collection of values returned by getSubscription.
 type GetSubscriptionResult struct {
 	// The subscription display name.
-	DisplayName interface{}
+	DisplayName string `pulumi:"displayName"`
 	// The subscription location placement ID.
-	LocationPlacementId interface{}
+	LocationPlacementId string `pulumi:"locationPlacementId"`
 	// The subscription quota ID.
-	QuotaId interface{}
+	QuotaId string `pulumi:"quotaId"`
 	// The subscription spending limit.
-	SpendingLimit interface{}
+	SpendingLimit string `pulumi:"spendingLimit"`
 	// The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
-	State interface{}
+	State string `pulumi:"state"`
 	// The subscription GUID.
-	SubscriptionId interface{}
+	SubscriptionId string `pulumi:"subscriptionId"`
 	// The subscription tenant ID.
-	TenantId interface{}
+	TenantId string `pulumi:"tenantId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

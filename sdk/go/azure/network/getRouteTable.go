@@ -10,48 +10,46 @@ import (
 // Use this data source to access information about an existing Route Table.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
-func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getRouteTable:getRouteTable", inputs)
+func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs, opts ...pulumi.InvokeOption) (*GetRouteTableResult, error) {
+	var rv GetRouteTableResult
+	err := ctx.Invoke("azure:network/getRouteTable:getRouteTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetRouteTableResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Routes: outputs["routes"],
-		Subnets: outputs["subnets"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getRouteTable.
 type GetRouteTableArgs struct {
 	// The name of the Route Table.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Route Table exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getRouteTable.
 type GetRouteTableResult struct {
 	// The Azure Region in which the Route Table exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the Route.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as documented below.
-	Routes interface{}
+	Routes []GetRouteTableRoutesResult `pulumi:"routes"`
 	// The collection of Subnets associated with this route table.
-	Subnets interface{}
+	Subnets []string `pulumi:"subnets"`
 	// A mapping of tags assigned to the Route Table.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetRouteTableRoutesResult struct {
+	// The destination CIDR to which the route applies.
+	AddressPrefix string `pulumi:"addressPrefix"`
+	// The name of the Route Table.
+	Name string `pulumi:"name"`
+	// Contains the IP address packets should be forwarded to.
+	NextHopInIpAddress string `pulumi:"nextHopInIpAddress"`
+	// The type of Azure hop the packet should be sent to.
+	NextHopType string `pulumi:"nextHopType"`
 }

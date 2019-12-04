@@ -4,6 +4,8 @@
 package waf
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,126 +14,509 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/web_application_firewall_policy.html.markdown.
 type Policy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `customRule` blocks as defined below.
+	CustomRules PolicyCustomRulesArrayOutput `pulumi:"customRules"`
+
+	// Resource location. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the policy. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `policySetting` block as defined below.
+	PolicySettings PolicyPolicySettingsOutput `pulumi:"policySettings"`
+
+	// The name of the resource group. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the Web Application Firewall Policy.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
-	name string, args *PolicyArgs, opts ...pulumi.ResourceOpt) (*Policy, error) {
+	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["customRules"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["policySettings"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["customRules"] = args.CustomRules
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["policySettings"] = args.PolicySettings
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CustomRules; i != nil { inputs["customRules"] = i.ToPolicyCustomRulesArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PolicySettings; i != nil { inputs["policySettings"] = i.ToPolicyPolicySettingsOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:waf/policy:Policy", name, true, inputs, opts...)
+	var resource Policy
+	err := ctx.RegisterResource("azure:waf/policy:Policy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Policy{s: s}, nil
+	return &resource, nil
 }
 
 // GetPolicy gets an existing Policy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PolicyState, opts ...pulumi.ResourceOpt) (*Policy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["customRules"] = state.CustomRules
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["policySettings"] = state.PolicySettings
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.CustomRules; i != nil { inputs["customRules"] = i.ToPolicyCustomRulesArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PolicySettings; i != nil { inputs["policySettings"] = i.ToPolicyPolicySettingsOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:waf/policy:Policy", name, id, inputs, opts...)
+	var resource Policy
+	err := ctx.ReadResource("azure:waf/policy:Policy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Policy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `customRule` blocks as defined below.
-func (r *Policy) CustomRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customRules"])
-}
-
-// Resource location. Changing this forces a new resource to be created.
-func (r *Policy) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the policy. Changing this forces a new resource to be created.
-func (r *Policy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `policySetting` block as defined below.
-func (r *Policy) PolicySettings() pulumi.Output {
-	return r.s.State["policySettings"]
-}
-
-// The name of the resource group. Changing this forces a new resource to be created.
-func (r *Policy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the Web Application Firewall Policy.
-func (r *Policy) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Policy resources.
 type PolicyState struct {
 	// One or more `customRule` blocks as defined below.
-	CustomRules interface{}
+	CustomRules PolicyCustomRulesArrayInput `pulumi:"customRules"`
 	// Resource location. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `policySetting` block as defined below.
-	PolicySettings interface{}
+	PolicySettings PolicyPolicySettingsInput `pulumi:"policySettings"`
 	// The name of the resource group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Web Application Firewall Policy.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// One or more `customRule` blocks as defined below.
-	CustomRules interface{}
+	CustomRules PolicyCustomRulesArrayInput `pulumi:"customRules"`
 	// Resource location. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `policySetting` block as defined below.
-	PolicySettings interface{}
+	PolicySettings PolicyPolicySettingsInput `pulumi:"policySettings"`
 	// The name of the resource group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Web Application Firewall Policy.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type PolicyCustomRules struct {
+	Action string `pulumi:"action"`
+	MatchConditions []PolicyCustomRulesMatchConditions `pulumi:"matchConditions"`
+	// The name of the policy. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	Priority int `pulumi:"priority"`
+	RuleType string `pulumi:"ruleType"`
+}
+var policyCustomRulesType = reflect.TypeOf((*PolicyCustomRules)(nil)).Elem()
+
+type PolicyCustomRulesInput interface {
+	pulumi.Input
+
+	ToPolicyCustomRulesOutput() PolicyCustomRulesOutput
+	ToPolicyCustomRulesOutputWithContext(ctx context.Context) PolicyCustomRulesOutput
+}
+
+type PolicyCustomRulesArgs struct {
+	Action pulumi.StringInput `pulumi:"action"`
+	MatchConditions PolicyCustomRulesMatchConditionsArrayInput `pulumi:"matchConditions"`
+	// The name of the policy. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (PolicyCustomRulesArgs) ElementType() reflect.Type {
+	return policyCustomRulesType
+}
+
+func (a PolicyCustomRulesArgs) ToPolicyCustomRulesOutput() PolicyCustomRulesOutput {
+	return pulumi.ToOutput(a).(PolicyCustomRulesOutput)
+}
+
+func (a PolicyCustomRulesArgs) ToPolicyCustomRulesOutputWithContext(ctx context.Context) PolicyCustomRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyCustomRulesOutput)
+}
+
+type PolicyCustomRulesOutput struct { *pulumi.OutputState }
+
+func (o PolicyCustomRulesOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v PolicyCustomRules) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyCustomRulesOutput) MatchConditions() PolicyCustomRulesMatchConditionsArrayOutput {
+	return o.Apply(func(v PolicyCustomRules) []PolicyCustomRulesMatchConditions {
+		return v.MatchConditions
+	}).(PolicyCustomRulesMatchConditionsArrayOutput)
+}
+
+// The name of the policy. Changing this forces a new resource to be created.
+func (o PolicyCustomRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v PolicyCustomRules) string {
+		if v.Name == nil { return *new(string) } else { return *v.Name }
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyCustomRulesOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v PolicyCustomRules) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+func (o PolicyCustomRulesOutput) RuleType() pulumi.StringOutput {
+	return o.Apply(func(v PolicyCustomRules) string {
+		return v.RuleType
+	}).(pulumi.StringOutput)
+}
+
+func (PolicyCustomRulesOutput) ElementType() reflect.Type {
+	return policyCustomRulesType
+}
+
+func (o PolicyCustomRulesOutput) ToPolicyCustomRulesOutput() PolicyCustomRulesOutput {
+	return o
+}
+
+func (o PolicyCustomRulesOutput) ToPolicyCustomRulesOutputWithContext(ctx context.Context) PolicyCustomRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyCustomRulesOutput{}) }
+
+var policyCustomRulesArrayType = reflect.TypeOf((*[]PolicyCustomRules)(nil)).Elem()
+
+type PolicyCustomRulesArrayInput interface {
+	pulumi.Input
+
+	ToPolicyCustomRulesArrayOutput() PolicyCustomRulesArrayOutput
+	ToPolicyCustomRulesArrayOutputWithContext(ctx context.Context) PolicyCustomRulesArrayOutput
+}
+
+type PolicyCustomRulesArrayArgs []PolicyCustomRulesInput
+
+func (PolicyCustomRulesArrayArgs) ElementType() reflect.Type {
+	return policyCustomRulesArrayType
+}
+
+func (a PolicyCustomRulesArrayArgs) ToPolicyCustomRulesArrayOutput() PolicyCustomRulesArrayOutput {
+	return pulumi.ToOutput(a).(PolicyCustomRulesArrayOutput)
+}
+
+func (a PolicyCustomRulesArrayArgs) ToPolicyCustomRulesArrayOutputWithContext(ctx context.Context) PolicyCustomRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyCustomRulesArrayOutput)
+}
+
+type PolicyCustomRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o PolicyCustomRulesArrayOutput) Index(i pulumi.IntInput) PolicyCustomRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PolicyCustomRules {
+		return vs[0].([]PolicyCustomRules)[vs[1].(int)]
+	}).(PolicyCustomRulesOutput)
+}
+
+func (PolicyCustomRulesArrayOutput) ElementType() reflect.Type {
+	return policyCustomRulesArrayType
+}
+
+func (o PolicyCustomRulesArrayOutput) ToPolicyCustomRulesArrayOutput() PolicyCustomRulesArrayOutput {
+	return o
+}
+
+func (o PolicyCustomRulesArrayOutput) ToPolicyCustomRulesArrayOutputWithContext(ctx context.Context) PolicyCustomRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyCustomRulesArrayOutput{}) }
+
+type PolicyCustomRulesMatchConditions struct {
+	MatchValues []string `pulumi:"matchValues"`
+	MatchVariables []PolicyCustomRulesMatchConditionsMatchVariables `pulumi:"matchVariables"`
+	NegationCondition *bool `pulumi:"negationCondition"`
+	Operator string `pulumi:"operator"`
+}
+var policyCustomRulesMatchConditionsType = reflect.TypeOf((*PolicyCustomRulesMatchConditions)(nil)).Elem()
+
+type PolicyCustomRulesMatchConditionsInput interface {
+	pulumi.Input
+
+	ToPolicyCustomRulesMatchConditionsOutput() PolicyCustomRulesMatchConditionsOutput
+	ToPolicyCustomRulesMatchConditionsOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsOutput
+}
+
+type PolicyCustomRulesMatchConditionsArgs struct {
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	MatchVariables PolicyCustomRulesMatchConditionsMatchVariablesArrayInput `pulumi:"matchVariables"`
+	NegationCondition pulumi.BoolInput `pulumi:"negationCondition"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (PolicyCustomRulesMatchConditionsArgs) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsType
+}
+
+func (a PolicyCustomRulesMatchConditionsArgs) ToPolicyCustomRulesMatchConditionsOutput() PolicyCustomRulesMatchConditionsOutput {
+	return pulumi.ToOutput(a).(PolicyCustomRulesMatchConditionsOutput)
+}
+
+func (a PolicyCustomRulesMatchConditionsArgs) ToPolicyCustomRulesMatchConditionsOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyCustomRulesMatchConditionsOutput)
+}
+
+type PolicyCustomRulesMatchConditionsOutput struct { *pulumi.OutputState }
+
+func (o PolicyCustomRulesMatchConditionsOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.Apply(func(v PolicyCustomRulesMatchConditions) []string {
+		return v.MatchValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PolicyCustomRulesMatchConditionsOutput) MatchVariables() PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput {
+	return o.Apply(func(v PolicyCustomRulesMatchConditions) []PolicyCustomRulesMatchConditionsMatchVariables {
+		return v.MatchVariables
+	}).(PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput)
+}
+
+func (o PolicyCustomRulesMatchConditionsOutput) NegationCondition() pulumi.BoolOutput {
+	return o.Apply(func(v PolicyCustomRulesMatchConditions) bool {
+		if v.NegationCondition == nil { return *new(bool) } else { return *v.NegationCondition }
+	}).(pulumi.BoolOutput)
+}
+
+func (o PolicyCustomRulesMatchConditionsOutput) Operator() pulumi.StringOutput {
+	return o.Apply(func(v PolicyCustomRulesMatchConditions) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (PolicyCustomRulesMatchConditionsOutput) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsType
+}
+
+func (o PolicyCustomRulesMatchConditionsOutput) ToPolicyCustomRulesMatchConditionsOutput() PolicyCustomRulesMatchConditionsOutput {
+	return o
+}
+
+func (o PolicyCustomRulesMatchConditionsOutput) ToPolicyCustomRulesMatchConditionsOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyCustomRulesMatchConditionsOutput{}) }
+
+var policyCustomRulesMatchConditionsArrayType = reflect.TypeOf((*[]PolicyCustomRulesMatchConditions)(nil)).Elem()
+
+type PolicyCustomRulesMatchConditionsArrayInput interface {
+	pulumi.Input
+
+	ToPolicyCustomRulesMatchConditionsArrayOutput() PolicyCustomRulesMatchConditionsArrayOutput
+	ToPolicyCustomRulesMatchConditionsArrayOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsArrayOutput
+}
+
+type PolicyCustomRulesMatchConditionsArrayArgs []PolicyCustomRulesMatchConditionsInput
+
+func (PolicyCustomRulesMatchConditionsArrayArgs) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsArrayType
+}
+
+func (a PolicyCustomRulesMatchConditionsArrayArgs) ToPolicyCustomRulesMatchConditionsArrayOutput() PolicyCustomRulesMatchConditionsArrayOutput {
+	return pulumi.ToOutput(a).(PolicyCustomRulesMatchConditionsArrayOutput)
+}
+
+func (a PolicyCustomRulesMatchConditionsArrayArgs) ToPolicyCustomRulesMatchConditionsArrayOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyCustomRulesMatchConditionsArrayOutput)
+}
+
+type PolicyCustomRulesMatchConditionsArrayOutput struct { *pulumi.OutputState }
+
+func (o PolicyCustomRulesMatchConditionsArrayOutput) Index(i pulumi.IntInput) PolicyCustomRulesMatchConditionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PolicyCustomRulesMatchConditions {
+		return vs[0].([]PolicyCustomRulesMatchConditions)[vs[1].(int)]
+	}).(PolicyCustomRulesMatchConditionsOutput)
+}
+
+func (PolicyCustomRulesMatchConditionsArrayOutput) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsArrayType
+}
+
+func (o PolicyCustomRulesMatchConditionsArrayOutput) ToPolicyCustomRulesMatchConditionsArrayOutput() PolicyCustomRulesMatchConditionsArrayOutput {
+	return o
+}
+
+func (o PolicyCustomRulesMatchConditionsArrayOutput) ToPolicyCustomRulesMatchConditionsArrayOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyCustomRulesMatchConditionsArrayOutput{}) }
+
+type PolicyCustomRulesMatchConditionsMatchVariables struct {
+	Selector *string `pulumi:"selector"`
+	VariableName string `pulumi:"variableName"`
+}
+var policyCustomRulesMatchConditionsMatchVariablesType = reflect.TypeOf((*PolicyCustomRulesMatchConditionsMatchVariables)(nil)).Elem()
+
+type PolicyCustomRulesMatchConditionsMatchVariablesInput interface {
+	pulumi.Input
+
+	ToPolicyCustomRulesMatchConditionsMatchVariablesOutput() PolicyCustomRulesMatchConditionsMatchVariablesOutput
+	ToPolicyCustomRulesMatchConditionsMatchVariablesOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsMatchVariablesOutput
+}
+
+type PolicyCustomRulesMatchConditionsMatchVariablesArgs struct {
+	Selector pulumi.StringInput `pulumi:"selector"`
+	VariableName pulumi.StringInput `pulumi:"variableName"`
+}
+
+func (PolicyCustomRulesMatchConditionsMatchVariablesArgs) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsMatchVariablesType
+}
+
+func (a PolicyCustomRulesMatchConditionsMatchVariablesArgs) ToPolicyCustomRulesMatchConditionsMatchVariablesOutput() PolicyCustomRulesMatchConditionsMatchVariablesOutput {
+	return pulumi.ToOutput(a).(PolicyCustomRulesMatchConditionsMatchVariablesOutput)
+}
+
+func (a PolicyCustomRulesMatchConditionsMatchVariablesArgs) ToPolicyCustomRulesMatchConditionsMatchVariablesOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsMatchVariablesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyCustomRulesMatchConditionsMatchVariablesOutput)
+}
+
+type PolicyCustomRulesMatchConditionsMatchVariablesOutput struct { *pulumi.OutputState }
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesOutput) Selector() pulumi.StringOutput {
+	return o.Apply(func(v PolicyCustomRulesMatchConditionsMatchVariables) string {
+		if v.Selector == nil { return *new(string) } else { return *v.Selector }
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesOutput) VariableName() pulumi.StringOutput {
+	return o.Apply(func(v PolicyCustomRulesMatchConditionsMatchVariables) string {
+		return v.VariableName
+	}).(pulumi.StringOutput)
+}
+
+func (PolicyCustomRulesMatchConditionsMatchVariablesOutput) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsMatchVariablesType
+}
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesOutput) ToPolicyCustomRulesMatchConditionsMatchVariablesOutput() PolicyCustomRulesMatchConditionsMatchVariablesOutput {
+	return o
+}
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesOutput) ToPolicyCustomRulesMatchConditionsMatchVariablesOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsMatchVariablesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyCustomRulesMatchConditionsMatchVariablesOutput{}) }
+
+var policyCustomRulesMatchConditionsMatchVariablesArrayType = reflect.TypeOf((*[]PolicyCustomRulesMatchConditionsMatchVariables)(nil)).Elem()
+
+type PolicyCustomRulesMatchConditionsMatchVariablesArrayInput interface {
+	pulumi.Input
+
+	ToPolicyCustomRulesMatchConditionsMatchVariablesArrayOutput() PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput
+	ToPolicyCustomRulesMatchConditionsMatchVariablesArrayOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput
+}
+
+type PolicyCustomRulesMatchConditionsMatchVariablesArrayArgs []PolicyCustomRulesMatchConditionsMatchVariablesInput
+
+func (PolicyCustomRulesMatchConditionsMatchVariablesArrayArgs) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsMatchVariablesArrayType
+}
+
+func (a PolicyCustomRulesMatchConditionsMatchVariablesArrayArgs) ToPolicyCustomRulesMatchConditionsMatchVariablesArrayOutput() PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput {
+	return pulumi.ToOutput(a).(PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput)
+}
+
+func (a PolicyCustomRulesMatchConditionsMatchVariablesArrayArgs) ToPolicyCustomRulesMatchConditionsMatchVariablesArrayOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput)
+}
+
+type PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput struct { *pulumi.OutputState }
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput) Index(i pulumi.IntInput) PolicyCustomRulesMatchConditionsMatchVariablesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PolicyCustomRulesMatchConditionsMatchVariables {
+		return vs[0].([]PolicyCustomRulesMatchConditionsMatchVariables)[vs[1].(int)]
+	}).(PolicyCustomRulesMatchConditionsMatchVariablesOutput)
+}
+
+func (PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput) ElementType() reflect.Type {
+	return policyCustomRulesMatchConditionsMatchVariablesArrayType
+}
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput) ToPolicyCustomRulesMatchConditionsMatchVariablesArrayOutput() PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput {
+	return o
+}
+
+func (o PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput) ToPolicyCustomRulesMatchConditionsMatchVariablesArrayOutputWithContext(ctx context.Context) PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyCustomRulesMatchConditionsMatchVariablesArrayOutput{}) }
+
+type PolicyPolicySettings struct {
+	Enabled *bool `pulumi:"enabled"`
+	Mode *string `pulumi:"mode"`
+}
+var policyPolicySettingsType = reflect.TypeOf((*PolicyPolicySettings)(nil)).Elem()
+
+type PolicyPolicySettingsInput interface {
+	pulumi.Input
+
+	ToPolicyPolicySettingsOutput() PolicyPolicySettingsOutput
+	ToPolicyPolicySettingsOutputWithContext(ctx context.Context) PolicyPolicySettingsOutput
+}
+
+type PolicyPolicySettingsArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (PolicyPolicySettingsArgs) ElementType() reflect.Type {
+	return policyPolicySettingsType
+}
+
+func (a PolicyPolicySettingsArgs) ToPolicyPolicySettingsOutput() PolicyPolicySettingsOutput {
+	return pulumi.ToOutput(a).(PolicyPolicySettingsOutput)
+}
+
+func (a PolicyPolicySettingsArgs) ToPolicyPolicySettingsOutputWithContext(ctx context.Context) PolicyPolicySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PolicyPolicySettingsOutput)
+}
+
+type PolicyPolicySettingsOutput struct { *pulumi.OutputState }
+
+func (o PolicyPolicySettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v PolicyPolicySettings) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o PolicyPolicySettingsOutput) Mode() pulumi.StringOutput {
+	return o.Apply(func(v PolicyPolicySettings) string {
+		if v.Mode == nil { return *new(string) } else { return *v.Mode }
+	}).(pulumi.StringOutput)
+}
+
+func (PolicyPolicySettingsOutput) ElementType() reflect.Type {
+	return policyPolicySettingsType
+}
+
+func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsOutput() PolicyPolicySettingsOutput {
+	return o
+}
+
+func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsOutputWithContext(ctx context.Context) PolicyPolicySettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PolicyPolicySettingsOutput{}) }
+

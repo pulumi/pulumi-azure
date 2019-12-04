@@ -10,44 +10,33 @@ import (
 // Use this data source to access information about an existing Automation Account Registration Information.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
-func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:automation/getAccount:getAccount", inputs)
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs, opts ...pulumi.InvokeOption) (*GetAccountResult, error) {
+	var rv GetAccountResult
+	err := ctx.Invoke("azure:automation/getAccount:getAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAccountResult{
-		Endpoint: outputs["endpoint"],
-		Name: outputs["name"],
-		PrimaryKey: outputs["primaryKey"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SecondaryKey: outputs["secondaryKey"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
 	// The name of the Automation Account.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Automation Account exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
 	// The Assigned Automation Account Registration endpoint
-	Endpoint interface{}
-	Name interface{}
+	Endpoint string `pulumi:"endpoint"`
+	Name string `pulumi:"name"`
 	// The primary key for the Automation Account Registration information
-	PrimaryKey interface{}
-	ResourceGroupName interface{}
+	PrimaryKey string `pulumi:"primaryKey"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The primary key for the Automation Account Registration information
-	SecondaryKey interface{}
+	SecondaryKey string `pulumi:"secondaryKey"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

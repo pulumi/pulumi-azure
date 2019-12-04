@@ -10,62 +10,44 @@ import (
 // Use this data source to access information about an App Service certificate.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
-func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCertificateResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-	}
-	outputs, err := ctx.Invoke("azure:appservice/getCertificate:getCertificate", inputs)
+func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs, opts ...pulumi.InvokeOption) (*GetCertificateResult, error) {
+	var rv GetCertificateResult
+	err := ctx.Invoke("azure:appservice/getCertificate:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetCertificateResult{
-		ExpirationDate: outputs["expirationDate"],
-		FriendlyName: outputs["friendlyName"],
-		HostNames: outputs["hostNames"],
-		IssueDate: outputs["issueDate"],
-		Issuer: outputs["issuer"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SubjectName: outputs["subjectName"],
-		Tags: outputs["tags"],
-		Thumbprint: outputs["thumbprint"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCertificate.
 type GetCertificateArgs struct {
 	// Specifies the name of the certificate.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which to create the certificate.
-	ResourceGroupName interface{}
-	Tags interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags *map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCertificate.
 type GetCertificateResult struct {
 	// The expiration date for the certificate.
-	ExpirationDate interface{}
+	ExpirationDate string `pulumi:"expirationDate"`
 	// The friendly name of the certificate.
-	FriendlyName interface{}
+	FriendlyName string `pulumi:"friendlyName"`
 	// List of host names the certificate applies to.
-	HostNames interface{}
+	HostNames []string `pulumi:"hostNames"`
 	// The issue date for the certificate.
-	IssueDate interface{}
+	IssueDate string `pulumi:"issueDate"`
 	// The name of the certificate issuer.
-	Issuer interface{}
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Issuer string `pulumi:"issuer"`
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
-	SubjectName interface{}
-	Tags interface{}
+	SubjectName string `pulumi:"subjectName"`
+	Tags map[string]string `pulumi:"tags"`
 	// The thumbprint for the certificate.
-	Thumbprint interface{}
+	Thumbprint string `pulumi:"thumbprint"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

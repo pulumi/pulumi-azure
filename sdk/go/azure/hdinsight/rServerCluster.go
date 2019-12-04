@@ -4,6 +4,8 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,51 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_rserver_cluster.html.markdown.
 type RServerCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
+
+	// The SSH Connectivity Endpoint for the Edge Node of the HDInsight RServer Cluster.
+	EdgeSshEndpoint pulumi.StringOutput `pulumi:"edgeSshEndpoint"`
+
+	// A `gateway` block as defined below.
+	Gateway RServerClusterGatewayOutput `pulumi:"gateway"`
+
+	// The HTTPS Connectivity Endpoint for this HDInsight RServer Cluster.
+	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+
+	// Specifies the Azure Region which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name for this HDInsight RServer Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `roles` block as defined below.
+	Roles RServerClusterRolesOutput `pulumi:"roles"`
+
+	// Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
+	Rstudio pulumi.BoolOutput `pulumi:"rstudio"`
+
+	// The SSH Connectivity Endpoint for this HDInsight RServer Cluster.
+	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
+
+	// One or more `storageAccount` block as defined below.
+	StorageAccounts RServerClusterStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A map of Tags which should be assigned to this HDInsight RServer Cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewRServerCluster registers a new resource with the given unique name, arguments, and options.
 func NewRServerCluster(ctx *pulumi.Context,
-	name string, args *RServerClusterArgs, opts ...pulumi.ResourceOpt) (*RServerCluster, error) {
+	name string, args *RServerClusterArgs, opts ...pulumi.ResourceOption) (*RServerCluster, error) {
 	if args == nil || args.ClusterVersion == nil {
 		return nil, errors.New("missing required argument 'ClusterVersion'")
 	}
@@ -36,192 +77,732 @@ func NewRServerCluster(ctx *pulumi.Context,
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterVersion"] = nil
-		inputs["gateway"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roles"] = nil
-		inputs["rstudio"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-	} else {
-		inputs["clusterVersion"] = args.ClusterVersion
-		inputs["gateway"] = args.Gateway
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roles"] = args.Roles
-		inputs["rstudio"] = args.Rstudio
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := args.Gateway; i != nil { inputs["gateway"] = i.ToRServerClusterGatewayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToRServerClusterRolesOutput() }
+		if i := args.Rstudio; i != nil { inputs["rstudio"] = i.ToBoolOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToRServerClusterStorageAccountsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	inputs["edgeSshEndpoint"] = nil
-	inputs["httpsEndpoint"] = nil
-	inputs["sshEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:hdinsight/rServerCluster:RServerCluster", name, true, inputs, opts...)
+	var resource RServerCluster
+	err := ctx.RegisterResource("azure:hdinsight/rServerCluster:RServerCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RServerCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetRServerCluster gets an existing RServerCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRServerCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RServerClusterState, opts ...pulumi.ResourceOpt) (*RServerCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RServerClusterState, opts ...pulumi.ResourceOption) (*RServerCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterVersion"] = state.ClusterVersion
-		inputs["edgeSshEndpoint"] = state.EdgeSshEndpoint
-		inputs["gateway"] = state.Gateway
-		inputs["httpsEndpoint"] = state.HttpsEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roles"] = state.Roles
-		inputs["rstudio"] = state.Rstudio
-		inputs["sshEndpoint"] = state.SshEndpoint
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
+		if i := state.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := state.EdgeSshEndpoint; i != nil { inputs["edgeSshEndpoint"] = i.ToStringOutput() }
+		if i := state.Gateway; i != nil { inputs["gateway"] = i.ToRServerClusterGatewayOutput() }
+		if i := state.HttpsEndpoint; i != nil { inputs["httpsEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToRServerClusterRolesOutput() }
+		if i := state.Rstudio; i != nil { inputs["rstudio"] = i.ToBoolOutput() }
+		if i := state.SshEndpoint; i != nil { inputs["sshEndpoint"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToRServerClusterStorageAccountsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:hdinsight/rServerCluster:RServerCluster", name, id, inputs, opts...)
+	var resource RServerCluster
+	err := ctx.ReadResource("azure:hdinsight/rServerCluster:RServerCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &RServerCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *RServerCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *RServerCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *RServerCluster) ClusterVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
-}
-
-// The SSH Connectivity Endpoint for the Edge Node of the HDInsight RServer Cluster.
-func (r *RServerCluster) EdgeSshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["edgeSshEndpoint"])
-}
-
-// A `gateway` block as defined below.
-func (r *RServerCluster) Gateway() pulumi.Output {
-	return r.s.State["gateway"]
-}
-
-// The HTTPS Connectivity Endpoint for this HDInsight RServer Cluster.
-func (r *RServerCluster) HttpsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
-}
-
-// Specifies the Azure Region which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-func (r *RServerCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name for this HDInsight RServer Cluster. Changing this forces a new resource to be created.
-func (r *RServerCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-func (r *RServerCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `roles` block as defined below.
-func (r *RServerCluster) Roles() pulumi.Output {
-	return r.s.State["roles"]
-}
-
-// Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
-func (r *RServerCluster) Rstudio() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["rstudio"])
-}
-
-// The SSH Connectivity Endpoint for this HDInsight RServer Cluster.
-func (r *RServerCluster) SshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
-}
-
-// One or more `storageAccount` block as defined below.
-func (r *RServerCluster) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A map of Tags which should be assigned to this HDInsight RServer Cluster.
-func (r *RServerCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *RServerCluster) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering RServerCluster resources.
 type RServerClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// The SSH Connectivity Endpoint for the Edge Node of the HDInsight RServer Cluster.
-	EdgeSshEndpoint interface{}
+	EdgeSshEndpoint pulumi.StringInput `pulumi:"edgeSshEndpoint"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway RServerClusterGatewayInput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight RServer Cluster.
-	HttpsEndpoint interface{}
+	HttpsEndpoint pulumi.StringInput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight RServer Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles RServerClusterRolesInput `pulumi:"roles"`
 	// Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
-	Rstudio interface{}
+	Rstudio pulumi.BoolInput `pulumi:"rstudio"`
 	// The SSH Connectivity Endpoint for this HDInsight RServer Cluster.
-	SshEndpoint interface{}
+	SshEndpoint pulumi.StringInput `pulumi:"sshEndpoint"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts RServerClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A map of Tags which should be assigned to this HDInsight RServer Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a RServerCluster resource.
 type RServerClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway RServerClusterGatewayInput `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight RServer Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles RServerClusterRolesInput `pulumi:"roles"`
 	// Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
-	Rstudio interface{}
+	Rstudio pulumi.BoolInput `pulumi:"rstudio"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts RServerClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A map of Tags which should be assigned to this HDInsight RServer Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
+type RServerClusterGateway struct {
+	Enabled bool `pulumi:"enabled"`
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var rServerClusterGatewayType = reflect.TypeOf((*RServerClusterGateway)(nil)).Elem()
+
+type RServerClusterGatewayInput interface {
+	pulumi.Input
+
+	ToRServerClusterGatewayOutput() RServerClusterGatewayOutput
+	ToRServerClusterGatewayOutputWithContext(ctx context.Context) RServerClusterGatewayOutput
+}
+
+type RServerClusterGatewayArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (RServerClusterGatewayArgs) ElementType() reflect.Type {
+	return rServerClusterGatewayType
+}
+
+func (a RServerClusterGatewayArgs) ToRServerClusterGatewayOutput() RServerClusterGatewayOutput {
+	return pulumi.ToOutput(a).(RServerClusterGatewayOutput)
+}
+
+func (a RServerClusterGatewayArgs) ToRServerClusterGatewayOutputWithContext(ctx context.Context) RServerClusterGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterGatewayOutput)
+}
+
+type RServerClusterGatewayOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v RServerClusterGateway) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o RServerClusterGatewayOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterGateway) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterGatewayOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterGateway) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (RServerClusterGatewayOutput) ElementType() reflect.Type {
+	return rServerClusterGatewayType
+}
+
+func (o RServerClusterGatewayOutput) ToRServerClusterGatewayOutput() RServerClusterGatewayOutput {
+	return o
+}
+
+func (o RServerClusterGatewayOutput) ToRServerClusterGatewayOutputWithContext(ctx context.Context) RServerClusterGatewayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterGatewayOutput{}) }
+
+type RServerClusterRoles struct {
+	EdgeNode RServerClusterRolesEdgeNode `pulumi:"edgeNode"`
+	HeadNode RServerClusterRolesHeadNode `pulumi:"headNode"`
+	WorkerNode RServerClusterRolesWorkerNode `pulumi:"workerNode"`
+	ZookeeperNode RServerClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
+}
+var rServerClusterRolesType = reflect.TypeOf((*RServerClusterRoles)(nil)).Elem()
+
+type RServerClusterRolesInput interface {
+	pulumi.Input
+
+	ToRServerClusterRolesOutput() RServerClusterRolesOutput
+	ToRServerClusterRolesOutputWithContext(ctx context.Context) RServerClusterRolesOutput
+}
+
+type RServerClusterRolesArgs struct {
+	EdgeNode RServerClusterRolesEdgeNodeInput `pulumi:"edgeNode"`
+	HeadNode RServerClusterRolesHeadNodeInput `pulumi:"headNode"`
+	WorkerNode RServerClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	ZookeeperNode RServerClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
+}
+
+func (RServerClusterRolesArgs) ElementType() reflect.Type {
+	return rServerClusterRolesType
+}
+
+func (a RServerClusterRolesArgs) ToRServerClusterRolesOutput() RServerClusterRolesOutput {
+	return pulumi.ToOutput(a).(RServerClusterRolesOutput)
+}
+
+func (a RServerClusterRolesArgs) ToRServerClusterRolesOutputWithContext(ctx context.Context) RServerClusterRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterRolesOutput)
+}
+
+type RServerClusterRolesOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterRolesOutput) EdgeNode() RServerClusterRolesEdgeNodeOutput {
+	return o.Apply(func(v RServerClusterRoles) RServerClusterRolesEdgeNode {
+		return v.EdgeNode
+	}).(RServerClusterRolesEdgeNodeOutput)
+}
+
+func (o RServerClusterRolesOutput) HeadNode() RServerClusterRolesHeadNodeOutput {
+	return o.Apply(func(v RServerClusterRoles) RServerClusterRolesHeadNode {
+		return v.HeadNode
+	}).(RServerClusterRolesHeadNodeOutput)
+}
+
+func (o RServerClusterRolesOutput) WorkerNode() RServerClusterRolesWorkerNodeOutput {
+	return o.Apply(func(v RServerClusterRoles) RServerClusterRolesWorkerNode {
+		return v.WorkerNode
+	}).(RServerClusterRolesWorkerNodeOutput)
+}
+
+func (o RServerClusterRolesOutput) ZookeeperNode() RServerClusterRolesZookeeperNodeOutput {
+	return o.Apply(func(v RServerClusterRoles) RServerClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(RServerClusterRolesZookeeperNodeOutput)
+}
+
+func (RServerClusterRolesOutput) ElementType() reflect.Type {
+	return rServerClusterRolesType
+}
+
+func (o RServerClusterRolesOutput) ToRServerClusterRolesOutput() RServerClusterRolesOutput {
+	return o
+}
+
+func (o RServerClusterRolesOutput) ToRServerClusterRolesOutputWithContext(ctx context.Context) RServerClusterRolesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterRolesOutput{}) }
+
+type RServerClusterRolesEdgeNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var rServerClusterRolesEdgeNodeType = reflect.TypeOf((*RServerClusterRolesEdgeNode)(nil)).Elem()
+
+type RServerClusterRolesEdgeNodeInput interface {
+	pulumi.Input
+
+	ToRServerClusterRolesEdgeNodeOutput() RServerClusterRolesEdgeNodeOutput
+	ToRServerClusterRolesEdgeNodeOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodeOutput
+}
+
+type RServerClusterRolesEdgeNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (RServerClusterRolesEdgeNodeArgs) ElementType() reflect.Type {
+	return rServerClusterRolesEdgeNodeType
+}
+
+func (a RServerClusterRolesEdgeNodeArgs) ToRServerClusterRolesEdgeNodeOutput() RServerClusterRolesEdgeNodeOutput {
+	return pulumi.ToOutput(a).(RServerClusterRolesEdgeNodeOutput)
+}
+
+func (a RServerClusterRolesEdgeNodeArgs) ToRServerClusterRolesEdgeNodeOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterRolesEdgeNodeOutput)
+}
+
+type RServerClusterRolesEdgeNodeOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterRolesEdgeNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesEdgeNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v RServerClusterRolesEdgeNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesEdgeNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesEdgeNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesEdgeNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesEdgeNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (RServerClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
+	return rServerClusterRolesEdgeNodeType
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodeOutput() RServerClusterRolesEdgeNodeOutput {
+	return o
+}
+
+func (o RServerClusterRolesEdgeNodeOutput) ToRServerClusterRolesEdgeNodeOutputWithContext(ctx context.Context) RServerClusterRolesEdgeNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterRolesEdgeNodeOutput{}) }
+
+type RServerClusterRolesHeadNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var rServerClusterRolesHeadNodeType = reflect.TypeOf((*RServerClusterRolesHeadNode)(nil)).Elem()
+
+type RServerClusterRolesHeadNodeInput interface {
+	pulumi.Input
+
+	ToRServerClusterRolesHeadNodeOutput() RServerClusterRolesHeadNodeOutput
+	ToRServerClusterRolesHeadNodeOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodeOutput
+}
+
+type RServerClusterRolesHeadNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (RServerClusterRolesHeadNodeArgs) ElementType() reflect.Type {
+	return rServerClusterRolesHeadNodeType
+}
+
+func (a RServerClusterRolesHeadNodeArgs) ToRServerClusterRolesHeadNodeOutput() RServerClusterRolesHeadNodeOutput {
+	return pulumi.ToOutput(a).(RServerClusterRolesHeadNodeOutput)
+}
+
+func (a RServerClusterRolesHeadNodeArgs) ToRServerClusterRolesHeadNodeOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterRolesHeadNodeOutput)
+}
+
+type RServerClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterRolesHeadNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesHeadNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v RServerClusterRolesHeadNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RServerClusterRolesHeadNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesHeadNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesHeadNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesHeadNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesHeadNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (RServerClusterRolesHeadNodeOutput) ElementType() reflect.Type {
+	return rServerClusterRolesHeadNodeType
+}
+
+func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodeOutput() RServerClusterRolesHeadNodeOutput {
+	return o
+}
+
+func (o RServerClusterRolesHeadNodeOutput) ToRServerClusterRolesHeadNodeOutputWithContext(ctx context.Context) RServerClusterRolesHeadNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterRolesHeadNodeOutput{}) }
+
+type RServerClusterRolesWorkerNode struct {
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var rServerClusterRolesWorkerNodeType = reflect.TypeOf((*RServerClusterRolesWorkerNode)(nil)).Elem()
+
+type RServerClusterRolesWorkerNodeInput interface {
+	pulumi.Input
+
+	ToRServerClusterRolesWorkerNodeOutput() RServerClusterRolesWorkerNodeOutput
+	ToRServerClusterRolesWorkerNodeOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodeOutput
+}
+
+type RServerClusterRolesWorkerNodeArgs struct {
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (RServerClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
+	return rServerClusterRolesWorkerNodeType
+}
+
+func (a RServerClusterRolesWorkerNodeArgs) ToRServerClusterRolesWorkerNodeOutput() RServerClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutput(a).(RServerClusterRolesWorkerNodeOutput)
+}
+
+func (a RServerClusterRolesWorkerNodeArgs) ToRServerClusterRolesWorkerNodeOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterRolesWorkerNodeOutput)
+}
+
+type RServerClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) int {
+		if v.MinInstanceCount == nil { return *new(int) } else { return *v.MinInstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesWorkerNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (RServerClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
+	return rServerClusterRolesWorkerNodeType
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodeOutput() RServerClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func (o RServerClusterRolesWorkerNodeOutput) ToRServerClusterRolesWorkerNodeOutputWithContext(ctx context.Context) RServerClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterRolesWorkerNodeOutput{}) }
+
+type RServerClusterRolesZookeeperNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var rServerClusterRolesZookeeperNodeType = reflect.TypeOf((*RServerClusterRolesZookeeperNode)(nil)).Elem()
+
+type RServerClusterRolesZookeeperNodeInput interface {
+	pulumi.Input
+
+	ToRServerClusterRolesZookeeperNodeOutput() RServerClusterRolesZookeeperNodeOutput
+	ToRServerClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodeOutput
+}
+
+type RServerClusterRolesZookeeperNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (RServerClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
+	return rServerClusterRolesZookeeperNodeType
+}
+
+func (a RServerClusterRolesZookeeperNodeArgs) ToRServerClusterRolesZookeeperNodeOutput() RServerClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutput(a).(RServerClusterRolesZookeeperNodeOutput)
+}
+
+func (a RServerClusterRolesZookeeperNodeArgs) ToRServerClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterRolesZookeeperNodeOutput)
+}
+
+type RServerClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterRolesZookeeperNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesZookeeperNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v RServerClusterRolesZookeeperNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesZookeeperNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesZookeeperNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesZookeeperNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterRolesZookeeperNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (RServerClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
+	return rServerClusterRolesZookeeperNodeType
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNodeOutput() RServerClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func (o RServerClusterRolesZookeeperNodeOutput) ToRServerClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) RServerClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterRolesZookeeperNodeOutput{}) }
+
+type RServerClusterStorageAccounts struct {
+	IsDefault bool `pulumi:"isDefault"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+}
+var rServerClusterStorageAccountsType = reflect.TypeOf((*RServerClusterStorageAccounts)(nil)).Elem()
+
+type RServerClusterStorageAccountsInput interface {
+	pulumi.Input
+
+	ToRServerClusterStorageAccountsOutput() RServerClusterStorageAccountsOutput
+	ToRServerClusterStorageAccountsOutputWithContext(ctx context.Context) RServerClusterStorageAccountsOutput
+}
+
+type RServerClusterStorageAccountsArgs struct {
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+}
+
+func (RServerClusterStorageAccountsArgs) ElementType() reflect.Type {
+	return rServerClusterStorageAccountsType
+}
+
+func (a RServerClusterStorageAccountsArgs) ToRServerClusterStorageAccountsOutput() RServerClusterStorageAccountsOutput {
+	return pulumi.ToOutput(a).(RServerClusterStorageAccountsOutput)
+}
+
+func (a RServerClusterStorageAccountsArgs) ToRServerClusterStorageAccountsOutputWithContext(ctx context.Context) RServerClusterStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterStorageAccountsOutput)
+}
+
+type RServerClusterStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterStorageAccountsOutput) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v RServerClusterStorageAccounts) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o RServerClusterStorageAccountsOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterStorageAccounts) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o RServerClusterStorageAccountsOutput) StorageContainerId() pulumi.StringOutput {
+	return o.Apply(func(v RServerClusterStorageAccounts) string {
+		return v.StorageContainerId
+	}).(pulumi.StringOutput)
+}
+
+func (RServerClusterStorageAccountsOutput) ElementType() reflect.Type {
+	return rServerClusterStorageAccountsType
+}
+
+func (o RServerClusterStorageAccountsOutput) ToRServerClusterStorageAccountsOutput() RServerClusterStorageAccountsOutput {
+	return o
+}
+
+func (o RServerClusterStorageAccountsOutput) ToRServerClusterStorageAccountsOutputWithContext(ctx context.Context) RServerClusterStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterStorageAccountsOutput{}) }
+
+var rServerClusterStorageAccountsArrayType = reflect.TypeOf((*[]RServerClusterStorageAccounts)(nil)).Elem()
+
+type RServerClusterStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToRServerClusterStorageAccountsArrayOutput() RServerClusterStorageAccountsArrayOutput
+	ToRServerClusterStorageAccountsArrayOutputWithContext(ctx context.Context) RServerClusterStorageAccountsArrayOutput
+}
+
+type RServerClusterStorageAccountsArrayArgs []RServerClusterStorageAccountsInput
+
+func (RServerClusterStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return rServerClusterStorageAccountsArrayType
+}
+
+func (a RServerClusterStorageAccountsArrayArgs) ToRServerClusterStorageAccountsArrayOutput() RServerClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(RServerClusterStorageAccountsArrayOutput)
+}
+
+func (a RServerClusterStorageAccountsArrayArgs) ToRServerClusterStorageAccountsArrayOutputWithContext(ctx context.Context) RServerClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(RServerClusterStorageAccountsArrayOutput)
+}
+
+type RServerClusterStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o RServerClusterStorageAccountsArrayOutput) Index(i pulumi.IntInput) RServerClusterStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) RServerClusterStorageAccounts {
+		return vs[0].([]RServerClusterStorageAccounts)[vs[1].(int)]
+	}).(RServerClusterStorageAccountsOutput)
+}
+
+func (RServerClusterStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return rServerClusterStorageAccountsArrayType
+}
+
+func (o RServerClusterStorageAccountsArrayOutput) ToRServerClusterStorageAccountsArrayOutput() RServerClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func (o RServerClusterStorageAccountsArrayOutput) ToRServerClusterStorageAccountsArrayOutputWithContext(ctx context.Context) RServerClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(RServerClusterStorageAccountsArrayOutput{}) }
+

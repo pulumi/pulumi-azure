@@ -10,64 +10,47 @@ import (
 // Use this data source to access information about an existing ServiceBus Namespace.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
-func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespaceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:servicebus/getNamespace:getNamespace", inputs)
+func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs, opts ...pulumi.InvokeOption) (*GetNamespaceResult, error) {
+	var rv GetNamespaceResult
+	err := ctx.Invoke("azure:servicebus/getNamespace:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNamespaceResult{
-		Capacity: outputs["capacity"],
-		DefaultPrimaryConnectionString: outputs["defaultPrimaryConnectionString"],
-		DefaultPrimaryKey: outputs["defaultPrimaryKey"],
-		DefaultSecondaryConnectionString: outputs["defaultSecondaryConnectionString"],
-		DefaultSecondaryKey: outputs["defaultSecondaryKey"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Sku: outputs["sku"],
-		Tags: outputs["tags"],
-		ZoneRedundant: outputs["zoneRedundant"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNamespace.
 type GetNamespaceArgs struct {
 	// Specifies the name of the ServiceBus Namespace.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the ServiceBus Namespace exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespace.
 type GetNamespaceResult struct {
 	// The capacity of the ServiceBus Namespace.
-	Capacity interface{}
+	Capacity int `pulumi:"capacity"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
-	DefaultPrimaryConnectionString interface{}
+	DefaultPrimaryConnectionString string `pulumi:"defaultPrimaryConnectionString"`
 	// The primary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultPrimaryKey interface{}
+	DefaultPrimaryKey string `pulumi:"defaultPrimaryKey"`
 	// The secondary connection string for the
 	// authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryConnectionString interface{}
+	DefaultSecondaryConnectionString string `pulumi:"defaultSecondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-	DefaultSecondaryKey interface{}
+	DefaultSecondaryKey string `pulumi:"defaultSecondaryKey"`
 	// The location of the Resource Group in which the ServiceBus Namespace exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Tier used for the ServiceBus Namespace.
-	Sku interface{}
+	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this ServiceBus Namespace is zone redundant.
-	ZoneRedundant interface{}
+	ZoneRedundant bool `pulumi:"zoneRedundant"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -10,33 +10,60 @@ import (
 // Use this data source to access information about an existing Storage Management Policy.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
-func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs) (*GetPolicyResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["storageAccountId"] = args.StorageAccountId
-	}
-	outputs, err := ctx.Invoke("azure:storage/getPolicy:getPolicy", inputs)
+func LookupPolicy(ctx *pulumi.Context, args *GetPolicyArgs, opts ...pulumi.InvokeOption) (*GetPolicyResult, error) {
+	var rv GetPolicyResult
+	err := ctx.Invoke("azure:storage/getPolicy:getPolicy", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPolicyResult{
-		Rules: outputs["rules"],
-		StorageAccountId: outputs["storageAccountId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPolicy.
 type GetPolicyArgs struct {
 	// Specifies the id of the storage account to retrieve the management policy for.
-	StorageAccountId interface{}
+	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 // A collection of values returned by getPolicy.
 type GetPolicyResult struct {
 	// A `rule` block as documented below.
-	Rules interface{}
-	StorageAccountId interface{}
+	Rules []GetPolicyRulesResult `pulumi:"rules"`
+	StorageAccountId string `pulumi:"storageAccountId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetPolicyRulesActionsBaseBlobResult struct {
+	// The age in days after last modification to delete the blob.
+	DeleteAfterDaysSinceModificationGreaterThan int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	TierToArchiveAfterDaysSinceModificationGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
+	TierToCoolAfterDaysSinceModificationGreaterThan int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
+}
+type GetPolicyRulesActionsResult struct {
+	// A `baseBlob` block as documented below.
+	BaseBlob GetPolicyRulesActionsBaseBlobResult `pulumi:"baseBlob"`
+	// A `snapshot` block as documented below.
+	Snapshot GetPolicyRulesActionsSnapshotResult `pulumi:"snapshot"`
+}
+type GetPolicyRulesActionsSnapshotResult struct {
+	// The age in days after create to delete the snaphot.
+	DeleteAfterDaysSinceCreationGreaterThan int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
+}
+type GetPolicyRulesFiltersResult struct {
+	// An array of predefined values. Only `blockBlob` is supported.
+	BlobTypes []string `pulumi:"blobTypes"`
+	// An array of strings for prefixes to be matched.
+	PrefixMatches []string `pulumi:"prefixMatches"`
+}
+type GetPolicyRulesResult struct {
+	// An `actions` block as documented below.
+	Actions GetPolicyRulesActionsResult `pulumi:"actions"`
+	// (Required)  Boolean to specify whether the rule is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// A `filter` block as documented below.
+	Filters GetPolicyRulesFiltersResult `pulumi:"filters"`
+	// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Name string `pulumi:"name"`
 }

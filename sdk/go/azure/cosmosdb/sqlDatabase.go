@@ -12,93 +12,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_sql_database.html.markdown.
 type SqlDatabase struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewSqlDatabase registers a new resource with the given unique name, arguments, and options.
 func NewSqlDatabase(ctx *pulumi.Context,
-	name string, args *SqlDatabaseArgs, opts ...pulumi.ResourceOpt) (*SqlDatabase, error) {
+	name string, args *SqlDatabaseArgs, opts ...pulumi.ResourceOption) (*SqlDatabase, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, true, inputs, opts...)
+	var resource SqlDatabase
+	err := ctx.RegisterResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlDatabase{s: s}, nil
+	return &resource, nil
 }
 
 // GetSqlDatabase gets an existing SqlDatabase resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSqlDatabase(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SqlDatabaseState, opts ...pulumi.ResourceOpt) (*SqlDatabase, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SqlDatabaseState, opts ...pulumi.ResourceOption) (*SqlDatabase, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, id, inputs, opts...)
+	var resource SqlDatabase
+	err := ctx.ReadResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SqlDatabase{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SqlDatabase) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SqlDatabase) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-func (r *SqlDatabase) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-func (r *SqlDatabase) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-func (r *SqlDatabase) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SqlDatabase resources.
 type SqlDatabaseState struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a SqlDatabase resource.
 type SqlDatabaseArgs struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

@@ -4,6 +4,8 @@
 package servicefabric
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,69 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
 type Cluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A List of one or more features which should be enabled, such as `DnsService`.
+	AddOnFeatures pulumi.StringArrayOutput `pulumi:"addOnFeatures"`
+
+	// An `azureActiveDirectory` block as defined below.
+	AzureActiveDirectory ClusterAzureActiveDirectoryOutput `pulumi:"azureActiveDirectory"`
+
+	// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
+	Certificate ClusterCertificateOutput `pulumi:"certificate"`
+
+	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
+	CertificateCommonNames ClusterCertificateCommonNamesOutput `pulumi:"certificateCommonNames"`
+
+	// One or two `clientCertificateThumbprint` blocks as defined below.
+	ClientCertificateThumbprints ClusterClientCertificateThumbprintsArrayOutput `pulumi:"clientCertificateThumbprints"`
+
+	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+	ClusterCodeVersion pulumi.StringOutput `pulumi:"clusterCodeVersion"`
+
+	// The Cluster Endpoint for this Service Fabric Cluster.
+	ClusterEndpoint pulumi.StringOutput `pulumi:"clusterEndpoint"`
+
+	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
+	DiagnosticsConfig ClusterDiagnosticsConfigOutput `pulumi:"diagnosticsConfig"`
+
+	// One or more `fabricSettings` blocks as defined below.
+	FabricSettings ClusterFabricSettingsArrayOutput `pulumi:"fabricSettings"`
+
+	// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
+	ManagementEndpoint pulumi.StringOutput `pulumi:"managementEndpoint"`
+
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// One or more `nodeType` blocks as defined below.
+	NodeTypes ClusterNodeTypesArrayOutput `pulumi:"nodeTypes"`
+
+	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+	ReliabilityLevel pulumi.StringOutput `pulumi:"reliabilityLevel"`
+
+	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `reverseProxyCertificate` block as defined below.
+	ReverseProxyCertificate ClusterReverseProxyCertificateOutput `pulumi:"reverseProxyCertificate"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
+	UpgradeMode pulumi.StringOutput `pulumi:"upgradeMode"`
+
+	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
+	VmImage pulumi.StringOutput `pulumi:"vmImage"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
-	name string, args *ClusterArgs, opts ...pulumi.ResourceOpt) (*Cluster, error) {
+	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	if args == nil || args.ManagementEndpoint == nil {
 		return nil, errors.New("missing required argument 'ManagementEndpoint'")
 	}
@@ -36,270 +95,1091 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil || args.VmImage == nil {
 		return nil, errors.New("missing required argument 'VmImage'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addOnFeatures"] = nil
-		inputs["azureActiveDirectory"] = nil
-		inputs["certificate"] = nil
-		inputs["certificateCommonNames"] = nil
-		inputs["clientCertificateThumbprints"] = nil
-		inputs["clusterCodeVersion"] = nil
-		inputs["diagnosticsConfig"] = nil
-		inputs["fabricSettings"] = nil
-		inputs["location"] = nil
-		inputs["managementEndpoint"] = nil
-		inputs["name"] = nil
-		inputs["nodeTypes"] = nil
-		inputs["reliabilityLevel"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["reverseProxyCertificate"] = nil
-		inputs["tags"] = nil
-		inputs["upgradeMode"] = nil
-		inputs["vmImage"] = nil
-	} else {
-		inputs["addOnFeatures"] = args.AddOnFeatures
-		inputs["azureActiveDirectory"] = args.AzureActiveDirectory
-		inputs["certificate"] = args.Certificate
-		inputs["certificateCommonNames"] = args.CertificateCommonNames
-		inputs["clientCertificateThumbprints"] = args.ClientCertificateThumbprints
-		inputs["clusterCodeVersion"] = args.ClusterCodeVersion
-		inputs["diagnosticsConfig"] = args.DiagnosticsConfig
-		inputs["fabricSettings"] = args.FabricSettings
-		inputs["location"] = args.Location
-		inputs["managementEndpoint"] = args.ManagementEndpoint
-		inputs["name"] = args.Name
-		inputs["nodeTypes"] = args.NodeTypes
-		inputs["reliabilityLevel"] = args.ReliabilityLevel
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["reverseProxyCertificate"] = args.ReverseProxyCertificate
-		inputs["tags"] = args.Tags
-		inputs["upgradeMode"] = args.UpgradeMode
-		inputs["vmImage"] = args.VmImage
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddOnFeatures; i != nil { inputs["addOnFeatures"] = i.ToStringArrayOutput() }
+		if i := args.AzureActiveDirectory; i != nil { inputs["azureActiveDirectory"] = i.ToClusterAzureActiveDirectoryOutput() }
+		if i := args.Certificate; i != nil { inputs["certificate"] = i.ToClusterCertificateOutput() }
+		if i := args.CertificateCommonNames; i != nil { inputs["certificateCommonNames"] = i.ToClusterCertificateCommonNamesOutput() }
+		if i := args.ClientCertificateThumbprints; i != nil { inputs["clientCertificateThumbprints"] = i.ToClusterClientCertificateThumbprintsArrayOutput() }
+		if i := args.ClusterCodeVersion; i != nil { inputs["clusterCodeVersion"] = i.ToStringOutput() }
+		if i := args.DiagnosticsConfig; i != nil { inputs["diagnosticsConfig"] = i.ToClusterDiagnosticsConfigOutput() }
+		if i := args.FabricSettings; i != nil { inputs["fabricSettings"] = i.ToClusterFabricSettingsArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.ManagementEndpoint; i != nil { inputs["managementEndpoint"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NodeTypes; i != nil { inputs["nodeTypes"] = i.ToClusterNodeTypesArrayOutput() }
+		if i := args.ReliabilityLevel; i != nil { inputs["reliabilityLevel"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ReverseProxyCertificate; i != nil { inputs["reverseProxyCertificate"] = i.ToClusterReverseProxyCertificateOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.UpgradeMode; i != nil { inputs["upgradeMode"] = i.ToStringOutput() }
+		if i := args.VmImage; i != nil { inputs["vmImage"] = i.ToStringOutput() }
 	}
-	inputs["clusterEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:servicefabric/cluster:Cluster", name, true, inputs, opts...)
+	var resource Cluster
+	err := ctx.RegisterResource("azure:servicefabric/cluster:Cluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetCluster gets an existing Cluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ClusterState, opts ...pulumi.ResourceOpt) (*Cluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addOnFeatures"] = state.AddOnFeatures
-		inputs["azureActiveDirectory"] = state.AzureActiveDirectory
-		inputs["certificate"] = state.Certificate
-		inputs["certificateCommonNames"] = state.CertificateCommonNames
-		inputs["clientCertificateThumbprints"] = state.ClientCertificateThumbprints
-		inputs["clusterCodeVersion"] = state.ClusterCodeVersion
-		inputs["clusterEndpoint"] = state.ClusterEndpoint
-		inputs["diagnosticsConfig"] = state.DiagnosticsConfig
-		inputs["fabricSettings"] = state.FabricSettings
-		inputs["location"] = state.Location
-		inputs["managementEndpoint"] = state.ManagementEndpoint
-		inputs["name"] = state.Name
-		inputs["nodeTypes"] = state.NodeTypes
-		inputs["reliabilityLevel"] = state.ReliabilityLevel
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["reverseProxyCertificate"] = state.ReverseProxyCertificate
-		inputs["tags"] = state.Tags
-		inputs["upgradeMode"] = state.UpgradeMode
-		inputs["vmImage"] = state.VmImage
+		if i := state.AddOnFeatures; i != nil { inputs["addOnFeatures"] = i.ToStringArrayOutput() }
+		if i := state.AzureActiveDirectory; i != nil { inputs["azureActiveDirectory"] = i.ToClusterAzureActiveDirectoryOutput() }
+		if i := state.Certificate; i != nil { inputs["certificate"] = i.ToClusterCertificateOutput() }
+		if i := state.CertificateCommonNames; i != nil { inputs["certificateCommonNames"] = i.ToClusterCertificateCommonNamesOutput() }
+		if i := state.ClientCertificateThumbprints; i != nil { inputs["clientCertificateThumbprints"] = i.ToClusterClientCertificateThumbprintsArrayOutput() }
+		if i := state.ClusterCodeVersion; i != nil { inputs["clusterCodeVersion"] = i.ToStringOutput() }
+		if i := state.ClusterEndpoint; i != nil { inputs["clusterEndpoint"] = i.ToStringOutput() }
+		if i := state.DiagnosticsConfig; i != nil { inputs["diagnosticsConfig"] = i.ToClusterDiagnosticsConfigOutput() }
+		if i := state.FabricSettings; i != nil { inputs["fabricSettings"] = i.ToClusterFabricSettingsArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.ManagementEndpoint; i != nil { inputs["managementEndpoint"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NodeTypes; i != nil { inputs["nodeTypes"] = i.ToClusterNodeTypesArrayOutput() }
+		if i := state.ReliabilityLevel; i != nil { inputs["reliabilityLevel"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ReverseProxyCertificate; i != nil { inputs["reverseProxyCertificate"] = i.ToClusterReverseProxyCertificateOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UpgradeMode; i != nil { inputs["upgradeMode"] = i.ToStringOutput() }
+		if i := state.VmImage; i != nil { inputs["vmImage"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:servicefabric/cluster:Cluster", name, id, inputs, opts...)
+	var resource Cluster
+	err := ctx.ReadResource("azure:servicefabric/cluster:Cluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Cluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Cluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Cluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A List of one or more features which should be enabled, such as `DnsService`.
-func (r *Cluster) AddOnFeatures() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["addOnFeatures"])
-}
-
-// An `azureActiveDirectory` block as defined below.
-func (r *Cluster) AzureActiveDirectory() pulumi.Output {
-	return r.s.State["azureActiveDirectory"]
-}
-
-// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
-func (r *Cluster) Certificate() pulumi.Output {
-	return r.s.State["certificate"]
-}
-
-// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
-func (r *Cluster) CertificateCommonNames() pulumi.Output {
-	return r.s.State["certificateCommonNames"]
-}
-
-// One or two `clientCertificateThumbprint` blocks as defined below.
-func (r *Cluster) ClientCertificateThumbprints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["clientCertificateThumbprints"])
-}
-
-// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-func (r *Cluster) ClusterCodeVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterCodeVersion"])
-}
-
-// The Cluster Endpoint for this Service Fabric Cluster.
-func (r *Cluster) ClusterEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterEndpoint"])
-}
-
-// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
-func (r *Cluster) DiagnosticsConfig() pulumi.Output {
-	return r.s.State["diagnosticsConfig"]
-}
-
-// One or more `fabricSettings` blocks as defined below.
-func (r *Cluster) FabricSettings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["fabricSettings"])
-}
-
-// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
-func (r *Cluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
-func (r *Cluster) ManagementEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["managementEndpoint"])
-}
-
-// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-func (r *Cluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// One or more `nodeType` blocks as defined below.
-func (r *Cluster) NodeTypes() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["nodeTypes"])
-}
-
-// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
-func (r *Cluster) ReliabilityLevel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["reliabilityLevel"])
-}
-
-// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-func (r *Cluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `reverseProxyCertificate` block as defined below.
-func (r *Cluster) ReverseProxyCertificate() pulumi.Output {
-	return r.s.State["reverseProxyCertificate"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Cluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-func (r *Cluster) UpgradeMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["upgradeMode"])
-}
-
-// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
-func (r *Cluster) VmImage() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vmImage"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Cluster resources.
 type ClusterState struct {
 	// A List of one or more features which should be enabled, such as `DnsService`.
-	AddOnFeatures interface{}
+	AddOnFeatures pulumi.StringArrayInput `pulumi:"addOnFeatures"`
 	// An `azureActiveDirectory` block as defined below.
-	AzureActiveDirectory interface{}
+	AzureActiveDirectory ClusterAzureActiveDirectoryInput `pulumi:"azureActiveDirectory"`
 	// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
-	Certificate interface{}
+	Certificate ClusterCertificateInput `pulumi:"certificate"`
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
-	CertificateCommonNames interface{}
+	CertificateCommonNames ClusterCertificateCommonNamesInput `pulumi:"certificateCommonNames"`
 	// One or two `clientCertificateThumbprint` blocks as defined below.
-	ClientCertificateThumbprints interface{}
+	ClientCertificateThumbprints ClusterClientCertificateThumbprintsArrayInput `pulumi:"clientCertificateThumbprints"`
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-	ClusterCodeVersion interface{}
+	ClusterCodeVersion pulumi.StringInput `pulumi:"clusterCodeVersion"`
 	// The Cluster Endpoint for this Service Fabric Cluster.
-	ClusterEndpoint interface{}
+	ClusterEndpoint pulumi.StringInput `pulumi:"clusterEndpoint"`
 	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
-	DiagnosticsConfig interface{}
+	DiagnosticsConfig ClusterDiagnosticsConfigInput `pulumi:"diagnosticsConfig"`
 	// One or more `fabricSettings` blocks as defined below.
-	FabricSettings interface{}
+	FabricSettings ClusterFabricSettingsArrayInput `pulumi:"fabricSettings"`
 	// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
-	ManagementEndpoint interface{}
+	ManagementEndpoint pulumi.StringInput `pulumi:"managementEndpoint"`
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `nodeType` blocks as defined below.
-	NodeTypes interface{}
+	NodeTypes ClusterNodeTypesArrayInput `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
-	ReliabilityLevel interface{}
+	ReliabilityLevel pulumi.StringInput `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `reverseProxyCertificate` block as defined below.
-	ReverseProxyCertificate interface{}
+	ReverseProxyCertificate ClusterReverseProxyCertificateInput `pulumi:"reverseProxyCertificate"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode interface{}
+	UpgradeMode pulumi.StringInput `pulumi:"upgradeMode"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
-	VmImage interface{}
+	VmImage pulumi.StringInput `pulumi:"vmImage"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// A List of one or more features which should be enabled, such as `DnsService`.
-	AddOnFeatures interface{}
+	AddOnFeatures pulumi.StringArrayInput `pulumi:"addOnFeatures"`
 	// An `azureActiveDirectory` block as defined below.
-	AzureActiveDirectory interface{}
+	AzureActiveDirectory ClusterAzureActiveDirectoryInput `pulumi:"azureActiveDirectory"`
 	// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
-	Certificate interface{}
+	Certificate ClusterCertificateInput `pulumi:"certificate"`
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
-	CertificateCommonNames interface{}
+	CertificateCommonNames ClusterCertificateCommonNamesInput `pulumi:"certificateCommonNames"`
 	// One or two `clientCertificateThumbprint` blocks as defined below.
-	ClientCertificateThumbprints interface{}
+	ClientCertificateThumbprints ClusterClientCertificateThumbprintsArrayInput `pulumi:"clientCertificateThumbprints"`
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-	ClusterCodeVersion interface{}
+	ClusterCodeVersion pulumi.StringInput `pulumi:"clusterCodeVersion"`
 	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
-	DiagnosticsConfig interface{}
+	DiagnosticsConfig ClusterDiagnosticsConfigInput `pulumi:"diagnosticsConfig"`
 	// One or more `fabricSettings` blocks as defined below.
-	FabricSettings interface{}
+	FabricSettings ClusterFabricSettingsArrayInput `pulumi:"fabricSettings"`
 	// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
-	ManagementEndpoint interface{}
+	ManagementEndpoint pulumi.StringInput `pulumi:"managementEndpoint"`
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `nodeType` blocks as defined below.
-	NodeTypes interface{}
+	NodeTypes ClusterNodeTypesArrayInput `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
-	ReliabilityLevel interface{}
+	ReliabilityLevel pulumi.StringInput `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `reverseProxyCertificate` block as defined below.
-	ReverseProxyCertificate interface{}
+	ReverseProxyCertificate ClusterReverseProxyCertificateInput `pulumi:"reverseProxyCertificate"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-	UpgradeMode interface{}
+	UpgradeMode pulumi.StringInput `pulumi:"upgradeMode"`
 	// Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
-	VmImage interface{}
+	VmImage pulumi.StringInput `pulumi:"vmImage"`
 }
+type ClusterAzureActiveDirectory struct {
+	ClientApplicationId string `pulumi:"clientApplicationId"`
+	ClusterApplicationId string `pulumi:"clusterApplicationId"`
+	TenantId string `pulumi:"tenantId"`
+}
+var clusterAzureActiveDirectoryType = reflect.TypeOf((*ClusterAzureActiveDirectory)(nil)).Elem()
+
+type ClusterAzureActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToClusterAzureActiveDirectoryOutput() ClusterAzureActiveDirectoryOutput
+	ToClusterAzureActiveDirectoryOutputWithContext(ctx context.Context) ClusterAzureActiveDirectoryOutput
+}
+
+type ClusterAzureActiveDirectoryArgs struct {
+	ClientApplicationId pulumi.StringInput `pulumi:"clientApplicationId"`
+	ClusterApplicationId pulumi.StringInput `pulumi:"clusterApplicationId"`
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (ClusterAzureActiveDirectoryArgs) ElementType() reflect.Type {
+	return clusterAzureActiveDirectoryType
+}
+
+func (a ClusterAzureActiveDirectoryArgs) ToClusterAzureActiveDirectoryOutput() ClusterAzureActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(ClusterAzureActiveDirectoryOutput)
+}
+
+func (a ClusterAzureActiveDirectoryArgs) ToClusterAzureActiveDirectoryOutputWithContext(ctx context.Context) ClusterAzureActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterAzureActiveDirectoryOutput)
+}
+
+type ClusterAzureActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o ClusterAzureActiveDirectoryOutput) ClientApplicationId() pulumi.StringOutput {
+	return o.Apply(func(v ClusterAzureActiveDirectory) string {
+		return v.ClientApplicationId
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterAzureActiveDirectoryOutput) ClusterApplicationId() pulumi.StringOutput {
+	return o.Apply(func(v ClusterAzureActiveDirectory) string {
+		return v.ClusterApplicationId
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v ClusterAzureActiveDirectory) string {
+		return v.TenantId
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterAzureActiveDirectoryOutput) ElementType() reflect.Type {
+	return clusterAzureActiveDirectoryType
+}
+
+func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryOutput() ClusterAzureActiveDirectoryOutput {
+	return o
+}
+
+func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryOutputWithContext(ctx context.Context) ClusterAzureActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterAzureActiveDirectoryOutput{}) }
+
+type ClusterCertificate struct {
+	Thumbprint string `pulumi:"thumbprint"`
+	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
+	X509StoreName string `pulumi:"x509StoreName"`
+}
+var clusterCertificateType = reflect.TypeOf((*ClusterCertificate)(nil)).Elem()
+
+type ClusterCertificateInput interface {
+	pulumi.Input
+
+	ToClusterCertificateOutput() ClusterCertificateOutput
+	ToClusterCertificateOutputWithContext(ctx context.Context) ClusterCertificateOutput
+}
+
+type ClusterCertificateArgs struct {
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	ThumbprintSecondary pulumi.StringInput `pulumi:"thumbprintSecondary"`
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+}
+
+func (ClusterCertificateArgs) ElementType() reflect.Type {
+	return clusterCertificateType
+}
+
+func (a ClusterCertificateArgs) ToClusterCertificateOutput() ClusterCertificateOutput {
+	return pulumi.ToOutput(a).(ClusterCertificateOutput)
+}
+
+func (a ClusterCertificateArgs) ToClusterCertificateOutputWithContext(ctx context.Context) ClusterCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCertificateOutput)
+}
+
+type ClusterCertificateOutput struct { *pulumi.OutputState }
+
+func (o ClusterCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificate) string {
+		return v.Thumbprint
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCertificateOutput) ThumbprintSecondary() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificate) string {
+		if v.ThumbprintSecondary == nil { return *new(string) } else { return *v.ThumbprintSecondary }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCertificateOutput) X509StoreName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificate) string {
+		return v.X509StoreName
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterCertificateOutput) ElementType() reflect.Type {
+	return clusterCertificateType
+}
+
+func (o ClusterCertificateOutput) ToClusterCertificateOutput() ClusterCertificateOutput {
+	return o
+}
+
+func (o ClusterCertificateOutput) ToClusterCertificateOutputWithContext(ctx context.Context) ClusterCertificateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCertificateOutput{}) }
+
+type ClusterCertificateCommonNames struct {
+	CommonNames []ClusterCertificateCommonNamesCommonNames `pulumi:"commonNames"`
+	X509StoreName string `pulumi:"x509StoreName"`
+}
+var clusterCertificateCommonNamesType = reflect.TypeOf((*ClusterCertificateCommonNames)(nil)).Elem()
+
+type ClusterCertificateCommonNamesInput interface {
+	pulumi.Input
+
+	ToClusterCertificateCommonNamesOutput() ClusterCertificateCommonNamesOutput
+	ToClusterCertificateCommonNamesOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesOutput
+}
+
+type ClusterCertificateCommonNamesArgs struct {
+	CommonNames ClusterCertificateCommonNamesCommonNamesArrayInput `pulumi:"commonNames"`
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+}
+
+func (ClusterCertificateCommonNamesArgs) ElementType() reflect.Type {
+	return clusterCertificateCommonNamesType
+}
+
+func (a ClusterCertificateCommonNamesArgs) ToClusterCertificateCommonNamesOutput() ClusterCertificateCommonNamesOutput {
+	return pulumi.ToOutput(a).(ClusterCertificateCommonNamesOutput)
+}
+
+func (a ClusterCertificateCommonNamesArgs) ToClusterCertificateCommonNamesOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCertificateCommonNamesOutput)
+}
+
+type ClusterCertificateCommonNamesOutput struct { *pulumi.OutputState }
+
+func (o ClusterCertificateCommonNamesOutput) CommonNames() ClusterCertificateCommonNamesCommonNamesArrayOutput {
+	return o.Apply(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonNames {
+		return v.CommonNames
+	}).(ClusterCertificateCommonNamesCommonNamesArrayOutput)
+}
+
+func (o ClusterCertificateCommonNamesOutput) X509StoreName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificateCommonNames) string {
+		return v.X509StoreName
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterCertificateCommonNamesOutput) ElementType() reflect.Type {
+	return clusterCertificateCommonNamesType
+}
+
+func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesOutput() ClusterCertificateCommonNamesOutput {
+	return o
+}
+
+func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCertificateCommonNamesOutput{}) }
+
+type ClusterCertificateCommonNamesCommonNames struct {
+	CertificateCommonName string `pulumi:"certificateCommonName"`
+	CertificateIssuerThumbprint *string `pulumi:"certificateIssuerThumbprint"`
+}
+var clusterCertificateCommonNamesCommonNamesType = reflect.TypeOf((*ClusterCertificateCommonNamesCommonNames)(nil)).Elem()
+
+type ClusterCertificateCommonNamesCommonNamesInput interface {
+	pulumi.Input
+
+	ToClusterCertificateCommonNamesCommonNamesOutput() ClusterCertificateCommonNamesCommonNamesOutput
+	ToClusterCertificateCommonNamesCommonNamesOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNamesOutput
+}
+
+type ClusterCertificateCommonNamesCommonNamesArgs struct {
+	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
+	CertificateIssuerThumbprint pulumi.StringInput `pulumi:"certificateIssuerThumbprint"`
+}
+
+func (ClusterCertificateCommonNamesCommonNamesArgs) ElementType() reflect.Type {
+	return clusterCertificateCommonNamesCommonNamesType
+}
+
+func (a ClusterCertificateCommonNamesCommonNamesArgs) ToClusterCertificateCommonNamesCommonNamesOutput() ClusterCertificateCommonNamesCommonNamesOutput {
+	return pulumi.ToOutput(a).(ClusterCertificateCommonNamesCommonNamesOutput)
+}
+
+func (a ClusterCertificateCommonNamesCommonNamesArgs) ToClusterCertificateCommonNamesCommonNamesOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCertificateCommonNamesCommonNamesOutput)
+}
+
+type ClusterCertificateCommonNamesCommonNamesOutput struct { *pulumi.OutputState }
+
+func (o ClusterCertificateCommonNamesCommonNamesOutput) CertificateCommonName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificateCommonNamesCommonNames) string {
+		return v.CertificateCommonName
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterCertificateCommonNamesCommonNamesOutput) CertificateIssuerThumbprint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterCertificateCommonNamesCommonNames) string {
+		if v.CertificateIssuerThumbprint == nil { return *new(string) } else { return *v.CertificateIssuerThumbprint }
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterCertificateCommonNamesCommonNamesOutput) ElementType() reflect.Type {
+	return clusterCertificateCommonNamesCommonNamesType
+}
+
+func (o ClusterCertificateCommonNamesCommonNamesOutput) ToClusterCertificateCommonNamesCommonNamesOutput() ClusterCertificateCommonNamesCommonNamesOutput {
+	return o
+}
+
+func (o ClusterCertificateCommonNamesCommonNamesOutput) ToClusterCertificateCommonNamesCommonNamesOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNamesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCertificateCommonNamesCommonNamesOutput{}) }
+
+var clusterCertificateCommonNamesCommonNamesArrayType = reflect.TypeOf((*[]ClusterCertificateCommonNamesCommonNames)(nil)).Elem()
+
+type ClusterCertificateCommonNamesCommonNamesArrayInput interface {
+	pulumi.Input
+
+	ToClusterCertificateCommonNamesCommonNamesArrayOutput() ClusterCertificateCommonNamesCommonNamesArrayOutput
+	ToClusterCertificateCommonNamesCommonNamesArrayOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNamesArrayOutput
+}
+
+type ClusterCertificateCommonNamesCommonNamesArrayArgs []ClusterCertificateCommonNamesCommonNamesInput
+
+func (ClusterCertificateCommonNamesCommonNamesArrayArgs) ElementType() reflect.Type {
+	return clusterCertificateCommonNamesCommonNamesArrayType
+}
+
+func (a ClusterCertificateCommonNamesCommonNamesArrayArgs) ToClusterCertificateCommonNamesCommonNamesArrayOutput() ClusterCertificateCommonNamesCommonNamesArrayOutput {
+	return pulumi.ToOutput(a).(ClusterCertificateCommonNamesCommonNamesArrayOutput)
+}
+
+func (a ClusterCertificateCommonNamesCommonNamesArrayArgs) ToClusterCertificateCommonNamesCommonNamesArrayOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNamesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterCertificateCommonNamesCommonNamesArrayOutput)
+}
+
+type ClusterCertificateCommonNamesCommonNamesArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterCertificateCommonNamesCommonNamesArrayOutput) Index(i pulumi.IntInput) ClusterCertificateCommonNamesCommonNamesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterCertificateCommonNamesCommonNames {
+		return vs[0].([]ClusterCertificateCommonNamesCommonNames)[vs[1].(int)]
+	}).(ClusterCertificateCommonNamesCommonNamesOutput)
+}
+
+func (ClusterCertificateCommonNamesCommonNamesArrayOutput) ElementType() reflect.Type {
+	return clusterCertificateCommonNamesCommonNamesArrayType
+}
+
+func (o ClusterCertificateCommonNamesCommonNamesArrayOutput) ToClusterCertificateCommonNamesCommonNamesArrayOutput() ClusterCertificateCommonNamesCommonNamesArrayOutput {
+	return o
+}
+
+func (o ClusterCertificateCommonNamesCommonNamesArrayOutput) ToClusterCertificateCommonNamesCommonNamesArrayOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNamesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterCertificateCommonNamesCommonNamesArrayOutput{}) }
+
+type ClusterClientCertificateThumbprints struct {
+	IsAdmin bool `pulumi:"isAdmin"`
+	Thumbprint string `pulumi:"thumbprint"`
+}
+var clusterClientCertificateThumbprintsType = reflect.TypeOf((*ClusterClientCertificateThumbprints)(nil)).Elem()
+
+type ClusterClientCertificateThumbprintsInput interface {
+	pulumi.Input
+
+	ToClusterClientCertificateThumbprintsOutput() ClusterClientCertificateThumbprintsOutput
+	ToClusterClientCertificateThumbprintsOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintsOutput
+}
+
+type ClusterClientCertificateThumbprintsArgs struct {
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (ClusterClientCertificateThumbprintsArgs) ElementType() reflect.Type {
+	return clusterClientCertificateThumbprintsType
+}
+
+func (a ClusterClientCertificateThumbprintsArgs) ToClusterClientCertificateThumbprintsOutput() ClusterClientCertificateThumbprintsOutput {
+	return pulumi.ToOutput(a).(ClusterClientCertificateThumbprintsOutput)
+}
+
+func (a ClusterClientCertificateThumbprintsArgs) ToClusterClientCertificateThumbprintsOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterClientCertificateThumbprintsOutput)
+}
+
+type ClusterClientCertificateThumbprintsOutput struct { *pulumi.OutputState }
+
+func (o ClusterClientCertificateThumbprintsOutput) IsAdmin() pulumi.BoolOutput {
+	return o.Apply(func(v ClusterClientCertificateThumbprints) bool {
+		return v.IsAdmin
+	}).(pulumi.BoolOutput)
+}
+
+func (o ClusterClientCertificateThumbprintsOutput) Thumbprint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterClientCertificateThumbprints) string {
+		return v.Thumbprint
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterClientCertificateThumbprintsOutput) ElementType() reflect.Type {
+	return clusterClientCertificateThumbprintsType
+}
+
+func (o ClusterClientCertificateThumbprintsOutput) ToClusterClientCertificateThumbprintsOutput() ClusterClientCertificateThumbprintsOutput {
+	return o
+}
+
+func (o ClusterClientCertificateThumbprintsOutput) ToClusterClientCertificateThumbprintsOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterClientCertificateThumbprintsOutput{}) }
+
+var clusterClientCertificateThumbprintsArrayType = reflect.TypeOf((*[]ClusterClientCertificateThumbprints)(nil)).Elem()
+
+type ClusterClientCertificateThumbprintsArrayInput interface {
+	pulumi.Input
+
+	ToClusterClientCertificateThumbprintsArrayOutput() ClusterClientCertificateThumbprintsArrayOutput
+	ToClusterClientCertificateThumbprintsArrayOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintsArrayOutput
+}
+
+type ClusterClientCertificateThumbprintsArrayArgs []ClusterClientCertificateThumbprintsInput
+
+func (ClusterClientCertificateThumbprintsArrayArgs) ElementType() reflect.Type {
+	return clusterClientCertificateThumbprintsArrayType
+}
+
+func (a ClusterClientCertificateThumbprintsArrayArgs) ToClusterClientCertificateThumbprintsArrayOutput() ClusterClientCertificateThumbprintsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterClientCertificateThumbprintsArrayOutput)
+}
+
+func (a ClusterClientCertificateThumbprintsArrayArgs) ToClusterClientCertificateThumbprintsArrayOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterClientCertificateThumbprintsArrayOutput)
+}
+
+type ClusterClientCertificateThumbprintsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterClientCertificateThumbprintsArrayOutput) Index(i pulumi.IntInput) ClusterClientCertificateThumbprintsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterClientCertificateThumbprints {
+		return vs[0].([]ClusterClientCertificateThumbprints)[vs[1].(int)]
+	}).(ClusterClientCertificateThumbprintsOutput)
+}
+
+func (ClusterClientCertificateThumbprintsArrayOutput) ElementType() reflect.Type {
+	return clusterClientCertificateThumbprintsArrayType
+}
+
+func (o ClusterClientCertificateThumbprintsArrayOutput) ToClusterClientCertificateThumbprintsArrayOutput() ClusterClientCertificateThumbprintsArrayOutput {
+	return o
+}
+
+func (o ClusterClientCertificateThumbprintsArrayOutput) ToClusterClientCertificateThumbprintsArrayOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterClientCertificateThumbprintsArrayOutput{}) }
+
+type ClusterDiagnosticsConfig struct {
+	BlobEndpoint string `pulumi:"blobEndpoint"`
+	ProtectedAccountKeyName string `pulumi:"protectedAccountKeyName"`
+	QueueEndpoint string `pulumi:"queueEndpoint"`
+	StorageAccountName string `pulumi:"storageAccountName"`
+	TableEndpoint string `pulumi:"tableEndpoint"`
+}
+var clusterDiagnosticsConfigType = reflect.TypeOf((*ClusterDiagnosticsConfig)(nil)).Elem()
+
+type ClusterDiagnosticsConfigInput interface {
+	pulumi.Input
+
+	ToClusterDiagnosticsConfigOutput() ClusterDiagnosticsConfigOutput
+	ToClusterDiagnosticsConfigOutputWithContext(ctx context.Context) ClusterDiagnosticsConfigOutput
+}
+
+type ClusterDiagnosticsConfigArgs struct {
+	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
+	ProtectedAccountKeyName pulumi.StringInput `pulumi:"protectedAccountKeyName"`
+	QueueEndpoint pulumi.StringInput `pulumi:"queueEndpoint"`
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	TableEndpoint pulumi.StringInput `pulumi:"tableEndpoint"`
+}
+
+func (ClusterDiagnosticsConfigArgs) ElementType() reflect.Type {
+	return clusterDiagnosticsConfigType
+}
+
+func (a ClusterDiagnosticsConfigArgs) ToClusterDiagnosticsConfigOutput() ClusterDiagnosticsConfigOutput {
+	return pulumi.ToOutput(a).(ClusterDiagnosticsConfigOutput)
+}
+
+func (a ClusterDiagnosticsConfigArgs) ToClusterDiagnosticsConfigOutputWithContext(ctx context.Context) ClusterDiagnosticsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterDiagnosticsConfigOutput)
+}
+
+type ClusterDiagnosticsConfigOutput struct { *pulumi.OutputState }
+
+func (o ClusterDiagnosticsConfigOutput) BlobEndpoint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterDiagnosticsConfig) string {
+		return v.BlobEndpoint
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterDiagnosticsConfigOutput) ProtectedAccountKeyName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterDiagnosticsConfig) string {
+		return v.ProtectedAccountKeyName
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterDiagnosticsConfigOutput) QueueEndpoint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterDiagnosticsConfig) string {
+		return v.QueueEndpoint
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterDiagnosticsConfigOutput) StorageAccountName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterDiagnosticsConfig) string {
+		return v.StorageAccountName
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterDiagnosticsConfigOutput) TableEndpoint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterDiagnosticsConfig) string {
+		return v.TableEndpoint
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterDiagnosticsConfigOutput) ElementType() reflect.Type {
+	return clusterDiagnosticsConfigType
+}
+
+func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigOutput() ClusterDiagnosticsConfigOutput {
+	return o
+}
+
+func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigOutputWithContext(ctx context.Context) ClusterDiagnosticsConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterDiagnosticsConfigOutput{}) }
+
+type ClusterFabricSettings struct {
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Parameters *map[string]string `pulumi:"parameters"`
+}
+var clusterFabricSettingsType = reflect.TypeOf((*ClusterFabricSettings)(nil)).Elem()
+
+type ClusterFabricSettingsInput interface {
+	pulumi.Input
+
+	ToClusterFabricSettingsOutput() ClusterFabricSettingsOutput
+	ToClusterFabricSettingsOutputWithContext(ctx context.Context) ClusterFabricSettingsOutput
+}
+
+type ClusterFabricSettingsArgs struct {
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (ClusterFabricSettingsArgs) ElementType() reflect.Type {
+	return clusterFabricSettingsType
+}
+
+func (a ClusterFabricSettingsArgs) ToClusterFabricSettingsOutput() ClusterFabricSettingsOutput {
+	return pulumi.ToOutput(a).(ClusterFabricSettingsOutput)
+}
+
+func (a ClusterFabricSettingsArgs) ToClusterFabricSettingsOutputWithContext(ctx context.Context) ClusterFabricSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterFabricSettingsOutput)
+}
+
+type ClusterFabricSettingsOutput struct { *pulumi.OutputState }
+
+// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+func (o ClusterFabricSettingsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterFabricSettings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterFabricSettingsOutput) Parameters() pulumi.StringMapOutput {
+	return o.Apply(func(v ClusterFabricSettings) map[string]string {
+		if v.Parameters == nil { return *new(map[string]string) } else { return *v.Parameters }
+	}).(pulumi.StringMapOutput)
+}
+
+func (ClusterFabricSettingsOutput) ElementType() reflect.Type {
+	return clusterFabricSettingsType
+}
+
+func (o ClusterFabricSettingsOutput) ToClusterFabricSettingsOutput() ClusterFabricSettingsOutput {
+	return o
+}
+
+func (o ClusterFabricSettingsOutput) ToClusterFabricSettingsOutputWithContext(ctx context.Context) ClusterFabricSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterFabricSettingsOutput{}) }
+
+var clusterFabricSettingsArrayType = reflect.TypeOf((*[]ClusterFabricSettings)(nil)).Elem()
+
+type ClusterFabricSettingsArrayInput interface {
+	pulumi.Input
+
+	ToClusterFabricSettingsArrayOutput() ClusterFabricSettingsArrayOutput
+	ToClusterFabricSettingsArrayOutputWithContext(ctx context.Context) ClusterFabricSettingsArrayOutput
+}
+
+type ClusterFabricSettingsArrayArgs []ClusterFabricSettingsInput
+
+func (ClusterFabricSettingsArrayArgs) ElementType() reflect.Type {
+	return clusterFabricSettingsArrayType
+}
+
+func (a ClusterFabricSettingsArrayArgs) ToClusterFabricSettingsArrayOutput() ClusterFabricSettingsArrayOutput {
+	return pulumi.ToOutput(a).(ClusterFabricSettingsArrayOutput)
+}
+
+func (a ClusterFabricSettingsArrayArgs) ToClusterFabricSettingsArrayOutputWithContext(ctx context.Context) ClusterFabricSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterFabricSettingsArrayOutput)
+}
+
+type ClusterFabricSettingsArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterFabricSettingsArrayOutput) Index(i pulumi.IntInput) ClusterFabricSettingsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterFabricSettings {
+		return vs[0].([]ClusterFabricSettings)[vs[1].(int)]
+	}).(ClusterFabricSettingsOutput)
+}
+
+func (ClusterFabricSettingsArrayOutput) ElementType() reflect.Type {
+	return clusterFabricSettingsArrayType
+}
+
+func (o ClusterFabricSettingsArrayOutput) ToClusterFabricSettingsArrayOutput() ClusterFabricSettingsArrayOutput {
+	return o
+}
+
+func (o ClusterFabricSettingsArrayOutput) ToClusterFabricSettingsArrayOutputWithContext(ctx context.Context) ClusterFabricSettingsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterFabricSettingsArrayOutput{}) }
+
+type ClusterNodeTypes struct {
+	ApplicationPorts *ClusterNodeTypesApplicationPorts `pulumi:"applicationPorts"`
+	Capacities *map[string]string `pulumi:"capacities"`
+	ClientEndpointPort int `pulumi:"clientEndpointPort"`
+	DurabilityLevel *string `pulumi:"durabilityLevel"`
+	EphemeralPorts *ClusterNodeTypesEphemeralPorts `pulumi:"ephemeralPorts"`
+	HttpEndpointPort int `pulumi:"httpEndpointPort"`
+	InstanceCount int `pulumi:"instanceCount"`
+	IsPrimary bool `pulumi:"isPrimary"`
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	PlacementProperties *map[string]string `pulumi:"placementProperties"`
+	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
+}
+var clusterNodeTypesType = reflect.TypeOf((*ClusterNodeTypes)(nil)).Elem()
+
+type ClusterNodeTypesInput interface {
+	pulumi.Input
+
+	ToClusterNodeTypesOutput() ClusterNodeTypesOutput
+	ToClusterNodeTypesOutputWithContext(ctx context.Context) ClusterNodeTypesOutput
+}
+
+type ClusterNodeTypesArgs struct {
+	ApplicationPorts ClusterNodeTypesApplicationPortsInput `pulumi:"applicationPorts"`
+	Capacities pulumi.StringMapInput `pulumi:"capacities"`
+	ClientEndpointPort pulumi.IntInput `pulumi:"clientEndpointPort"`
+	DurabilityLevel pulumi.StringInput `pulumi:"durabilityLevel"`
+	EphemeralPorts ClusterNodeTypesEphemeralPortsInput `pulumi:"ephemeralPorts"`
+	HttpEndpointPort pulumi.IntInput `pulumi:"httpEndpointPort"`
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
+	ReverseProxyEndpointPort pulumi.IntInput `pulumi:"reverseProxyEndpointPort"`
+}
+
+func (ClusterNodeTypesArgs) ElementType() reflect.Type {
+	return clusterNodeTypesType
+}
+
+func (a ClusterNodeTypesArgs) ToClusterNodeTypesOutput() ClusterNodeTypesOutput {
+	return pulumi.ToOutput(a).(ClusterNodeTypesOutput)
+}
+
+func (a ClusterNodeTypesArgs) ToClusterNodeTypesOutputWithContext(ctx context.Context) ClusterNodeTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterNodeTypesOutput)
+}
+
+type ClusterNodeTypesOutput struct { *pulumi.OutputState }
+
+func (o ClusterNodeTypesOutput) ApplicationPorts() ClusterNodeTypesApplicationPortsOutput {
+	return o.Apply(func(v ClusterNodeTypes) ClusterNodeTypesApplicationPorts {
+		if v.ApplicationPorts == nil { return *new(ClusterNodeTypesApplicationPorts) } else { return *v.ApplicationPorts }
+	}).(ClusterNodeTypesApplicationPortsOutput)
+}
+
+func (o ClusterNodeTypesOutput) Capacities() pulumi.StringMapOutput {
+	return o.Apply(func(v ClusterNodeTypes) map[string]string {
+		if v.Capacities == nil { return *new(map[string]string) } else { return *v.Capacities }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ClusterNodeTypesOutput) ClientEndpointPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypes) int {
+		return v.ClientEndpointPort
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterNodeTypesOutput) DurabilityLevel() pulumi.StringOutput {
+	return o.Apply(func(v ClusterNodeTypes) string {
+		if v.DurabilityLevel == nil { return *new(string) } else { return *v.DurabilityLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNodeTypesOutput) EphemeralPorts() ClusterNodeTypesEphemeralPortsOutput {
+	return o.Apply(func(v ClusterNodeTypes) ClusterNodeTypesEphemeralPorts {
+		if v.EphemeralPorts == nil { return *new(ClusterNodeTypesEphemeralPorts) } else { return *v.EphemeralPorts }
+	}).(ClusterNodeTypesEphemeralPortsOutput)
+}
+
+func (o ClusterNodeTypesOutput) HttpEndpointPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypes) int {
+		return v.HttpEndpointPort
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterNodeTypesOutput) InstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypes) int {
+		return v.InstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterNodeTypesOutput) IsPrimary() pulumi.BoolOutput {
+	return o.Apply(func(v ClusterNodeTypes) bool {
+		return v.IsPrimary
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+func (o ClusterNodeTypesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ClusterNodeTypes) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNodeTypesOutput) PlacementProperties() pulumi.StringMapOutput {
+	return o.Apply(func(v ClusterNodeTypes) map[string]string {
+		if v.PlacementProperties == nil { return *new(map[string]string) } else { return *v.PlacementProperties }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ClusterNodeTypesOutput) ReverseProxyEndpointPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypes) int {
+		if v.ReverseProxyEndpointPort == nil { return *new(int) } else { return *v.ReverseProxyEndpointPort }
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterNodeTypesOutput) ElementType() reflect.Type {
+	return clusterNodeTypesType
+}
+
+func (o ClusterNodeTypesOutput) ToClusterNodeTypesOutput() ClusterNodeTypesOutput {
+	return o
+}
+
+func (o ClusterNodeTypesOutput) ToClusterNodeTypesOutputWithContext(ctx context.Context) ClusterNodeTypesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterNodeTypesOutput{}) }
+
+type ClusterNodeTypesApplicationPorts struct {
+	EndPort int `pulumi:"endPort"`
+	StartPort int `pulumi:"startPort"`
+}
+var clusterNodeTypesApplicationPortsType = reflect.TypeOf((*ClusterNodeTypesApplicationPorts)(nil)).Elem()
+
+type ClusterNodeTypesApplicationPortsInput interface {
+	pulumi.Input
+
+	ToClusterNodeTypesApplicationPortsOutput() ClusterNodeTypesApplicationPortsOutput
+	ToClusterNodeTypesApplicationPortsOutputWithContext(ctx context.Context) ClusterNodeTypesApplicationPortsOutput
+}
+
+type ClusterNodeTypesApplicationPortsArgs struct {
+	EndPort pulumi.IntInput `pulumi:"endPort"`
+	StartPort pulumi.IntInput `pulumi:"startPort"`
+}
+
+func (ClusterNodeTypesApplicationPortsArgs) ElementType() reflect.Type {
+	return clusterNodeTypesApplicationPortsType
+}
+
+func (a ClusterNodeTypesApplicationPortsArgs) ToClusterNodeTypesApplicationPortsOutput() ClusterNodeTypesApplicationPortsOutput {
+	return pulumi.ToOutput(a).(ClusterNodeTypesApplicationPortsOutput)
+}
+
+func (a ClusterNodeTypesApplicationPortsArgs) ToClusterNodeTypesApplicationPortsOutputWithContext(ctx context.Context) ClusterNodeTypesApplicationPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterNodeTypesApplicationPortsOutput)
+}
+
+type ClusterNodeTypesApplicationPortsOutput struct { *pulumi.OutputState }
+
+func (o ClusterNodeTypesApplicationPortsOutput) EndPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypesApplicationPorts) int {
+		return v.EndPort
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterNodeTypesApplicationPortsOutput) StartPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypesApplicationPorts) int {
+		return v.StartPort
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterNodeTypesApplicationPortsOutput) ElementType() reflect.Type {
+	return clusterNodeTypesApplicationPortsType
+}
+
+func (o ClusterNodeTypesApplicationPortsOutput) ToClusterNodeTypesApplicationPortsOutput() ClusterNodeTypesApplicationPortsOutput {
+	return o
+}
+
+func (o ClusterNodeTypesApplicationPortsOutput) ToClusterNodeTypesApplicationPortsOutputWithContext(ctx context.Context) ClusterNodeTypesApplicationPortsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterNodeTypesApplicationPortsOutput{}) }
+
+var clusterNodeTypesArrayType = reflect.TypeOf((*[]ClusterNodeTypes)(nil)).Elem()
+
+type ClusterNodeTypesArrayInput interface {
+	pulumi.Input
+
+	ToClusterNodeTypesArrayOutput() ClusterNodeTypesArrayOutput
+	ToClusterNodeTypesArrayOutputWithContext(ctx context.Context) ClusterNodeTypesArrayOutput
+}
+
+type ClusterNodeTypesArrayArgs []ClusterNodeTypesInput
+
+func (ClusterNodeTypesArrayArgs) ElementType() reflect.Type {
+	return clusterNodeTypesArrayType
+}
+
+func (a ClusterNodeTypesArrayArgs) ToClusterNodeTypesArrayOutput() ClusterNodeTypesArrayOutput {
+	return pulumi.ToOutput(a).(ClusterNodeTypesArrayOutput)
+}
+
+func (a ClusterNodeTypesArrayArgs) ToClusterNodeTypesArrayOutputWithContext(ctx context.Context) ClusterNodeTypesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterNodeTypesArrayOutput)
+}
+
+type ClusterNodeTypesArrayOutput struct { *pulumi.OutputState }
+
+func (o ClusterNodeTypesArrayOutput) Index(i pulumi.IntInput) ClusterNodeTypesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ClusterNodeTypes {
+		return vs[0].([]ClusterNodeTypes)[vs[1].(int)]
+	}).(ClusterNodeTypesOutput)
+}
+
+func (ClusterNodeTypesArrayOutput) ElementType() reflect.Type {
+	return clusterNodeTypesArrayType
+}
+
+func (o ClusterNodeTypesArrayOutput) ToClusterNodeTypesArrayOutput() ClusterNodeTypesArrayOutput {
+	return o
+}
+
+func (o ClusterNodeTypesArrayOutput) ToClusterNodeTypesArrayOutputWithContext(ctx context.Context) ClusterNodeTypesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterNodeTypesArrayOutput{}) }
+
+type ClusterNodeTypesEphemeralPorts struct {
+	EndPort int `pulumi:"endPort"`
+	StartPort int `pulumi:"startPort"`
+}
+var clusterNodeTypesEphemeralPortsType = reflect.TypeOf((*ClusterNodeTypesEphemeralPorts)(nil)).Elem()
+
+type ClusterNodeTypesEphemeralPortsInput interface {
+	pulumi.Input
+
+	ToClusterNodeTypesEphemeralPortsOutput() ClusterNodeTypesEphemeralPortsOutput
+	ToClusterNodeTypesEphemeralPortsOutputWithContext(ctx context.Context) ClusterNodeTypesEphemeralPortsOutput
+}
+
+type ClusterNodeTypesEphemeralPortsArgs struct {
+	EndPort pulumi.IntInput `pulumi:"endPort"`
+	StartPort pulumi.IntInput `pulumi:"startPort"`
+}
+
+func (ClusterNodeTypesEphemeralPortsArgs) ElementType() reflect.Type {
+	return clusterNodeTypesEphemeralPortsType
+}
+
+func (a ClusterNodeTypesEphemeralPortsArgs) ToClusterNodeTypesEphemeralPortsOutput() ClusterNodeTypesEphemeralPortsOutput {
+	return pulumi.ToOutput(a).(ClusterNodeTypesEphemeralPortsOutput)
+}
+
+func (a ClusterNodeTypesEphemeralPortsArgs) ToClusterNodeTypesEphemeralPortsOutputWithContext(ctx context.Context) ClusterNodeTypesEphemeralPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterNodeTypesEphemeralPortsOutput)
+}
+
+type ClusterNodeTypesEphemeralPortsOutput struct { *pulumi.OutputState }
+
+func (o ClusterNodeTypesEphemeralPortsOutput) EndPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypesEphemeralPorts) int {
+		return v.EndPort
+	}).(pulumi.IntOutput)
+}
+
+func (o ClusterNodeTypesEphemeralPortsOutput) StartPort() pulumi.IntOutput {
+	return o.Apply(func(v ClusterNodeTypesEphemeralPorts) int {
+		return v.StartPort
+	}).(pulumi.IntOutput)
+}
+
+func (ClusterNodeTypesEphemeralPortsOutput) ElementType() reflect.Type {
+	return clusterNodeTypesEphemeralPortsType
+}
+
+func (o ClusterNodeTypesEphemeralPortsOutput) ToClusterNodeTypesEphemeralPortsOutput() ClusterNodeTypesEphemeralPortsOutput {
+	return o
+}
+
+func (o ClusterNodeTypesEphemeralPortsOutput) ToClusterNodeTypesEphemeralPortsOutputWithContext(ctx context.Context) ClusterNodeTypesEphemeralPortsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterNodeTypesEphemeralPortsOutput{}) }
+
+type ClusterReverseProxyCertificate struct {
+	Thumbprint string `pulumi:"thumbprint"`
+	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
+	X509StoreName string `pulumi:"x509StoreName"`
+}
+var clusterReverseProxyCertificateType = reflect.TypeOf((*ClusterReverseProxyCertificate)(nil)).Elem()
+
+type ClusterReverseProxyCertificateInput interface {
+	pulumi.Input
+
+	ToClusterReverseProxyCertificateOutput() ClusterReverseProxyCertificateOutput
+	ToClusterReverseProxyCertificateOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateOutput
+}
+
+type ClusterReverseProxyCertificateArgs struct {
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	ThumbprintSecondary pulumi.StringInput `pulumi:"thumbprintSecondary"`
+	X509StoreName pulumi.StringInput `pulumi:"x509StoreName"`
+}
+
+func (ClusterReverseProxyCertificateArgs) ElementType() reflect.Type {
+	return clusterReverseProxyCertificateType
+}
+
+func (a ClusterReverseProxyCertificateArgs) ToClusterReverseProxyCertificateOutput() ClusterReverseProxyCertificateOutput {
+	return pulumi.ToOutput(a).(ClusterReverseProxyCertificateOutput)
+}
+
+func (a ClusterReverseProxyCertificateArgs) ToClusterReverseProxyCertificateOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ClusterReverseProxyCertificateOutput)
+}
+
+type ClusterReverseProxyCertificateOutput struct { *pulumi.OutputState }
+
+func (o ClusterReverseProxyCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.Apply(func(v ClusterReverseProxyCertificate) string {
+		return v.Thumbprint
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterReverseProxyCertificateOutput) ThumbprintSecondary() pulumi.StringOutput {
+	return o.Apply(func(v ClusterReverseProxyCertificate) string {
+		if v.ThumbprintSecondary == nil { return *new(string) } else { return *v.ThumbprintSecondary }
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterReverseProxyCertificateOutput) X509StoreName() pulumi.StringOutput {
+	return o.Apply(func(v ClusterReverseProxyCertificate) string {
+		return v.X509StoreName
+	}).(pulumi.StringOutput)
+}
+
+func (ClusterReverseProxyCertificateOutput) ElementType() reflect.Type {
+	return clusterReverseProxyCertificateType
+}
+
+func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificateOutput() ClusterReverseProxyCertificateOutput {
+	return o
+}
+
+func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificateOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ClusterReverseProxyCertificateOutput{}) }
+

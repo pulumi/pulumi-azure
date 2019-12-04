@@ -12,12 +12,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_network_mapping.html.markdown.
 type NetworkMapping struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the network mapping.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the vault that should be updated.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// Name of the resource group where the vault that should be updated is located.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The id of the primary network.
+	SourceNetworkId pulumi.StringOutput `pulumi:"sourceNetworkId"`
+
+	// Specifies the ASR fabric where mapping should be created.
+	SourceRecoveryFabricName pulumi.StringOutput `pulumi:"sourceRecoveryFabricName"`
+
+	// The id of the recovery network.
+	TargetNetworkId pulumi.StringOutput `pulumi:"targetNetworkId"`
+
+	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+	TargetRecoveryFabricName pulumi.StringOutput `pulumi:"targetRecoveryFabricName"`
 }
 
 // NewNetworkMapping registers a new resource with the given unique name, arguments, and options.
 func NewNetworkMapping(ctx *pulumi.Context,
-	name string, args *NetworkMappingArgs, opts ...pulumi.ResourceOpt) (*NetworkMapping, error) {
+	name string, args *NetworkMappingArgs, opts ...pulumi.ResourceOption) (*NetworkMapping, error) {
 	if args == nil || args.RecoveryVaultName == nil {
 		return nil, errors.New("missing required argument 'RecoveryVaultName'")
 	}
@@ -36,129 +57,78 @@ func NewNetworkMapping(ctx *pulumi.Context,
 	if args == nil || args.TargetRecoveryFabricName == nil {
 		return nil, errors.New("missing required argument 'TargetRecoveryFabricName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sourceNetworkId"] = nil
-		inputs["sourceRecoveryFabricName"] = nil
-		inputs["targetNetworkId"] = nil
-		inputs["targetRecoveryFabricName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sourceNetworkId"] = args.SourceNetworkId
-		inputs["sourceRecoveryFabricName"] = args.SourceRecoveryFabricName
-		inputs["targetNetworkId"] = args.TargetNetworkId
-		inputs["targetRecoveryFabricName"] = args.TargetRecoveryFabricName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SourceNetworkId; i != nil { inputs["sourceNetworkId"] = i.ToStringOutput() }
+		if i := args.SourceRecoveryFabricName; i != nil { inputs["sourceRecoveryFabricName"] = i.ToStringOutput() }
+		if i := args.TargetNetworkId; i != nil { inputs["targetNetworkId"] = i.ToStringOutput() }
+		if i := args.TargetRecoveryFabricName; i != nil { inputs["targetRecoveryFabricName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/networkMapping:NetworkMapping", name, true, inputs, opts...)
+	var resource NetworkMapping
+	err := ctx.RegisterResource("azure:recoveryservices/networkMapping:NetworkMapping", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkMapping{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkMapping gets an existing NetworkMapping resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkMapping(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkMappingState, opts ...pulumi.ResourceOpt) (*NetworkMapping, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkMappingState, opts ...pulumi.ResourceOption) (*NetworkMapping, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sourceNetworkId"] = state.SourceNetworkId
-		inputs["sourceRecoveryFabricName"] = state.SourceRecoveryFabricName
-		inputs["targetNetworkId"] = state.TargetNetworkId
-		inputs["targetRecoveryFabricName"] = state.TargetRecoveryFabricName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SourceNetworkId; i != nil { inputs["sourceNetworkId"] = i.ToStringOutput() }
+		if i := state.SourceRecoveryFabricName; i != nil { inputs["sourceRecoveryFabricName"] = i.ToStringOutput() }
+		if i := state.TargetNetworkId; i != nil { inputs["targetNetworkId"] = i.ToStringOutput() }
+		if i := state.TargetRecoveryFabricName; i != nil { inputs["targetRecoveryFabricName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/networkMapping:NetworkMapping", name, id, inputs, opts...)
+	var resource NetworkMapping
+	err := ctx.ReadResource("azure:recoveryservices/networkMapping:NetworkMapping", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkMapping{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkMapping) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkMapping) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the network mapping.
-func (r *NetworkMapping) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the vault that should be updated.
-func (r *NetworkMapping) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// Name of the resource group where the vault that should be updated is located.
-func (r *NetworkMapping) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The id of the primary network.
-func (r *NetworkMapping) SourceNetworkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceNetworkId"])
-}
-
-// Specifies the ASR fabric where mapping should be created.
-func (r *NetworkMapping) SourceRecoveryFabricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceRecoveryFabricName"])
-}
-
-// The id of the recovery network.
-func (r *NetworkMapping) TargetNetworkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetNetworkId"])
-}
-
-// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
-func (r *NetworkMapping) TargetRecoveryFabricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetRecoveryFabricName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkMapping resources.
 type NetworkMappingState struct {
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The id of the primary network.
-	SourceNetworkId interface{}
+	SourceNetworkId pulumi.StringInput `pulumi:"sourceNetworkId"`
 	// Specifies the ASR fabric where mapping should be created.
-	SourceRecoveryFabricName interface{}
+	SourceRecoveryFabricName pulumi.StringInput `pulumi:"sourceRecoveryFabricName"`
 	// The id of the recovery network.
-	TargetNetworkId interface{}
+	TargetNetworkId pulumi.StringInput `pulumi:"targetNetworkId"`
 	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
-	TargetRecoveryFabricName interface{}
+	TargetRecoveryFabricName pulumi.StringInput `pulumi:"targetRecoveryFabricName"`
 }
 
 // The set of arguments for constructing a NetworkMapping resource.
 type NetworkMappingArgs struct {
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The id of the primary network.
-	SourceNetworkId interface{}
+	SourceNetworkId pulumi.StringInput `pulumi:"sourceNetworkId"`
 	// Specifies the ASR fabric where mapping should be created.
-	SourceRecoveryFabricName interface{}
+	SourceRecoveryFabricName pulumi.StringInput `pulumi:"sourceRecoveryFabricName"`
 	// The id of the recovery network.
-	TargetNetworkId interface{}
+	TargetNetworkId pulumi.StringInput `pulumi:"targetNetworkId"`
 	// The Azure Site Recovery fabric object corresponding to the recovery Azure region.
-	TargetRecoveryFabricName interface{}
+	TargetRecoveryFabricName pulumi.StringInput `pulumi:"targetRecoveryFabricName"`
 }

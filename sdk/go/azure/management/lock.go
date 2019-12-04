@@ -12,105 +12,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
 type Lock struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+	LockLevel pulumi.StringOutput `pulumi:"lockLevel"`
+
+	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+	Notes pulumi.StringOutput `pulumi:"notes"`
+
+	// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
+	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewLock registers a new resource with the given unique name, arguments, and options.
 func NewLock(ctx *pulumi.Context,
-	name string, args *LockArgs, opts ...pulumi.ResourceOpt) (*Lock, error) {
+	name string, args *LockArgs, opts ...pulumi.ResourceOption) (*Lock, error) {
 	if args == nil || args.LockLevel == nil {
 		return nil, errors.New("missing required argument 'LockLevel'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["lockLevel"] = nil
-		inputs["name"] = nil
-		inputs["notes"] = nil
-		inputs["scope"] = nil
-	} else {
-		inputs["lockLevel"] = args.LockLevel
-		inputs["name"] = args.Name
-		inputs["notes"] = args.Notes
-		inputs["scope"] = args.Scope
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.LockLevel; i != nil { inputs["lockLevel"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Notes; i != nil { inputs["notes"] = i.ToStringOutput() }
+		if i := args.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:management/lock:Lock", name, true, inputs, opts...)
+	var resource Lock
+	err := ctx.RegisterResource("azure:management/lock:Lock", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Lock{s: s}, nil
+	return &resource, nil
 }
 
 // GetLock gets an existing Lock resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLock(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LockState, opts ...pulumi.ResourceOpt) (*Lock, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LockState, opts ...pulumi.ResourceOption) (*Lock, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["lockLevel"] = state.LockLevel
-		inputs["name"] = state.Name
-		inputs["notes"] = state.Notes
-		inputs["scope"] = state.Scope
+		if i := state.LockLevel; i != nil { inputs["lockLevel"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Notes; i != nil { inputs["notes"] = i.ToStringOutput() }
+		if i := state.Scope; i != nil { inputs["scope"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:management/lock:Lock", name, id, inputs, opts...)
+	var resource Lock
+	err := ctx.ReadResource("azure:management/lock:Lock", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Lock{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Lock) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Lock) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
-func (r *Lock) LockLevel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["lockLevel"])
-}
-
-// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
-func (r *Lock) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
-func (r *Lock) Notes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notes"])
-}
-
-// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
-func (r *Lock) Scope() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scope"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Lock resources.
 type LockState struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
-	LockLevel interface{}
+	LockLevel pulumi.StringInput `pulumi:"lockLevel"`
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
-	Notes interface{}
+	Notes pulumi.StringInput `pulumi:"notes"`
 	// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Lock resource.
 type LockArgs struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
-	LockLevel interface{}
+	LockLevel pulumi.StringInput `pulumi:"lockLevel"`
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
-	Notes interface{}
+	Notes pulumi.StringInput `pulumi:"notes"`
 	// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
-	Scope interface{}
+	Scope pulumi.StringInput `pulumi:"scope"`
 }

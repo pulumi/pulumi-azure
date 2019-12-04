@@ -12,12 +12,29 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation_policy.html.markdown.
 type ApiOperationPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+	ApiName pulumi.StringOutput `pulumi:"apiName"`
+
+	OperationId pulumi.StringOutput `pulumi:"operationId"`
+
+	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The XML Content for this Policy.
+	XmlContent pulumi.StringOutput `pulumi:"xmlContent"`
+
+	// A link to a Policy XML Document, which must be publicly available.
+	XmlLink pulumi.StringOutput `pulumi:"xmlLink"`
 }
 
 // NewApiOperationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewApiOperationPolicy(ctx *pulumi.Context,
-	name string, args *ApiOperationPolicyArgs, opts ...pulumi.ResourceOpt) (*ApiOperationPolicy, error) {
+	name string, args *ApiOperationPolicyArgs, opts ...pulumi.ResourceOption) (*ApiOperationPolicy, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -30,114 +47,70 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["apiName"] = nil
-		inputs["operationId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["xmlContent"] = nil
-		inputs["xmlLink"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["apiName"] = args.ApiName
-		inputs["operationId"] = args.OperationId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["xmlContent"] = args.XmlContent
-		inputs["xmlLink"] = args.XmlLink
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.ApiName; i != nil { inputs["apiName"] = i.ToStringOutput() }
+		if i := args.OperationId; i != nil { inputs["operationId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.XmlContent; i != nil { inputs["xmlContent"] = i.ToStringOutput() }
+		if i := args.XmlLink; i != nil { inputs["xmlLink"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, true, inputs, opts...)
+	var resource ApiOperationPolicy
+	err := ctx.RegisterResource("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiOperationPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetApiOperationPolicy gets an existing ApiOperationPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApiOperationPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApiOperationPolicyState, opts ...pulumi.ResourceOpt) (*ApiOperationPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApiOperationPolicyState, opts ...pulumi.ResourceOption) (*ApiOperationPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["apiName"] = state.ApiName
-		inputs["operationId"] = state.OperationId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["xmlContent"] = state.XmlContent
-		inputs["xmlLink"] = state.XmlLink
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.ApiName; i != nil { inputs["apiName"] = i.ToStringOutput() }
+		if i := state.OperationId; i != nil { inputs["operationId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.XmlContent; i != nil { inputs["xmlContent"] = i.ToStringOutput() }
+		if i := state.XmlLink; i != nil { inputs["xmlLink"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, id, inputs, opts...)
+	var resource ApiOperationPolicy
+	err := ctx.ReadResource("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiOperationPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApiOperationPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApiOperationPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *ApiOperationPolicy) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-func (r *ApiOperationPolicy) ApiName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiName"])
-}
-
-func (r *ApiOperationPolicy) OperationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["operationId"])
-}
-
-// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-func (r *ApiOperationPolicy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The XML Content for this Policy.
-func (r *ApiOperationPolicy) XmlContent() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["xmlContent"])
-}
-
-// A link to a Policy XML Document, which must be publicly available.
-func (r *ApiOperationPolicy) XmlLink() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["xmlLink"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApiOperationPolicy resources.
 type ApiOperationPolicyState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName interface{}
-	OperationId interface{}
+	ApiName pulumi.StringInput `pulumi:"apiName"`
+	OperationId pulumi.StringInput `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The XML Content for this Policy.
-	XmlContent interface{}
+	XmlContent pulumi.StringInput `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
-	XmlLink interface{}
+	XmlLink pulumi.StringInput `pulumi:"xmlLink"`
 }
 
 // The set of arguments for constructing a ApiOperationPolicy resource.
 type ApiOperationPolicyArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
-	ApiName interface{}
-	OperationId interface{}
+	ApiName pulumi.StringInput `pulumi:"apiName"`
+	OperationId pulumi.StringInput `pulumi:"operationId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The XML Content for this Policy.
-	XmlContent interface{}
+	XmlContent pulumi.StringInput `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
-	XmlLink interface{}
+	XmlLink pulumi.StringInput `pulumi:"xmlLink"`
 }

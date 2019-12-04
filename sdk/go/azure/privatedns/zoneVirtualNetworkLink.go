@@ -12,12 +12,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_zone_virtual_network_link.html.markdown.
 type ZoneVirtualNetworkLink struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+	PrivateDnsZoneName pulumi.StringOutput `pulumi:"privateDnsZoneName"`
+
+	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
+	RegistrationEnabled pulumi.BoolOutput `pulumi:"registrationEnabled"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewZoneVirtualNetworkLink registers a new resource with the given unique name, arguments, and options.
 func NewZoneVirtualNetworkLink(ctx *pulumi.Context,
-	name string, args *ZoneVirtualNetworkLinkArgs, opts ...pulumi.ResourceOpt) (*ZoneVirtualNetworkLink, error) {
+	name string, args *ZoneVirtualNetworkLinkArgs, opts ...pulumi.ResourceOption) (*ZoneVirtualNetworkLink, error) {
 	if args == nil || args.PrivateDnsZoneName == nil {
 		return nil, errors.New("missing required argument 'PrivateDnsZoneName'")
 	}
@@ -27,117 +45,72 @@ func NewZoneVirtualNetworkLink(ctx *pulumi.Context,
 	if args == nil || args.VirtualNetworkId == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["privateDnsZoneName"] = nil
-		inputs["registrationEnabled"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["virtualNetworkId"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["privateDnsZoneName"] = args.PrivateDnsZoneName
-		inputs["registrationEnabled"] = args.RegistrationEnabled
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["virtualNetworkId"] = args.VirtualNetworkId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PrivateDnsZoneName; i != nil { inputs["privateDnsZoneName"] = i.ToStringOutput() }
+		if i := args.RegistrationEnabled; i != nil { inputs["registrationEnabled"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VirtualNetworkId; i != nil { inputs["virtualNetworkId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, true, inputs, opts...)
+	var resource ZoneVirtualNetworkLink
+	err := ctx.RegisterResource("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ZoneVirtualNetworkLink{s: s}, nil
+	return &resource, nil
 }
 
 // GetZoneVirtualNetworkLink gets an existing ZoneVirtualNetworkLink resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetZoneVirtualNetworkLink(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ZoneVirtualNetworkLinkState, opts ...pulumi.ResourceOpt) (*ZoneVirtualNetworkLink, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ZoneVirtualNetworkLinkState, opts ...pulumi.ResourceOption) (*ZoneVirtualNetworkLink, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["privateDnsZoneName"] = state.PrivateDnsZoneName
-		inputs["registrationEnabled"] = state.RegistrationEnabled
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["virtualNetworkId"] = state.VirtualNetworkId
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrivateDnsZoneName; i != nil { inputs["privateDnsZoneName"] = i.ToStringOutput() }
+		if i := state.RegistrationEnabled; i != nil { inputs["registrationEnabled"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VirtualNetworkId; i != nil { inputs["virtualNetworkId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, id, inputs, opts...)
+	var resource ZoneVirtualNetworkLink
+	err := ctx.ReadResource("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ZoneVirtualNetworkLink{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ZoneVirtualNetworkLink) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ZoneVirtualNetworkLink) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) PrivateDnsZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["privateDnsZoneName"])
-}
-
-// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
-func (r *ZoneVirtualNetworkLink) RegistrationEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["registrationEnabled"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ZoneVirtualNetworkLink) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
-func (r *ZoneVirtualNetworkLink) VirtualNetworkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualNetworkId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ZoneVirtualNetworkLink resources.
 type ZoneVirtualNetworkLinkState struct {
 	// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
-	PrivateDnsZoneName interface{}
+	PrivateDnsZoneName pulumi.StringInput `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
-	RegistrationEnabled interface{}
+	RegistrationEnabled pulumi.BoolInput `pulumi:"registrationEnabled"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
-	VirtualNetworkId interface{}
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a ZoneVirtualNetworkLink resource.
 type ZoneVirtualNetworkLinkArgs struct {
 	// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
-	PrivateDnsZoneName interface{}
+	PrivateDnsZoneName pulumi.StringInput `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
-	RegistrationEnabled interface{}
+	RegistrationEnabled pulumi.BoolInput `pulumi:"registrationEnabled"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
-	VirtualNetworkId interface{}
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
 }

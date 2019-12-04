@@ -10,58 +10,42 @@ import (
 // Use this data source to access information about an existing Subnet within a Virtual Network.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
-func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["virtualNetworkName"] = args.VirtualNetworkName
-	}
-	outputs, err := ctx.Invoke("azure:network/getSubnet:getSubnet", inputs)
+func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs, opts ...pulumi.InvokeOption) (*GetSubnetResult, error) {
+	var rv GetSubnetResult
+	err := ctx.Invoke("azure:network/getSubnet:getSubnet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSubnetResult{
-		AddressPrefix: outputs["addressPrefix"],
-		EnforcePrivateLinkServiceNetworkPolicies: outputs["enforcePrivateLinkServiceNetworkPolicies"],
-		IpConfigurations: outputs["ipConfigurations"],
-		Name: outputs["name"],
-		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		RouteTableId: outputs["routeTableId"],
-		ServiceEndpoints: outputs["serviceEndpoints"],
-		VirtualNetworkName: outputs["virtualNetworkName"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSubnet.
 type GetSubnetArgs struct {
 	// Specifies the name of the Subnet.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Virtual Network is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Virtual Network this Subnet is located within.
-	VirtualNetworkName interface{}
+	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
 
 // A collection of values returned by getSubnet.
 type GetSubnetResult struct {
 	// The address prefix used for the subnet.
-	AddressPrefix interface{}
+	AddressPrefix string `pulumi:"addressPrefix"`
 	// Enable or Disable network policies on private link service in the subnet.
-	EnforcePrivateLinkServiceNetworkPolicies interface{}
+	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations interface{}
-	Name interface{}
+	IpConfigurations []string `pulumi:"ipConfigurations"`
+	Name string `pulumi:"name"`
 	// The ID of the Network Security Group associated with the subnet.
-	NetworkSecurityGroupId interface{}
-	ResourceGroupName interface{}
+	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Route Table associated with this subnet.
-	RouteTableId interface{}
+	RouteTableId string `pulumi:"routeTableId"`
 	// A list of Service Endpoints within this subnet.
-	ServiceEndpoints interface{}
-	VirtualNetworkName interface{}
+	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
+	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

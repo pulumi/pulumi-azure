@@ -10,12 +10,27 @@ import (
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal_password.html.markdown.
 type ServicePrincipalPassword struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
+	EndDate pulumi.StringOutput `pulumi:"endDate"`
+
+	// A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
+	KeyId pulumi.StringOutput `pulumi:"keyId"`
+
+	// The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
+	ServicePrincipalId pulumi.StringOutput `pulumi:"servicePrincipalId"`
+
+	// The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
+	StartDate pulumi.StringOutput `pulumi:"startDate"`
+
+	// The Password for this Service Principal.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewServicePrincipalPassword registers a new resource with the given unique name, arguments, and options.
 func NewServicePrincipalPassword(ctx *pulumi.Context,
-	name string, args *ServicePrincipalPasswordArgs, opts ...pulumi.ResourceOpt) (*ServicePrincipalPassword, error) {
+	name string, args *ServicePrincipalPasswordArgs, opts ...pulumi.ResourceOption) (*ServicePrincipalPassword, error) {
 	if args == nil || args.EndDate == nil {
 		return nil, errors.New("missing required argument 'EndDate'")
 	}
@@ -25,105 +40,66 @@ func NewServicePrincipalPassword(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["endDate"] = nil
-		inputs["keyId"] = nil
-		inputs["servicePrincipalId"] = nil
-		inputs["startDate"] = nil
-		inputs["value"] = nil
-	} else {
-		inputs["endDate"] = args.EndDate
-		inputs["keyId"] = args.KeyId
-		inputs["servicePrincipalId"] = args.ServicePrincipalId
-		inputs["startDate"] = args.StartDate
-		inputs["value"] = args.Value
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EndDate; i != nil { inputs["endDate"] = i.ToStringOutput() }
+		if i := args.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := args.ServicePrincipalId; i != nil { inputs["servicePrincipalId"] = i.ToStringOutput() }
+		if i := args.StartDate; i != nil { inputs["startDate"] = i.ToStringOutput() }
+		if i := args.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:ad/servicePrincipalPassword:ServicePrincipalPassword", name, true, inputs, opts...)
+	var resource ServicePrincipalPassword
+	err := ctx.RegisterResource("azure:ad/servicePrincipalPassword:ServicePrincipalPassword", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ServicePrincipalPassword{s: s}, nil
+	return &resource, nil
 }
 
 // GetServicePrincipalPassword gets an existing ServicePrincipalPassword resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetServicePrincipalPassword(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServicePrincipalPasswordState, opts ...pulumi.ResourceOpt) (*ServicePrincipalPassword, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServicePrincipalPasswordState, opts ...pulumi.ResourceOption) (*ServicePrincipalPassword, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["endDate"] = state.EndDate
-		inputs["keyId"] = state.KeyId
-		inputs["servicePrincipalId"] = state.ServicePrincipalId
-		inputs["startDate"] = state.StartDate
-		inputs["value"] = state.Value
+		if i := state.EndDate; i != nil { inputs["endDate"] = i.ToStringOutput() }
+		if i := state.KeyId; i != nil { inputs["keyId"] = i.ToStringOutput() }
+		if i := state.ServicePrincipalId; i != nil { inputs["servicePrincipalId"] = i.ToStringOutput() }
+		if i := state.StartDate; i != nil { inputs["startDate"] = i.ToStringOutput() }
+		if i := state.Value; i != nil { inputs["value"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:ad/servicePrincipalPassword:ServicePrincipalPassword", name, id, inputs, opts...)
+	var resource ServicePrincipalPassword
+	err := ctx.ReadResource("azure:ad/servicePrincipalPassword:ServicePrincipalPassword", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ServicePrincipalPassword{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ServicePrincipalPassword) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ServicePrincipalPassword) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) EndDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endDate"])
-}
-
-// A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) KeyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyId"])
-}
-
-// The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) ServicePrincipalId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["servicePrincipalId"])
-}
-
-// The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
-func (r *ServicePrincipalPassword) StartDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startDate"])
-}
-
-// The Password for this Service Principal.
-func (r *ServicePrincipalPassword) Value() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["value"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ServicePrincipalPassword resources.
 type ServicePrincipalPasswordState struct {
 	// The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
-	EndDate interface{}
+	EndDate pulumi.StringInput `pulumi:"endDate"`
 	// A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
-	ServicePrincipalId interface{}
+	ServicePrincipalId pulumi.StringInput `pulumi:"servicePrincipalId"`
 	// The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
-	StartDate interface{}
+	StartDate pulumi.StringInput `pulumi:"startDate"`
 	// The Password for this Service Principal.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ServicePrincipalPassword resource.
 type ServicePrincipalPasswordArgs struct {
 	// The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
-	EndDate interface{}
+	EndDate pulumi.StringInput `pulumi:"endDate"`
 	// A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
-	KeyId interface{}
+	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
-	ServicePrincipalId interface{}
+	ServicePrincipalId pulumi.StringInput `pulumi:"servicePrincipalId"`
 	// The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
-	StartDate interface{}
+	StartDate pulumi.StringInput `pulumi:"startDate"`
 	// The Password for this Service Principal.
-	Value interface{}
+	Value pulumi.StringInput `pulumi:"value"`
 }

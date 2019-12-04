@@ -10,55 +10,40 @@ import (
 // Use this data source to access information about an existing Data Lake Store.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
-func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:datalake/getStore:getStore", inputs)
+func LookupStore(ctx *pulumi.Context, args *GetStoreArgs, opts ...pulumi.InvokeOption) (*GetStoreResult, error) {
+	var rv GetStoreResult
+	err := ctx.Invoke("azure:datalake/getStore:getStore", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetStoreResult{
-		EncryptionState: outputs["encryptionState"],
-		EncryptionType: outputs["encryptionType"],
-		FirewallAllowAzureIps: outputs["firewallAllowAzureIps"],
-		FirewallState: outputs["firewallState"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Tier: outputs["tier"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getStore.
 type GetStoreArgs struct {
 	// The name of the Data Lake Store.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the Data Lake Store exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getStore.
 type GetStoreResult struct {
 	// the Encryption State of this Data Lake Store Account, such as `Enabled` or `Disabled`.
-	EncryptionState interface{}
+	EncryptionState string `pulumi:"encryptionState"`
 	// the Encryption Type used for this Data Lake Store Account.
-	EncryptionType interface{}
+	EncryptionType string `pulumi:"encryptionType"`
 	// are Azure Service IP's allowed through the firewall?
-	FirewallAllowAzureIps interface{}
+	FirewallAllowAzureIps string `pulumi:"firewallAllowAzureIps"`
 	// the state of the firewall, such as `Enabled` or `Disabled`.
-	FirewallState interface{}
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	FirewallState string `pulumi:"firewallState"`
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Data Lake Store.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Current monthly commitment tier for the account.
-	Tier interface{}
+	Tier string `pulumi:"tier"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

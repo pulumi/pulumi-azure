@@ -4,6 +4,8 @@
 package containerservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,57 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_group.html.markdown.
 type Group struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+	Containers GroupContainersArrayOutput `pulumi:"containers"`
+
+	// A `diagnostics` block as documented below.
+	Diagnostics GroupDiagnosticsOutput `pulumi:"diagnostics"`
+
+	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+	DnsNameLabel pulumi.StringOutput `pulumi:"dnsNameLabel"`
+
+	// The FQDN of the container group derived from `dnsNameLabel`.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// An `identity` block as defined below.
+	Identity GroupIdentityOutput `pulumi:"identity"`
+
+	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	ImageRegistryCredentials GroupImageRegistryCredentialsArrayOutput `pulumi:"imageRegistryCredentials"`
+
+	// The IP address allocated to the container group.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+
+	// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Network profile ID for deploying to virtual network.
+	NetworkProfileId pulumi.StringOutput `pulumi:"networkProfileId"`
+
+	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+	OsType pulumi.StringOutput `pulumi:"osType"`
+
+	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+	RestartPolicy pulumi.StringOutput `pulumi:"restartPolicy"`
+
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
-	name string, args *GroupArgs, opts ...pulumi.ResourceOpt) (*Group, error) {
+	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
 	if args == nil || args.Containers == nil {
 		return nil, errors.New("missing required argument 'Containers'")
 	}
@@ -27,219 +74,1348 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["containers"] = nil
-		inputs["diagnostics"] = nil
-		inputs["dnsNameLabel"] = nil
-		inputs["identity"] = nil
-		inputs["imageRegistryCredentials"] = nil
-		inputs["ipAddressType"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkProfileId"] = nil
-		inputs["osType"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["restartPolicy"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["containers"] = args.Containers
-		inputs["diagnostics"] = args.Diagnostics
-		inputs["dnsNameLabel"] = args.DnsNameLabel
-		inputs["identity"] = args.Identity
-		inputs["imageRegistryCredentials"] = args.ImageRegistryCredentials
-		inputs["ipAddressType"] = args.IpAddressType
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkProfileId"] = args.NetworkProfileId
-		inputs["osType"] = args.OsType
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["restartPolicy"] = args.RestartPolicy
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Containers; i != nil { inputs["containers"] = i.ToGroupContainersArrayOutput() }
+		if i := args.Diagnostics; i != nil { inputs["diagnostics"] = i.ToGroupDiagnosticsOutput() }
+		if i := args.DnsNameLabel; i != nil { inputs["dnsNameLabel"] = i.ToStringOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToGroupIdentityOutput() }
+		if i := args.ImageRegistryCredentials; i != nil { inputs["imageRegistryCredentials"] = i.ToGroupImageRegistryCredentialsArrayOutput() }
+		if i := args.IpAddressType; i != nil { inputs["ipAddressType"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkProfileId; i != nil { inputs["networkProfileId"] = i.ToStringOutput() }
+		if i := args.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RestartPolicy; i != nil { inputs["restartPolicy"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["fqdn"] = nil
-	inputs["ipAddress"] = nil
-	s, err := ctx.RegisterResource("azure:containerservice/group:Group", name, true, inputs, opts...)
+	var resource Group
+	err := ctx.RegisterResource("azure:containerservice/group:Group", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Group{s: s}, nil
+	return &resource, nil
 }
 
 // GetGroup gets an existing Group resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *GroupState, opts ...pulumi.ResourceOpt) (*Group, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *GroupState, opts ...pulumi.ResourceOption) (*Group, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["containers"] = state.Containers
-		inputs["diagnostics"] = state.Diagnostics
-		inputs["dnsNameLabel"] = state.DnsNameLabel
-		inputs["fqdn"] = state.Fqdn
-		inputs["identity"] = state.Identity
-		inputs["imageRegistryCredentials"] = state.ImageRegistryCredentials
-		inputs["ipAddress"] = state.IpAddress
-		inputs["ipAddressType"] = state.IpAddressType
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkProfileId"] = state.NetworkProfileId
-		inputs["osType"] = state.OsType
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["restartPolicy"] = state.RestartPolicy
-		inputs["tags"] = state.Tags
+		if i := state.Containers; i != nil { inputs["containers"] = i.ToGroupContainersArrayOutput() }
+		if i := state.Diagnostics; i != nil { inputs["diagnostics"] = i.ToGroupDiagnosticsOutput() }
+		if i := state.DnsNameLabel; i != nil { inputs["dnsNameLabel"] = i.ToStringOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToGroupIdentityOutput() }
+		if i := state.ImageRegistryCredentials; i != nil { inputs["imageRegistryCredentials"] = i.ToGroupImageRegistryCredentialsArrayOutput() }
+		if i := state.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := state.IpAddressType; i != nil { inputs["ipAddressType"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkProfileId; i != nil { inputs["networkProfileId"] = i.ToStringOutput() }
+		if i := state.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RestartPolicy; i != nil { inputs["restartPolicy"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:containerservice/group:Group", name, id, inputs, opts...)
+	var resource Group
+	err := ctx.ReadResource("azure:containerservice/group:Group", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Group{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Group) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Group) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-func (r *Group) Containers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["containers"])
-}
-
-// A `diagnostics` block as documented below.
-func (r *Group) Diagnostics() pulumi.Output {
-	return r.s.State["diagnostics"]
-}
-
-// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
-func (r *Group) DnsNameLabel() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dnsNameLabel"])
-}
-
-// The FQDN of the container group derived from `dnsNameLabel`.
-func (r *Group) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// An `identity` block as defined below.
-func (r *Group) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
-func (r *Group) ImageRegistryCredentials() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
-}
-
-// The IP address allocated to the container group.
-func (r *Group) IpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddress"])
-}
-
-// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
-func (r *Group) IpAddressType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddressType"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Group) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-func (r *Group) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Network profile ID for deploying to virtual network.
-func (r *Group) NetworkProfileId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkProfileId"])
-}
-
-// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-func (r *Group) OsType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["osType"])
-}
-
-// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-func (r *Group) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-func (r *Group) RestartPolicy() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restartPolicy"])
-}
-
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-func (r *Group) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Group resources.
 type GroupState struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-	Containers interface{}
+	Containers GroupContainersArrayInput `pulumi:"containers"`
 	// A `diagnostics` block as documented below.
-	Diagnostics interface{}
+	Diagnostics GroupDiagnosticsInput `pulumi:"diagnostics"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
-	DnsNameLabel interface{}
+	DnsNameLabel pulumi.StringInput `pulumi:"dnsNameLabel"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity GroupIdentityInput `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
-	ImageRegistryCredentials interface{}
+	ImageRegistryCredentials GroupImageRegistryCredentialsArrayInput `pulumi:"imageRegistryCredentials"`
 	// The IP address allocated to the container group.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
-	IpAddressType interface{}
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Network profile ID for deploying to virtual network.
-	NetworkProfileId interface{}
+	NetworkProfileId pulumi.StringInput `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-	RestartPolicy interface{}
+	RestartPolicy pulumi.StringInput `pulumi:"restartPolicy"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-	Containers interface{}
+	Containers GroupContainersArrayInput `pulumi:"containers"`
 	// A `diagnostics` block as documented below.
-	Diagnostics interface{}
+	Diagnostics GroupDiagnosticsInput `pulumi:"diagnostics"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
-	DnsNameLabel interface{}
+	DnsNameLabel pulumi.StringInput `pulumi:"dnsNameLabel"`
 	// An `identity` block as defined below.
-	Identity interface{}
+	Identity GroupIdentityInput `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
-	ImageRegistryCredentials interface{}
+	ImageRegistryCredentials GroupImageRegistryCredentialsArrayInput `pulumi:"imageRegistryCredentials"`
 	// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
-	IpAddressType interface{}
+	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Network profile ID for deploying to virtual network.
-	NetworkProfileId interface{}
+	NetworkProfileId pulumi.StringInput `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-	RestartPolicy interface{}
+	RestartPolicy pulumi.StringInput `pulumi:"restartPolicy"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type GroupContainers struct {
+	Command *string `pulumi:"command"`
+	Commands *[]string `pulumi:"commands"`
+	Cpu float64 `pulumi:"cpu"`
+	EnvironmentVariables *map[string]string `pulumi:"environmentVariables"`
+	Gpu *GroupContainersGpu `pulumi:"gpu"`
+	Image string `pulumi:"image"`
+	LivenessProbe *GroupContainersLivenessProbe `pulumi:"livenessProbe"`
+	Memory float64 `pulumi:"memory"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Port *int `pulumi:"port"`
+	Ports *[]GroupContainersPorts `pulumi:"ports"`
+	Protocol *string `pulumi:"protocol"`
+	ReadinessProbe *GroupContainersReadinessProbe `pulumi:"readinessProbe"`
+	SecureEnvironmentVariables *map[string]string `pulumi:"secureEnvironmentVariables"`
+	Volumes *[]GroupContainersVolumes `pulumi:"volumes"`
+}
+var groupContainersType = reflect.TypeOf((*GroupContainers)(nil)).Elem()
+
+type GroupContainersInput interface {
+	pulumi.Input
+
+	ToGroupContainersOutput() GroupContainersOutput
+	ToGroupContainersOutputWithContext(ctx context.Context) GroupContainersOutput
+}
+
+type GroupContainersArgs struct {
+	Command pulumi.StringInput `pulumi:"command"`
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	Gpu GroupContainersGpuInput `pulumi:"gpu"`
+	Image pulumi.StringInput `pulumi:"image"`
+	LivenessProbe GroupContainersLivenessProbeInput `pulumi:"livenessProbe"`
+	Memory pulumi.Float64Input `pulumi:"memory"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Port pulumi.IntInput `pulumi:"port"`
+	Ports GroupContainersPortsArrayInput `pulumi:"ports"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	ReadinessProbe GroupContainersReadinessProbeInput `pulumi:"readinessProbe"`
+	SecureEnvironmentVariables pulumi.StringMapInput `pulumi:"secureEnvironmentVariables"`
+	Volumes GroupContainersVolumesArrayInput `pulumi:"volumes"`
+}
+
+func (GroupContainersArgs) ElementType() reflect.Type {
+	return groupContainersType
+}
+
+func (a GroupContainersArgs) ToGroupContainersOutput() GroupContainersOutput {
+	return pulumi.ToOutput(a).(GroupContainersOutput)
+}
+
+func (a GroupContainersArgs) ToGroupContainersOutputWithContext(ctx context.Context) GroupContainersOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersOutput)
+}
+
+type GroupContainersOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersOutput) Command() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainers) string {
+		if v.Command == nil { return *new(string) } else { return *v.Command }
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersOutput) Commands() pulumi.StringArrayOutput {
+	return o.Apply(func(v GroupContainers) []string {
+		if v.Commands == nil { return *new([]string) } else { return *v.Commands }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GroupContainersOutput) Cpu() pulumi.Float64Output {
+	return o.Apply(func(v GroupContainers) float64 {
+		return v.Cpu
+	}).(pulumi.Float64Output)
+}
+
+func (o GroupContainersOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.Apply(func(v GroupContainers) map[string]string {
+		if v.EnvironmentVariables == nil { return *new(map[string]string) } else { return *v.EnvironmentVariables }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o GroupContainersOutput) Gpu() GroupContainersGpuOutput {
+	return o.Apply(func(v GroupContainers) GroupContainersGpu {
+		if v.Gpu == nil { return *new(GroupContainersGpu) } else { return *v.Gpu }
+	}).(GroupContainersGpuOutput)
+}
+
+func (o GroupContainersOutput) Image() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainers) string {
+		return v.Image
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersOutput) LivenessProbe() GroupContainersLivenessProbeOutput {
+	return o.Apply(func(v GroupContainers) GroupContainersLivenessProbe {
+		if v.LivenessProbe == nil { return *new(GroupContainersLivenessProbe) } else { return *v.LivenessProbe }
+	}).(GroupContainersLivenessProbeOutput)
+}
+
+func (o GroupContainersOutput) Memory() pulumi.Float64Output {
+	return o.Apply(func(v GroupContainers) float64 {
+		return v.Memory
+	}).(pulumi.Float64Output)
+}
+
+// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+func (o GroupContainersOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainers) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersOutput) Ports() GroupContainersPortsArrayOutput {
+	return o.Apply(func(v GroupContainers) []GroupContainersPorts {
+		if v.Ports == nil { return *new([]GroupContainersPorts) } else { return *v.Ports }
+	}).(GroupContainersPortsArrayOutput)
+}
+
+func (o GroupContainersOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainers) string {
+		if v.Protocol == nil { return *new(string) } else { return *v.Protocol }
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersOutput) ReadinessProbe() GroupContainersReadinessProbeOutput {
+	return o.Apply(func(v GroupContainers) GroupContainersReadinessProbe {
+		if v.ReadinessProbe == nil { return *new(GroupContainersReadinessProbe) } else { return *v.ReadinessProbe }
+	}).(GroupContainersReadinessProbeOutput)
+}
+
+func (o GroupContainersOutput) SecureEnvironmentVariables() pulumi.StringMapOutput {
+	return o.Apply(func(v GroupContainers) map[string]string {
+		if v.SecureEnvironmentVariables == nil { return *new(map[string]string) } else { return *v.SecureEnvironmentVariables }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o GroupContainersOutput) Volumes() GroupContainersVolumesArrayOutput {
+	return o.Apply(func(v GroupContainers) []GroupContainersVolumes {
+		if v.Volumes == nil { return *new([]GroupContainersVolumes) } else { return *v.Volumes }
+	}).(GroupContainersVolumesArrayOutput)
+}
+
+func (GroupContainersOutput) ElementType() reflect.Type {
+	return groupContainersType
+}
+
+func (o GroupContainersOutput) ToGroupContainersOutput() GroupContainersOutput {
+	return o
+}
+
+func (o GroupContainersOutput) ToGroupContainersOutputWithContext(ctx context.Context) GroupContainersOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersOutput{}) }
+
+var groupContainersArrayType = reflect.TypeOf((*[]GroupContainers)(nil)).Elem()
+
+type GroupContainersArrayInput interface {
+	pulumi.Input
+
+	ToGroupContainersArrayOutput() GroupContainersArrayOutput
+	ToGroupContainersArrayOutputWithContext(ctx context.Context) GroupContainersArrayOutput
+}
+
+type GroupContainersArrayArgs []GroupContainersInput
+
+func (GroupContainersArrayArgs) ElementType() reflect.Type {
+	return groupContainersArrayType
+}
+
+func (a GroupContainersArrayArgs) ToGroupContainersArrayOutput() GroupContainersArrayOutput {
+	return pulumi.ToOutput(a).(GroupContainersArrayOutput)
+}
+
+func (a GroupContainersArrayArgs) ToGroupContainersArrayOutputWithContext(ctx context.Context) GroupContainersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersArrayOutput)
+}
+
+type GroupContainersArrayOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersArrayOutput) Index(i pulumi.IntInput) GroupContainersOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GroupContainers {
+		return vs[0].([]GroupContainers)[vs[1].(int)]
+	}).(GroupContainersOutput)
+}
+
+func (GroupContainersArrayOutput) ElementType() reflect.Type {
+	return groupContainersArrayType
+}
+
+func (o GroupContainersArrayOutput) ToGroupContainersArrayOutput() GroupContainersArrayOutput {
+	return o
+}
+
+func (o GroupContainersArrayOutput) ToGroupContainersArrayOutputWithContext(ctx context.Context) GroupContainersArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersArrayOutput{}) }
+
+type GroupContainersGpu struct {
+	Count *int `pulumi:"count"`
+	Sku *string `pulumi:"sku"`
+}
+var groupContainersGpuType = reflect.TypeOf((*GroupContainersGpu)(nil)).Elem()
+
+type GroupContainersGpuInput interface {
+	pulumi.Input
+
+	ToGroupContainersGpuOutput() GroupContainersGpuOutput
+	ToGroupContainersGpuOutputWithContext(ctx context.Context) GroupContainersGpuOutput
+}
+
+type GroupContainersGpuArgs struct {
+	Count pulumi.IntInput `pulumi:"count"`
+	Sku pulumi.StringInput `pulumi:"sku"`
+}
+
+func (GroupContainersGpuArgs) ElementType() reflect.Type {
+	return groupContainersGpuType
+}
+
+func (a GroupContainersGpuArgs) ToGroupContainersGpuOutput() GroupContainersGpuOutput {
+	return pulumi.ToOutput(a).(GroupContainersGpuOutput)
+}
+
+func (a GroupContainersGpuArgs) ToGroupContainersGpuOutputWithContext(ctx context.Context) GroupContainersGpuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersGpuOutput)
+}
+
+type GroupContainersGpuOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersGpuOutput) Count() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersGpu) int {
+		if v.Count == nil { return *new(int) } else { return *v.Count }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersGpuOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersGpu) string {
+		if v.Sku == nil { return *new(string) } else { return *v.Sku }
+	}).(pulumi.StringOutput)
+}
+
+func (GroupContainersGpuOutput) ElementType() reflect.Type {
+	return groupContainersGpuType
+}
+
+func (o GroupContainersGpuOutput) ToGroupContainersGpuOutput() GroupContainersGpuOutput {
+	return o
+}
+
+func (o GroupContainersGpuOutput) ToGroupContainersGpuOutputWithContext(ctx context.Context) GroupContainersGpuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersGpuOutput{}) }
+
+type GroupContainersLivenessProbe struct {
+	Execs *[]string `pulumi:"execs"`
+	FailureThreshold *int `pulumi:"failureThreshold"`
+	HttpGets *[]GroupContainersLivenessProbeHttpGets `pulumi:"httpGets"`
+	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
+	PeriodSeconds *int `pulumi:"periodSeconds"`
+	SuccessThreshold *int `pulumi:"successThreshold"`
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+var groupContainersLivenessProbeType = reflect.TypeOf((*GroupContainersLivenessProbe)(nil)).Elem()
+
+type GroupContainersLivenessProbeInput interface {
+	pulumi.Input
+
+	ToGroupContainersLivenessProbeOutput() GroupContainersLivenessProbeOutput
+	ToGroupContainersLivenessProbeOutputWithContext(ctx context.Context) GroupContainersLivenessProbeOutput
+}
+
+type GroupContainersLivenessProbeArgs struct {
+	Execs pulumi.StringArrayInput `pulumi:"execs"`
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	HttpGets GroupContainersLivenessProbeHttpGetsArrayInput `pulumi:"httpGets"`
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+}
+
+func (GroupContainersLivenessProbeArgs) ElementType() reflect.Type {
+	return groupContainersLivenessProbeType
+}
+
+func (a GroupContainersLivenessProbeArgs) ToGroupContainersLivenessProbeOutput() GroupContainersLivenessProbeOutput {
+	return pulumi.ToOutput(a).(GroupContainersLivenessProbeOutput)
+}
+
+func (a GroupContainersLivenessProbeArgs) ToGroupContainersLivenessProbeOutputWithContext(ctx context.Context) GroupContainersLivenessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersLivenessProbeOutput)
+}
+
+type GroupContainersLivenessProbeOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersLivenessProbeOutput) Execs() pulumi.StringArrayOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) []string {
+		if v.Execs == nil { return *new([]string) } else { return *v.Execs }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GroupContainersLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) int {
+		if v.FailureThreshold == nil { return *new(int) } else { return *v.FailureThreshold }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersLivenessProbeOutput) HttpGets() GroupContainersLivenessProbeHttpGetsArrayOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) []GroupContainersLivenessProbeHttpGets {
+		if v.HttpGets == nil { return *new([]GroupContainersLivenessProbeHttpGets) } else { return *v.HttpGets }
+	}).(GroupContainersLivenessProbeHttpGetsArrayOutput)
+}
+
+func (o GroupContainersLivenessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) int {
+		if v.InitialDelaySeconds == nil { return *new(int) } else { return *v.InitialDelaySeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersLivenessProbeOutput) PeriodSeconds() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) int {
+		if v.PeriodSeconds == nil { return *new(int) } else { return *v.PeriodSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) int {
+		if v.SuccessThreshold == nil { return *new(int) } else { return *v.SuccessThreshold }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersLivenessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersLivenessProbe) int {
+		if v.TimeoutSeconds == nil { return *new(int) } else { return *v.TimeoutSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (GroupContainersLivenessProbeOutput) ElementType() reflect.Type {
+	return groupContainersLivenessProbeType
+}
+
+func (o GroupContainersLivenessProbeOutput) ToGroupContainersLivenessProbeOutput() GroupContainersLivenessProbeOutput {
+	return o
+}
+
+func (o GroupContainersLivenessProbeOutput) ToGroupContainersLivenessProbeOutputWithContext(ctx context.Context) GroupContainersLivenessProbeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersLivenessProbeOutput{}) }
+
+type GroupContainersLivenessProbeHttpGets struct {
+	Path *string `pulumi:"path"`
+	Port *int `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
+}
+var groupContainersLivenessProbeHttpGetsType = reflect.TypeOf((*GroupContainersLivenessProbeHttpGets)(nil)).Elem()
+
+type GroupContainersLivenessProbeHttpGetsInput interface {
+	pulumi.Input
+
+	ToGroupContainersLivenessProbeHttpGetsOutput() GroupContainersLivenessProbeHttpGetsOutput
+	ToGroupContainersLivenessProbeHttpGetsOutputWithContext(ctx context.Context) GroupContainersLivenessProbeHttpGetsOutput
+}
+
+type GroupContainersLivenessProbeHttpGetsArgs struct {
+	Path pulumi.StringInput `pulumi:"path"`
+	Port pulumi.IntInput `pulumi:"port"`
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+}
+
+func (GroupContainersLivenessProbeHttpGetsArgs) ElementType() reflect.Type {
+	return groupContainersLivenessProbeHttpGetsType
+}
+
+func (a GroupContainersLivenessProbeHttpGetsArgs) ToGroupContainersLivenessProbeHttpGetsOutput() GroupContainersLivenessProbeHttpGetsOutput {
+	return pulumi.ToOutput(a).(GroupContainersLivenessProbeHttpGetsOutput)
+}
+
+func (a GroupContainersLivenessProbeHttpGetsArgs) ToGroupContainersLivenessProbeHttpGetsOutputWithContext(ctx context.Context) GroupContainersLivenessProbeHttpGetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersLivenessProbeHttpGetsOutput)
+}
+
+type GroupContainersLivenessProbeHttpGetsOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersLivenessProbeHttpGetsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersLivenessProbeHttpGets) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersLivenessProbeHttpGetsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersLivenessProbeHttpGets) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersLivenessProbeHttpGetsOutput) Scheme() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersLivenessProbeHttpGets) string {
+		if v.Scheme == nil { return *new(string) } else { return *v.Scheme }
+	}).(pulumi.StringOutput)
+}
+
+func (GroupContainersLivenessProbeHttpGetsOutput) ElementType() reflect.Type {
+	return groupContainersLivenessProbeHttpGetsType
+}
+
+func (o GroupContainersLivenessProbeHttpGetsOutput) ToGroupContainersLivenessProbeHttpGetsOutput() GroupContainersLivenessProbeHttpGetsOutput {
+	return o
+}
+
+func (o GroupContainersLivenessProbeHttpGetsOutput) ToGroupContainersLivenessProbeHttpGetsOutputWithContext(ctx context.Context) GroupContainersLivenessProbeHttpGetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersLivenessProbeHttpGetsOutput{}) }
+
+var groupContainersLivenessProbeHttpGetsArrayType = reflect.TypeOf((*[]GroupContainersLivenessProbeHttpGets)(nil)).Elem()
+
+type GroupContainersLivenessProbeHttpGetsArrayInput interface {
+	pulumi.Input
+
+	ToGroupContainersLivenessProbeHttpGetsArrayOutput() GroupContainersLivenessProbeHttpGetsArrayOutput
+	ToGroupContainersLivenessProbeHttpGetsArrayOutputWithContext(ctx context.Context) GroupContainersLivenessProbeHttpGetsArrayOutput
+}
+
+type GroupContainersLivenessProbeHttpGetsArrayArgs []GroupContainersLivenessProbeHttpGetsInput
+
+func (GroupContainersLivenessProbeHttpGetsArrayArgs) ElementType() reflect.Type {
+	return groupContainersLivenessProbeHttpGetsArrayType
+}
+
+func (a GroupContainersLivenessProbeHttpGetsArrayArgs) ToGroupContainersLivenessProbeHttpGetsArrayOutput() GroupContainersLivenessProbeHttpGetsArrayOutput {
+	return pulumi.ToOutput(a).(GroupContainersLivenessProbeHttpGetsArrayOutput)
+}
+
+func (a GroupContainersLivenessProbeHttpGetsArrayArgs) ToGroupContainersLivenessProbeHttpGetsArrayOutputWithContext(ctx context.Context) GroupContainersLivenessProbeHttpGetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersLivenessProbeHttpGetsArrayOutput)
+}
+
+type GroupContainersLivenessProbeHttpGetsArrayOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersLivenessProbeHttpGetsArrayOutput) Index(i pulumi.IntInput) GroupContainersLivenessProbeHttpGetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GroupContainersLivenessProbeHttpGets {
+		return vs[0].([]GroupContainersLivenessProbeHttpGets)[vs[1].(int)]
+	}).(GroupContainersLivenessProbeHttpGetsOutput)
+}
+
+func (GroupContainersLivenessProbeHttpGetsArrayOutput) ElementType() reflect.Type {
+	return groupContainersLivenessProbeHttpGetsArrayType
+}
+
+func (o GroupContainersLivenessProbeHttpGetsArrayOutput) ToGroupContainersLivenessProbeHttpGetsArrayOutput() GroupContainersLivenessProbeHttpGetsArrayOutput {
+	return o
+}
+
+func (o GroupContainersLivenessProbeHttpGetsArrayOutput) ToGroupContainersLivenessProbeHttpGetsArrayOutputWithContext(ctx context.Context) GroupContainersLivenessProbeHttpGetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersLivenessProbeHttpGetsArrayOutput{}) }
+
+type GroupContainersPorts struct {
+	Port *int `pulumi:"port"`
+	Protocol *string `pulumi:"protocol"`
+}
+var groupContainersPortsType = reflect.TypeOf((*GroupContainersPorts)(nil)).Elem()
+
+type GroupContainersPortsInput interface {
+	pulumi.Input
+
+	ToGroupContainersPortsOutput() GroupContainersPortsOutput
+	ToGroupContainersPortsOutputWithContext(ctx context.Context) GroupContainersPortsOutput
+}
+
+type GroupContainersPortsArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GroupContainersPortsArgs) ElementType() reflect.Type {
+	return groupContainersPortsType
+}
+
+func (a GroupContainersPortsArgs) ToGroupContainersPortsOutput() GroupContainersPortsOutput {
+	return pulumi.ToOutput(a).(GroupContainersPortsOutput)
+}
+
+func (a GroupContainersPortsArgs) ToGroupContainersPortsOutputWithContext(ctx context.Context) GroupContainersPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersPortsOutput)
+}
+
+type GroupContainersPortsOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersPortsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersPorts) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersPortsOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersPorts) string {
+		if v.Protocol == nil { return *new(string) } else { return *v.Protocol }
+	}).(pulumi.StringOutput)
+}
+
+func (GroupContainersPortsOutput) ElementType() reflect.Type {
+	return groupContainersPortsType
+}
+
+func (o GroupContainersPortsOutput) ToGroupContainersPortsOutput() GroupContainersPortsOutput {
+	return o
+}
+
+func (o GroupContainersPortsOutput) ToGroupContainersPortsOutputWithContext(ctx context.Context) GroupContainersPortsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersPortsOutput{}) }
+
+var groupContainersPortsArrayType = reflect.TypeOf((*[]GroupContainersPorts)(nil)).Elem()
+
+type GroupContainersPortsArrayInput interface {
+	pulumi.Input
+
+	ToGroupContainersPortsArrayOutput() GroupContainersPortsArrayOutput
+	ToGroupContainersPortsArrayOutputWithContext(ctx context.Context) GroupContainersPortsArrayOutput
+}
+
+type GroupContainersPortsArrayArgs []GroupContainersPortsInput
+
+func (GroupContainersPortsArrayArgs) ElementType() reflect.Type {
+	return groupContainersPortsArrayType
+}
+
+func (a GroupContainersPortsArrayArgs) ToGroupContainersPortsArrayOutput() GroupContainersPortsArrayOutput {
+	return pulumi.ToOutput(a).(GroupContainersPortsArrayOutput)
+}
+
+func (a GroupContainersPortsArrayArgs) ToGroupContainersPortsArrayOutputWithContext(ctx context.Context) GroupContainersPortsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersPortsArrayOutput)
+}
+
+type GroupContainersPortsArrayOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersPortsArrayOutput) Index(i pulumi.IntInput) GroupContainersPortsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GroupContainersPorts {
+		return vs[0].([]GroupContainersPorts)[vs[1].(int)]
+	}).(GroupContainersPortsOutput)
+}
+
+func (GroupContainersPortsArrayOutput) ElementType() reflect.Type {
+	return groupContainersPortsArrayType
+}
+
+func (o GroupContainersPortsArrayOutput) ToGroupContainersPortsArrayOutput() GroupContainersPortsArrayOutput {
+	return o
+}
+
+func (o GroupContainersPortsArrayOutput) ToGroupContainersPortsArrayOutputWithContext(ctx context.Context) GroupContainersPortsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersPortsArrayOutput{}) }
+
+type GroupContainersReadinessProbe struct {
+	Execs *[]string `pulumi:"execs"`
+	FailureThreshold *int `pulumi:"failureThreshold"`
+	HttpGets *[]GroupContainersReadinessProbeHttpGets `pulumi:"httpGets"`
+	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
+	PeriodSeconds *int `pulumi:"periodSeconds"`
+	SuccessThreshold *int `pulumi:"successThreshold"`
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+var groupContainersReadinessProbeType = reflect.TypeOf((*GroupContainersReadinessProbe)(nil)).Elem()
+
+type GroupContainersReadinessProbeInput interface {
+	pulumi.Input
+
+	ToGroupContainersReadinessProbeOutput() GroupContainersReadinessProbeOutput
+	ToGroupContainersReadinessProbeOutputWithContext(ctx context.Context) GroupContainersReadinessProbeOutput
+}
+
+type GroupContainersReadinessProbeArgs struct {
+	Execs pulumi.StringArrayInput `pulumi:"execs"`
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	HttpGets GroupContainersReadinessProbeHttpGetsArrayInput `pulumi:"httpGets"`
+	InitialDelaySeconds pulumi.IntInput `pulumi:"initialDelaySeconds"`
+	PeriodSeconds pulumi.IntInput `pulumi:"periodSeconds"`
+	SuccessThreshold pulumi.IntInput `pulumi:"successThreshold"`
+	TimeoutSeconds pulumi.IntInput `pulumi:"timeoutSeconds"`
+}
+
+func (GroupContainersReadinessProbeArgs) ElementType() reflect.Type {
+	return groupContainersReadinessProbeType
+}
+
+func (a GroupContainersReadinessProbeArgs) ToGroupContainersReadinessProbeOutput() GroupContainersReadinessProbeOutput {
+	return pulumi.ToOutput(a).(GroupContainersReadinessProbeOutput)
+}
+
+func (a GroupContainersReadinessProbeArgs) ToGroupContainersReadinessProbeOutputWithContext(ctx context.Context) GroupContainersReadinessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersReadinessProbeOutput)
+}
+
+type GroupContainersReadinessProbeOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersReadinessProbeOutput) Execs() pulumi.StringArrayOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) []string {
+		if v.Execs == nil { return *new([]string) } else { return *v.Execs }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GroupContainersReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) int {
+		if v.FailureThreshold == nil { return *new(int) } else { return *v.FailureThreshold }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersReadinessProbeOutput) HttpGets() GroupContainersReadinessProbeHttpGetsArrayOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) []GroupContainersReadinessProbeHttpGets {
+		if v.HttpGets == nil { return *new([]GroupContainersReadinessProbeHttpGets) } else { return *v.HttpGets }
+	}).(GroupContainersReadinessProbeHttpGetsArrayOutput)
+}
+
+func (o GroupContainersReadinessProbeOutput) InitialDelaySeconds() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) int {
+		if v.InitialDelaySeconds == nil { return *new(int) } else { return *v.InitialDelaySeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersReadinessProbeOutput) PeriodSeconds() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) int {
+		if v.PeriodSeconds == nil { return *new(int) } else { return *v.PeriodSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) int {
+		if v.SuccessThreshold == nil { return *new(int) } else { return *v.SuccessThreshold }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersReadinessProbeOutput) TimeoutSeconds() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersReadinessProbe) int {
+		if v.TimeoutSeconds == nil { return *new(int) } else { return *v.TimeoutSeconds }
+	}).(pulumi.IntOutput)
+}
+
+func (GroupContainersReadinessProbeOutput) ElementType() reflect.Type {
+	return groupContainersReadinessProbeType
+}
+
+func (o GroupContainersReadinessProbeOutput) ToGroupContainersReadinessProbeOutput() GroupContainersReadinessProbeOutput {
+	return o
+}
+
+func (o GroupContainersReadinessProbeOutput) ToGroupContainersReadinessProbeOutputWithContext(ctx context.Context) GroupContainersReadinessProbeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersReadinessProbeOutput{}) }
+
+type GroupContainersReadinessProbeHttpGets struct {
+	Path *string `pulumi:"path"`
+	Port *int `pulumi:"port"`
+	Scheme *string `pulumi:"scheme"`
+}
+var groupContainersReadinessProbeHttpGetsType = reflect.TypeOf((*GroupContainersReadinessProbeHttpGets)(nil)).Elem()
+
+type GroupContainersReadinessProbeHttpGetsInput interface {
+	pulumi.Input
+
+	ToGroupContainersReadinessProbeHttpGetsOutput() GroupContainersReadinessProbeHttpGetsOutput
+	ToGroupContainersReadinessProbeHttpGetsOutputWithContext(ctx context.Context) GroupContainersReadinessProbeHttpGetsOutput
+}
+
+type GroupContainersReadinessProbeHttpGetsArgs struct {
+	Path pulumi.StringInput `pulumi:"path"`
+	Port pulumi.IntInput `pulumi:"port"`
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+}
+
+func (GroupContainersReadinessProbeHttpGetsArgs) ElementType() reflect.Type {
+	return groupContainersReadinessProbeHttpGetsType
+}
+
+func (a GroupContainersReadinessProbeHttpGetsArgs) ToGroupContainersReadinessProbeHttpGetsOutput() GroupContainersReadinessProbeHttpGetsOutput {
+	return pulumi.ToOutput(a).(GroupContainersReadinessProbeHttpGetsOutput)
+}
+
+func (a GroupContainersReadinessProbeHttpGetsArgs) ToGroupContainersReadinessProbeHttpGetsOutputWithContext(ctx context.Context) GroupContainersReadinessProbeHttpGetsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersReadinessProbeHttpGetsOutput)
+}
+
+type GroupContainersReadinessProbeHttpGetsOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersReadinessProbeHttpGetsOutput) Path() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersReadinessProbeHttpGets) string {
+		if v.Path == nil { return *new(string) } else { return *v.Path }
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersReadinessProbeHttpGetsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v GroupContainersReadinessProbeHttpGets) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+func (o GroupContainersReadinessProbeHttpGetsOutput) Scheme() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersReadinessProbeHttpGets) string {
+		if v.Scheme == nil { return *new(string) } else { return *v.Scheme }
+	}).(pulumi.StringOutput)
+}
+
+func (GroupContainersReadinessProbeHttpGetsOutput) ElementType() reflect.Type {
+	return groupContainersReadinessProbeHttpGetsType
+}
+
+func (o GroupContainersReadinessProbeHttpGetsOutput) ToGroupContainersReadinessProbeHttpGetsOutput() GroupContainersReadinessProbeHttpGetsOutput {
+	return o
+}
+
+func (o GroupContainersReadinessProbeHttpGetsOutput) ToGroupContainersReadinessProbeHttpGetsOutputWithContext(ctx context.Context) GroupContainersReadinessProbeHttpGetsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersReadinessProbeHttpGetsOutput{}) }
+
+var groupContainersReadinessProbeHttpGetsArrayType = reflect.TypeOf((*[]GroupContainersReadinessProbeHttpGets)(nil)).Elem()
+
+type GroupContainersReadinessProbeHttpGetsArrayInput interface {
+	pulumi.Input
+
+	ToGroupContainersReadinessProbeHttpGetsArrayOutput() GroupContainersReadinessProbeHttpGetsArrayOutput
+	ToGroupContainersReadinessProbeHttpGetsArrayOutputWithContext(ctx context.Context) GroupContainersReadinessProbeHttpGetsArrayOutput
+}
+
+type GroupContainersReadinessProbeHttpGetsArrayArgs []GroupContainersReadinessProbeHttpGetsInput
+
+func (GroupContainersReadinessProbeHttpGetsArrayArgs) ElementType() reflect.Type {
+	return groupContainersReadinessProbeHttpGetsArrayType
+}
+
+func (a GroupContainersReadinessProbeHttpGetsArrayArgs) ToGroupContainersReadinessProbeHttpGetsArrayOutput() GroupContainersReadinessProbeHttpGetsArrayOutput {
+	return pulumi.ToOutput(a).(GroupContainersReadinessProbeHttpGetsArrayOutput)
+}
+
+func (a GroupContainersReadinessProbeHttpGetsArrayArgs) ToGroupContainersReadinessProbeHttpGetsArrayOutputWithContext(ctx context.Context) GroupContainersReadinessProbeHttpGetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersReadinessProbeHttpGetsArrayOutput)
+}
+
+type GroupContainersReadinessProbeHttpGetsArrayOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersReadinessProbeHttpGetsArrayOutput) Index(i pulumi.IntInput) GroupContainersReadinessProbeHttpGetsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GroupContainersReadinessProbeHttpGets {
+		return vs[0].([]GroupContainersReadinessProbeHttpGets)[vs[1].(int)]
+	}).(GroupContainersReadinessProbeHttpGetsOutput)
+}
+
+func (GroupContainersReadinessProbeHttpGetsArrayOutput) ElementType() reflect.Type {
+	return groupContainersReadinessProbeHttpGetsArrayType
+}
+
+func (o GroupContainersReadinessProbeHttpGetsArrayOutput) ToGroupContainersReadinessProbeHttpGetsArrayOutput() GroupContainersReadinessProbeHttpGetsArrayOutput {
+	return o
+}
+
+func (o GroupContainersReadinessProbeHttpGetsArrayOutput) ToGroupContainersReadinessProbeHttpGetsArrayOutputWithContext(ctx context.Context) GroupContainersReadinessProbeHttpGetsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersReadinessProbeHttpGetsArrayOutput{}) }
+
+type GroupContainersVolumes struct {
+	MountPath string `pulumi:"mountPath"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	ReadOnly *bool `pulumi:"readOnly"`
+	ShareName string `pulumi:"shareName"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageAccountName string `pulumi:"storageAccountName"`
+}
+var groupContainersVolumesType = reflect.TypeOf((*GroupContainersVolumes)(nil)).Elem()
+
+type GroupContainersVolumesInput interface {
+	pulumi.Input
+
+	ToGroupContainersVolumesOutput() GroupContainersVolumesOutput
+	ToGroupContainersVolumesOutputWithContext(ctx context.Context) GroupContainersVolumesOutput
+}
+
+type GroupContainersVolumesArgs struct {
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+}
+
+func (GroupContainersVolumesArgs) ElementType() reflect.Type {
+	return groupContainersVolumesType
+}
+
+func (a GroupContainersVolumesArgs) ToGroupContainersVolumesOutput() GroupContainersVolumesOutput {
+	return pulumi.ToOutput(a).(GroupContainersVolumesOutput)
+}
+
+func (a GroupContainersVolumesArgs) ToGroupContainersVolumesOutputWithContext(ctx context.Context) GroupContainersVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersVolumesOutput)
+}
+
+type GroupContainersVolumesOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersVolumesOutput) MountPath() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersVolumes) string {
+		return v.MountPath
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the Container Group. Changing this forces a new resource to be created.
+func (o GroupContainersVolumesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersVolumes) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersVolumesOutput) ReadOnly() pulumi.BoolOutput {
+	return o.Apply(func(v GroupContainersVolumes) bool {
+		if v.ReadOnly == nil { return *new(bool) } else { return *v.ReadOnly }
+	}).(pulumi.BoolOutput)
+}
+
+func (o GroupContainersVolumesOutput) ShareName() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersVolumes) string {
+		return v.ShareName
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersVolumesOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersVolumes) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupContainersVolumesOutput) StorageAccountName() pulumi.StringOutput {
+	return o.Apply(func(v GroupContainersVolumes) string {
+		return v.StorageAccountName
+	}).(pulumi.StringOutput)
+}
+
+func (GroupContainersVolumesOutput) ElementType() reflect.Type {
+	return groupContainersVolumesType
+}
+
+func (o GroupContainersVolumesOutput) ToGroupContainersVolumesOutput() GroupContainersVolumesOutput {
+	return o
+}
+
+func (o GroupContainersVolumesOutput) ToGroupContainersVolumesOutputWithContext(ctx context.Context) GroupContainersVolumesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersVolumesOutput{}) }
+
+var groupContainersVolumesArrayType = reflect.TypeOf((*[]GroupContainersVolumes)(nil)).Elem()
+
+type GroupContainersVolumesArrayInput interface {
+	pulumi.Input
+
+	ToGroupContainersVolumesArrayOutput() GroupContainersVolumesArrayOutput
+	ToGroupContainersVolumesArrayOutputWithContext(ctx context.Context) GroupContainersVolumesArrayOutput
+}
+
+type GroupContainersVolumesArrayArgs []GroupContainersVolumesInput
+
+func (GroupContainersVolumesArrayArgs) ElementType() reflect.Type {
+	return groupContainersVolumesArrayType
+}
+
+func (a GroupContainersVolumesArrayArgs) ToGroupContainersVolumesArrayOutput() GroupContainersVolumesArrayOutput {
+	return pulumi.ToOutput(a).(GroupContainersVolumesArrayOutput)
+}
+
+func (a GroupContainersVolumesArrayArgs) ToGroupContainersVolumesArrayOutputWithContext(ctx context.Context) GroupContainersVolumesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupContainersVolumesArrayOutput)
+}
+
+type GroupContainersVolumesArrayOutput struct { *pulumi.OutputState }
+
+func (o GroupContainersVolumesArrayOutput) Index(i pulumi.IntInput) GroupContainersVolumesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GroupContainersVolumes {
+		return vs[0].([]GroupContainersVolumes)[vs[1].(int)]
+	}).(GroupContainersVolumesOutput)
+}
+
+func (GroupContainersVolumesArrayOutput) ElementType() reflect.Type {
+	return groupContainersVolumesArrayType
+}
+
+func (o GroupContainersVolumesArrayOutput) ToGroupContainersVolumesArrayOutput() GroupContainersVolumesArrayOutput {
+	return o
+}
+
+func (o GroupContainersVolumesArrayOutput) ToGroupContainersVolumesArrayOutputWithContext(ctx context.Context) GroupContainersVolumesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupContainersVolumesArrayOutput{}) }
+
+type GroupDiagnostics struct {
+	LogAnalytics GroupDiagnosticsLogAnalytics `pulumi:"logAnalytics"`
+}
+var groupDiagnosticsType = reflect.TypeOf((*GroupDiagnostics)(nil)).Elem()
+
+type GroupDiagnosticsInput interface {
+	pulumi.Input
+
+	ToGroupDiagnosticsOutput() GroupDiagnosticsOutput
+	ToGroupDiagnosticsOutputWithContext(ctx context.Context) GroupDiagnosticsOutput
+}
+
+type GroupDiagnosticsArgs struct {
+	LogAnalytics GroupDiagnosticsLogAnalyticsInput `pulumi:"logAnalytics"`
+}
+
+func (GroupDiagnosticsArgs) ElementType() reflect.Type {
+	return groupDiagnosticsType
+}
+
+func (a GroupDiagnosticsArgs) ToGroupDiagnosticsOutput() GroupDiagnosticsOutput {
+	return pulumi.ToOutput(a).(GroupDiagnosticsOutput)
+}
+
+func (a GroupDiagnosticsArgs) ToGroupDiagnosticsOutputWithContext(ctx context.Context) GroupDiagnosticsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupDiagnosticsOutput)
+}
+
+type GroupDiagnosticsOutput struct { *pulumi.OutputState }
+
+func (o GroupDiagnosticsOutput) LogAnalytics() GroupDiagnosticsLogAnalyticsOutput {
+	return o.Apply(func(v GroupDiagnostics) GroupDiagnosticsLogAnalytics {
+		return v.LogAnalytics
+	}).(GroupDiagnosticsLogAnalyticsOutput)
+}
+
+func (GroupDiagnosticsOutput) ElementType() reflect.Type {
+	return groupDiagnosticsType
+}
+
+func (o GroupDiagnosticsOutput) ToGroupDiagnosticsOutput() GroupDiagnosticsOutput {
+	return o
+}
+
+func (o GroupDiagnosticsOutput) ToGroupDiagnosticsOutputWithContext(ctx context.Context) GroupDiagnosticsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupDiagnosticsOutput{}) }
+
+type GroupDiagnosticsLogAnalytics struct {
+	LogType *string `pulumi:"logType"`
+	Metadata *map[string]string `pulumi:"metadata"`
+	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceKey string `pulumi:"workspaceKey"`
+}
+var groupDiagnosticsLogAnalyticsType = reflect.TypeOf((*GroupDiagnosticsLogAnalytics)(nil)).Elem()
+
+type GroupDiagnosticsLogAnalyticsInput interface {
+	pulumi.Input
+
+	ToGroupDiagnosticsLogAnalyticsOutput() GroupDiagnosticsLogAnalyticsOutput
+	ToGroupDiagnosticsLogAnalyticsOutputWithContext(ctx context.Context) GroupDiagnosticsLogAnalyticsOutput
+}
+
+type GroupDiagnosticsLogAnalyticsArgs struct {
+	LogType pulumi.StringInput `pulumi:"logType"`
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceKey pulumi.StringInput `pulumi:"workspaceKey"`
+}
+
+func (GroupDiagnosticsLogAnalyticsArgs) ElementType() reflect.Type {
+	return groupDiagnosticsLogAnalyticsType
+}
+
+func (a GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsOutput() GroupDiagnosticsLogAnalyticsOutput {
+	return pulumi.ToOutput(a).(GroupDiagnosticsLogAnalyticsOutput)
+}
+
+func (a GroupDiagnosticsLogAnalyticsArgs) ToGroupDiagnosticsLogAnalyticsOutputWithContext(ctx context.Context) GroupDiagnosticsLogAnalyticsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupDiagnosticsLogAnalyticsOutput)
+}
+
+type GroupDiagnosticsLogAnalyticsOutput struct { *pulumi.OutputState }
+
+func (o GroupDiagnosticsLogAnalyticsOutput) LogType() pulumi.StringOutput {
+	return o.Apply(func(v GroupDiagnosticsLogAnalytics) string {
+		if v.LogType == nil { return *new(string) } else { return *v.LogType }
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupDiagnosticsLogAnalyticsOutput) Metadata() pulumi.StringMapOutput {
+	return o.Apply(func(v GroupDiagnosticsLogAnalytics) map[string]string {
+		if v.Metadata == nil { return *new(map[string]string) } else { return *v.Metadata }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o GroupDiagnosticsLogAnalyticsOutput) WorkspaceId() pulumi.StringOutput {
+	return o.Apply(func(v GroupDiagnosticsLogAnalytics) string {
+		return v.WorkspaceId
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupDiagnosticsLogAnalyticsOutput) WorkspaceKey() pulumi.StringOutput {
+	return o.Apply(func(v GroupDiagnosticsLogAnalytics) string {
+		return v.WorkspaceKey
+	}).(pulumi.StringOutput)
+}
+
+func (GroupDiagnosticsLogAnalyticsOutput) ElementType() reflect.Type {
+	return groupDiagnosticsLogAnalyticsType
+}
+
+func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsOutput() GroupDiagnosticsLogAnalyticsOutput {
+	return o
+}
+
+func (o GroupDiagnosticsLogAnalyticsOutput) ToGroupDiagnosticsLogAnalyticsOutputWithContext(ctx context.Context) GroupDiagnosticsLogAnalyticsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupDiagnosticsLogAnalyticsOutput{}) }
+
+type GroupIdentity struct {
+	IdentityIds *[]string `pulumi:"identityIds"`
+	PrincipalId *string `pulumi:"principalId"`
+	Type string `pulumi:"type"`
+}
+var groupIdentityType = reflect.TypeOf((*GroupIdentity)(nil)).Elem()
+
+type GroupIdentityInput interface {
+	pulumi.Input
+
+	ToGroupIdentityOutput() GroupIdentityOutput
+	ToGroupIdentityOutputWithContext(ctx context.Context) GroupIdentityOutput
+}
+
+type GroupIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GroupIdentityArgs) ElementType() reflect.Type {
+	return groupIdentityType
+}
+
+func (a GroupIdentityArgs) ToGroupIdentityOutput() GroupIdentityOutput {
+	return pulumi.ToOutput(a).(GroupIdentityOutput)
+}
+
+func (a GroupIdentityArgs) ToGroupIdentityOutputWithContext(ctx context.Context) GroupIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupIdentityOutput)
+}
+
+type GroupIdentityOutput struct { *pulumi.OutputState }
+
+func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v GroupIdentity) []string {
+		if v.IdentityIds == nil { return *new([]string) } else { return *v.IdentityIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GroupIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v GroupIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v GroupIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (GroupIdentityOutput) ElementType() reflect.Type {
+	return groupIdentityType
+}
+
+func (o GroupIdentityOutput) ToGroupIdentityOutput() GroupIdentityOutput {
+	return o
+}
+
+func (o GroupIdentityOutput) ToGroupIdentityOutputWithContext(ctx context.Context) GroupIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupIdentityOutput{}) }
+
+type GroupImageRegistryCredentials struct {
+	Password string `pulumi:"password"`
+	Server string `pulumi:"server"`
+	Username string `pulumi:"username"`
+}
+var groupImageRegistryCredentialsType = reflect.TypeOf((*GroupImageRegistryCredentials)(nil)).Elem()
+
+type GroupImageRegistryCredentialsInput interface {
+	pulumi.Input
+
+	ToGroupImageRegistryCredentialsOutput() GroupImageRegistryCredentialsOutput
+	ToGroupImageRegistryCredentialsOutputWithContext(ctx context.Context) GroupImageRegistryCredentialsOutput
+}
+
+type GroupImageRegistryCredentialsArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	Server pulumi.StringInput `pulumi:"server"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GroupImageRegistryCredentialsArgs) ElementType() reflect.Type {
+	return groupImageRegistryCredentialsType
+}
+
+func (a GroupImageRegistryCredentialsArgs) ToGroupImageRegistryCredentialsOutput() GroupImageRegistryCredentialsOutput {
+	return pulumi.ToOutput(a).(GroupImageRegistryCredentialsOutput)
+}
+
+func (a GroupImageRegistryCredentialsArgs) ToGroupImageRegistryCredentialsOutputWithContext(ctx context.Context) GroupImageRegistryCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupImageRegistryCredentialsOutput)
+}
+
+type GroupImageRegistryCredentialsOutput struct { *pulumi.OutputState }
+
+func (o GroupImageRegistryCredentialsOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v GroupImageRegistryCredentials) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupImageRegistryCredentialsOutput) Server() pulumi.StringOutput {
+	return o.Apply(func(v GroupImageRegistryCredentials) string {
+		return v.Server
+	}).(pulumi.StringOutput)
+}
+
+func (o GroupImageRegistryCredentialsOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v GroupImageRegistryCredentials) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (GroupImageRegistryCredentialsOutput) ElementType() reflect.Type {
+	return groupImageRegistryCredentialsType
+}
+
+func (o GroupImageRegistryCredentialsOutput) ToGroupImageRegistryCredentialsOutput() GroupImageRegistryCredentialsOutput {
+	return o
+}
+
+func (o GroupImageRegistryCredentialsOutput) ToGroupImageRegistryCredentialsOutputWithContext(ctx context.Context) GroupImageRegistryCredentialsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupImageRegistryCredentialsOutput{}) }
+
+var groupImageRegistryCredentialsArrayType = reflect.TypeOf((*[]GroupImageRegistryCredentials)(nil)).Elem()
+
+type GroupImageRegistryCredentialsArrayInput interface {
+	pulumi.Input
+
+	ToGroupImageRegistryCredentialsArrayOutput() GroupImageRegistryCredentialsArrayOutput
+	ToGroupImageRegistryCredentialsArrayOutputWithContext(ctx context.Context) GroupImageRegistryCredentialsArrayOutput
+}
+
+type GroupImageRegistryCredentialsArrayArgs []GroupImageRegistryCredentialsInput
+
+func (GroupImageRegistryCredentialsArrayArgs) ElementType() reflect.Type {
+	return groupImageRegistryCredentialsArrayType
+}
+
+func (a GroupImageRegistryCredentialsArrayArgs) ToGroupImageRegistryCredentialsArrayOutput() GroupImageRegistryCredentialsArrayOutput {
+	return pulumi.ToOutput(a).(GroupImageRegistryCredentialsArrayOutput)
+}
+
+func (a GroupImageRegistryCredentialsArrayArgs) ToGroupImageRegistryCredentialsArrayOutputWithContext(ctx context.Context) GroupImageRegistryCredentialsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(GroupImageRegistryCredentialsArrayOutput)
+}
+
+type GroupImageRegistryCredentialsArrayOutput struct { *pulumi.OutputState }
+
+func (o GroupImageRegistryCredentialsArrayOutput) Index(i pulumi.IntInput) GroupImageRegistryCredentialsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) GroupImageRegistryCredentials {
+		return vs[0].([]GroupImageRegistryCredentials)[vs[1].(int)]
+	}).(GroupImageRegistryCredentialsOutput)
+}
+
+func (GroupImageRegistryCredentialsArrayOutput) ElementType() reflect.Type {
+	return groupImageRegistryCredentialsArrayType
+}
+
+func (o GroupImageRegistryCredentialsArrayOutput) ToGroupImageRegistryCredentialsArrayOutput() GroupImageRegistryCredentialsArrayOutput {
+	return o
+}
+
+func (o GroupImageRegistryCredentialsArrayOutput) ToGroupImageRegistryCredentialsArrayOutputWithContext(ctx context.Context) GroupImageRegistryCredentialsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(GroupImageRegistryCredentialsArrayOutput{}) }
+

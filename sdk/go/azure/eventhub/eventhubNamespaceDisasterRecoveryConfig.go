@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace_disaster_recovery_config.html.markdown.
 type EventhubNamespaceDisasterRecoveryConfig struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+	AlternateName pulumi.StringOutput `pulumi:"alternateName"`
+
+	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+
+	// The ID of the EventHub Namespace to replicate to.
+	PartnerNamespaceId pulumi.StringOutput `pulumi:"partnerNamespaceId"`
+
+	// The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewEventhubNamespaceDisasterRecoveryConfig registers a new resource with the given unique name, arguments, and options.
 func NewEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
-	name string, args *EventhubNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.ResourceOpt) (*EventhubNamespaceDisasterRecoveryConfig, error) {
+	name string, args *EventhubNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.ResourceOption) (*EventhubNamespaceDisasterRecoveryConfig, error) {
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
@@ -27,105 +42,66 @@ func NewEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["alternateName"] = nil
-		inputs["name"] = nil
-		inputs["namespaceName"] = nil
-		inputs["partnerNamespaceId"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["alternateName"] = args.AlternateName
-		inputs["name"] = args.Name
-		inputs["namespaceName"] = args.NamespaceName
-		inputs["partnerNamespaceId"] = args.PartnerNamespaceId
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AlternateName; i != nil { inputs["alternateName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := args.PartnerNamespaceId; i != nil { inputs["partnerNamespaceId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, true, inputs, opts...)
+	var resource EventhubNamespaceDisasterRecoveryConfig
+	err := ctx.RegisterResource("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventhubNamespaceDisasterRecoveryConfig{s: s}, nil
+	return &resource, nil
 }
 
 // GetEventhubNamespaceDisasterRecoveryConfig gets an existing EventhubNamespaceDisasterRecoveryConfig resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEventhubNamespaceDisasterRecoveryConfig(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventhubNamespaceDisasterRecoveryConfigState, opts ...pulumi.ResourceOpt) (*EventhubNamespaceDisasterRecoveryConfig, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EventhubNamespaceDisasterRecoveryConfigState, opts ...pulumi.ResourceOption) (*EventhubNamespaceDisasterRecoveryConfig, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["alternateName"] = state.AlternateName
-		inputs["name"] = state.Name
-		inputs["namespaceName"] = state.NamespaceName
-		inputs["partnerNamespaceId"] = state.PartnerNamespaceId
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.AlternateName; i != nil { inputs["alternateName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NamespaceName; i != nil { inputs["namespaceName"] = i.ToStringOutput() }
+		if i := state.PartnerNamespaceId; i != nil { inputs["partnerNamespaceId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, id, inputs, opts...)
+	var resource EventhubNamespaceDisasterRecoveryConfig
+	err := ctx.ReadResource("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventhubNamespaceDisasterRecoveryConfig{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EventhubNamespaceDisasterRecoveryConfig) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EventhubNamespaceDisasterRecoveryConfig) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
-func (r *EventhubNamespaceDisasterRecoveryConfig) AlternateName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["alternateName"])
-}
-
-// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
-func (r *EventhubNamespaceDisasterRecoveryConfig) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
-func (r *EventhubNamespaceDisasterRecoveryConfig) NamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["namespaceName"])
-}
-
-// The ID of the EventHub Namespace to replicate to.
-func (r *EventhubNamespaceDisasterRecoveryConfig) PartnerNamespaceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["partnerNamespaceId"])
-}
-
-// The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
-func (r *EventhubNamespaceDisasterRecoveryConfig) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
 type EventhubNamespaceDisasterRecoveryConfigState struct {
 	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
-	AlternateName interface{}
+	AlternateName pulumi.StringInput `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// The ID of the EventHub Namespace to replicate to.
-	PartnerNamespaceId interface{}
+	PartnerNamespaceId pulumi.StringInput `pulumi:"partnerNamespaceId"`
 	// The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EventhubNamespaceDisasterRecoveryConfig resource.
 type EventhubNamespaceDisasterRecoveryConfigArgs struct {
 	// An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
-	AlternateName interface{}
+	AlternateName pulumi.StringInput `pulumi:"alternateName"`
 	// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
-	NamespaceName interface{}
+	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
 	// The ID of the EventHub Namespace to replicate to.
-	PartnerNamespaceId interface{}
+	PartnerNamespaceId pulumi.StringInput `pulumi:"partnerNamespaceId"`
 	// The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

@@ -12,12 +12,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_policy.html.markdown.
 type Policy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A description for the Policy.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
+	EvaluatorType pulumi.StringOutput `pulumi:"evaluatorType"`
+
+	// The Fact Data for this Policy.
+	FactData pulumi.StringOutput `pulumi:"factData"`
+
+	// Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
+	LabName pulumi.StringOutput `pulumi:"labName"`
+
+	// Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
+	PolicySetName pulumi.StringOutput `pulumi:"policySetName"`
+
+	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Threshold for this Policy.
+	Threshold pulumi.StringOutput `pulumi:"threshold"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
-	name string, args *PolicyArgs, opts ...pulumi.ResourceOpt) (*Policy, error) {
+	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
 	if args == nil || args.EvaluatorType == nil {
 		return nil, errors.New("missing required argument 'EvaluatorType'")
 	}
@@ -33,153 +60,90 @@ func NewPolicy(ctx *pulumi.Context,
 	if args == nil || args.Threshold == nil {
 		return nil, errors.New("missing required argument 'Threshold'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["evaluatorType"] = nil
-		inputs["factData"] = nil
-		inputs["labName"] = nil
-		inputs["name"] = nil
-		inputs["policySetName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["threshold"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["evaluatorType"] = args.EvaluatorType
-		inputs["factData"] = args.FactData
-		inputs["labName"] = args.LabName
-		inputs["name"] = args.Name
-		inputs["policySetName"] = args.PolicySetName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["threshold"] = args.Threshold
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.EvaluatorType; i != nil { inputs["evaluatorType"] = i.ToStringOutput() }
+		if i := args.FactData; i != nil { inputs["factData"] = i.ToStringOutput() }
+		if i := args.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PolicySetName; i != nil { inputs["policySetName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Threshold; i != nil { inputs["threshold"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:devtest/policy:Policy", name, true, inputs, opts...)
+	var resource Policy
+	err := ctx.RegisterResource("azure:devtest/policy:Policy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Policy{s: s}, nil
+	return &resource, nil
 }
 
 // GetPolicy gets an existing Policy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PolicyState, opts ...pulumi.ResourceOpt) (*Policy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["evaluatorType"] = state.EvaluatorType
-		inputs["factData"] = state.FactData
-		inputs["labName"] = state.LabName
-		inputs["name"] = state.Name
-		inputs["policySetName"] = state.PolicySetName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["threshold"] = state.Threshold
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.EvaluatorType; i != nil { inputs["evaluatorType"] = i.ToStringOutput() }
+		if i := state.FactData; i != nil { inputs["factData"] = i.ToStringOutput() }
+		if i := state.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PolicySetName; i != nil { inputs["policySetName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Threshold; i != nil { inputs["threshold"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:devtest/policy:Policy", name, id, inputs, opts...)
+	var resource Policy
+	err := ctx.ReadResource("azure:devtest/policy:Policy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Policy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A description for the Policy.
-func (r *Policy) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
-func (r *Policy) EvaluatorType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["evaluatorType"])
-}
-
-// The Fact Data for this Policy.
-func (r *Policy) FactData() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["factData"])
-}
-
-// Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
-func (r *Policy) LabName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labName"])
-}
-
-// Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
-func (r *Policy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
-func (r *Policy) PolicySetName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["policySetName"])
-}
-
-// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-func (r *Policy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Policy) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Threshold for this Policy.
-func (r *Policy) Threshold() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["threshold"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Policy resources.
 type PolicyState struct {
 	// A description for the Policy.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
-	EvaluatorType interface{}
+	EvaluatorType pulumi.StringInput `pulumi:"evaluatorType"`
 	// The Fact Data for this Policy.
-	FactData interface{}
+	FactData pulumi.StringInput `pulumi:"factData"`
 	// Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
-	PolicySetName interface{}
+	PolicySetName pulumi.StringInput `pulumi:"policySetName"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Threshold for this Policy.
-	Threshold interface{}
+	Threshold pulumi.StringInput `pulumi:"threshold"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// A description for the Policy.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
-	EvaluatorType interface{}
+	EvaluatorType pulumi.StringInput `pulumi:"evaluatorType"`
 	// The Fact Data for this Policy.
-	FactData interface{}
+	FactData pulumi.StringInput `pulumi:"factData"`
 	// Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
-	PolicySetName interface{}
+	PolicySetName pulumi.StringInput `pulumi:"policySetName"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Threshold for this Policy.
-	Threshold interface{}
+	Threshold pulumi.StringInput `pulumi:"threshold"`
 }

@@ -12,102 +12,81 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
 type Queue struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A mapping of MetaData which should be assigned to this Storage Queue.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
+
+	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the storage queue.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
 func NewQueue(ctx *pulumi.Context,
-	name string, args *QueueArgs, opts ...pulumi.ResourceOpt) (*Queue, error) {
+	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["metadata"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageAccountName"] = nil
-	} else {
-		inputs["metadata"] = args.Metadata
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageAccountName"] = args.StorageAccountName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:storage/queue:Queue", name, true, inputs, opts...)
+	var resource Queue
+	err := ctx.RegisterResource("azure:storage/queue:Queue", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Queue{s: s}, nil
+	return &resource, nil
 }
 
 // GetQueue gets an existing Queue resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetQueue(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *QueueState, opts ...pulumi.ResourceOpt) (*Queue, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *QueueState, opts ...pulumi.ResourceOption) (*Queue, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["metadata"] = state.Metadata
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageAccountName"] = state.StorageAccountName
+		if i := state.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/queue:Queue", name, id, inputs, opts...)
+	var resource Queue
+	err := ctx.ReadResource("azure:storage/queue:Queue", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Queue{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Queue) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Queue) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A mapping of MetaData which should be assigned to this Storage Queue.
-func (r *Queue) Metadata() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["metadata"])
-}
-
-// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
-func (r *Queue) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the storage queue.
-func (r *Queue) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-func (r *Queue) StorageAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Queue resources.
 type QueueState struct {
 	// A mapping of MetaData which should be assigned to this Storage Queue.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
 	// A mapping of MetaData which should be assigned to this Storage Queue.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }

@@ -12,105 +12,84 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_fabric.html.markdown.
 type Fabric struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// In what region should the fabric be located.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the network mapping.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the vault that should be updated.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// Name of the resource group where the vault that should be updated is located.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewFabric registers a new resource with the given unique name, arguments, and options.
 func NewFabric(ctx *pulumi.Context,
-	name string, args *FabricArgs, opts ...pulumi.ResourceOpt) (*Fabric, error) {
+	name string, args *FabricArgs, opts ...pulumi.ResourceOption) (*Fabric, error) {
 	if args == nil || args.RecoveryVaultName == nil {
 		return nil, errors.New("missing required argument 'RecoveryVaultName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/fabric:Fabric", name, true, inputs, opts...)
+	var resource Fabric
+	err := ctx.RegisterResource("azure:recoveryservices/fabric:Fabric", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Fabric{s: s}, nil
+	return &resource, nil
 }
 
 // GetFabric gets an existing Fabric resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFabric(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FabricState, opts ...pulumi.ResourceOpt) (*Fabric, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FabricState, opts ...pulumi.ResourceOption) (*Fabric, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/fabric:Fabric", name, id, inputs, opts...)
+	var resource Fabric
+	err := ctx.ReadResource("azure:recoveryservices/fabric:Fabric", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Fabric{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Fabric) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Fabric) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// In what region should the fabric be located.
-func (r *Fabric) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the network mapping.
-func (r *Fabric) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the vault that should be updated.
-func (r *Fabric) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// Name of the resource group where the vault that should be updated is located.
-func (r *Fabric) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Fabric resources.
 type FabricState struct {
 	// In what region should the fabric be located.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Fabric resource.
 type FabricArgs struct {
 	// In what region should the fabric be located.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the network mapping.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

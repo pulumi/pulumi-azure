@@ -10,49 +10,36 @@ import (
 // Use this data source to access information about an existing Automation Datetime Variable.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
-func LookupDateTimeVariable(ctx *pulumi.Context, args *GetDateTimeVariableArgs) (*GetDateTimeVariableResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["automationAccountName"] = args.AutomationAccountName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", inputs)
+func LookupDateTimeVariable(ctx *pulumi.Context, args *GetDateTimeVariableArgs, opts ...pulumi.InvokeOption) (*GetDateTimeVariableResult, error) {
+	var rv GetDateTimeVariableResult
+	err := ctx.Invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetDateTimeVariableResult{
-		AutomationAccountName: outputs["automationAccountName"],
-		Description: outputs["description"],
-		Encrypted: outputs["encrypted"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Value: outputs["value"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getDateTimeVariable.
 type GetDateTimeVariableArgs struct {
 	// The name of the automation account in which the Automation Variable exists.
-	AutomationAccountName interface{}
+	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The name of the Automation Variable.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the automation account exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getDateTimeVariable.
 type GetDateTimeVariableResult struct {
-	AutomationAccountName interface{}
+	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The description of the Automation Variable.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
-	Encrypted interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Encrypted bool `pulumi:"encrypted"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
-	Value interface{}
+	Value string `pulumi:"value"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

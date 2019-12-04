@@ -4,6 +4,8 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,123 +16,165 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
 type BastionHost struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The FQDN for the Azure Bastion Host.
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+
+	// A `ipConfiguration` block as defined below.
+	IpConfiguration BastionHostIpConfigurationOutput `pulumi:"ipConfiguration"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Bastion Host.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
 func NewBastionHost(ctx *pulumi.Context,
-	name string, args *BastionHostArgs, opts ...pulumi.ResourceOpt) (*BastionHost, error) {
+	name string, args *BastionHostArgs, opts ...pulumi.ResourceOption) (*BastionHost, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["ipConfiguration"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["ipConfiguration"] = args.IpConfiguration
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.IpConfiguration; i != nil { inputs["ipConfiguration"] = i.ToBastionHostIpConfigurationOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["dnsName"] = nil
-	s, err := ctx.RegisterResource("azure:compute/bastionHost:BastionHost", name, true, inputs, opts...)
+	var resource BastionHost
+	err := ctx.RegisterResource("azure:compute/bastionHost:BastionHost", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BastionHost{s: s}, nil
+	return &resource, nil
 }
 
 // GetBastionHost gets an existing BastionHost resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBastionHost(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BastionHostState, opts ...pulumi.ResourceOpt) (*BastionHost, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BastionHostState, opts ...pulumi.ResourceOption) (*BastionHost, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dnsName"] = state.DnsName
-		inputs["ipConfiguration"] = state.IpConfiguration
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.DnsName; i != nil { inputs["dnsName"] = i.ToStringOutput() }
+		if i := state.IpConfiguration; i != nil { inputs["ipConfiguration"] = i.ToBastionHostIpConfigurationOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/bastionHost:BastionHost", name, id, inputs, opts...)
+	var resource BastionHost
+	err := ctx.ReadResource("azure:compute/bastionHost:BastionHost", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BastionHost{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *BastionHost) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *BastionHost) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The FQDN for the Azure Bastion Host.
-func (r *BastionHost) DnsName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dnsName"])
-}
-
-// A `ipConfiguration` block as defined below.
-func (r *BastionHost) IpConfiguration() pulumi.Output {
-	return r.s.State["ipConfiguration"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *BastionHost) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-func (r *BastionHost) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Bastion Host.
-func (r *BastionHost) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *BastionHost) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering BastionHost resources.
 type BastionHostState struct {
 	// The FQDN for the Azure Bastion Host.
-	DnsName interface{}
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
 	// A `ipConfiguration` block as defined below.
-	IpConfiguration interface{}
+	IpConfiguration BastionHostIpConfigurationInput `pulumi:"ipConfiguration"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Bastion Host.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BastionHost resource.
 type BastionHostArgs struct {
 	// A `ipConfiguration` block as defined below.
-	IpConfiguration interface{}
+	IpConfiguration BastionHostIpConfigurationInput `pulumi:"ipConfiguration"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Bastion Host.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type BastionHostIpConfiguration struct {
+	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	SubnetId string `pulumi:"subnetId"`
+}
+var bastionHostIpConfigurationType = reflect.TypeOf((*BastionHostIpConfiguration)(nil)).Elem()
+
+type BastionHostIpConfigurationInput interface {
+	pulumi.Input
+
+	ToBastionHostIpConfigurationOutput() BastionHostIpConfigurationOutput
+	ToBastionHostIpConfigurationOutputWithContext(ctx context.Context) BastionHostIpConfigurationOutput
+}
+
+type BastionHostIpConfigurationArgs struct {
+	// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (BastionHostIpConfigurationArgs) ElementType() reflect.Type {
+	return bastionHostIpConfigurationType
+}
+
+func (a BastionHostIpConfigurationArgs) ToBastionHostIpConfigurationOutput() BastionHostIpConfigurationOutput {
+	return pulumi.ToOutput(a).(BastionHostIpConfigurationOutput)
+}
+
+func (a BastionHostIpConfigurationArgs) ToBastionHostIpConfigurationOutputWithContext(ctx context.Context) BastionHostIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BastionHostIpConfigurationOutput)
+}
+
+type BastionHostIpConfigurationOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
+func (o BastionHostIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v BastionHostIpConfiguration) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o BastionHostIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.Apply(func(v BastionHostIpConfiguration) string {
+		return v.PublicIpAddressId
+	}).(pulumi.StringOutput)
+}
+
+func (o BastionHostIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v BastionHostIpConfiguration) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (BastionHostIpConfigurationOutput) ElementType() reflect.Type {
+	return bastionHostIpConfigurationType
+}
+
+func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationOutput() BastionHostIpConfigurationOutput {
+	return o
+}
+
+func (o BastionHostIpConfigurationOutput) ToBastionHostIpConfigurationOutputWithContext(ctx context.Context) BastionHostIpConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{}) }
+

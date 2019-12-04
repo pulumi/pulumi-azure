@@ -4,6 +4,8 @@
 package dns
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,33 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
 type NsRecord struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the DNS NS Record.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record NsRecordRecordArrayOutput `pulumi:"record"`
+
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+	Records pulumi.StringArrayOutput `pulumi:"records"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewNsRecord registers a new resource with the given unique name, arguments, and options.
 func NewNsRecord(ctx *pulumi.Context,
-	name string, args *NsRecordArgs, opts ...pulumi.ResourceOpt) (*NsRecord, error) {
+	name string, args *NsRecordArgs, opts ...pulumi.ResourceOption) (*NsRecord, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -27,129 +50,173 @@ func NewNsRecord(ctx *pulumi.Context,
 	if args == nil || args.ZoneName == nil {
 		return nil, errors.New("missing required argument 'ZoneName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["record"] = nil
-		inputs["records"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["ttl"] = nil
-		inputs["zoneName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["record"] = args.Record
-		inputs["records"] = args.Records
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["ttl"] = args.Ttl
-		inputs["zoneName"] = args.ZoneName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Record; i != nil { inputs["record"] = i.ToNsRecordRecordArrayOutput() }
+		if i := args.Records; i != nil { inputs["records"] = i.ToStringArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:dns/nsRecord:NsRecord", name, true, inputs, opts...)
+	var resource NsRecord
+	err := ctx.RegisterResource("azure:dns/nsRecord:NsRecord", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NsRecord{s: s}, nil
+	return &resource, nil
 }
 
 // GetNsRecord gets an existing NsRecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNsRecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NsRecordState, opts ...pulumi.ResourceOpt) (*NsRecord, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NsRecordState, opts ...pulumi.ResourceOption) (*NsRecord, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["record"] = state.Record
-		inputs["records"] = state.Records
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["ttl"] = state.Ttl
-		inputs["zoneName"] = state.ZoneName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Record; i != nil { inputs["record"] = i.ToNsRecordRecordArrayOutput() }
+		if i := state.Records; i != nil { inputs["records"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:dns/nsRecord:NsRecord", name, id, inputs, opts...)
+	var resource NsRecord
+	err := ctx.ReadResource("azure:dns/nsRecord:NsRecord", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NsRecord{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NsRecord) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NsRecord) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the DNS NS Record.
-func (r *NsRecord) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-func (r *NsRecord) Record() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["record"])
-}
-
-// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
-func (r *NsRecord) Records() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["records"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *NsRecord) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *NsRecord) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Time To Live (TTL) of the DNS record in seconds.
-func (r *NsRecord) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-func (r *NsRecord) ZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NsRecord resources.
 type NsRecordState struct {
 	// The name of the DNS NS Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-	Record interface{}
+	Record NsRecordRecordArrayInput `pulumi:"record"`
 	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
-	Records interface{}
+	Records pulumi.StringArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a NsRecord resource.
 type NsRecordArgs struct {
 	// The name of the DNS NS Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-	Record interface{}
+	Record NsRecordRecordArrayInput `pulumi:"record"`
 	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
-	Records interface{}
+	Records pulumi.StringArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
-	Ttl interface{}
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
+type NsRecordRecord struct {
+	Nsdname string `pulumi:"nsdname"`
+}
+var nsRecordRecordType = reflect.TypeOf((*NsRecordRecord)(nil)).Elem()
+
+type NsRecordRecordInput interface {
+	pulumi.Input
+
+	ToNsRecordRecordOutput() NsRecordRecordOutput
+	ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput
+}
+
+type NsRecordRecordArgs struct {
+	Nsdname pulumi.StringInput `pulumi:"nsdname"`
+}
+
+func (NsRecordRecordArgs) ElementType() reflect.Type {
+	return nsRecordRecordType
+}
+
+func (a NsRecordRecordArgs) ToNsRecordRecordOutput() NsRecordRecordOutput {
+	return pulumi.ToOutput(a).(NsRecordRecordOutput)
+}
+
+func (a NsRecordRecordArgs) ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NsRecordRecordOutput)
+}
+
+type NsRecordRecordOutput struct { *pulumi.OutputState }
+
+func (o NsRecordRecordOutput) Nsdname() pulumi.StringOutput {
+	return o.Apply(func(v NsRecordRecord) string {
+		return v.Nsdname
+	}).(pulumi.StringOutput)
+}
+
+func (NsRecordRecordOutput) ElementType() reflect.Type {
+	return nsRecordRecordType
+}
+
+func (o NsRecordRecordOutput) ToNsRecordRecordOutput() NsRecordRecordOutput {
+	return o
+}
+
+func (o NsRecordRecordOutput) ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NsRecordRecordOutput{}) }
+
+var nsRecordRecordArrayType = reflect.TypeOf((*[]NsRecordRecord)(nil)).Elem()
+
+type NsRecordRecordArrayInput interface {
+	pulumi.Input
+
+	ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput
+	ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput
+}
+
+type NsRecordRecordArrayArgs []NsRecordRecordInput
+
+func (NsRecordRecordArrayArgs) ElementType() reflect.Type {
+	return nsRecordRecordArrayType
+}
+
+func (a NsRecordRecordArrayArgs) ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput {
+	return pulumi.ToOutput(a).(NsRecordRecordArrayOutput)
+}
+
+func (a NsRecordRecordArrayArgs) ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NsRecordRecordArrayOutput)
+}
+
+type NsRecordRecordArrayOutput struct { *pulumi.OutputState }
+
+func (o NsRecordRecordArrayOutput) Index(i pulumi.IntInput) NsRecordRecordOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NsRecordRecord {
+		return vs[0].([]NsRecordRecord)[vs[1].(int)]
+	}).(NsRecordRecordOutput)
+}
+
+func (NsRecordRecordArrayOutput) ElementType() reflect.Type {
+	return nsRecordRecordArrayType
+}
+
+func (o NsRecordRecordArrayOutput) ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput {
+	return o
+}
+
+func (o NsRecordRecordArrayOutput) ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NsRecordRecordArrayOutput{}) }
+

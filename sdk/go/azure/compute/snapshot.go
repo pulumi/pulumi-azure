@@ -4,6 +4,8 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,174 +14,317 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
 type Snapshot struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+	CreateOption pulumi.StringOutput `pulumi:"createOption"`
+
+	// The size of the Snapshotted Disk in GB.
+	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
+
+	EncryptionSettings SnapshotEncryptionSettingsOutput `pulumi:"encryptionSettings"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+	SourceResourceId pulumi.StringOutput `pulumi:"sourceResourceId"`
+
+	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
+	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
+
+	// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewSnapshot(ctx *pulumi.Context,
-	name string, args *SnapshotArgs, opts ...pulumi.ResourceOpt) (*Snapshot, error) {
+	name string, args *SnapshotArgs, opts ...pulumi.ResourceOption) (*Snapshot, error) {
 	if args == nil || args.CreateOption == nil {
 		return nil, errors.New("missing required argument 'CreateOption'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["createOption"] = nil
-		inputs["diskSizeGb"] = nil
-		inputs["encryptionSettings"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sourceResourceId"] = nil
-		inputs["sourceUri"] = nil
-		inputs["storageAccountId"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["createOption"] = args.CreateOption
-		inputs["diskSizeGb"] = args.DiskSizeGb
-		inputs["encryptionSettings"] = args.EncryptionSettings
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sourceResourceId"] = args.SourceResourceId
-		inputs["sourceUri"] = args.SourceUri
-		inputs["storageAccountId"] = args.StorageAccountId
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CreateOption; i != nil { inputs["createOption"] = i.ToStringOutput() }
+		if i := args.DiskSizeGb; i != nil { inputs["diskSizeGb"] = i.ToIntOutput() }
+		if i := args.EncryptionSettings; i != nil { inputs["encryptionSettings"] = i.ToSnapshotEncryptionSettingsOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SourceResourceId; i != nil { inputs["sourceResourceId"] = i.ToStringOutput() }
+		if i := args.SourceUri; i != nil { inputs["sourceUri"] = i.ToStringOutput() }
+		if i := args.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/snapshot:Snapshot", name, true, inputs, opts...)
+	var resource Snapshot
+	err := ctx.RegisterResource("azure:compute/snapshot:Snapshot", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Snapshot{s: s}, nil
+	return &resource, nil
 }
 
 // GetSnapshot gets an existing Snapshot resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSnapshot(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SnapshotState, opts ...pulumi.ResourceOpt) (*Snapshot, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SnapshotState, opts ...pulumi.ResourceOption) (*Snapshot, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["createOption"] = state.CreateOption
-		inputs["diskSizeGb"] = state.DiskSizeGb
-		inputs["encryptionSettings"] = state.EncryptionSettings
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sourceResourceId"] = state.SourceResourceId
-		inputs["sourceUri"] = state.SourceUri
-		inputs["storageAccountId"] = state.StorageAccountId
-		inputs["tags"] = state.Tags
+		if i := state.CreateOption; i != nil { inputs["createOption"] = i.ToStringOutput() }
+		if i := state.DiskSizeGb; i != nil { inputs["diskSizeGb"] = i.ToIntOutput() }
+		if i := state.EncryptionSettings; i != nil { inputs["encryptionSettings"] = i.ToSnapshotEncryptionSettingsOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SourceResourceId; i != nil { inputs["sourceResourceId"] = i.ToStringOutput() }
+		if i := state.SourceUri; i != nil { inputs["sourceUri"] = i.ToStringOutput() }
+		if i := state.StorageAccountId; i != nil { inputs["storageAccountId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/snapshot:Snapshot", name, id, inputs, opts...)
+	var resource Snapshot
+	err := ctx.ReadResource("azure:compute/snapshot:Snapshot", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Snapshot{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Snapshot) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Snapshot) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
-func (r *Snapshot) CreateOption() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createOption"])
-}
-
-// The size of the Snapshotted Disk in GB.
-func (r *Snapshot) DiskSizeGb() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["diskSizeGb"])
-}
-
-func (r *Snapshot) EncryptionSettings() pulumi.Output {
-	return r.s.State["encryptionSettings"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Snapshot) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
-func (r *Snapshot) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-func (r *Snapshot) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
-func (r *Snapshot) SourceResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceResourceId"])
-}
-
-// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
-func (r *Snapshot) SourceUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceUri"])
-}
-
-// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
-func (r *Snapshot) StorageAccountId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Snapshot) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Snapshot resources.
 type SnapshotState struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
-	CreateOption interface{}
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb interface{}
-	EncryptionSettings interface{}
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	EncryptionSettings SnapshotEncryptionSettingsInput `pulumi:"encryptionSettings"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
-	SourceResourceId interface{}
+	SourceResourceId pulumi.StringInput `pulumi:"sourceResourceId"`
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
-	SourceUri interface{}
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
 	// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
 	// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
-	CreateOption interface{}
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb interface{}
-	EncryptionSettings interface{}
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	EncryptionSettings SnapshotEncryptionSettingsInput `pulumi:"encryptionSettings"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
-	SourceResourceId interface{}
+	SourceResourceId pulumi.StringInput `pulumi:"sourceResourceId"`
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
-	SourceUri interface{}
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
 	// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
-	StorageAccountId interface{}
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type SnapshotEncryptionSettings struct {
+	DiskEncryptionKey *SnapshotEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
+	Enabled bool `pulumi:"enabled"`
+	KeyEncryptionKey *SnapshotEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
+}
+var snapshotEncryptionSettingsType = reflect.TypeOf((*SnapshotEncryptionSettings)(nil)).Elem()
+
+type SnapshotEncryptionSettingsInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionSettingsOutput() SnapshotEncryptionSettingsOutput
+	ToSnapshotEncryptionSettingsOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsOutput
+}
+
+type SnapshotEncryptionSettingsArgs struct {
+	DiskEncryptionKey SnapshotEncryptionSettingsDiskEncryptionKeyInput `pulumi:"diskEncryptionKey"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	KeyEncryptionKey SnapshotEncryptionSettingsKeyEncryptionKeyInput `pulumi:"keyEncryptionKey"`
+}
+
+func (SnapshotEncryptionSettingsArgs) ElementType() reflect.Type {
+	return snapshotEncryptionSettingsType
+}
+
+func (a SnapshotEncryptionSettingsArgs) ToSnapshotEncryptionSettingsOutput() SnapshotEncryptionSettingsOutput {
+	return pulumi.ToOutput(a).(SnapshotEncryptionSettingsOutput)
+}
+
+func (a SnapshotEncryptionSettingsArgs) ToSnapshotEncryptionSettingsOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SnapshotEncryptionSettingsOutput)
+}
+
+type SnapshotEncryptionSettingsOutput struct { *pulumi.OutputState }
+
+func (o SnapshotEncryptionSettingsOutput) DiskEncryptionKey() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
+	return o.Apply(func(v SnapshotEncryptionSettings) SnapshotEncryptionSettingsDiskEncryptionKey {
+		if v.DiskEncryptionKey == nil { return *new(SnapshotEncryptionSettingsDiskEncryptionKey) } else { return *v.DiskEncryptionKey }
+	}).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
+}
+
+func (o SnapshotEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v SnapshotEncryptionSettings) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o SnapshotEncryptionSettingsOutput) KeyEncryptionKey() SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
+	return o.Apply(func(v SnapshotEncryptionSettings) SnapshotEncryptionSettingsKeyEncryptionKey {
+		if v.KeyEncryptionKey == nil { return *new(SnapshotEncryptionSettingsKeyEncryptionKey) } else { return *v.KeyEncryptionKey }
+	}).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
+}
+
+func (SnapshotEncryptionSettingsOutput) ElementType() reflect.Type {
+	return snapshotEncryptionSettingsType
+}
+
+func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsOutput() SnapshotEncryptionSettingsOutput {
+	return o
+}
+
+func (o SnapshotEncryptionSettingsOutput) ToSnapshotEncryptionSettingsOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SnapshotEncryptionSettingsOutput{}) }
+
+type SnapshotEncryptionSettingsDiskEncryptionKey struct {
+	SecretUrl string `pulumi:"secretUrl"`
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+var snapshotEncryptionSettingsDiskEncryptionKeyType = reflect.TypeOf((*SnapshotEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
+
+type SnapshotEncryptionSettingsDiskEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionSettingsDiskEncryptionKeyOutput() SnapshotEncryptionSettingsDiskEncryptionKeyOutput
+	ToSnapshotEncryptionSettingsDiskEncryptionKeyOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsDiskEncryptionKeyOutput
+}
+
+type SnapshotEncryptionSettingsDiskEncryptionKeyArgs struct {
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (SnapshotEncryptionSettingsDiskEncryptionKeyArgs) ElementType() reflect.Type {
+	return snapshotEncryptionSettingsDiskEncryptionKeyType
+}
+
+func (a SnapshotEncryptionSettingsDiskEncryptionKeyArgs) ToSnapshotEncryptionSettingsDiskEncryptionKeyOutput() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
+	return pulumi.ToOutput(a).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
+}
+
+func (a SnapshotEncryptionSettingsDiskEncryptionKeyArgs) ToSnapshotEncryptionSettingsDiskEncryptionKeyOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SnapshotEncryptionSettingsDiskEncryptionKeyOutput)
+}
+
+type SnapshotEncryptionSettingsDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+
+func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
+	return o.Apply(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string {
+		return v.SecretUrl
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.Apply(func(v SnapshotEncryptionSettingsDiskEncryptionKey) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+func (SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ElementType() reflect.Type {
+	return snapshotEncryptionSettingsDiskEncryptionKeyType
+}
+
+func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionSettingsDiskEncryptionKeyOutput() SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o SnapshotEncryptionSettingsDiskEncryptionKeyOutput) ToSnapshotEncryptionSettingsDiskEncryptionKeyOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsDiskEncryptionKeyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SnapshotEncryptionSettingsDiskEncryptionKeyOutput{}) }
+
+type SnapshotEncryptionSettingsKeyEncryptionKey struct {
+	KeyUrl string `pulumi:"keyUrl"`
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+var snapshotEncryptionSettingsKeyEncryptionKeyType = reflect.TypeOf((*SnapshotEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
+
+type SnapshotEncryptionSettingsKeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToSnapshotEncryptionSettingsKeyEncryptionKeyOutput() SnapshotEncryptionSettingsKeyEncryptionKeyOutput
+	ToSnapshotEncryptionSettingsKeyEncryptionKeyOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsKeyEncryptionKeyOutput
+}
+
+type SnapshotEncryptionSettingsKeyEncryptionKeyArgs struct {
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (SnapshotEncryptionSettingsKeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return snapshotEncryptionSettingsKeyEncryptionKeyType
+}
+
+func (a SnapshotEncryptionSettingsKeyEncryptionKeyArgs) ToSnapshotEncryptionSettingsKeyEncryptionKeyOutput() SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
+	return pulumi.ToOutput(a).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
+}
+
+func (a SnapshotEncryptionSettingsKeyEncryptionKeyArgs) ToSnapshotEncryptionSettingsKeyEncryptionKeyOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SnapshotEncryptionSettingsKeyEncryptionKeyOutput)
+}
+
+type SnapshotEncryptionSettingsKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+
+func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
+	return o.Apply(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string {
+		return v.KeyUrl
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.Apply(func(v SnapshotEncryptionSettingsKeyEncryptionKey) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+func (SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return snapshotEncryptionSettingsKeyEncryptionKeyType
+}
+
+func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSettingsKeyEncryptionKeyOutput() SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o SnapshotEncryptionSettingsKeyEncryptionKeyOutput) ToSnapshotEncryptionSettingsKeyEncryptionKeyOutputWithContext(ctx context.Context) SnapshotEncryptionSettingsKeyEncryptionKeyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SnapshotEncryptionSettingsKeyEncryptionKeyOutput{}) }
+

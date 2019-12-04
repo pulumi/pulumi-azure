@@ -12,129 +12,102 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_bool.html.markdown.
 type BoolVariable struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
+	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
+
+	// The description of the Automation Variable.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+
+	// The name of the Automation Variable. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The value of the Automation Variable as a `boolean`.
+	Value pulumi.BoolOutput `pulumi:"value"`
 }
 
 // NewBoolVariable registers a new resource with the given unique name, arguments, and options.
 func NewBoolVariable(ctx *pulumi.Context,
-	name string, args *BoolVariableArgs, opts ...pulumi.ResourceOpt) (*BoolVariable, error) {
+	name string, args *BoolVariableArgs, opts ...pulumi.ResourceOption) (*BoolVariable, error) {
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["automationAccountName"] = nil
-		inputs["description"] = nil
-		inputs["encrypted"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["value"] = nil
-	} else {
-		inputs["automationAccountName"] = args.AutomationAccountName
-		inputs["description"] = args.Description
-		inputs["encrypted"] = args.Encrypted
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["value"] = args.Value
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Value; i != nil { inputs["value"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:automation/boolVariable:BoolVariable", name, true, inputs, opts...)
+	var resource BoolVariable
+	err := ctx.RegisterResource("azure:automation/boolVariable:BoolVariable", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BoolVariable{s: s}, nil
+	return &resource, nil
 }
 
 // GetBoolVariable gets an existing BoolVariable resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBoolVariable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BoolVariableState, opts ...pulumi.ResourceOpt) (*BoolVariable, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BoolVariableState, opts ...pulumi.ResourceOption) (*BoolVariable, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["automationAccountName"] = state.AutomationAccountName
-		inputs["description"] = state.Description
-		inputs["encrypted"] = state.Encrypted
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["value"] = state.Value
+		if i := state.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Encrypted; i != nil { inputs["encrypted"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Value; i != nil { inputs["value"] = i.ToBoolOutput() }
 	}
-	s, err := ctx.ReadResource("azure:automation/boolVariable:BoolVariable", name, id, inputs, opts...)
+	var resource BoolVariable
+	err := ctx.ReadResource("azure:automation/boolVariable:BoolVariable", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &BoolVariable{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *BoolVariable) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *BoolVariable) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
-func (r *BoolVariable) AutomationAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
-}
-
-// The description of the Automation Variable.
-func (r *BoolVariable) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Specifies if the Automation Variable is encrypted. Defaults to `false`.
-func (r *BoolVariable) Encrypted() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["encrypted"])
-}
-
-// The name of the Automation Variable. Changing this forces a new resource to be created.
-func (r *BoolVariable) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-func (r *BoolVariable) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The value of the Automation Variable as a `boolean`.
-func (r *BoolVariable) Value() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["value"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering BoolVariable resources.
 type BoolVariableState struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// The description of the Automation Variable.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The name of the Automation Variable. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The value of the Automation Variable as a `boolean`.
-	Value interface{}
+	Value pulumi.BoolInput `pulumi:"value"`
 }
 
 // The set of arguments for constructing a BoolVariable resource.
 type BoolVariableArgs struct {
 	// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// The description of the Automation Variable.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies if the Automation Variable is encrypted. Defaults to `false`.
-	Encrypted interface{}
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The name of the Automation Variable. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The value of the Automation Variable as a `boolean`.
-	Value interface{}
+	Value pulumi.BoolInput `pulumi:"value"`
 }

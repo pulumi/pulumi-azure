@@ -10,50 +10,37 @@ import (
 // Use this data source to access information about an existing PostgreSQL Azure Database Server.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/postgresql_server.html.markdown.
-func LookupServer(ctx *pulumi.Context, args *GetServerArgs) (*GetServerResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:postgresql/getServer:getServer", inputs)
+func LookupServer(ctx *pulumi.Context, args *GetServerArgs, opts ...pulumi.InvokeOption) (*GetServerResult, error) {
+	var rv GetServerResult
+	err := ctx.Invoke("azure:postgresql/getServer:getServer", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetServerResult{
-		AdministratorLogin: outputs["administratorLogin"],
-		Fqdn: outputs["fqdn"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Version: outputs["version"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getServer.
 type GetServerArgs struct {
 	// The name of the PostgreSQL Server.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the PostgreSQL Server exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getServer.
 type GetServerResult struct {
 	// The administrator username of the PostgreSQL Server.
-	AdministratorLogin interface{}
+	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The fully qualified domain name of the PostgreSQL Server.
-	Fqdn interface{}
+	Fqdn string `pulumi:"fqdn"`
 	// The location of the Resource Group in which the PostgreSQL Server exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// The version of the PostgreSQL Server.
-	Version interface{}
+	Version string `pulumi:"version"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

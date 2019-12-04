@@ -4,6 +4,8 @@
 package streamanalytics
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
 type FunctionJavaScriptUDF struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `input` blocks as defined below.
+	Inputs FunctionJavaScriptUDFInputsArrayOutput `pulumi:"inputs"`
+
+	// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// An `output` blocks as defined below.
+	Output FunctionJavaScriptUDFOutputOutput `pulumi:"output"`
+
+	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The JavaScript of this UDF Function.
+	Script pulumi.StringOutput `pulumi:"script"`
+
+	// The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
+	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
 }
 
 // NewFunctionJavaScriptUDF registers a new resource with the given unique name, arguments, and options.
 func NewFunctionJavaScriptUDF(ctx *pulumi.Context,
-	name string, args *FunctionJavaScriptUDFArgs, opts ...pulumi.ResourceOpt) (*FunctionJavaScriptUDF, error) {
+	name string, args *FunctionJavaScriptUDFArgs, opts ...pulumi.ResourceOption) (*FunctionJavaScriptUDF, error) {
 	if args == nil || args.Inputs == nil {
 		return nil, errors.New("missing required argument 'Inputs'")
 	}
@@ -33,117 +53,217 @@ func NewFunctionJavaScriptUDF(ctx *pulumi.Context,
 	if args == nil || args.StreamAnalyticsJobName == nil {
 		return nil, errors.New("missing required argument 'StreamAnalyticsJobName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["inputs"] = nil
-		inputs["name"] = nil
-		inputs["output"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["script"] = nil
-		inputs["streamAnalyticsJobName"] = nil
-	} else {
-		inputs["inputs"] = args.Inputs
-		inputs["name"] = args.Name
-		inputs["output"] = args.Output
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["script"] = args.Script
-		inputs["streamAnalyticsJobName"] = args.StreamAnalyticsJobName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Inputs; i != nil { inputs["inputs"] = i.ToFunctionJavaScriptUDFInputsArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Output; i != nil { inputs["output"] = i.ToFunctionJavaScriptUDFOutputOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Script; i != nil { inputs["script"] = i.ToStringOutput() }
+		if i := args.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, true, inputs, opts...)
+	var resource FunctionJavaScriptUDF
+	err := ctx.RegisterResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FunctionJavaScriptUDF{s: s}, nil
+	return &resource, nil
 }
 
 // GetFunctionJavaScriptUDF gets an existing FunctionJavaScriptUDF resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFunctionJavaScriptUDF(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FunctionJavaScriptUDFState, opts ...pulumi.ResourceOpt) (*FunctionJavaScriptUDF, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FunctionJavaScriptUDFState, opts ...pulumi.ResourceOption) (*FunctionJavaScriptUDF, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["inputs"] = state.Inputs
-		inputs["name"] = state.Name
-		inputs["output"] = state.Output
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["script"] = state.Script
-		inputs["streamAnalyticsJobName"] = state.StreamAnalyticsJobName
+		if i := state.Inputs; i != nil { inputs["inputs"] = i.ToFunctionJavaScriptUDFInputsArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Output; i != nil { inputs["output"] = i.ToFunctionJavaScriptUDFOutputOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Script; i != nil { inputs["script"] = i.ToStringOutput() }
+		if i := state.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, id, inputs, opts...)
+	var resource FunctionJavaScriptUDF
+	err := ctx.ReadResource("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FunctionJavaScriptUDF{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FunctionJavaScriptUDF) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FunctionJavaScriptUDF) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `input` blocks as defined below.
-func (r *FunctionJavaScriptUDF) Inputs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["inputs"])
-}
-
-// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-func (r *FunctionJavaScriptUDF) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// An `output` blocks as defined below.
-func (r *FunctionJavaScriptUDF) Output() pulumi.Output {
-	return r.s.State["output"]
-}
-
-// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *FunctionJavaScriptUDF) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The JavaScript of this UDF Function.
-func (r *FunctionJavaScriptUDF) Script() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["script"])
-}
-
-// The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-func (r *FunctionJavaScriptUDF) StreamAnalyticsJobName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FunctionJavaScriptUDF resources.
 type FunctionJavaScriptUDFState struct {
 	// One or more `input` blocks as defined below.
-	Inputs interface{}
+	Inputs FunctionJavaScriptUDFInputsArrayInput `pulumi:"inputs"`
 	// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// An `output` blocks as defined below.
-	Output interface{}
+	Output FunctionJavaScriptUDFOutputInput `pulumi:"output"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The JavaScript of this UDF Function.
-	Script interface{}
+	Script pulumi.StringInput `pulumi:"script"`
 	// The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 }
 
 // The set of arguments for constructing a FunctionJavaScriptUDF resource.
 type FunctionJavaScriptUDFArgs struct {
 	// One or more `input` blocks as defined below.
-	Inputs interface{}
+	Inputs FunctionJavaScriptUDFInputsArrayInput `pulumi:"inputs"`
 	// The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// An `output` blocks as defined below.
-	Output interface{}
+	Output FunctionJavaScriptUDFOutputInput `pulumi:"output"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The JavaScript of this UDF Function.
-	Script interface{}
+	Script pulumi.StringInput `pulumi:"script"`
 	// The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 }
+type FunctionJavaScriptUDFInputs struct {
+	Type string `pulumi:"type"`
+}
+var functionJavaScriptUDFInputsType = reflect.TypeOf((*FunctionJavaScriptUDFInputs)(nil)).Elem()
+
+type FunctionJavaScriptUDFInputsInput interface {
+	pulumi.Input
+
+	ToFunctionJavaScriptUDFInputsOutput() FunctionJavaScriptUDFInputsOutput
+	ToFunctionJavaScriptUDFInputsOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputsOutput
+}
+
+type FunctionJavaScriptUDFInputsArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionJavaScriptUDFInputsArgs) ElementType() reflect.Type {
+	return functionJavaScriptUDFInputsType
+}
+
+func (a FunctionJavaScriptUDFInputsArgs) ToFunctionJavaScriptUDFInputsOutput() FunctionJavaScriptUDFInputsOutput {
+	return pulumi.ToOutput(a).(FunctionJavaScriptUDFInputsOutput)
+}
+
+func (a FunctionJavaScriptUDFInputsArgs) ToFunctionJavaScriptUDFInputsOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionJavaScriptUDFInputsOutput)
+}
+
+type FunctionJavaScriptUDFInputsOutput struct { *pulumi.OutputState }
+
+func (o FunctionJavaScriptUDFInputsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FunctionJavaScriptUDFInputs) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionJavaScriptUDFInputsOutput) ElementType() reflect.Type {
+	return functionJavaScriptUDFInputsType
+}
+
+func (o FunctionJavaScriptUDFInputsOutput) ToFunctionJavaScriptUDFInputsOutput() FunctionJavaScriptUDFInputsOutput {
+	return o
+}
+
+func (o FunctionJavaScriptUDFInputsOutput) ToFunctionJavaScriptUDFInputsOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionJavaScriptUDFInputsOutput{}) }
+
+var functionJavaScriptUDFInputsArrayType = reflect.TypeOf((*[]FunctionJavaScriptUDFInputs)(nil)).Elem()
+
+type FunctionJavaScriptUDFInputsArrayInput interface {
+	pulumi.Input
+
+	ToFunctionJavaScriptUDFInputsArrayOutput() FunctionJavaScriptUDFInputsArrayOutput
+	ToFunctionJavaScriptUDFInputsArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputsArrayOutput
+}
+
+type FunctionJavaScriptUDFInputsArrayArgs []FunctionJavaScriptUDFInputsInput
+
+func (FunctionJavaScriptUDFInputsArrayArgs) ElementType() reflect.Type {
+	return functionJavaScriptUDFInputsArrayType
+}
+
+func (a FunctionJavaScriptUDFInputsArrayArgs) ToFunctionJavaScriptUDFInputsArrayOutput() FunctionJavaScriptUDFInputsArrayOutput {
+	return pulumi.ToOutput(a).(FunctionJavaScriptUDFInputsArrayOutput)
+}
+
+func (a FunctionJavaScriptUDFInputsArrayArgs) ToFunctionJavaScriptUDFInputsArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionJavaScriptUDFInputsArrayOutput)
+}
+
+type FunctionJavaScriptUDFInputsArrayOutput struct { *pulumi.OutputState }
+
+func (o FunctionJavaScriptUDFInputsArrayOutput) Index(i pulumi.IntInput) FunctionJavaScriptUDFInputsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FunctionJavaScriptUDFInputs {
+		return vs[0].([]FunctionJavaScriptUDFInputs)[vs[1].(int)]
+	}).(FunctionJavaScriptUDFInputsOutput)
+}
+
+func (FunctionJavaScriptUDFInputsArrayOutput) ElementType() reflect.Type {
+	return functionJavaScriptUDFInputsArrayType
+}
+
+func (o FunctionJavaScriptUDFInputsArrayOutput) ToFunctionJavaScriptUDFInputsArrayOutput() FunctionJavaScriptUDFInputsArrayOutput {
+	return o
+}
+
+func (o FunctionJavaScriptUDFInputsArrayOutput) ToFunctionJavaScriptUDFInputsArrayOutputWithContext(ctx context.Context) FunctionJavaScriptUDFInputsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionJavaScriptUDFInputsArrayOutput{}) }
+
+type FunctionJavaScriptUDFOutput struct {
+	Type string `pulumi:"type"`
+}
+var functionJavaScriptUDFOutputType = reflect.TypeOf((*FunctionJavaScriptUDFOutput)(nil)).Elem()
+
+type FunctionJavaScriptUDFOutputInput interface {
+	pulumi.Input
+
+	ToFunctionJavaScriptUDFOutputOutput() FunctionJavaScriptUDFOutputOutput
+	ToFunctionJavaScriptUDFOutputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputOutput
+}
+
+type FunctionJavaScriptUDFOutputArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionJavaScriptUDFOutputArgs) ElementType() reflect.Type {
+	return functionJavaScriptUDFOutputType
+}
+
+func (a FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputOutput() FunctionJavaScriptUDFOutputOutput {
+	return pulumi.ToOutput(a).(FunctionJavaScriptUDFOutputOutput)
+}
+
+func (a FunctionJavaScriptUDFOutputArgs) ToFunctionJavaScriptUDFOutputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FunctionJavaScriptUDFOutputOutput)
+}
+
+type FunctionJavaScriptUDFOutputOutput struct { *pulumi.OutputState }
+
+func (o FunctionJavaScriptUDFOutputOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FunctionJavaScriptUDFOutput) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (FunctionJavaScriptUDFOutputOutput) ElementType() reflect.Type {
+	return functionJavaScriptUDFOutputType
+}
+
+func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputOutput() FunctionJavaScriptUDFOutputOutput {
+	return o
+}
+
+func (o FunctionJavaScriptUDFOutputOutput) ToFunctionJavaScriptUDFOutputOutputWithContext(ctx context.Context) FunctionJavaScriptUDFOutputOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FunctionJavaScriptUDFOutputOutput{}) }
+

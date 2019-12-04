@@ -12,117 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_hybrid_connection.html.markdown.
 type HybridConnection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
+	RelayNamespaceName pulumi.StringOutput `pulumi:"relayNamespaceName"`
+
+	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+	RequiresClientAuthorization pulumi.BoolOutput `pulumi:"requiresClientAuthorization"`
+
+	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringOutput `pulumi:"userMetadata"`
 }
 
 // NewHybridConnection registers a new resource with the given unique name, arguments, and options.
 func NewHybridConnection(ctx *pulumi.Context,
-	name string, args *HybridConnectionArgs, opts ...pulumi.ResourceOpt) (*HybridConnection, error) {
+	name string, args *HybridConnectionArgs, opts ...pulumi.ResourceOption) (*HybridConnection, error) {
 	if args == nil || args.RelayNamespaceName == nil {
 		return nil, errors.New("missing required argument 'RelayNamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["relayNamespaceName"] = nil
-		inputs["requiresClientAuthorization"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["userMetadata"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["relayNamespaceName"] = args.RelayNamespaceName
-		inputs["requiresClientAuthorization"] = args.RequiresClientAuthorization
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["userMetadata"] = args.UserMetadata
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RelayNamespaceName; i != nil { inputs["relayNamespaceName"] = i.ToStringOutput() }
+		if i := args.RequiresClientAuthorization; i != nil { inputs["requiresClientAuthorization"] = i.ToBoolOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.UserMetadata; i != nil { inputs["userMetadata"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:relay/hybridConnection:HybridConnection", name, true, inputs, opts...)
+	var resource HybridConnection
+	err := ctx.RegisterResource("azure:relay/hybridConnection:HybridConnection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HybridConnection{s: s}, nil
+	return &resource, nil
 }
 
 // GetHybridConnection gets an existing HybridConnection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetHybridConnection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *HybridConnectionState, opts ...pulumi.ResourceOpt) (*HybridConnection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *HybridConnectionState, opts ...pulumi.ResourceOption) (*HybridConnection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["relayNamespaceName"] = state.RelayNamespaceName
-		inputs["requiresClientAuthorization"] = state.RequiresClientAuthorization
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["userMetadata"] = state.UserMetadata
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RelayNamespaceName; i != nil { inputs["relayNamespaceName"] = i.ToStringOutput() }
+		if i := state.RequiresClientAuthorization; i != nil { inputs["requiresClientAuthorization"] = i.ToBoolOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.UserMetadata; i != nil { inputs["userMetadata"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:relay/hybridConnection:HybridConnection", name, id, inputs, opts...)
+	var resource HybridConnection
+	err := ctx.ReadResource("azure:relay/hybridConnection:HybridConnection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &HybridConnection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *HybridConnection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *HybridConnection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-func (r *HybridConnection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-func (r *HybridConnection) RelayNamespaceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["relayNamespaceName"])
-}
-
-// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
-func (r *HybridConnection) RequiresClientAuthorization() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["requiresClientAuthorization"])
-}
-
-// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-func (r *HybridConnection) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
-func (r *HybridConnection) UserMetadata() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["userMetadata"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering HybridConnection resources.
 type HybridConnectionState struct {
 	// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-	RelayNamespaceName interface{}
+	RelayNamespaceName pulumi.StringInput `pulumi:"relayNamespaceName"`
 	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
-	RequiresClientAuthorization interface{}
+	RequiresClientAuthorization pulumi.BoolInput `pulumi:"requiresClientAuthorization"`
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
-	UserMetadata interface{}
+	UserMetadata pulumi.StringInput `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a HybridConnection resource.
 type HybridConnectionArgs struct {
 	// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-	RelayNamespaceName interface{}
+	RelayNamespaceName pulumi.StringInput `pulumi:"relayNamespaceName"`
 	// Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
-	RequiresClientAuthorization interface{}
+	RequiresClientAuthorization pulumi.BoolInput `pulumi:"requiresClientAuthorization"`
 	// The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
-	UserMetadata interface{}
+	UserMetadata pulumi.StringInput `pulumi:"userMetadata"`
 }

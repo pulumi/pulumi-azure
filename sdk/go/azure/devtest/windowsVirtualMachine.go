@@ -4,6 +4,8 @@
 package devtest
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,66 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
 type WindowsVirtualMachine struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Can this Virtual Machine be claimed by users? Defaults to `true`.
+	AllowClaim pulumi.BoolOutput `pulumi:"allowClaim"`
+
+	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
+	DisallowPublicIpAddress pulumi.BoolOutput `pulumi:"disallowPublicIpAddress"`
+
+	// The FQDN of the Virtual Machine.
+	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
+
+	// A `galleryImageReference` block as defined below.
+	GalleryImageReference WindowsVirtualMachineGalleryImageReferenceOutput `pulumi:"galleryImageReference"`
+
+	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	InboundNatRules WindowsVirtualMachineInboundNatRulesArrayOutput `pulumi:"inboundNatRules"`
+
+	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
+	LabName pulumi.StringOutput `pulumi:"labName"`
+
+	// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
+	LabSubnetName pulumi.StringOutput `pulumi:"labSubnetName"`
+
+	// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
+	LabVirtualNetworkId pulumi.StringOutput `pulumi:"labVirtualNetworkId"`
+
+	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Any notes about the Virtual Machine.
+	Notes pulumi.StringOutput `pulumi:"notes"`
+
+	// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	Password pulumi.StringOutput `pulumi:"password"`
+
+	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	Size pulumi.StringOutput `pulumi:"size"`
+
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	StorageType pulumi.StringOutput `pulumi:"storageType"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The unique immutable identifier of the Virtual Machine.
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
+
+	// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewWindowsVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewWindowsVirtualMachine(ctx *pulumi.Context,
-	name string, args *WindowsVirtualMachineArgs, opts ...pulumi.ResourceOpt) (*WindowsVirtualMachine, error) {
+	name string, args *WindowsVirtualMachineArgs, opts ...pulumi.ResourceOption) (*WindowsVirtualMachine, error) {
 	if args == nil || args.GalleryImageReference == nil {
 		return nil, errors.New("missing required argument 'GalleryImageReference'")
 	}
@@ -45,255 +101,326 @@ func NewWindowsVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Username == nil {
 		return nil, errors.New("missing required argument 'Username'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["allowClaim"] = nil
-		inputs["disallowPublicIpAddress"] = nil
-		inputs["galleryImageReference"] = nil
-		inputs["inboundNatRules"] = nil
-		inputs["labName"] = nil
-		inputs["labSubnetName"] = nil
-		inputs["labVirtualNetworkId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["notes"] = nil
-		inputs["password"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["size"] = nil
-		inputs["storageType"] = nil
-		inputs["tags"] = nil
-		inputs["username"] = nil
-	} else {
-		inputs["allowClaim"] = args.AllowClaim
-		inputs["disallowPublicIpAddress"] = args.DisallowPublicIpAddress
-		inputs["galleryImageReference"] = args.GalleryImageReference
-		inputs["inboundNatRules"] = args.InboundNatRules
-		inputs["labName"] = args.LabName
-		inputs["labSubnetName"] = args.LabSubnetName
-		inputs["labVirtualNetworkId"] = args.LabVirtualNetworkId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["notes"] = args.Notes
-		inputs["password"] = args.Password
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["size"] = args.Size
-		inputs["storageType"] = args.StorageType
-		inputs["tags"] = args.Tags
-		inputs["username"] = args.Username
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AllowClaim; i != nil { inputs["allowClaim"] = i.ToBoolOutput() }
+		if i := args.DisallowPublicIpAddress; i != nil { inputs["disallowPublicIpAddress"] = i.ToBoolOutput() }
+		if i := args.GalleryImageReference; i != nil { inputs["galleryImageReference"] = i.ToWindowsVirtualMachineGalleryImageReferenceOutput() }
+		if i := args.InboundNatRules; i != nil { inputs["inboundNatRules"] = i.ToWindowsVirtualMachineInboundNatRulesArrayOutput() }
+		if i := args.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := args.LabSubnetName; i != nil { inputs["labSubnetName"] = i.ToStringOutput() }
+		if i := args.LabVirtualNetworkId; i != nil { inputs["labVirtualNetworkId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Notes; i != nil { inputs["notes"] = i.ToStringOutput() }
+		if i := args.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Size; i != nil { inputs["size"] = i.ToStringOutput() }
+		if i := args.StorageType; i != nil { inputs["storageType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	inputs["fqdn"] = nil
-	inputs["uniqueIdentifier"] = nil
-	s, err := ctx.RegisterResource("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, true, inputs, opts...)
+	var resource WindowsVirtualMachine
+	err := ctx.RegisterResource("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WindowsVirtualMachine{s: s}, nil
+	return &resource, nil
 }
 
 // GetWindowsVirtualMachine gets an existing WindowsVirtualMachine resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetWindowsVirtualMachine(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *WindowsVirtualMachineState, opts ...pulumi.ResourceOpt) (*WindowsVirtualMachine, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *WindowsVirtualMachineState, opts ...pulumi.ResourceOption) (*WindowsVirtualMachine, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["allowClaim"] = state.AllowClaim
-		inputs["disallowPublicIpAddress"] = state.DisallowPublicIpAddress
-		inputs["fqdn"] = state.Fqdn
-		inputs["galleryImageReference"] = state.GalleryImageReference
-		inputs["inboundNatRules"] = state.InboundNatRules
-		inputs["labName"] = state.LabName
-		inputs["labSubnetName"] = state.LabSubnetName
-		inputs["labVirtualNetworkId"] = state.LabVirtualNetworkId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["notes"] = state.Notes
-		inputs["password"] = state.Password
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["size"] = state.Size
-		inputs["storageType"] = state.StorageType
-		inputs["tags"] = state.Tags
-		inputs["uniqueIdentifier"] = state.UniqueIdentifier
-		inputs["username"] = state.Username
+		if i := state.AllowClaim; i != nil { inputs["allowClaim"] = i.ToBoolOutput() }
+		if i := state.DisallowPublicIpAddress; i != nil { inputs["disallowPublicIpAddress"] = i.ToBoolOutput() }
+		if i := state.Fqdn; i != nil { inputs["fqdn"] = i.ToStringOutput() }
+		if i := state.GalleryImageReference; i != nil { inputs["galleryImageReference"] = i.ToWindowsVirtualMachineGalleryImageReferenceOutput() }
+		if i := state.InboundNatRules; i != nil { inputs["inboundNatRules"] = i.ToWindowsVirtualMachineInboundNatRulesArrayOutput() }
+		if i := state.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := state.LabSubnetName; i != nil { inputs["labSubnetName"] = i.ToStringOutput() }
+		if i := state.LabVirtualNetworkId; i != nil { inputs["labVirtualNetworkId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Notes; i != nil { inputs["notes"] = i.ToStringOutput() }
+		if i := state.Password; i != nil { inputs["password"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Size; i != nil { inputs["size"] = i.ToStringOutput() }
+		if i := state.StorageType; i != nil { inputs["storageType"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UniqueIdentifier; i != nil { inputs["uniqueIdentifier"] = i.ToStringOutput() }
+		if i := state.Username; i != nil { inputs["username"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, id, inputs, opts...)
+	var resource WindowsVirtualMachine
+	err := ctx.ReadResource("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &WindowsVirtualMachine{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *WindowsVirtualMachine) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *WindowsVirtualMachine) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Can this Virtual Machine be claimed by users? Defaults to `true`.
-func (r *WindowsVirtualMachine) AllowClaim() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["allowClaim"])
-}
-
-// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) DisallowPublicIpAddress() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["disallowPublicIpAddress"])
-}
-
-// The FQDN of the Virtual Machine.
-func (r *WindowsVirtualMachine) Fqdn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["fqdn"])
-}
-
-// A `galleryImageReference` block as defined below.
-func (r *WindowsVirtualMachine) GalleryImageReference() pulumi.Output {
-	return r.s.State["galleryImageReference"]
-}
-
-// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) InboundNatRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["inboundNatRules"])
-}
-
-// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) LabName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labName"])
-}
-
-// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) LabSubnetName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labSubnetName"])
-}
-
-// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) LabVirtualNetworkId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labVirtualNetworkId"])
-}
-
-// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Any notes about the Virtual Machine.
-func (r *WindowsVirtualMachine) Notes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["notes"])
-}
-
-// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Password() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["password"])
-}
-
-// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Size() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["size"])
-}
-
-// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-func (r *WindowsVirtualMachine) StorageType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageType"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *WindowsVirtualMachine) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The unique immutable identifier of the Virtual Machine.
-func (r *WindowsVirtualMachine) UniqueIdentifier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueIdentifier"])
-}
-
-// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-func (r *WindowsVirtualMachine) Username() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["username"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering WindowsVirtualMachine resources.
 type WindowsVirtualMachineState struct {
 	// Can this Virtual Machine be claimed by users? Defaults to `true`.
-	AllowClaim interface{}
+	AllowClaim pulumi.BoolInput `pulumi:"allowClaim"`
 	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-	DisallowPublicIpAddress interface{}
+	DisallowPublicIpAddress pulumi.BoolInput `pulumi:"disallowPublicIpAddress"`
 	// The FQDN of the Virtual Machine.
-	Fqdn interface{}
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// A `galleryImageReference` block as defined below.
-	GalleryImageReference interface{}
+	GalleryImageReference WindowsVirtualMachineGalleryImageReferenceInput `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-	InboundNatRules interface{}
+	InboundNatRules WindowsVirtualMachineInboundNatRulesArrayInput `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-	LabSubnetName interface{}
+	LabSubnetName pulumi.StringInput `pulumi:"labSubnetName"`
 	// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabVirtualNetworkId interface{}
+	LabVirtualNetworkId pulumi.StringInput `pulumi:"labVirtualNetworkId"`
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Any notes about the Virtual Machine.
-	Notes interface{}
+	Notes pulumi.StringInput `pulumi:"notes"`
 	// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-	Size interface{}
+	Size pulumi.StringInput `pulumi:"size"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-	StorageType interface{}
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The unique immutable identifier of the Virtual Machine.
-	UniqueIdentifier interface{}
+	UniqueIdentifier pulumi.StringInput `pulumi:"uniqueIdentifier"`
 	// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 // The set of arguments for constructing a WindowsVirtualMachine resource.
 type WindowsVirtualMachineArgs struct {
 	// Can this Virtual Machine be claimed by users? Defaults to `true`.
-	AllowClaim interface{}
+	AllowClaim pulumi.BoolInput `pulumi:"allowClaim"`
 	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-	DisallowPublicIpAddress interface{}
+	DisallowPublicIpAddress pulumi.BoolInput `pulumi:"disallowPublicIpAddress"`
 	// A `galleryImageReference` block as defined below.
-	GalleryImageReference interface{}
+	GalleryImageReference WindowsVirtualMachineGalleryImageReferenceInput `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
-	InboundNatRules interface{}
+	InboundNatRules WindowsVirtualMachineInboundNatRulesArrayInput `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-	LabSubnetName interface{}
+	LabSubnetName pulumi.StringInput `pulumi:"labSubnetName"`
 	// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-	LabVirtualNetworkId interface{}
+	LabVirtualNetworkId pulumi.StringInput `pulumi:"labVirtualNetworkId"`
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Any notes about the Virtual Machine.
-	Notes interface{}
+	Notes pulumi.StringInput `pulumi:"notes"`
 	// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-	Password interface{}
+	Password pulumi.StringInput `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-	Size interface{}
+	Size pulumi.StringInput `pulumi:"size"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-	StorageType interface{}
+	StorageType pulumi.StringInput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-	Username interface{}
+	Username pulumi.StringInput `pulumi:"username"`
 }
+type WindowsVirtualMachineGalleryImageReference struct {
+	Offer string `pulumi:"offer"`
+	Publisher string `pulumi:"publisher"`
+	Sku string `pulumi:"sku"`
+	Version string `pulumi:"version"`
+}
+var windowsVirtualMachineGalleryImageReferenceType = reflect.TypeOf((*WindowsVirtualMachineGalleryImageReference)(nil)).Elem()
+
+type WindowsVirtualMachineGalleryImageReferenceInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineGalleryImageReferenceOutput() WindowsVirtualMachineGalleryImageReferenceOutput
+	ToWindowsVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferenceOutput
+}
+
+type WindowsVirtualMachineGalleryImageReferenceArgs struct {
+	Offer pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku pulumi.StringInput `pulumi:"sku"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (WindowsVirtualMachineGalleryImageReferenceArgs) ElementType() reflect.Type {
+	return windowsVirtualMachineGalleryImageReferenceType
+}
+
+func (a WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineGalleryImageReferenceOutput() WindowsVirtualMachineGalleryImageReferenceOutput {
+	return pulumi.ToOutput(a).(WindowsVirtualMachineGalleryImageReferenceOutput)
+}
+
+func (a WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WindowsVirtualMachineGalleryImageReferenceOutput)
+}
+
+type WindowsVirtualMachineGalleryImageReferenceOutput struct { *pulumi.OutputState }
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.Apply(func(v WindowsVirtualMachineGalleryImageReference) string {
+		return v.Offer
+	}).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v WindowsVirtualMachineGalleryImageReference) string {
+		return v.Publisher
+	}).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v WindowsVirtualMachineGalleryImageReference) string {
+		return v.Sku
+	}).(pulumi.StringOutput)
+}
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v WindowsVirtualMachineGalleryImageReference) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (WindowsVirtualMachineGalleryImageReferenceOutput) ElementType() reflect.Type {
+	return windowsVirtualMachineGalleryImageReferenceType
+}
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachineGalleryImageReferenceOutput() WindowsVirtualMachineGalleryImageReferenceOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineGalleryImageReferenceOutput) ToWindowsVirtualMachineGalleryImageReferenceOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryImageReferenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WindowsVirtualMachineGalleryImageReferenceOutput{}) }
+
+type WindowsVirtualMachineInboundNatRules struct {
+	BackendPort int `pulumi:"backendPort"`
+	// The frontend port associated with this Inbound NAT Rule.
+	FrontendPort *int `pulumi:"frontendPort"`
+	Protocol string `pulumi:"protocol"`
+}
+var windowsVirtualMachineInboundNatRulesType = reflect.TypeOf((*WindowsVirtualMachineInboundNatRules)(nil)).Elem()
+
+type WindowsVirtualMachineInboundNatRulesInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineInboundNatRulesOutput() WindowsVirtualMachineInboundNatRulesOutput
+	ToWindowsVirtualMachineInboundNatRulesOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRulesOutput
+}
+
+type WindowsVirtualMachineInboundNatRulesArgs struct {
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The frontend port associated with this Inbound NAT Rule.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (WindowsVirtualMachineInboundNatRulesArgs) ElementType() reflect.Type {
+	return windowsVirtualMachineInboundNatRulesType
+}
+
+func (a WindowsVirtualMachineInboundNatRulesArgs) ToWindowsVirtualMachineInboundNatRulesOutput() WindowsVirtualMachineInboundNatRulesOutput {
+	return pulumi.ToOutput(a).(WindowsVirtualMachineInboundNatRulesOutput)
+}
+
+func (a WindowsVirtualMachineInboundNatRulesArgs) ToWindowsVirtualMachineInboundNatRulesOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WindowsVirtualMachineInboundNatRulesOutput)
+}
+
+type WindowsVirtualMachineInboundNatRulesOutput struct { *pulumi.OutputState }
+
+func (o WindowsVirtualMachineInboundNatRulesOutput) BackendPort() pulumi.IntOutput {
+	return o.Apply(func(v WindowsVirtualMachineInboundNatRules) int {
+		return v.BackendPort
+	}).(pulumi.IntOutput)
+}
+
+// The frontend port associated with this Inbound NAT Rule.
+func (o WindowsVirtualMachineInboundNatRulesOutput) FrontendPort() pulumi.IntOutput {
+	return o.Apply(func(v WindowsVirtualMachineInboundNatRules) int {
+		if v.FrontendPort == nil { return *new(int) } else { return *v.FrontendPort }
+	}).(pulumi.IntOutput)
+}
+
+func (o WindowsVirtualMachineInboundNatRulesOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v WindowsVirtualMachineInboundNatRules) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+func (WindowsVirtualMachineInboundNatRulesOutput) ElementType() reflect.Type {
+	return windowsVirtualMachineInboundNatRulesType
+}
+
+func (o WindowsVirtualMachineInboundNatRulesOutput) ToWindowsVirtualMachineInboundNatRulesOutput() WindowsVirtualMachineInboundNatRulesOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineInboundNatRulesOutput) ToWindowsVirtualMachineInboundNatRulesOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WindowsVirtualMachineInboundNatRulesOutput{}) }
+
+var windowsVirtualMachineInboundNatRulesArrayType = reflect.TypeOf((*[]WindowsVirtualMachineInboundNatRules)(nil)).Elem()
+
+type WindowsVirtualMachineInboundNatRulesArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineInboundNatRulesArrayOutput() WindowsVirtualMachineInboundNatRulesArrayOutput
+	ToWindowsVirtualMachineInboundNatRulesArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRulesArrayOutput
+}
+
+type WindowsVirtualMachineInboundNatRulesArrayArgs []WindowsVirtualMachineInboundNatRulesInput
+
+func (WindowsVirtualMachineInboundNatRulesArrayArgs) ElementType() reflect.Type {
+	return windowsVirtualMachineInboundNatRulesArrayType
+}
+
+func (a WindowsVirtualMachineInboundNatRulesArrayArgs) ToWindowsVirtualMachineInboundNatRulesArrayOutput() WindowsVirtualMachineInboundNatRulesArrayOutput {
+	return pulumi.ToOutput(a).(WindowsVirtualMachineInboundNatRulesArrayOutput)
+}
+
+func (a WindowsVirtualMachineInboundNatRulesArrayArgs) ToWindowsVirtualMachineInboundNatRulesArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(WindowsVirtualMachineInboundNatRulesArrayOutput)
+}
+
+type WindowsVirtualMachineInboundNatRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o WindowsVirtualMachineInboundNatRulesArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineInboundNatRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) WindowsVirtualMachineInboundNatRules {
+		return vs[0].([]WindowsVirtualMachineInboundNatRules)[vs[1].(int)]
+	}).(WindowsVirtualMachineInboundNatRulesOutput)
+}
+
+func (WindowsVirtualMachineInboundNatRulesArrayOutput) ElementType() reflect.Type {
+	return windowsVirtualMachineInboundNatRulesArrayType
+}
+
+func (o WindowsVirtualMachineInboundNatRulesArrayOutput) ToWindowsVirtualMachineInboundNatRulesArrayOutput() WindowsVirtualMachineInboundNatRulesArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineInboundNatRulesArrayOutput) ToWindowsVirtualMachineInboundNatRulesArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineInboundNatRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(WindowsVirtualMachineInboundNatRulesArrayOutput{}) }
+

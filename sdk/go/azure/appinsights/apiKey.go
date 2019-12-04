@@ -12,114 +12,90 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
 type ApiKey struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The API Key secret (Sensitive).
+	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+
+	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
+	ApplicationInsightsId pulumi.StringOutput `pulumi:"applicationInsightsId"`
+
+	// Specifies the name of the Application Insights API key. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+	ReadPermissions pulumi.StringArrayOutput `pulumi:"readPermissions"`
+
+	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+	WritePermissions pulumi.StringArrayOutput `pulumi:"writePermissions"`
 }
 
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
 func NewApiKey(ctx *pulumi.Context,
-	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOpt) (*ApiKey, error) {
+	name string, args *ApiKeyArgs, opts ...pulumi.ResourceOption) (*ApiKey, error) {
 	if args == nil || args.ApplicationInsightsId == nil {
 		return nil, errors.New("missing required argument 'ApplicationInsightsId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationInsightsId"] = nil
-		inputs["name"] = nil
-		inputs["readPermissions"] = nil
-		inputs["writePermissions"] = nil
-	} else {
-		inputs["applicationInsightsId"] = args.ApplicationInsightsId
-		inputs["name"] = args.Name
-		inputs["readPermissions"] = args.ReadPermissions
-		inputs["writePermissions"] = args.WritePermissions
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationInsightsId; i != nil { inputs["applicationInsightsId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ReadPermissions; i != nil { inputs["readPermissions"] = i.ToStringArrayOutput() }
+		if i := args.WritePermissions; i != nil { inputs["writePermissions"] = i.ToStringArrayOutput() }
 	}
-	inputs["apiKey"] = nil
-	s, err := ctx.RegisterResource("azure:appinsights/apiKey:ApiKey", name, true, inputs, opts...)
+	var resource ApiKey
+	err := ctx.RegisterResource("azure:appinsights/apiKey:ApiKey", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiKey{s: s}, nil
+	return &resource, nil
 }
 
 // GetApiKey gets an existing ApiKey resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApiKey(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApiKeyState, opts ...pulumi.ResourceOpt) (*ApiKey, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApiKeyState, opts ...pulumi.ResourceOption) (*ApiKey, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiKey"] = state.ApiKey
-		inputs["applicationInsightsId"] = state.ApplicationInsightsId
-		inputs["name"] = state.Name
-		inputs["readPermissions"] = state.ReadPermissions
-		inputs["writePermissions"] = state.WritePermissions
+		if i := state.ApiKey; i != nil { inputs["apiKey"] = i.ToStringOutput() }
+		if i := state.ApplicationInsightsId; i != nil { inputs["applicationInsightsId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ReadPermissions; i != nil { inputs["readPermissions"] = i.ToStringArrayOutput() }
+		if i := state.WritePermissions; i != nil { inputs["writePermissions"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appinsights/apiKey:ApiKey", name, id, inputs, opts...)
+	var resource ApiKey
+	err := ctx.ReadResource("azure:appinsights/apiKey:ApiKey", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ApiKey{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ApiKey) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ApiKey) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The API Key secret (Sensitive).
-func (r *ApiKey) ApiKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiKey"])
-}
-
-// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-func (r *ApiKey) ApplicationInsightsId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationInsightsId"])
-}
-
-// Specifies the name of the Application Insights API key. Changing this forces a
-// new resource to be created.
-func (r *ApiKey) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
-func (r *ApiKey) ReadPermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["readPermissions"])
-}
-
-// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-func (r *ApiKey) WritePermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["writePermissions"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ApiKey resources.
 type ApiKeyState struct {
 	// The API Key secret (Sensitive).
-	ApiKey interface{}
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-	ApplicationInsightsId interface{}
+	ApplicationInsightsId pulumi.StringInput `pulumi:"applicationInsightsId"`
 	// Specifies the name of the Application Insights API key. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
-	ReadPermissions interface{}
+	ReadPermissions pulumi.StringArrayInput `pulumi:"readPermissions"`
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-	WritePermissions interface{}
+	WritePermissions pulumi.StringArrayInput `pulumi:"writePermissions"`
 }
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
 	// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-	ApplicationInsightsId interface{}
+	ApplicationInsightsId pulumi.StringInput `pulumi:"applicationInsightsId"`
 	// Specifies the name of the Application Insights API key. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
-	ReadPermissions interface{}
+	ReadPermissions pulumi.StringArrayInput `pulumi:"readPermissions"`
 	// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-	WritePermissions interface{}
+	WritePermissions pulumi.StringArrayInput `pulumi:"writePermissions"`
 }

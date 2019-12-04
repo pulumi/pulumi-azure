@@ -12,12 +12,36 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_openid_connect_provider.html.markdown.
 type OpenIdConnectProvider struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// The Client ID used for the Client Application.
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+
+	// The Client Secret used for the Client Application.
+	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
+
+	// A description of this OpenID Connect Provider.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// A user-friendly name for this OpenID Connect Provider.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// The URI of the Metadata endpoint.
+	MetadataEndpoint pulumi.StringOutput `pulumi:"metadataEndpoint"`
+
+	// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewOpenIdConnectProvider registers a new resource with the given unique name, arguments, and options.
 func NewOpenIdConnectProvider(ctx *pulumi.Context,
-	name string, args *OpenIdConnectProviderArgs, opts ...pulumi.ResourceOpt) (*OpenIdConnectProvider, error) {
+	name string, args *OpenIdConnectProviderArgs, opts ...pulumi.ResourceOption) (*OpenIdConnectProvider, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -36,141 +60,84 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["clientId"] = nil
-		inputs["clientSecret"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["metadataEndpoint"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["clientId"] = args.ClientId
-		inputs["clientSecret"] = args.ClientSecret
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["metadataEndpoint"] = args.MetadataEndpoint
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.ClientId; i != nil { inputs["clientId"] = i.ToStringOutput() }
+		if i := args.ClientSecret; i != nil { inputs["clientSecret"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.MetadataEndpoint; i != nil { inputs["metadataEndpoint"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider", name, true, inputs, opts...)
+	var resource OpenIdConnectProvider
+	err := ctx.RegisterResource("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OpenIdConnectProvider{s: s}, nil
+	return &resource, nil
 }
 
 // GetOpenIdConnectProvider gets an existing OpenIdConnectProvider resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetOpenIdConnectProvider(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *OpenIdConnectProviderState, opts ...pulumi.ResourceOpt) (*OpenIdConnectProvider, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *OpenIdConnectProviderState, opts ...pulumi.ResourceOption) (*OpenIdConnectProvider, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["clientId"] = state.ClientId
-		inputs["clientSecret"] = state.ClientSecret
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["metadataEndpoint"] = state.MetadataEndpoint
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.ClientId; i != nil { inputs["clientId"] = i.ToStringOutput() }
+		if i := state.ClientSecret; i != nil { inputs["clientSecret"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.MetadataEndpoint; i != nil { inputs["metadataEndpoint"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider", name, id, inputs, opts...)
+	var resource OpenIdConnectProvider
+	err := ctx.ReadResource("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &OpenIdConnectProvider{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *OpenIdConnectProvider) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *OpenIdConnectProvider) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
-func (r *OpenIdConnectProvider) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// The Client ID used for the Client Application.
-func (r *OpenIdConnectProvider) ClientId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientId"])
-}
-
-// The Client Secret used for the Client Application.
-func (r *OpenIdConnectProvider) ClientSecret() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clientSecret"])
-}
-
-// A description of this OpenID Connect Provider.
-func (r *OpenIdConnectProvider) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// A user-friendly name for this OpenID Connect Provider.
-func (r *OpenIdConnectProvider) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// The URI of the Metadata endpoint.
-func (r *OpenIdConnectProvider) MetadataEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["metadataEndpoint"])
-}
-
-// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
-func (r *OpenIdConnectProvider) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *OpenIdConnectProvider) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering OpenIdConnectProvider resources.
 type OpenIdConnectProviderState struct {
 	// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The Client ID used for the Client Application.
-	ClientId interface{}
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The Client Secret used for the Client Application.
-	ClientSecret interface{}
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 	// A description of this OpenID Connect Provider.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A user-friendly name for this OpenID Connect Provider.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The URI of the Metadata endpoint.
-	MetadataEndpoint interface{}
+	MetadataEndpoint pulumi.StringInput `pulumi:"metadataEndpoint"`
 	// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a OpenIdConnectProvider resource.
 type OpenIdConnectProviderArgs struct {
 	// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// The Client ID used for the Client Application.
-	ClientId interface{}
+	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The Client Secret used for the Client Application.
-	ClientSecret interface{}
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 	// A description of this OpenID Connect Provider.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// A user-friendly name for this OpenID Connect Provider.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The URI of the Metadata endpoint.
-	MetadataEndpoint interface{}
+	MetadataEndpoint pulumi.StringInput `pulumi:"metadataEndpoint"`
 	// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

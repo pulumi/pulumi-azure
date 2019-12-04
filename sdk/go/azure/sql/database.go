@@ -4,6 +4,8 @@
 package sql
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,301 +14,478 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
 type Database struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+	Collation pulumi.StringOutput `pulumi:"collation"`
+
+	// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
+	CreateMode pulumi.StringOutput `pulumi:"createMode"`
+
+	// The creation date of the SQL Database.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+
+	// The default secondary location of the SQL Database.
+	DefaultSecondaryLocation pulumi.StringOutput `pulumi:"defaultSecondaryLocation"`
+
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	Edition pulumi.StringOutput `pulumi:"edition"`
+
+	// The name of the elastic database pool.
+	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
+
+	Encryption pulumi.StringOutput `pulumi:"encryption"`
+
+	// A Database Import block as documented below. `createMode` must be set to `Default`.
+	Import DatabaseImportOutput `pulumi:"import"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	MaxSizeBytes pulumi.StringOutput `pulumi:"maxSizeBytes"`
+
+	// The name of the database.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+	ReadScale pulumi.BoolOutput `pulumi:"readScale"`
+
+	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
+	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	RequestedServiceObjectiveId pulumi.StringOutput `pulumi:"requestedServiceObjectiveId"`
+
+	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
+
+	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
+
+	// The name of the SQL Server on which to create the database.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
+	SourceDatabaseDeletionDate pulumi.StringOutput `pulumi:"sourceDatabaseDeletionDate"`
+
+	// The URI of the source database if `createMode` value is not `Default`.
+	SourceDatabaseId pulumi.StringOutput `pulumi:"sourceDatabaseId"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
 func NewDatabase(ctx *pulumi.Context,
-	name string, args *DatabaseArgs, opts ...pulumi.ResourceOpt) (*Database, error) {
+	name string, args *DatabaseArgs, opts ...pulumi.ResourceOption) (*Database, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServerName == nil {
 		return nil, errors.New("missing required argument 'ServerName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["collation"] = nil
-		inputs["createMode"] = nil
-		inputs["edition"] = nil
-		inputs["elasticPoolName"] = nil
-		inputs["import"] = nil
-		inputs["location"] = nil
-		inputs["maxSizeBytes"] = nil
-		inputs["name"] = nil
-		inputs["readScale"] = nil
-		inputs["requestedServiceObjectiveId"] = nil
-		inputs["requestedServiceObjectiveName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["restorePointInTime"] = nil
-		inputs["serverName"] = nil
-		inputs["sourceDatabaseDeletionDate"] = nil
-		inputs["sourceDatabaseId"] = nil
-		inputs["tags"] = nil
-		inputs["threatDetectionPolicy"] = nil
-	} else {
-		inputs["collation"] = args.Collation
-		inputs["createMode"] = args.CreateMode
-		inputs["edition"] = args.Edition
-		inputs["elasticPoolName"] = args.ElasticPoolName
-		inputs["import"] = args.Import
-		inputs["location"] = args.Location
-		inputs["maxSizeBytes"] = args.MaxSizeBytes
-		inputs["name"] = args.Name
-		inputs["readScale"] = args.ReadScale
-		inputs["requestedServiceObjectiveId"] = args.RequestedServiceObjectiveId
-		inputs["requestedServiceObjectiveName"] = args.RequestedServiceObjectiveName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["restorePointInTime"] = args.RestorePointInTime
-		inputs["serverName"] = args.ServerName
-		inputs["sourceDatabaseDeletionDate"] = args.SourceDatabaseDeletionDate
-		inputs["sourceDatabaseId"] = args.SourceDatabaseId
-		inputs["tags"] = args.Tags
-		inputs["threatDetectionPolicy"] = args.ThreatDetectionPolicy
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Collation; i != nil { inputs["collation"] = i.ToStringOutput() }
+		if i := args.CreateMode; i != nil { inputs["createMode"] = i.ToStringOutput() }
+		if i := args.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := args.ElasticPoolName; i != nil { inputs["elasticPoolName"] = i.ToStringOutput() }
+		if i := args.Import; i != nil { inputs["import"] = i.ToDatabaseImportOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.MaxSizeBytes; i != nil { inputs["maxSizeBytes"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ReadScale; i != nil { inputs["readScale"] = i.ToBoolOutput() }
+		if i := args.RequestedServiceObjectiveId; i != nil { inputs["requestedServiceObjectiveId"] = i.ToStringOutput() }
+		if i := args.RequestedServiceObjectiveName; i != nil { inputs["requestedServiceObjectiveName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RestorePointInTime; i != nil { inputs["restorePointInTime"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.SourceDatabaseDeletionDate; i != nil { inputs["sourceDatabaseDeletionDate"] = i.ToStringOutput() }
+		if i := args.SourceDatabaseId; i != nil { inputs["sourceDatabaseId"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.ThreatDetectionPolicy; i != nil { inputs["threatDetectionPolicy"] = i.ToDatabaseThreatDetectionPolicyOutput() }
 	}
-	inputs["creationDate"] = nil
-	inputs["defaultSecondaryLocation"] = nil
-	inputs["encryption"] = nil
-	s, err := ctx.RegisterResource("azure:sql/database:Database", name, true, inputs, opts...)
+	var resource Database
+	err := ctx.RegisterResource("azure:sql/database:Database", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Database{s: s}, nil
+	return &resource, nil
 }
 
 // GetDatabase gets an existing Database resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetDatabase(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *DatabaseState, opts ...pulumi.ResourceOpt) (*Database, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["collation"] = state.Collation
-		inputs["createMode"] = state.CreateMode
-		inputs["creationDate"] = state.CreationDate
-		inputs["defaultSecondaryLocation"] = state.DefaultSecondaryLocation
-		inputs["edition"] = state.Edition
-		inputs["elasticPoolName"] = state.ElasticPoolName
-		inputs["encryption"] = state.Encryption
-		inputs["import"] = state.Import
-		inputs["location"] = state.Location
-		inputs["maxSizeBytes"] = state.MaxSizeBytes
-		inputs["name"] = state.Name
-		inputs["readScale"] = state.ReadScale
-		inputs["requestedServiceObjectiveId"] = state.RequestedServiceObjectiveId
-		inputs["requestedServiceObjectiveName"] = state.RequestedServiceObjectiveName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["restorePointInTime"] = state.RestorePointInTime
-		inputs["serverName"] = state.ServerName
-		inputs["sourceDatabaseDeletionDate"] = state.SourceDatabaseDeletionDate
-		inputs["sourceDatabaseId"] = state.SourceDatabaseId
-		inputs["tags"] = state.Tags
-		inputs["threatDetectionPolicy"] = state.ThreatDetectionPolicy
+		if i := state.Collation; i != nil { inputs["collation"] = i.ToStringOutput() }
+		if i := state.CreateMode; i != nil { inputs["createMode"] = i.ToStringOutput() }
+		if i := state.CreationDate; i != nil { inputs["creationDate"] = i.ToStringOutput() }
+		if i := state.DefaultSecondaryLocation; i != nil { inputs["defaultSecondaryLocation"] = i.ToStringOutput() }
+		if i := state.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := state.ElasticPoolName; i != nil { inputs["elasticPoolName"] = i.ToStringOutput() }
+		if i := state.Encryption; i != nil { inputs["encryption"] = i.ToStringOutput() }
+		if i := state.Import; i != nil { inputs["import"] = i.ToDatabaseImportOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.MaxSizeBytes; i != nil { inputs["maxSizeBytes"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ReadScale; i != nil { inputs["readScale"] = i.ToBoolOutput() }
+		if i := state.RequestedServiceObjectiveId; i != nil { inputs["requestedServiceObjectiveId"] = i.ToStringOutput() }
+		if i := state.RequestedServiceObjectiveName; i != nil { inputs["requestedServiceObjectiveName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RestorePointInTime; i != nil { inputs["restorePointInTime"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.SourceDatabaseDeletionDate; i != nil { inputs["sourceDatabaseDeletionDate"] = i.ToStringOutput() }
+		if i := state.SourceDatabaseId; i != nil { inputs["sourceDatabaseId"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.ThreatDetectionPolicy; i != nil { inputs["threatDetectionPolicy"] = i.ToDatabaseThreatDetectionPolicyOutput() }
 	}
-	s, err := ctx.ReadResource("azure:sql/database:Database", name, id, inputs, opts...)
+	var resource Database
+	err := ctx.ReadResource("azure:sql/database:Database", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Database{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Database) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Database) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
-func (r *Database) Collation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["collation"])
-}
-
-// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
-func (r *Database) CreateMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createMode"])
-}
-
-// The creation date of the SQL Database.
-func (r *Database) CreationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["creationDate"])
-}
-
-// The default secondary location of the SQL Database.
-func (r *Database) DefaultSecondaryLocation() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSecondaryLocation"])
-}
-
-// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-func (r *Database) Edition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["edition"])
-}
-
-// The name of the elastic database pool.
-func (r *Database) ElasticPoolName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["elasticPoolName"])
-}
-
-func (r *Database) Encryption() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["encryption"])
-}
-
-// A Database Import block as documented below. `createMode` must be set to `Default`.
-func (r *Database) Import() pulumi.Output {
-	return r.s.State["import"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Database) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-func (r *Database) MaxSizeBytes() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["maxSizeBytes"])
-}
-
-// The name of the database.
-func (r *Database) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
-func (r *Database) ReadScale() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["readScale"])
-}
-
-// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-func (r *Database) RequestedServiceObjectiveId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["requestedServiceObjectiveId"])
-}
-
-// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-func (r *Database) RequestedServiceObjectiveName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["requestedServiceObjectiveName"])
-}
-
-// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
-func (r *Database) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
-func (r *Database) RestorePointInTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["restorePointInTime"])
-}
-
-// The name of the SQL Server on which to create the database.
-func (r *Database) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
-func (r *Database) SourceDatabaseDeletionDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceDatabaseDeletionDate"])
-}
-
-// The URI of the source database if `createMode` value is not `Default`.
-func (r *Database) SourceDatabaseId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceDatabaseId"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Database) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-func (r *Database) ThreatDetectionPolicy() pulumi.Output {
-	return r.s.State["threatDetectionPolicy"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Database resources.
 type DatabaseState struct {
 	// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
-	Collation interface{}
+	Collation pulumi.StringInput `pulumi:"collation"`
 	// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
-	CreateMode interface{}
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// The creation date of the SQL Database.
-	CreationDate interface{}
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
 	// The default secondary location of the SQL Database.
-	DefaultSecondaryLocation interface{}
+	DefaultSecondaryLocation pulumi.StringInput `pulumi:"defaultSecondaryLocation"`
 	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// The name of the elastic database pool.
-	ElasticPoolName interface{}
-	Encryption interface{}
+	ElasticPoolName pulumi.StringInput `pulumi:"elasticPoolName"`
+	Encryption pulumi.StringInput `pulumi:"encryption"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
-	Import interface{}
+	Import DatabaseImportInput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	MaxSizeBytes interface{}
+	MaxSizeBytes pulumi.StringInput `pulumi:"maxSizeBytes"`
 	// The name of the database.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
-	ReadScale interface{}
+	ReadScale pulumi.BoolInput `pulumi:"readScale"`
 	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
 	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	RequestedServiceObjectiveId interface{}
+	RequestedServiceObjectiveId pulumi.StringInput `pulumi:"requestedServiceObjectiveId"`
 	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	RequestedServiceObjectiveName interface{}
+	RequestedServiceObjectiveName pulumi.StringInput `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
-	RestorePointInTime interface{}
+	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
 	// The name of the SQL Server on which to create the database.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
-	SourceDatabaseDeletionDate interface{}
+	SourceDatabaseDeletionDate pulumi.StringInput `pulumi:"sourceDatabaseDeletionDate"`
 	// The URI of the source database if `createMode` value is not `Default`.
-	SourceDatabaseId interface{}
+	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy interface{}
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyInput `pulumi:"threatDetectionPolicy"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
 	// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
-	Collation interface{}
+	Collation pulumi.StringInput `pulumi:"collation"`
 	// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
-	CreateMode interface{}
+	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// The name of the elastic database pool.
-	ElasticPoolName interface{}
+	ElasticPoolName pulumi.StringInput `pulumi:"elasticPoolName"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
-	Import interface{}
+	Import DatabaseImportInput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	MaxSizeBytes interface{}
+	MaxSizeBytes pulumi.StringInput `pulumi:"maxSizeBytes"`
 	// The name of the database.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
-	ReadScale interface{}
+	ReadScale pulumi.BoolInput `pulumi:"readScale"`
 	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
 	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	RequestedServiceObjectiveId interface{}
+	RequestedServiceObjectiveId pulumi.StringInput `pulumi:"requestedServiceObjectiveId"`
 	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
-	RequestedServiceObjectiveName interface{}
+	RequestedServiceObjectiveName pulumi.StringInput `pulumi:"requestedServiceObjectiveName"`
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
-	RestorePointInTime interface{}
+	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
 	// The name of the SQL Server on which to create the database.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
-	SourceDatabaseDeletionDate interface{}
+	SourceDatabaseDeletionDate pulumi.StringInput `pulumi:"sourceDatabaseDeletionDate"`
 	// The URI of the source database if `createMode` value is not `Default`.
-	SourceDatabaseId interface{}
+	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
-	ThreatDetectionPolicy interface{}
+	ThreatDetectionPolicy DatabaseThreatDetectionPolicyInput `pulumi:"threatDetectionPolicy"`
 }
+type DatabaseImport struct {
+	// Specifies the name of the SQL administrator.
+	AdministratorLogin string `pulumi:"administratorLogin"`
+	// Specifies the password of the SQL administrator.
+	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Specifies the type of import operation being performed. The only allowable value is `Import`.
+	OperationMode *string `pulumi:"operationMode"`
+	// Specifies the access key for the storage account.
+	StorageKey string `pulumi:"storageKey"`
+	// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+	StorageKeyType string `pulumi:"storageKeyType"`
+	// Specifies the blob URI of the .bacpac file.
+	StorageUri string `pulumi:"storageUri"`
+}
+var databaseImportType = reflect.TypeOf((*DatabaseImport)(nil)).Elem()
+
+type DatabaseImportInput interface {
+	pulumi.Input
+
+	ToDatabaseImportOutput() DatabaseImportOutput
+	ToDatabaseImportOutputWithContext(ctx context.Context) DatabaseImportOutput
+}
+
+type DatabaseImportArgs struct {
+	// Specifies the name of the SQL administrator.
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	// Specifies the password of the SQL administrator.
+	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
+	// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Specifies the type of import operation being performed. The only allowable value is `Import`.
+	OperationMode pulumi.StringInput `pulumi:"operationMode"`
+	// Specifies the access key for the storage account.
+	StorageKey pulumi.StringInput `pulumi:"storageKey"`
+	// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+	StorageKeyType pulumi.StringInput `pulumi:"storageKeyType"`
+	// Specifies the blob URI of the .bacpac file.
+	StorageUri pulumi.StringInput `pulumi:"storageUri"`
+}
+
+func (DatabaseImportArgs) ElementType() reflect.Type {
+	return databaseImportType
+}
+
+func (a DatabaseImportArgs) ToDatabaseImportOutput() DatabaseImportOutput {
+	return pulumi.ToOutput(a).(DatabaseImportOutput)
+}
+
+func (a DatabaseImportArgs) ToDatabaseImportOutputWithContext(ctx context.Context) DatabaseImportOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DatabaseImportOutput)
+}
+
+type DatabaseImportOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the SQL administrator.
+func (o DatabaseImportOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		return v.AdministratorLogin
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the password of the SQL administrator.
+func (o DatabaseImportOutput) AdministratorLoginPassword() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		return v.AdministratorLoginPassword
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+func (o DatabaseImportOutput) AuthenticationType() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		return v.AuthenticationType
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the type of import operation being performed. The only allowable value is `Import`.
+func (o DatabaseImportOutput) OperationMode() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		if v.OperationMode == nil { return *new(string) } else { return *v.OperationMode }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the access key for the storage account.
+func (o DatabaseImportOutput) StorageKey() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		return v.StorageKey
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+func (o DatabaseImportOutput) StorageKeyType() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		return v.StorageKeyType
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the blob URI of the .bacpac file.
+func (o DatabaseImportOutput) StorageUri() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseImport) string {
+		return v.StorageUri
+	}).(pulumi.StringOutput)
+}
+
+func (DatabaseImportOutput) ElementType() reflect.Type {
+	return databaseImportType
+}
+
+func (o DatabaseImportOutput) ToDatabaseImportOutput() DatabaseImportOutput {
+	return o
+}
+
+func (o DatabaseImportOutput) ToDatabaseImportOutputWithContext(ctx context.Context) DatabaseImportOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DatabaseImportOutput{}) }
+
+type DatabaseThreatDetectionPolicy struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	DisabledAlerts *[]string `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses *[]string `pulumi:"emailAddresses"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays *int `pulumi:"retentionDays"`
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	State *string `pulumi:"state"`
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
+	// Should the default server policy be used? Defaults to `Disabled`.
+	UseServerDefault *string `pulumi:"useServerDefault"`
+}
+var databaseThreatDetectionPolicyType = reflect.TypeOf((*DatabaseThreatDetectionPolicy)(nil)).Elem()
+
+type DatabaseThreatDetectionPolicyInput interface {
+	pulumi.Input
+
+	ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput
+	ToDatabaseThreatDetectionPolicyOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyOutput
+}
+
+type DatabaseThreatDetectionPolicyArgs struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins pulumi.StringInput `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	State pulumi.StringInput `pulumi:"state"`
+	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
+	// Should the default server policy be used? Defaults to `Disabled`.
+	UseServerDefault pulumi.StringInput `pulumi:"useServerDefault"`
+}
+
+func (DatabaseThreatDetectionPolicyArgs) ElementType() reflect.Type {
+	return databaseThreatDetectionPolicyType
+}
+
+func (a DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput {
+	return pulumi.ToOutput(a).(DatabaseThreatDetectionPolicyOutput)
+}
+
+func (a DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(DatabaseThreatDetectionPolicyOutput)
+}
+
+type DatabaseThreatDetectionPolicyOutput struct { *pulumi.OutputState }
+
+// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) []string {
+		if v.DisabledAlerts == nil { return *new([]string) } else { return *v.DisabledAlerts }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Should the account administrators be emailed when this alert is triggered?
+func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) string {
+		if v.EmailAccountAdmins == nil { return *new(string) } else { return *v.EmailAccountAdmins }
+	}).(pulumi.StringOutput)
+}
+
+// A list of email addresses which alerts should be sent to.
+func (o DatabaseThreatDetectionPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) []string {
+		if v.EmailAddresses == nil { return *new([]string) } else { return *v.EmailAddresses }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) int {
+		if v.RetentionDays == nil { return *new(int) } else { return *v.RetentionDays }
+	}).(pulumi.IntOutput)
+}
+
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) string {
+		if v.State == nil { return *new(string) } else { return *v.State }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+func (o DatabaseThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) string {
+		if v.StorageAccountAccessKey == nil { return *new(string) } else { return *v.StorageAccountAccessKey }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) string {
+		if v.StorageEndpoint == nil { return *new(string) } else { return *v.StorageEndpoint }
+	}).(pulumi.StringOutput)
+}
+
+// Should the default server policy be used? Defaults to `Disabled`.
+func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringOutput {
+	return o.Apply(func(v DatabaseThreatDetectionPolicy) string {
+		if v.UseServerDefault == nil { return *new(string) } else { return *v.UseServerDefault }
+	}).(pulumi.StringOutput)
+}
+
+func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
+	return databaseThreatDetectionPolicyType
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutput() DatabaseThreatDetectionPolicyOutput {
+	return o
+}
+
+func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{}) }
+

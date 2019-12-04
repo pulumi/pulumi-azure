@@ -19,7 +19,7 @@ func GetClientCertificatePassword(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD")).(string); ok {
 		return dv
 	}
 	return v
@@ -32,7 +32,7 @@ func GetClientCertificatePath(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH")).(string); ok {
 		return dv
 	}
 	return v
@@ -44,7 +44,7 @@ func GetClientId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AZURE_CLIENT_ID", "ARM_CLIENT_ID")).(string); ok {
 		return dv
 	}
 	return v
@@ -56,7 +56,7 @@ func GetClientSecret(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET")).(string); ok {
 		return dv
 	}
 	return v
@@ -73,7 +73,7 @@ func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID").(bool); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault(true, parseEnvBool, "ARM_DISABLE_TERRAFORM_PARTNER_ID")).(bool); ok {
 		return dv
 	}
 	return v
@@ -86,7 +86,7 @@ func GetEnvironment(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT")).(string); ok {
 		return dv
 	}
 	return v
@@ -99,7 +99,7 @@ func GetMsiEndpoint(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "ARM_MSI_ENDPOINT")).(string); ok {
 		return dv
 	}
 	return v
@@ -111,7 +111,7 @@ func GetPartnerId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_PARTNER_ID").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "ARM_PARTNER_ID")).(string); ok {
 		return dv
 	}
 	return v
@@ -123,7 +123,7 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_CREDENTIALS_VALIDATION").(bool); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_CREDENTIALS_VALIDATION")).(bool); ok {
 		return dv
 	}
 	return v
@@ -136,7 +136,7 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION")).(bool); ok {
 		return dv
 	}
 	return v
@@ -148,7 +148,7 @@ func GetSubscriptionId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "ARM_SUBSCRIPTION_ID")).(string); ok {
 		return dv
 	}
 	return v
@@ -160,7 +160,7 @@ func GetTenantId(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "AZURE_TENANT_ID", "ARM_TENANT_ID").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "AZURE_TENANT_ID", "ARM_TENANT_ID")).(string); ok {
 		return dv
 	}
 	return v
@@ -172,7 +172,7 @@ func GetUseMsi(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI").(bool); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault(false, parseEnvBool, "ARM_USE_MSI")).(bool); ok {
 		return dv
 	}
 	return v
@@ -183,7 +183,7 @@ func GetLocation(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	if dv, ok := getEnvOrDefault("", nil, "ARM_LOCATION").(string); ok {
+	if dv, ok := pulumi.Any(getEnvOrDefault("", nil, "ARM_LOCATION")).(string); ok {
 		return dv
 	}
 	return v

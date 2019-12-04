@@ -15,12 +15,21 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
 type StoreFile struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Data Lake Store for which the File should created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// The path to the local file to be added to the Data Lake Store.
+	LocalFilePath pulumi.StringOutput `pulumi:"localFilePath"`
+
+	// The path created for the file on the Data Lake Store.
+	RemoteFilePath pulumi.StringOutput `pulumi:"remoteFilePath"`
 }
 
 // NewStoreFile registers a new resource with the given unique name, arguments, and options.
 func NewStoreFile(ctx *pulumi.Context,
-	name string, args *StoreFileArgs, opts ...pulumi.ResourceOpt) (*StoreFile, error) {
+	name string, args *StoreFileArgs, opts ...pulumi.ResourceOption) (*StoreFile, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -30,81 +39,54 @@ func NewStoreFile(ctx *pulumi.Context,
 	if args == nil || args.RemoteFilePath == nil {
 		return nil, errors.New("missing required argument 'RemoteFilePath'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["localFilePath"] = nil
-		inputs["remoteFilePath"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["localFilePath"] = args.LocalFilePath
-		inputs["remoteFilePath"] = args.RemoteFilePath
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.LocalFilePath; i != nil { inputs["localFilePath"] = i.ToStringOutput() }
+		if i := args.RemoteFilePath; i != nil { inputs["remoteFilePath"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datalake/storeFile:StoreFile", name, true, inputs, opts...)
+	var resource StoreFile
+	err := ctx.RegisterResource("azure:datalake/storeFile:StoreFile", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StoreFile{s: s}, nil
+	return &resource, nil
 }
 
 // GetStoreFile gets an existing StoreFile resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStoreFile(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StoreFileState, opts ...pulumi.ResourceOpt) (*StoreFile, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StoreFileState, opts ...pulumi.ResourceOption) (*StoreFile, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["localFilePath"] = state.LocalFilePath
-		inputs["remoteFilePath"] = state.RemoteFilePath
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.LocalFilePath; i != nil { inputs["localFilePath"] = i.ToStringOutput() }
+		if i := state.RemoteFilePath; i != nil { inputs["remoteFilePath"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datalake/storeFile:StoreFile", name, id, inputs, opts...)
+	var resource StoreFile
+	err := ctx.ReadResource("azure:datalake/storeFile:StoreFile", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StoreFile{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StoreFile) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StoreFile) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Data Lake Store for which the File should created.
-func (r *StoreFile) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// The path to the local file to be added to the Data Lake Store.
-func (r *StoreFile) LocalFilePath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["localFilePath"])
-}
-
-// The path created for the file on the Data Lake Store.
-func (r *StoreFile) RemoteFilePath() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["remoteFilePath"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StoreFile resources.
 type StoreFileState struct {
 	// Specifies the name of the Data Lake Store for which the File should created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The path to the local file to be added to the Data Lake Store.
-	LocalFilePath interface{}
+	LocalFilePath pulumi.StringInput `pulumi:"localFilePath"`
 	// The path created for the file on the Data Lake Store.
-	RemoteFilePath interface{}
+	RemoteFilePath pulumi.StringInput `pulumi:"remoteFilePath"`
 }
 
 // The set of arguments for constructing a StoreFile resource.
 type StoreFileArgs struct {
 	// Specifies the name of the Data Lake Store for which the File should created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The path to the local file to be added to the Data Lake Store.
-	LocalFilePath interface{}
+	LocalFilePath pulumi.StringInput `pulumi:"localFilePath"`
 	// The path created for the file on the Data Lake Store.
-	RemoteFilePath interface{}
+	RemoteFilePath pulumi.StringInput `pulumi:"remoteFilePath"`
 }

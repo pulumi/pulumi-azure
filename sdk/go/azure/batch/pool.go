@@ -4,6 +4,8 @@
 package batch
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,53 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
 type Pool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
+	AccountName pulumi.StringOutput `pulumi:"accountName"`
+
+	// A `autoScale` block that describes the scale settings when using auto scale.
+	AutoScale PoolAutoScaleOutput `pulumi:"autoScale"`
+
+	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+	Certificates PoolCertificatesArrayOutput `pulumi:"certificates"`
+
+	// The container configuration used in the pool's VMs.
+	ContainerConfiguration PoolContainerConfigurationOutput `pulumi:"containerConfiguration"`
+
+	// Specifies the display name of the Batch pool.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// A `fixedScale` block that describes the scale settings when using fixed scale.
+	FixedScale PoolFixedScaleOutput `pulumi:"fixedScale"`
+
+	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
+	MaxTasksPerNode pulumi.IntOutput `pulumi:"maxTasksPerNode"`
+
+	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the Sku of the node agents that will be created in the Batch pool.
+	NodeAgentSkuId pulumi.StringOutput `pulumi:"nodeAgentSkuId"`
+
+	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `startTask` block that describes the start task settings for the Batch pool.
+	StartTask PoolStartTaskOutput `pulumi:"startTask"`
+
+	StopPendingResizeOperation pulumi.BoolOutput `pulumi:"stopPendingResizeOperation"`
+
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
+	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
+
+	// Specifies the size of the VM created in the Batch pool.
+	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 }
 
 // NewPool registers a new resource with the given unique name, arguments, and options.
 func NewPool(ctx *pulumi.Context,
-	name string, args *PoolArgs, opts ...pulumi.ResourceOpt) (*Pool, error) {
+	name string, args *PoolArgs, opts ...pulumi.ResourceOption) (*Pool, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
@@ -33,210 +76,959 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil || args.VmSize == nil {
 		return nil, errors.New("missing required argument 'VmSize'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["accountName"] = nil
-		inputs["autoScale"] = nil
-		inputs["certificates"] = nil
-		inputs["containerConfiguration"] = nil
-		inputs["displayName"] = nil
-		inputs["fixedScale"] = nil
-		inputs["maxTasksPerNode"] = nil
-		inputs["name"] = nil
-		inputs["nodeAgentSkuId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["startTask"] = nil
-		inputs["stopPendingResizeOperation"] = nil
-		inputs["storageImageReference"] = nil
-		inputs["vmSize"] = nil
-	} else {
-		inputs["accountName"] = args.AccountName
-		inputs["autoScale"] = args.AutoScale
-		inputs["certificates"] = args.Certificates
-		inputs["containerConfiguration"] = args.ContainerConfiguration
-		inputs["displayName"] = args.DisplayName
-		inputs["fixedScale"] = args.FixedScale
-		inputs["maxTasksPerNode"] = args.MaxTasksPerNode
-		inputs["name"] = args.Name
-		inputs["nodeAgentSkuId"] = args.NodeAgentSkuId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["startTask"] = args.StartTask
-		inputs["stopPendingResizeOperation"] = args.StopPendingResizeOperation
-		inputs["storageImageReference"] = args.StorageImageReference
-		inputs["vmSize"] = args.VmSize
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := args.AutoScale; i != nil { inputs["autoScale"] = i.ToPoolAutoScaleOutput() }
+		if i := args.Certificates; i != nil { inputs["certificates"] = i.ToPoolCertificatesArrayOutput() }
+		if i := args.ContainerConfiguration; i != nil { inputs["containerConfiguration"] = i.ToPoolContainerConfigurationOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.FixedScale; i != nil { inputs["fixedScale"] = i.ToPoolFixedScaleOutput() }
+		if i := args.MaxTasksPerNode; i != nil { inputs["maxTasksPerNode"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NodeAgentSkuId; i != nil { inputs["nodeAgentSkuId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StartTask; i != nil { inputs["startTask"] = i.ToPoolStartTaskOutput() }
+		if i := args.StopPendingResizeOperation; i != nil { inputs["stopPendingResizeOperation"] = i.ToBoolOutput() }
+		if i := args.StorageImageReference; i != nil { inputs["storageImageReference"] = i.ToPoolStorageImageReferenceOutput() }
+		if i := args.VmSize; i != nil { inputs["vmSize"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:batch/pool:Pool", name, true, inputs, opts...)
+	var resource Pool
+	err := ctx.RegisterResource("azure:batch/pool:Pool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pool{s: s}, nil
+	return &resource, nil
 }
 
 // GetPool gets an existing Pool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *PoolState, opts ...pulumi.ResourceOpt) (*Pool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *PoolState, opts ...pulumi.ResourceOption) (*Pool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["accountName"] = state.AccountName
-		inputs["autoScale"] = state.AutoScale
-		inputs["certificates"] = state.Certificates
-		inputs["containerConfiguration"] = state.ContainerConfiguration
-		inputs["displayName"] = state.DisplayName
-		inputs["fixedScale"] = state.FixedScale
-		inputs["maxTasksPerNode"] = state.MaxTasksPerNode
-		inputs["name"] = state.Name
-		inputs["nodeAgentSkuId"] = state.NodeAgentSkuId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["startTask"] = state.StartTask
-		inputs["stopPendingResizeOperation"] = state.StopPendingResizeOperation
-		inputs["storageImageReference"] = state.StorageImageReference
-		inputs["vmSize"] = state.VmSize
+		if i := state.AccountName; i != nil { inputs["accountName"] = i.ToStringOutput() }
+		if i := state.AutoScale; i != nil { inputs["autoScale"] = i.ToPoolAutoScaleOutput() }
+		if i := state.Certificates; i != nil { inputs["certificates"] = i.ToPoolCertificatesArrayOutput() }
+		if i := state.ContainerConfiguration; i != nil { inputs["containerConfiguration"] = i.ToPoolContainerConfigurationOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.FixedScale; i != nil { inputs["fixedScale"] = i.ToPoolFixedScaleOutput() }
+		if i := state.MaxTasksPerNode; i != nil { inputs["maxTasksPerNode"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NodeAgentSkuId; i != nil { inputs["nodeAgentSkuId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StartTask; i != nil { inputs["startTask"] = i.ToPoolStartTaskOutput() }
+		if i := state.StopPendingResizeOperation; i != nil { inputs["stopPendingResizeOperation"] = i.ToBoolOutput() }
+		if i := state.StorageImageReference; i != nil { inputs["storageImageReference"] = i.ToPoolStorageImageReferenceOutput() }
+		if i := state.VmSize; i != nil { inputs["vmSize"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:batch/pool:Pool", name, id, inputs, opts...)
+	var resource Pool
+	err := ctx.ReadResource("azure:batch/pool:Pool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Pool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Pool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Pool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-func (r *Pool) AccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["accountName"])
-}
-
-// A `autoScale` block that describes the scale settings when using auto scale.
-func (r *Pool) AutoScale() pulumi.Output {
-	return r.s.State["autoScale"]
-}
-
-// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
-func (r *Pool) Certificates() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["certificates"])
-}
-
-// The container configuration used in the pool's VMs.
-func (r *Pool) ContainerConfiguration() pulumi.Output {
-	return r.s.State["containerConfiguration"]
-}
-
-// Specifies the display name of the Batch pool.
-func (r *Pool) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// A `fixedScale` block that describes the scale settings when using fixed scale.
-func (r *Pool) FixedScale() pulumi.Output {
-	return r.s.State["fixedScale"]
-}
-
-// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
-func (r *Pool) MaxTasksPerNode() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["maxTasksPerNode"])
-}
-
-// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-func (r *Pool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the Sku of the node agents that will be created in the Batch pool.
-func (r *Pool) NodeAgentSkuId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["nodeAgentSkuId"])
-}
-
-// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-func (r *Pool) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `startTask` block that describes the start task settings for the Batch pool.
-func (r *Pool) StartTask() pulumi.Output {
-	return r.s.State["startTask"]
-}
-
-func (r *Pool) StopPendingResizeOperation() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["stopPendingResizeOperation"])
-}
-
-// A `storageImageReference` for the virtual machines that will compose the Batch pool.
-func (r *Pool) StorageImageReference() pulumi.Output {
-	return r.s.State["storageImageReference"]
-}
-
-// Specifies the size of the VM created in the Batch pool.
-func (r *Pool) VmSize() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vmSize"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Pool resources.
 type PoolState struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale.
-	AutoScale interface{}
+	AutoScale PoolAutoScaleInput `pulumi:"autoScale"`
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
-	Certificates interface{}
+	Certificates PoolCertificatesArrayInput `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
-	ContainerConfiguration interface{}
+	ContainerConfiguration PoolContainerConfigurationInput `pulumi:"containerConfiguration"`
 	// Specifies the display name of the Batch pool.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
-	FixedScale interface{}
+	FixedScale PoolFixedScaleInput `pulumi:"fixedScale"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
-	MaxTasksPerNode interface{}
+	MaxTasksPerNode pulumi.IntInput `pulumi:"maxTasksPerNode"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Sku of the node agents that will be created in the Batch pool.
-	NodeAgentSkuId interface{}
+	NodeAgentSkuId pulumi.StringInput `pulumi:"nodeAgentSkuId"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask interface{}
-	StopPendingResizeOperation interface{}
+	StartTask PoolStartTaskInput `pulumi:"startTask"`
+	StopPendingResizeOperation pulumi.BoolInput `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
-	StorageImageReference interface{}
+	StorageImageReference PoolStorageImageReferenceInput `pulumi:"storageImageReference"`
 	// Specifies the size of the VM created in the Batch pool.
-	VmSize interface{}
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-	AccountName interface{}
+	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale.
-	AutoScale interface{}
+	AutoScale PoolAutoScaleInput `pulumi:"autoScale"`
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
-	Certificates interface{}
+	Certificates PoolCertificatesArrayInput `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
-	ContainerConfiguration interface{}
+	ContainerConfiguration PoolContainerConfigurationInput `pulumi:"containerConfiguration"`
 	// Specifies the display name of the Batch pool.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
-	FixedScale interface{}
+	FixedScale PoolFixedScaleInput `pulumi:"fixedScale"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
-	MaxTasksPerNode interface{}
+	MaxTasksPerNode pulumi.IntInput `pulumi:"maxTasksPerNode"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the Sku of the node agents that will be created in the Batch pool.
-	NodeAgentSkuId interface{}
+	NodeAgentSkuId pulumi.StringInput `pulumi:"nodeAgentSkuId"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
-	StartTask interface{}
-	StopPendingResizeOperation interface{}
+	StartTask PoolStartTaskInput `pulumi:"startTask"`
+	StopPendingResizeOperation pulumi.BoolInput `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
-	StorageImageReference interface{}
+	StorageImageReference PoolStorageImageReferenceInput `pulumi:"storageImageReference"`
 	// Specifies the size of the VM created in the Batch pool.
-	VmSize interface{}
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
+type PoolAutoScale struct {
+	EvaluationInterval *string `pulumi:"evaluationInterval"`
+	Formula string `pulumi:"formula"`
+}
+var poolAutoScaleType = reflect.TypeOf((*PoolAutoScale)(nil)).Elem()
+
+type PoolAutoScaleInput interface {
+	pulumi.Input
+
+	ToPoolAutoScaleOutput() PoolAutoScaleOutput
+	ToPoolAutoScaleOutputWithContext(ctx context.Context) PoolAutoScaleOutput
+}
+
+type PoolAutoScaleArgs struct {
+	EvaluationInterval pulumi.StringInput `pulumi:"evaluationInterval"`
+	Formula pulumi.StringInput `pulumi:"formula"`
+}
+
+func (PoolAutoScaleArgs) ElementType() reflect.Type {
+	return poolAutoScaleType
+}
+
+func (a PoolAutoScaleArgs) ToPoolAutoScaleOutput() PoolAutoScaleOutput {
+	return pulumi.ToOutput(a).(PoolAutoScaleOutput)
+}
+
+func (a PoolAutoScaleArgs) ToPoolAutoScaleOutputWithContext(ctx context.Context) PoolAutoScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolAutoScaleOutput)
+}
+
+type PoolAutoScaleOutput struct { *pulumi.OutputState }
+
+func (o PoolAutoScaleOutput) EvaluationInterval() pulumi.StringOutput {
+	return o.Apply(func(v PoolAutoScale) string {
+		if v.EvaluationInterval == nil { return *new(string) } else { return *v.EvaluationInterval }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolAutoScaleOutput) Formula() pulumi.StringOutput {
+	return o.Apply(func(v PoolAutoScale) string {
+		return v.Formula
+	}).(pulumi.StringOutput)
+}
+
+func (PoolAutoScaleOutput) ElementType() reflect.Type {
+	return poolAutoScaleType
+}
+
+func (o PoolAutoScaleOutput) ToPoolAutoScaleOutput() PoolAutoScaleOutput {
+	return o
+}
+
+func (o PoolAutoScaleOutput) ToPoolAutoScaleOutputWithContext(ctx context.Context) PoolAutoScaleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolAutoScaleOutput{}) }
+
+type PoolCertificates struct {
+	// The Batch pool ID.
+	Id string `pulumi:"id"`
+	StoreLocation string `pulumi:"storeLocation"`
+	StoreName *string `pulumi:"storeName"`
+	Visibilities *[]string `pulumi:"visibilities"`
+}
+var poolCertificatesType = reflect.TypeOf((*PoolCertificates)(nil)).Elem()
+
+type PoolCertificatesInput interface {
+	pulumi.Input
+
+	ToPoolCertificatesOutput() PoolCertificatesOutput
+	ToPoolCertificatesOutputWithContext(ctx context.Context) PoolCertificatesOutput
+}
+
+type PoolCertificatesArgs struct {
+	// The Batch pool ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
+	StoreName pulumi.StringInput `pulumi:"storeName"`
+	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
+}
+
+func (PoolCertificatesArgs) ElementType() reflect.Type {
+	return poolCertificatesType
+}
+
+func (a PoolCertificatesArgs) ToPoolCertificatesOutput() PoolCertificatesOutput {
+	return pulumi.ToOutput(a).(PoolCertificatesOutput)
+}
+
+func (a PoolCertificatesArgs) ToPoolCertificatesOutputWithContext(ctx context.Context) PoolCertificatesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolCertificatesOutput)
+}
+
+type PoolCertificatesOutput struct { *pulumi.OutputState }
+
+// The Batch pool ID.
+func (o PoolCertificatesOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v PoolCertificates) string {
+		return v.Id
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolCertificatesOutput) StoreLocation() pulumi.StringOutput {
+	return o.Apply(func(v PoolCertificates) string {
+		return v.StoreLocation
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolCertificatesOutput) StoreName() pulumi.StringOutput {
+	return o.Apply(func(v PoolCertificates) string {
+		if v.StoreName == nil { return *new(string) } else { return *v.StoreName }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolCertificatesOutput) Visibilities() pulumi.StringArrayOutput {
+	return o.Apply(func(v PoolCertificates) []string {
+		if v.Visibilities == nil { return *new([]string) } else { return *v.Visibilities }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (PoolCertificatesOutput) ElementType() reflect.Type {
+	return poolCertificatesType
+}
+
+func (o PoolCertificatesOutput) ToPoolCertificatesOutput() PoolCertificatesOutput {
+	return o
+}
+
+func (o PoolCertificatesOutput) ToPoolCertificatesOutputWithContext(ctx context.Context) PoolCertificatesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolCertificatesOutput{}) }
+
+var poolCertificatesArrayType = reflect.TypeOf((*[]PoolCertificates)(nil)).Elem()
+
+type PoolCertificatesArrayInput interface {
+	pulumi.Input
+
+	ToPoolCertificatesArrayOutput() PoolCertificatesArrayOutput
+	ToPoolCertificatesArrayOutputWithContext(ctx context.Context) PoolCertificatesArrayOutput
+}
+
+type PoolCertificatesArrayArgs []PoolCertificatesInput
+
+func (PoolCertificatesArrayArgs) ElementType() reflect.Type {
+	return poolCertificatesArrayType
+}
+
+func (a PoolCertificatesArrayArgs) ToPoolCertificatesArrayOutput() PoolCertificatesArrayOutput {
+	return pulumi.ToOutput(a).(PoolCertificatesArrayOutput)
+}
+
+func (a PoolCertificatesArrayArgs) ToPoolCertificatesArrayOutputWithContext(ctx context.Context) PoolCertificatesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolCertificatesArrayOutput)
+}
+
+type PoolCertificatesArrayOutput struct { *pulumi.OutputState }
+
+func (o PoolCertificatesArrayOutput) Index(i pulumi.IntInput) PoolCertificatesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PoolCertificates {
+		return vs[0].([]PoolCertificates)[vs[1].(int)]
+	}).(PoolCertificatesOutput)
+}
+
+func (PoolCertificatesArrayOutput) ElementType() reflect.Type {
+	return poolCertificatesArrayType
+}
+
+func (o PoolCertificatesArrayOutput) ToPoolCertificatesArrayOutput() PoolCertificatesArrayOutput {
+	return o
+}
+
+func (o PoolCertificatesArrayOutput) ToPoolCertificatesArrayOutputWithContext(ctx context.Context) PoolCertificatesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolCertificatesArrayOutput{}) }
+
+type PoolContainerConfiguration struct {
+	ContainerRegistries *[]PoolContainerConfigurationContainerRegistries `pulumi:"containerRegistries"`
+	Type *string `pulumi:"type"`
+}
+var poolContainerConfigurationType = reflect.TypeOf((*PoolContainerConfiguration)(nil)).Elem()
+
+type PoolContainerConfigurationInput interface {
+	pulumi.Input
+
+	ToPoolContainerConfigurationOutput() PoolContainerConfigurationOutput
+	ToPoolContainerConfigurationOutputWithContext(ctx context.Context) PoolContainerConfigurationOutput
+}
+
+type PoolContainerConfigurationArgs struct {
+	ContainerRegistries PoolContainerConfigurationContainerRegistriesArrayInput `pulumi:"containerRegistries"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PoolContainerConfigurationArgs) ElementType() reflect.Type {
+	return poolContainerConfigurationType
+}
+
+func (a PoolContainerConfigurationArgs) ToPoolContainerConfigurationOutput() PoolContainerConfigurationOutput {
+	return pulumi.ToOutput(a).(PoolContainerConfigurationOutput)
+}
+
+func (a PoolContainerConfigurationArgs) ToPoolContainerConfigurationOutputWithContext(ctx context.Context) PoolContainerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolContainerConfigurationOutput)
+}
+
+type PoolContainerConfigurationOutput struct { *pulumi.OutputState }
+
+func (o PoolContainerConfigurationOutput) ContainerRegistries() PoolContainerConfigurationContainerRegistriesArrayOutput {
+	return o.Apply(func(v PoolContainerConfiguration) []PoolContainerConfigurationContainerRegistries {
+		if v.ContainerRegistries == nil { return *new([]PoolContainerConfigurationContainerRegistries) } else { return *v.ContainerRegistries }
+	}).(PoolContainerConfigurationContainerRegistriesArrayOutput)
+}
+
+func (o PoolContainerConfigurationOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v PoolContainerConfiguration) string {
+		if v.Type == nil { return *new(string) } else { return *v.Type }
+	}).(pulumi.StringOutput)
+}
+
+func (PoolContainerConfigurationOutput) ElementType() reflect.Type {
+	return poolContainerConfigurationType
+}
+
+func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationOutput() PoolContainerConfigurationOutput {
+	return o
+}
+
+func (o PoolContainerConfigurationOutput) ToPoolContainerConfigurationOutputWithContext(ctx context.Context) PoolContainerConfigurationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolContainerConfigurationOutput{}) }
+
+type PoolContainerConfigurationContainerRegistries struct {
+	Password string `pulumi:"password"`
+	RegistryServer string `pulumi:"registryServer"`
+	UserName string `pulumi:"userName"`
+}
+var poolContainerConfigurationContainerRegistriesType = reflect.TypeOf((*PoolContainerConfigurationContainerRegistries)(nil)).Elem()
+
+type PoolContainerConfigurationContainerRegistriesInput interface {
+	pulumi.Input
+
+	ToPoolContainerConfigurationContainerRegistriesOutput() PoolContainerConfigurationContainerRegistriesOutput
+	ToPoolContainerConfigurationContainerRegistriesOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistriesOutput
+}
+
+type PoolContainerConfigurationContainerRegistriesArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (PoolContainerConfigurationContainerRegistriesArgs) ElementType() reflect.Type {
+	return poolContainerConfigurationContainerRegistriesType
+}
+
+func (a PoolContainerConfigurationContainerRegistriesArgs) ToPoolContainerConfigurationContainerRegistriesOutput() PoolContainerConfigurationContainerRegistriesOutput {
+	return pulumi.ToOutput(a).(PoolContainerConfigurationContainerRegistriesOutput)
+}
+
+func (a PoolContainerConfigurationContainerRegistriesArgs) ToPoolContainerConfigurationContainerRegistriesOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistriesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolContainerConfigurationContainerRegistriesOutput)
+}
+
+type PoolContainerConfigurationContainerRegistriesOutput struct { *pulumi.OutputState }
+
+func (o PoolContainerConfigurationContainerRegistriesOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v PoolContainerConfigurationContainerRegistries) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolContainerConfigurationContainerRegistriesOutput) RegistryServer() pulumi.StringOutput {
+	return o.Apply(func(v PoolContainerConfigurationContainerRegistries) string {
+		return v.RegistryServer
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolContainerConfigurationContainerRegistriesOutput) UserName() pulumi.StringOutput {
+	return o.Apply(func(v PoolContainerConfigurationContainerRegistries) string {
+		return v.UserName
+	}).(pulumi.StringOutput)
+}
+
+func (PoolContainerConfigurationContainerRegistriesOutput) ElementType() reflect.Type {
+	return poolContainerConfigurationContainerRegistriesType
+}
+
+func (o PoolContainerConfigurationContainerRegistriesOutput) ToPoolContainerConfigurationContainerRegistriesOutput() PoolContainerConfigurationContainerRegistriesOutput {
+	return o
+}
+
+func (o PoolContainerConfigurationContainerRegistriesOutput) ToPoolContainerConfigurationContainerRegistriesOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistriesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolContainerConfigurationContainerRegistriesOutput{}) }
+
+var poolContainerConfigurationContainerRegistriesArrayType = reflect.TypeOf((*[]PoolContainerConfigurationContainerRegistries)(nil)).Elem()
+
+type PoolContainerConfigurationContainerRegistriesArrayInput interface {
+	pulumi.Input
+
+	ToPoolContainerConfigurationContainerRegistriesArrayOutput() PoolContainerConfigurationContainerRegistriesArrayOutput
+	ToPoolContainerConfigurationContainerRegistriesArrayOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistriesArrayOutput
+}
+
+type PoolContainerConfigurationContainerRegistriesArrayArgs []PoolContainerConfigurationContainerRegistriesInput
+
+func (PoolContainerConfigurationContainerRegistriesArrayArgs) ElementType() reflect.Type {
+	return poolContainerConfigurationContainerRegistriesArrayType
+}
+
+func (a PoolContainerConfigurationContainerRegistriesArrayArgs) ToPoolContainerConfigurationContainerRegistriesArrayOutput() PoolContainerConfigurationContainerRegistriesArrayOutput {
+	return pulumi.ToOutput(a).(PoolContainerConfigurationContainerRegistriesArrayOutput)
+}
+
+func (a PoolContainerConfigurationContainerRegistriesArrayArgs) ToPoolContainerConfigurationContainerRegistriesArrayOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistriesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolContainerConfigurationContainerRegistriesArrayOutput)
+}
+
+type PoolContainerConfigurationContainerRegistriesArrayOutput struct { *pulumi.OutputState }
+
+func (o PoolContainerConfigurationContainerRegistriesArrayOutput) Index(i pulumi.IntInput) PoolContainerConfigurationContainerRegistriesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PoolContainerConfigurationContainerRegistries {
+		return vs[0].([]PoolContainerConfigurationContainerRegistries)[vs[1].(int)]
+	}).(PoolContainerConfigurationContainerRegistriesOutput)
+}
+
+func (PoolContainerConfigurationContainerRegistriesArrayOutput) ElementType() reflect.Type {
+	return poolContainerConfigurationContainerRegistriesArrayType
+}
+
+func (o PoolContainerConfigurationContainerRegistriesArrayOutput) ToPoolContainerConfigurationContainerRegistriesArrayOutput() PoolContainerConfigurationContainerRegistriesArrayOutput {
+	return o
+}
+
+func (o PoolContainerConfigurationContainerRegistriesArrayOutput) ToPoolContainerConfigurationContainerRegistriesArrayOutputWithContext(ctx context.Context) PoolContainerConfigurationContainerRegistriesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolContainerConfigurationContainerRegistriesArrayOutput{}) }
+
+type PoolFixedScale struct {
+	ResizeTimeout *string `pulumi:"resizeTimeout"`
+	TargetDedicatedNodes *int `pulumi:"targetDedicatedNodes"`
+	TargetLowPriorityNodes *int `pulumi:"targetLowPriorityNodes"`
+}
+var poolFixedScaleType = reflect.TypeOf((*PoolFixedScale)(nil)).Elem()
+
+type PoolFixedScaleInput interface {
+	pulumi.Input
+
+	ToPoolFixedScaleOutput() PoolFixedScaleOutput
+	ToPoolFixedScaleOutputWithContext(ctx context.Context) PoolFixedScaleOutput
+}
+
+type PoolFixedScaleArgs struct {
+	ResizeTimeout pulumi.StringInput `pulumi:"resizeTimeout"`
+	TargetDedicatedNodes pulumi.IntInput `pulumi:"targetDedicatedNodes"`
+	TargetLowPriorityNodes pulumi.IntInput `pulumi:"targetLowPriorityNodes"`
+}
+
+func (PoolFixedScaleArgs) ElementType() reflect.Type {
+	return poolFixedScaleType
+}
+
+func (a PoolFixedScaleArgs) ToPoolFixedScaleOutput() PoolFixedScaleOutput {
+	return pulumi.ToOutput(a).(PoolFixedScaleOutput)
+}
+
+func (a PoolFixedScaleArgs) ToPoolFixedScaleOutputWithContext(ctx context.Context) PoolFixedScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolFixedScaleOutput)
+}
+
+type PoolFixedScaleOutput struct { *pulumi.OutputState }
+
+func (o PoolFixedScaleOutput) ResizeTimeout() pulumi.StringOutput {
+	return o.Apply(func(v PoolFixedScale) string {
+		if v.ResizeTimeout == nil { return *new(string) } else { return *v.ResizeTimeout }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolFixedScaleOutput) TargetDedicatedNodes() pulumi.IntOutput {
+	return o.Apply(func(v PoolFixedScale) int {
+		if v.TargetDedicatedNodes == nil { return *new(int) } else { return *v.TargetDedicatedNodes }
+	}).(pulumi.IntOutput)
+}
+
+func (o PoolFixedScaleOutput) TargetLowPriorityNodes() pulumi.IntOutput {
+	return o.Apply(func(v PoolFixedScale) int {
+		if v.TargetLowPriorityNodes == nil { return *new(int) } else { return *v.TargetLowPriorityNodes }
+	}).(pulumi.IntOutput)
+}
+
+func (PoolFixedScaleOutput) ElementType() reflect.Type {
+	return poolFixedScaleType
+}
+
+func (o PoolFixedScaleOutput) ToPoolFixedScaleOutput() PoolFixedScaleOutput {
+	return o
+}
+
+func (o PoolFixedScaleOutput) ToPoolFixedScaleOutputWithContext(ctx context.Context) PoolFixedScaleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolFixedScaleOutput{}) }
+
+type PoolStartTask struct {
+	CommandLine string `pulumi:"commandLine"`
+	Environment *map[string]string `pulumi:"environment"`
+	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
+	ResourceFiles *[]PoolStartTaskResourceFiles `pulumi:"resourceFiles"`
+	UserIdentity PoolStartTaskUserIdentity `pulumi:"userIdentity"`
+	WaitForSuccess *bool `pulumi:"waitForSuccess"`
+}
+var poolStartTaskType = reflect.TypeOf((*PoolStartTask)(nil)).Elem()
+
+type PoolStartTaskInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskOutput() PoolStartTaskOutput
+	ToPoolStartTaskOutputWithContext(ctx context.Context) PoolStartTaskOutput
+}
+
+type PoolStartTaskArgs struct {
+	CommandLine pulumi.StringInput `pulumi:"commandLine"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	MaxTaskRetryCount pulumi.IntInput `pulumi:"maxTaskRetryCount"`
+	ResourceFiles PoolStartTaskResourceFilesArrayInput `pulumi:"resourceFiles"`
+	UserIdentity PoolStartTaskUserIdentityInput `pulumi:"userIdentity"`
+	WaitForSuccess pulumi.BoolInput `pulumi:"waitForSuccess"`
+}
+
+func (PoolStartTaskArgs) ElementType() reflect.Type {
+	return poolStartTaskType
+}
+
+func (a PoolStartTaskArgs) ToPoolStartTaskOutput() PoolStartTaskOutput {
+	return pulumi.ToOutput(a).(PoolStartTaskOutput)
+}
+
+func (a PoolStartTaskArgs) ToPoolStartTaskOutputWithContext(ctx context.Context) PoolStartTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolStartTaskOutput)
+}
+
+type PoolStartTaskOutput struct { *pulumi.OutputState }
+
+func (o PoolStartTaskOutput) CommandLine() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTask) string {
+		return v.CommandLine
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskOutput) Environment() pulumi.StringMapOutput {
+	return o.Apply(func(v PoolStartTask) map[string]string {
+		if v.Environment == nil { return *new(map[string]string) } else { return *v.Environment }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o PoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntOutput {
+	return o.Apply(func(v PoolStartTask) int {
+		if v.MaxTaskRetryCount == nil { return *new(int) } else { return *v.MaxTaskRetryCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFilesArrayOutput {
+	return o.Apply(func(v PoolStartTask) []PoolStartTaskResourceFiles {
+		if v.ResourceFiles == nil { return *new([]PoolStartTaskResourceFiles) } else { return *v.ResourceFiles }
+	}).(PoolStartTaskResourceFilesArrayOutput)
+}
+
+func (o PoolStartTaskOutput) UserIdentity() PoolStartTaskUserIdentityOutput {
+	return o.Apply(func(v PoolStartTask) PoolStartTaskUserIdentity {
+		return v.UserIdentity
+	}).(PoolStartTaskUserIdentityOutput)
+}
+
+func (o PoolStartTaskOutput) WaitForSuccess() pulumi.BoolOutput {
+	return o.Apply(func(v PoolStartTask) bool {
+		if v.WaitForSuccess == nil { return *new(bool) } else { return *v.WaitForSuccess }
+	}).(pulumi.BoolOutput)
+}
+
+func (PoolStartTaskOutput) ElementType() reflect.Type {
+	return poolStartTaskType
+}
+
+func (o PoolStartTaskOutput) ToPoolStartTaskOutput() PoolStartTaskOutput {
+	return o
+}
+
+func (o PoolStartTaskOutput) ToPoolStartTaskOutputWithContext(ctx context.Context) PoolStartTaskOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolStartTaskOutput{}) }
+
+type PoolStartTaskResourceFiles struct {
+	AutoStorageContainerName *string `pulumi:"autoStorageContainerName"`
+	BlobPrefix *string `pulumi:"blobPrefix"`
+	FileMode *string `pulumi:"fileMode"`
+	FilePath *string `pulumi:"filePath"`
+	HttpUrl *string `pulumi:"httpUrl"`
+	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
+}
+var poolStartTaskResourceFilesType = reflect.TypeOf((*PoolStartTaskResourceFiles)(nil)).Elem()
+
+type PoolStartTaskResourceFilesInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskResourceFilesOutput() PoolStartTaskResourceFilesOutput
+	ToPoolStartTaskResourceFilesOutputWithContext(ctx context.Context) PoolStartTaskResourceFilesOutput
+}
+
+type PoolStartTaskResourceFilesArgs struct {
+	AutoStorageContainerName pulumi.StringInput `pulumi:"autoStorageContainerName"`
+	BlobPrefix pulumi.StringInput `pulumi:"blobPrefix"`
+	FileMode pulumi.StringInput `pulumi:"fileMode"`
+	FilePath pulumi.StringInput `pulumi:"filePath"`
+	HttpUrl pulumi.StringInput `pulumi:"httpUrl"`
+	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
+}
+
+func (PoolStartTaskResourceFilesArgs) ElementType() reflect.Type {
+	return poolStartTaskResourceFilesType
+}
+
+func (a PoolStartTaskResourceFilesArgs) ToPoolStartTaskResourceFilesOutput() PoolStartTaskResourceFilesOutput {
+	return pulumi.ToOutput(a).(PoolStartTaskResourceFilesOutput)
+}
+
+func (a PoolStartTaskResourceFilesArgs) ToPoolStartTaskResourceFilesOutputWithContext(ctx context.Context) PoolStartTaskResourceFilesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolStartTaskResourceFilesOutput)
+}
+
+type PoolStartTaskResourceFilesOutput struct { *pulumi.OutputState }
+
+func (o PoolStartTaskResourceFilesOutput) AutoStorageContainerName() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskResourceFiles) string {
+		if v.AutoStorageContainerName == nil { return *new(string) } else { return *v.AutoStorageContainerName }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskResourceFilesOutput) BlobPrefix() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskResourceFiles) string {
+		if v.BlobPrefix == nil { return *new(string) } else { return *v.BlobPrefix }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskResourceFilesOutput) FileMode() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskResourceFiles) string {
+		if v.FileMode == nil { return *new(string) } else { return *v.FileMode }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskResourceFilesOutput) FilePath() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskResourceFiles) string {
+		if v.FilePath == nil { return *new(string) } else { return *v.FilePath }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskResourceFilesOutput) HttpUrl() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskResourceFiles) string {
+		if v.HttpUrl == nil { return *new(string) } else { return *v.HttpUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskResourceFilesOutput) StorageContainerUrl() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskResourceFiles) string {
+		if v.StorageContainerUrl == nil { return *new(string) } else { return *v.StorageContainerUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (PoolStartTaskResourceFilesOutput) ElementType() reflect.Type {
+	return poolStartTaskResourceFilesType
+}
+
+func (o PoolStartTaskResourceFilesOutput) ToPoolStartTaskResourceFilesOutput() PoolStartTaskResourceFilesOutput {
+	return o
+}
+
+func (o PoolStartTaskResourceFilesOutput) ToPoolStartTaskResourceFilesOutputWithContext(ctx context.Context) PoolStartTaskResourceFilesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolStartTaskResourceFilesOutput{}) }
+
+var poolStartTaskResourceFilesArrayType = reflect.TypeOf((*[]PoolStartTaskResourceFiles)(nil)).Elem()
+
+type PoolStartTaskResourceFilesArrayInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskResourceFilesArrayOutput() PoolStartTaskResourceFilesArrayOutput
+	ToPoolStartTaskResourceFilesArrayOutputWithContext(ctx context.Context) PoolStartTaskResourceFilesArrayOutput
+}
+
+type PoolStartTaskResourceFilesArrayArgs []PoolStartTaskResourceFilesInput
+
+func (PoolStartTaskResourceFilesArrayArgs) ElementType() reflect.Type {
+	return poolStartTaskResourceFilesArrayType
+}
+
+func (a PoolStartTaskResourceFilesArrayArgs) ToPoolStartTaskResourceFilesArrayOutput() PoolStartTaskResourceFilesArrayOutput {
+	return pulumi.ToOutput(a).(PoolStartTaskResourceFilesArrayOutput)
+}
+
+func (a PoolStartTaskResourceFilesArrayArgs) ToPoolStartTaskResourceFilesArrayOutputWithContext(ctx context.Context) PoolStartTaskResourceFilesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolStartTaskResourceFilesArrayOutput)
+}
+
+type PoolStartTaskResourceFilesArrayOutput struct { *pulumi.OutputState }
+
+func (o PoolStartTaskResourceFilesArrayOutput) Index(i pulumi.IntInput) PoolStartTaskResourceFilesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) PoolStartTaskResourceFiles {
+		return vs[0].([]PoolStartTaskResourceFiles)[vs[1].(int)]
+	}).(PoolStartTaskResourceFilesOutput)
+}
+
+func (PoolStartTaskResourceFilesArrayOutput) ElementType() reflect.Type {
+	return poolStartTaskResourceFilesArrayType
+}
+
+func (o PoolStartTaskResourceFilesArrayOutput) ToPoolStartTaskResourceFilesArrayOutput() PoolStartTaskResourceFilesArrayOutput {
+	return o
+}
+
+func (o PoolStartTaskResourceFilesArrayOutput) ToPoolStartTaskResourceFilesArrayOutputWithContext(ctx context.Context) PoolStartTaskResourceFilesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolStartTaskResourceFilesArrayOutput{}) }
+
+type PoolStartTaskUserIdentity struct {
+	AutoUser *PoolStartTaskUserIdentityAutoUser `pulumi:"autoUser"`
+	UserName *string `pulumi:"userName"`
+}
+var poolStartTaskUserIdentityType = reflect.TypeOf((*PoolStartTaskUserIdentity)(nil)).Elem()
+
+type PoolStartTaskUserIdentityInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskUserIdentityOutput() PoolStartTaskUserIdentityOutput
+	ToPoolStartTaskUserIdentityOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityOutput
+}
+
+type PoolStartTaskUserIdentityArgs struct {
+	AutoUser PoolStartTaskUserIdentityAutoUserInput `pulumi:"autoUser"`
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (PoolStartTaskUserIdentityArgs) ElementType() reflect.Type {
+	return poolStartTaskUserIdentityType
+}
+
+func (a PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityOutput() PoolStartTaskUserIdentityOutput {
+	return pulumi.ToOutput(a).(PoolStartTaskUserIdentityOutput)
+}
+
+func (a PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolStartTaskUserIdentityOutput)
+}
+
+type PoolStartTaskUserIdentityOutput struct { *pulumi.OutputState }
+
+func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserOutput {
+	return o.Apply(func(v PoolStartTaskUserIdentity) PoolStartTaskUserIdentityAutoUser {
+		if v.AutoUser == nil { return *new(PoolStartTaskUserIdentityAutoUser) } else { return *v.AutoUser }
+	}).(PoolStartTaskUserIdentityAutoUserOutput)
+}
+
+func (o PoolStartTaskUserIdentityOutput) UserName() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskUserIdentity) string {
+		if v.UserName == nil { return *new(string) } else { return *v.UserName }
+	}).(pulumi.StringOutput)
+}
+
+func (PoolStartTaskUserIdentityOutput) ElementType() reflect.Type {
+	return poolStartTaskUserIdentityType
+}
+
+func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityOutput() PoolStartTaskUserIdentityOutput {
+	return o
+}
+
+func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolStartTaskUserIdentityOutput{}) }
+
+type PoolStartTaskUserIdentityAutoUser struct {
+	ElevationLevel *string `pulumi:"elevationLevel"`
+	Scope *string `pulumi:"scope"`
+}
+var poolStartTaskUserIdentityAutoUserType = reflect.TypeOf((*PoolStartTaskUserIdentityAutoUser)(nil)).Elem()
+
+type PoolStartTaskUserIdentityAutoUserInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskUserIdentityAutoUserOutput() PoolStartTaskUserIdentityAutoUserOutput
+	ToPoolStartTaskUserIdentityAutoUserOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityAutoUserOutput
+}
+
+type PoolStartTaskUserIdentityAutoUserArgs struct {
+	ElevationLevel pulumi.StringInput `pulumi:"elevationLevel"`
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (PoolStartTaskUserIdentityAutoUserArgs) ElementType() reflect.Type {
+	return poolStartTaskUserIdentityAutoUserType
+}
+
+func (a PoolStartTaskUserIdentityAutoUserArgs) ToPoolStartTaskUserIdentityAutoUserOutput() PoolStartTaskUserIdentityAutoUserOutput {
+	return pulumi.ToOutput(a).(PoolStartTaskUserIdentityAutoUserOutput)
+}
+
+func (a PoolStartTaskUserIdentityAutoUserArgs) ToPoolStartTaskUserIdentityAutoUserOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityAutoUserOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolStartTaskUserIdentityAutoUserOutput)
+}
+
+type PoolStartTaskUserIdentityAutoUserOutput struct { *pulumi.OutputState }
+
+func (o PoolStartTaskUserIdentityAutoUserOutput) ElevationLevel() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskUserIdentityAutoUser) string {
+		if v.ElevationLevel == nil { return *new(string) } else { return *v.ElevationLevel }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStartTaskUserIdentityAutoUserOutput) Scope() pulumi.StringOutput {
+	return o.Apply(func(v PoolStartTaskUserIdentityAutoUser) string {
+		if v.Scope == nil { return *new(string) } else { return *v.Scope }
+	}).(pulumi.StringOutput)
+}
+
+func (PoolStartTaskUserIdentityAutoUserOutput) ElementType() reflect.Type {
+	return poolStartTaskUserIdentityAutoUserType
+}
+
+func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAutoUserOutput() PoolStartTaskUserIdentityAutoUserOutput {
+	return o
+}
+
+func (o PoolStartTaskUserIdentityAutoUserOutput) ToPoolStartTaskUserIdentityAutoUserOutputWithContext(ctx context.Context) PoolStartTaskUserIdentityAutoUserOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserOutput{}) }
+
+type PoolStorageImageReference struct {
+	// The Batch pool ID.
+	Id *string `pulumi:"id"`
+	Offer *string `pulumi:"offer"`
+	Publisher *string `pulumi:"publisher"`
+	Sku *string `pulumi:"sku"`
+	Version *string `pulumi:"version"`
+}
+var poolStorageImageReferenceType = reflect.TypeOf((*PoolStorageImageReference)(nil)).Elem()
+
+type PoolStorageImageReferenceInput interface {
+	pulumi.Input
+
+	ToPoolStorageImageReferenceOutput() PoolStorageImageReferenceOutput
+	ToPoolStorageImageReferenceOutputWithContext(ctx context.Context) PoolStorageImageReferenceOutput
+}
+
+type PoolStorageImageReferenceArgs struct {
+	// The Batch pool ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	Offer pulumi.StringInput `pulumi:"offer"`
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Sku pulumi.StringInput `pulumi:"sku"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PoolStorageImageReferenceArgs) ElementType() reflect.Type {
+	return poolStorageImageReferenceType
+}
+
+func (a PoolStorageImageReferenceArgs) ToPoolStorageImageReferenceOutput() PoolStorageImageReferenceOutput {
+	return pulumi.ToOutput(a).(PoolStorageImageReferenceOutput)
+}
+
+func (a PoolStorageImageReferenceArgs) ToPoolStorageImageReferenceOutputWithContext(ctx context.Context) PoolStorageImageReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(PoolStorageImageReferenceOutput)
+}
+
+type PoolStorageImageReferenceOutput struct { *pulumi.OutputState }
+
+// The Batch pool ID.
+func (o PoolStorageImageReferenceOutput) Id() pulumi.StringOutput {
+	return o.Apply(func(v PoolStorageImageReference) string {
+		if v.Id == nil { return *new(string) } else { return *v.Id }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStorageImageReferenceOutput) Offer() pulumi.StringOutput {
+	return o.Apply(func(v PoolStorageImageReference) string {
+		if v.Offer == nil { return *new(string) } else { return *v.Offer }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStorageImageReferenceOutput) Publisher() pulumi.StringOutput {
+	return o.Apply(func(v PoolStorageImageReference) string {
+		if v.Publisher == nil { return *new(string) } else { return *v.Publisher }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStorageImageReferenceOutput) Sku() pulumi.StringOutput {
+	return o.Apply(func(v PoolStorageImageReference) string {
+		if v.Sku == nil { return *new(string) } else { return *v.Sku }
+	}).(pulumi.StringOutput)
+}
+
+func (o PoolStorageImageReferenceOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v PoolStorageImageReference) string {
+		if v.Version == nil { return *new(string) } else { return *v.Version }
+	}).(pulumi.StringOutput)
+}
+
+func (PoolStorageImageReferenceOutput) ElementType() reflect.Type {
+	return poolStorageImageReferenceType
+}
+
+func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferenceOutput() PoolStorageImageReferenceOutput {
+	return o
+}
+
+func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferenceOutputWithContext(ctx context.Context) PoolStorageImageReferenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(PoolStorageImageReferenceOutput{}) }
+

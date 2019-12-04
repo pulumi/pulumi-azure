@@ -10,50 +10,41 @@ import (
 // Use this data source to access information about an existing Notification Hub Namespace.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
-func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespaceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:notificationhub/getNamespace:getNamespace", inputs)
+func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs, opts ...pulumi.InvokeOption) (*GetNamespaceResult, error) {
+	var rv GetNamespaceResult
+	err := ctx.Invoke("azure:notificationhub/getNamespace:getNamespace", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetNamespaceResult{
-		Enabled: outputs["enabled"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		NamespaceType: outputs["namespaceType"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ServicebusEndpoint: outputs["servicebusEndpoint"],
-		Sku: outputs["sku"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getNamespace.
 type GetNamespaceArgs struct {
 	// Specifies the Name of the Notification Hub Namespace.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the Name of the Resource Group within which the Notification Hub exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getNamespace.
 type GetNamespaceResult struct {
 	// Is this Notification Hub Namespace enabled?
-	Enabled interface{}
+	Enabled bool `pulumi:"enabled"`
 	// The Azure Region in which this Notification Hub Namespace exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Type of Namespace, such as `Messaging` or `NotificationHub`.
-	NamespaceType interface{}
-	ResourceGroupName interface{}
-	ServicebusEndpoint interface{}
+	NamespaceType string `pulumi:"namespaceType"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServicebusEndpoint string `pulumi:"servicebusEndpoint"`
 	// A `sku` block as defined below.
-	Sku interface{}
+	Sku GetNamespaceSkuResult `pulumi:"sku"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetNamespaceSkuResult struct {
+	// Specifies the Name of the Notification Hub Namespace.
+	Name string `pulumi:"name"`
 }

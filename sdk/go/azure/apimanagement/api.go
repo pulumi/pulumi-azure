@@ -4,6 +4,8 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,60 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
 type Api struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// A description of the API Management API, which may include HTML formatting tags.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The display name of the API.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+
+	// A `import` block as documented below.
+	Import ApiImportOutput `pulumi:"import"`
+
+	// Is this the current API Revision?
+	IsCurrent pulumi.BoolOutput `pulumi:"isCurrent"`
+
+	// Is this API Revision online/accessible via the Gateway?
+	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
+
+	// The name of the API Management API. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+	Path pulumi.StringOutput `pulumi:"path"`
+
+	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
+
+	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The Revision which used for this API.
+	Revision pulumi.StringOutput `pulumi:"revision"`
+
+	// Absolute URL of the backend service implementing this API.
+	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
+
+	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	SoapPassThrough pulumi.BoolOutput `pulumi:"soapPassThrough"`
+
+	// A `subscriptionKeyParameterNames` block as documented below.
+	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
+
+	// The Version number of this API, if this API is versioned.
+	Version pulumi.StringOutput `pulumi:"version"`
+
+	// The ID of the Version Set which this API is associated with.
+	VersionSetId pulumi.StringOutput `pulumi:"versionSetId"`
 }
 
 // NewApi registers a new resource with the given unique name, arguments, and options.
 func NewApi(ctx *pulumi.Context,
-	name string, args *ApiArgs, opts ...pulumi.ResourceOpt) (*Api, error) {
+	name string, args *ApiArgs, opts ...pulumi.ResourceOption) (*Api, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -36,231 +86,308 @@ func NewApi(ctx *pulumi.Context,
 	if args == nil || args.Revision == nil {
 		return nil, errors.New("missing required argument 'Revision'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["description"] = nil
-		inputs["displayName"] = nil
-		inputs["import"] = nil
-		inputs["name"] = nil
-		inputs["path"] = nil
-		inputs["protocols"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["revision"] = nil
-		inputs["serviceUrl"] = nil
-		inputs["soapPassThrough"] = nil
-		inputs["subscriptionKeyParameterNames"] = nil
-		inputs["version"] = nil
-		inputs["versionSetId"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["description"] = args.Description
-		inputs["displayName"] = args.DisplayName
-		inputs["import"] = args.Import
-		inputs["name"] = args.Name
-		inputs["path"] = args.Path
-		inputs["protocols"] = args.Protocols
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["revision"] = args.Revision
-		inputs["serviceUrl"] = args.ServiceUrl
-		inputs["soapPassThrough"] = args.SoapPassThrough
-		inputs["subscriptionKeyParameterNames"] = args.SubscriptionKeyParameterNames
-		inputs["version"] = args.Version
-		inputs["versionSetId"] = args.VersionSetId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := args.Import; i != nil { inputs["import"] = i.ToApiImportOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := args.Protocols; i != nil { inputs["protocols"] = i.ToStringArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Revision; i != nil { inputs["revision"] = i.ToStringOutput() }
+		if i := args.ServiceUrl; i != nil { inputs["serviceUrl"] = i.ToStringOutput() }
+		if i := args.SoapPassThrough; i != nil { inputs["soapPassThrough"] = i.ToBoolOutput() }
+		if i := args.SubscriptionKeyParameterNames; i != nil { inputs["subscriptionKeyParameterNames"] = i.ToApiSubscriptionKeyParameterNamesOutput() }
+		if i := args.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := args.VersionSetId; i != nil { inputs["versionSetId"] = i.ToStringOutput() }
 	}
-	inputs["isCurrent"] = nil
-	inputs["isOnline"] = nil
-	s, err := ctx.RegisterResource("azure:apimanagement/api:Api", name, true, inputs, opts...)
+	var resource Api
+	err := ctx.RegisterResource("azure:apimanagement/api:Api", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Api{s: s}, nil
+	return &resource, nil
 }
 
 // GetApi gets an existing Api resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetApi(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ApiState, opts ...pulumi.ResourceOpt) (*Api, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ApiState, opts ...pulumi.ResourceOption) (*Api, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["description"] = state.Description
-		inputs["displayName"] = state.DisplayName
-		inputs["import"] = state.Import
-		inputs["isCurrent"] = state.IsCurrent
-		inputs["isOnline"] = state.IsOnline
-		inputs["name"] = state.Name
-		inputs["path"] = state.Path
-		inputs["protocols"] = state.Protocols
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["revision"] = state.Revision
-		inputs["serviceUrl"] = state.ServiceUrl
-		inputs["soapPassThrough"] = state.SoapPassThrough
-		inputs["subscriptionKeyParameterNames"] = state.SubscriptionKeyParameterNames
-		inputs["version"] = state.Version
-		inputs["versionSetId"] = state.VersionSetId
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.DisplayName; i != nil { inputs["displayName"] = i.ToStringOutput() }
+		if i := state.Import; i != nil { inputs["import"] = i.ToApiImportOutput() }
+		if i := state.IsCurrent; i != nil { inputs["isCurrent"] = i.ToBoolOutput() }
+		if i := state.IsOnline; i != nil { inputs["isOnline"] = i.ToBoolOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Path; i != nil { inputs["path"] = i.ToStringOutput() }
+		if i := state.Protocols; i != nil { inputs["protocols"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Revision; i != nil { inputs["revision"] = i.ToStringOutput() }
+		if i := state.ServiceUrl; i != nil { inputs["serviceUrl"] = i.ToStringOutput() }
+		if i := state.SoapPassThrough; i != nil { inputs["soapPassThrough"] = i.ToBoolOutput() }
+		if i := state.SubscriptionKeyParameterNames; i != nil { inputs["subscriptionKeyParameterNames"] = i.ToApiSubscriptionKeyParameterNamesOutput() }
+		if i := state.Version; i != nil { inputs["version"] = i.ToStringOutput() }
+		if i := state.VersionSetId; i != nil { inputs["versionSetId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/api:Api", name, id, inputs, opts...)
+	var resource Api
+	err := ctx.ReadResource("azure:apimanagement/api:Api", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Api{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Api) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Api) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
-func (r *Api) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// A description of the API Management API, which may include HTML formatting tags.
-func (r *Api) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The display name of the API.
-func (r *Api) DisplayName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["displayName"])
-}
-
-// A `import` block as documented below.
-func (r *Api) Import() pulumi.Output {
-	return r.s.State["import"]
-}
-
-// Is this the current API Revision?
-func (r *Api) IsCurrent() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isCurrent"])
-}
-
-// Is this API Revision online/accessible via the Gateway?
-func (r *Api) IsOnline() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["isOnline"])
-}
-
-// The name of the API Management API. Changing this forces a new resource to be created.
-func (r *Api) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
-func (r *Api) Path() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["path"])
-}
-
-// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
-func (r *Api) Protocols() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["protocols"])
-}
-
-// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-func (r *Api) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The Revision which used for this API.
-func (r *Api) Revision() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["revision"])
-}
-
-// Absolute URL of the backend service implementing this API.
-func (r *Api) ServiceUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serviceUrl"])
-}
-
-// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-func (r *Api) SoapPassThrough() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["soapPassThrough"])
-}
-
-// A `subscriptionKeyParameterNames` block as documented below.
-func (r *Api) SubscriptionKeyParameterNames() pulumi.Output {
-	return r.s.State["subscriptionKeyParameterNames"]
-}
-
-// The Version number of this API, if this API is versioned.
-func (r *Api) Version() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["version"])
-}
-
-// The ID of the Version Set which this API is associated with.
-func (r *Api) VersionSetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["versionSetId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Api resources.
 type ApiState struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// A description of the API Management API, which may include HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of the API.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// A `import` block as documented below.
-	Import interface{}
+	Import ApiImportInput `pulumi:"import"`
 	// Is this the current API Revision?
-	IsCurrent interface{}
+	IsCurrent pulumi.BoolInput `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
-	IsOnline interface{}
+	IsOnline pulumi.BoolInput `pulumi:"isOnline"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
-	Protocols interface{}
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
-	Revision interface{}
+	Revision pulumi.StringInput `pulumi:"revision"`
 	// Absolute URL of the backend service implementing this API.
-	ServiceUrl interface{}
+	ServiceUrl pulumi.StringInput `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	SoapPassThrough interface{}
+	SoapPassThrough pulumi.BoolInput `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
-	SubscriptionKeyParameterNames interface{}
+	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesInput `pulumi:"subscriptionKeyParameterNames"`
 	// The Version number of this API, if this API is versioned.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
-	VersionSetId interface{}
+	VersionSetId pulumi.StringInput `pulumi:"versionSetId"`
 }
 
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// A description of the API Management API, which may include HTML formatting tags.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The display name of the API.
-	DisplayName interface{}
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// A `import` block as documented below.
-	Import interface{}
+	Import ApiImportInput `pulumi:"import"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
-	Path interface{}
+	Path pulumi.StringInput `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
-	Protocols interface{}
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The Revision which used for this API.
-	Revision interface{}
+	Revision pulumi.StringInput `pulumi:"revision"`
 	// Absolute URL of the backend service implementing this API.
-	ServiceUrl interface{}
+	ServiceUrl pulumi.StringInput `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	SoapPassThrough interface{}
+	SoapPassThrough pulumi.BoolInput `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
-	SubscriptionKeyParameterNames interface{}
+	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesInput `pulumi:"subscriptionKeyParameterNames"`
 	// The Version number of this API, if this API is versioned.
-	Version interface{}
+	Version pulumi.StringInput `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
-	VersionSetId interface{}
+	VersionSetId pulumi.StringInput `pulumi:"versionSetId"`
 }
+type ApiImport struct {
+	ContentFormat string `pulumi:"contentFormat"`
+	ContentValue string `pulumi:"contentValue"`
+	WsdlSelector *ApiImportWsdlSelector `pulumi:"wsdlSelector"`
+}
+var apiImportType = reflect.TypeOf((*ApiImport)(nil)).Elem()
+
+type ApiImportInput interface {
+	pulumi.Input
+
+	ToApiImportOutput() ApiImportOutput
+	ToApiImportOutputWithContext(ctx context.Context) ApiImportOutput
+}
+
+type ApiImportArgs struct {
+	ContentFormat pulumi.StringInput `pulumi:"contentFormat"`
+	ContentValue pulumi.StringInput `pulumi:"contentValue"`
+	WsdlSelector ApiImportWsdlSelectorInput `pulumi:"wsdlSelector"`
+}
+
+func (ApiImportArgs) ElementType() reflect.Type {
+	return apiImportType
+}
+
+func (a ApiImportArgs) ToApiImportOutput() ApiImportOutput {
+	return pulumi.ToOutput(a).(ApiImportOutput)
+}
+
+func (a ApiImportArgs) ToApiImportOutputWithContext(ctx context.Context) ApiImportOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiImportOutput)
+}
+
+type ApiImportOutput struct { *pulumi.OutputState }
+
+func (o ApiImportOutput) ContentFormat() pulumi.StringOutput {
+	return o.Apply(func(v ApiImport) string {
+		return v.ContentFormat
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiImportOutput) ContentValue() pulumi.StringOutput {
+	return o.Apply(func(v ApiImport) string {
+		return v.ContentValue
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiImportOutput) WsdlSelector() ApiImportWsdlSelectorOutput {
+	return o.Apply(func(v ApiImport) ApiImportWsdlSelector {
+		if v.WsdlSelector == nil { return *new(ApiImportWsdlSelector) } else { return *v.WsdlSelector }
+	}).(ApiImportWsdlSelectorOutput)
+}
+
+func (ApiImportOutput) ElementType() reflect.Type {
+	return apiImportType
+}
+
+func (o ApiImportOutput) ToApiImportOutput() ApiImportOutput {
+	return o
+}
+
+func (o ApiImportOutput) ToApiImportOutputWithContext(ctx context.Context) ApiImportOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiImportOutput{}) }
+
+type ApiImportWsdlSelector struct {
+	EndpointName string `pulumi:"endpointName"`
+	ServiceName string `pulumi:"serviceName"`
+}
+var apiImportWsdlSelectorType = reflect.TypeOf((*ApiImportWsdlSelector)(nil)).Elem()
+
+type ApiImportWsdlSelectorInput interface {
+	pulumi.Input
+
+	ToApiImportWsdlSelectorOutput() ApiImportWsdlSelectorOutput
+	ToApiImportWsdlSelectorOutputWithContext(ctx context.Context) ApiImportWsdlSelectorOutput
+}
+
+type ApiImportWsdlSelectorArgs struct {
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ApiImportWsdlSelectorArgs) ElementType() reflect.Type {
+	return apiImportWsdlSelectorType
+}
+
+func (a ApiImportWsdlSelectorArgs) ToApiImportWsdlSelectorOutput() ApiImportWsdlSelectorOutput {
+	return pulumi.ToOutput(a).(ApiImportWsdlSelectorOutput)
+}
+
+func (a ApiImportWsdlSelectorArgs) ToApiImportWsdlSelectorOutputWithContext(ctx context.Context) ApiImportWsdlSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiImportWsdlSelectorOutput)
+}
+
+type ApiImportWsdlSelectorOutput struct { *pulumi.OutputState }
+
+func (o ApiImportWsdlSelectorOutput) EndpointName() pulumi.StringOutput {
+	return o.Apply(func(v ApiImportWsdlSelector) string {
+		return v.EndpointName
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiImportWsdlSelectorOutput) ServiceName() pulumi.StringOutput {
+	return o.Apply(func(v ApiImportWsdlSelector) string {
+		return v.ServiceName
+	}).(pulumi.StringOutput)
+}
+
+func (ApiImportWsdlSelectorOutput) ElementType() reflect.Type {
+	return apiImportWsdlSelectorType
+}
+
+func (o ApiImportWsdlSelectorOutput) ToApiImportWsdlSelectorOutput() ApiImportWsdlSelectorOutput {
+	return o
+}
+
+func (o ApiImportWsdlSelectorOutput) ToApiImportWsdlSelectorOutputWithContext(ctx context.Context) ApiImportWsdlSelectorOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiImportWsdlSelectorOutput{}) }
+
+type ApiSubscriptionKeyParameterNames struct {
+	Header string `pulumi:"header"`
+	Query string `pulumi:"query"`
+}
+var apiSubscriptionKeyParameterNamesType = reflect.TypeOf((*ApiSubscriptionKeyParameterNames)(nil)).Elem()
+
+type ApiSubscriptionKeyParameterNamesInput interface {
+	pulumi.Input
+
+	ToApiSubscriptionKeyParameterNamesOutput() ApiSubscriptionKeyParameterNamesOutput
+	ToApiSubscriptionKeyParameterNamesOutputWithContext(ctx context.Context) ApiSubscriptionKeyParameterNamesOutput
+}
+
+type ApiSubscriptionKeyParameterNamesArgs struct {
+	Header pulumi.StringInput `pulumi:"header"`
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (ApiSubscriptionKeyParameterNamesArgs) ElementType() reflect.Type {
+	return apiSubscriptionKeyParameterNamesType
+}
+
+func (a ApiSubscriptionKeyParameterNamesArgs) ToApiSubscriptionKeyParameterNamesOutput() ApiSubscriptionKeyParameterNamesOutput {
+	return pulumi.ToOutput(a).(ApiSubscriptionKeyParameterNamesOutput)
+}
+
+func (a ApiSubscriptionKeyParameterNamesArgs) ToApiSubscriptionKeyParameterNamesOutputWithContext(ctx context.Context) ApiSubscriptionKeyParameterNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ApiSubscriptionKeyParameterNamesOutput)
+}
+
+type ApiSubscriptionKeyParameterNamesOutput struct { *pulumi.OutputState }
+
+func (o ApiSubscriptionKeyParameterNamesOutput) Header() pulumi.StringOutput {
+	return o.Apply(func(v ApiSubscriptionKeyParameterNames) string {
+		return v.Header
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiSubscriptionKeyParameterNamesOutput) Query() pulumi.StringOutput {
+	return o.Apply(func(v ApiSubscriptionKeyParameterNames) string {
+		return v.Query
+	}).(pulumi.StringOutput)
+}
+
+func (ApiSubscriptionKeyParameterNamesOutput) ElementType() reflect.Type {
+	return apiSubscriptionKeyParameterNamesType
+}
+
+func (o ApiSubscriptionKeyParameterNamesOutput) ToApiSubscriptionKeyParameterNamesOutput() ApiSubscriptionKeyParameterNamesOutput {
+	return o
+}
+
+func (o ApiSubscriptionKeyParameterNamesOutput) ToApiSubscriptionKeyParameterNamesOutputWithContext(ctx context.Context) ApiSubscriptionKeyParameterNamesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ApiSubscriptionKeyParameterNamesOutput{}) }
+

@@ -12,12 +12,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps_certificate.html.markdown.
 type IotHubCertificate struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
+	CertificateContent pulumi.StringOutput `pulumi:"certificateContent"`
+
+	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
+	IotDpsName pulumi.StringOutput `pulumi:"iotDpsName"`
+
+	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewIotHubCertificate registers a new resource with the given unique name, arguments, and options.
 func NewIotHubCertificate(ctx *pulumi.Context,
-	name string, args *IotHubCertificateArgs, opts ...pulumi.ResourceOpt) (*IotHubCertificate, error) {
+	name string, args *IotHubCertificateArgs, opts ...pulumi.ResourceOption) (*IotHubCertificate, error) {
 	if args == nil || args.CertificateContent == nil {
 		return nil, errors.New("missing required argument 'CertificateContent'")
 	}
@@ -27,93 +39,60 @@ func NewIotHubCertificate(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["certificateContent"] = nil
-		inputs["iotDpsName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["certificateContent"] = args.CertificateContent
-		inputs["iotDpsName"] = args.IotDpsName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CertificateContent; i != nil { inputs["certificateContent"] = i.ToStringOutput() }
+		if i := args.IotDpsName; i != nil { inputs["iotDpsName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:iot/iotHubCertificate:IotHubCertificate", name, true, inputs, opts...)
+	var resource IotHubCertificate
+	err := ctx.RegisterResource("azure:iot/iotHubCertificate:IotHubCertificate", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IotHubCertificate{s: s}, nil
+	return &resource, nil
 }
 
 // GetIotHubCertificate gets an existing IotHubCertificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetIotHubCertificate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *IotHubCertificateState, opts ...pulumi.ResourceOpt) (*IotHubCertificate, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *IotHubCertificateState, opts ...pulumi.ResourceOption) (*IotHubCertificate, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["certificateContent"] = state.CertificateContent
-		inputs["iotDpsName"] = state.IotDpsName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.CertificateContent; i != nil { inputs["certificateContent"] = i.ToStringOutput() }
+		if i := state.IotDpsName; i != nil { inputs["iotDpsName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/iotHubCertificate:IotHubCertificate", name, id, inputs, opts...)
+	var resource IotHubCertificate
+	err := ctx.ReadResource("azure:iot/iotHubCertificate:IotHubCertificate", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &IotHubCertificate{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *IotHubCertificate) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *IotHubCertificate) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
-func (r *IotHubCertificate) CertificateContent() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["certificateContent"])
-}
-
-// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-func (r *IotHubCertificate) IotDpsName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iotDpsName"])
-}
-
-// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
-func (r *IotHubCertificate) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
-func (r *IotHubCertificate) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering IotHubCertificate resources.
 type IotHubCertificateState struct {
 	// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
-	CertificateContent interface{}
+	CertificateContent pulumi.StringInput `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-	IotDpsName interface{}
+	IotDpsName pulumi.StringInput `pulumi:"iotDpsName"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a IotHubCertificate resource.
 type IotHubCertificateArgs struct {
 	// The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
-	CertificateContent interface{}
+	CertificateContent pulumi.StringInput `pulumi:"certificateContent"`
 	// The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
-	IotDpsName interface{}
+	IotDpsName pulumi.StringInput `pulumi:"iotDpsName"`
 	// Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

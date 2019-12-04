@@ -4,6 +4,8 @@
 package hdinsight
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,48 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_storm_cluster.html.markdown.
 type StormCluster struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
+
+	// A `componentVersion` block as defined below.
+	ComponentVersion StormClusterComponentVersionOutput `pulumi:"componentVersion"`
+
+	// A `gateway` block as defined below.
+	Gateway StormClusterGatewayOutput `pulumi:"gateway"`
+
+	// The HTTPS Connectivity Endpoint for this HDInsight Storm Cluster.
+	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
+
+	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `roles` block as defined below.
+	Roles StormClusterRolesOutput `pulumi:"roles"`
+
+	// The SSH Connectivity Endpoint for this HDInsight Storm Cluster.
+	SshEndpoint pulumi.StringOutput `pulumi:"sshEndpoint"`
+
+	// One or more `storageAccount` block as defined below.
+	StorageAccounts StormClusterStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A map of Tags which should be assigned to this HDInsight Storm Cluster.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 }
 
 // NewStormCluster registers a new resource with the given unique name, arguments, and options.
 func NewStormCluster(ctx *pulumi.Context,
-	name string, args *StormClusterArgs, opts ...pulumi.ResourceOpt) (*StormCluster, error) {
+	name string, args *StormClusterArgs, opts ...pulumi.ResourceOption) (*StormCluster, error) {
 	if args == nil || args.ClusterVersion == nil {
 		return nil, errors.New("missing required argument 'ClusterVersion'")
 	}
@@ -36,183 +74,681 @@ func NewStormCluster(ctx *pulumi.Context,
 	if args == nil || args.Tier == nil {
 		return nil, errors.New("missing required argument 'Tier'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["clusterVersion"] = nil
-		inputs["componentVersion"] = nil
-		inputs["gateway"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["roles"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["tags"] = nil
-		inputs["tier"] = nil
-	} else {
-		inputs["clusterVersion"] = args.ClusterVersion
-		inputs["componentVersion"] = args.ComponentVersion
-		inputs["gateway"] = args.Gateway
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["roles"] = args.Roles
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["tags"] = args.Tags
-		inputs["tier"] = args.Tier
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := args.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToStormClusterComponentVersionOutput() }
+		if i := args.Gateway; i != nil { inputs["gateway"] = i.ToStormClusterGatewayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Roles; i != nil { inputs["roles"] = i.ToStormClusterRolesOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToStormClusterStorageAccountsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	inputs["httpsEndpoint"] = nil
-	inputs["sshEndpoint"] = nil
-	s, err := ctx.RegisterResource("azure:hdinsight/stormCluster:StormCluster", name, true, inputs, opts...)
+	var resource StormCluster
+	err := ctx.RegisterResource("azure:hdinsight/stormCluster:StormCluster", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StormCluster{s: s}, nil
+	return &resource, nil
 }
 
 // GetStormCluster gets an existing StormCluster resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStormCluster(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StormClusterState, opts ...pulumi.ResourceOpt) (*StormCluster, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StormClusterState, opts ...pulumi.ResourceOption) (*StormCluster, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["clusterVersion"] = state.ClusterVersion
-		inputs["componentVersion"] = state.ComponentVersion
-		inputs["gateway"] = state.Gateway
-		inputs["httpsEndpoint"] = state.HttpsEndpoint
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["roles"] = state.Roles
-		inputs["sshEndpoint"] = state.SshEndpoint
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["tags"] = state.Tags
-		inputs["tier"] = state.Tier
+		if i := state.ClusterVersion; i != nil { inputs["clusterVersion"] = i.ToStringOutput() }
+		if i := state.ComponentVersion; i != nil { inputs["componentVersion"] = i.ToStormClusterComponentVersionOutput() }
+		if i := state.Gateway; i != nil { inputs["gateway"] = i.ToStormClusterGatewayOutput() }
+		if i := state.HttpsEndpoint; i != nil { inputs["httpsEndpoint"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Roles; i != nil { inputs["roles"] = i.ToStormClusterRolesOutput() }
+		if i := state.SshEndpoint; i != nil { inputs["sshEndpoint"] = i.ToStringOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToStormClusterStorageAccountsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Tier; i != nil { inputs["tier"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:hdinsight/stormCluster:StormCluster", name, id, inputs, opts...)
+	var resource StormCluster
+	err := ctx.ReadResource("azure:hdinsight/stormCluster:StormCluster", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StormCluster{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StormCluster) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StormCluster) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-func (r *StormCluster) ClusterVersion() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["clusterVersion"])
-}
-
-// A `componentVersion` block as defined below.
-func (r *StormCluster) ComponentVersion() pulumi.Output {
-	return r.s.State["componentVersion"]
-}
-
-// A `gateway` block as defined below.
-func (r *StormCluster) Gateway() pulumi.Output {
-	return r.s.State["gateway"]
-}
-
-// The HTTPS Connectivity Endpoint for this HDInsight Storm Cluster.
-func (r *StormCluster) HttpsEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["httpsEndpoint"])
-}
-
-// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
-func (r *StormCluster) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-func (r *StormCluster) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
-func (r *StormCluster) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `roles` block as defined below.
-func (r *StormCluster) Roles() pulumi.Output {
-	return r.s.State["roles"]
-}
-
-// The SSH Connectivity Endpoint for this HDInsight Storm Cluster.
-func (r *StormCluster) SshEndpoint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sshEndpoint"])
-}
-
-// One or more `storageAccount` block as defined below.
-func (r *StormCluster) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A map of Tags which should be assigned to this HDInsight Storm Cluster.
-func (r *StormCluster) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-func (r *StormCluster) Tier() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tier"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StormCluster resources.
 type StormClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion StormClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway StormClusterGatewayInput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Storm Cluster.
-	HttpsEndpoint interface{}
+	HttpsEndpoint pulumi.StringInput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles StormClusterRolesInput `pulumi:"roles"`
 	// The SSH Connectivity Endpoint for this HDInsight Storm Cluster.
-	SshEndpoint interface{}
+	SshEndpoint pulumi.StringInput `pulumi:"sshEndpoint"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts StormClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A map of Tags which should be assigned to this HDInsight Storm Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a StormCluster resource.
 type StormClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-	ClusterVersion interface{}
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion interface{}
+	ComponentVersion StormClusterComponentVersionInput `pulumi:"componentVersion"`
 	// A `gateway` block as defined below.
-	Gateway interface{}
+	Gateway StormClusterGatewayInput `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
-	Roles interface{}
+	Roles StormClusterRolesInput `pulumi:"roles"`
 	// One or more `storageAccount` block as defined below.
-	StorageAccounts interface{}
+	StorageAccounts StormClusterStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A map of Tags which should be assigned to this HDInsight Storm Cluster.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-	Tier interface{}
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
+type StormClusterComponentVersion struct {
+	Storm string `pulumi:"storm"`
+}
+var stormClusterComponentVersionType = reflect.TypeOf((*StormClusterComponentVersion)(nil)).Elem()
+
+type StormClusterComponentVersionInput interface {
+	pulumi.Input
+
+	ToStormClusterComponentVersionOutput() StormClusterComponentVersionOutput
+	ToStormClusterComponentVersionOutputWithContext(ctx context.Context) StormClusterComponentVersionOutput
+}
+
+type StormClusterComponentVersionArgs struct {
+	Storm pulumi.StringInput `pulumi:"storm"`
+}
+
+func (StormClusterComponentVersionArgs) ElementType() reflect.Type {
+	return stormClusterComponentVersionType
+}
+
+func (a StormClusterComponentVersionArgs) ToStormClusterComponentVersionOutput() StormClusterComponentVersionOutput {
+	return pulumi.ToOutput(a).(StormClusterComponentVersionOutput)
+}
+
+func (a StormClusterComponentVersionArgs) ToStormClusterComponentVersionOutputWithContext(ctx context.Context) StormClusterComponentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterComponentVersionOutput)
+}
+
+type StormClusterComponentVersionOutput struct { *pulumi.OutputState }
+
+func (o StormClusterComponentVersionOutput) Storm() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterComponentVersion) string {
+		return v.Storm
+	}).(pulumi.StringOutput)
+}
+
+func (StormClusterComponentVersionOutput) ElementType() reflect.Type {
+	return stormClusterComponentVersionType
+}
+
+func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionOutput() StormClusterComponentVersionOutput {
+	return o
+}
+
+func (o StormClusterComponentVersionOutput) ToStormClusterComponentVersionOutputWithContext(ctx context.Context) StormClusterComponentVersionOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterComponentVersionOutput{}) }
+
+type StormClusterGateway struct {
+	Enabled bool `pulumi:"enabled"`
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+var stormClusterGatewayType = reflect.TypeOf((*StormClusterGateway)(nil)).Elem()
+
+type StormClusterGatewayInput interface {
+	pulumi.Input
+
+	ToStormClusterGatewayOutput() StormClusterGatewayOutput
+	ToStormClusterGatewayOutputWithContext(ctx context.Context) StormClusterGatewayOutput
+}
+
+type StormClusterGatewayArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Password pulumi.StringInput `pulumi:"password"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (StormClusterGatewayArgs) ElementType() reflect.Type {
+	return stormClusterGatewayType
+}
+
+func (a StormClusterGatewayArgs) ToStormClusterGatewayOutput() StormClusterGatewayOutput {
+	return pulumi.ToOutput(a).(StormClusterGatewayOutput)
+}
+
+func (a StormClusterGatewayArgs) ToStormClusterGatewayOutputWithContext(ctx context.Context) StormClusterGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterGatewayOutput)
+}
+
+type StormClusterGatewayOutput struct { *pulumi.OutputState }
+
+func (o StormClusterGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v StormClusterGateway) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o StormClusterGatewayOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterGateway) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterGatewayOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterGateway) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (StormClusterGatewayOutput) ElementType() reflect.Type {
+	return stormClusterGatewayType
+}
+
+func (o StormClusterGatewayOutput) ToStormClusterGatewayOutput() StormClusterGatewayOutput {
+	return o
+}
+
+func (o StormClusterGatewayOutput) ToStormClusterGatewayOutputWithContext(ctx context.Context) StormClusterGatewayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterGatewayOutput{}) }
+
+type StormClusterRoles struct {
+	HeadNode StormClusterRolesHeadNode `pulumi:"headNode"`
+	WorkerNode StormClusterRolesWorkerNode `pulumi:"workerNode"`
+	ZookeeperNode StormClusterRolesZookeeperNode `pulumi:"zookeeperNode"`
+}
+var stormClusterRolesType = reflect.TypeOf((*StormClusterRoles)(nil)).Elem()
+
+type StormClusterRolesInput interface {
+	pulumi.Input
+
+	ToStormClusterRolesOutput() StormClusterRolesOutput
+	ToStormClusterRolesOutputWithContext(ctx context.Context) StormClusterRolesOutput
+}
+
+type StormClusterRolesArgs struct {
+	HeadNode StormClusterRolesHeadNodeInput `pulumi:"headNode"`
+	WorkerNode StormClusterRolesWorkerNodeInput `pulumi:"workerNode"`
+	ZookeeperNode StormClusterRolesZookeeperNodeInput `pulumi:"zookeeperNode"`
+}
+
+func (StormClusterRolesArgs) ElementType() reflect.Type {
+	return stormClusterRolesType
+}
+
+func (a StormClusterRolesArgs) ToStormClusterRolesOutput() StormClusterRolesOutput {
+	return pulumi.ToOutput(a).(StormClusterRolesOutput)
+}
+
+func (a StormClusterRolesArgs) ToStormClusterRolesOutputWithContext(ctx context.Context) StormClusterRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterRolesOutput)
+}
+
+type StormClusterRolesOutput struct { *pulumi.OutputState }
+
+func (o StormClusterRolesOutput) HeadNode() StormClusterRolesHeadNodeOutput {
+	return o.Apply(func(v StormClusterRoles) StormClusterRolesHeadNode {
+		return v.HeadNode
+	}).(StormClusterRolesHeadNodeOutput)
+}
+
+func (o StormClusterRolesOutput) WorkerNode() StormClusterRolesWorkerNodeOutput {
+	return o.Apply(func(v StormClusterRoles) StormClusterRolesWorkerNode {
+		return v.WorkerNode
+	}).(StormClusterRolesWorkerNodeOutput)
+}
+
+func (o StormClusterRolesOutput) ZookeeperNode() StormClusterRolesZookeeperNodeOutput {
+	return o.Apply(func(v StormClusterRoles) StormClusterRolesZookeeperNode {
+		return v.ZookeeperNode
+	}).(StormClusterRolesZookeeperNodeOutput)
+}
+
+func (StormClusterRolesOutput) ElementType() reflect.Type {
+	return stormClusterRolesType
+}
+
+func (o StormClusterRolesOutput) ToStormClusterRolesOutput() StormClusterRolesOutput {
+	return o
+}
+
+func (o StormClusterRolesOutput) ToStormClusterRolesOutputWithContext(ctx context.Context) StormClusterRolesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterRolesOutput{}) }
+
+type StormClusterRolesHeadNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var stormClusterRolesHeadNodeType = reflect.TypeOf((*StormClusterRolesHeadNode)(nil)).Elem()
+
+type StormClusterRolesHeadNodeInput interface {
+	pulumi.Input
+
+	ToStormClusterRolesHeadNodeOutput() StormClusterRolesHeadNodeOutput
+	ToStormClusterRolesHeadNodeOutputWithContext(ctx context.Context) StormClusterRolesHeadNodeOutput
+}
+
+type StormClusterRolesHeadNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (StormClusterRolesHeadNodeArgs) ElementType() reflect.Type {
+	return stormClusterRolesHeadNodeType
+}
+
+func (a StormClusterRolesHeadNodeArgs) ToStormClusterRolesHeadNodeOutput() StormClusterRolesHeadNodeOutput {
+	return pulumi.ToOutput(a).(StormClusterRolesHeadNodeOutput)
+}
+
+func (a StormClusterRolesHeadNodeArgs) ToStormClusterRolesHeadNodeOutputWithContext(ctx context.Context) StormClusterRolesHeadNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterRolesHeadNodeOutput)
+}
+
+type StormClusterRolesHeadNodeOutput struct { *pulumi.OutputState }
+
+func (o StormClusterRolesHeadNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesHeadNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v StormClusterRolesHeadNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StormClusterRolesHeadNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesHeadNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesHeadNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesHeadNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesHeadNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesHeadNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (StormClusterRolesHeadNodeOutput) ElementType() reflect.Type {
+	return stormClusterRolesHeadNodeType
+}
+
+func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodeOutput() StormClusterRolesHeadNodeOutput {
+	return o
+}
+
+func (o StormClusterRolesHeadNodeOutput) ToStormClusterRolesHeadNodeOutputWithContext(ctx context.Context) StormClusterRolesHeadNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterRolesHeadNodeOutput{}) }
+
+type StormClusterRolesWorkerNode struct {
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var stormClusterRolesWorkerNodeType = reflect.TypeOf((*StormClusterRolesWorkerNode)(nil)).Elem()
+
+type StormClusterRolesWorkerNodeInput interface {
+	pulumi.Input
+
+	ToStormClusterRolesWorkerNodeOutput() StormClusterRolesWorkerNodeOutput
+	ToStormClusterRolesWorkerNodeOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodeOutput
+}
+
+type StormClusterRolesWorkerNodeArgs struct {
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (StormClusterRolesWorkerNodeArgs) ElementType() reflect.Type {
+	return stormClusterRolesWorkerNodeType
+}
+
+func (a StormClusterRolesWorkerNodeArgs) ToStormClusterRolesWorkerNodeOutput() StormClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutput(a).(StormClusterRolesWorkerNodeOutput)
+}
+
+func (a StormClusterRolesWorkerNodeArgs) ToStormClusterRolesWorkerNodeOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterRolesWorkerNodeOutput)
+}
+
+type StormClusterRolesWorkerNodeOutput struct { *pulumi.OutputState }
+
+func (o StormClusterRolesWorkerNodeOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) int {
+		if v.MinInstanceCount == nil { return *new(int) } else { return *v.MinInstanceCount }
+	}).(pulumi.IntOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesWorkerNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (StormClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
+	return stormClusterRolesWorkerNodeType
+}
+
+func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodeOutput() StormClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func (o StormClusterRolesWorkerNodeOutput) ToStormClusterRolesWorkerNodeOutputWithContext(ctx context.Context) StormClusterRolesWorkerNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterRolesWorkerNodeOutput{}) }
+
+type StormClusterRolesZookeeperNode struct {
+	Password *string `pulumi:"password"`
+	SshKeys *[]string `pulumi:"sshKeys"`
+	SubnetId *string `pulumi:"subnetId"`
+	Username string `pulumi:"username"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+	VmSize string `pulumi:"vmSize"`
+}
+var stormClusterRolesZookeeperNodeType = reflect.TypeOf((*StormClusterRolesZookeeperNode)(nil)).Elem()
+
+type StormClusterRolesZookeeperNodeInput interface {
+	pulumi.Input
+
+	ToStormClusterRolesZookeeperNodeOutput() StormClusterRolesZookeeperNodeOutput
+	ToStormClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodeOutput
+}
+
+type StormClusterRolesZookeeperNodeArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Username pulumi.StringInput `pulumi:"username"`
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (StormClusterRolesZookeeperNodeArgs) ElementType() reflect.Type {
+	return stormClusterRolesZookeeperNodeType
+}
+
+func (a StormClusterRolesZookeeperNodeArgs) ToStormClusterRolesZookeeperNodeOutput() StormClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutput(a).(StormClusterRolesZookeeperNodeOutput)
+}
+
+func (a StormClusterRolesZookeeperNodeArgs) ToStormClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterRolesZookeeperNodeOutput)
+}
+
+type StormClusterRolesZookeeperNodeOutput struct { *pulumi.OutputState }
+
+func (o StormClusterRolesZookeeperNodeOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesZookeeperNode) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
+	return o.Apply(func(v StormClusterRolesZookeeperNode) []string {
+		if v.SshKeys == nil { return *new([]string) } else { return *v.SshKeys }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesZookeeperNode) string {
+		if v.SubnetId == nil { return *new(string) } else { return *v.SubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesZookeeperNode) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesZookeeperNode) string {
+		if v.VirtualNetworkId == nil { return *new(string) } else { return *v.VirtualNetworkId }
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) VmSize() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterRolesZookeeperNode) string {
+		return v.VmSize
+	}).(pulumi.StringOutput)
+}
+
+func (StormClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
+	return stormClusterRolesZookeeperNodeType
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodeOutput() StormClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func (o StormClusterRolesZookeeperNodeOutput) ToStormClusterRolesZookeeperNodeOutputWithContext(ctx context.Context) StormClusterRolesZookeeperNodeOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterRolesZookeeperNodeOutput{}) }
+
+type StormClusterStorageAccounts struct {
+	IsDefault bool `pulumi:"isDefault"`
+	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+}
+var stormClusterStorageAccountsType = reflect.TypeOf((*StormClusterStorageAccounts)(nil)).Elem()
+
+type StormClusterStorageAccountsInput interface {
+	pulumi.Input
+
+	ToStormClusterStorageAccountsOutput() StormClusterStorageAccountsOutput
+	ToStormClusterStorageAccountsOutputWithContext(ctx context.Context) StormClusterStorageAccountsOutput
+}
+
+type StormClusterStorageAccountsArgs struct {
+	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
+}
+
+func (StormClusterStorageAccountsArgs) ElementType() reflect.Type {
+	return stormClusterStorageAccountsType
+}
+
+func (a StormClusterStorageAccountsArgs) ToStormClusterStorageAccountsOutput() StormClusterStorageAccountsOutput {
+	return pulumi.ToOutput(a).(StormClusterStorageAccountsOutput)
+}
+
+func (a StormClusterStorageAccountsArgs) ToStormClusterStorageAccountsOutputWithContext(ctx context.Context) StormClusterStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterStorageAccountsOutput)
+}
+
+type StormClusterStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o StormClusterStorageAccountsOutput) IsDefault() pulumi.BoolOutput {
+	return o.Apply(func(v StormClusterStorageAccounts) bool {
+		return v.IsDefault
+	}).(pulumi.BoolOutput)
+}
+
+func (o StormClusterStorageAccountsOutput) StorageAccountKey() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterStorageAccounts) string {
+		return v.StorageAccountKey
+	}).(pulumi.StringOutput)
+}
+
+func (o StormClusterStorageAccountsOutput) StorageContainerId() pulumi.StringOutput {
+	return o.Apply(func(v StormClusterStorageAccounts) string {
+		return v.StorageContainerId
+	}).(pulumi.StringOutput)
+}
+
+func (StormClusterStorageAccountsOutput) ElementType() reflect.Type {
+	return stormClusterStorageAccountsType
+}
+
+func (o StormClusterStorageAccountsOutput) ToStormClusterStorageAccountsOutput() StormClusterStorageAccountsOutput {
+	return o
+}
+
+func (o StormClusterStorageAccountsOutput) ToStormClusterStorageAccountsOutputWithContext(ctx context.Context) StormClusterStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterStorageAccountsOutput{}) }
+
+var stormClusterStorageAccountsArrayType = reflect.TypeOf((*[]StormClusterStorageAccounts)(nil)).Elem()
+
+type StormClusterStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToStormClusterStorageAccountsArrayOutput() StormClusterStorageAccountsArrayOutput
+	ToStormClusterStorageAccountsArrayOutputWithContext(ctx context.Context) StormClusterStorageAccountsArrayOutput
+}
+
+type StormClusterStorageAccountsArrayArgs []StormClusterStorageAccountsInput
+
+func (StormClusterStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return stormClusterStorageAccountsArrayType
+}
+
+func (a StormClusterStorageAccountsArrayArgs) ToStormClusterStorageAccountsArrayOutput() StormClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(StormClusterStorageAccountsArrayOutput)
+}
+
+func (a StormClusterStorageAccountsArrayArgs) ToStormClusterStorageAccountsArrayOutputWithContext(ctx context.Context) StormClusterStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StormClusterStorageAccountsArrayOutput)
+}
+
+type StormClusterStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o StormClusterStorageAccountsArrayOutput) Index(i pulumi.IntInput) StormClusterStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) StormClusterStorageAccounts {
+		return vs[0].([]StormClusterStorageAccounts)[vs[1].(int)]
+	}).(StormClusterStorageAccountsOutput)
+}
+
+func (StormClusterStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return stormClusterStorageAccountsArrayType
+}
+
+func (o StormClusterStorageAccountsArrayOutput) ToStormClusterStorageAccountsArrayOutput() StormClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func (o StormClusterStorageAccountsArrayOutput) ToStormClusterStorageAccountsArrayOutputWithContext(ctx context.Context) StormClusterStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StormClusterStorageAccountsArrayOutput{}) }
+

@@ -10,55 +10,52 @@ import (
 // Use this data source to access information about an existing Snapshot.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
-func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:compute/getSnapshot:getSnapshot", inputs)
+func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs, opts ...pulumi.InvokeOption) (*GetSnapshotResult, error) {
+	var rv GetSnapshotResult
+	err := ctx.Invoke("azure:compute/getSnapshot:getSnapshot", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSnapshotResult{
-		CreationOption: outputs["creationOption"],
-		DiskSizeGb: outputs["diskSizeGb"],
-		EncryptionSettings: outputs["encryptionSettings"],
-		Name: outputs["name"],
-		OsType: outputs["osType"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SourceResourceId: outputs["sourceResourceId"],
-		SourceUri: outputs["sourceUri"],
-		StorageAccountId: outputs["storageAccountId"],
-		TimeCreated: outputs["timeCreated"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSnapshot.
 type GetSnapshotArgs struct {
 	// Specifies the name of the Snapshot.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Snapshot is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getSnapshot.
 type GetSnapshotResult struct {
-	CreationOption interface{}
+	CreationOption string `pulumi:"creationOption"`
 	// The size of the Snapshotted Disk in GB.
-	DiskSizeGb interface{}
-	EncryptionSettings interface{}
-	Name interface{}
-	OsType interface{}
-	ResourceGroupName interface{}
+	DiskSizeGb int `pulumi:"diskSizeGb"`
+	EncryptionSettings []GetSnapshotEncryptionSettingsResult `pulumi:"encryptionSettings"`
+	Name string `pulumi:"name"`
+	OsType string `pulumi:"osType"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The reference to an existing snapshot.
-	SourceResourceId interface{}
+	SourceResourceId string `pulumi:"sourceResourceId"`
 	// The URI to a Managed or Unmanaged Disk.
-	SourceUri interface{}
+	SourceUri string `pulumi:"sourceUri"`
 	// The ID of an storage account.
-	StorageAccountId interface{}
-	TimeCreated interface{}
+	StorageAccountId string `pulumi:"storageAccountId"`
+	TimeCreated string `pulumi:"timeCreated"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSnapshotEncryptionSettingsDiskEncryptionKeysResult struct {
+	SecretUrl string `pulumi:"secretUrl"`
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+type GetSnapshotEncryptionSettingsKeyEncryptionKeysResult struct {
+	KeyUrl string `pulumi:"keyUrl"`
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+type GetSnapshotEncryptionSettingsResult struct {
+	DiskEncryptionKeys []GetSnapshotEncryptionSettingsDiskEncryptionKeysResult `pulumi:"diskEncryptionKeys"`
+	Enabled bool `pulumi:"enabled"`
+	KeyEncryptionKeys []GetSnapshotEncryptionSettingsKeyEncryptionKeysResult `pulumi:"keyEncryptionKeys"`
 }

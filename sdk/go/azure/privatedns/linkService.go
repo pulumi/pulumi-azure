@@ -4,6 +4,8 @@
 package privatedns
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,41 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
 type LinkService struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+	Alias pulumi.StringOutput `pulumi:"alias"`
+
+	// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+	AutoApprovalSubscriptionIds pulumi.StringArrayOutput `pulumi:"autoApprovalSubscriptionIds"`
+
+	// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayOutput `pulumi:"loadBalancerFrontendIpConfigurationIds"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the private link service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A `natIpConfiguration` block as defined below.
+	NatIpConfigurations LinkServiceNatIpConfigurationsArrayOutput `pulumi:"natIpConfigurations"`
+
+	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
+
+	// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+	VisibilitySubscriptionIds pulumi.StringArrayOutput `pulumi:"visibilitySubscriptionIds"`
 }
 
 // NewLinkService registers a new resource with the given unique name, arguments, and options.
 func NewLinkService(ctx *pulumi.Context,
-	name string, args *LinkServiceArgs, opts ...pulumi.ResourceOpt) (*LinkService, error) {
+	name string, args *LinkServiceArgs, opts ...pulumi.ResourceOption) (*LinkService, error) {
 	if args == nil || args.LoadBalancerFrontendIpConfigurationIds == nil {
 		return nil, errors.New("missing required argument 'LoadBalancerFrontendIpConfigurationIds'")
 	}
@@ -27,157 +58,219 @@ func NewLinkService(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoApprovalSubscriptionIds"] = nil
-		inputs["loadBalancerFrontendIpConfigurationIds"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["natIpConfigurations"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["visibilitySubscriptionIds"] = nil
-	} else {
-		inputs["autoApprovalSubscriptionIds"] = args.AutoApprovalSubscriptionIds
-		inputs["loadBalancerFrontendIpConfigurationIds"] = args.LoadBalancerFrontendIpConfigurationIds
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["natIpConfigurations"] = args.NatIpConfigurations
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["visibilitySubscriptionIds"] = args.VisibilitySubscriptionIds
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoApprovalSubscriptionIds; i != nil { inputs["autoApprovalSubscriptionIds"] = i.ToStringArrayOutput() }
+		if i := args.LoadBalancerFrontendIpConfigurationIds; i != nil { inputs["loadBalancerFrontendIpConfigurationIds"] = i.ToStringArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NatIpConfigurations; i != nil { inputs["natIpConfigurations"] = i.ToLinkServiceNatIpConfigurationsArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VisibilitySubscriptionIds; i != nil { inputs["visibilitySubscriptionIds"] = i.ToStringArrayOutput() }
 	}
-	inputs["alias"] = nil
-	inputs["networkInterfaceIds"] = nil
-	s, err := ctx.RegisterResource("azure:privatedns/linkService:LinkService", name, true, inputs, opts...)
+	var resource LinkService
+	err := ctx.RegisterResource("azure:privatedns/linkService:LinkService", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LinkService{s: s}, nil
+	return &resource, nil
 }
 
 // GetLinkService gets an existing LinkService resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLinkService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LinkServiceState, opts ...pulumi.ResourceOpt) (*LinkService, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LinkServiceState, opts ...pulumi.ResourceOption) (*LinkService, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["alias"] = state.Alias
-		inputs["autoApprovalSubscriptionIds"] = state.AutoApprovalSubscriptionIds
-		inputs["loadBalancerFrontendIpConfigurationIds"] = state.LoadBalancerFrontendIpConfigurationIds
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["natIpConfigurations"] = state.NatIpConfigurations
-		inputs["networkInterfaceIds"] = state.NetworkInterfaceIds
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["visibilitySubscriptionIds"] = state.VisibilitySubscriptionIds
+		if i := state.Alias; i != nil { inputs["alias"] = i.ToStringOutput() }
+		if i := state.AutoApprovalSubscriptionIds; i != nil { inputs["autoApprovalSubscriptionIds"] = i.ToStringArrayOutput() }
+		if i := state.LoadBalancerFrontendIpConfigurationIds; i != nil { inputs["loadBalancerFrontendIpConfigurationIds"] = i.ToStringArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NatIpConfigurations; i != nil { inputs["natIpConfigurations"] = i.ToLinkServiceNatIpConfigurationsArrayOutput() }
+		if i := state.NetworkInterfaceIds; i != nil { inputs["networkInterfaceIds"] = i.ToStringArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VisibilitySubscriptionIds; i != nil { inputs["visibilitySubscriptionIds"] = i.ToStringArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:privatedns/linkService:LinkService", name, id, inputs, opts...)
+	var resource LinkService
+	err := ctx.ReadResource("azure:privatedns/linkService:LinkService", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LinkService{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LinkService) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LinkService) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
-func (r *LinkService) Alias() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["alias"])
-}
-
-// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
-func (r *LinkService) AutoApprovalSubscriptionIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["autoApprovalSubscriptionIds"])
-}
-
-// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
-func (r *LinkService) LoadBalancerFrontendIpConfigurationIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["loadBalancerFrontendIpConfigurationIds"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *LinkService) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the private link service. Changing this forces a new resource to be created.
-func (r *LinkService) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A `natIpConfiguration` block as defined below.
-func (r *LinkService) NatIpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["natIpConfigurations"])
-}
-
-func (r *LinkService) NetworkInterfaceIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
-}
-
-// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
-func (r *LinkService) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-func (r *LinkService) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
-func (r *LinkService) VisibilitySubscriptionIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["visibilitySubscriptionIds"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LinkService resources.
 type LinkServiceState struct {
 	// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
-	Alias interface{}
+	Alias pulumi.StringInput `pulumi:"alias"`
 	// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
-	AutoApprovalSubscriptionIds interface{}
+	AutoApprovalSubscriptionIds pulumi.StringArrayInput `pulumi:"autoApprovalSubscriptionIds"`
 	// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
-	LoadBalancerFrontendIpConfigurationIds interface{}
+	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayInput `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the private link service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `natIpConfiguration` block as defined below.
-	NatIpConfigurations interface{}
-	NetworkInterfaceIds interface{}
+	NatIpConfigurations LinkServiceNatIpConfigurationsArrayInput `pulumi:"natIpConfigurations"`
+	NetworkInterfaceIds pulumi.StringArrayInput `pulumi:"networkInterfaceIds"`
 	// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
-	VisibilitySubscriptionIds interface{}
+	VisibilitySubscriptionIds pulumi.StringArrayInput `pulumi:"visibilitySubscriptionIds"`
 }
 
 // The set of arguments for constructing a LinkService resource.
 type LinkServiceArgs struct {
 	// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
-	AutoApprovalSubscriptionIds interface{}
+	AutoApprovalSubscriptionIds pulumi.StringArrayInput `pulumi:"autoApprovalSubscriptionIds"`
 	// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
-	LoadBalancerFrontendIpConfigurationIds interface{}
+	LoadBalancerFrontendIpConfigurationIds pulumi.StringArrayInput `pulumi:"loadBalancerFrontendIpConfigurationIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the private link service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A `natIpConfiguration` block as defined below.
-	NatIpConfigurations interface{}
+	NatIpConfigurations LinkServiceNatIpConfigurationsArrayInput `pulumi:"natIpConfigurations"`
 	// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
-	VisibilitySubscriptionIds interface{}
+	VisibilitySubscriptionIds pulumi.StringArrayInput `pulumi:"visibilitySubscriptionIds"`
 }
+type LinkServiceNatIpConfigurations struct {
+	// The name of the private link service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Primary bool `pulumi:"primary"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	PrivateIpAddressVersion *string `pulumi:"privateIpAddressVersion"`
+	SubnetId string `pulumi:"subnetId"`
+}
+var linkServiceNatIpConfigurationsType = reflect.TypeOf((*LinkServiceNatIpConfigurations)(nil)).Elem()
+
+type LinkServiceNatIpConfigurationsInput interface {
+	pulumi.Input
+
+	ToLinkServiceNatIpConfigurationsOutput() LinkServiceNatIpConfigurationsOutput
+	ToLinkServiceNatIpConfigurationsOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationsOutput
+}
+
+type LinkServiceNatIpConfigurationsArgs struct {
+	// The name of the private link service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	PrivateIpAddressVersion pulumi.StringInput `pulumi:"privateIpAddressVersion"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (LinkServiceNatIpConfigurationsArgs) ElementType() reflect.Type {
+	return linkServiceNatIpConfigurationsType
+}
+
+func (a LinkServiceNatIpConfigurationsArgs) ToLinkServiceNatIpConfigurationsOutput() LinkServiceNatIpConfigurationsOutput {
+	return pulumi.ToOutput(a).(LinkServiceNatIpConfigurationsOutput)
+}
+
+func (a LinkServiceNatIpConfigurationsArgs) ToLinkServiceNatIpConfigurationsOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LinkServiceNatIpConfigurationsOutput)
+}
+
+type LinkServiceNatIpConfigurationsOutput struct { *pulumi.OutputState }
+
+// The name of the private link service. Changing this forces a new resource to be created.
+func (o LinkServiceNatIpConfigurationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v LinkServiceNatIpConfigurations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o LinkServiceNatIpConfigurationsOutput) Primary() pulumi.BoolOutput {
+	return o.Apply(func(v LinkServiceNatIpConfigurations) bool {
+		return v.Primary
+	}).(pulumi.BoolOutput)
+}
+
+func (o LinkServiceNatIpConfigurationsOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.Apply(func(v LinkServiceNatIpConfigurations) string {
+		if v.PrivateIpAddress == nil { return *new(string) } else { return *v.PrivateIpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o LinkServiceNatIpConfigurationsOutput) PrivateIpAddressVersion() pulumi.StringOutput {
+	return o.Apply(func(v LinkServiceNatIpConfigurations) string {
+		if v.PrivateIpAddressVersion == nil { return *new(string) } else { return *v.PrivateIpAddressVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o LinkServiceNatIpConfigurationsOutput) SubnetId() pulumi.StringOutput {
+	return o.Apply(func(v LinkServiceNatIpConfigurations) string {
+		return v.SubnetId
+	}).(pulumi.StringOutput)
+}
+
+func (LinkServiceNatIpConfigurationsOutput) ElementType() reflect.Type {
+	return linkServiceNatIpConfigurationsType
+}
+
+func (o LinkServiceNatIpConfigurationsOutput) ToLinkServiceNatIpConfigurationsOutput() LinkServiceNatIpConfigurationsOutput {
+	return o
+}
+
+func (o LinkServiceNatIpConfigurationsOutput) ToLinkServiceNatIpConfigurationsOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LinkServiceNatIpConfigurationsOutput{}) }
+
+var linkServiceNatIpConfigurationsArrayType = reflect.TypeOf((*[]LinkServiceNatIpConfigurations)(nil)).Elem()
+
+type LinkServiceNatIpConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToLinkServiceNatIpConfigurationsArrayOutput() LinkServiceNatIpConfigurationsArrayOutput
+	ToLinkServiceNatIpConfigurationsArrayOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationsArrayOutput
+}
+
+type LinkServiceNatIpConfigurationsArrayArgs []LinkServiceNatIpConfigurationsInput
+
+func (LinkServiceNatIpConfigurationsArrayArgs) ElementType() reflect.Type {
+	return linkServiceNatIpConfigurationsArrayType
+}
+
+func (a LinkServiceNatIpConfigurationsArrayArgs) ToLinkServiceNatIpConfigurationsArrayOutput() LinkServiceNatIpConfigurationsArrayOutput {
+	return pulumi.ToOutput(a).(LinkServiceNatIpConfigurationsArrayOutput)
+}
+
+func (a LinkServiceNatIpConfigurationsArrayArgs) ToLinkServiceNatIpConfigurationsArrayOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LinkServiceNatIpConfigurationsArrayOutput)
+}
+
+type LinkServiceNatIpConfigurationsArrayOutput struct { *pulumi.OutputState }
+
+func (o LinkServiceNatIpConfigurationsArrayOutput) Index(i pulumi.IntInput) LinkServiceNatIpConfigurationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) LinkServiceNatIpConfigurations {
+		return vs[0].([]LinkServiceNatIpConfigurations)[vs[1].(int)]
+	}).(LinkServiceNatIpConfigurationsOutput)
+}
+
+func (LinkServiceNatIpConfigurationsArrayOutput) ElementType() reflect.Type {
+	return linkServiceNatIpConfigurationsArrayType
+}
+
+func (o LinkServiceNatIpConfigurationsArrayOutput) ToLinkServiceNatIpConfigurationsArrayOutput() LinkServiceNatIpConfigurationsArrayOutput {
+	return o
+}
+
+func (o LinkServiceNatIpConfigurationsArrayOutput) ToLinkServiceNatIpConfigurationsArrayOutputWithContext(ctx context.Context) LinkServiceNatIpConfigurationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LinkServiceNatIpConfigurationsArrayOutput{}) }
+

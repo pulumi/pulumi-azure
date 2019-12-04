@@ -12,12 +12,32 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_job_schedule.html.markdown.
 type JobSchedule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
+	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
+
+	// The UUID identifying the Automation Job Schedule.
+	JobScheduleId pulumi.StringOutput `pulumi:"jobScheduleId"`
+
+	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+
+	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
+	RunOn pulumi.StringOutput `pulumi:"runOn"`
+
+	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+	RunbookName pulumi.StringOutput `pulumi:"runbookName"`
+
+	ScheduleName pulumi.StringOutput `pulumi:"scheduleName"`
 }
 
 // NewJobSchedule registers a new resource with the given unique name, arguments, and options.
 func NewJobSchedule(ctx *pulumi.Context,
-	name string, args *JobScheduleArgs, opts ...pulumi.ResourceOpt) (*JobSchedule, error) {
+	name string, args *JobScheduleArgs, opts ...pulumi.ResourceOption) (*JobSchedule, error) {
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
@@ -30,126 +50,76 @@ func NewJobSchedule(ctx *pulumi.Context,
 	if args == nil || args.ScheduleName == nil {
 		return nil, errors.New("missing required argument 'ScheduleName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["automationAccountName"] = nil
-		inputs["jobScheduleId"] = nil
-		inputs["parameters"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["runOn"] = nil
-		inputs["runbookName"] = nil
-		inputs["scheduleName"] = nil
-	} else {
-		inputs["automationAccountName"] = args.AutomationAccountName
-		inputs["jobScheduleId"] = args.JobScheduleId
-		inputs["parameters"] = args.Parameters
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["runOn"] = args.RunOn
-		inputs["runbookName"] = args.RunbookName
-		inputs["scheduleName"] = args.ScheduleName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := args.JobScheduleId; i != nil { inputs["jobScheduleId"] = i.ToStringOutput() }
+		if i := args.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RunOn; i != nil { inputs["runOn"] = i.ToStringOutput() }
+		if i := args.RunbookName; i != nil { inputs["runbookName"] = i.ToStringOutput() }
+		if i := args.ScheduleName; i != nil { inputs["scheduleName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:automation/jobSchedule:JobSchedule", name, true, inputs, opts...)
+	var resource JobSchedule
+	err := ctx.RegisterResource("azure:automation/jobSchedule:JobSchedule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &JobSchedule{s: s}, nil
+	return &resource, nil
 }
 
 // GetJobSchedule gets an existing JobSchedule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetJobSchedule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *JobScheduleState, opts ...pulumi.ResourceOpt) (*JobSchedule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *JobScheduleState, opts ...pulumi.ResourceOption) (*JobSchedule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["automationAccountName"] = state.AutomationAccountName
-		inputs["jobScheduleId"] = state.JobScheduleId
-		inputs["parameters"] = state.Parameters
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["runOn"] = state.RunOn
-		inputs["runbookName"] = state.RunbookName
-		inputs["scheduleName"] = state.ScheduleName
+		if i := state.AutomationAccountName; i != nil { inputs["automationAccountName"] = i.ToStringOutput() }
+		if i := state.JobScheduleId; i != nil { inputs["jobScheduleId"] = i.ToStringOutput() }
+		if i := state.Parameters; i != nil { inputs["parameters"] = i.ToStringMapOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RunOn; i != nil { inputs["runOn"] = i.ToStringOutput() }
+		if i := state.RunbookName; i != nil { inputs["runbookName"] = i.ToStringOutput() }
+		if i := state.ScheduleName; i != nil { inputs["scheduleName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:automation/jobSchedule:JobSchedule", name, id, inputs, opts...)
+	var resource JobSchedule
+	err := ctx.ReadResource("azure:automation/jobSchedule:JobSchedule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &JobSchedule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *JobSchedule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *JobSchedule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-func (r *JobSchedule) AutomationAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["automationAccountName"])
-}
-
-// The UUID identifying the Automation Job Schedule.
-func (r *JobSchedule) JobScheduleId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["jobScheduleId"])
-}
-
-// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
-func (r *JobSchedule) Parameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["parameters"])
-}
-
-// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
-func (r *JobSchedule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
-func (r *JobSchedule) RunOn() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["runOn"])
-}
-
-// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-func (r *JobSchedule) RunbookName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["runbookName"])
-}
-
-func (r *JobSchedule) ScheduleName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["scheduleName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering JobSchedule resources.
 type JobScheduleState struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// The UUID identifying the Automation Job Schedule.
-	JobScheduleId interface{}
+	JobScheduleId pulumi.StringInput `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
-	RunOn interface{}
+	RunOn pulumi.StringInput `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName interface{}
-	ScheduleName interface{}
+	RunbookName pulumi.StringInput `pulumi:"runbookName"`
+	ScheduleName pulumi.StringInput `pulumi:"scheduleName"`
 }
 
 // The set of arguments for constructing a JobSchedule resource.
 type JobScheduleArgs struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-	AutomationAccountName interface{}
+	AutomationAccountName pulumi.StringInput `pulumi:"automationAccountName"`
 	// The UUID identifying the Automation Job Schedule.
-	JobScheduleId interface{}
+	JobScheduleId pulumi.StringInput `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
-	Parameters interface{}
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
-	RunOn interface{}
+	RunOn pulumi.StringInput `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
-	RunbookName interface{}
-	ScheduleName interface{}
+	RunbookName pulumi.StringInput `pulumi:"runbookName"`
+	ScheduleName pulumi.StringInput `pulumi:"scheduleName"`
 }

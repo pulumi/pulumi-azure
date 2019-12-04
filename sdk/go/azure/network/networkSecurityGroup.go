@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -16,114 +18,353 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
 type NetworkSecurityGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the security rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+	SecurityRules NetworkSecurityGroupSecurityRulesArrayOutput `pulumi:"securityRules"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewNetworkSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSecurityGroup(ctx *pulumi.Context,
-	name string, args *NetworkSecurityGroupArgs, opts ...pulumi.ResourceOpt) (*NetworkSecurityGroup, error) {
+	name string, args *NetworkSecurityGroupArgs, opts ...pulumi.ResourceOption) (*NetworkSecurityGroup, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["securityRules"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["securityRules"] = args.SecurityRules
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SecurityRules; i != nil { inputs["securityRules"] = i.ToNetworkSecurityGroupSecurityRulesArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, true, inputs, opts...)
+	var resource NetworkSecurityGroup
+	err := ctx.RegisterResource("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkSecurityGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetNetworkSecurityGroup gets an existing NetworkSecurityGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetNetworkSecurityGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NetworkSecurityGroupState, opts ...pulumi.ResourceOpt) (*NetworkSecurityGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *NetworkSecurityGroupState, opts ...pulumi.ResourceOption) (*NetworkSecurityGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["securityRules"] = state.SecurityRules
-		inputs["tags"] = state.Tags
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecurityRules; i != nil { inputs["securityRules"] = i.ToNetworkSecurityGroupSecurityRulesArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, id, inputs, opts...)
+	var resource NetworkSecurityGroup
+	err := ctx.ReadResource("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NetworkSecurityGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *NetworkSecurityGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *NetworkSecurityGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *NetworkSecurityGroup) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the security rule.
-func (r *NetworkSecurityGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-func (r *NetworkSecurityGroup) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
-func (r *NetworkSecurityGroup) SecurityRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["securityRules"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *NetworkSecurityGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering NetworkSecurityGroup resources.
 type NetworkSecurityGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the security rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
-	SecurityRules interface{}
+	SecurityRules NetworkSecurityGroupSecurityRulesArrayInput `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkSecurityGroup resource.
 type NetworkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the security rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
-	SecurityRules interface{}
+	SecurityRules NetworkSecurityGroupSecurityRulesArrayInput `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type NetworkSecurityGroupSecurityRules struct {
+	// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+	Access string `pulumi:"access"`
+	// A description for this rule. Restricted to 140 characters.
+	Description *string `pulumi:"description"`
+	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
+	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
+	DestinationAddressPrefixes *[]string `pulumi:"destinationAddressPrefixes"`
+	// A List of destination Application Security Group ID's
+	DestinationApplicationSecurityGroupIds *[]string `pulumi:"destinationApplicationSecurityGroupIds"`
+	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
+	DestinationPortRange *string `pulumi:"destinationPortRange"`
+	// List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
+	DestinationPortRanges *[]string `pulumi:"destinationPortRanges"`
+	// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+	Direction string `pulumi:"direction"`
+	// The name of the security rule.
+	Name string `pulumi:"name"`
+	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority int `pulumi:"priority"`
+	// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+	Protocol string `pulumi:"protocol"`
+	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
+	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
+	SourceAddressPrefixes *[]string `pulumi:"sourceAddressPrefixes"`
+	// A List of source Application Security Group ID's
+	SourceApplicationSecurityGroupIds *[]string `pulumi:"sourceApplicationSecurityGroupIds"`
+	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
+	SourcePortRange *string `pulumi:"sourcePortRange"`
+	// List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
+	SourcePortRanges *[]string `pulumi:"sourcePortRanges"`
+}
+var networkSecurityGroupSecurityRulesType = reflect.TypeOf((*NetworkSecurityGroupSecurityRules)(nil)).Elem()
+
+type NetworkSecurityGroupSecurityRulesInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityGroupSecurityRulesOutput() NetworkSecurityGroupSecurityRulesOutput
+	ToNetworkSecurityGroupSecurityRulesOutputWithContext(ctx context.Context) NetworkSecurityGroupSecurityRulesOutput
+}
+
+type NetworkSecurityGroupSecurityRulesArgs struct {
+	// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+	Access pulumi.StringInput `pulumi:"access"`
+	// A description for this rule. Restricted to 140 characters.
+	Description pulumi.StringInput `pulumi:"description"`
+	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+	DestinationAddressPrefix pulumi.StringInput `pulumi:"destinationAddressPrefix"`
+	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
+	DestinationAddressPrefixes pulumi.StringArrayInput `pulumi:"destinationAddressPrefixes"`
+	// A List of destination Application Security Group ID's
+	DestinationApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"destinationApplicationSecurityGroupIds"`
+	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
+	DestinationPortRange pulumi.StringInput `pulumi:"destinationPortRange"`
+	// List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The name of the security rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
+	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
+	SourceAddressPrefixes pulumi.StringArrayInput `pulumi:"sourceAddressPrefixes"`
+	// A List of source Application Security Group ID's
+	SourceApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceApplicationSecurityGroupIds"`
+	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
+	SourcePortRange pulumi.StringInput `pulumi:"sourcePortRange"`
+	// List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
+}
+
+func (NetworkSecurityGroupSecurityRulesArgs) ElementType() reflect.Type {
+	return networkSecurityGroupSecurityRulesType
+}
+
+func (a NetworkSecurityGroupSecurityRulesArgs) ToNetworkSecurityGroupSecurityRulesOutput() NetworkSecurityGroupSecurityRulesOutput {
+	return pulumi.ToOutput(a).(NetworkSecurityGroupSecurityRulesOutput)
+}
+
+func (a NetworkSecurityGroupSecurityRulesArgs) ToNetworkSecurityGroupSecurityRulesOutputWithContext(ctx context.Context) NetworkSecurityGroupSecurityRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkSecurityGroupSecurityRulesOutput)
+}
+
+type NetworkSecurityGroupSecurityRulesOutput struct { *pulumi.OutputState }
+
+// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+func (o NetworkSecurityGroupSecurityRulesOutput) Access() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		return v.Access
+	}).(pulumi.StringOutput)
+}
+
+// A description for this rule. Restricted to 140 characters.
+func (o NetworkSecurityGroupSecurityRulesOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) DestinationAddressPrefix() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		if v.DestinationAddressPrefix == nil { return *new(string) } else { return *v.DestinationAddressPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) DestinationAddressPrefixes() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) []string {
+		if v.DestinationAddressPrefixes == nil { return *new([]string) } else { return *v.DestinationAddressPrefixes }
+	}).(pulumi.StringArrayOutput)
+}
+
+// A List of destination Application Security Group ID's
+func (o NetworkSecurityGroupSecurityRulesOutput) DestinationApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) []string {
+		if v.DestinationApplicationSecurityGroupIds == nil { return *new([]string) } else { return *v.DestinationApplicationSecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) DestinationPortRange() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		if v.DestinationPortRange == nil { return *new(string) } else { return *v.DestinationPortRange }
+	}).(pulumi.StringOutput)
+}
+
+// List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) []string {
+		if v.DestinationPortRanges == nil { return *new([]string) } else { return *v.DestinationPortRanges }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+func (o NetworkSecurityGroupSecurityRulesOutput) Direction() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		return v.Direction
+	}).(pulumi.StringOutput)
+}
+
+// The name of the security rule.
+func (o NetworkSecurityGroupSecurityRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o NetworkSecurityGroupSecurityRulesOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+// Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
+func (o NetworkSecurityGroupSecurityRulesOutput) Protocol() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) SourceAddressPrefix() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		if v.SourceAddressPrefix == nil { return *new(string) } else { return *v.SourceAddressPrefix }
+	}).(pulumi.StringOutput)
+}
+
+// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) SourceAddressPrefixes() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) []string {
+		if v.SourceAddressPrefixes == nil { return *new([]string) } else { return *v.SourceAddressPrefixes }
+	}).(pulumi.StringArrayOutput)
+}
+
+// A List of source Application Security Group ID's
+func (o NetworkSecurityGroupSecurityRulesOutput) SourceApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) []string {
+		if v.SourceApplicationSecurityGroupIds == nil { return *new([]string) } else { return *v.SourceApplicationSecurityGroupIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) SourcePortRange() pulumi.StringOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) string {
+		if v.SourcePortRange == nil { return *new(string) } else { return *v.SourcePortRange }
+	}).(pulumi.StringOutput)
+}
+
+// List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
+func (o NetworkSecurityGroupSecurityRulesOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.Apply(func(v NetworkSecurityGroupSecurityRules) []string {
+		if v.SourcePortRanges == nil { return *new([]string) } else { return *v.SourcePortRanges }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (NetworkSecurityGroupSecurityRulesOutput) ElementType() reflect.Type {
+	return networkSecurityGroupSecurityRulesType
+}
+
+func (o NetworkSecurityGroupSecurityRulesOutput) ToNetworkSecurityGroupSecurityRulesOutput() NetworkSecurityGroupSecurityRulesOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupSecurityRulesOutput) ToNetworkSecurityGroupSecurityRulesOutputWithContext(ctx context.Context) NetworkSecurityGroupSecurityRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkSecurityGroupSecurityRulesOutput{}) }
+
+var networkSecurityGroupSecurityRulesArrayType = reflect.TypeOf((*[]NetworkSecurityGroupSecurityRules)(nil)).Elem()
+
+type NetworkSecurityGroupSecurityRulesArrayInput interface {
+	pulumi.Input
+
+	ToNetworkSecurityGroupSecurityRulesArrayOutput() NetworkSecurityGroupSecurityRulesArrayOutput
+	ToNetworkSecurityGroupSecurityRulesArrayOutputWithContext(ctx context.Context) NetworkSecurityGroupSecurityRulesArrayOutput
+}
+
+type NetworkSecurityGroupSecurityRulesArrayArgs []NetworkSecurityGroupSecurityRulesInput
+
+func (NetworkSecurityGroupSecurityRulesArrayArgs) ElementType() reflect.Type {
+	return networkSecurityGroupSecurityRulesArrayType
+}
+
+func (a NetworkSecurityGroupSecurityRulesArrayArgs) ToNetworkSecurityGroupSecurityRulesArrayOutput() NetworkSecurityGroupSecurityRulesArrayOutput {
+	return pulumi.ToOutput(a).(NetworkSecurityGroupSecurityRulesArrayOutput)
+}
+
+func (a NetworkSecurityGroupSecurityRulesArrayArgs) ToNetworkSecurityGroupSecurityRulesArrayOutputWithContext(ctx context.Context) NetworkSecurityGroupSecurityRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(NetworkSecurityGroupSecurityRulesArrayOutput)
+}
+
+type NetworkSecurityGroupSecurityRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o NetworkSecurityGroupSecurityRulesArrayOutput) Index(i pulumi.IntInput) NetworkSecurityGroupSecurityRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) NetworkSecurityGroupSecurityRules {
+		return vs[0].([]NetworkSecurityGroupSecurityRules)[vs[1].(int)]
+	}).(NetworkSecurityGroupSecurityRulesOutput)
+}
+
+func (NetworkSecurityGroupSecurityRulesArrayOutput) ElementType() reflect.Type {
+	return networkSecurityGroupSecurityRulesArrayType
+}
+
+func (o NetworkSecurityGroupSecurityRulesArrayOutput) ToNetworkSecurityGroupSecurityRulesArrayOutput() NetworkSecurityGroupSecurityRulesArrayOutput {
+	return o
+}
+
+func (o NetworkSecurityGroupSecurityRulesArrayOutput) ToNetworkSecurityGroupSecurityRulesArrayOutputWithContext(ctx context.Context) NetworkSecurityGroupSecurityRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(NetworkSecurityGroupSecurityRulesArrayOutput{}) }
+

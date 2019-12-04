@@ -14,12 +14,55 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_rule.html.markdown.
 type Rule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
+
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
+
+	// Indicates whether outbound snat is disabled or enabled. Default false.
+	DisableOutboundSnat pulumi.BoolOutput `pulumi:"disableOutboundSnat"`
+
+	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
+
+	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
+
+	// The name of the frontend IP configuration to which the rule is associated.
+	FrontendIpConfigurationName pulumi.StringOutput `pulumi:"frontendIpConfigurationName"`
+
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+	FrontendPort pulumi.IntOutput `pulumi:"frontendPort"`
+
+	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
+
+	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+	LoadDistribution pulumi.StringOutput `pulumi:"loadDistribution"`
+
+	// The ID of the Load Balancer in which to create the Rule.
+	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
+
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the LB Rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A reference to a Probe used by this Load Balancing Rule.
+	ProbeId pulumi.StringOutput `pulumi:"probeId"`
+
+	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+
+	// The name of the resource group in which to create the resource.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
-	name string, args *RuleArgs, opts ...pulumi.ResourceOpt) (*Rule, error) {
+	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
 	if args == nil || args.BackendPort == nil {
 		return nil, errors.New("missing required argument 'BackendPort'")
 	}
@@ -38,217 +81,120 @@ func NewRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["backendAddressPoolId"] = nil
-		inputs["backendPort"] = nil
-		inputs["disableOutboundSnat"] = nil
-		inputs["enableFloatingIp"] = nil
-		inputs["frontendIpConfigurationName"] = nil
-		inputs["frontendPort"] = nil
-		inputs["idleTimeoutInMinutes"] = nil
-		inputs["loadDistribution"] = nil
-		inputs["loadbalancerId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["probeId"] = nil
-		inputs["protocol"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["backendAddressPoolId"] = args.BackendAddressPoolId
-		inputs["backendPort"] = args.BackendPort
-		inputs["disableOutboundSnat"] = args.DisableOutboundSnat
-		inputs["enableFloatingIp"] = args.EnableFloatingIp
-		inputs["frontendIpConfigurationName"] = args.FrontendIpConfigurationName
-		inputs["frontendPort"] = args.FrontendPort
-		inputs["idleTimeoutInMinutes"] = args.IdleTimeoutInMinutes
-		inputs["loadDistribution"] = args.LoadDistribution
-		inputs["loadbalancerId"] = args.LoadbalancerId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["probeId"] = args.ProbeId
-		inputs["protocol"] = args.Protocol
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.BackendAddressPoolId; i != nil { inputs["backendAddressPoolId"] = i.ToStringOutput() }
+		if i := args.BackendPort; i != nil { inputs["backendPort"] = i.ToIntOutput() }
+		if i := args.DisableOutboundSnat; i != nil { inputs["disableOutboundSnat"] = i.ToBoolOutput() }
+		if i := args.EnableFloatingIp; i != nil { inputs["enableFloatingIp"] = i.ToBoolOutput() }
+		if i := args.FrontendIpConfigurationName; i != nil { inputs["frontendIpConfigurationName"] = i.ToStringOutput() }
+		if i := args.FrontendPort; i != nil { inputs["frontendPort"] = i.ToIntOutput() }
+		if i := args.IdleTimeoutInMinutes; i != nil { inputs["idleTimeoutInMinutes"] = i.ToIntOutput() }
+		if i := args.LoadDistribution; i != nil { inputs["loadDistribution"] = i.ToStringOutput() }
+		if i := args.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ProbeId; i != nil { inputs["probeId"] = i.ToStringOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	inputs["frontendIpConfigurationId"] = nil
-	s, err := ctx.RegisterResource("azure:lb/rule:Rule", name, true, inputs, opts...)
+	var resource Rule
+	err := ctx.RegisterResource("azure:lb/rule:Rule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Rule{s: s}, nil
+	return &resource, nil
 }
 
 // GetRule gets an existing Rule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *RuleState, opts ...pulumi.ResourceOpt) (*Rule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *RuleState, opts ...pulumi.ResourceOption) (*Rule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["backendAddressPoolId"] = state.BackendAddressPoolId
-		inputs["backendPort"] = state.BackendPort
-		inputs["disableOutboundSnat"] = state.DisableOutboundSnat
-		inputs["enableFloatingIp"] = state.EnableFloatingIp
-		inputs["frontendIpConfigurationId"] = state.FrontendIpConfigurationId
-		inputs["frontendIpConfigurationName"] = state.FrontendIpConfigurationName
-		inputs["frontendPort"] = state.FrontendPort
-		inputs["idleTimeoutInMinutes"] = state.IdleTimeoutInMinutes
-		inputs["loadDistribution"] = state.LoadDistribution
-		inputs["loadbalancerId"] = state.LoadbalancerId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["probeId"] = state.ProbeId
-		inputs["protocol"] = state.Protocol
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.BackendAddressPoolId; i != nil { inputs["backendAddressPoolId"] = i.ToStringOutput() }
+		if i := state.BackendPort; i != nil { inputs["backendPort"] = i.ToIntOutput() }
+		if i := state.DisableOutboundSnat; i != nil { inputs["disableOutboundSnat"] = i.ToBoolOutput() }
+		if i := state.EnableFloatingIp; i != nil { inputs["enableFloatingIp"] = i.ToBoolOutput() }
+		if i := state.FrontendIpConfigurationId; i != nil { inputs["frontendIpConfigurationId"] = i.ToStringOutput() }
+		if i := state.FrontendIpConfigurationName; i != nil { inputs["frontendIpConfigurationName"] = i.ToStringOutput() }
+		if i := state.FrontendPort; i != nil { inputs["frontendPort"] = i.ToIntOutput() }
+		if i := state.IdleTimeoutInMinutes; i != nil { inputs["idleTimeoutInMinutes"] = i.ToIntOutput() }
+		if i := state.LoadDistribution; i != nil { inputs["loadDistribution"] = i.ToStringOutput() }
+		if i := state.LoadbalancerId; i != nil { inputs["loadbalancerId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ProbeId; i != nil { inputs["probeId"] = i.ToStringOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:lb/rule:Rule", name, id, inputs, opts...)
+	var resource Rule
+	err := ctx.ReadResource("azure:lb/rule:Rule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Rule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Rule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Rule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-func (r *Rule) BackendAddressPoolId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["backendAddressPoolId"])
-}
-
-// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
-func (r *Rule) BackendPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["backendPort"])
-}
-
-// Indicates whether outbound snat is disabled or enabled. Default false.
-func (r *Rule) DisableOutboundSnat() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["disableOutboundSnat"])
-}
-
-// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
-func (r *Rule) EnableFloatingIp() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enableFloatingIp"])
-}
-
-func (r *Rule) FrontendIpConfigurationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationId"])
-}
-
-// The name of the frontend IP configuration to which the rule is associated.
-func (r *Rule) FrontendIpConfigurationName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
-}
-
-// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-func (r *Rule) FrontendPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["frontendPort"])
-}
-
-// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
-func (r *Rule) IdleTimeoutInMinutes() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["idleTimeoutInMinutes"])
-}
-
-// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-func (r *Rule) LoadDistribution() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loadDistribution"])
-}
-
-// The ID of the Load Balancer in which to create the Rule.
-func (r *Rule) LoadbalancerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["loadbalancerId"])
-}
-
-func (r *Rule) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the LB Rule.
-func (r *Rule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A reference to a Probe used by this Load Balancing Rule.
-func (r *Rule) ProbeId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["probeId"])
-}
-
-// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-func (r *Rule) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
-}
-
-// The name of the resource group in which to create the resource.
-func (r *Rule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Rule resources.
 type RuleState struct {
 	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-	BackendAddressPoolId interface{}
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
-	BackendPort interface{}
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// Indicates whether outbound snat is disabled or enabled. Default false.
-	DisableOutboundSnat interface{}
+	DisableOutboundSnat pulumi.BoolInput `pulumi:"disableOutboundSnat"`
 	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
-	EnableFloatingIp interface{}
-	FrontendIpConfigurationId interface{}
+	EnableFloatingIp pulumi.BoolInput `pulumi:"enableFloatingIp"`
+	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
 	// The name of the frontend IP configuration to which the rule is associated.
-	FrontendIpConfigurationName interface{}
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-	FrontendPort interface{}
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
 	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-	LoadDistribution interface{}
+	LoadDistribution pulumi.StringInput `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the LB Rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
-	ProbeId interface{}
+	ProbeId pulumi.StringInput `pulumi:"probeId"`
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
 	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-	BackendAddressPoolId interface{}
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
-	BackendPort interface{}
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// Indicates whether outbound snat is disabled or enabled. Default false.
-	DisableOutboundSnat interface{}
+	DisableOutboundSnat pulumi.BoolInput `pulumi:"disableOutboundSnat"`
 	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
-	EnableFloatingIp interface{}
+	EnableFloatingIp pulumi.BoolInput `pulumi:"enableFloatingIp"`
 	// The name of the frontend IP configuration to which the rule is associated.
-	FrontendIpConfigurationName interface{}
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-	FrontendPort interface{}
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
 	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
-	IdleTimeoutInMinutes interface{}
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-	LoadDistribution interface{}
+	LoadDistribution pulumi.StringInput `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule.
-	LoadbalancerId interface{}
-	Location interface{}
+	LoadbalancerId pulumi.StringInput `pulumi:"loadbalancerId"`
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the LB Rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
-	ProbeId interface{}
+	ProbeId pulumi.StringInput `pulumi:"probeId"`
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The name of the resource group in which to create the resource.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

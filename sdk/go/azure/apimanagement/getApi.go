@@ -10,78 +10,61 @@ import (
 // Use this data source to access information about an existing API Management API.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
-func LookupApi(ctx *pulumi.Context, args *GetApiArgs) (*GetApiResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["revision"] = args.Revision
-	}
-	outputs, err := ctx.Invoke("azure:apimanagement/getApi:getApi", inputs)
+func LookupApi(ctx *pulumi.Context, args *GetApiArgs, opts ...pulumi.InvokeOption) (*GetApiResult, error) {
+	var rv GetApiResult
+	err := ctx.Invoke("azure:apimanagement/getApi:getApi", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetApiResult{
-		ApiManagementName: outputs["apiManagementName"],
-		Description: outputs["description"],
-		DisplayName: outputs["displayName"],
-		IsCurrent: outputs["isCurrent"],
-		IsOnline: outputs["isOnline"],
-		Name: outputs["name"],
-		Path: outputs["path"],
-		Protocols: outputs["protocols"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Revision: outputs["revision"],
-		ServiceUrl: outputs["serviceUrl"],
-		SoapPassThrough: outputs["soapPassThrough"],
-		SubscriptionKeyParameterNames: outputs["subscriptionKeyParameterNames"],
-		Version: outputs["version"],
-		VersionSetId: outputs["versionSetId"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getApi.
 type GetApiArgs struct {
 	// The name of the API Management Service in which the API Management API exists.
-	ApiManagementName interface{}
+	ApiManagementName string `pulumi:"apiManagementName"`
 	// The name of the API Management API.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group in which the API Management Service exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Revision of the API Management API.
-	Revision interface{}
+	Revision string `pulumi:"revision"`
 }
 
 // A collection of values returned by getApi.
 type GetApiResult struct {
-	ApiManagementName interface{}
+	ApiManagementName string `pulumi:"apiManagementName"`
 	// A description of the API Management API, which may include HTML formatting tags.
-	Description interface{}
+	Description string `pulumi:"description"`
 	// The display name of the API.
-	DisplayName interface{}
+	DisplayName string `pulumi:"displayName"`
 	// Is this the current API Revision?
-	IsCurrent interface{}
+	IsCurrent bool `pulumi:"isCurrent"`
 	// Is this API Revision online/accessible via the Gateway?
-	IsOnline interface{}
-	Name interface{}
+	IsOnline bool `pulumi:"isOnline"`
+	Name string `pulumi:"name"`
 	// The Path for this API Management API.
-	Path interface{}
+	Path string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked.
-	Protocols interface{}
-	ResourceGroupName interface{}
-	Revision interface{}
+	Protocols []string `pulumi:"protocols"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Revision string `pulumi:"revision"`
 	// Absolute URL of the backend service implementing this API.
-	ServiceUrl interface{}
+	ServiceUrl string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend?
-	SoapPassThrough interface{}
+	SoapPassThrough bool `pulumi:"soapPassThrough"`
 	// A `subscriptionKeyParameterNames` block as documented below.
-	SubscriptionKeyParameterNames interface{}
+	SubscriptionKeyParameterNames []GetApiSubscriptionKeyParameterNamesResult `pulumi:"subscriptionKeyParameterNames"`
 	// The Version number of this API, if this API is versioned.
-	Version interface{}
+	Version string `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.
-	VersionSetId interface{}
+	VersionSetId string `pulumi:"versionSetId"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetApiSubscriptionKeyParameterNamesResult struct {
+	// The name of the HTTP Header which should be used for the Subscription Key.
+	Header string `pulumi:"header"`
+	// The name of the QueryString parameter which should be used for the Subscription Key.
+	Query string `pulumi:"query"`
 }

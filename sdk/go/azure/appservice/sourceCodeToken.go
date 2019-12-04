@@ -14,93 +14,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_source_control_token.html.markdown.
 type SourceCodeToken struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The OAuth access token.
+	Token pulumi.StringOutput `pulumi:"token"`
+
+	// The OAuth access token secret.
+	TokenSecret pulumi.StringOutput `pulumi:"tokenSecret"`
+
+	// The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewSourceCodeToken registers a new resource with the given unique name, arguments, and options.
 func NewSourceCodeToken(ctx *pulumi.Context,
-	name string, args *SourceCodeTokenArgs, opts ...pulumi.ResourceOpt) (*SourceCodeToken, error) {
+	name string, args *SourceCodeTokenArgs, opts ...pulumi.ResourceOption) (*SourceCodeToken, error) {
 	if args == nil || args.Token == nil {
 		return nil, errors.New("missing required argument 'Token'")
 	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["token"] = nil
-		inputs["tokenSecret"] = nil
-		inputs["type"] = nil
-	} else {
-		inputs["token"] = args.Token
-		inputs["tokenSecret"] = args.TokenSecret
-		inputs["type"] = args.Type
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Token; i != nil { inputs["token"] = i.ToStringOutput() }
+		if i := args.TokenSecret; i != nil { inputs["tokenSecret"] = i.ToStringOutput() }
+		if i := args.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:appservice/sourceCodeToken:SourceCodeToken", name, true, inputs, opts...)
+	var resource SourceCodeToken
+	err := ctx.RegisterResource("azure:appservice/sourceCodeToken:SourceCodeToken", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SourceCodeToken{s: s}, nil
+	return &resource, nil
 }
 
 // GetSourceCodeToken gets an existing SourceCodeToken resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSourceCodeToken(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SourceCodeTokenState, opts ...pulumi.ResourceOpt) (*SourceCodeToken, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SourceCodeTokenState, opts ...pulumi.ResourceOption) (*SourceCodeToken, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["token"] = state.Token
-		inputs["tokenSecret"] = state.TokenSecret
-		inputs["type"] = state.Type
+		if i := state.Token; i != nil { inputs["token"] = i.ToStringOutput() }
+		if i := state.TokenSecret; i != nil { inputs["tokenSecret"] = i.ToStringOutput() }
+		if i := state.Type; i != nil { inputs["type"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/sourceCodeToken:SourceCodeToken", name, id, inputs, opts...)
+	var resource SourceCodeToken
+	err := ctx.ReadResource("azure:appservice/sourceCodeToken:SourceCodeToken", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SourceCodeToken{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SourceCodeToken) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SourceCodeToken) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The OAuth access token.
-func (r *SourceCodeToken) Token() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["token"])
-}
-
-// The OAuth access token secret.
-func (r *SourceCodeToken) TokenSecret() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tokenSecret"])
-}
-
-// The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
-func (r *SourceCodeToken) Type() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["type"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SourceCodeToken resources.
 type SourceCodeTokenState struct {
 	// The OAuth access token.
-	Token interface{}
+	Token pulumi.StringInput `pulumi:"token"`
 	// The OAuth access token secret.
-	TokenSecret interface{}
+	TokenSecret pulumi.StringInput `pulumi:"tokenSecret"`
 	// The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SourceCodeToken resource.
 type SourceCodeTokenArgs struct {
 	// The OAuth access token.
-	Token interface{}
+	Token pulumi.StringInput `pulumi:"token"`
 	// The OAuth access token secret.
-	TokenSecret interface{}
+	TokenSecret pulumi.StringInput `pulumi:"tokenSecret"`
 	// The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
-	Type interface{}
+	Type pulumi.StringInput `pulumi:"type"`
 }

@@ -10,52 +10,38 @@ import (
 // Use this data source to access information about an existing certificate in a Batch Account.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
-func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs) (*GetCertificateResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["accountName"] = args.AccountName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:batch/getCertificate:getCertificate", inputs)
+func LookupCertificate(ctx *pulumi.Context, args *GetCertificateArgs, opts ...pulumi.InvokeOption) (*GetCertificateResult, error) {
+	var rv GetCertificateResult
+	err := ctx.Invoke("azure:batch/getCertificate:getCertificate", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetCertificateResult{
-		AccountName: outputs["accountName"],
-		Format: outputs["format"],
-		Name: outputs["name"],
-		PublicData: outputs["publicData"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Thumbprint: outputs["thumbprint"],
-		ThumbprintAlgorithm: outputs["thumbprintAlgorithm"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getCertificate.
 type GetCertificateArgs struct {
 	// The name of the Batch account.
-	AccountName interface{}
+	AccountName string `pulumi:"accountName"`
 	// The name of the Batch certificate.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where this Batch account exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getCertificate.
 type GetCertificateResult struct {
-	AccountName interface{}
+	AccountName string `pulumi:"accountName"`
 	// The format of the certificate, such as `Cer` or `Pfx`.
-	Format interface{}
-	Name interface{}
+	Format string `pulumi:"format"`
+	Name string `pulumi:"name"`
 	// The public key of the certificate.
-	PublicData interface{}
-	ResourceGroupName interface{}
+	PublicData string `pulumi:"publicData"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The thumbprint of the certificate.
-	Thumbprint interface{}
+	Thumbprint string `pulumi:"thumbprint"`
 	// The algorithm of the certificate thumbprint.
-	ThumbprintAlgorithm interface{}
+	ThumbprintAlgorithm string `pulumi:"thumbprintAlgorithm"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

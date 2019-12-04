@@ -4,6 +4,8 @@
 package privatedns
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,29 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_srv_record.html.markdown.
 type SRVRecord struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// One or more `record` blocks as defined below.
+	Records SRVRecordRecordsArrayOutput `pulumi:"records"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewSRVRecord registers a new resource with the given unique name, arguments, and options.
 func NewSRVRecord(ctx *pulumi.Context,
-	name string, args *SRVRecordArgs, opts ...pulumi.ResourceOpt) (*SRVRecord, error) {
+	name string, args *SRVRecordArgs, opts ...pulumi.ResourceOption) (*SRVRecord, error) {
 	if args == nil || args.Records == nil {
 		return nil, errors.New("missing required argument 'Records'")
 	}
@@ -30,114 +49,189 @@ func NewSRVRecord(ctx *pulumi.Context,
 	if args == nil || args.ZoneName == nil {
 		return nil, errors.New("missing required argument 'ZoneName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["records"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["ttl"] = nil
-		inputs["zoneName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["records"] = args.Records
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["ttl"] = args.Ttl
-		inputs["zoneName"] = args.ZoneName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Records; i != nil { inputs["records"] = i.ToSRVRecordRecordsArrayOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:privatedns/sRVRecord:SRVRecord", name, true, inputs, opts...)
+	var resource SRVRecord
+	err := ctx.RegisterResource("azure:privatedns/sRVRecord:SRVRecord", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SRVRecord{s: s}, nil
+	return &resource, nil
 }
 
 // GetSRVRecord gets an existing SRVRecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSRVRecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SRVRecordState, opts ...pulumi.ResourceOpt) (*SRVRecord, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SRVRecordState, opts ...pulumi.ResourceOption) (*SRVRecord, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["records"] = state.Records
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["ttl"] = state.Ttl
-		inputs["zoneName"] = state.ZoneName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Records; i != nil { inputs["records"] = i.ToSRVRecordRecordsArrayOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:privatedns/sRVRecord:SRVRecord", name, id, inputs, opts...)
+	var resource SRVRecord
+	err := ctx.ReadResource("azure:privatedns/sRVRecord:SRVRecord", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SRVRecord{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SRVRecord) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SRVRecord) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the DNS SRV Record. Changing this forces a new resource to be created.
-func (r *SRVRecord) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// One or more `record` blocks as defined below.
-func (r *SRVRecord) Records() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["records"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *SRVRecord) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *SRVRecord) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *SRVRecord) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (r *SRVRecord) ZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SRVRecord resources.
 type SRVRecordState struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `record` blocks as defined below.
-	Records interface{}
+	Records SRVRecordRecordsArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	Ttl interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a SRVRecord resource.
 type SRVRecordArgs struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `record` blocks as defined below.
-	Records interface{}
+	Records SRVRecordRecordsArrayInput `pulumi:"records"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	Ttl interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
+type SRVRecordRecords struct {
+	Port int `pulumi:"port"`
+	Priority int `pulumi:"priority"`
+	Target string `pulumi:"target"`
+	Weight int `pulumi:"weight"`
+}
+var sRVRecordRecordsType = reflect.TypeOf((*SRVRecordRecords)(nil)).Elem()
+
+type SRVRecordRecordsInput interface {
+	pulumi.Input
+
+	ToSRVRecordRecordsOutput() SRVRecordRecordsOutput
+	ToSRVRecordRecordsOutputWithContext(ctx context.Context) SRVRecordRecordsOutput
+}
+
+type SRVRecordRecordsArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	Target pulumi.StringInput `pulumi:"target"`
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (SRVRecordRecordsArgs) ElementType() reflect.Type {
+	return sRVRecordRecordsType
+}
+
+func (a SRVRecordRecordsArgs) ToSRVRecordRecordsOutput() SRVRecordRecordsOutput {
+	return pulumi.ToOutput(a).(SRVRecordRecordsOutput)
+}
+
+func (a SRVRecordRecordsArgs) ToSRVRecordRecordsOutputWithContext(ctx context.Context) SRVRecordRecordsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SRVRecordRecordsOutput)
+}
+
+type SRVRecordRecordsOutput struct { *pulumi.OutputState }
+
+func (o SRVRecordRecordsOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v SRVRecordRecords) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+func (o SRVRecordRecordsOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v SRVRecordRecords) int {
+		return v.Priority
+	}).(pulumi.IntOutput)
+}
+
+func (o SRVRecordRecordsOutput) Target() pulumi.StringOutput {
+	return o.Apply(func(v SRVRecordRecords) string {
+		return v.Target
+	}).(pulumi.StringOutput)
+}
+
+func (o SRVRecordRecordsOutput) Weight() pulumi.IntOutput {
+	return o.Apply(func(v SRVRecordRecords) int {
+		return v.Weight
+	}).(pulumi.IntOutput)
+}
+
+func (SRVRecordRecordsOutput) ElementType() reflect.Type {
+	return sRVRecordRecordsType
+}
+
+func (o SRVRecordRecordsOutput) ToSRVRecordRecordsOutput() SRVRecordRecordsOutput {
+	return o
+}
+
+func (o SRVRecordRecordsOutput) ToSRVRecordRecordsOutputWithContext(ctx context.Context) SRVRecordRecordsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SRVRecordRecordsOutput{}) }
+
+var sRVRecordRecordsArrayType = reflect.TypeOf((*[]SRVRecordRecords)(nil)).Elem()
+
+type SRVRecordRecordsArrayInput interface {
+	pulumi.Input
+
+	ToSRVRecordRecordsArrayOutput() SRVRecordRecordsArrayOutput
+	ToSRVRecordRecordsArrayOutputWithContext(ctx context.Context) SRVRecordRecordsArrayOutput
+}
+
+type SRVRecordRecordsArrayArgs []SRVRecordRecordsInput
+
+func (SRVRecordRecordsArrayArgs) ElementType() reflect.Type {
+	return sRVRecordRecordsArrayType
+}
+
+func (a SRVRecordRecordsArrayArgs) ToSRVRecordRecordsArrayOutput() SRVRecordRecordsArrayOutput {
+	return pulumi.ToOutput(a).(SRVRecordRecordsArrayOutput)
+}
+
+func (a SRVRecordRecordsArrayArgs) ToSRVRecordRecordsArrayOutputWithContext(ctx context.Context) SRVRecordRecordsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SRVRecordRecordsArrayOutput)
+}
+
+type SRVRecordRecordsArrayOutput struct { *pulumi.OutputState }
+
+func (o SRVRecordRecordsArrayOutput) Index(i pulumi.IntInput) SRVRecordRecordsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SRVRecordRecords {
+		return vs[0].([]SRVRecordRecords)[vs[1].(int)]
+	}).(SRVRecordRecordsOutput)
+}
+
+func (SRVRecordRecordsArrayOutput) ElementType() reflect.Type {
+	return sRVRecordRecordsArrayType
+}
+
+func (o SRVRecordRecordsArrayOutput) ToSRVRecordRecordsArrayOutput() SRVRecordRecordsArrayOutput {
+	return o
+}
+
+func (o SRVRecordRecordsArrayOutput) ToSRVRecordRecordsArrayOutputWithContext(ctx context.Context) SRVRecordRecordsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SRVRecordRecordsArrayOutput{}) }
+

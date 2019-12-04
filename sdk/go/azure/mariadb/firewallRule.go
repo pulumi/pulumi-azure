@@ -12,12 +12,27 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_firewall_rule.html.markdown.
 type FirewallRule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
+
+	// Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 }
 
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
-	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOpt) (*FirewallRule, error) {
+	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
 	if args == nil || args.EndIpAddress == nil {
 		return nil, errors.New("missing required argument 'EndIpAddress'")
 	}
@@ -30,105 +45,66 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args == nil || args.StartIpAddress == nil {
 		return nil, errors.New("missing required argument 'StartIpAddress'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["endIpAddress"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serverName"] = nil
-		inputs["startIpAddress"] = nil
-	} else {
-		inputs["endIpAddress"] = args.EndIpAddress
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["startIpAddress"] = args.StartIpAddress
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:mariadb/firewallRule:FirewallRule", name, true, inputs, opts...)
+	var resource FirewallRule
+	err := ctx.RegisterResource("azure:mariadb/firewallRule:FirewallRule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallRule{s: s}, nil
+	return &resource, nil
 }
 
 // GetFirewallRule gets an existing FirewallRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFirewallRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FirewallRuleState, opts ...pulumi.ResourceOpt) (*FirewallRule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FirewallRuleState, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["endIpAddress"] = state.EndIpAddress
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverName"] = state.ServerName
-		inputs["startIpAddress"] = state.StartIpAddress
+		if i := state.EndIpAddress; i != nil { inputs["endIpAddress"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.StartIpAddress; i != nil { inputs["startIpAddress"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:mariadb/firewallRule:FirewallRule", name, id, inputs, opts...)
+	var resource FirewallRule
+	err := ctx.ReadResource("azure:mariadb/firewallRule:FirewallRule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallRule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallRule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallRule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-func (r *FirewallRule) EndIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endIpAddress"])
-}
-
-// Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
-func (r *FirewallRule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
-func (r *FirewallRule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-func (r *FirewallRule) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-func (r *FirewallRule) StartIpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startIpAddress"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type FirewallRuleState struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
 	// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-	EndIpAddress interface{}
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// Specifies the name of the MariaDB Firewall Rule. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-	StartIpAddress interface{}
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }

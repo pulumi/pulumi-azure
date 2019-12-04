@@ -10,52 +10,38 @@ import (
 // Use this data source to access information about an existing Virtual Network.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
-func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*GetVirtualNetworkResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:network/getVirtualNetwork:getVirtualNetwork", inputs)
+func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkResult, error) {
+	var rv GetVirtualNetworkResult
+	err := ctx.Invoke("azure:network/getVirtualNetwork:getVirtualNetwork", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetVirtualNetworkResult{
-		AddressSpaces: outputs["addressSpaces"],
-		AddressSpacesCollection: outputs["addressSpacesCollection"],
-		DnsServers: outputs["dnsServers"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Subnets: outputs["subnets"],
-		VnetPeerings: outputs["vnetPeerings"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getVirtualNetwork.
 type GetVirtualNetworkArgs struct {
 	// Specifies the name of the Virtual Network.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Virtual Network is located in.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getVirtualNetwork.
 type GetVirtualNetworkResult struct {
 	// The list of address spaces used by the virtual network.
-	AddressSpaces interface{}
-	AddressSpacesCollection interface{}
+	AddressSpaces []string `pulumi:"addressSpaces"`
+	AddressSpacesCollection []string `pulumi:"addressSpacesCollection"`
 	// The list of DNS servers used by the virtual network.
-	DnsServers interface{}
+	DnsServers []string `pulumi:"dnsServers"`
 	// Location of the virtual network.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of name of the subnets that are attached to this virtual network.
-	Subnets interface{}
+	Subnets []string `pulumi:"subnets"`
 	// A mapping of name - virtual network id of the virtual network peerings.
-	VnetPeerings interface{}
+	VnetPeerings map[string]string `pulumi:"vnetPeerings"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

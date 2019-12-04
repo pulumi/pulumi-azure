@@ -10,51 +10,72 @@ import (
 // Use this data source to access information about an existing Azure Data Factory (Version 2).
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
-func LookupFactory(ctx *pulumi.Context, args *GetFactoryArgs) (*GetFactoryResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:datafactory/getFactory:getFactory", inputs)
+func LookupFactory(ctx *pulumi.Context, args *GetFactoryArgs, opts ...pulumi.InvokeOption) (*GetFactoryResult, error) {
+	var rv GetFactoryResult
+	err := ctx.Invoke("azure:datafactory/getFactory:getFactory", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetFactoryResult{
-		GithubConfigurations: outputs["githubConfigurations"],
-		Identities: outputs["identities"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		VstsConfigurations: outputs["vstsConfigurations"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getFactory.
 type GetFactoryArgs struct {
 	// Specifies the name of the Data Factory to retrieve information about. 
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group where the Data Factory exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getFactory.
 type GetFactoryResult struct {
 	// A `githubConfiguration` block as defined below.
-	GithubConfigurations interface{}
+	GithubConfigurations []GetFactoryGithubConfigurationsResult `pulumi:"githubConfigurations"`
 	// An `identity` block as defined below.
-	Identities interface{}
+	Identities []GetFactoryIdentitiesResult `pulumi:"identities"`
 	// The Azure location where the resource exists.
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	// ---
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// A `vstsConfiguration` block as defined below.
-	VstsConfigurations interface{}
+	VstsConfigurations []GetFactoryVstsConfigurationsResult `pulumi:"vstsConfigurations"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetFactoryGithubConfigurationsResult struct {
+	// The VSTS account name.
+	AccountName string `pulumi:"accountName"`
+	// The branch of the repository to get code from.
+	BranchName string `pulumi:"branchName"`
+	// The GitHub Enterprise host name. 
+	GitUrl string `pulumi:"gitUrl"`
+	// The name of the git repository.
+	RepositoryName string `pulumi:"repositoryName"`
+	// The root folder within the repository.
+	RootFolder string `pulumi:"rootFolder"`
+}
+type GetFactoryIdentitiesResult struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID associated with the VSTS account.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of the Data Factory.
+	Type string `pulumi:"type"`
+}
+type GetFactoryVstsConfigurationsResult struct {
+	// The VSTS account name.
+	AccountName string `pulumi:"accountName"`
+	// The branch of the repository to get code from.
+	BranchName string `pulumi:"branchName"`
+	// The name of the VSTS project.
+	ProjectName string `pulumi:"projectName"`
+	// The name of the git repository.
+	RepositoryName string `pulumi:"repositoryName"`
+	// The root folder within the repository.
+	RootFolder string `pulumi:"rootFolder"`
+	// The Tenant ID associated with the VSTS account.
+	TenantId string `pulumi:"tenantId"`
 }

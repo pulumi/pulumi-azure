@@ -4,6 +4,8 @@
 package appservice
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,303 +16,2088 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
 type AppService struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The ID of the App Service Plan within which to create this App Service.
+	AppServicePlanId pulumi.StringOutput `pulumi:"appServicePlanId"`
+
+	// A key-value pair of App Settings.
+	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
+
+	// A `authSettings` block as defined below.
+	AuthSettings AppServiceAuthSettingsOutput `pulumi:"authSettings"`
+
+	Backup AppServiceBackupOutput `pulumi:"backup"`
+
+	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
+	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
+
+	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+	ClientCertEnabled pulumi.BoolOutput `pulumi:"clientCertEnabled"`
+
+	// One or more `connectionString` blocks as defined below.
+	ConnectionStrings AppServiceConnectionStringsArrayOutput `pulumi:"connectionStrings"`
+
+	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+	DefaultSiteHostname pulumi.StringOutput `pulumi:"defaultSiteHostname"`
+
+	// Is the App Service Enabled?
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
+	HttpsOnly pulumi.BoolOutput `pulumi:"httpsOnly"`
+
+	// A Managed Service Identity block as defined below.
+	Identity AppServiceIdentityOutput `pulumi:"identity"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// A `logs` block as defined below.
+	Logs AppServiceLogsOutput `pulumi:"logs"`
+
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
+
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
+
+	// The name of the resource group in which to create the App Service.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `siteConfig` block as defined below.
+	SiteConfig AppServiceSiteConfigOutput `pulumi:"siteConfig"`
+
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	SiteCredential AppServiceSiteCredentialOutput `pulumi:"siteCredential"`
+
+	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
+	SourceControl AppServiceSourceControlOutput `pulumi:"sourceControl"`
+
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts AppServiceStorageAccountsArrayOutput `pulumi:"storageAccounts"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewAppService registers a new resource with the given unique name, arguments, and options.
 func NewAppService(ctx *pulumi.Context,
-	name string, args *AppServiceArgs, opts ...pulumi.ResourceOpt) (*AppService, error) {
+	name string, args *AppServiceArgs, opts ...pulumi.ResourceOption) (*AppService, error) {
 	if args == nil || args.AppServicePlanId == nil {
 		return nil, errors.New("missing required argument 'AppServicePlanId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appServicePlanId"] = nil
-		inputs["appSettings"] = nil
-		inputs["authSettings"] = nil
-		inputs["backup"] = nil
-		inputs["clientAffinityEnabled"] = nil
-		inputs["clientCertEnabled"] = nil
-		inputs["connectionStrings"] = nil
-		inputs["enabled"] = nil
-		inputs["httpsOnly"] = nil
-		inputs["identity"] = nil
-		inputs["location"] = nil
-		inputs["logs"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["siteConfig"] = nil
-		inputs["storageAccounts"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["appServicePlanId"] = args.AppServicePlanId
-		inputs["appSettings"] = args.AppSettings
-		inputs["authSettings"] = args.AuthSettings
-		inputs["backup"] = args.Backup
-		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
-		inputs["clientCertEnabled"] = args.ClientCertEnabled
-		inputs["connectionStrings"] = args.ConnectionStrings
-		inputs["enabled"] = args.Enabled
-		inputs["httpsOnly"] = args.HttpsOnly
-		inputs["identity"] = args.Identity
-		inputs["location"] = args.Location
-		inputs["logs"] = args.Logs
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["siteConfig"] = args.SiteConfig
-		inputs["storageAccounts"] = args.StorageAccounts
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppServicePlanId; i != nil { inputs["appServicePlanId"] = i.ToStringOutput() }
+		if i := args.AppSettings; i != nil { inputs["appSettings"] = i.ToStringMapOutput() }
+		if i := args.AuthSettings; i != nil { inputs["authSettings"] = i.ToAppServiceAuthSettingsOutput() }
+		if i := args.Backup; i != nil { inputs["backup"] = i.ToAppServiceBackupOutput() }
+		if i := args.ClientAffinityEnabled; i != nil { inputs["clientAffinityEnabled"] = i.ToBoolOutput() }
+		if i := args.ClientCertEnabled; i != nil { inputs["clientCertEnabled"] = i.ToBoolOutput() }
+		if i := args.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToAppServiceConnectionStringsArrayOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.HttpsOnly; i != nil { inputs["httpsOnly"] = i.ToBoolOutput() }
+		if i := args.Identity; i != nil { inputs["identity"] = i.ToAppServiceIdentityOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Logs; i != nil { inputs["logs"] = i.ToAppServiceLogsOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SiteConfig; i != nil { inputs["siteConfig"] = i.ToAppServiceSiteConfigOutput() }
+		if i := args.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToAppServiceStorageAccountsArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["defaultSiteHostname"] = nil
-	inputs["outboundIpAddresses"] = nil
-	inputs["possibleOutboundIpAddresses"] = nil
-	inputs["siteCredential"] = nil
-	inputs["sourceControl"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/appService:AppService", name, true, inputs, opts...)
+	var resource AppService
+	err := ctx.RegisterResource("azure:appservice/appService:AppService", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AppService{s: s}, nil
+	return &resource, nil
 }
 
 // GetAppService gets an existing AppService resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAppService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AppServiceState, opts ...pulumi.ResourceOpt) (*AppService, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AppServiceState, opts ...pulumi.ResourceOption) (*AppService, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServicePlanId"] = state.AppServicePlanId
-		inputs["appSettings"] = state.AppSettings
-		inputs["authSettings"] = state.AuthSettings
-		inputs["backup"] = state.Backup
-		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
-		inputs["clientCertEnabled"] = state.ClientCertEnabled
-		inputs["connectionStrings"] = state.ConnectionStrings
-		inputs["defaultSiteHostname"] = state.DefaultSiteHostname
-		inputs["enabled"] = state.Enabled
-		inputs["httpsOnly"] = state.HttpsOnly
-		inputs["identity"] = state.Identity
-		inputs["location"] = state.Location
-		inputs["logs"] = state.Logs
-		inputs["name"] = state.Name
-		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
-		inputs["possibleOutboundIpAddresses"] = state.PossibleOutboundIpAddresses
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["siteConfig"] = state.SiteConfig
-		inputs["siteCredential"] = state.SiteCredential
-		inputs["sourceControl"] = state.SourceControl
-		inputs["storageAccounts"] = state.StorageAccounts
-		inputs["tags"] = state.Tags
+		if i := state.AppServicePlanId; i != nil { inputs["appServicePlanId"] = i.ToStringOutput() }
+		if i := state.AppSettings; i != nil { inputs["appSettings"] = i.ToStringMapOutput() }
+		if i := state.AuthSettings; i != nil { inputs["authSettings"] = i.ToAppServiceAuthSettingsOutput() }
+		if i := state.Backup; i != nil { inputs["backup"] = i.ToAppServiceBackupOutput() }
+		if i := state.ClientAffinityEnabled; i != nil { inputs["clientAffinityEnabled"] = i.ToBoolOutput() }
+		if i := state.ClientCertEnabled; i != nil { inputs["clientCertEnabled"] = i.ToBoolOutput() }
+		if i := state.ConnectionStrings; i != nil { inputs["connectionStrings"] = i.ToAppServiceConnectionStringsArrayOutput() }
+		if i := state.DefaultSiteHostname; i != nil { inputs["defaultSiteHostname"] = i.ToStringOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.HttpsOnly; i != nil { inputs["httpsOnly"] = i.ToBoolOutput() }
+		if i := state.Identity; i != nil { inputs["identity"] = i.ToAppServiceIdentityOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Logs; i != nil { inputs["logs"] = i.ToAppServiceLogsOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OutboundIpAddresses; i != nil { inputs["outboundIpAddresses"] = i.ToStringOutput() }
+		if i := state.PossibleOutboundIpAddresses; i != nil { inputs["possibleOutboundIpAddresses"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SiteConfig; i != nil { inputs["siteConfig"] = i.ToAppServiceSiteConfigOutput() }
+		if i := state.SiteCredential; i != nil { inputs["siteCredential"] = i.ToAppServiceSiteCredentialOutput() }
+		if i := state.SourceControl; i != nil { inputs["sourceControl"] = i.ToAppServiceSourceControlOutput() }
+		if i := state.StorageAccounts; i != nil { inputs["storageAccounts"] = i.ToAppServiceStorageAccountsArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/appService:AppService", name, id, inputs, opts...)
+	var resource AppService
+	err := ctx.ReadResource("azure:appservice/appService:AppService", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AppService{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AppService) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AppService) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The ID of the App Service Plan within which to create this App Service.
-func (r *AppService) AppServicePlanId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServicePlanId"])
-}
-
-// A key-value pair of App Settings.
-func (r *AppService) AppSettings() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["appSettings"])
-}
-
-// A `authSettings` block as defined below.
-func (r *AppService) AuthSettings() pulumi.Output {
-	return r.s.State["authSettings"]
-}
-
-func (r *AppService) Backup() pulumi.Output {
-	return r.s.State["backup"]
-}
-
-// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-func (r *AppService) ClientAffinityEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
-}
-
-// Does the App Service require client certificates for incoming requests? Defaults to `false`.
-func (r *AppService) ClientCertEnabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["clientCertEnabled"])
-}
-
-// One or more `connectionString` blocks as defined below.
-func (r *AppService) ConnectionStrings() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["connectionStrings"])
-}
-
-// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-func (r *AppService) DefaultSiteHostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
-}
-
-// Is the App Service Enabled?
-func (r *AppService) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// Can the App Service only be accessed via HTTPS? Defaults to `false`.
-func (r *AppService) HttpsOnly() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["httpsOnly"])
-}
-
-// A Managed Service Identity block as defined below.
-func (r *AppService) Identity() pulumi.Output {
-	return r.s.State["identity"]
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *AppService) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// A `logs` block as defined below.
-func (r *AppService) Logs() pulumi.Output {
-	return r.s.State["logs"]
-}
-
-// Specifies the name of the App Service. Changing this forces a new resource to be created.
-func (r *AppService) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-func (r *AppService) OutboundIpAddresses() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
-}
-
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-func (r *AppService) PossibleOutboundIpAddresses() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
-}
-
-// The name of the resource group in which to create the App Service.
-func (r *AppService) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `siteConfig` block as defined below.
-func (r *AppService) SiteConfig() pulumi.Output {
-	return r.s.State["siteConfig"]
-}
-
-// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-func (r *AppService) SiteCredential() pulumi.Output {
-	return r.s.State["siteCredential"]
-}
-
-// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-func (r *AppService) SourceControl() pulumi.Output {
-	return r.s.State["sourceControl"]
-}
-
-// One or more `storageAccount` blocks as defined below.
-func (r *AppService) StorageAccounts() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storageAccounts"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *AppService) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AppService resources.
 type AppServiceState struct {
 	// The ID of the App Service Plan within which to create this App Service.
-	AppServicePlanId interface{}
+	AppServicePlanId pulumi.StringInput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
-	AppSettings interface{}
+	AppSettings pulumi.StringMapInput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings interface{}
-	Backup interface{}
+	AuthSettings AppServiceAuthSettingsInput `pulumi:"authSettings"`
+	Backup AppServiceBackupInput `pulumi:"backup"`
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled pulumi.BoolInput `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
-	ClientCertEnabled interface{}
+	ClientCertEnabled pulumi.BoolInput `pulumi:"clientCertEnabled"`
 	// One or more `connectionString` blocks as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings AppServiceConnectionStringsArrayInput `pulumi:"connectionStrings"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-	DefaultSiteHostname interface{}
+	DefaultSiteHostname pulumi.StringInput `pulumi:"defaultSiteHostname"`
 	// Is the App Service Enabled?
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
-	HttpsOnly interface{}
+	HttpsOnly pulumi.BoolInput `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
-	Identity interface{}
+	Identity AppServiceIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// A `logs` block as defined below.
-	Logs interface{}
+	Logs AppServiceLogsInput `pulumi:"logs"`
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-	OutboundIpAddresses interface{}
+	OutboundIpAddresses pulumi.StringInput `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses interface{}
+	PossibleOutboundIpAddresses pulumi.StringInput `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the resource group in which to create the App Service.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
-	SiteConfig interface{}
+	SiteConfig AppServiceSiteConfigInput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential interface{}
+	SiteCredential AppServiceSiteCredentialInput `pulumi:"siteCredential"`
 	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControl interface{}
+	SourceControl AppServiceSourceControlInput `pulumi:"sourceControl"`
 	// One or more `storageAccount` blocks as defined below.
-	StorageAccounts interface{}
+	StorageAccounts AppServiceStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppService resource.
 type AppServiceArgs struct {
 	// The ID of the App Service Plan within which to create this App Service.
-	AppServicePlanId interface{}
+	AppServicePlanId pulumi.StringInput `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
-	AppSettings interface{}
+	AppSettings pulumi.StringMapInput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
-	AuthSettings interface{}
-	Backup interface{}
+	AuthSettings AppServiceAuthSettingsInput `pulumi:"authSettings"`
+	Backup AppServiceBackupInput `pulumi:"backup"`
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled pulumi.BoolInput `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
-	ClientCertEnabled interface{}
+	ClientCertEnabled pulumi.BoolInput `pulumi:"clientCertEnabled"`
 	// One or more `connectionString` blocks as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings AppServiceConnectionStringsArrayInput `pulumi:"connectionStrings"`
 	// Is the App Service Enabled?
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
-	HttpsOnly interface{}
+	HttpsOnly pulumi.BoolInput `pulumi:"httpsOnly"`
 	// A Managed Service Identity block as defined below.
-	Identity interface{}
+	Identity AppServiceIdentityInput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// A `logs` block as defined below.
-	Logs interface{}
+	Logs AppServiceLogsInput `pulumi:"logs"`
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
-	SiteConfig interface{}
+	SiteConfig AppServiceSiteConfigInput `pulumi:"siteConfig"`
 	// One or more `storageAccount` blocks as defined below.
-	StorageAccounts interface{}
+	StorageAccounts AppServiceStorageAccountsArrayInput `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type AppServiceAuthSettings struct {
+	ActiveDirectory *AppServiceAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
+	AdditionalLoginParams *map[string]string `pulumi:"additionalLoginParams"`
+	AllowedExternalRedirectUrls *[]string `pulumi:"allowedExternalRedirectUrls"`
+	DefaultProvider *string `pulumi:"defaultProvider"`
+	// Is the App Service Enabled?
+	Enabled bool `pulumi:"enabled"`
+	Facebook *AppServiceAuthSettingsFacebook `pulumi:"facebook"`
+	Google *AppServiceAuthSettingsGoogle `pulumi:"google"`
+	Issuer *string `pulumi:"issuer"`
+	Microsoft *AppServiceAuthSettingsMicrosoft `pulumi:"microsoft"`
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours *float64 `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled *bool `pulumi:"tokenStoreEnabled"`
+	Twitter *AppServiceAuthSettingsTwitter `pulumi:"twitter"`
+	UnauthenticatedClientAction *string `pulumi:"unauthenticatedClientAction"`
+}
+var appServiceAuthSettingsType = reflect.TypeOf((*AppServiceAuthSettings)(nil)).Elem()
+
+type AppServiceAuthSettingsInput interface {
+	pulumi.Input
+
+	ToAppServiceAuthSettingsOutput() AppServiceAuthSettingsOutput
+	ToAppServiceAuthSettingsOutputWithContext(ctx context.Context) AppServiceAuthSettingsOutput
+}
+
+type AppServiceAuthSettingsArgs struct {
+	ActiveDirectory AppServiceAuthSettingsActiveDirectoryInput `pulumi:"activeDirectory"`
+	AdditionalLoginParams pulumi.StringMapInput `pulumi:"additionalLoginParams"`
+	AllowedExternalRedirectUrls pulumi.StringArrayInput `pulumi:"allowedExternalRedirectUrls"`
+	DefaultProvider pulumi.StringInput `pulumi:"defaultProvider"`
+	// Is the App Service Enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Facebook AppServiceAuthSettingsFacebookInput `pulumi:"facebook"`
+	Google AppServiceAuthSettingsGoogleInput `pulumi:"google"`
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	Microsoft AppServiceAuthSettingsMicrosoftInput `pulumi:"microsoft"`
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours pulumi.Float64Input `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled pulumi.BoolInput `pulumi:"tokenStoreEnabled"`
+	Twitter AppServiceAuthSettingsTwitterInput `pulumi:"twitter"`
+	UnauthenticatedClientAction pulumi.StringInput `pulumi:"unauthenticatedClientAction"`
+}
+
+func (AppServiceAuthSettingsArgs) ElementType() reflect.Type {
+	return appServiceAuthSettingsType
+}
+
+func (a AppServiceAuthSettingsArgs) ToAppServiceAuthSettingsOutput() AppServiceAuthSettingsOutput {
+	return pulumi.ToOutput(a).(AppServiceAuthSettingsOutput)
+}
+
+func (a AppServiceAuthSettingsArgs) ToAppServiceAuthSettingsOutputWithContext(ctx context.Context) AppServiceAuthSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceAuthSettingsOutput)
+}
+
+type AppServiceAuthSettingsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceAuthSettingsOutput) ActiveDirectory() AppServiceAuthSettingsActiveDirectoryOutput {
+	return o.Apply(func(v AppServiceAuthSettings) AppServiceAuthSettingsActiveDirectory {
+		if v.ActiveDirectory == nil { return *new(AppServiceAuthSettingsActiveDirectory) } else { return *v.ActiveDirectory }
+	}).(AppServiceAuthSettingsActiveDirectoryOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) AdditionalLoginParams() pulumi.StringMapOutput {
+	return o.Apply(func(v AppServiceAuthSettings) map[string]string {
+		if v.AdditionalLoginParams == nil { return *new(map[string]string) } else { return *v.AdditionalLoginParams }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) AllowedExternalRedirectUrls() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceAuthSettings) []string {
+		if v.AllowedExternalRedirectUrls == nil { return *new([]string) } else { return *v.AllowedExternalRedirectUrls }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) DefaultProvider() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettings) string {
+		if v.DefaultProvider == nil { return *new(string) } else { return *v.DefaultProvider }
+	}).(pulumi.StringOutput)
+}
+
+// Is the App Service Enabled?
+func (o AppServiceAuthSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceAuthSettings) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) Facebook() AppServiceAuthSettingsFacebookOutput {
+	return o.Apply(func(v AppServiceAuthSettings) AppServiceAuthSettingsFacebook {
+		if v.Facebook == nil { return *new(AppServiceAuthSettingsFacebook) } else { return *v.Facebook }
+	}).(AppServiceAuthSettingsFacebookOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) Google() AppServiceAuthSettingsGoogleOutput {
+	return o.Apply(func(v AppServiceAuthSettings) AppServiceAuthSettingsGoogle {
+		if v.Google == nil { return *new(AppServiceAuthSettingsGoogle) } else { return *v.Google }
+	}).(AppServiceAuthSettingsGoogleOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) Issuer() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettings) string {
+		if v.Issuer == nil { return *new(string) } else { return *v.Issuer }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) Microsoft() AppServiceAuthSettingsMicrosoftOutput {
+	return o.Apply(func(v AppServiceAuthSettings) AppServiceAuthSettingsMicrosoft {
+		if v.Microsoft == nil { return *new(AppServiceAuthSettingsMicrosoft) } else { return *v.Microsoft }
+	}).(AppServiceAuthSettingsMicrosoftOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettings) string {
+		if v.RuntimeVersion == nil { return *new(string) } else { return *v.RuntimeVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) TokenRefreshExtensionHours() pulumi.Float64Output {
+	return o.Apply(func(v AppServiceAuthSettings) float64 {
+		if v.TokenRefreshExtensionHours == nil { return *new(float64) } else { return *v.TokenRefreshExtensionHours }
+	}).(pulumi.Float64Output)
+}
+
+func (o AppServiceAuthSettingsOutput) TokenStoreEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceAuthSettings) bool {
+		if v.TokenStoreEnabled == nil { return *new(bool) } else { return *v.TokenStoreEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) Twitter() AppServiceAuthSettingsTwitterOutput {
+	return o.Apply(func(v AppServiceAuthSettings) AppServiceAuthSettingsTwitter {
+		if v.Twitter == nil { return *new(AppServiceAuthSettingsTwitter) } else { return *v.Twitter }
+	}).(AppServiceAuthSettingsTwitterOutput)
+}
+
+func (o AppServiceAuthSettingsOutput) UnauthenticatedClientAction() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettings) string {
+		if v.UnauthenticatedClientAction == nil { return *new(string) } else { return *v.UnauthenticatedClientAction }
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceAuthSettingsOutput) ElementType() reflect.Type {
+	return appServiceAuthSettingsType
+}
+
+func (o AppServiceAuthSettingsOutput) ToAppServiceAuthSettingsOutput() AppServiceAuthSettingsOutput {
+	return o
+}
+
+func (o AppServiceAuthSettingsOutput) ToAppServiceAuthSettingsOutputWithContext(ctx context.Context) AppServiceAuthSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceAuthSettingsOutput{}) }
+
+type AppServiceAuthSettingsActiveDirectory struct {
+	AllowedAudiences *[]string `pulumi:"allowedAudiences"`
+	ClientId string `pulumi:"clientId"`
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+var appServiceAuthSettingsActiveDirectoryType = reflect.TypeOf((*AppServiceAuthSettingsActiveDirectory)(nil)).Elem()
+
+type AppServiceAuthSettingsActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToAppServiceAuthSettingsActiveDirectoryOutput() AppServiceAuthSettingsActiveDirectoryOutput
+	ToAppServiceAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) AppServiceAuthSettingsActiveDirectoryOutput
+}
+
+type AppServiceAuthSettingsActiveDirectoryArgs struct {
+	AllowedAudiences pulumi.StringArrayInput `pulumi:"allowedAudiences"`
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (AppServiceAuthSettingsActiveDirectoryArgs) ElementType() reflect.Type {
+	return appServiceAuthSettingsActiveDirectoryType
+}
+
+func (a AppServiceAuthSettingsActiveDirectoryArgs) ToAppServiceAuthSettingsActiveDirectoryOutput() AppServiceAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutput(a).(AppServiceAuthSettingsActiveDirectoryOutput)
+}
+
+func (a AppServiceAuthSettingsActiveDirectoryArgs) ToAppServiceAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) AppServiceAuthSettingsActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceAuthSettingsActiveDirectoryOutput)
+}
+
+type AppServiceAuthSettingsActiveDirectoryOutput struct { *pulumi.OutputState }
+
+func (o AppServiceAuthSettingsActiveDirectoryOutput) AllowedAudiences() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceAuthSettingsActiveDirectory) []string {
+		if v.AllowedAudiences == nil { return *new([]string) } else { return *v.AllowedAudiences }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AppServiceAuthSettingsActiveDirectoryOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsActiveDirectory) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsActiveDirectoryOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsActiveDirectory) string {
+		if v.ClientSecret == nil { return *new(string) } else { return *v.ClientSecret }
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceAuthSettingsActiveDirectoryOutput) ElementType() reflect.Type {
+	return appServiceAuthSettingsActiveDirectoryType
+}
+
+func (o AppServiceAuthSettingsActiveDirectoryOutput) ToAppServiceAuthSettingsActiveDirectoryOutput() AppServiceAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func (o AppServiceAuthSettingsActiveDirectoryOutput) ToAppServiceAuthSettingsActiveDirectoryOutputWithContext(ctx context.Context) AppServiceAuthSettingsActiveDirectoryOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceAuthSettingsActiveDirectoryOutput{}) }
+
+type AppServiceAuthSettingsFacebook struct {
+	AppId string `pulumi:"appId"`
+	AppSecret string `pulumi:"appSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var appServiceAuthSettingsFacebookType = reflect.TypeOf((*AppServiceAuthSettingsFacebook)(nil)).Elem()
+
+type AppServiceAuthSettingsFacebookInput interface {
+	pulumi.Input
+
+	ToAppServiceAuthSettingsFacebookOutput() AppServiceAuthSettingsFacebookOutput
+	ToAppServiceAuthSettingsFacebookOutputWithContext(ctx context.Context) AppServiceAuthSettingsFacebookOutput
+}
+
+type AppServiceAuthSettingsFacebookArgs struct {
+	AppId pulumi.StringInput `pulumi:"appId"`
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (AppServiceAuthSettingsFacebookArgs) ElementType() reflect.Type {
+	return appServiceAuthSettingsFacebookType
+}
+
+func (a AppServiceAuthSettingsFacebookArgs) ToAppServiceAuthSettingsFacebookOutput() AppServiceAuthSettingsFacebookOutput {
+	return pulumi.ToOutput(a).(AppServiceAuthSettingsFacebookOutput)
+}
+
+func (a AppServiceAuthSettingsFacebookArgs) ToAppServiceAuthSettingsFacebookOutputWithContext(ctx context.Context) AppServiceAuthSettingsFacebookOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceAuthSettingsFacebookOutput)
+}
+
+type AppServiceAuthSettingsFacebookOutput struct { *pulumi.OutputState }
+
+func (o AppServiceAuthSettingsFacebookOutput) AppId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsFacebook) string {
+		return v.AppId
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsFacebookOutput) AppSecret() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsFacebook) string {
+		return v.AppSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsFacebookOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceAuthSettingsFacebook) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (AppServiceAuthSettingsFacebookOutput) ElementType() reflect.Type {
+	return appServiceAuthSettingsFacebookType
+}
+
+func (o AppServiceAuthSettingsFacebookOutput) ToAppServiceAuthSettingsFacebookOutput() AppServiceAuthSettingsFacebookOutput {
+	return o
+}
+
+func (o AppServiceAuthSettingsFacebookOutput) ToAppServiceAuthSettingsFacebookOutputWithContext(ctx context.Context) AppServiceAuthSettingsFacebookOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceAuthSettingsFacebookOutput{}) }
+
+type AppServiceAuthSettingsGoogle struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var appServiceAuthSettingsGoogleType = reflect.TypeOf((*AppServiceAuthSettingsGoogle)(nil)).Elem()
+
+type AppServiceAuthSettingsGoogleInput interface {
+	pulumi.Input
+
+	ToAppServiceAuthSettingsGoogleOutput() AppServiceAuthSettingsGoogleOutput
+	ToAppServiceAuthSettingsGoogleOutputWithContext(ctx context.Context) AppServiceAuthSettingsGoogleOutput
+}
+
+type AppServiceAuthSettingsGoogleArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (AppServiceAuthSettingsGoogleArgs) ElementType() reflect.Type {
+	return appServiceAuthSettingsGoogleType
+}
+
+func (a AppServiceAuthSettingsGoogleArgs) ToAppServiceAuthSettingsGoogleOutput() AppServiceAuthSettingsGoogleOutput {
+	return pulumi.ToOutput(a).(AppServiceAuthSettingsGoogleOutput)
+}
+
+func (a AppServiceAuthSettingsGoogleArgs) ToAppServiceAuthSettingsGoogleOutputWithContext(ctx context.Context) AppServiceAuthSettingsGoogleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceAuthSettingsGoogleOutput)
+}
+
+type AppServiceAuthSettingsGoogleOutput struct { *pulumi.OutputState }
+
+func (o AppServiceAuthSettingsGoogleOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsGoogle) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsGoogleOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsGoogle) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsGoogleOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceAuthSettingsGoogle) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (AppServiceAuthSettingsGoogleOutput) ElementType() reflect.Type {
+	return appServiceAuthSettingsGoogleType
+}
+
+func (o AppServiceAuthSettingsGoogleOutput) ToAppServiceAuthSettingsGoogleOutput() AppServiceAuthSettingsGoogleOutput {
+	return o
+}
+
+func (o AppServiceAuthSettingsGoogleOutput) ToAppServiceAuthSettingsGoogleOutputWithContext(ctx context.Context) AppServiceAuthSettingsGoogleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceAuthSettingsGoogleOutput{}) }
+
+type AppServiceAuthSettingsMicrosoft struct {
+	ClientId string `pulumi:"clientId"`
+	ClientSecret string `pulumi:"clientSecret"`
+	OauthScopes *[]string `pulumi:"oauthScopes"`
+}
+var appServiceAuthSettingsMicrosoftType = reflect.TypeOf((*AppServiceAuthSettingsMicrosoft)(nil)).Elem()
+
+type AppServiceAuthSettingsMicrosoftInput interface {
+	pulumi.Input
+
+	ToAppServiceAuthSettingsMicrosoftOutput() AppServiceAuthSettingsMicrosoftOutput
+	ToAppServiceAuthSettingsMicrosoftOutputWithContext(ctx context.Context) AppServiceAuthSettingsMicrosoftOutput
+}
+
+type AppServiceAuthSettingsMicrosoftArgs struct {
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
+}
+
+func (AppServiceAuthSettingsMicrosoftArgs) ElementType() reflect.Type {
+	return appServiceAuthSettingsMicrosoftType
+}
+
+func (a AppServiceAuthSettingsMicrosoftArgs) ToAppServiceAuthSettingsMicrosoftOutput() AppServiceAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutput(a).(AppServiceAuthSettingsMicrosoftOutput)
+}
+
+func (a AppServiceAuthSettingsMicrosoftArgs) ToAppServiceAuthSettingsMicrosoftOutputWithContext(ctx context.Context) AppServiceAuthSettingsMicrosoftOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceAuthSettingsMicrosoftOutput)
+}
+
+type AppServiceAuthSettingsMicrosoftOutput struct { *pulumi.OutputState }
+
+func (o AppServiceAuthSettingsMicrosoftOutput) ClientId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsMicrosoft) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsMicrosoftOutput) ClientSecret() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsMicrosoft) string {
+		return v.ClientSecret
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsMicrosoftOutput) OauthScopes() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceAuthSettingsMicrosoft) []string {
+		if v.OauthScopes == nil { return *new([]string) } else { return *v.OauthScopes }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (AppServiceAuthSettingsMicrosoftOutput) ElementType() reflect.Type {
+	return appServiceAuthSettingsMicrosoftType
+}
+
+func (o AppServiceAuthSettingsMicrosoftOutput) ToAppServiceAuthSettingsMicrosoftOutput() AppServiceAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func (o AppServiceAuthSettingsMicrosoftOutput) ToAppServiceAuthSettingsMicrosoftOutputWithContext(ctx context.Context) AppServiceAuthSettingsMicrosoftOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceAuthSettingsMicrosoftOutput{}) }
+
+type AppServiceAuthSettingsTwitter struct {
+	ConsumerKey string `pulumi:"consumerKey"`
+	ConsumerSecret string `pulumi:"consumerSecret"`
+}
+var appServiceAuthSettingsTwitterType = reflect.TypeOf((*AppServiceAuthSettingsTwitter)(nil)).Elem()
+
+type AppServiceAuthSettingsTwitterInput interface {
+	pulumi.Input
+
+	ToAppServiceAuthSettingsTwitterOutput() AppServiceAuthSettingsTwitterOutput
+	ToAppServiceAuthSettingsTwitterOutputWithContext(ctx context.Context) AppServiceAuthSettingsTwitterOutput
+}
+
+type AppServiceAuthSettingsTwitterArgs struct {
+	ConsumerKey pulumi.StringInput `pulumi:"consumerKey"`
+	ConsumerSecret pulumi.StringInput `pulumi:"consumerSecret"`
+}
+
+func (AppServiceAuthSettingsTwitterArgs) ElementType() reflect.Type {
+	return appServiceAuthSettingsTwitterType
+}
+
+func (a AppServiceAuthSettingsTwitterArgs) ToAppServiceAuthSettingsTwitterOutput() AppServiceAuthSettingsTwitterOutput {
+	return pulumi.ToOutput(a).(AppServiceAuthSettingsTwitterOutput)
+}
+
+func (a AppServiceAuthSettingsTwitterArgs) ToAppServiceAuthSettingsTwitterOutputWithContext(ctx context.Context) AppServiceAuthSettingsTwitterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceAuthSettingsTwitterOutput)
+}
+
+type AppServiceAuthSettingsTwitterOutput struct { *pulumi.OutputState }
+
+func (o AppServiceAuthSettingsTwitterOutput) ConsumerKey() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsTwitter) string {
+		return v.ConsumerKey
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceAuthSettingsTwitterOutput) ConsumerSecret() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceAuthSettingsTwitter) string {
+		return v.ConsumerSecret
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceAuthSettingsTwitterOutput) ElementType() reflect.Type {
+	return appServiceAuthSettingsTwitterType
+}
+
+func (o AppServiceAuthSettingsTwitterOutput) ToAppServiceAuthSettingsTwitterOutput() AppServiceAuthSettingsTwitterOutput {
+	return o
+}
+
+func (o AppServiceAuthSettingsTwitterOutput) ToAppServiceAuthSettingsTwitterOutputWithContext(ctx context.Context) AppServiceAuthSettingsTwitterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceAuthSettingsTwitterOutput{}) }
+
+type AppServiceBackup struct {
+	// Is the App Service Enabled?
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Schedule AppServiceBackupSchedule `pulumi:"schedule"`
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
+}
+var appServiceBackupType = reflect.TypeOf((*AppServiceBackup)(nil)).Elem()
+
+type AppServiceBackupInput interface {
+	pulumi.Input
+
+	ToAppServiceBackupOutput() AppServiceBackupOutput
+	ToAppServiceBackupOutputWithContext(ctx context.Context) AppServiceBackupOutput
+}
+
+type AppServiceBackupArgs struct {
+	// Is the App Service Enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Schedule AppServiceBackupScheduleInput `pulumi:"schedule"`
+	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
+}
+
+func (AppServiceBackupArgs) ElementType() reflect.Type {
+	return appServiceBackupType
+}
+
+func (a AppServiceBackupArgs) ToAppServiceBackupOutput() AppServiceBackupOutput {
+	return pulumi.ToOutput(a).(AppServiceBackupOutput)
+}
+
+func (a AppServiceBackupArgs) ToAppServiceBackupOutputWithContext(ctx context.Context) AppServiceBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceBackupOutput)
+}
+
+type AppServiceBackupOutput struct { *pulumi.OutputState }
+
+// Is the App Service Enabled?
+func (o AppServiceBackupOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceBackup) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+// Specifies the name of the App Service. Changing this forces a new resource to be created.
+func (o AppServiceBackupOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceBackup) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceBackupOutput) Schedule() AppServiceBackupScheduleOutput {
+	return o.Apply(func(v AppServiceBackup) AppServiceBackupSchedule {
+		return v.Schedule
+	}).(AppServiceBackupScheduleOutput)
+}
+
+func (o AppServiceBackupOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceBackup) string {
+		return v.StorageAccountUrl
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceBackupOutput) ElementType() reflect.Type {
+	return appServiceBackupType
+}
+
+func (o AppServiceBackupOutput) ToAppServiceBackupOutput() AppServiceBackupOutput {
+	return o
+}
+
+func (o AppServiceBackupOutput) ToAppServiceBackupOutputWithContext(ctx context.Context) AppServiceBackupOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceBackupOutput{}) }
+
+type AppServiceBackupSchedule struct {
+	FrequencyInterval int `pulumi:"frequencyInterval"`
+	FrequencyUnit string `pulumi:"frequencyUnit"`
+	KeepAtLeastOneBackup *bool `pulumi:"keepAtLeastOneBackup"`
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	StartTime *string `pulumi:"startTime"`
+}
+var appServiceBackupScheduleType = reflect.TypeOf((*AppServiceBackupSchedule)(nil)).Elem()
+
+type AppServiceBackupScheduleInput interface {
+	pulumi.Input
+
+	ToAppServiceBackupScheduleOutput() AppServiceBackupScheduleOutput
+	ToAppServiceBackupScheduleOutputWithContext(ctx context.Context) AppServiceBackupScheduleOutput
+}
+
+type AppServiceBackupScheduleArgs struct {
+	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
+	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (AppServiceBackupScheduleArgs) ElementType() reflect.Type {
+	return appServiceBackupScheduleType
+}
+
+func (a AppServiceBackupScheduleArgs) ToAppServiceBackupScheduleOutput() AppServiceBackupScheduleOutput {
+	return pulumi.ToOutput(a).(AppServiceBackupScheduleOutput)
+}
+
+func (a AppServiceBackupScheduleArgs) ToAppServiceBackupScheduleOutputWithContext(ctx context.Context) AppServiceBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceBackupScheduleOutput)
+}
+
+type AppServiceBackupScheduleOutput struct { *pulumi.OutputState }
+
+func (o AppServiceBackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
+	return o.Apply(func(v AppServiceBackupSchedule) int {
+		return v.FrequencyInterval
+	}).(pulumi.IntOutput)
+}
+
+func (o AppServiceBackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceBackupSchedule) string {
+		return v.FrequencyUnit
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceBackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceBackupSchedule) bool {
+		if v.KeepAtLeastOneBackup == nil { return *new(bool) } else { return *v.KeepAtLeastOneBackup }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.Apply(func(v AppServiceBackupSchedule) int {
+		if v.RetentionPeriodInDays == nil { return *new(int) } else { return *v.RetentionPeriodInDays }
+	}).(pulumi.IntOutput)
+}
+
+func (o AppServiceBackupScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceBackupSchedule) string {
+		if v.StartTime == nil { return *new(string) } else { return *v.StartTime }
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceBackupScheduleOutput) ElementType() reflect.Type {
+	return appServiceBackupScheduleType
+}
+
+func (o AppServiceBackupScheduleOutput) ToAppServiceBackupScheduleOutput() AppServiceBackupScheduleOutput {
+	return o
+}
+
+func (o AppServiceBackupScheduleOutput) ToAppServiceBackupScheduleOutputWithContext(ctx context.Context) AppServiceBackupScheduleOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceBackupScheduleOutput{}) }
+
+type AppServiceConnectionStrings struct {
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Type string `pulumi:"type"`
+	Value string `pulumi:"value"`
+}
+var appServiceConnectionStringsType = reflect.TypeOf((*AppServiceConnectionStrings)(nil)).Elem()
+
+type AppServiceConnectionStringsInput interface {
+	pulumi.Input
+
+	ToAppServiceConnectionStringsOutput() AppServiceConnectionStringsOutput
+	ToAppServiceConnectionStringsOutputWithContext(ctx context.Context) AppServiceConnectionStringsOutput
+}
+
+type AppServiceConnectionStringsArgs struct {
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AppServiceConnectionStringsArgs) ElementType() reflect.Type {
+	return appServiceConnectionStringsType
+}
+
+func (a AppServiceConnectionStringsArgs) ToAppServiceConnectionStringsOutput() AppServiceConnectionStringsOutput {
+	return pulumi.ToOutput(a).(AppServiceConnectionStringsOutput)
+}
+
+func (a AppServiceConnectionStringsArgs) ToAppServiceConnectionStringsOutputWithContext(ctx context.Context) AppServiceConnectionStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceConnectionStringsOutput)
+}
+
+type AppServiceConnectionStringsOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the App Service. Changing this forces a new resource to be created.
+func (o AppServiceConnectionStringsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceConnectionStrings) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceConnectionStringsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceConnectionStrings) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceConnectionStringsOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceConnectionStrings) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceConnectionStringsOutput) ElementType() reflect.Type {
+	return appServiceConnectionStringsType
+}
+
+func (o AppServiceConnectionStringsOutput) ToAppServiceConnectionStringsOutput() AppServiceConnectionStringsOutput {
+	return o
+}
+
+func (o AppServiceConnectionStringsOutput) ToAppServiceConnectionStringsOutputWithContext(ctx context.Context) AppServiceConnectionStringsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceConnectionStringsOutput{}) }
+
+var appServiceConnectionStringsArrayType = reflect.TypeOf((*[]AppServiceConnectionStrings)(nil)).Elem()
+
+type AppServiceConnectionStringsArrayInput interface {
+	pulumi.Input
+
+	ToAppServiceConnectionStringsArrayOutput() AppServiceConnectionStringsArrayOutput
+	ToAppServiceConnectionStringsArrayOutputWithContext(ctx context.Context) AppServiceConnectionStringsArrayOutput
+}
+
+type AppServiceConnectionStringsArrayArgs []AppServiceConnectionStringsInput
+
+func (AppServiceConnectionStringsArrayArgs) ElementType() reflect.Type {
+	return appServiceConnectionStringsArrayType
+}
+
+func (a AppServiceConnectionStringsArrayArgs) ToAppServiceConnectionStringsArrayOutput() AppServiceConnectionStringsArrayOutput {
+	return pulumi.ToOutput(a).(AppServiceConnectionStringsArrayOutput)
+}
+
+func (a AppServiceConnectionStringsArrayArgs) ToAppServiceConnectionStringsArrayOutputWithContext(ctx context.Context) AppServiceConnectionStringsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceConnectionStringsArrayOutput)
+}
+
+type AppServiceConnectionStringsArrayOutput struct { *pulumi.OutputState }
+
+func (o AppServiceConnectionStringsArrayOutput) Index(i pulumi.IntInput) AppServiceConnectionStringsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AppServiceConnectionStrings {
+		return vs[0].([]AppServiceConnectionStrings)[vs[1].(int)]
+	}).(AppServiceConnectionStringsOutput)
+}
+
+func (AppServiceConnectionStringsArrayOutput) ElementType() reflect.Type {
+	return appServiceConnectionStringsArrayType
+}
+
+func (o AppServiceConnectionStringsArrayOutput) ToAppServiceConnectionStringsArrayOutput() AppServiceConnectionStringsArrayOutput {
+	return o
+}
+
+func (o AppServiceConnectionStringsArrayOutput) ToAppServiceConnectionStringsArrayOutputWithContext(ctx context.Context) AppServiceConnectionStringsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceConnectionStringsArrayOutput{}) }
+
+type AppServiceIdentity struct {
+	IdentityIds *[]string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId *string `pulumi:"tenantId"`
+	Type string `pulumi:"type"`
+}
+var appServiceIdentityType = reflect.TypeOf((*AppServiceIdentity)(nil)).Elem()
+
+type AppServiceIdentityInput interface {
+	pulumi.Input
+
+	ToAppServiceIdentityOutput() AppServiceIdentityOutput
+	ToAppServiceIdentityOutputWithContext(ctx context.Context) AppServiceIdentityOutput
+}
+
+type AppServiceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppServiceIdentityArgs) ElementType() reflect.Type {
+	return appServiceIdentityType
+}
+
+func (a AppServiceIdentityArgs) ToAppServiceIdentityOutput() AppServiceIdentityOutput {
+	return pulumi.ToOutput(a).(AppServiceIdentityOutput)
+}
+
+func (a AppServiceIdentityArgs) ToAppServiceIdentityOutputWithContext(ctx context.Context) AppServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceIdentityOutput)
+}
+
+type AppServiceIdentityOutput struct { *pulumi.OutputState }
+
+func (o AppServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceIdentity) []string {
+		if v.IdentityIds == nil { return *new([]string) } else { return *v.IdentityIds }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o AppServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceIdentity) string {
+		if v.PrincipalId == nil { return *new(string) } else { return *v.PrincipalId }
+	}).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+func (o AppServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceIdentity) string {
+		if v.TenantId == nil { return *new(string) } else { return *v.TenantId }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceIdentity) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceIdentityOutput) ElementType() reflect.Type {
+	return appServiceIdentityType
+}
+
+func (o AppServiceIdentityOutput) ToAppServiceIdentityOutput() AppServiceIdentityOutput {
+	return o
+}
+
+func (o AppServiceIdentityOutput) ToAppServiceIdentityOutputWithContext(ctx context.Context) AppServiceIdentityOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceIdentityOutput{}) }
+
+type AppServiceLogs struct {
+	ApplicationLogs *AppServiceLogsApplicationLogs `pulumi:"applicationLogs"`
+	HttpLogs *AppServiceLogsHttpLogs `pulumi:"httpLogs"`
+}
+var appServiceLogsType = reflect.TypeOf((*AppServiceLogs)(nil)).Elem()
+
+type AppServiceLogsInput interface {
+	pulumi.Input
+
+	ToAppServiceLogsOutput() AppServiceLogsOutput
+	ToAppServiceLogsOutputWithContext(ctx context.Context) AppServiceLogsOutput
+}
+
+type AppServiceLogsArgs struct {
+	ApplicationLogs AppServiceLogsApplicationLogsInput `pulumi:"applicationLogs"`
+	HttpLogs AppServiceLogsHttpLogsInput `pulumi:"httpLogs"`
+}
+
+func (AppServiceLogsArgs) ElementType() reflect.Type {
+	return appServiceLogsType
+}
+
+func (a AppServiceLogsArgs) ToAppServiceLogsOutput() AppServiceLogsOutput {
+	return pulumi.ToOutput(a).(AppServiceLogsOutput)
+}
+
+func (a AppServiceLogsArgs) ToAppServiceLogsOutputWithContext(ctx context.Context) AppServiceLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceLogsOutput)
+}
+
+type AppServiceLogsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceLogsOutput) ApplicationLogs() AppServiceLogsApplicationLogsOutput {
+	return o.Apply(func(v AppServiceLogs) AppServiceLogsApplicationLogs {
+		if v.ApplicationLogs == nil { return *new(AppServiceLogsApplicationLogs) } else { return *v.ApplicationLogs }
+	}).(AppServiceLogsApplicationLogsOutput)
+}
+
+func (o AppServiceLogsOutput) HttpLogs() AppServiceLogsHttpLogsOutput {
+	return o.Apply(func(v AppServiceLogs) AppServiceLogsHttpLogs {
+		if v.HttpLogs == nil { return *new(AppServiceLogsHttpLogs) } else { return *v.HttpLogs }
+	}).(AppServiceLogsHttpLogsOutput)
+}
+
+func (AppServiceLogsOutput) ElementType() reflect.Type {
+	return appServiceLogsType
+}
+
+func (o AppServiceLogsOutput) ToAppServiceLogsOutput() AppServiceLogsOutput {
+	return o
+}
+
+func (o AppServiceLogsOutput) ToAppServiceLogsOutputWithContext(ctx context.Context) AppServiceLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceLogsOutput{}) }
+
+type AppServiceLogsApplicationLogs struct {
+	AzureBlobStorage *AppServiceLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
+}
+var appServiceLogsApplicationLogsType = reflect.TypeOf((*AppServiceLogsApplicationLogs)(nil)).Elem()
+
+type AppServiceLogsApplicationLogsInput interface {
+	pulumi.Input
+
+	ToAppServiceLogsApplicationLogsOutput() AppServiceLogsApplicationLogsOutput
+	ToAppServiceLogsApplicationLogsOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsOutput
+}
+
+type AppServiceLogsApplicationLogsArgs struct {
+	AzureBlobStorage AppServiceLogsApplicationLogsAzureBlobStorageInput `pulumi:"azureBlobStorage"`
+}
+
+func (AppServiceLogsApplicationLogsArgs) ElementType() reflect.Type {
+	return appServiceLogsApplicationLogsType
+}
+
+func (a AppServiceLogsApplicationLogsArgs) ToAppServiceLogsApplicationLogsOutput() AppServiceLogsApplicationLogsOutput {
+	return pulumi.ToOutput(a).(AppServiceLogsApplicationLogsOutput)
+}
+
+func (a AppServiceLogsApplicationLogsArgs) ToAppServiceLogsApplicationLogsOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceLogsApplicationLogsOutput)
+}
+
+type AppServiceLogsApplicationLogsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceLogsApplicationLogsOutput) AzureBlobStorage() AppServiceLogsApplicationLogsAzureBlobStorageOutput {
+	return o.Apply(func(v AppServiceLogsApplicationLogs) AppServiceLogsApplicationLogsAzureBlobStorage {
+		if v.AzureBlobStorage == nil { return *new(AppServiceLogsApplicationLogsAzureBlobStorage) } else { return *v.AzureBlobStorage }
+	}).(AppServiceLogsApplicationLogsAzureBlobStorageOutput)
+}
+
+func (AppServiceLogsApplicationLogsOutput) ElementType() reflect.Type {
+	return appServiceLogsApplicationLogsType
+}
+
+func (o AppServiceLogsApplicationLogsOutput) ToAppServiceLogsApplicationLogsOutput() AppServiceLogsApplicationLogsOutput {
+	return o
+}
+
+func (o AppServiceLogsApplicationLogsOutput) ToAppServiceLogsApplicationLogsOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceLogsApplicationLogsOutput{}) }
+
+type AppServiceLogsApplicationLogsAzureBlobStorage struct {
+	Level string `pulumi:"level"`
+	RetentionInDays int `pulumi:"retentionInDays"`
+	SasUrl string `pulumi:"sasUrl"`
+}
+var appServiceLogsApplicationLogsAzureBlobStorageType = reflect.TypeOf((*AppServiceLogsApplicationLogsAzureBlobStorage)(nil)).Elem()
+
+type AppServiceLogsApplicationLogsAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToAppServiceLogsApplicationLogsAzureBlobStorageOutput() AppServiceLogsApplicationLogsAzureBlobStorageOutput
+	ToAppServiceLogsApplicationLogsAzureBlobStorageOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsAzureBlobStorageOutput
+}
+
+type AppServiceLogsApplicationLogsAzureBlobStorageArgs struct {
+	Level pulumi.StringInput `pulumi:"level"`
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (AppServiceLogsApplicationLogsAzureBlobStorageArgs) ElementType() reflect.Type {
+	return appServiceLogsApplicationLogsAzureBlobStorageType
+}
+
+func (a AppServiceLogsApplicationLogsAzureBlobStorageArgs) ToAppServiceLogsApplicationLogsAzureBlobStorageOutput() AppServiceLogsApplicationLogsAzureBlobStorageOutput {
+	return pulumi.ToOutput(a).(AppServiceLogsApplicationLogsAzureBlobStorageOutput)
+}
+
+func (a AppServiceLogsApplicationLogsAzureBlobStorageArgs) ToAppServiceLogsApplicationLogsAzureBlobStorageOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceLogsApplicationLogsAzureBlobStorageOutput)
+}
+
+type AppServiceLogsApplicationLogsAzureBlobStorageOutput struct { *pulumi.OutputState }
+
+func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) Level() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string {
+		return v.Level
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.Apply(func(v AppServiceLogsApplicationLogsAzureBlobStorage) int {
+		return v.RetentionInDays
+	}).(pulumi.IntOutput)
+}
+
+func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceLogsApplicationLogsAzureBlobStorage) string {
+		return v.SasUrl
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceLogsApplicationLogsAzureBlobStorageOutput) ElementType() reflect.Type {
+	return appServiceLogsApplicationLogsAzureBlobStorageType
+}
+
+func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) ToAppServiceLogsApplicationLogsAzureBlobStorageOutput() AppServiceLogsApplicationLogsAzureBlobStorageOutput {
+	return o
+}
+
+func (o AppServiceLogsApplicationLogsAzureBlobStorageOutput) ToAppServiceLogsApplicationLogsAzureBlobStorageOutputWithContext(ctx context.Context) AppServiceLogsApplicationLogsAzureBlobStorageOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceLogsApplicationLogsAzureBlobStorageOutput{}) }
+
+type AppServiceLogsHttpLogs struct {
+	AzureBlobStorage *AppServiceLogsHttpLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
+	FileSystem *AppServiceLogsHttpLogsFileSystem `pulumi:"fileSystem"`
+}
+var appServiceLogsHttpLogsType = reflect.TypeOf((*AppServiceLogsHttpLogs)(nil)).Elem()
+
+type AppServiceLogsHttpLogsInput interface {
+	pulumi.Input
+
+	ToAppServiceLogsHttpLogsOutput() AppServiceLogsHttpLogsOutput
+	ToAppServiceLogsHttpLogsOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsOutput
+}
+
+type AppServiceLogsHttpLogsArgs struct {
+	AzureBlobStorage AppServiceLogsHttpLogsAzureBlobStorageInput `pulumi:"azureBlobStorage"`
+	FileSystem AppServiceLogsHttpLogsFileSystemInput `pulumi:"fileSystem"`
+}
+
+func (AppServiceLogsHttpLogsArgs) ElementType() reflect.Type {
+	return appServiceLogsHttpLogsType
+}
+
+func (a AppServiceLogsHttpLogsArgs) ToAppServiceLogsHttpLogsOutput() AppServiceLogsHttpLogsOutput {
+	return pulumi.ToOutput(a).(AppServiceLogsHttpLogsOutput)
+}
+
+func (a AppServiceLogsHttpLogsArgs) ToAppServiceLogsHttpLogsOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceLogsHttpLogsOutput)
+}
+
+type AppServiceLogsHttpLogsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceLogsHttpLogsOutput) AzureBlobStorage() AppServiceLogsHttpLogsAzureBlobStorageOutput {
+	return o.Apply(func(v AppServiceLogsHttpLogs) AppServiceLogsHttpLogsAzureBlobStorage {
+		if v.AzureBlobStorage == nil { return *new(AppServiceLogsHttpLogsAzureBlobStorage) } else { return *v.AzureBlobStorage }
+	}).(AppServiceLogsHttpLogsAzureBlobStorageOutput)
+}
+
+func (o AppServiceLogsHttpLogsOutput) FileSystem() AppServiceLogsHttpLogsFileSystemOutput {
+	return o.Apply(func(v AppServiceLogsHttpLogs) AppServiceLogsHttpLogsFileSystem {
+		if v.FileSystem == nil { return *new(AppServiceLogsHttpLogsFileSystem) } else { return *v.FileSystem }
+	}).(AppServiceLogsHttpLogsFileSystemOutput)
+}
+
+func (AppServiceLogsHttpLogsOutput) ElementType() reflect.Type {
+	return appServiceLogsHttpLogsType
+}
+
+func (o AppServiceLogsHttpLogsOutput) ToAppServiceLogsHttpLogsOutput() AppServiceLogsHttpLogsOutput {
+	return o
+}
+
+func (o AppServiceLogsHttpLogsOutput) ToAppServiceLogsHttpLogsOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceLogsHttpLogsOutput{}) }
+
+type AppServiceLogsHttpLogsAzureBlobStorage struct {
+	RetentionInDays int `pulumi:"retentionInDays"`
+	SasUrl string `pulumi:"sasUrl"`
+}
+var appServiceLogsHttpLogsAzureBlobStorageType = reflect.TypeOf((*AppServiceLogsHttpLogsAzureBlobStorage)(nil)).Elem()
+
+type AppServiceLogsHttpLogsAzureBlobStorageInput interface {
+	pulumi.Input
+
+	ToAppServiceLogsHttpLogsAzureBlobStorageOutput() AppServiceLogsHttpLogsAzureBlobStorageOutput
+	ToAppServiceLogsHttpLogsAzureBlobStorageOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsAzureBlobStorageOutput
+}
+
+type AppServiceLogsHttpLogsAzureBlobStorageArgs struct {
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (AppServiceLogsHttpLogsAzureBlobStorageArgs) ElementType() reflect.Type {
+	return appServiceLogsHttpLogsAzureBlobStorageType
+}
+
+func (a AppServiceLogsHttpLogsAzureBlobStorageArgs) ToAppServiceLogsHttpLogsAzureBlobStorageOutput() AppServiceLogsHttpLogsAzureBlobStorageOutput {
+	return pulumi.ToOutput(a).(AppServiceLogsHttpLogsAzureBlobStorageOutput)
+}
+
+func (a AppServiceLogsHttpLogsAzureBlobStorageArgs) ToAppServiceLogsHttpLogsAzureBlobStorageOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsAzureBlobStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceLogsHttpLogsAzureBlobStorageOutput)
+}
+
+type AppServiceLogsHttpLogsAzureBlobStorageOutput struct { *pulumi.OutputState }
+
+func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) RetentionInDays() pulumi.IntOutput {
+	return o.Apply(func(v AppServiceLogsHttpLogsAzureBlobStorage) int {
+		return v.RetentionInDays
+	}).(pulumi.IntOutput)
+}
+
+func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) SasUrl() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceLogsHttpLogsAzureBlobStorage) string {
+		return v.SasUrl
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceLogsHttpLogsAzureBlobStorageOutput) ElementType() reflect.Type {
+	return appServiceLogsHttpLogsAzureBlobStorageType
+}
+
+func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) ToAppServiceLogsHttpLogsAzureBlobStorageOutput() AppServiceLogsHttpLogsAzureBlobStorageOutput {
+	return o
+}
+
+func (o AppServiceLogsHttpLogsAzureBlobStorageOutput) ToAppServiceLogsHttpLogsAzureBlobStorageOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsAzureBlobStorageOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceLogsHttpLogsAzureBlobStorageOutput{}) }
+
+type AppServiceLogsHttpLogsFileSystem struct {
+	RetentionInDays int `pulumi:"retentionInDays"`
+	RetentionInMb int `pulumi:"retentionInMb"`
+}
+var appServiceLogsHttpLogsFileSystemType = reflect.TypeOf((*AppServiceLogsHttpLogsFileSystem)(nil)).Elem()
+
+type AppServiceLogsHttpLogsFileSystemInput interface {
+	pulumi.Input
+
+	ToAppServiceLogsHttpLogsFileSystemOutput() AppServiceLogsHttpLogsFileSystemOutput
+	ToAppServiceLogsHttpLogsFileSystemOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsFileSystemOutput
+}
+
+type AppServiceLogsHttpLogsFileSystemArgs struct {
+	RetentionInDays pulumi.IntInput `pulumi:"retentionInDays"`
+	RetentionInMb pulumi.IntInput `pulumi:"retentionInMb"`
+}
+
+func (AppServiceLogsHttpLogsFileSystemArgs) ElementType() reflect.Type {
+	return appServiceLogsHttpLogsFileSystemType
+}
+
+func (a AppServiceLogsHttpLogsFileSystemArgs) ToAppServiceLogsHttpLogsFileSystemOutput() AppServiceLogsHttpLogsFileSystemOutput {
+	return pulumi.ToOutput(a).(AppServiceLogsHttpLogsFileSystemOutput)
+}
+
+func (a AppServiceLogsHttpLogsFileSystemArgs) ToAppServiceLogsHttpLogsFileSystemOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceLogsHttpLogsFileSystemOutput)
+}
+
+type AppServiceLogsHttpLogsFileSystemOutput struct { *pulumi.OutputState }
+
+func (o AppServiceLogsHttpLogsFileSystemOutput) RetentionInDays() pulumi.IntOutput {
+	return o.Apply(func(v AppServiceLogsHttpLogsFileSystem) int {
+		return v.RetentionInDays
+	}).(pulumi.IntOutput)
+}
+
+func (o AppServiceLogsHttpLogsFileSystemOutput) RetentionInMb() pulumi.IntOutput {
+	return o.Apply(func(v AppServiceLogsHttpLogsFileSystem) int {
+		return v.RetentionInMb
+	}).(pulumi.IntOutput)
+}
+
+func (AppServiceLogsHttpLogsFileSystemOutput) ElementType() reflect.Type {
+	return appServiceLogsHttpLogsFileSystemType
+}
+
+func (o AppServiceLogsHttpLogsFileSystemOutput) ToAppServiceLogsHttpLogsFileSystemOutput() AppServiceLogsHttpLogsFileSystemOutput {
+	return o
+}
+
+func (o AppServiceLogsHttpLogsFileSystemOutput) ToAppServiceLogsHttpLogsFileSystemOutputWithContext(ctx context.Context) AppServiceLogsHttpLogsFileSystemOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceLogsHttpLogsFileSystemOutput{}) }
+
+type AppServiceSiteConfig struct {
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	AppCommandLine *string `pulumi:"appCommandLine"`
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
+	Cors *AppServiceSiteConfigCors `pulumi:"cors"`
+	DefaultDocuments *[]string `pulumi:"defaultDocuments"`
+	DotnetFrameworkVersion *string `pulumi:"dotnetFrameworkVersion"`
+	FtpsState *string `pulumi:"ftpsState"`
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	IpRestrictions *[]AppServiceSiteConfigIpRestrictions `pulumi:"ipRestrictions"`
+	JavaContainer *string `pulumi:"javaContainer"`
+	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
+	JavaVersion *string `pulumi:"javaVersion"`
+	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
+	LocalMysqlEnabled *bool `pulumi:"localMysqlEnabled"`
+	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
+	PhpVersion *string `pulumi:"phpVersion"`
+	PythonVersion *string `pulumi:"pythonVersion"`
+	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
+	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	ScmType *string `pulumi:"scmType"`
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
+	WebsocketsEnabled *bool `pulumi:"websocketsEnabled"`
+	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
+}
+var appServiceSiteConfigType = reflect.TypeOf((*AppServiceSiteConfig)(nil)).Elem()
+
+type AppServiceSiteConfigInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigOutput() AppServiceSiteConfigOutput
+	ToAppServiceSiteConfigOutputWithContext(ctx context.Context) AppServiceSiteConfigOutput
+}
+
+type AppServiceSiteConfigArgs struct {
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
+	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
+	AutoSwapSlotName pulumi.StringInput `pulumi:"autoSwapSlotName"`
+	Cors AppServiceSiteConfigCorsInput `pulumi:"cors"`
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	DotnetFrameworkVersion pulumi.StringInput `pulumi:"dotnetFrameworkVersion"`
+	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	IpRestrictions AppServiceSiteConfigIpRestrictionsArrayInput `pulumi:"ipRestrictions"`
+	JavaContainer pulumi.StringInput `pulumi:"javaContainer"`
+	JavaContainerVersion pulumi.StringInput `pulumi:"javaContainerVersion"`
+	JavaVersion pulumi.StringInput `pulumi:"javaVersion"`
+	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
+	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
+	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	MinTlsVersion pulumi.StringInput `pulumi:"minTlsVersion"`
+	PhpVersion pulumi.StringInput `pulumi:"phpVersion"`
+	PythonVersion pulumi.StringInput `pulumi:"pythonVersion"`
+	RemoteDebuggingEnabled pulumi.BoolInput `pulumi:"remoteDebuggingEnabled"`
+	RemoteDebuggingVersion pulumi.StringInput `pulumi:"remoteDebuggingVersion"`
+	ScmType pulumi.StringInput `pulumi:"scmType"`
+	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+	WindowsFxVersion pulumi.StringInput `pulumi:"windowsFxVersion"`
+}
+
+func (AppServiceSiteConfigArgs) ElementType() reflect.Type {
+	return appServiceSiteConfigType
+}
+
+func (a AppServiceSiteConfigArgs) ToAppServiceSiteConfigOutput() AppServiceSiteConfigOutput {
+	return pulumi.ToOutput(a).(AppServiceSiteConfigOutput)
+}
+
+func (a AppServiceSiteConfigArgs) ToAppServiceSiteConfigOutputWithContext(ctx context.Context) AppServiceSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceSiteConfigOutput)
+}
+
+type AppServiceSiteConfigOutput struct { *pulumi.OutputState }
+
+func (o AppServiceSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfig) bool {
+		if v.AlwaysOn == nil { return *new(bool) } else { return *v.AlwaysOn }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.AppCommandLine == nil { return *new(string) } else { return *v.AppCommandLine }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.AutoSwapSlotName == nil { return *new(string) } else { return *v.AutoSwapSlotName }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) Cors() AppServiceSiteConfigCorsOutput {
+	return o.Apply(func(v AppServiceSiteConfig) AppServiceSiteConfigCors {
+		if v.Cors == nil { return *new(AppServiceSiteConfigCors) } else { return *v.Cors }
+	}).(AppServiceSiteConfigCorsOutput)
+}
+
+func (o AppServiceSiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceSiteConfig) []string {
+		if v.DefaultDocuments == nil { return *new([]string) } else { return *v.DefaultDocuments }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AppServiceSiteConfigOutput) DotnetFrameworkVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.DotnetFrameworkVersion == nil { return *new(string) } else { return *v.DotnetFrameworkVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.FtpsState == nil { return *new(string) } else { return *v.FtpsState }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfig) bool {
+		if v.Http2Enabled == nil { return *new(bool) } else { return *v.Http2Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceSiteConfigOutput) IpRestrictions() AppServiceSiteConfigIpRestrictionsArrayOutput {
+	return o.Apply(func(v AppServiceSiteConfig) []AppServiceSiteConfigIpRestrictions {
+		if v.IpRestrictions == nil { return *new([]AppServiceSiteConfigIpRestrictions) } else { return *v.IpRestrictions }
+	}).(AppServiceSiteConfigIpRestrictionsArrayOutput)
+}
+
+func (o AppServiceSiteConfigOutput) JavaContainer() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.JavaContainer == nil { return *new(string) } else { return *v.JavaContainer }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) JavaContainerVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.JavaContainerVersion == nil { return *new(string) } else { return *v.JavaContainerVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) JavaVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.JavaVersion == nil { return *new(string) } else { return *v.JavaVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.LinuxFxVersion == nil { return *new(string) } else { return *v.LinuxFxVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfig) bool {
+		if v.LocalMysqlEnabled == nil { return *new(bool) } else { return *v.LocalMysqlEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.ManagedPipelineMode == nil { return *new(string) } else { return *v.ManagedPipelineMode }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.MinTlsVersion == nil { return *new(string) } else { return *v.MinTlsVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) PhpVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.PhpVersion == nil { return *new(string) } else { return *v.PhpVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) PythonVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.PythonVersion == nil { return *new(string) } else { return *v.PythonVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfig) bool {
+		if v.RemoteDebuggingEnabled == nil { return *new(bool) } else { return *v.RemoteDebuggingEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceSiteConfigOutput) RemoteDebuggingVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.RemoteDebuggingVersion == nil { return *new(string) } else { return *v.RemoteDebuggingVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.ScmType == nil { return *new(string) } else { return *v.ScmType }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfig) bool {
+		if v.Use32BitWorkerProcess == nil { return *new(bool) } else { return *v.Use32BitWorkerProcess }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceSiteConfigOutput) VirtualNetworkName() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.VirtualNetworkName == nil { return *new(string) } else { return *v.VirtualNetworkName }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfig) bool {
+		if v.WebsocketsEnabled == nil { return *new(bool) } else { return *v.WebsocketsEnabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o AppServiceSiteConfigOutput) WindowsFxVersion() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfig) string {
+		if v.WindowsFxVersion == nil { return *new(string) } else { return *v.WindowsFxVersion }
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceSiteConfigOutput) ElementType() reflect.Type {
+	return appServiceSiteConfigType
+}
+
+func (o AppServiceSiteConfigOutput) ToAppServiceSiteConfigOutput() AppServiceSiteConfigOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigOutput) ToAppServiceSiteConfigOutputWithContext(ctx context.Context) AppServiceSiteConfigOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceSiteConfigOutput{}) }
+
+type AppServiceSiteConfigCors struct {
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool `pulumi:"supportCredentials"`
+}
+var appServiceSiteConfigCorsType = reflect.TypeOf((*AppServiceSiteConfigCors)(nil)).Elem()
+
+type AppServiceSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigCorsOutput() AppServiceSiteConfigCorsOutput
+	ToAppServiceSiteConfigCorsOutputWithContext(ctx context.Context) AppServiceSiteConfigCorsOutput
+}
+
+type AppServiceSiteConfigCorsArgs struct {
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
+}
+
+func (AppServiceSiteConfigCorsArgs) ElementType() reflect.Type {
+	return appServiceSiteConfigCorsType
+}
+
+func (a AppServiceSiteConfigCorsArgs) ToAppServiceSiteConfigCorsOutput() AppServiceSiteConfigCorsOutput {
+	return pulumi.ToOutput(a).(AppServiceSiteConfigCorsOutput)
+}
+
+func (a AppServiceSiteConfigCorsArgs) ToAppServiceSiteConfigCorsOutputWithContext(ctx context.Context) AppServiceSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceSiteConfigCorsOutput)
+}
+
+type AppServiceSiteConfigCorsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.Apply(func(v AppServiceSiteConfigCors) []string {
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AppServiceSiteConfigCorsOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.Apply(func(v AppServiceSiteConfigCors) bool {
+		if v.SupportCredentials == nil { return *new(bool) } else { return *v.SupportCredentials }
+	}).(pulumi.BoolOutput)
+}
+
+func (AppServiceSiteConfigCorsOutput) ElementType() reflect.Type {
+	return appServiceSiteConfigCorsType
+}
+
+func (o AppServiceSiteConfigCorsOutput) ToAppServiceSiteConfigCorsOutput() AppServiceSiteConfigCorsOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigCorsOutput) ToAppServiceSiteConfigCorsOutputWithContext(ctx context.Context) AppServiceSiteConfigCorsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceSiteConfigCorsOutput{}) }
+
+type AppServiceSiteConfigIpRestrictions struct {
+	IpAddress *string `pulumi:"ipAddress"`
+	SubnetMask *string `pulumi:"subnetMask"`
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+var appServiceSiteConfigIpRestrictionsType = reflect.TypeOf((*AppServiceSiteConfigIpRestrictions)(nil)).Elem()
+
+type AppServiceSiteConfigIpRestrictionsInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigIpRestrictionsOutput() AppServiceSiteConfigIpRestrictionsOutput
+	ToAppServiceSiteConfigIpRestrictionsOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionsOutput
+}
+
+type AppServiceSiteConfigIpRestrictionsArgs struct {
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	SubnetMask pulumi.StringInput `pulumi:"subnetMask"`
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (AppServiceSiteConfigIpRestrictionsArgs) ElementType() reflect.Type {
+	return appServiceSiteConfigIpRestrictionsType
+}
+
+func (a AppServiceSiteConfigIpRestrictionsArgs) ToAppServiceSiteConfigIpRestrictionsOutput() AppServiceSiteConfigIpRestrictionsOutput {
+	return pulumi.ToOutput(a).(AppServiceSiteConfigIpRestrictionsOutput)
+}
+
+func (a AppServiceSiteConfigIpRestrictionsArgs) ToAppServiceSiteConfigIpRestrictionsOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceSiteConfigIpRestrictionsOutput)
+}
+
+type AppServiceSiteConfigIpRestrictionsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceSiteConfigIpRestrictionsOutput) IpAddress() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfigIpRestrictions) string {
+		if v.IpAddress == nil { return *new(string) } else { return *v.IpAddress }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigIpRestrictionsOutput) SubnetMask() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfigIpRestrictions) string {
+		if v.SubnetMask == nil { return *new(string) } else { return *v.SubnetMask }
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceSiteConfigIpRestrictionsOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteConfigIpRestrictions) string {
+		if v.VirtualNetworkSubnetId == nil { return *new(string) } else { return *v.VirtualNetworkSubnetId }
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceSiteConfigIpRestrictionsOutput) ElementType() reflect.Type {
+	return appServiceSiteConfigIpRestrictionsType
+}
+
+func (o AppServiceSiteConfigIpRestrictionsOutput) ToAppServiceSiteConfigIpRestrictionsOutput() AppServiceSiteConfigIpRestrictionsOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigIpRestrictionsOutput) ToAppServiceSiteConfigIpRestrictionsOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionsOutput{}) }
+
+var appServiceSiteConfigIpRestrictionsArrayType = reflect.TypeOf((*[]AppServiceSiteConfigIpRestrictions)(nil)).Elem()
+
+type AppServiceSiteConfigIpRestrictionsArrayInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigIpRestrictionsArrayOutput() AppServiceSiteConfigIpRestrictionsArrayOutput
+	ToAppServiceSiteConfigIpRestrictionsArrayOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionsArrayOutput
+}
+
+type AppServiceSiteConfigIpRestrictionsArrayArgs []AppServiceSiteConfigIpRestrictionsInput
+
+func (AppServiceSiteConfigIpRestrictionsArrayArgs) ElementType() reflect.Type {
+	return appServiceSiteConfigIpRestrictionsArrayType
+}
+
+func (a AppServiceSiteConfigIpRestrictionsArrayArgs) ToAppServiceSiteConfigIpRestrictionsArrayOutput() AppServiceSiteConfigIpRestrictionsArrayOutput {
+	return pulumi.ToOutput(a).(AppServiceSiteConfigIpRestrictionsArrayOutput)
+}
+
+func (a AppServiceSiteConfigIpRestrictionsArrayArgs) ToAppServiceSiteConfigIpRestrictionsArrayOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceSiteConfigIpRestrictionsArrayOutput)
+}
+
+type AppServiceSiteConfigIpRestrictionsArrayOutput struct { *pulumi.OutputState }
+
+func (o AppServiceSiteConfigIpRestrictionsArrayOutput) Index(i pulumi.IntInput) AppServiceSiteConfigIpRestrictionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AppServiceSiteConfigIpRestrictions {
+		return vs[0].([]AppServiceSiteConfigIpRestrictions)[vs[1].(int)]
+	}).(AppServiceSiteConfigIpRestrictionsOutput)
+}
+
+func (AppServiceSiteConfigIpRestrictionsArrayOutput) ElementType() reflect.Type {
+	return appServiceSiteConfigIpRestrictionsArrayType
+}
+
+func (o AppServiceSiteConfigIpRestrictionsArrayOutput) ToAppServiceSiteConfigIpRestrictionsArrayOutput() AppServiceSiteConfigIpRestrictionsArrayOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigIpRestrictionsArrayOutput) ToAppServiceSiteConfigIpRestrictionsArrayOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionsArrayOutput{}) }
+
+type AppServiceSiteCredential struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password string `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username string `pulumi:"username"`
+}
+var appServiceSiteCredentialType = reflect.TypeOf((*AppServiceSiteCredential)(nil)).Elem()
+
+type AppServiceSiteCredentialInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteCredentialOutput() AppServiceSiteCredentialOutput
+	ToAppServiceSiteCredentialOutputWithContext(ctx context.Context) AppServiceSiteCredentialOutput
+}
+
+type AppServiceSiteCredentialArgs struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (AppServiceSiteCredentialArgs) ElementType() reflect.Type {
+	return appServiceSiteCredentialType
+}
+
+func (a AppServiceSiteCredentialArgs) ToAppServiceSiteCredentialOutput() AppServiceSiteCredentialOutput {
+	return pulumi.ToOutput(a).(AppServiceSiteCredentialOutput)
+}
+
+func (a AppServiceSiteCredentialArgs) ToAppServiceSiteCredentialOutputWithContext(ctx context.Context) AppServiceSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceSiteCredentialOutput)
+}
+
+type AppServiceSiteCredentialOutput struct { *pulumi.OutputState }
+
+// The password associated with the username, which can be used to publish to this App Service.
+func (o AppServiceSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteCredential) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The username which can be used to publish to this App Service
+func (o AppServiceSiteCredentialOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSiteCredential) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceSiteCredentialOutput) ElementType() reflect.Type {
+	return appServiceSiteCredentialType
+}
+
+func (o AppServiceSiteCredentialOutput) ToAppServiceSiteCredentialOutput() AppServiceSiteCredentialOutput {
+	return o
+}
+
+func (o AppServiceSiteCredentialOutput) ToAppServiceSiteCredentialOutputWithContext(ctx context.Context) AppServiceSiteCredentialOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceSiteCredentialOutput{}) }
+
+type AppServiceSourceControl struct {
+	// Branch name of the Git repository for this App Service.
+	Branch string `pulumi:"branch"`
+	// URL of the Git repository for this App Service.
+	RepoUrl string `pulumi:"repoUrl"`
+}
+var appServiceSourceControlType = reflect.TypeOf((*AppServiceSourceControl)(nil)).Elem()
+
+type AppServiceSourceControlInput interface {
+	pulumi.Input
+
+	ToAppServiceSourceControlOutput() AppServiceSourceControlOutput
+	ToAppServiceSourceControlOutputWithContext(ctx context.Context) AppServiceSourceControlOutput
+}
+
+type AppServiceSourceControlArgs struct {
+	// Branch name of the Git repository for this App Service.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// URL of the Git repository for this App Service.
+	RepoUrl pulumi.StringInput `pulumi:"repoUrl"`
+}
+
+func (AppServiceSourceControlArgs) ElementType() reflect.Type {
+	return appServiceSourceControlType
+}
+
+func (a AppServiceSourceControlArgs) ToAppServiceSourceControlOutput() AppServiceSourceControlOutput {
+	return pulumi.ToOutput(a).(AppServiceSourceControlOutput)
+}
+
+func (a AppServiceSourceControlArgs) ToAppServiceSourceControlOutputWithContext(ctx context.Context) AppServiceSourceControlOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceSourceControlOutput)
+}
+
+type AppServiceSourceControlOutput struct { *pulumi.OutputState }
+
+// Branch name of the Git repository for this App Service.
+func (o AppServiceSourceControlOutput) Branch() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSourceControl) string {
+		return v.Branch
+	}).(pulumi.StringOutput)
+}
+
+// URL of the Git repository for this App Service.
+func (o AppServiceSourceControlOutput) RepoUrl() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceSourceControl) string {
+		return v.RepoUrl
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceSourceControlOutput) ElementType() reflect.Type {
+	return appServiceSourceControlType
+}
+
+func (o AppServiceSourceControlOutput) ToAppServiceSourceControlOutput() AppServiceSourceControlOutput {
+	return o
+}
+
+func (o AppServiceSourceControlOutput) ToAppServiceSourceControlOutputWithContext(ctx context.Context) AppServiceSourceControlOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceSourceControlOutput{}) }
+
+type AppServiceStorageAccounts struct {
+	AccessKey string `pulumi:"accessKey"`
+	AccountName string `pulumi:"accountName"`
+	MountPath *string `pulumi:"mountPath"`
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	ShareName string `pulumi:"shareName"`
+	Type string `pulumi:"type"`
+}
+var appServiceStorageAccountsType = reflect.TypeOf((*AppServiceStorageAccounts)(nil)).Elem()
+
+type AppServiceStorageAccountsInput interface {
+	pulumi.Input
+
+	ToAppServiceStorageAccountsOutput() AppServiceStorageAccountsOutput
+	ToAppServiceStorageAccountsOutputWithContext(ctx context.Context) AppServiceStorageAccountsOutput
+}
+
+type AppServiceStorageAccountsArgs struct {
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppServiceStorageAccountsArgs) ElementType() reflect.Type {
+	return appServiceStorageAccountsType
+}
+
+func (a AppServiceStorageAccountsArgs) ToAppServiceStorageAccountsOutput() AppServiceStorageAccountsOutput {
+	return pulumi.ToOutput(a).(AppServiceStorageAccountsOutput)
+}
+
+func (a AppServiceStorageAccountsArgs) ToAppServiceStorageAccountsOutputWithContext(ctx context.Context) AppServiceStorageAccountsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceStorageAccountsOutput)
+}
+
+type AppServiceStorageAccountsOutput struct { *pulumi.OutputState }
+
+func (o AppServiceStorageAccountsOutput) AccessKey() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceStorageAccounts) string {
+		return v.AccessKey
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceStorageAccountsOutput) AccountName() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceStorageAccounts) string {
+		return v.AccountName
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceStorageAccountsOutput) MountPath() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceStorageAccounts) string {
+		if v.MountPath == nil { return *new(string) } else { return *v.MountPath }
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the name of the App Service. Changing this forces a new resource to be created.
+func (o AppServiceStorageAccountsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceStorageAccounts) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceStorageAccountsOutput) ShareName() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceStorageAccounts) string {
+		return v.ShareName
+	}).(pulumi.StringOutput)
+}
+
+func (o AppServiceStorageAccountsOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v AppServiceStorageAccounts) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (AppServiceStorageAccountsOutput) ElementType() reflect.Type {
+	return appServiceStorageAccountsType
+}
+
+func (o AppServiceStorageAccountsOutput) ToAppServiceStorageAccountsOutput() AppServiceStorageAccountsOutput {
+	return o
+}
+
+func (o AppServiceStorageAccountsOutput) ToAppServiceStorageAccountsOutputWithContext(ctx context.Context) AppServiceStorageAccountsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceStorageAccountsOutput{}) }
+
+var appServiceStorageAccountsArrayType = reflect.TypeOf((*[]AppServiceStorageAccounts)(nil)).Elem()
+
+type AppServiceStorageAccountsArrayInput interface {
+	pulumi.Input
+
+	ToAppServiceStorageAccountsArrayOutput() AppServiceStorageAccountsArrayOutput
+	ToAppServiceStorageAccountsArrayOutputWithContext(ctx context.Context) AppServiceStorageAccountsArrayOutput
+}
+
+type AppServiceStorageAccountsArrayArgs []AppServiceStorageAccountsInput
+
+func (AppServiceStorageAccountsArrayArgs) ElementType() reflect.Type {
+	return appServiceStorageAccountsArrayType
+}
+
+func (a AppServiceStorageAccountsArrayArgs) ToAppServiceStorageAccountsArrayOutput() AppServiceStorageAccountsArrayOutput {
+	return pulumi.ToOutput(a).(AppServiceStorageAccountsArrayOutput)
+}
+
+func (a AppServiceStorageAccountsArrayArgs) ToAppServiceStorageAccountsArrayOutputWithContext(ctx context.Context) AppServiceStorageAccountsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(AppServiceStorageAccountsArrayOutput)
+}
+
+type AppServiceStorageAccountsArrayOutput struct { *pulumi.OutputState }
+
+func (o AppServiceStorageAccountsArrayOutput) Index(i pulumi.IntInput) AppServiceStorageAccountsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) AppServiceStorageAccounts {
+		return vs[0].([]AppServiceStorageAccounts)[vs[1].(int)]
+	}).(AppServiceStorageAccountsOutput)
+}
+
+func (AppServiceStorageAccountsArrayOutput) ElementType() reflect.Type {
+	return appServiceStorageAccountsArrayType
+}
+
+func (o AppServiceStorageAccountsArrayOutput) ToAppServiceStorageAccountsArrayOutput() AppServiceStorageAccountsArrayOutput {
+	return o
+}
+
+func (o AppServiceStorageAccountsArrayOutput) ToAppServiceStorageAccountsArrayOutputWithContext(ctx context.Context) AppServiceStorageAccountsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(AppServiceStorageAccountsArrayOutput{}) }
+

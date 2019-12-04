@@ -4,6 +4,8 @@
 package devtest
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,44 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_schedule.html.markdown.
 type Schedule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	DailyRecurrence ScheduleDailyRecurrenceOutput `pulumi:"dailyRecurrence"`
+
+	HourlyRecurrence ScheduleHourlyRecurrenceOutput `pulumi:"hourlyRecurrence"`
+
+	// The name of the dev test lab. Changing this forces a new resource to be created.
+	LabName pulumi.StringOutput `pulumi:"labName"`
+
+	// The location where the schedule is created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	NotificationSettings ScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
+
+	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	Status pulumi.StringOutput `pulumi:"status"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
+	TaskType pulumi.StringOutput `pulumi:"taskType"`
+
+	// The time zone ID (e.g. Pacific Standard time).
+	TimeZoneId pulumi.StringOutput `pulumi:"timeZoneId"`
+
+	WeeklyRecurrence ScheduleWeeklyRecurrenceOutput `pulumi:"weeklyRecurrence"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
-	name string, args *ScheduleArgs, opts ...pulumi.ResourceOpt) (*Schedule, error) {
+	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
 	if args == nil || args.LabName == nil {
 		return nil, errors.New("missing required argument 'LabName'")
 	}
@@ -33,177 +67,342 @@ func NewSchedule(ctx *pulumi.Context,
 	if args == nil || args.TimeZoneId == nil {
 		return nil, errors.New("missing required argument 'TimeZoneId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dailyRecurrence"] = nil
-		inputs["hourlyRecurrence"] = nil
-		inputs["labName"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["notificationSettings"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["status"] = nil
-		inputs["tags"] = nil
-		inputs["taskType"] = nil
-		inputs["timeZoneId"] = nil
-		inputs["weeklyRecurrence"] = nil
-	} else {
-		inputs["dailyRecurrence"] = args.DailyRecurrence
-		inputs["hourlyRecurrence"] = args.HourlyRecurrence
-		inputs["labName"] = args.LabName
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["notificationSettings"] = args.NotificationSettings
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["status"] = args.Status
-		inputs["tags"] = args.Tags
-		inputs["taskType"] = args.TaskType
-		inputs["timeZoneId"] = args.TimeZoneId
-		inputs["weeklyRecurrence"] = args.WeeklyRecurrence
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DailyRecurrence; i != nil { inputs["dailyRecurrence"] = i.ToScheduleDailyRecurrenceOutput() }
+		if i := args.HourlyRecurrence; i != nil { inputs["hourlyRecurrence"] = i.ToScheduleHourlyRecurrenceOutput() }
+		if i := args.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NotificationSettings; i != nil { inputs["notificationSettings"] = i.ToScheduleNotificationSettingsOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.TaskType; i != nil { inputs["taskType"] = i.ToStringOutput() }
+		if i := args.TimeZoneId; i != nil { inputs["timeZoneId"] = i.ToStringOutput() }
+		if i := args.WeeklyRecurrence; i != nil { inputs["weeklyRecurrence"] = i.ToScheduleWeeklyRecurrenceOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:devtest/schedule:Schedule", name, true, inputs, opts...)
+	var resource Schedule
+	err := ctx.RegisterResource("azure:devtest/schedule:Schedule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Schedule{s: s}, nil
+	return &resource, nil
 }
 
 // GetSchedule gets an existing Schedule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSchedule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ScheduleState, opts ...pulumi.ResourceOpt) (*Schedule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ScheduleState, opts ...pulumi.ResourceOption) (*Schedule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dailyRecurrence"] = state.DailyRecurrence
-		inputs["hourlyRecurrence"] = state.HourlyRecurrence
-		inputs["labName"] = state.LabName
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["notificationSettings"] = state.NotificationSettings
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["status"] = state.Status
-		inputs["tags"] = state.Tags
-		inputs["taskType"] = state.TaskType
-		inputs["timeZoneId"] = state.TimeZoneId
-		inputs["weeklyRecurrence"] = state.WeeklyRecurrence
+		if i := state.DailyRecurrence; i != nil { inputs["dailyRecurrence"] = i.ToScheduleDailyRecurrenceOutput() }
+		if i := state.HourlyRecurrence; i != nil { inputs["hourlyRecurrence"] = i.ToScheduleHourlyRecurrenceOutput() }
+		if i := state.LabName; i != nil { inputs["labName"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NotificationSettings; i != nil { inputs["notificationSettings"] = i.ToScheduleNotificationSettingsOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Status; i != nil { inputs["status"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.TaskType; i != nil { inputs["taskType"] = i.ToStringOutput() }
+		if i := state.TimeZoneId; i != nil { inputs["timeZoneId"] = i.ToStringOutput() }
+		if i := state.WeeklyRecurrence; i != nil { inputs["weeklyRecurrence"] = i.ToScheduleWeeklyRecurrenceOutput() }
 	}
-	s, err := ctx.ReadResource("azure:devtest/schedule:Schedule", name, id, inputs, opts...)
+	var resource Schedule
+	err := ctx.ReadResource("azure:devtest/schedule:Schedule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Schedule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Schedule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Schedule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-func (r *Schedule) DailyRecurrence() pulumi.Output {
-	return r.s.State["dailyRecurrence"]
-}
-
-func (r *Schedule) HourlyRecurrence() pulumi.Output {
-	return r.s.State["hourlyRecurrence"]
-}
-
-// The name of the dev test lab. Changing this forces a new resource to be created.
-func (r *Schedule) LabName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["labName"])
-}
-
-// The location where the schedule is created. Changing this forces a new resource to be created.
-func (r *Schedule) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-func (r *Schedule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *Schedule) NotificationSettings() pulumi.Output {
-	return r.s.State["notificationSettings"]
-}
-
-// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
-func (r *Schedule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-func (r *Schedule) Status() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["status"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Schedule) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
-func (r *Schedule) TaskType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["taskType"])
-}
-
-// The time zone ID (e.g. Pacific Standard time).
-func (r *Schedule) TimeZoneId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timeZoneId"])
-}
-
-func (r *Schedule) WeeklyRecurrence() pulumi.Output {
-	return r.s.State["weeklyRecurrence"]
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Schedule resources.
 type ScheduleState struct {
-	DailyRecurrence interface{}
-	HourlyRecurrence interface{}
+	DailyRecurrence ScheduleDailyRecurrenceInput `pulumi:"dailyRecurrence"`
+	HourlyRecurrence ScheduleHourlyRecurrenceInput `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name interface{}
-	NotificationSettings interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	NotificationSettings ScheduleNotificationSettingsInput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
-	TaskType interface{}
+	TaskType pulumi.StringInput `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId interface{}
-	WeeklyRecurrence interface{}
+	TimeZoneId pulumi.StringInput `pulumi:"timeZoneId"`
+	WeeklyRecurrence ScheduleWeeklyRecurrenceInput `pulumi:"weeklyRecurrence"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	DailyRecurrence interface{}
-	HourlyRecurrence interface{}
+	DailyRecurrence ScheduleDailyRecurrenceInput `pulumi:"dailyRecurrence"`
+	HourlyRecurrence ScheduleHourlyRecurrenceInput `pulumi:"hourlyRecurrence"`
 	// The name of the dev test lab. Changing this forces a new resource to be created.
-	LabName interface{}
+	LabName pulumi.StringInput `pulumi:"labName"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
-	Name interface{}
-	NotificationSettings interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	NotificationSettings ScheduleNotificationSettingsInput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-	Status interface{}
+	Status pulumi.StringInput `pulumi:"status"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
-	TaskType interface{}
+	TaskType pulumi.StringInput `pulumi:"taskType"`
 	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId interface{}
-	WeeklyRecurrence interface{}
+	TimeZoneId pulumi.StringInput `pulumi:"timeZoneId"`
+	WeeklyRecurrence ScheduleWeeklyRecurrenceInput `pulumi:"weeklyRecurrence"`
 }
+type ScheduleDailyRecurrence struct {
+	// The time each day when the schedule takes effect.
+	Time string `pulumi:"time"`
+}
+var scheduleDailyRecurrenceType = reflect.TypeOf((*ScheduleDailyRecurrence)(nil)).Elem()
+
+type ScheduleDailyRecurrenceInput interface {
+	pulumi.Input
+
+	ToScheduleDailyRecurrenceOutput() ScheduleDailyRecurrenceOutput
+	ToScheduleDailyRecurrenceOutputWithContext(ctx context.Context) ScheduleDailyRecurrenceOutput
+}
+
+type ScheduleDailyRecurrenceArgs struct {
+	// The time each day when the schedule takes effect.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (ScheduleDailyRecurrenceArgs) ElementType() reflect.Type {
+	return scheduleDailyRecurrenceType
+}
+
+func (a ScheduleDailyRecurrenceArgs) ToScheduleDailyRecurrenceOutput() ScheduleDailyRecurrenceOutput {
+	return pulumi.ToOutput(a).(ScheduleDailyRecurrenceOutput)
+}
+
+func (a ScheduleDailyRecurrenceArgs) ToScheduleDailyRecurrenceOutputWithContext(ctx context.Context) ScheduleDailyRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduleDailyRecurrenceOutput)
+}
+
+type ScheduleDailyRecurrenceOutput struct { *pulumi.OutputState }
+
+// The time each day when the schedule takes effect.
+func (o ScheduleDailyRecurrenceOutput) Time() pulumi.StringOutput {
+	return o.Apply(func(v ScheduleDailyRecurrence) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+func (ScheduleDailyRecurrenceOutput) ElementType() reflect.Type {
+	return scheduleDailyRecurrenceType
+}
+
+func (o ScheduleDailyRecurrenceOutput) ToScheduleDailyRecurrenceOutput() ScheduleDailyRecurrenceOutput {
+	return o
+}
+
+func (o ScheduleDailyRecurrenceOutput) ToScheduleDailyRecurrenceOutputWithContext(ctx context.Context) ScheduleDailyRecurrenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduleDailyRecurrenceOutput{}) }
+
+type ScheduleHourlyRecurrence struct {
+	Minute int `pulumi:"minute"`
+}
+var scheduleHourlyRecurrenceType = reflect.TypeOf((*ScheduleHourlyRecurrence)(nil)).Elem()
+
+type ScheduleHourlyRecurrenceInput interface {
+	pulumi.Input
+
+	ToScheduleHourlyRecurrenceOutput() ScheduleHourlyRecurrenceOutput
+	ToScheduleHourlyRecurrenceOutputWithContext(ctx context.Context) ScheduleHourlyRecurrenceOutput
+}
+
+type ScheduleHourlyRecurrenceArgs struct {
+	Minute pulumi.IntInput `pulumi:"minute"`
+}
+
+func (ScheduleHourlyRecurrenceArgs) ElementType() reflect.Type {
+	return scheduleHourlyRecurrenceType
+}
+
+func (a ScheduleHourlyRecurrenceArgs) ToScheduleHourlyRecurrenceOutput() ScheduleHourlyRecurrenceOutput {
+	return pulumi.ToOutput(a).(ScheduleHourlyRecurrenceOutput)
+}
+
+func (a ScheduleHourlyRecurrenceArgs) ToScheduleHourlyRecurrenceOutputWithContext(ctx context.Context) ScheduleHourlyRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduleHourlyRecurrenceOutput)
+}
+
+type ScheduleHourlyRecurrenceOutput struct { *pulumi.OutputState }
+
+func (o ScheduleHourlyRecurrenceOutput) Minute() pulumi.IntOutput {
+	return o.Apply(func(v ScheduleHourlyRecurrence) int {
+		return v.Minute
+	}).(pulumi.IntOutput)
+}
+
+func (ScheduleHourlyRecurrenceOutput) ElementType() reflect.Type {
+	return scheduleHourlyRecurrenceType
+}
+
+func (o ScheduleHourlyRecurrenceOutput) ToScheduleHourlyRecurrenceOutput() ScheduleHourlyRecurrenceOutput {
+	return o
+}
+
+func (o ScheduleHourlyRecurrenceOutput) ToScheduleHourlyRecurrenceOutputWithContext(ctx context.Context) ScheduleHourlyRecurrenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduleHourlyRecurrenceOutput{}) }
+
+type ScheduleNotificationSettings struct {
+	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	Status *string `pulumi:"status"`
+	// Time in minutes before event at which notification will be sent.
+	TimeInMinutes *int `pulumi:"timeInMinutes"`
+	// The webhook URL to which the notification will be sent.
+	WebhookUrl *string `pulumi:"webhookUrl"`
+}
+var scheduleNotificationSettingsType = reflect.TypeOf((*ScheduleNotificationSettings)(nil)).Elem()
+
+type ScheduleNotificationSettingsInput interface {
+	pulumi.Input
+
+	ToScheduleNotificationSettingsOutput() ScheduleNotificationSettingsOutput
+	ToScheduleNotificationSettingsOutputWithContext(ctx context.Context) ScheduleNotificationSettingsOutput
+}
+
+type ScheduleNotificationSettingsArgs struct {
+	// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+	Status pulumi.StringInput `pulumi:"status"`
+	// Time in minutes before event at which notification will be sent.
+	TimeInMinutes pulumi.IntInput `pulumi:"timeInMinutes"`
+	// The webhook URL to which the notification will be sent.
+	WebhookUrl pulumi.StringInput `pulumi:"webhookUrl"`
+}
+
+func (ScheduleNotificationSettingsArgs) ElementType() reflect.Type {
+	return scheduleNotificationSettingsType
+}
+
+func (a ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsOutput() ScheduleNotificationSettingsOutput {
+	return pulumi.ToOutput(a).(ScheduleNotificationSettingsOutput)
+}
+
+func (a ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsOutputWithContext(ctx context.Context) ScheduleNotificationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduleNotificationSettingsOutput)
+}
+
+type ScheduleNotificationSettingsOutput struct { *pulumi.OutputState }
+
+// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+func (o ScheduleNotificationSettingsOutput) Status() pulumi.StringOutput {
+	return o.Apply(func(v ScheduleNotificationSettings) string {
+		if v.Status == nil { return *new(string) } else { return *v.Status }
+	}).(pulumi.StringOutput)
+}
+
+// Time in minutes before event at which notification will be sent.
+func (o ScheduleNotificationSettingsOutput) TimeInMinutes() pulumi.IntOutput {
+	return o.Apply(func(v ScheduleNotificationSettings) int {
+		if v.TimeInMinutes == nil { return *new(int) } else { return *v.TimeInMinutes }
+	}).(pulumi.IntOutput)
+}
+
+// The webhook URL to which the notification will be sent.
+func (o ScheduleNotificationSettingsOutput) WebhookUrl() pulumi.StringOutput {
+	return o.Apply(func(v ScheduleNotificationSettings) string {
+		if v.WebhookUrl == nil { return *new(string) } else { return *v.WebhookUrl }
+	}).(pulumi.StringOutput)
+}
+
+func (ScheduleNotificationSettingsOutput) ElementType() reflect.Type {
+	return scheduleNotificationSettingsType
+}
+
+func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsOutput() ScheduleNotificationSettingsOutput {
+	return o
+}
+
+func (o ScheduleNotificationSettingsOutput) ToScheduleNotificationSettingsOutputWithContext(ctx context.Context) ScheduleNotificationSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduleNotificationSettingsOutput{}) }
+
+type ScheduleWeeklyRecurrence struct {
+	// The time each day when the schedule takes effect.
+	Time string `pulumi:"time"`
+	// A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+	WeekDays *[]string `pulumi:"weekDays"`
+}
+var scheduleWeeklyRecurrenceType = reflect.TypeOf((*ScheduleWeeklyRecurrence)(nil)).Elem()
+
+type ScheduleWeeklyRecurrenceInput interface {
+	pulumi.Input
+
+	ToScheduleWeeklyRecurrenceOutput() ScheduleWeeklyRecurrenceOutput
+	ToScheduleWeeklyRecurrenceOutputWithContext(ctx context.Context) ScheduleWeeklyRecurrenceOutput
+}
+
+type ScheduleWeeklyRecurrenceArgs struct {
+	// The time each day when the schedule takes effect.
+	Time pulumi.StringInput `pulumi:"time"`
+	// A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (ScheduleWeeklyRecurrenceArgs) ElementType() reflect.Type {
+	return scheduleWeeklyRecurrenceType
+}
+
+func (a ScheduleWeeklyRecurrenceArgs) ToScheduleWeeklyRecurrenceOutput() ScheduleWeeklyRecurrenceOutput {
+	return pulumi.ToOutput(a).(ScheduleWeeklyRecurrenceOutput)
+}
+
+func (a ScheduleWeeklyRecurrenceArgs) ToScheduleWeeklyRecurrenceOutputWithContext(ctx context.Context) ScheduleWeeklyRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ScheduleWeeklyRecurrenceOutput)
+}
+
+type ScheduleWeeklyRecurrenceOutput struct { *pulumi.OutputState }
+
+// The time each day when the schedule takes effect.
+func (o ScheduleWeeklyRecurrenceOutput) Time() pulumi.StringOutput {
+	return o.Apply(func(v ScheduleWeeklyRecurrence) string {
+		return v.Time
+	}).(pulumi.StringOutput)
+}
+
+// A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+func (o ScheduleWeeklyRecurrenceOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.Apply(func(v ScheduleWeeklyRecurrence) []string {
+		if v.WeekDays == nil { return *new([]string) } else { return *v.WeekDays }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ScheduleWeeklyRecurrenceOutput) ElementType() reflect.Type {
+	return scheduleWeeklyRecurrenceType
+}
+
+func (o ScheduleWeeklyRecurrenceOutput) ToScheduleWeeklyRecurrenceOutput() ScheduleWeeklyRecurrenceOutput {
+	return o
+}
+
+func (o ScheduleWeeklyRecurrenceOutput) ToScheduleWeeklyRecurrenceOutputWithContext(ctx context.Context) ScheduleWeeklyRecurrenceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ScheduleWeeklyRecurrenceOutput{}) }
+

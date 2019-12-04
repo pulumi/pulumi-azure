@@ -10,61 +10,44 @@ import (
 // Use this data source to access information about an existing SQL elastic pool.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/mssql_elasticpool.html.markdown.
-func LookupElasticPool(ctx *pulumi.Context, args *GetElasticPoolArgs) (*GetElasticPoolResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-	}
-	outputs, err := ctx.Invoke("azure:mssql/getElasticPool:getElasticPool", inputs)
+func LookupElasticPool(ctx *pulumi.Context, args *GetElasticPoolArgs, opts ...pulumi.InvokeOption) (*GetElasticPoolResult, error) {
+	var rv GetElasticPoolResult
+	err := ctx.Invoke("azure:mssql/getElasticPool:getElasticPool", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetElasticPoolResult{
-		Location: outputs["location"],
-		MaxSizeBytes: outputs["maxSizeBytes"],
-		MaxSizeGb: outputs["maxSizeGb"],
-		Name: outputs["name"],
-		PerDbMaxCapacity: outputs["perDbMaxCapacity"],
-		PerDbMinCapacity: outputs["perDbMinCapacity"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		ServerName: outputs["serverName"],
-		Tags: outputs["tags"],
-		ZoneRedundant: outputs["zoneRedundant"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getElasticPool.
 type GetElasticPoolArgs struct {
 	// The name of the elastic pool.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group which contains the elastic pool.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server which contains the elastic pool.
-	ServerName interface{}
+	ServerName string `pulumi:"serverName"`
 }
 
 // A collection of values returned by getElasticPool.
 type GetElasticPoolResult struct {
 	// Specifies the supported Azure location where the resource exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes.
-	MaxSizeBytes interface{}
+	MaxSizeBytes int `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes.
-	MaxSizeGb interface{}
-	Name interface{}
+	MaxSizeGb float64 `pulumi:"maxSizeGb"`
+	Name string `pulumi:"name"`
 	// The maximum capacity any one database can consume.
-	PerDbMaxCapacity interface{}
+	PerDbMaxCapacity int `pulumi:"perDbMaxCapacity"`
 	// The minimum capacity all databases are guaranteed.
-	PerDbMinCapacity interface{}
-	ResourceGroupName interface{}
-	ServerName interface{}
+	PerDbMinCapacity int `pulumi:"perDbMinCapacity"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServerName string `pulumi:"serverName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this elastic pool is zone redundant.
-	ZoneRedundant interface{}
+	ZoneRedundant bool `pulumi:"zoneRedundant"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

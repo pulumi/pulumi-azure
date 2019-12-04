@@ -4,6 +4,8 @@
 package signalr
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,213 +14,418 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
 type Service struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A `cors` block as documented below.
+	Cors ServiceCorsArrayOutput `pulumi:"cors"`
+
+	// A `features` block as documented below.
+	Features ServiceFeaturesArrayOutput `pulumi:"features"`
+
+	// The FQDN of the SignalR service.
+	Hostname pulumi.StringOutput `pulumi:"hostname"`
+
+	// The publicly accessible IP of the SignalR service.
+	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+
+	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the SignalR service. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The primary access key for the SignalR service.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+
+	// The primary connection string for the SignalR service.
+	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+
+	// The publicly accessible port of the SignalR service which is designed for browser/client use.
+	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
+
+	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The secondary access key for the SignalR service.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+
+	// The secondary connection string for the SignalR service.
+	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
+
+	// The publicly accessible port of the SignalR service which is designed for customer server side use.
+	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
+
+	// A `sku` block as documented below.
+	Sku ServiceSkuOutput `pulumi:"sku"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
-	name string, args *ServiceArgs, opts ...pulumi.ResourceOpt) (*Service, error) {
+	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["cors"] = nil
-		inputs["features"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["cors"] = args.Cors
-		inputs["features"] = args.Features
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Cors; i != nil { inputs["cors"] = i.ToServiceCorsArrayOutput() }
+		if i := args.Features; i != nil { inputs["features"] = i.ToServiceFeaturesArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToServiceSkuOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["hostname"] = nil
-	inputs["ipAddress"] = nil
-	inputs["primaryAccessKey"] = nil
-	inputs["primaryConnectionString"] = nil
-	inputs["publicPort"] = nil
-	inputs["secondaryAccessKey"] = nil
-	inputs["secondaryConnectionString"] = nil
-	inputs["serverPort"] = nil
-	s, err := ctx.RegisterResource("azure:signalr/service:Service", name, true, inputs, opts...)
+	var resource Service
+	err := ctx.RegisterResource("azure:signalr/service:Service", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
+	return &resource, nil
 }
 
 // GetService gets an existing Service resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetService(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["cors"] = state.Cors
-		inputs["features"] = state.Features
-		inputs["hostname"] = state.Hostname
-		inputs["ipAddress"] = state.IpAddress
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["primaryAccessKey"] = state.PrimaryAccessKey
-		inputs["primaryConnectionString"] = state.PrimaryConnectionString
-		inputs["publicPort"] = state.PublicPort
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
-		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
-		inputs["serverPort"] = state.ServerPort
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.Cors; i != nil { inputs["cors"] = i.ToServiceCorsArrayOutput() }
+		if i := state.Features; i != nil { inputs["features"] = i.ToServiceFeaturesArrayOutput() }
+		if i := state.Hostname; i != nil { inputs["hostname"] = i.ToStringOutput() }
+		if i := state.IpAddress; i != nil { inputs["ipAddress"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PrimaryAccessKey; i != nil { inputs["primaryAccessKey"] = i.ToStringOutput() }
+		if i := state.PrimaryConnectionString; i != nil { inputs["primaryConnectionString"] = i.ToStringOutput() }
+		if i := state.PublicPort; i != nil { inputs["publicPort"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecondaryAccessKey; i != nil { inputs["secondaryAccessKey"] = i.ToStringOutput() }
+		if i := state.SecondaryConnectionString; i != nil { inputs["secondaryConnectionString"] = i.ToStringOutput() }
+		if i := state.ServerPort; i != nil { inputs["serverPort"] = i.ToIntOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToServiceSkuOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:signalr/service:Service", name, id, inputs, opts...)
+	var resource Service
+	err := ctx.ReadResource("azure:signalr/service:Service", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Service{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Service) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Service) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A `cors` block as documented below.
-func (r *Service) Cors() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["cors"])
-}
-
-// A `features` block as documented below.
-func (r *Service) Features() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["features"])
-}
-
-// The FQDN of the SignalR service.
-func (r *Service) Hostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostname"])
-}
-
-// The publicly accessible IP of the SignalR service.
-func (r *Service) IpAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["ipAddress"])
-}
-
-// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-func (r *Service) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the SignalR service. Changing this forces a new resource to be created.
-func (r *Service) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The primary access key for the SignalR service.
-func (r *Service) PrimaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryAccessKey"])
-}
-
-// The primary connection string for the SignalR service.
-func (r *Service) PrimaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["primaryConnectionString"])
-}
-
-// The publicly accessible port of the SignalR service which is designed for browser/client use.
-func (r *Service) PublicPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["publicPort"])
-}
-
-// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
-func (r *Service) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The secondary access key for the SignalR service.
-func (r *Service) SecondaryAccessKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
-}
-
-// The secondary connection string for the SignalR service.
-func (r *Service) SecondaryConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
-}
-
-// The publicly accessible port of the SignalR service which is designed for customer server side use.
-func (r *Service) ServerPort() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["serverPort"])
-}
-
-// A `sku` block as documented below.
-func (r *Service) Sku() pulumi.Output {
-	return r.s.State["sku"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *Service) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
 	// A `cors` block as documented below.
-	Cors interface{}
+	Cors ServiceCorsArrayInput `pulumi:"cors"`
 	// A `features` block as documented below.
-	Features interface{}
+	Features ServiceFeaturesArrayInput `pulumi:"features"`
 	// The FQDN of the SignalR service.
-	Hostname interface{}
+	Hostname pulumi.StringInput `pulumi:"hostname"`
 	// The publicly accessible IP of the SignalR service.
-	IpAddress interface{}
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The primary access key for the SignalR service.
-	PrimaryAccessKey interface{}
+	PrimaryAccessKey pulumi.StringInput `pulumi:"primaryAccessKey"`
 	// The primary connection string for the SignalR service.
-	PrimaryConnectionString interface{}
+	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
-	PublicPort interface{}
+	PublicPort pulumi.IntInput `pulumi:"publicPort"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The secondary access key for the SignalR service.
-	SecondaryAccessKey interface{}
+	SecondaryAccessKey pulumi.StringInput `pulumi:"secondaryAccessKey"`
 	// The secondary connection string for the SignalR service.
-	SecondaryConnectionString interface{}
+	SecondaryConnectionString pulumi.StringInput `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
-	ServerPort interface{}
+	ServerPort pulumi.IntInput `pulumi:"serverPort"`
 	// A `sku` block as documented below.
-	Sku interface{}
+	Sku ServiceSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// A `cors` block as documented below.
-	Cors interface{}
+	Cors ServiceCorsArrayInput `pulumi:"cors"`
 	// A `features` block as documented below.
-	Features interface{}
+	Features ServiceFeaturesArrayInput `pulumi:"features"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `sku` block as documented below.
-	Sku interface{}
+	Sku ServiceSkuInput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ServiceCors struct {
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+}
+var serviceCorsType = reflect.TypeOf((*ServiceCors)(nil)).Elem()
+
+type ServiceCorsInput interface {
+	pulumi.Input
+
+	ToServiceCorsOutput() ServiceCorsOutput
+	ToServiceCorsOutputWithContext(ctx context.Context) ServiceCorsOutput
+}
+
+type ServiceCorsArgs struct {
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+}
+
+func (ServiceCorsArgs) ElementType() reflect.Type {
+	return serviceCorsType
+}
+
+func (a ServiceCorsArgs) ToServiceCorsOutput() ServiceCorsOutput {
+	return pulumi.ToOutput(a).(ServiceCorsOutput)
+}
+
+func (a ServiceCorsArgs) ToServiceCorsOutputWithContext(ctx context.Context) ServiceCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceCorsOutput)
+}
+
+type ServiceCorsOutput struct { *pulumi.OutputState }
+
+func (o ServiceCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.Apply(func(v ServiceCors) []string {
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+func (ServiceCorsOutput) ElementType() reflect.Type {
+	return serviceCorsType
+}
+
+func (o ServiceCorsOutput) ToServiceCorsOutput() ServiceCorsOutput {
+	return o
+}
+
+func (o ServiceCorsOutput) ToServiceCorsOutputWithContext(ctx context.Context) ServiceCorsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceCorsOutput{}) }
+
+var serviceCorsArrayType = reflect.TypeOf((*[]ServiceCors)(nil)).Elem()
+
+type ServiceCorsArrayInput interface {
+	pulumi.Input
+
+	ToServiceCorsArrayOutput() ServiceCorsArrayOutput
+	ToServiceCorsArrayOutputWithContext(ctx context.Context) ServiceCorsArrayOutput
+}
+
+type ServiceCorsArrayArgs []ServiceCorsInput
+
+func (ServiceCorsArrayArgs) ElementType() reflect.Type {
+	return serviceCorsArrayType
+}
+
+func (a ServiceCorsArrayArgs) ToServiceCorsArrayOutput() ServiceCorsArrayOutput {
+	return pulumi.ToOutput(a).(ServiceCorsArrayOutput)
+}
+
+func (a ServiceCorsArrayArgs) ToServiceCorsArrayOutputWithContext(ctx context.Context) ServiceCorsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceCorsArrayOutput)
+}
+
+type ServiceCorsArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceCorsArrayOutput) Index(i pulumi.IntInput) ServiceCorsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceCors {
+		return vs[0].([]ServiceCors)[vs[1].(int)]
+	}).(ServiceCorsOutput)
+}
+
+func (ServiceCorsArrayOutput) ElementType() reflect.Type {
+	return serviceCorsArrayType
+}
+
+func (o ServiceCorsArrayOutput) ToServiceCorsArrayOutput() ServiceCorsArrayOutput {
+	return o
+}
+
+func (o ServiceCorsArrayOutput) ToServiceCorsArrayOutputWithContext(ctx context.Context) ServiceCorsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceCorsArrayOutput{}) }
+
+type ServiceFeatures struct {
+	Flag string `pulumi:"flag"`
+	Value string `pulumi:"value"`
+}
+var serviceFeaturesType = reflect.TypeOf((*ServiceFeatures)(nil)).Elem()
+
+type ServiceFeaturesInput interface {
+	pulumi.Input
+
+	ToServiceFeaturesOutput() ServiceFeaturesOutput
+	ToServiceFeaturesOutputWithContext(ctx context.Context) ServiceFeaturesOutput
+}
+
+type ServiceFeaturesArgs struct {
+	Flag pulumi.StringInput `pulumi:"flag"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ServiceFeaturesArgs) ElementType() reflect.Type {
+	return serviceFeaturesType
+}
+
+func (a ServiceFeaturesArgs) ToServiceFeaturesOutput() ServiceFeaturesOutput {
+	return pulumi.ToOutput(a).(ServiceFeaturesOutput)
+}
+
+func (a ServiceFeaturesArgs) ToServiceFeaturesOutputWithContext(ctx context.Context) ServiceFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceFeaturesOutput)
+}
+
+type ServiceFeaturesOutput struct { *pulumi.OutputState }
+
+func (o ServiceFeaturesOutput) Flag() pulumi.StringOutput {
+	return o.Apply(func(v ServiceFeatures) string {
+		return v.Flag
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceFeaturesOutput) Value() pulumi.StringOutput {
+	return o.Apply(func(v ServiceFeatures) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+func (ServiceFeaturesOutput) ElementType() reflect.Type {
+	return serviceFeaturesType
+}
+
+func (o ServiceFeaturesOutput) ToServiceFeaturesOutput() ServiceFeaturesOutput {
+	return o
+}
+
+func (o ServiceFeaturesOutput) ToServiceFeaturesOutputWithContext(ctx context.Context) ServiceFeaturesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceFeaturesOutput{}) }
+
+var serviceFeaturesArrayType = reflect.TypeOf((*[]ServiceFeatures)(nil)).Elem()
+
+type ServiceFeaturesArrayInput interface {
+	pulumi.Input
+
+	ToServiceFeaturesArrayOutput() ServiceFeaturesArrayOutput
+	ToServiceFeaturesArrayOutputWithContext(ctx context.Context) ServiceFeaturesArrayOutput
+}
+
+type ServiceFeaturesArrayArgs []ServiceFeaturesInput
+
+func (ServiceFeaturesArrayArgs) ElementType() reflect.Type {
+	return serviceFeaturesArrayType
+}
+
+func (a ServiceFeaturesArrayArgs) ToServiceFeaturesArrayOutput() ServiceFeaturesArrayOutput {
+	return pulumi.ToOutput(a).(ServiceFeaturesArrayOutput)
+}
+
+func (a ServiceFeaturesArrayArgs) ToServiceFeaturesArrayOutputWithContext(ctx context.Context) ServiceFeaturesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceFeaturesArrayOutput)
+}
+
+type ServiceFeaturesArrayOutput struct { *pulumi.OutputState }
+
+func (o ServiceFeaturesArrayOutput) Index(i pulumi.IntInput) ServiceFeaturesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServiceFeatures {
+		return vs[0].([]ServiceFeatures)[vs[1].(int)]
+	}).(ServiceFeaturesOutput)
+}
+
+func (ServiceFeaturesArrayOutput) ElementType() reflect.Type {
+	return serviceFeaturesArrayType
+}
+
+func (o ServiceFeaturesArrayOutput) ToServiceFeaturesArrayOutput() ServiceFeaturesArrayOutput {
+	return o
+}
+
+func (o ServiceFeaturesArrayOutput) ToServiceFeaturesArrayOutputWithContext(ctx context.Context) ServiceFeaturesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceFeaturesArrayOutput{}) }
+
+type ServiceSku struct {
+	Capacity int `pulumi:"capacity"`
+	// The name of the SignalR service. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var serviceSkuType = reflect.TypeOf((*ServiceSku)(nil)).Elem()
+
+type ServiceSkuInput interface {
+	pulumi.Input
+
+	ToServiceSkuOutput() ServiceSkuOutput
+	ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput
+}
+
+type ServiceSkuArgs struct {
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of the SignalR service. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ServiceSkuArgs) ElementType() reflect.Type {
+	return serviceSkuType
+}
+
+func (a ServiceSkuArgs) ToServiceSkuOutput() ServiceSkuOutput {
+	return pulumi.ToOutput(a).(ServiceSkuOutput)
+}
+
+func (a ServiceSkuArgs) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServiceSkuOutput)
+}
+
+type ServiceSkuOutput struct { *pulumi.OutputState }
+
+func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
+	return o.Apply(func(v ServiceSku) int {
+		return v.Capacity
+	}).(pulumi.IntOutput)
+}
+
+// The name of the SignalR service. Changing this forces a new resource to be created.
+func (o ServiceSkuOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ServiceSku) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ServiceSkuOutput) ElementType() reflect.Type {
+	return serviceSkuType
+}
+
+func (o ServiceSkuOutput) ToServiceSkuOutput() ServiceSkuOutput {
+	return o
+}
+
+func (o ServiceSkuOutput) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServiceSkuOutput{}) }
+

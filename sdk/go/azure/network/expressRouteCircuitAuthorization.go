@@ -12,117 +12,93 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
 type ExpressRouteCircuitAuthorization struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Authorization Key.
+	AuthorizationKey pulumi.StringOutput `pulumi:"authorizationKey"`
+
+	// The authorization use status.
+	AuthorizationUseStatus pulumi.StringOutput `pulumi:"authorizationUseStatus"`
+
+	// The name of the Express Route Circuit in which to create the Authorization.
+	ExpressRouteCircuitName pulumi.StringOutput `pulumi:"expressRouteCircuitName"`
+
+	// The name of the ExpressRoute circuit. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewExpressRouteCircuitAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
-	name string, args *ExpressRouteCircuitAuthorizationArgs, opts ...pulumi.ResourceOpt) (*ExpressRouteCircuitAuthorization, error) {
+	name string, args *ExpressRouteCircuitAuthorizationArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
 	if args == nil || args.ExpressRouteCircuitName == nil {
 		return nil, errors.New("missing required argument 'ExpressRouteCircuitName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["expressRouteCircuitName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["expressRouteCircuitName"] = args.ExpressRouteCircuitName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ExpressRouteCircuitName; i != nil { inputs["expressRouteCircuitName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	inputs["authorizationKey"] = nil
-	inputs["authorizationUseStatus"] = nil
-	s, err := ctx.RegisterResource("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, true, inputs, opts...)
+	var resource ExpressRouteCircuitAuthorization
+	err := ctx.RegisterResource("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ExpressRouteCircuitAuthorization{s: s}, nil
+	return &resource, nil
 }
 
 // GetExpressRouteCircuitAuthorization gets an existing ExpressRouteCircuitAuthorization resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetExpressRouteCircuitAuthorization(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ExpressRouteCircuitAuthorizationState, opts ...pulumi.ResourceOpt) (*ExpressRouteCircuitAuthorization, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ExpressRouteCircuitAuthorizationState, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["authorizationKey"] = state.AuthorizationKey
-		inputs["authorizationUseStatus"] = state.AuthorizationUseStatus
-		inputs["expressRouteCircuitName"] = state.ExpressRouteCircuitName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.AuthorizationKey; i != nil { inputs["authorizationKey"] = i.ToStringOutput() }
+		if i := state.AuthorizationUseStatus; i != nil { inputs["authorizationUseStatus"] = i.ToStringOutput() }
+		if i := state.ExpressRouteCircuitName; i != nil { inputs["expressRouteCircuitName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, id, inputs, opts...)
+	var resource ExpressRouteCircuitAuthorization
+	err := ctx.ReadResource("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ExpressRouteCircuitAuthorization{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ExpressRouteCircuitAuthorization) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ExpressRouteCircuitAuthorization) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Authorization Key.
-func (r *ExpressRouteCircuitAuthorization) AuthorizationKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["authorizationKey"])
-}
-
-// The authorization use status.
-func (r *ExpressRouteCircuitAuthorization) AuthorizationUseStatus() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["authorizationUseStatus"])
-}
-
-// The name of the Express Route Circuit in which to create the Authorization.
-func (r *ExpressRouteCircuitAuthorization) ExpressRouteCircuitName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["expressRouteCircuitName"])
-}
-
-// The name of the ExpressRoute circuit. Changing this forces a
-// new resource to be created.
-func (r *ExpressRouteCircuitAuthorization) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the ExpressRoute circuit. Changing this forces a new resource to be created.
-func (r *ExpressRouteCircuitAuthorization) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ExpressRouteCircuitAuthorization resources.
 type ExpressRouteCircuitAuthorizationState struct {
 	// The Authorization Key.
-	AuthorizationKey interface{}
+	AuthorizationKey pulumi.StringInput `pulumi:"authorizationKey"`
 	// The authorization use status.
-	AuthorizationUseStatus interface{}
+	AuthorizationUseStatus pulumi.StringInput `pulumi:"authorizationUseStatus"`
 	// The name of the Express Route Circuit in which to create the Authorization.
-	ExpressRouteCircuitName interface{}
+	ExpressRouteCircuitName pulumi.StringInput `pulumi:"expressRouteCircuitName"`
 	// The name of the ExpressRoute circuit. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
 type ExpressRouteCircuitAuthorizationArgs struct {
 	// The name of the Express Route Circuit in which to create the Authorization.
-	ExpressRouteCircuitName interface{}
+	ExpressRouteCircuitName pulumi.StringInput `pulumi:"expressRouteCircuitName"`
 	// The name of the ExpressRoute circuit. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the ExpressRoute circuit. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

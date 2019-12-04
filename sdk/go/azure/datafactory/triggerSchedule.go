@@ -12,12 +12,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
 type TriggerSchedule struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// List of tags that can be used for describing the Data Factory Schedule Trigger.
+	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
+
+	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
+	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
+
+	// The time the Schedule Trigger should end. The time will be represented in UTC. 
+	EndTime pulumi.StringOutput `pulumi:"endTime"`
+
+	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
+	Frequency pulumi.StringOutput `pulumi:"frequency"`
+
+	// The interval for how often the trigger occurs. This defaults to 1.
+	Interval pulumi.IntOutput `pulumi:"interval"`
+
+	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The Data Factory Pipeline name that the trigger will act on.
+	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
+
+	// The pipeline parameters that the the trigger will act upon.
+	PipelineParameters pulumi.StringMapOutput `pulumi:"pipelineParameters"`
+
+	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
 }
 
 // NewTriggerSchedule registers a new resource with the given unique name, arguments, and options.
 func NewTriggerSchedule(ctx *pulumi.Context,
-	name string, args *TriggerScheduleArgs, opts ...pulumi.ResourceOpt) (*TriggerSchedule, error) {
+	name string, args *TriggerScheduleArgs, opts ...pulumi.ResourceOption) (*TriggerSchedule, error) {
 	if args == nil || args.DataFactoryName == nil {
 		return nil, errors.New("missing required argument 'DataFactoryName'")
 	}
@@ -27,165 +57,96 @@ func NewTriggerSchedule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["annotations"] = nil
-		inputs["dataFactoryName"] = nil
-		inputs["endTime"] = nil
-		inputs["frequency"] = nil
-		inputs["interval"] = nil
-		inputs["name"] = nil
-		inputs["pipelineName"] = nil
-		inputs["pipelineParameters"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["startTime"] = nil
-	} else {
-		inputs["annotations"] = args.Annotations
-		inputs["dataFactoryName"] = args.DataFactoryName
-		inputs["endTime"] = args.EndTime
-		inputs["frequency"] = args.Frequency
-		inputs["interval"] = args.Interval
-		inputs["name"] = args.Name
-		inputs["pipelineName"] = args.PipelineName
-		inputs["pipelineParameters"] = args.PipelineParameters
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["startTime"] = args.StartTime
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Annotations; i != nil { inputs["annotations"] = i.ToStringArrayOutput() }
+		if i := args.DataFactoryName; i != nil { inputs["dataFactoryName"] = i.ToStringOutput() }
+		if i := args.EndTime; i != nil { inputs["endTime"] = i.ToStringOutput() }
+		if i := args.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := args.Interval; i != nil { inputs["interval"] = i.ToIntOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PipelineName; i != nil { inputs["pipelineName"] = i.ToStringOutput() }
+		if i := args.PipelineParameters; i != nil { inputs["pipelineParameters"] = i.ToStringMapOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, true, inputs, opts...)
+	var resource TriggerSchedule
+	err := ctx.RegisterResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerSchedule{s: s}, nil
+	return &resource, nil
 }
 
 // GetTriggerSchedule gets an existing TriggerSchedule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTriggerSchedule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TriggerScheduleState, opts ...pulumi.ResourceOpt) (*TriggerSchedule, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TriggerScheduleState, opts ...pulumi.ResourceOption) (*TriggerSchedule, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["annotations"] = state.Annotations
-		inputs["dataFactoryName"] = state.DataFactoryName
-		inputs["endTime"] = state.EndTime
-		inputs["frequency"] = state.Frequency
-		inputs["interval"] = state.Interval
-		inputs["name"] = state.Name
-		inputs["pipelineName"] = state.PipelineName
-		inputs["pipelineParameters"] = state.PipelineParameters
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["startTime"] = state.StartTime
+		if i := state.Annotations; i != nil { inputs["annotations"] = i.ToStringArrayOutput() }
+		if i := state.DataFactoryName; i != nil { inputs["dataFactoryName"] = i.ToStringOutput() }
+		if i := state.EndTime; i != nil { inputs["endTime"] = i.ToStringOutput() }
+		if i := state.Frequency; i != nil { inputs["frequency"] = i.ToStringOutput() }
+		if i := state.Interval; i != nil { inputs["interval"] = i.ToIntOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PipelineName; i != nil { inputs["pipelineName"] = i.ToStringOutput() }
+		if i := state.PipelineParameters; i != nil { inputs["pipelineParameters"] = i.ToStringMapOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StartTime; i != nil { inputs["startTime"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, id, inputs, opts...)
+	var resource TriggerSchedule
+	err := ctx.ReadResource("azure:datafactory/triggerSchedule:TriggerSchedule", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerSchedule{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerSchedule) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerSchedule) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// List of tags that can be used for describing the Data Factory Schedule Trigger.
-func (r *TriggerSchedule) Annotations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["annotations"])
-}
-
-// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-func (r *TriggerSchedule) DataFactoryName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dataFactoryName"])
-}
-
-// The time the Schedule Trigger should end. The time will be represented in UTC. 
-func (r *TriggerSchedule) EndTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["endTime"])
-}
-
-// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
-func (r *TriggerSchedule) Frequency() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["frequency"])
-}
-
-// The interval for how often the trigger occurs. This defaults to 1.
-func (r *TriggerSchedule) Interval() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["interval"])
-}
-
-// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *TriggerSchedule) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The Data Factory Pipeline name that the trigger will act on.
-func (r *TriggerSchedule) PipelineName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["pipelineName"])
-}
-
-// The pipeline parameters that the the trigger will act upon.
-func (r *TriggerSchedule) PipelineParameters() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["pipelineParameters"])
-}
-
-// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-func (r *TriggerSchedule) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
-func (r *TriggerSchedule) StartTime() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["startTime"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TriggerSchedule resources.
 type TriggerScheduleState struct {
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
-	Annotations interface{}
+	Annotations pulumi.StringArrayInput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-	DataFactoryName interface{}
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
 	// The time the Schedule Trigger should end. The time will be represented in UTC. 
-	EndTime interface{}
+	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The interval for how often the trigger occurs. This defaults to 1.
-	Interval interface{}
+	Interval pulumi.IntInput `pulumi:"interval"`
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Data Factory Pipeline name that the trigger will act on.
-	PipelineName interface{}
+	PipelineName pulumi.StringInput `pulumi:"pipelineName"`
 	// The pipeline parameters that the the trigger will act upon.
-	PipelineParameters interface{}
+	PipelineParameters pulumi.StringMapInput `pulumi:"pipelineParameters"`
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
 // The set of arguments for constructing a TriggerSchedule resource.
 type TriggerScheduleArgs struct {
 	// List of tags that can be used for describing the Data Factory Schedule Trigger.
-	Annotations interface{}
+	Annotations pulumi.StringArrayInput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-	DataFactoryName interface{}
+	DataFactoryName pulumi.StringInput `pulumi:"dataFactoryName"`
 	// The time the Schedule Trigger should end. The time will be represented in UTC. 
-	EndTime interface{}
+	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
-	Frequency interface{}
+	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The interval for how often the trigger occurs. This defaults to 1.
-	Interval interface{}
+	Interval pulumi.IntInput `pulumi:"interval"`
 	// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The Data Factory Pipeline name that the trigger will act on.
-	PipelineName interface{}
+	PipelineName pulumi.StringInput `pulumi:"pipelineName"`
 	// The pipeline parameters that the the trigger will act upon.
-	PipelineParameters interface{}
+	PipelineParameters pulumi.StringMapInput `pulumi:"pipelineParameters"`
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
-	StartTime interface{}
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 }

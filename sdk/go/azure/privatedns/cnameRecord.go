@@ -12,12 +12,29 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_cname_record.html.markdown.
 type CnameRecord struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the DNS CNAME Record.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The target of the CNAME.
+	Record pulumi.StringOutput `pulumi:"record"`
+
+	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
+
+	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewCnameRecord registers a new resource with the given unique name, arguments, and options.
 func NewCnameRecord(ctx *pulumi.Context,
-	name string, args *CnameRecordArgs, opts ...pulumi.ResourceOpt) (*CnameRecord, error) {
+	name string, args *CnameRecordArgs, opts ...pulumi.ResourceOption) (*CnameRecord, error) {
 	if args == nil || args.Record == nil {
 		return nil, errors.New("missing required argument 'Record'")
 	}
@@ -30,114 +47,70 @@ func NewCnameRecord(ctx *pulumi.Context,
 	if args == nil || args.ZoneName == nil {
 		return nil, errors.New("missing required argument 'ZoneName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["name"] = nil
-		inputs["record"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-		inputs["ttl"] = nil
-		inputs["zoneName"] = nil
-	} else {
-		inputs["name"] = args.Name
-		inputs["record"] = args.Record
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
-		inputs["ttl"] = args.Ttl
-		inputs["zoneName"] = args.ZoneName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Record; i != nil { inputs["record"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := args.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:privatedns/cnameRecord:CnameRecord", name, true, inputs, opts...)
+	var resource CnameRecord
+	err := ctx.RegisterResource("azure:privatedns/cnameRecord:CnameRecord", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CnameRecord{s: s}, nil
+	return &resource, nil
 }
 
 // GetCnameRecord gets an existing CnameRecord resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCnameRecord(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CnameRecordState, opts ...pulumi.ResourceOpt) (*CnameRecord, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CnameRecordState, opts ...pulumi.ResourceOption) (*CnameRecord, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["name"] = state.Name
-		inputs["record"] = state.Record
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["ttl"] = state.Ttl
-		inputs["zoneName"] = state.ZoneName
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Record; i != nil { inputs["record"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Ttl; i != nil { inputs["ttl"] = i.ToIntOutput() }
+		if i := state.ZoneName; i != nil { inputs["zoneName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:privatedns/cnameRecord:CnameRecord", name, id, inputs, opts...)
+	var resource CnameRecord
+	err := ctx.ReadResource("azure:privatedns/cnameRecord:CnameRecord", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CnameRecord{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CnameRecord) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CnameRecord) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the DNS CNAME Record.
-func (r *CnameRecord) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The target of the CNAME.
-func (r *CnameRecord) Record() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["record"])
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (r *CnameRecord) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *CnameRecord) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-func (r *CnameRecord) Ttl() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["ttl"])
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (r *CnameRecord) ZoneName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zoneName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CnameRecord resources.
 type CnameRecordState struct {
 	// The name of the DNS CNAME Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The target of the CNAME.
-	Record interface{}
+	Record pulumi.StringInput `pulumi:"record"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	Ttl interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a CnameRecord resource.
 type CnameRecordArgs struct {
 	// The name of the DNS CNAME Record.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The target of the CNAME.
-	Record interface{}
+	Record pulumi.StringInput `pulumi:"record"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
-	Ttl interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
+	Ttl pulumi.IntInput `pulumi:"ttl"`
 	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName interface{}
+	ZoneName pulumi.StringInput `pulumi:"zoneName"`
 }

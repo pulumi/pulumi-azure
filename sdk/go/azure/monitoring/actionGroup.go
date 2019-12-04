@@ -4,6 +4,8 @@
 package monitoring
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,237 +14,1468 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
 type ActionGroup struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `armRoleReceiver` blocks as defined below.
+	ArmRoleReceivers ActionGroupArmRoleReceiversArrayOutput `pulumi:"armRoleReceivers"`
+
+	// One or more `automationRunbookReceiver` blocks as defined below.
+	AutomationRunbookReceivers ActionGroupAutomationRunbookReceiversArrayOutput `pulumi:"automationRunbookReceivers"`
+
+	// One or more `azureAppPushReceiver` blocks as defined below.
+	AzureAppPushReceivers ActionGroupAzureAppPushReceiversArrayOutput `pulumi:"azureAppPushReceivers"`
+
+	// One or more `azureFunctionReceiver` blocks as defined below.
+	AzureFunctionReceivers ActionGroupAzureFunctionReceiversArrayOutput `pulumi:"azureFunctionReceivers"`
+
+	// One or more `emailReceiver` blocks as defined below.
+	EmailReceivers ActionGroupEmailReceiversArrayOutput `pulumi:"emailReceivers"`
+
+	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// One or more `itsmReceiver` blocks as defined below.
+	ItsmReceivers ActionGroupItsmReceiversArrayOutput `pulumi:"itsmReceivers"`
+
+	// One or more `logicAppReceiver` blocks as defined below.
+	LogicAppReceivers ActionGroupLogicAppReceiversArrayOutput `pulumi:"logicAppReceivers"`
+
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Action Group instance.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The short name of the action group. This will be used in SMS messages.
+	ShortName pulumi.StringOutput `pulumi:"shortName"`
+
+	// One or more `smsReceiver` blocks as defined below.
+	SmsReceivers ActionGroupSmsReceiversArrayOutput `pulumi:"smsReceivers"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// One or more `voiceReceiver` blocks as defined below.
+	VoiceReceivers ActionGroupVoiceReceiversArrayOutput `pulumi:"voiceReceivers"`
+
+	// One or more `webhookReceiver` blocks as defined below.
+	WebhookReceivers ActionGroupWebhookReceiversArrayOutput `pulumi:"webhookReceivers"`
 }
 
 // NewActionGroup registers a new resource with the given unique name, arguments, and options.
 func NewActionGroup(ctx *pulumi.Context,
-	name string, args *ActionGroupArgs, opts ...pulumi.ResourceOpt) (*ActionGroup, error) {
+	name string, args *ActionGroupArgs, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ShortName == nil {
 		return nil, errors.New("missing required argument 'ShortName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["armRoleReceivers"] = nil
-		inputs["automationRunbookReceivers"] = nil
-		inputs["azureAppPushReceivers"] = nil
-		inputs["azureFunctionReceivers"] = nil
-		inputs["emailReceivers"] = nil
-		inputs["enabled"] = nil
-		inputs["itsmReceivers"] = nil
-		inputs["logicAppReceivers"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["shortName"] = nil
-		inputs["smsReceivers"] = nil
-		inputs["tags"] = nil
-		inputs["voiceReceivers"] = nil
-		inputs["webhookReceivers"] = nil
-	} else {
-		inputs["armRoleReceivers"] = args.ArmRoleReceivers
-		inputs["automationRunbookReceivers"] = args.AutomationRunbookReceivers
-		inputs["azureAppPushReceivers"] = args.AzureAppPushReceivers
-		inputs["azureFunctionReceivers"] = args.AzureFunctionReceivers
-		inputs["emailReceivers"] = args.EmailReceivers
-		inputs["enabled"] = args.Enabled
-		inputs["itsmReceivers"] = args.ItsmReceivers
-		inputs["logicAppReceivers"] = args.LogicAppReceivers
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["shortName"] = args.ShortName
-		inputs["smsReceivers"] = args.SmsReceivers
-		inputs["tags"] = args.Tags
-		inputs["voiceReceivers"] = args.VoiceReceivers
-		inputs["webhookReceivers"] = args.WebhookReceivers
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ArmRoleReceivers; i != nil { inputs["armRoleReceivers"] = i.ToActionGroupArmRoleReceiversArrayOutput() }
+		if i := args.AutomationRunbookReceivers; i != nil { inputs["automationRunbookReceivers"] = i.ToActionGroupAutomationRunbookReceiversArrayOutput() }
+		if i := args.AzureAppPushReceivers; i != nil { inputs["azureAppPushReceivers"] = i.ToActionGroupAzureAppPushReceiversArrayOutput() }
+		if i := args.AzureFunctionReceivers; i != nil { inputs["azureFunctionReceivers"] = i.ToActionGroupAzureFunctionReceiversArrayOutput() }
+		if i := args.EmailReceivers; i != nil { inputs["emailReceivers"] = i.ToActionGroupEmailReceiversArrayOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.ItsmReceivers; i != nil { inputs["itsmReceivers"] = i.ToActionGroupItsmReceiversArrayOutput() }
+		if i := args.LogicAppReceivers; i != nil { inputs["logicAppReceivers"] = i.ToActionGroupLogicAppReceiversArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ShortName; i != nil { inputs["shortName"] = i.ToStringOutput() }
+		if i := args.SmsReceivers; i != nil { inputs["smsReceivers"] = i.ToActionGroupSmsReceiversArrayOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.VoiceReceivers; i != nil { inputs["voiceReceivers"] = i.ToActionGroupVoiceReceiversArrayOutput() }
+		if i := args.WebhookReceivers; i != nil { inputs["webhookReceivers"] = i.ToActionGroupWebhookReceiversArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:monitoring/actionGroup:ActionGroup", name, true, inputs, opts...)
+	var resource ActionGroup
+	err := ctx.RegisterResource("azure:monitoring/actionGroup:ActionGroup", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ActionGroup{s: s}, nil
+	return &resource, nil
 }
 
 // GetActionGroup gets an existing ActionGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetActionGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ActionGroupState, opts ...pulumi.ResourceOpt) (*ActionGroup, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ActionGroupState, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["armRoleReceivers"] = state.ArmRoleReceivers
-		inputs["automationRunbookReceivers"] = state.AutomationRunbookReceivers
-		inputs["azureAppPushReceivers"] = state.AzureAppPushReceivers
-		inputs["azureFunctionReceivers"] = state.AzureFunctionReceivers
-		inputs["emailReceivers"] = state.EmailReceivers
-		inputs["enabled"] = state.Enabled
-		inputs["itsmReceivers"] = state.ItsmReceivers
-		inputs["logicAppReceivers"] = state.LogicAppReceivers
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["shortName"] = state.ShortName
-		inputs["smsReceivers"] = state.SmsReceivers
-		inputs["tags"] = state.Tags
-		inputs["voiceReceivers"] = state.VoiceReceivers
-		inputs["webhookReceivers"] = state.WebhookReceivers
+		if i := state.ArmRoleReceivers; i != nil { inputs["armRoleReceivers"] = i.ToActionGroupArmRoleReceiversArrayOutput() }
+		if i := state.AutomationRunbookReceivers; i != nil { inputs["automationRunbookReceivers"] = i.ToActionGroupAutomationRunbookReceiversArrayOutput() }
+		if i := state.AzureAppPushReceivers; i != nil { inputs["azureAppPushReceivers"] = i.ToActionGroupAzureAppPushReceiversArrayOutput() }
+		if i := state.AzureFunctionReceivers; i != nil { inputs["azureFunctionReceivers"] = i.ToActionGroupAzureFunctionReceiversArrayOutput() }
+		if i := state.EmailReceivers; i != nil { inputs["emailReceivers"] = i.ToActionGroupEmailReceiversArrayOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.ItsmReceivers; i != nil { inputs["itsmReceivers"] = i.ToActionGroupItsmReceiversArrayOutput() }
+		if i := state.LogicAppReceivers; i != nil { inputs["logicAppReceivers"] = i.ToActionGroupLogicAppReceiversArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ShortName; i != nil { inputs["shortName"] = i.ToStringOutput() }
+		if i := state.SmsReceivers; i != nil { inputs["smsReceivers"] = i.ToActionGroupSmsReceiversArrayOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.VoiceReceivers; i != nil { inputs["voiceReceivers"] = i.ToActionGroupVoiceReceiversArrayOutput() }
+		if i := state.WebhookReceivers; i != nil { inputs["webhookReceivers"] = i.ToActionGroupWebhookReceiversArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:monitoring/actionGroup:ActionGroup", name, id, inputs, opts...)
+	var resource ActionGroup
+	err := ctx.ReadResource("azure:monitoring/actionGroup:ActionGroup", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ActionGroup{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ActionGroup) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ActionGroup) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `armRoleReceiver` blocks as defined below.
-func (r *ActionGroup) ArmRoleReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["armRoleReceivers"])
-}
-
-// One or more `automationRunbookReceiver` blocks as defined below.
-func (r *ActionGroup) AutomationRunbookReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["automationRunbookReceivers"])
-}
-
-// One or more `azureAppPushReceiver` blocks as defined below.
-func (r *ActionGroup) AzureAppPushReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["azureAppPushReceivers"])
-}
-
-// One or more `azureFunctionReceiver` blocks as defined below.
-func (r *ActionGroup) AzureFunctionReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["azureFunctionReceivers"])
-}
-
-// One or more `emailReceiver` blocks as defined below.
-func (r *ActionGroup) EmailReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["emailReceivers"])
-}
-
-// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-func (r *ActionGroup) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// One or more `itsmReceiver` blocks as defined below.
-func (r *ActionGroup) ItsmReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["itsmReceivers"])
-}
-
-// One or more `logicAppReceiver` blocks as defined below.
-func (r *ActionGroup) LogicAppReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["logicAppReceivers"])
-}
-
-// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-func (r *ActionGroup) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Action Group instance.
-func (r *ActionGroup) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The short name of the action group. This will be used in SMS messages.
-func (r *ActionGroup) ShortName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["shortName"])
-}
-
-// One or more `smsReceiver` blocks as defined below.
-func (r *ActionGroup) SmsReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["smsReceivers"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ActionGroup) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// One or more `voiceReceiver` blocks as defined below.
-func (r *ActionGroup) VoiceReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["voiceReceivers"])
-}
-
-// One or more `webhookReceiver` blocks as defined below.
-func (r *ActionGroup) WebhookReceivers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["webhookReceivers"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ActionGroup resources.
 type ActionGroupState struct {
 	// One or more `armRoleReceiver` blocks as defined below.
-	ArmRoleReceivers interface{}
+	ArmRoleReceivers ActionGroupArmRoleReceiversArrayInput `pulumi:"armRoleReceivers"`
 	// One or more `automationRunbookReceiver` blocks as defined below.
-	AutomationRunbookReceivers interface{}
+	AutomationRunbookReceivers ActionGroupAutomationRunbookReceiversArrayInput `pulumi:"automationRunbookReceivers"`
 	// One or more `azureAppPushReceiver` blocks as defined below.
-	AzureAppPushReceivers interface{}
+	AzureAppPushReceivers ActionGroupAzureAppPushReceiversArrayInput `pulumi:"azureAppPushReceivers"`
 	// One or more `azureFunctionReceiver` blocks as defined below.
-	AzureFunctionReceivers interface{}
+	AzureFunctionReceivers ActionGroupAzureFunctionReceiversArrayInput `pulumi:"azureFunctionReceivers"`
 	// One or more `emailReceiver` blocks as defined below.
-	EmailReceivers interface{}
+	EmailReceivers ActionGroupEmailReceiversArrayInput `pulumi:"emailReceivers"`
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// One or more `itsmReceiver` blocks as defined below.
-	ItsmReceivers interface{}
+	ItsmReceivers ActionGroupItsmReceiversArrayInput `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
-	LogicAppReceivers interface{}
+	LogicAppReceivers ActionGroupLogicAppReceiversArrayInput `pulumi:"logicAppReceivers"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Action Group instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The short name of the action group. This will be used in SMS messages.
-	ShortName interface{}
+	ShortName pulumi.StringInput `pulumi:"shortName"`
 	// One or more `smsReceiver` blocks as defined below.
-	SmsReceivers interface{}
+	SmsReceivers ActionGroupSmsReceiversArrayInput `pulumi:"smsReceivers"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// One or more `voiceReceiver` blocks as defined below.
-	VoiceReceivers interface{}
+	VoiceReceivers ActionGroupVoiceReceiversArrayInput `pulumi:"voiceReceivers"`
 	// One or more `webhookReceiver` blocks as defined below.
-	WebhookReceivers interface{}
+	WebhookReceivers ActionGroupWebhookReceiversArrayInput `pulumi:"webhookReceivers"`
 }
 
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
 	// One or more `armRoleReceiver` blocks as defined below.
-	ArmRoleReceivers interface{}
+	ArmRoleReceivers ActionGroupArmRoleReceiversArrayInput `pulumi:"armRoleReceivers"`
 	// One or more `automationRunbookReceiver` blocks as defined below.
-	AutomationRunbookReceivers interface{}
+	AutomationRunbookReceivers ActionGroupAutomationRunbookReceiversArrayInput `pulumi:"automationRunbookReceivers"`
 	// One or more `azureAppPushReceiver` blocks as defined below.
-	AzureAppPushReceivers interface{}
+	AzureAppPushReceivers ActionGroupAzureAppPushReceiversArrayInput `pulumi:"azureAppPushReceivers"`
 	// One or more `azureFunctionReceiver` blocks as defined below.
-	AzureFunctionReceivers interface{}
+	AzureFunctionReceivers ActionGroupAzureFunctionReceiversArrayInput `pulumi:"azureFunctionReceivers"`
 	// One or more `emailReceiver` blocks as defined below.
-	EmailReceivers interface{}
+	EmailReceivers ActionGroupEmailReceiversArrayInput `pulumi:"emailReceivers"`
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// One or more `itsmReceiver` blocks as defined below.
-	ItsmReceivers interface{}
+	ItsmReceivers ActionGroupItsmReceiversArrayInput `pulumi:"itsmReceivers"`
 	// One or more `logicAppReceiver` blocks as defined below.
-	LogicAppReceivers interface{}
+	LogicAppReceivers ActionGroupLogicAppReceiversArrayInput `pulumi:"logicAppReceivers"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Action Group instance.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The short name of the action group. This will be used in SMS messages.
-	ShortName interface{}
+	ShortName pulumi.StringInput `pulumi:"shortName"`
 	// One or more `smsReceiver` blocks as defined below.
-	SmsReceivers interface{}
+	SmsReceivers ActionGroupSmsReceiversArrayInput `pulumi:"smsReceivers"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// One or more `voiceReceiver` blocks as defined below.
-	VoiceReceivers interface{}
+	VoiceReceivers ActionGroupVoiceReceiversArrayInput `pulumi:"voiceReceivers"`
 	// One or more `webhookReceiver` blocks as defined below.
-	WebhookReceivers interface{}
+	WebhookReceivers ActionGroupWebhookReceiversArrayInput `pulumi:"webhookReceivers"`
 }
+type ActionGroupArmRoleReceivers struct {
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The arm role id.
+	RoleId string `pulumi:"roleId"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+var actionGroupArmRoleReceiversType = reflect.TypeOf((*ActionGroupArmRoleReceivers)(nil)).Elem()
+
+type ActionGroupArmRoleReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupArmRoleReceiversOutput() ActionGroupArmRoleReceiversOutput
+	ToActionGroupArmRoleReceiversOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiversOutput
+}
+
+type ActionGroupArmRoleReceiversArgs struct {
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The arm role id.
+	RoleId pulumi.StringInput `pulumi:"roleId"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (ActionGroupArmRoleReceiversArgs) ElementType() reflect.Type {
+	return actionGroupArmRoleReceiversType
+}
+
+func (a ActionGroupArmRoleReceiversArgs) ToActionGroupArmRoleReceiversOutput() ActionGroupArmRoleReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupArmRoleReceiversOutput)
+}
+
+func (a ActionGroupArmRoleReceiversArgs) ToActionGroupArmRoleReceiversOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupArmRoleReceiversOutput)
+}
+
+type ActionGroupArmRoleReceiversOutput struct { *pulumi.OutputState }
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupArmRoleReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupArmRoleReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The arm role id.
+func (o ActionGroupArmRoleReceiversOutput) RoleId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupArmRoleReceivers) string {
+		return v.RoleId
+	}).(pulumi.StringOutput)
+}
+
+// Enables or disables the common alert schema.
+func (o ActionGroupArmRoleReceiversOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupArmRoleReceivers) bool {
+		if v.UseCommonAlertSchema == nil { return *new(bool) } else { return *v.UseCommonAlertSchema }
+	}).(pulumi.BoolOutput)
+}
+
+func (ActionGroupArmRoleReceiversOutput) ElementType() reflect.Type {
+	return actionGroupArmRoleReceiversType
+}
+
+func (o ActionGroupArmRoleReceiversOutput) ToActionGroupArmRoleReceiversOutput() ActionGroupArmRoleReceiversOutput {
+	return o
+}
+
+func (o ActionGroupArmRoleReceiversOutput) ToActionGroupArmRoleReceiversOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupArmRoleReceiversOutput{}) }
+
+var actionGroupArmRoleReceiversArrayType = reflect.TypeOf((*[]ActionGroupArmRoleReceivers)(nil)).Elem()
+
+type ActionGroupArmRoleReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupArmRoleReceiversArrayOutput() ActionGroupArmRoleReceiversArrayOutput
+	ToActionGroupArmRoleReceiversArrayOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiversArrayOutput
+}
+
+type ActionGroupArmRoleReceiversArrayArgs []ActionGroupArmRoleReceiversInput
+
+func (ActionGroupArmRoleReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupArmRoleReceiversArrayType
+}
+
+func (a ActionGroupArmRoleReceiversArrayArgs) ToActionGroupArmRoleReceiversArrayOutput() ActionGroupArmRoleReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupArmRoleReceiversArrayOutput)
+}
+
+func (a ActionGroupArmRoleReceiversArrayArgs) ToActionGroupArmRoleReceiversArrayOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupArmRoleReceiversArrayOutput)
+}
+
+type ActionGroupArmRoleReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupArmRoleReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupArmRoleReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupArmRoleReceivers {
+		return vs[0].([]ActionGroupArmRoleReceivers)[vs[1].(int)]
+	}).(ActionGroupArmRoleReceiversOutput)
+}
+
+func (ActionGroupArmRoleReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupArmRoleReceiversArrayType
+}
+
+func (o ActionGroupArmRoleReceiversArrayOutput) ToActionGroupArmRoleReceiversArrayOutput() ActionGroupArmRoleReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupArmRoleReceiversArrayOutput) ToActionGroupArmRoleReceiversArrayOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupArmRoleReceiversArrayOutput{}) }
+
+type ActionGroupAutomationRunbookReceivers struct {
+	// The automation account ID which holds this runbook and authenticates to Azure resources.
+	AutomationAccountId string `pulumi:"automationAccountId"`
+	// Indicates whether this instance is global runbook.
+	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The name for this runbook.
+	RunbookName string `pulumi:"runbookName"`
+	// The URI where webhooks should be sent.
+	ServiceUri string `pulumi:"serviceUri"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+	// The resource id for webhook linked to this runbook.
+	WebhookResourceId string `pulumi:"webhookResourceId"`
+}
+var actionGroupAutomationRunbookReceiversType = reflect.TypeOf((*ActionGroupAutomationRunbookReceivers)(nil)).Elem()
+
+type ActionGroupAutomationRunbookReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupAutomationRunbookReceiversOutput() ActionGroupAutomationRunbookReceiversOutput
+	ToActionGroupAutomationRunbookReceiversOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiversOutput
+}
+
+type ActionGroupAutomationRunbookReceiversArgs struct {
+	// The automation account ID which holds this runbook and authenticates to Azure resources.
+	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
+	// Indicates whether this instance is global runbook.
+	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name for this runbook.
+	RunbookName pulumi.StringInput `pulumi:"runbookName"`
+	// The URI where webhooks should be sent.
+	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+	// The resource id for webhook linked to this runbook.
+	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+}
+
+func (ActionGroupAutomationRunbookReceiversArgs) ElementType() reflect.Type {
+	return actionGroupAutomationRunbookReceiversType
+}
+
+func (a ActionGroupAutomationRunbookReceiversArgs) ToActionGroupAutomationRunbookReceiversOutput() ActionGroupAutomationRunbookReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupAutomationRunbookReceiversOutput)
+}
+
+func (a ActionGroupAutomationRunbookReceiversArgs) ToActionGroupAutomationRunbookReceiversOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupAutomationRunbookReceiversOutput)
+}
+
+type ActionGroupAutomationRunbookReceiversOutput struct { *pulumi.OutputState }
+
+// The automation account ID which holds this runbook and authenticates to Azure resources.
+func (o ActionGroupAutomationRunbookReceiversOutput) AutomationAccountId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) string {
+		return v.AutomationAccountId
+	}).(pulumi.StringOutput)
+}
+
+// Indicates whether this instance is global runbook.
+func (o ActionGroupAutomationRunbookReceiversOutput) IsGlobalRunbook() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) bool {
+		return v.IsGlobalRunbook
+	}).(pulumi.BoolOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupAutomationRunbookReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The name for this runbook.
+func (o ActionGroupAutomationRunbookReceiversOutput) RunbookName() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) string {
+		return v.RunbookName
+	}).(pulumi.StringOutput)
+}
+
+// The URI where webhooks should be sent.
+func (o ActionGroupAutomationRunbookReceiversOutput) ServiceUri() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) string {
+		return v.ServiceUri
+	}).(pulumi.StringOutput)
+}
+
+// Enables or disables the common alert schema.
+func (o ActionGroupAutomationRunbookReceiversOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) bool {
+		if v.UseCommonAlertSchema == nil { return *new(bool) } else { return *v.UseCommonAlertSchema }
+	}).(pulumi.BoolOutput)
+}
+
+// The resource id for webhook linked to this runbook.
+func (o ActionGroupAutomationRunbookReceiversOutput) WebhookResourceId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAutomationRunbookReceivers) string {
+		return v.WebhookResourceId
+	}).(pulumi.StringOutput)
+}
+
+func (ActionGroupAutomationRunbookReceiversOutput) ElementType() reflect.Type {
+	return actionGroupAutomationRunbookReceiversType
+}
+
+func (o ActionGroupAutomationRunbookReceiversOutput) ToActionGroupAutomationRunbookReceiversOutput() ActionGroupAutomationRunbookReceiversOutput {
+	return o
+}
+
+func (o ActionGroupAutomationRunbookReceiversOutput) ToActionGroupAutomationRunbookReceiversOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupAutomationRunbookReceiversOutput{}) }
+
+var actionGroupAutomationRunbookReceiversArrayType = reflect.TypeOf((*[]ActionGroupAutomationRunbookReceivers)(nil)).Elem()
+
+type ActionGroupAutomationRunbookReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupAutomationRunbookReceiversArrayOutput() ActionGroupAutomationRunbookReceiversArrayOutput
+	ToActionGroupAutomationRunbookReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiversArrayOutput
+}
+
+type ActionGroupAutomationRunbookReceiversArrayArgs []ActionGroupAutomationRunbookReceiversInput
+
+func (ActionGroupAutomationRunbookReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupAutomationRunbookReceiversArrayType
+}
+
+func (a ActionGroupAutomationRunbookReceiversArrayArgs) ToActionGroupAutomationRunbookReceiversArrayOutput() ActionGroupAutomationRunbookReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupAutomationRunbookReceiversArrayOutput)
+}
+
+func (a ActionGroupAutomationRunbookReceiversArrayArgs) ToActionGroupAutomationRunbookReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupAutomationRunbookReceiversArrayOutput)
+}
+
+type ActionGroupAutomationRunbookReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupAutomationRunbookReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupAutomationRunbookReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupAutomationRunbookReceivers {
+		return vs[0].([]ActionGroupAutomationRunbookReceivers)[vs[1].(int)]
+	}).(ActionGroupAutomationRunbookReceiversOutput)
+}
+
+func (ActionGroupAutomationRunbookReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupAutomationRunbookReceiversArrayType
+}
+
+func (o ActionGroupAutomationRunbookReceiversArrayOutput) ToActionGroupAutomationRunbookReceiversArrayOutput() ActionGroupAutomationRunbookReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupAutomationRunbookReceiversArrayOutput) ToActionGroupAutomationRunbookReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupAutomationRunbookReceiversArrayOutput{}) }
+
+type ActionGroupAzureAppPushReceivers struct {
+	// The email address of this receiver.
+	EmailAddress string `pulumi:"emailAddress"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+}
+var actionGroupAzureAppPushReceiversType = reflect.TypeOf((*ActionGroupAzureAppPushReceivers)(nil)).Elem()
+
+type ActionGroupAzureAppPushReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupAzureAppPushReceiversOutput() ActionGroupAzureAppPushReceiversOutput
+	ToActionGroupAzureAppPushReceiversOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiversOutput
+}
+
+type ActionGroupAzureAppPushReceiversArgs struct {
+	// The email address of this receiver.
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ActionGroupAzureAppPushReceiversArgs) ElementType() reflect.Type {
+	return actionGroupAzureAppPushReceiversType
+}
+
+func (a ActionGroupAzureAppPushReceiversArgs) ToActionGroupAzureAppPushReceiversOutput() ActionGroupAzureAppPushReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupAzureAppPushReceiversOutput)
+}
+
+func (a ActionGroupAzureAppPushReceiversArgs) ToActionGroupAzureAppPushReceiversOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupAzureAppPushReceiversOutput)
+}
+
+type ActionGroupAzureAppPushReceiversOutput struct { *pulumi.OutputState }
+
+// The email address of this receiver.
+func (o ActionGroupAzureAppPushReceiversOutput) EmailAddress() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAzureAppPushReceivers) string {
+		return v.EmailAddress
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupAzureAppPushReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAzureAppPushReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (ActionGroupAzureAppPushReceiversOutput) ElementType() reflect.Type {
+	return actionGroupAzureAppPushReceiversType
+}
+
+func (o ActionGroupAzureAppPushReceiversOutput) ToActionGroupAzureAppPushReceiversOutput() ActionGroupAzureAppPushReceiversOutput {
+	return o
+}
+
+func (o ActionGroupAzureAppPushReceiversOutput) ToActionGroupAzureAppPushReceiversOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupAzureAppPushReceiversOutput{}) }
+
+var actionGroupAzureAppPushReceiversArrayType = reflect.TypeOf((*[]ActionGroupAzureAppPushReceivers)(nil)).Elem()
+
+type ActionGroupAzureAppPushReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupAzureAppPushReceiversArrayOutput() ActionGroupAzureAppPushReceiversArrayOutput
+	ToActionGroupAzureAppPushReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiversArrayOutput
+}
+
+type ActionGroupAzureAppPushReceiversArrayArgs []ActionGroupAzureAppPushReceiversInput
+
+func (ActionGroupAzureAppPushReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupAzureAppPushReceiversArrayType
+}
+
+func (a ActionGroupAzureAppPushReceiversArrayArgs) ToActionGroupAzureAppPushReceiversArrayOutput() ActionGroupAzureAppPushReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupAzureAppPushReceiversArrayOutput)
+}
+
+func (a ActionGroupAzureAppPushReceiversArrayArgs) ToActionGroupAzureAppPushReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupAzureAppPushReceiversArrayOutput)
+}
+
+type ActionGroupAzureAppPushReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupAzureAppPushReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupAzureAppPushReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupAzureAppPushReceivers {
+		return vs[0].([]ActionGroupAzureAppPushReceivers)[vs[1].(int)]
+	}).(ActionGroupAzureAppPushReceiversOutput)
+}
+
+func (ActionGroupAzureAppPushReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupAzureAppPushReceiversArrayType
+}
+
+func (o ActionGroupAzureAppPushReceiversArrayOutput) ToActionGroupAzureAppPushReceiversArrayOutput() ActionGroupAzureAppPushReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupAzureAppPushReceiversArrayOutput) ToActionGroupAzureAppPushReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupAzureAppPushReceiversArrayOutput{}) }
+
+type ActionGroupAzureFunctionReceivers struct {
+	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
+	// The function name in the function app.
+	FunctionName string `pulumi:"functionName"`
+	// The http trigger url where http request sent to.
+	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+var actionGroupAzureFunctionReceiversType = reflect.TypeOf((*ActionGroupAzureFunctionReceivers)(nil)).Elem()
+
+type ActionGroupAzureFunctionReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupAzureFunctionReceiversOutput() ActionGroupAzureFunctionReceiversOutput
+	ToActionGroupAzureFunctionReceiversOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiversOutput
+}
+
+type ActionGroupAzureFunctionReceiversArgs struct {
+	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
+	// The function name in the function app.
+	FunctionName pulumi.StringInput `pulumi:"functionName"`
+	// The http trigger url where http request sent to.
+	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (ActionGroupAzureFunctionReceiversArgs) ElementType() reflect.Type {
+	return actionGroupAzureFunctionReceiversType
+}
+
+func (a ActionGroupAzureFunctionReceiversArgs) ToActionGroupAzureFunctionReceiversOutput() ActionGroupAzureFunctionReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupAzureFunctionReceiversOutput)
+}
+
+func (a ActionGroupAzureFunctionReceiversArgs) ToActionGroupAzureFunctionReceiversOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupAzureFunctionReceiversOutput)
+}
+
+type ActionGroupAzureFunctionReceiversOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupAzureFunctionReceiversOutput) FunctionAppResourceId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAzureFunctionReceivers) string {
+		return v.FunctionAppResourceId
+	}).(pulumi.StringOutput)
+}
+
+// The function name in the function app.
+func (o ActionGroupAzureFunctionReceiversOutput) FunctionName() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAzureFunctionReceivers) string {
+		return v.FunctionName
+	}).(pulumi.StringOutput)
+}
+
+// The http trigger url where http request sent to.
+func (o ActionGroupAzureFunctionReceiversOutput) HttpTriggerUrl() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAzureFunctionReceivers) string {
+		return v.HttpTriggerUrl
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupAzureFunctionReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupAzureFunctionReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Enables or disables the common alert schema.
+func (o ActionGroupAzureFunctionReceiversOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupAzureFunctionReceivers) bool {
+		if v.UseCommonAlertSchema == nil { return *new(bool) } else { return *v.UseCommonAlertSchema }
+	}).(pulumi.BoolOutput)
+}
+
+func (ActionGroupAzureFunctionReceiversOutput) ElementType() reflect.Type {
+	return actionGroupAzureFunctionReceiversType
+}
+
+func (o ActionGroupAzureFunctionReceiversOutput) ToActionGroupAzureFunctionReceiversOutput() ActionGroupAzureFunctionReceiversOutput {
+	return o
+}
+
+func (o ActionGroupAzureFunctionReceiversOutput) ToActionGroupAzureFunctionReceiversOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupAzureFunctionReceiversOutput{}) }
+
+var actionGroupAzureFunctionReceiversArrayType = reflect.TypeOf((*[]ActionGroupAzureFunctionReceivers)(nil)).Elem()
+
+type ActionGroupAzureFunctionReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupAzureFunctionReceiversArrayOutput() ActionGroupAzureFunctionReceiversArrayOutput
+	ToActionGroupAzureFunctionReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiversArrayOutput
+}
+
+type ActionGroupAzureFunctionReceiversArrayArgs []ActionGroupAzureFunctionReceiversInput
+
+func (ActionGroupAzureFunctionReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupAzureFunctionReceiversArrayType
+}
+
+func (a ActionGroupAzureFunctionReceiversArrayArgs) ToActionGroupAzureFunctionReceiversArrayOutput() ActionGroupAzureFunctionReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupAzureFunctionReceiversArrayOutput)
+}
+
+func (a ActionGroupAzureFunctionReceiversArrayArgs) ToActionGroupAzureFunctionReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupAzureFunctionReceiversArrayOutput)
+}
+
+type ActionGroupAzureFunctionReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupAzureFunctionReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupAzureFunctionReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupAzureFunctionReceivers {
+		return vs[0].([]ActionGroupAzureFunctionReceivers)[vs[1].(int)]
+	}).(ActionGroupAzureFunctionReceiversOutput)
+}
+
+func (ActionGroupAzureFunctionReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupAzureFunctionReceiversArrayType
+}
+
+func (o ActionGroupAzureFunctionReceiversArrayOutput) ToActionGroupAzureFunctionReceiversArrayOutput() ActionGroupAzureFunctionReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupAzureFunctionReceiversArrayOutput) ToActionGroupAzureFunctionReceiversArrayOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupAzureFunctionReceiversArrayOutput{}) }
+
+type ActionGroupEmailReceivers struct {
+	// The email address of this receiver.
+	EmailAddress string `pulumi:"emailAddress"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+var actionGroupEmailReceiversType = reflect.TypeOf((*ActionGroupEmailReceivers)(nil)).Elem()
+
+type ActionGroupEmailReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupEmailReceiversOutput() ActionGroupEmailReceiversOutput
+	ToActionGroupEmailReceiversOutputWithContext(ctx context.Context) ActionGroupEmailReceiversOutput
+}
+
+type ActionGroupEmailReceiversArgs struct {
+	// The email address of this receiver.
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (ActionGroupEmailReceiversArgs) ElementType() reflect.Type {
+	return actionGroupEmailReceiversType
+}
+
+func (a ActionGroupEmailReceiversArgs) ToActionGroupEmailReceiversOutput() ActionGroupEmailReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupEmailReceiversOutput)
+}
+
+func (a ActionGroupEmailReceiversArgs) ToActionGroupEmailReceiversOutputWithContext(ctx context.Context) ActionGroupEmailReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupEmailReceiversOutput)
+}
+
+type ActionGroupEmailReceiversOutput struct { *pulumi.OutputState }
+
+// The email address of this receiver.
+func (o ActionGroupEmailReceiversOutput) EmailAddress() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupEmailReceivers) string {
+		return v.EmailAddress
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupEmailReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupEmailReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Enables or disables the common alert schema.
+func (o ActionGroupEmailReceiversOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupEmailReceivers) bool {
+		if v.UseCommonAlertSchema == nil { return *new(bool) } else { return *v.UseCommonAlertSchema }
+	}).(pulumi.BoolOutput)
+}
+
+func (ActionGroupEmailReceiversOutput) ElementType() reflect.Type {
+	return actionGroupEmailReceiversType
+}
+
+func (o ActionGroupEmailReceiversOutput) ToActionGroupEmailReceiversOutput() ActionGroupEmailReceiversOutput {
+	return o
+}
+
+func (o ActionGroupEmailReceiversOutput) ToActionGroupEmailReceiversOutputWithContext(ctx context.Context) ActionGroupEmailReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupEmailReceiversOutput{}) }
+
+var actionGroupEmailReceiversArrayType = reflect.TypeOf((*[]ActionGroupEmailReceivers)(nil)).Elem()
+
+type ActionGroupEmailReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupEmailReceiversArrayOutput() ActionGroupEmailReceiversArrayOutput
+	ToActionGroupEmailReceiversArrayOutputWithContext(ctx context.Context) ActionGroupEmailReceiversArrayOutput
+}
+
+type ActionGroupEmailReceiversArrayArgs []ActionGroupEmailReceiversInput
+
+func (ActionGroupEmailReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupEmailReceiversArrayType
+}
+
+func (a ActionGroupEmailReceiversArrayArgs) ToActionGroupEmailReceiversArrayOutput() ActionGroupEmailReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupEmailReceiversArrayOutput)
+}
+
+func (a ActionGroupEmailReceiversArrayArgs) ToActionGroupEmailReceiversArrayOutputWithContext(ctx context.Context) ActionGroupEmailReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupEmailReceiversArrayOutput)
+}
+
+type ActionGroupEmailReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupEmailReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupEmailReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupEmailReceivers {
+		return vs[0].([]ActionGroupEmailReceivers)[vs[1].(int)]
+	}).(ActionGroupEmailReceiversOutput)
+}
+
+func (ActionGroupEmailReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupEmailReceiversArrayType
+}
+
+func (o ActionGroupEmailReceiversArrayOutput) ToActionGroupEmailReceiversArrayOutput() ActionGroupEmailReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupEmailReceiversArrayOutput) ToActionGroupEmailReceiversArrayOutputWithContext(ctx context.Context) ActionGroupEmailReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupEmailReceiversArrayOutput{}) }
+
+type ActionGroupItsmReceivers struct {
+	// The unique connection identifier of the ITSM connection.
+	ConnectionId string `pulumi:"connectionId"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The region of the workspace.
+	Region string `pulumi:"region"`
+	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	TicketConfiguration string `pulumi:"ticketConfiguration"`
+	// The Azure Log Analytics workspace ID where this connection is defined.
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+var actionGroupItsmReceiversType = reflect.TypeOf((*ActionGroupItsmReceivers)(nil)).Elem()
+
+type ActionGroupItsmReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupItsmReceiversOutput() ActionGroupItsmReceiversOutput
+	ToActionGroupItsmReceiversOutputWithContext(ctx context.Context) ActionGroupItsmReceiversOutput
+}
+
+type ActionGroupItsmReceiversArgs struct {
+	// The unique connection identifier of the ITSM connection.
+	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The region of the workspace.
+	Region pulumi.StringInput `pulumi:"region"`
+	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
+	// The Azure Log Analytics workspace ID where this connection is defined.
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (ActionGroupItsmReceiversArgs) ElementType() reflect.Type {
+	return actionGroupItsmReceiversType
+}
+
+func (a ActionGroupItsmReceiversArgs) ToActionGroupItsmReceiversOutput() ActionGroupItsmReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupItsmReceiversOutput)
+}
+
+func (a ActionGroupItsmReceiversArgs) ToActionGroupItsmReceiversOutputWithContext(ctx context.Context) ActionGroupItsmReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupItsmReceiversOutput)
+}
+
+type ActionGroupItsmReceiversOutput struct { *pulumi.OutputState }
+
+// The unique connection identifier of the ITSM connection.
+func (o ActionGroupItsmReceiversOutput) ConnectionId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupItsmReceivers) string {
+		return v.ConnectionId
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupItsmReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupItsmReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The region of the workspace.
+func (o ActionGroupItsmReceiversOutput) Region() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupItsmReceivers) string {
+		return v.Region
+	}).(pulumi.StringOutput)
+}
+
+// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+func (o ActionGroupItsmReceiversOutput) TicketConfiguration() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupItsmReceivers) string {
+		return v.TicketConfiguration
+	}).(pulumi.StringOutput)
+}
+
+// The Azure Log Analytics workspace ID where this connection is defined.
+func (o ActionGroupItsmReceiversOutput) WorkspaceId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupItsmReceivers) string {
+		return v.WorkspaceId
+	}).(pulumi.StringOutput)
+}
+
+func (ActionGroupItsmReceiversOutput) ElementType() reflect.Type {
+	return actionGroupItsmReceiversType
+}
+
+func (o ActionGroupItsmReceiversOutput) ToActionGroupItsmReceiversOutput() ActionGroupItsmReceiversOutput {
+	return o
+}
+
+func (o ActionGroupItsmReceiversOutput) ToActionGroupItsmReceiversOutputWithContext(ctx context.Context) ActionGroupItsmReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupItsmReceiversOutput{}) }
+
+var actionGroupItsmReceiversArrayType = reflect.TypeOf((*[]ActionGroupItsmReceivers)(nil)).Elem()
+
+type ActionGroupItsmReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupItsmReceiversArrayOutput() ActionGroupItsmReceiversArrayOutput
+	ToActionGroupItsmReceiversArrayOutputWithContext(ctx context.Context) ActionGroupItsmReceiversArrayOutput
+}
+
+type ActionGroupItsmReceiversArrayArgs []ActionGroupItsmReceiversInput
+
+func (ActionGroupItsmReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupItsmReceiversArrayType
+}
+
+func (a ActionGroupItsmReceiversArrayArgs) ToActionGroupItsmReceiversArrayOutput() ActionGroupItsmReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupItsmReceiversArrayOutput)
+}
+
+func (a ActionGroupItsmReceiversArrayArgs) ToActionGroupItsmReceiversArrayOutputWithContext(ctx context.Context) ActionGroupItsmReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupItsmReceiversArrayOutput)
+}
+
+type ActionGroupItsmReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupItsmReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupItsmReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupItsmReceivers {
+		return vs[0].([]ActionGroupItsmReceivers)[vs[1].(int)]
+	}).(ActionGroupItsmReceiversOutput)
+}
+
+func (ActionGroupItsmReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupItsmReceiversArrayType
+}
+
+func (o ActionGroupItsmReceiversArrayOutput) ToActionGroupItsmReceiversArrayOutput() ActionGroupItsmReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupItsmReceiversArrayOutput) ToActionGroupItsmReceiversArrayOutputWithContext(ctx context.Context) ActionGroupItsmReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupItsmReceiversArrayOutput{}) }
+
+type ActionGroupLogicAppReceivers struct {
+	// The callback url where http request sent to.
+	CallbackUrl string `pulumi:"callbackUrl"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The Azure resource ID of the logic app.
+	ResourceId string `pulumi:"resourceId"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+var actionGroupLogicAppReceiversType = reflect.TypeOf((*ActionGroupLogicAppReceivers)(nil)).Elem()
+
+type ActionGroupLogicAppReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupLogicAppReceiversOutput() ActionGroupLogicAppReceiversOutput
+	ToActionGroupLogicAppReceiversOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiversOutput
+}
+
+type ActionGroupLogicAppReceiversArgs struct {
+	// The callback url where http request sent to.
+	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Azure resource ID of the logic app.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (ActionGroupLogicAppReceiversArgs) ElementType() reflect.Type {
+	return actionGroupLogicAppReceiversType
+}
+
+func (a ActionGroupLogicAppReceiversArgs) ToActionGroupLogicAppReceiversOutput() ActionGroupLogicAppReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupLogicAppReceiversOutput)
+}
+
+func (a ActionGroupLogicAppReceiversArgs) ToActionGroupLogicAppReceiversOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupLogicAppReceiversOutput)
+}
+
+type ActionGroupLogicAppReceiversOutput struct { *pulumi.OutputState }
+
+// The callback url where http request sent to.
+func (o ActionGroupLogicAppReceiversOutput) CallbackUrl() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupLogicAppReceivers) string {
+		return v.CallbackUrl
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupLogicAppReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupLogicAppReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The Azure resource ID of the logic app.
+func (o ActionGroupLogicAppReceiversOutput) ResourceId() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupLogicAppReceivers) string {
+		return v.ResourceId
+	}).(pulumi.StringOutput)
+}
+
+// Enables or disables the common alert schema.
+func (o ActionGroupLogicAppReceiversOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupLogicAppReceivers) bool {
+		if v.UseCommonAlertSchema == nil { return *new(bool) } else { return *v.UseCommonAlertSchema }
+	}).(pulumi.BoolOutput)
+}
+
+func (ActionGroupLogicAppReceiversOutput) ElementType() reflect.Type {
+	return actionGroupLogicAppReceiversType
+}
+
+func (o ActionGroupLogicAppReceiversOutput) ToActionGroupLogicAppReceiversOutput() ActionGroupLogicAppReceiversOutput {
+	return o
+}
+
+func (o ActionGroupLogicAppReceiversOutput) ToActionGroupLogicAppReceiversOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupLogicAppReceiversOutput{}) }
+
+var actionGroupLogicAppReceiversArrayType = reflect.TypeOf((*[]ActionGroupLogicAppReceivers)(nil)).Elem()
+
+type ActionGroupLogicAppReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupLogicAppReceiversArrayOutput() ActionGroupLogicAppReceiversArrayOutput
+	ToActionGroupLogicAppReceiversArrayOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiversArrayOutput
+}
+
+type ActionGroupLogicAppReceiversArrayArgs []ActionGroupLogicAppReceiversInput
+
+func (ActionGroupLogicAppReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupLogicAppReceiversArrayType
+}
+
+func (a ActionGroupLogicAppReceiversArrayArgs) ToActionGroupLogicAppReceiversArrayOutput() ActionGroupLogicAppReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupLogicAppReceiversArrayOutput)
+}
+
+func (a ActionGroupLogicAppReceiversArrayArgs) ToActionGroupLogicAppReceiversArrayOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupLogicAppReceiversArrayOutput)
+}
+
+type ActionGroupLogicAppReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupLogicAppReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupLogicAppReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupLogicAppReceivers {
+		return vs[0].([]ActionGroupLogicAppReceivers)[vs[1].(int)]
+	}).(ActionGroupLogicAppReceiversOutput)
+}
+
+func (ActionGroupLogicAppReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupLogicAppReceiversArrayType
+}
+
+func (o ActionGroupLogicAppReceiversArrayOutput) ToActionGroupLogicAppReceiversArrayOutput() ActionGroupLogicAppReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupLogicAppReceiversArrayOutput) ToActionGroupLogicAppReceiversArrayOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupLogicAppReceiversArrayOutput{}) }
+
+type ActionGroupSmsReceivers struct {
+	// The country code of the voice receiver.
+	CountryCode string `pulumi:"countryCode"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The phone number of the voice receiver.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+var actionGroupSmsReceiversType = reflect.TypeOf((*ActionGroupSmsReceivers)(nil)).Elem()
+
+type ActionGroupSmsReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupSmsReceiversOutput() ActionGroupSmsReceiversOutput
+	ToActionGroupSmsReceiversOutputWithContext(ctx context.Context) ActionGroupSmsReceiversOutput
+}
+
+type ActionGroupSmsReceiversArgs struct {
+	// The country code of the voice receiver.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The phone number of the voice receiver.
+	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+}
+
+func (ActionGroupSmsReceiversArgs) ElementType() reflect.Type {
+	return actionGroupSmsReceiversType
+}
+
+func (a ActionGroupSmsReceiversArgs) ToActionGroupSmsReceiversOutput() ActionGroupSmsReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupSmsReceiversOutput)
+}
+
+func (a ActionGroupSmsReceiversArgs) ToActionGroupSmsReceiversOutputWithContext(ctx context.Context) ActionGroupSmsReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupSmsReceiversOutput)
+}
+
+type ActionGroupSmsReceiversOutput struct { *pulumi.OutputState }
+
+// The country code of the voice receiver.
+func (o ActionGroupSmsReceiversOutput) CountryCode() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupSmsReceivers) string {
+		return v.CountryCode
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupSmsReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupSmsReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The phone number of the voice receiver.
+func (o ActionGroupSmsReceiversOutput) PhoneNumber() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupSmsReceivers) string {
+		return v.PhoneNumber
+	}).(pulumi.StringOutput)
+}
+
+func (ActionGroupSmsReceiversOutput) ElementType() reflect.Type {
+	return actionGroupSmsReceiversType
+}
+
+func (o ActionGroupSmsReceiversOutput) ToActionGroupSmsReceiversOutput() ActionGroupSmsReceiversOutput {
+	return o
+}
+
+func (o ActionGroupSmsReceiversOutput) ToActionGroupSmsReceiversOutputWithContext(ctx context.Context) ActionGroupSmsReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupSmsReceiversOutput{}) }
+
+var actionGroupSmsReceiversArrayType = reflect.TypeOf((*[]ActionGroupSmsReceivers)(nil)).Elem()
+
+type ActionGroupSmsReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupSmsReceiversArrayOutput() ActionGroupSmsReceiversArrayOutput
+	ToActionGroupSmsReceiversArrayOutputWithContext(ctx context.Context) ActionGroupSmsReceiversArrayOutput
+}
+
+type ActionGroupSmsReceiversArrayArgs []ActionGroupSmsReceiversInput
+
+func (ActionGroupSmsReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupSmsReceiversArrayType
+}
+
+func (a ActionGroupSmsReceiversArrayArgs) ToActionGroupSmsReceiversArrayOutput() ActionGroupSmsReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupSmsReceiversArrayOutput)
+}
+
+func (a ActionGroupSmsReceiversArrayArgs) ToActionGroupSmsReceiversArrayOutputWithContext(ctx context.Context) ActionGroupSmsReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupSmsReceiversArrayOutput)
+}
+
+type ActionGroupSmsReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupSmsReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupSmsReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupSmsReceivers {
+		return vs[0].([]ActionGroupSmsReceivers)[vs[1].(int)]
+	}).(ActionGroupSmsReceiversOutput)
+}
+
+func (ActionGroupSmsReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupSmsReceiversArrayType
+}
+
+func (o ActionGroupSmsReceiversArrayOutput) ToActionGroupSmsReceiversArrayOutput() ActionGroupSmsReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupSmsReceiversArrayOutput) ToActionGroupSmsReceiversArrayOutputWithContext(ctx context.Context) ActionGroupSmsReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupSmsReceiversArrayOutput{}) }
+
+type ActionGroupVoiceReceivers struct {
+	// The country code of the voice receiver.
+	CountryCode string `pulumi:"countryCode"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The phone number of the voice receiver.
+	PhoneNumber string `pulumi:"phoneNumber"`
+}
+var actionGroupVoiceReceiversType = reflect.TypeOf((*ActionGroupVoiceReceivers)(nil)).Elem()
+
+type ActionGroupVoiceReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupVoiceReceiversOutput() ActionGroupVoiceReceiversOutput
+	ToActionGroupVoiceReceiversOutputWithContext(ctx context.Context) ActionGroupVoiceReceiversOutput
+}
+
+type ActionGroupVoiceReceiversArgs struct {
+	// The country code of the voice receiver.
+	CountryCode pulumi.StringInput `pulumi:"countryCode"`
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The phone number of the voice receiver.
+	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
+}
+
+func (ActionGroupVoiceReceiversArgs) ElementType() reflect.Type {
+	return actionGroupVoiceReceiversType
+}
+
+func (a ActionGroupVoiceReceiversArgs) ToActionGroupVoiceReceiversOutput() ActionGroupVoiceReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupVoiceReceiversOutput)
+}
+
+func (a ActionGroupVoiceReceiversArgs) ToActionGroupVoiceReceiversOutputWithContext(ctx context.Context) ActionGroupVoiceReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupVoiceReceiversOutput)
+}
+
+type ActionGroupVoiceReceiversOutput struct { *pulumi.OutputState }
+
+// The country code of the voice receiver.
+func (o ActionGroupVoiceReceiversOutput) CountryCode() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupVoiceReceivers) string {
+		return v.CountryCode
+	}).(pulumi.StringOutput)
+}
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupVoiceReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupVoiceReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The phone number of the voice receiver.
+func (o ActionGroupVoiceReceiversOutput) PhoneNumber() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupVoiceReceivers) string {
+		return v.PhoneNumber
+	}).(pulumi.StringOutput)
+}
+
+func (ActionGroupVoiceReceiversOutput) ElementType() reflect.Type {
+	return actionGroupVoiceReceiversType
+}
+
+func (o ActionGroupVoiceReceiversOutput) ToActionGroupVoiceReceiversOutput() ActionGroupVoiceReceiversOutput {
+	return o
+}
+
+func (o ActionGroupVoiceReceiversOutput) ToActionGroupVoiceReceiversOutputWithContext(ctx context.Context) ActionGroupVoiceReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupVoiceReceiversOutput{}) }
+
+var actionGroupVoiceReceiversArrayType = reflect.TypeOf((*[]ActionGroupVoiceReceivers)(nil)).Elem()
+
+type ActionGroupVoiceReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupVoiceReceiversArrayOutput() ActionGroupVoiceReceiversArrayOutput
+	ToActionGroupVoiceReceiversArrayOutputWithContext(ctx context.Context) ActionGroupVoiceReceiversArrayOutput
+}
+
+type ActionGroupVoiceReceiversArrayArgs []ActionGroupVoiceReceiversInput
+
+func (ActionGroupVoiceReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupVoiceReceiversArrayType
+}
+
+func (a ActionGroupVoiceReceiversArrayArgs) ToActionGroupVoiceReceiversArrayOutput() ActionGroupVoiceReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupVoiceReceiversArrayOutput)
+}
+
+func (a ActionGroupVoiceReceiversArrayArgs) ToActionGroupVoiceReceiversArrayOutputWithContext(ctx context.Context) ActionGroupVoiceReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupVoiceReceiversArrayOutput)
+}
+
+type ActionGroupVoiceReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupVoiceReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupVoiceReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupVoiceReceivers {
+		return vs[0].([]ActionGroupVoiceReceivers)[vs[1].(int)]
+	}).(ActionGroupVoiceReceiversOutput)
+}
+
+func (ActionGroupVoiceReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupVoiceReceiversArrayType
+}
+
+func (o ActionGroupVoiceReceiversArrayOutput) ToActionGroupVoiceReceiversArrayOutput() ActionGroupVoiceReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupVoiceReceiversArrayOutput) ToActionGroupVoiceReceiversArrayOutputWithContext(ctx context.Context) ActionGroupVoiceReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupVoiceReceiversArrayOutput{}) }
+
+type ActionGroupWebhookReceivers struct {
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name string `pulumi:"name"`
+	// The URI where webhooks should be sent.
+	ServiceUri string `pulumi:"serviceUri"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema *bool `pulumi:"useCommonAlertSchema"`
+}
+var actionGroupWebhookReceiversType = reflect.TypeOf((*ActionGroupWebhookReceivers)(nil)).Elem()
+
+type ActionGroupWebhookReceiversInput interface {
+	pulumi.Input
+
+	ToActionGroupWebhookReceiversOutput() ActionGroupWebhookReceiversOutput
+	ToActionGroupWebhookReceiversOutputWithContext(ctx context.Context) ActionGroupWebhookReceiversOutput
+}
+
+type ActionGroupWebhookReceiversArgs struct {
+	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URI where webhooks should be sent.
+	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
+	// Enables or disables the common alert schema.
+	UseCommonAlertSchema pulumi.BoolInput `pulumi:"useCommonAlertSchema"`
+}
+
+func (ActionGroupWebhookReceiversArgs) ElementType() reflect.Type {
+	return actionGroupWebhookReceiversType
+}
+
+func (a ActionGroupWebhookReceiversArgs) ToActionGroupWebhookReceiversOutput() ActionGroupWebhookReceiversOutput {
+	return pulumi.ToOutput(a).(ActionGroupWebhookReceiversOutput)
+}
+
+func (a ActionGroupWebhookReceiversArgs) ToActionGroupWebhookReceiversOutputWithContext(ctx context.Context) ActionGroupWebhookReceiversOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupWebhookReceiversOutput)
+}
+
+type ActionGroupWebhookReceiversOutput struct { *pulumi.OutputState }
+
+// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+func (o ActionGroupWebhookReceiversOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupWebhookReceivers) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The URI where webhooks should be sent.
+func (o ActionGroupWebhookReceiversOutput) ServiceUri() pulumi.StringOutput {
+	return o.Apply(func(v ActionGroupWebhookReceivers) string {
+		return v.ServiceUri
+	}).(pulumi.StringOutput)
+}
+
+// Enables or disables the common alert schema.
+func (o ActionGroupWebhookReceiversOutput) UseCommonAlertSchema() pulumi.BoolOutput {
+	return o.Apply(func(v ActionGroupWebhookReceivers) bool {
+		if v.UseCommonAlertSchema == nil { return *new(bool) } else { return *v.UseCommonAlertSchema }
+	}).(pulumi.BoolOutput)
+}
+
+func (ActionGroupWebhookReceiversOutput) ElementType() reflect.Type {
+	return actionGroupWebhookReceiversType
+}
+
+func (o ActionGroupWebhookReceiversOutput) ToActionGroupWebhookReceiversOutput() ActionGroupWebhookReceiversOutput {
+	return o
+}
+
+func (o ActionGroupWebhookReceiversOutput) ToActionGroupWebhookReceiversOutputWithContext(ctx context.Context) ActionGroupWebhookReceiversOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupWebhookReceiversOutput{}) }
+
+var actionGroupWebhookReceiversArrayType = reflect.TypeOf((*[]ActionGroupWebhookReceivers)(nil)).Elem()
+
+type ActionGroupWebhookReceiversArrayInput interface {
+	pulumi.Input
+
+	ToActionGroupWebhookReceiversArrayOutput() ActionGroupWebhookReceiversArrayOutput
+	ToActionGroupWebhookReceiversArrayOutputWithContext(ctx context.Context) ActionGroupWebhookReceiversArrayOutput
+}
+
+type ActionGroupWebhookReceiversArrayArgs []ActionGroupWebhookReceiversInput
+
+func (ActionGroupWebhookReceiversArrayArgs) ElementType() reflect.Type {
+	return actionGroupWebhookReceiversArrayType
+}
+
+func (a ActionGroupWebhookReceiversArrayArgs) ToActionGroupWebhookReceiversArrayOutput() ActionGroupWebhookReceiversArrayOutput {
+	return pulumi.ToOutput(a).(ActionGroupWebhookReceiversArrayOutput)
+}
+
+func (a ActionGroupWebhookReceiversArrayArgs) ToActionGroupWebhookReceiversArrayOutputWithContext(ctx context.Context) ActionGroupWebhookReceiversArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ActionGroupWebhookReceiversArrayOutput)
+}
+
+type ActionGroupWebhookReceiversArrayOutput struct { *pulumi.OutputState }
+
+func (o ActionGroupWebhookReceiversArrayOutput) Index(i pulumi.IntInput) ActionGroupWebhookReceiversOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ActionGroupWebhookReceivers {
+		return vs[0].([]ActionGroupWebhookReceivers)[vs[1].(int)]
+	}).(ActionGroupWebhookReceiversOutput)
+}
+
+func (ActionGroupWebhookReceiversArrayOutput) ElementType() reflect.Type {
+	return actionGroupWebhookReceiversArrayType
+}
+
+func (o ActionGroupWebhookReceiversArrayOutput) ToActionGroupWebhookReceiversArrayOutput() ActionGroupWebhookReceiversArrayOutput {
+	return o
+}
+
+func (o ActionGroupWebhookReceiversArrayOutput) ToActionGroupWebhookReceiversArrayOutputWithContext(ctx context.Context) ActionGroupWebhookReceiversArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ActionGroupWebhookReceiversArrayOutput{}) }
+

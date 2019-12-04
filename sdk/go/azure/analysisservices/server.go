@@ -4,6 +4,8 @@
 package analysisservices
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,183 +14,261 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/analysis_services_server.html.markdown.
 type Server struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// List of email addresses of admin users.
+	AdminUsers pulumi.StringArrayOutput `pulumi:"adminUsers"`
+
+	// URI and SAS token for a blob container to store backups.
+	BackupBlobContainerUri pulumi.StringOutput `pulumi:"backupBlobContainerUri"`
+
+	// Indicates if the Power BI service is allowed to access or not.
+	EnablePowerBiService pulumi.BoolOutput `pulumi:"enablePowerBiService"`
+
+	// One or more `ipv4FirewallRule` block(s) as defined below.
+	Ipv4FirewallRules ServerIpv4FirewallRulesArrayOutput `pulumi:"ipv4FirewallRules"`
+
+	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the firewall rule.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+	QuerypoolConnectionMode pulumi.StringOutput `pulumi:"querypoolConnectionMode"`
+
+	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The full name of the Analysis Services Server.
+	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
+
+	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+	Sku pulumi.StringOutput `pulumi:"sku"`
+
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
 func NewServer(ctx *pulumi.Context,
-	name string, args *ServerArgs, opts ...pulumi.ResourceOpt) (*Server, error) {
+	name string, args *ServerArgs, opts ...pulumi.ResourceOption) (*Server, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["adminUsers"] = nil
-		inputs["backupBlobContainerUri"] = nil
-		inputs["enablePowerBiService"] = nil
-		inputs["ipv4FirewallRules"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["querypoolConnectionMode"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sku"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["adminUsers"] = args.AdminUsers
-		inputs["backupBlobContainerUri"] = args.BackupBlobContainerUri
-		inputs["enablePowerBiService"] = args.EnablePowerBiService
-		inputs["ipv4FirewallRules"] = args.Ipv4FirewallRules
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["querypoolConnectionMode"] = args.QuerypoolConnectionMode
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sku"] = args.Sku
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AdminUsers; i != nil { inputs["adminUsers"] = i.ToStringArrayOutput() }
+		if i := args.BackupBlobContainerUri; i != nil { inputs["backupBlobContainerUri"] = i.ToStringOutput() }
+		if i := args.EnablePowerBiService; i != nil { inputs["enablePowerBiService"] = i.ToBoolOutput() }
+		if i := args.Ipv4FirewallRules; i != nil { inputs["ipv4FirewallRules"] = i.ToServerIpv4FirewallRulesArrayOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.QuerypoolConnectionMode; i != nil { inputs["querypoolConnectionMode"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["serverFullName"] = nil
-	s, err := ctx.RegisterResource("azure:analysisservices/server:Server", name, true, inputs, opts...)
+	var resource Server
+	err := ctx.RegisterResource("azure:analysisservices/server:Server", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Server{s: s}, nil
+	return &resource, nil
 }
 
 // GetServer gets an existing Server resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetServer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ServerState, opts ...pulumi.ResourceOpt) (*Server, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ServerState, opts ...pulumi.ResourceOption) (*Server, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["adminUsers"] = state.AdminUsers
-		inputs["backupBlobContainerUri"] = state.BackupBlobContainerUri
-		inputs["enablePowerBiService"] = state.EnablePowerBiService
-		inputs["ipv4FirewallRules"] = state.Ipv4FirewallRules
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["querypoolConnectionMode"] = state.QuerypoolConnectionMode
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverFullName"] = state.ServerFullName
-		inputs["sku"] = state.Sku
-		inputs["tags"] = state.Tags
+		if i := state.AdminUsers; i != nil { inputs["adminUsers"] = i.ToStringArrayOutput() }
+		if i := state.BackupBlobContainerUri; i != nil { inputs["backupBlobContainerUri"] = i.ToStringOutput() }
+		if i := state.EnablePowerBiService; i != nil { inputs["enablePowerBiService"] = i.ToBoolOutput() }
+		if i := state.Ipv4FirewallRules; i != nil { inputs["ipv4FirewallRules"] = i.ToServerIpv4FirewallRulesArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.QuerypoolConnectionMode; i != nil { inputs["querypoolConnectionMode"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerFullName; i != nil { inputs["serverFullName"] = i.ToStringOutput() }
+		if i := state.Sku; i != nil { inputs["sku"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:analysisservices/server:Server", name, id, inputs, opts...)
+	var resource Server
+	err := ctx.ReadResource("azure:analysisservices/server:Server", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Server{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Server) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Server) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// List of email addresses of admin users.
-func (r *Server) AdminUsers() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["adminUsers"])
-}
-
-// URI and SAS token for a blob container to store backups.
-func (r *Server) BackupBlobContainerUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["backupBlobContainerUri"])
-}
-
-// Indicates if the Power BI service is allowed to access or not.
-func (r *Server) EnablePowerBiService() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enablePowerBiService"])
-}
-
-// One or more `ipv4FirewallRule` block(s) as defined below.
-func (r *Server) Ipv4FirewallRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipv4FirewallRules"])
-}
-
-// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
-func (r *Server) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the firewall rule.
-func (r *Server) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
-func (r *Server) QuerypoolConnectionMode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["querypoolConnectionMode"])
-}
-
-// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
-func (r *Server) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The full name of the Analysis Services Server.
-func (r *Server) ServerFullName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverFullName"])
-}
-
-// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-func (r *Server) Sku() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sku"])
-}
-
-func (r *Server) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Server resources.
 type ServerState struct {
 	// List of email addresses of admin users.
-	AdminUsers interface{}
+	AdminUsers pulumi.StringArrayInput `pulumi:"adminUsers"`
 	// URI and SAS token for a blob container to store backups.
-	BackupBlobContainerUri interface{}
+	BackupBlobContainerUri pulumi.StringInput `pulumi:"backupBlobContainerUri"`
 	// Indicates if the Power BI service is allowed to access or not.
-	EnablePowerBiService interface{}
+	EnablePowerBiService pulumi.BoolInput `pulumi:"enablePowerBiService"`
 	// One or more `ipv4FirewallRule` block(s) as defined below.
-	Ipv4FirewallRules interface{}
+	Ipv4FirewallRules ServerIpv4FirewallRulesArrayInput `pulumi:"ipv4FirewallRules"`
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the firewall rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
-	QuerypoolConnectionMode interface{}
+	QuerypoolConnectionMode pulumi.StringInput `pulumi:"querypoolConnectionMode"`
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The full name of the Analysis Services Server.
-	ServerFullName interface{}
+	ServerFullName pulumi.StringInput `pulumi:"serverFullName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku interface{}
-	Tags interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
 	// List of email addresses of admin users.
-	AdminUsers interface{}
+	AdminUsers pulumi.StringArrayInput `pulumi:"adminUsers"`
 	// URI and SAS token for a blob container to store backups.
-	BackupBlobContainerUri interface{}
+	BackupBlobContainerUri pulumi.StringInput `pulumi:"backupBlobContainerUri"`
 	// Indicates if the Power BI service is allowed to access or not.
-	EnablePowerBiService interface{}
+	EnablePowerBiService pulumi.BoolInput `pulumi:"enablePowerBiService"`
 	// One or more `ipv4FirewallRule` block(s) as defined below.
-	Ipv4FirewallRules interface{}
+	Ipv4FirewallRules ServerIpv4FirewallRulesArrayInput `pulumi:"ipv4FirewallRules"`
 	// The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the firewall rule.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Controls how the read-write server is used in the query pool. If this values is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
-	QuerypoolConnectionMode interface{}
+	QuerypoolConnectionMode pulumi.StringInput `pulumi:"querypoolConnectionMode"`
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
-	Sku interface{}
-	Tags interface{}
+	Sku pulumi.StringInput `pulumi:"sku"`
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ServerIpv4FirewallRules struct {
+	// Specifies the name of the firewall rule.
+	Name string `pulumi:"name"`
+	// End of the firewall rule range as IPv4 address.
+	RangeEnd string `pulumi:"rangeEnd"`
+	// Start of the firewall rule range as IPv4 address.
+	RangeStart string `pulumi:"rangeStart"`
+}
+var serverIpv4FirewallRulesType = reflect.TypeOf((*ServerIpv4FirewallRules)(nil)).Elem()
+
+type ServerIpv4FirewallRulesInput interface {
+	pulumi.Input
+
+	ToServerIpv4FirewallRulesOutput() ServerIpv4FirewallRulesOutput
+	ToServerIpv4FirewallRulesOutputWithContext(ctx context.Context) ServerIpv4FirewallRulesOutput
+}
+
+type ServerIpv4FirewallRulesArgs struct {
+	// Specifies the name of the firewall rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// End of the firewall rule range as IPv4 address.
+	RangeEnd pulumi.StringInput `pulumi:"rangeEnd"`
+	// Start of the firewall rule range as IPv4 address.
+	RangeStart pulumi.StringInput `pulumi:"rangeStart"`
+}
+
+func (ServerIpv4FirewallRulesArgs) ElementType() reflect.Type {
+	return serverIpv4FirewallRulesType
+}
+
+func (a ServerIpv4FirewallRulesArgs) ToServerIpv4FirewallRulesOutput() ServerIpv4FirewallRulesOutput {
+	return pulumi.ToOutput(a).(ServerIpv4FirewallRulesOutput)
+}
+
+func (a ServerIpv4FirewallRulesArgs) ToServerIpv4FirewallRulesOutputWithContext(ctx context.Context) ServerIpv4FirewallRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServerIpv4FirewallRulesOutput)
+}
+
+type ServerIpv4FirewallRulesOutput struct { *pulumi.OutputState }
+
+// Specifies the name of the firewall rule.
+func (o ServerIpv4FirewallRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v ServerIpv4FirewallRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// End of the firewall rule range as IPv4 address.
+func (o ServerIpv4FirewallRulesOutput) RangeEnd() pulumi.StringOutput {
+	return o.Apply(func(v ServerIpv4FirewallRules) string {
+		return v.RangeEnd
+	}).(pulumi.StringOutput)
+}
+
+// Start of the firewall rule range as IPv4 address.
+func (o ServerIpv4FirewallRulesOutput) RangeStart() pulumi.StringOutput {
+	return o.Apply(func(v ServerIpv4FirewallRules) string {
+		return v.RangeStart
+	}).(pulumi.StringOutput)
+}
+
+func (ServerIpv4FirewallRulesOutput) ElementType() reflect.Type {
+	return serverIpv4FirewallRulesType
+}
+
+func (o ServerIpv4FirewallRulesOutput) ToServerIpv4FirewallRulesOutput() ServerIpv4FirewallRulesOutput {
+	return o
+}
+
+func (o ServerIpv4FirewallRulesOutput) ToServerIpv4FirewallRulesOutputWithContext(ctx context.Context) ServerIpv4FirewallRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServerIpv4FirewallRulesOutput{}) }
+
+var serverIpv4FirewallRulesArrayType = reflect.TypeOf((*[]ServerIpv4FirewallRules)(nil)).Elem()
+
+type ServerIpv4FirewallRulesArrayInput interface {
+	pulumi.Input
+
+	ToServerIpv4FirewallRulesArrayOutput() ServerIpv4FirewallRulesArrayOutput
+	ToServerIpv4FirewallRulesArrayOutputWithContext(ctx context.Context) ServerIpv4FirewallRulesArrayOutput
+}
+
+type ServerIpv4FirewallRulesArrayArgs []ServerIpv4FirewallRulesInput
+
+func (ServerIpv4FirewallRulesArrayArgs) ElementType() reflect.Type {
+	return serverIpv4FirewallRulesArrayType
+}
+
+func (a ServerIpv4FirewallRulesArrayArgs) ToServerIpv4FirewallRulesArrayOutput() ServerIpv4FirewallRulesArrayOutput {
+	return pulumi.ToOutput(a).(ServerIpv4FirewallRulesArrayOutput)
+}
+
+func (a ServerIpv4FirewallRulesArrayArgs) ToServerIpv4FirewallRulesArrayOutputWithContext(ctx context.Context) ServerIpv4FirewallRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ServerIpv4FirewallRulesArrayOutput)
+}
+
+type ServerIpv4FirewallRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o ServerIpv4FirewallRulesArrayOutput) Index(i pulumi.IntInput) ServerIpv4FirewallRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ServerIpv4FirewallRules {
+		return vs[0].([]ServerIpv4FirewallRules)[vs[1].(int)]
+	}).(ServerIpv4FirewallRulesOutput)
+}
+
+func (ServerIpv4FirewallRulesArrayOutput) ElementType() reflect.Type {
+	return serverIpv4FirewallRulesArrayType
+}
+
+func (o ServerIpv4FirewallRulesArrayOutput) ToServerIpv4FirewallRulesArrayOutput() ServerIpv4FirewallRulesArrayOutput {
+	return o
+}
+
+func (o ServerIpv4FirewallRulesArrayOutput) ToServerIpv4FirewallRulesArrayOutputWithContext(ctx context.Context) ServerIpv4FirewallRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ServerIpv4FirewallRulesArrayOutput{}) }
+

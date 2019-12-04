@@ -14,12 +14,45 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
 type ElasticPool struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The creation date of the SQL Elastic Pool.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+
+	// The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
+	DbDtuMax pulumi.IntOutput `pulumi:"dbDtuMax"`
+
+	// The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
+	DbDtuMin pulumi.IntOutput `pulumi:"dbDtuMin"`
+
+	// The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
+	Dtu pulumi.IntOutput `pulumi:"dtu"`
+
+	// The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
+	Edition pulumi.StringOutput `pulumi:"edition"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
+	PoolSize pulumi.IntOutput `pulumi:"poolSize"`
+
+	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+	ServerName pulumi.StringOutput `pulumi:"serverName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewElasticPool registers a new resource with the given unique name, arguments, and options.
 func NewElasticPool(ctx *pulumi.Context,
-	name string, args *ElasticPoolArgs, opts ...pulumi.ResourceOpt) (*ElasticPool, error) {
+	name string, args *ElasticPoolArgs, opts ...pulumi.ResourceOption) (*ElasticPool, error) {
 	if args == nil || args.Dtu == nil {
 		return nil, errors.New("missing required argument 'Dtu'")
 	}
@@ -32,174 +65,99 @@ func NewElasticPool(ctx *pulumi.Context,
 	if args == nil || args.ServerName == nil {
 		return nil, errors.New("missing required argument 'ServerName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dbDtuMax"] = nil
-		inputs["dbDtuMin"] = nil
-		inputs["dtu"] = nil
-		inputs["edition"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["poolSize"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serverName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["dbDtuMax"] = args.DbDtuMax
-		inputs["dbDtuMin"] = args.DbDtuMin
-		inputs["dtu"] = args.Dtu
-		inputs["edition"] = args.Edition
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["poolSize"] = args.PoolSize
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serverName"] = args.ServerName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DbDtuMax; i != nil { inputs["dbDtuMax"] = i.ToIntOutput() }
+		if i := args.DbDtuMin; i != nil { inputs["dbDtuMin"] = i.ToIntOutput() }
+		if i := args.Dtu; i != nil { inputs["dtu"] = i.ToIntOutput() }
+		if i := args.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PoolSize; i != nil { inputs["poolSize"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["creationDate"] = nil
-	s, err := ctx.RegisterResource("azure:sql/elasticPool:ElasticPool", name, true, inputs, opts...)
+	var resource ElasticPool
+	err := ctx.RegisterResource("azure:sql/elasticPool:ElasticPool", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ElasticPool{s: s}, nil
+	return &resource, nil
 }
 
 // GetElasticPool gets an existing ElasticPool resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetElasticPool(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ElasticPoolState, opts ...pulumi.ResourceOpt) (*ElasticPool, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ElasticPoolState, opts ...pulumi.ResourceOption) (*ElasticPool, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["creationDate"] = state.CreationDate
-		inputs["dbDtuMax"] = state.DbDtuMax
-		inputs["dbDtuMin"] = state.DbDtuMin
-		inputs["dtu"] = state.Dtu
-		inputs["edition"] = state.Edition
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["poolSize"] = state.PoolSize
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serverName"] = state.ServerName
-		inputs["tags"] = state.Tags
+		if i := state.CreationDate; i != nil { inputs["creationDate"] = i.ToStringOutput() }
+		if i := state.DbDtuMax; i != nil { inputs["dbDtuMax"] = i.ToIntOutput() }
+		if i := state.DbDtuMin; i != nil { inputs["dbDtuMin"] = i.ToIntOutput() }
+		if i := state.Dtu; i != nil { inputs["dtu"] = i.ToIntOutput() }
+		if i := state.Edition; i != nil { inputs["edition"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PoolSize; i != nil { inputs["poolSize"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ServerName; i != nil { inputs["serverName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:sql/elasticPool:ElasticPool", name, id, inputs, opts...)
+	var resource ElasticPool
+	err := ctx.ReadResource("azure:sql/elasticPool:ElasticPool", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ElasticPool{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ElasticPool) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ElasticPool) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The creation date of the SQL Elastic Pool.
-func (r *ElasticPool) CreationDate() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["creationDate"])
-}
-
-// The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
-func (r *ElasticPool) DbDtuMax() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["dbDtuMax"])
-}
-
-// The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
-func (r *ElasticPool) DbDtuMin() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["dbDtuMin"])
-}
-
-// The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
-func (r *ElasticPool) Dtu() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["dtu"])
-}
-
-// The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
-func (r *ElasticPool) Edition() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["edition"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ElasticPool) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
-func (r *ElasticPool) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
-func (r *ElasticPool) PoolSize() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["poolSize"])
-}
-
-// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-func (r *ElasticPool) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-func (r *ElasticPool) ServerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["serverName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ElasticPool) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type ElasticPoolState struct {
 	// The creation date of the SQL Elastic Pool.
-	CreationDate interface{}
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
 	// The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
-	DbDtuMax interface{}
+	DbDtuMax pulumi.IntInput `pulumi:"dbDtuMax"`
 	// The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
-	DbDtuMin interface{}
+	DbDtuMin pulumi.IntInput `pulumi:"dbDtuMin"`
 	// The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
-	Dtu interface{}
+	Dtu pulumi.IntInput `pulumi:"dtu"`
 	// The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
-	PoolSize interface{}
+	PoolSize pulumi.IntInput `pulumi:"poolSize"`
 	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
 	// The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
-	DbDtuMax interface{}
+	DbDtuMax pulumi.IntInput `pulumi:"dbDtuMax"`
 	// The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
-	DbDtuMin interface{}
+	DbDtuMin pulumi.IntInput `pulumi:"dbDtuMin"`
 	// The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
-	Dtu interface{}
+	Dtu pulumi.IntInput `pulumi:"dtu"`
 	// The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
-	Edition interface{}
+	Edition pulumi.StringInput `pulumi:"edition"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
-	PoolSize interface{}
+	PoolSize pulumi.IntInput `pulumi:"poolSize"`
 	// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-	ServerName interface{}
+	ServerName pulumi.StringInput `pulumi:"serverName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

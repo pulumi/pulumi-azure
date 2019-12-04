@@ -16,216 +16,177 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_access_policy.html.markdown.
 type AccessPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The object ID of an Application in Azure Active Directory.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+
+	// List of certificate permissions, must be one or more from
+	// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+	// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+	CertificatePermissions pulumi.StringArrayOutput `pulumi:"certificatePermissions"`
+
+	// List of key permissions, must be one or more from
+	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
+	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+	KeyPermissions pulumi.StringArrayOutput `pulumi:"keyPermissions"`
+
+	// Specifies the id of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+
+	// The object ID of a user, service principal or security
+	// group in the Azure Active Directory tenant for the vault. The object ID must
+	// be unique for the list of access policies. Changing this forces a new resource
+	// to be created.
+	ObjectId pulumi.StringOutput `pulumi:"objectId"`
+
+	// The name of the resource group in which to
+	// create the namespace. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// List of secret permissions, must be one or more
+	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+	SecretPermissions pulumi.StringArrayOutput `pulumi:"secretPermissions"`
+
+	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	StoragePermissions pulumi.StringArrayOutput `pulumi:"storagePermissions"`
+
+	// The Azure Active Directory tenant ID that should be used
+	// for authenticating requests to the key vault. Changing this forces a new resource
+	// to be created.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+
+	// Specifies the name of the Key Vault resource. Changing this
+	// forces a new resource to be created.
+	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
 
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
-	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOpt) (*AccessPolicy, error) {
+	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
 	if args == nil || args.ObjectId == nil {
 		return nil, errors.New("missing required argument 'ObjectId'")
 	}
 	if args == nil || args.TenantId == nil {
 		return nil, errors.New("missing required argument 'TenantId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["applicationId"] = nil
-		inputs["certificatePermissions"] = nil
-		inputs["keyPermissions"] = nil
-		inputs["keyVaultId"] = nil
-		inputs["objectId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["secretPermissions"] = nil
-		inputs["storagePermissions"] = nil
-		inputs["tenantId"] = nil
-		inputs["vaultName"] = nil
-	} else {
-		inputs["applicationId"] = args.ApplicationId
-		inputs["certificatePermissions"] = args.CertificatePermissions
-		inputs["keyPermissions"] = args.KeyPermissions
-		inputs["keyVaultId"] = args.KeyVaultId
-		inputs["objectId"] = args.ObjectId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["secretPermissions"] = args.SecretPermissions
-		inputs["storagePermissions"] = args.StoragePermissions
-		inputs["tenantId"] = args.TenantId
-		inputs["vaultName"] = args.VaultName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := args.CertificatePermissions; i != nil { inputs["certificatePermissions"] = i.ToStringArrayOutput() }
+		if i := args.KeyPermissions; i != nil { inputs["keyPermissions"] = i.ToStringArrayOutput() }
+		if i := args.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := args.ObjectId; i != nil { inputs["objectId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SecretPermissions; i != nil { inputs["secretPermissions"] = i.ToStringArrayOutput() }
+		if i := args.StoragePermissions; i != nil { inputs["storagePermissions"] = i.ToStringArrayOutput() }
+		if i := args.TenantId; i != nil { inputs["tenantId"] = i.ToStringOutput() }
+		if i := args.VaultName; i != nil { inputs["vaultName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:keyvault/accessPolicy:AccessPolicy", name, true, inputs, opts...)
+	var resource AccessPolicy
+	err := ctx.RegisterResource("azure:keyvault/accessPolicy:AccessPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AccessPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetAccessPolicy gets an existing AccessPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetAccessPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *AccessPolicyState, opts ...pulumi.ResourceOpt) (*AccessPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *AccessPolicyState, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["applicationId"] = state.ApplicationId
-		inputs["certificatePermissions"] = state.CertificatePermissions
-		inputs["keyPermissions"] = state.KeyPermissions
-		inputs["keyVaultId"] = state.KeyVaultId
-		inputs["objectId"] = state.ObjectId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["secretPermissions"] = state.SecretPermissions
-		inputs["storagePermissions"] = state.StoragePermissions
-		inputs["tenantId"] = state.TenantId
-		inputs["vaultName"] = state.VaultName
+		if i := state.ApplicationId; i != nil { inputs["applicationId"] = i.ToStringOutput() }
+		if i := state.CertificatePermissions; i != nil { inputs["certificatePermissions"] = i.ToStringArrayOutput() }
+		if i := state.KeyPermissions; i != nil { inputs["keyPermissions"] = i.ToStringArrayOutput() }
+		if i := state.KeyVaultId; i != nil { inputs["keyVaultId"] = i.ToStringOutput() }
+		if i := state.ObjectId; i != nil { inputs["objectId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SecretPermissions; i != nil { inputs["secretPermissions"] = i.ToStringArrayOutput() }
+		if i := state.StoragePermissions; i != nil { inputs["storagePermissions"] = i.ToStringArrayOutput() }
+		if i := state.TenantId; i != nil { inputs["tenantId"] = i.ToStringOutput() }
+		if i := state.VaultName; i != nil { inputs["vaultName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:keyvault/accessPolicy:AccessPolicy", name, id, inputs, opts...)
+	var resource AccessPolicy
+	err := ctx.ReadResource("azure:keyvault/accessPolicy:AccessPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &AccessPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *AccessPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *AccessPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The object ID of an Application in Azure Active Directory.
-func (r *AccessPolicy) ApplicationId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["applicationId"])
-}
-
-// List of certificate permissions, must be one or more from
-// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-func (r *AccessPolicy) CertificatePermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["certificatePermissions"])
-}
-
-// List of key permissions, must be one or more from
-// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
-// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-func (r *AccessPolicy) KeyPermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["keyPermissions"])
-}
-
-// Specifies the id of the Key Vault resource. Changing this
-// forces a new resource to be created.
-func (r *AccessPolicy) KeyVaultId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
-}
-
-// The object ID of a user, service principal or security
-// group in the Azure Active Directory tenant for the vault. The object ID must
-// be unique for the list of access policies. Changing this forces a new resource
-// to be created.
-func (r *AccessPolicy) ObjectId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["objectId"])
-}
-
-// The name of the resource group in which to
-// create the namespace. Changing this forces a new resource to be created.
-func (r *AccessPolicy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// List of secret permissions, must be one or more
-// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-func (r *AccessPolicy) SecretPermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["secretPermissions"])
-}
-
-// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-func (r *AccessPolicy) StoragePermissions() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["storagePermissions"])
-}
-
-// The Azure Active Directory tenant ID that should be used
-// for authenticating requests to the key vault. Changing this forces a new resource
-// to be created.
-func (r *AccessPolicy) TenantId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["tenantId"])
-}
-
-// Specifies the name of the Key Vault resource. Changing this
-// forces a new resource to be created.
-func (r *AccessPolicy) VaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["vaultName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering AccessPolicy resources.
 type AccessPolicyState struct {
 	// The object ID of an Application in Azure Active Directory.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from
 	// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
 	// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-	CertificatePermissions interface{}
+	CertificatePermissions pulumi.StringArrayInput `pulumi:"certificatePermissions"`
 	// List of key permissions, must be one or more from
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-	KeyPermissions interface{}
+	KeyPermissions pulumi.StringArrayInput `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
-	ObjectId interface{}
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-	SecretPermissions interface{}
+	SecretPermissions pulumi.StringArrayInput `pulumi:"secretPermissions"`
 	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-	StoragePermissions interface{}
+	StoragePermissions pulumi.StringArrayInput `pulumi:"storagePermissions"`
 	// The Azure Active Directory tenant ID that should be used
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
-	TenantId interface{}
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Specifies the name of the Key Vault resource. Changing this
 	// forces a new resource to be created.
-	VaultName interface{}
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
 	// The object ID of an Application in Azure Active Directory.
-	ApplicationId interface{}
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from
 	// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
 	// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-	CertificatePermissions interface{}
+	CertificatePermissions pulumi.StringArrayInput `pulumi:"certificatePermissions"`
 	// List of key permissions, must be one or more from
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-	KeyPermissions interface{}
+	KeyPermissions pulumi.StringArrayInput `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
-	KeyVaultId interface{}
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
 	// be unique for the list of access policies. Changing this forces a new resource
 	// to be created.
-	ObjectId interface{}
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-	SecretPermissions interface{}
+	SecretPermissions pulumi.StringArrayInput `pulumi:"secretPermissions"`
 	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-	StoragePermissions interface{}
+	StoragePermissions pulumi.StringArrayInput `pulumi:"storagePermissions"`
 	// The Azure Active Directory tenant ID that should be used
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
-	TenantId interface{}
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Specifies the name of the Key Vault resource. Changing this
 	// forces a new resource to be created.
-	VaultName interface{}
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
 }

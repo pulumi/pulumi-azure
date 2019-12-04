@@ -12,93 +12,75 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_custom.html.markdown.
 type TriggerCustom struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the JSON Blob defining the Body of this Custom Trigger.
+	Body pulumi.StringOutput `pulumi:"body"`
+
+	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
+
+	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewTriggerCustom registers a new resource with the given unique name, arguments, and options.
 func NewTriggerCustom(ctx *pulumi.Context,
-	name string, args *TriggerCustomArgs, opts ...pulumi.ResourceOpt) (*TriggerCustom, error) {
+	name string, args *TriggerCustomArgs, opts ...pulumi.ResourceOption) (*TriggerCustom, error) {
 	if args == nil || args.Body == nil {
 		return nil, errors.New("missing required argument 'Body'")
 	}
 	if args == nil || args.LogicAppId == nil {
 		return nil, errors.New("missing required argument 'LogicAppId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["body"] = nil
-		inputs["logicAppId"] = nil
-		inputs["name"] = nil
-	} else {
-		inputs["body"] = args.Body
-		inputs["logicAppId"] = args.LogicAppId
-		inputs["name"] = args.Name
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := args.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:logicapps/triggerCustom:TriggerCustom", name, true, inputs, opts...)
+	var resource TriggerCustom
+	err := ctx.RegisterResource("azure:logicapps/triggerCustom:TriggerCustom", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerCustom{s: s}, nil
+	return &resource, nil
 }
 
 // GetTriggerCustom gets an existing TriggerCustom resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetTriggerCustom(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *TriggerCustomState, opts ...pulumi.ResourceOpt) (*TriggerCustom, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *TriggerCustomState, opts ...pulumi.ResourceOption) (*TriggerCustom, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["body"] = state.Body
-		inputs["logicAppId"] = state.LogicAppId
-		inputs["name"] = state.Name
+		if i := state.Body; i != nil { inputs["body"] = i.ToStringOutput() }
+		if i := state.LogicAppId; i != nil { inputs["logicAppId"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:logicapps/triggerCustom:TriggerCustom", name, id, inputs, opts...)
+	var resource TriggerCustom
+	err := ctx.ReadResource("azure:logicapps/triggerCustom:TriggerCustom", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &TriggerCustom{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *TriggerCustom) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *TriggerCustom) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the JSON Blob defining the Body of this Custom Trigger.
-func (r *TriggerCustom) Body() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["body"])
-}
-
-// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerCustom) LogicAppId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["logicAppId"])
-}
-
-// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-func (r *TriggerCustom) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering TriggerCustom resources.
 type TriggerCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TriggerCustom resource.
 type TriggerCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
-	Body interface{}
+	Body pulumi.StringInput `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-	LogicAppId interface{}
+	LogicAppId pulumi.StringInput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 }

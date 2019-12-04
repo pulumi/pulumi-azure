@@ -12,141 +12,108 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
 type Container struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+	ContainerAccessType pulumi.StringOutput `pulumi:"containerAccessType"`
+
+	// Is there an Immutability Policy configured on this Storage Container?
+	HasImmutabilityPolicy pulumi.BoolOutput `pulumi:"hasImmutabilityPolicy"`
+
+	// Is there a Legal Hold configured on this Storage Container?
+	HasLegalHold pulumi.BoolOutput `pulumi:"hasLegalHold"`
+
+	// A mapping of MetaData for this Container.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
+
+	// The name of the Container which should be created within the Storage Account.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
+	Properties pulumi.StringMapOutput `pulumi:"properties"`
+
+	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The name of the Storage Account where the Container should be created.
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
 func NewContainer(ctx *pulumi.Context,
-	name string, args *ContainerArgs, opts ...pulumi.ResourceOpt) (*Container, error) {
+	name string, args *ContainerArgs, opts ...pulumi.ResourceOption) (*Container, error) {
 	if args == nil || args.StorageAccountName == nil {
 		return nil, errors.New("missing required argument 'StorageAccountName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["containerAccessType"] = nil
-		inputs["metadata"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["storageAccountName"] = nil
-	} else {
-		inputs["containerAccessType"] = args.ContainerAccessType
-		inputs["metadata"] = args.Metadata
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["storageAccountName"] = args.StorageAccountName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ContainerAccessType; i != nil { inputs["containerAccessType"] = i.ToStringOutput() }
+		if i := args.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	inputs["hasImmutabilityPolicy"] = nil
-	inputs["hasLegalHold"] = nil
-	inputs["properties"] = nil
-	s, err := ctx.RegisterResource("azure:storage/container:Container", name, true, inputs, opts...)
+	var resource Container
+	err := ctx.RegisterResource("azure:storage/container:Container", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Container{s: s}, nil
+	return &resource, nil
 }
 
 // GetContainer gets an existing Container resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetContainer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ContainerState, opts ...pulumi.ResourceOpt) (*Container, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ContainerState, opts ...pulumi.ResourceOption) (*Container, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["containerAccessType"] = state.ContainerAccessType
-		inputs["hasImmutabilityPolicy"] = state.HasImmutabilityPolicy
-		inputs["hasLegalHold"] = state.HasLegalHold
-		inputs["metadata"] = state.Metadata
-		inputs["name"] = state.Name
-		inputs["properties"] = state.Properties
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["storageAccountName"] = state.StorageAccountName
+		if i := state.ContainerAccessType; i != nil { inputs["containerAccessType"] = i.ToStringOutput() }
+		if i := state.HasImmutabilityPolicy; i != nil { inputs["hasImmutabilityPolicy"] = i.ToBoolOutput() }
+		if i := state.HasLegalHold; i != nil { inputs["hasLegalHold"] = i.ToBoolOutput() }
+		if i := state.Metadata; i != nil { inputs["metadata"] = i.ToMapOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Properties; i != nil { inputs["properties"] = i.ToStringMapOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:storage/container:Container", name, id, inputs, opts...)
+	var resource Container
+	err := ctx.ReadResource("azure:storage/container:Container", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Container{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Container) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Container) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
-func (r *Container) ContainerAccessType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["containerAccessType"])
-}
-
-// Is there an Immutability Policy configured on this Storage Container?
-func (r *Container) HasImmutabilityPolicy() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["hasImmutabilityPolicy"])
-}
-
-// Is there a Legal Hold configured on this Storage Container?
-func (r *Container) HasLegalHold() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["hasLegalHold"])
-}
-
-// A mapping of MetaData for this Container.
-func (r *Container) Metadata() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["metadata"])
-}
-
-// The name of the Container which should be created within the Storage Account.
-func (r *Container) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
-func (r *Container) Properties() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["properties"])
-}
-
-// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
-func (r *Container) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The name of the Storage Account where the Container should be created.
-func (r *Container) StorageAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Container resources.
 type ContainerState struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
-	ContainerAccessType interface{}
+	ContainerAccessType pulumi.StringInput `pulumi:"containerAccessType"`
 	// Is there an Immutability Policy configured on this Storage Container?
-	HasImmutabilityPolicy interface{}
+	HasImmutabilityPolicy pulumi.BoolInput `pulumi:"hasImmutabilityPolicy"`
 	// Is there a Legal Hold configured on this Storage Container?
-	HasLegalHold interface{}
+	HasLegalHold pulumi.BoolInput `pulumi:"hasLegalHold"`
 	// A mapping of MetaData for this Container.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
-	Properties interface{}
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the Storage Account where the Container should be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
-	ContainerAccessType interface{}
+	ContainerAccessType pulumi.StringInput `pulumi:"containerAccessType"`
 	// A mapping of MetaData for this Container.
-	Metadata interface{}
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the Storage Account where the Container should be created.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 }

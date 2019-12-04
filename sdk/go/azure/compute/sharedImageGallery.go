@@ -12,123 +12,96 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_gallery.html.markdown.
 type SharedImageGallery struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// A description for this Shared Image Gallery.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the Shared Image Gallery.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// The Unique Name for this Shared Image Gallery.
+	UniqueName pulumi.StringOutput `pulumi:"uniqueName"`
 }
 
 // NewSharedImageGallery registers a new resource with the given unique name, arguments, and options.
 func NewSharedImageGallery(ctx *pulumi.Context,
-	name string, args *SharedImageGalleryArgs, opts ...pulumi.ResourceOpt) (*SharedImageGallery, error) {
+	name string, args *SharedImageGalleryArgs, opts ...pulumi.ResourceOption) (*SharedImageGallery, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["description"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["description"] = args.Description
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["uniqueName"] = nil
-	s, err := ctx.RegisterResource("azure:compute/sharedImageGallery:SharedImageGallery", name, true, inputs, opts...)
+	var resource SharedImageGallery
+	err := ctx.RegisterResource("azure:compute/sharedImageGallery:SharedImageGallery", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedImageGallery{s: s}, nil
+	return &resource, nil
 }
 
 // GetSharedImageGallery gets an existing SharedImageGallery resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSharedImageGallery(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SharedImageGalleryState, opts ...pulumi.ResourceOpt) (*SharedImageGallery, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SharedImageGalleryState, opts ...pulumi.ResourceOption) (*SharedImageGallery, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["description"] = state.Description
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
-		inputs["uniqueName"] = state.UniqueName
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.UniqueName; i != nil { inputs["uniqueName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/sharedImageGallery:SharedImageGallery", name, id, inputs, opts...)
+	var resource SharedImageGallery
+	err := ctx.ReadResource("azure:compute/sharedImageGallery:SharedImageGallery", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &SharedImageGallery{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *SharedImageGallery) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *SharedImageGallery) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// A description for this Shared Image Gallery.
-func (r *SharedImageGallery) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *SharedImageGallery) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
-func (r *SharedImageGallery) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
-func (r *SharedImageGallery) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the Shared Image Gallery.
-func (r *SharedImageGallery) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// The Unique Name for this Shared Image Gallery.
-func (r *SharedImageGallery) UniqueName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["uniqueName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering SharedImageGallery resources.
 type SharedImageGalleryState struct {
 	// A description for this Shared Image Gallery.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Shared Image Gallery.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// The Unique Name for this Shared Image Gallery.
-	UniqueName interface{}
+	UniqueName pulumi.StringInput `pulumi:"uniqueName"`
 }
 
 // The set of arguments for constructing a SharedImageGallery resource.
 type SharedImageGalleryArgs struct {
 	// A description for this Shared Image Gallery.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Shared Image Gallery.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }

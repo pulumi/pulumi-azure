@@ -4,6 +4,8 @@
 package recoveryservices
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,47 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_replicated_vm.html.markdown.
 type ReplicatedVm struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// One or more `managedDisk` block.
+	ManagedDisks ReplicatedVmManagedDisksArrayOutput `pulumi:"managedDisks"`
+
+	// The name of the network mapping.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
+
+	// The name of the vault that should be updated.
+	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
+
+	// Name of the resource group where the vault that should be updated is located.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// Name of fabric that should contains this replication.
+	SourceRecoveryFabricName pulumi.StringOutput `pulumi:"sourceRecoveryFabricName"`
+
+	// Name of the protection container to use.
+	SourceRecoveryProtectionContainerName pulumi.StringOutput `pulumi:"sourceRecoveryProtectionContainerName"`
+
+	// Id of the VM to replicate
+	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
+
+	// Id of availability set that the new VM should belong to when a failover is done.
+	TargetAvailabilitySetId pulumi.StringOutput `pulumi:"targetAvailabilitySetId"`
+
+	// Id of fabric where the VM replication should be handled when a failover is done.
+	TargetRecoveryFabricId pulumi.StringOutput `pulumi:"targetRecoveryFabricId"`
+
+	// Id of protection container where the VM replication should be created when a failover is done.
+	TargetRecoveryProtectionContainerId pulumi.StringOutput `pulumi:"targetRecoveryProtectionContainerId"`
+
+	// Id of resource group where the VM should be created when a failover is done.
+	TargetResourceGroupId pulumi.StringOutput `pulumi:"targetResourceGroupId"`
 }
 
 // NewReplicatedVm registers a new resource with the given unique name, arguments, and options.
 func NewReplicatedVm(ctx *pulumi.Context,
-	name string, args *ReplicatedVmArgs, opts ...pulumi.ResourceOpt) (*ReplicatedVm, error) {
+	name string, args *ReplicatedVmArgs, opts ...pulumi.ResourceOption) (*ReplicatedVm, error) {
 	if args == nil || args.RecoveryReplicationPolicyId == nil {
 		return nil, errors.New("missing required argument 'RecoveryReplicationPolicyId'")
 	}
@@ -45,186 +82,236 @@ func NewReplicatedVm(ctx *pulumi.Context,
 	if args == nil || args.TargetResourceGroupId == nil {
 		return nil, errors.New("missing required argument 'TargetResourceGroupId'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["managedDisks"] = nil
-		inputs["name"] = nil
-		inputs["recoveryReplicationPolicyId"] = nil
-		inputs["recoveryVaultName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sourceRecoveryFabricName"] = nil
-		inputs["sourceRecoveryProtectionContainerName"] = nil
-		inputs["sourceVmId"] = nil
-		inputs["targetAvailabilitySetId"] = nil
-		inputs["targetRecoveryFabricId"] = nil
-		inputs["targetRecoveryProtectionContainerId"] = nil
-		inputs["targetResourceGroupId"] = nil
-	} else {
-		inputs["managedDisks"] = args.ManagedDisks
-		inputs["name"] = args.Name
-		inputs["recoveryReplicationPolicyId"] = args.RecoveryReplicationPolicyId
-		inputs["recoveryVaultName"] = args.RecoveryVaultName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sourceRecoveryFabricName"] = args.SourceRecoveryFabricName
-		inputs["sourceRecoveryProtectionContainerName"] = args.SourceRecoveryProtectionContainerName
-		inputs["sourceVmId"] = args.SourceVmId
-		inputs["targetAvailabilitySetId"] = args.TargetAvailabilitySetId
-		inputs["targetRecoveryFabricId"] = args.TargetRecoveryFabricId
-		inputs["targetRecoveryProtectionContainerId"] = args.TargetRecoveryProtectionContainerId
-		inputs["targetResourceGroupId"] = args.TargetResourceGroupId
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ManagedDisks; i != nil { inputs["managedDisks"] = i.ToReplicatedVmManagedDisksArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RecoveryReplicationPolicyId; i != nil { inputs["recoveryReplicationPolicyId"] = i.ToStringOutput() }
+		if i := args.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SourceRecoveryFabricName; i != nil { inputs["sourceRecoveryFabricName"] = i.ToStringOutput() }
+		if i := args.SourceRecoveryProtectionContainerName; i != nil { inputs["sourceRecoveryProtectionContainerName"] = i.ToStringOutput() }
+		if i := args.SourceVmId; i != nil { inputs["sourceVmId"] = i.ToStringOutput() }
+		if i := args.TargetAvailabilitySetId; i != nil { inputs["targetAvailabilitySetId"] = i.ToStringOutput() }
+		if i := args.TargetRecoveryFabricId; i != nil { inputs["targetRecoveryFabricId"] = i.ToStringOutput() }
+		if i := args.TargetRecoveryProtectionContainerId; i != nil { inputs["targetRecoveryProtectionContainerId"] = i.ToStringOutput() }
+		if i := args.TargetResourceGroupId; i != nil { inputs["targetResourceGroupId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:recoveryservices/replicatedVm:ReplicatedVm", name, true, inputs, opts...)
+	var resource ReplicatedVm
+	err := ctx.RegisterResource("azure:recoveryservices/replicatedVm:ReplicatedVm", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReplicatedVm{s: s}, nil
+	return &resource, nil
 }
 
 // GetReplicatedVm gets an existing ReplicatedVm resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetReplicatedVm(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ReplicatedVmState, opts ...pulumi.ResourceOpt) (*ReplicatedVm, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ReplicatedVmState, opts ...pulumi.ResourceOption) (*ReplicatedVm, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["managedDisks"] = state.ManagedDisks
-		inputs["name"] = state.Name
-		inputs["recoveryReplicationPolicyId"] = state.RecoveryReplicationPolicyId
-		inputs["recoveryVaultName"] = state.RecoveryVaultName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sourceRecoveryFabricName"] = state.SourceRecoveryFabricName
-		inputs["sourceRecoveryProtectionContainerName"] = state.SourceRecoveryProtectionContainerName
-		inputs["sourceVmId"] = state.SourceVmId
-		inputs["targetAvailabilitySetId"] = state.TargetAvailabilitySetId
-		inputs["targetRecoveryFabricId"] = state.TargetRecoveryFabricId
-		inputs["targetRecoveryProtectionContainerId"] = state.TargetRecoveryProtectionContainerId
-		inputs["targetResourceGroupId"] = state.TargetResourceGroupId
+		if i := state.ManagedDisks; i != nil { inputs["managedDisks"] = i.ToReplicatedVmManagedDisksArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RecoveryReplicationPolicyId; i != nil { inputs["recoveryReplicationPolicyId"] = i.ToStringOutput() }
+		if i := state.RecoveryVaultName; i != nil { inputs["recoveryVaultName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SourceRecoveryFabricName; i != nil { inputs["sourceRecoveryFabricName"] = i.ToStringOutput() }
+		if i := state.SourceRecoveryProtectionContainerName; i != nil { inputs["sourceRecoveryProtectionContainerName"] = i.ToStringOutput() }
+		if i := state.SourceVmId; i != nil { inputs["sourceVmId"] = i.ToStringOutput() }
+		if i := state.TargetAvailabilitySetId; i != nil { inputs["targetAvailabilitySetId"] = i.ToStringOutput() }
+		if i := state.TargetRecoveryFabricId; i != nil { inputs["targetRecoveryFabricId"] = i.ToStringOutput() }
+		if i := state.TargetRecoveryProtectionContainerId; i != nil { inputs["targetRecoveryProtectionContainerId"] = i.ToStringOutput() }
+		if i := state.TargetResourceGroupId; i != nil { inputs["targetResourceGroupId"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:recoveryservices/replicatedVm:ReplicatedVm", name, id, inputs, opts...)
+	var resource ReplicatedVm
+	err := ctx.ReadResource("azure:recoveryservices/replicatedVm:ReplicatedVm", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ReplicatedVm{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ReplicatedVm) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ReplicatedVm) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// One or more `managedDisk` block.
-func (r *ReplicatedVm) ManagedDisks() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["managedDisks"])
-}
-
-// The name of the network mapping.
-func (r *ReplicatedVm) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *ReplicatedVm) RecoveryReplicationPolicyId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryReplicationPolicyId"])
-}
-
-// The name of the vault that should be updated.
-func (r *ReplicatedVm) RecoveryVaultName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["recoveryVaultName"])
-}
-
-// Name of the resource group where the vault that should be updated is located.
-func (r *ReplicatedVm) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// Name of fabric that should contains this replication.
-func (r *ReplicatedVm) SourceRecoveryFabricName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceRecoveryFabricName"])
-}
-
-// Name of the protection container to use.
-func (r *ReplicatedVm) SourceRecoveryProtectionContainerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceRecoveryProtectionContainerName"])
-}
-
-// Id of the VM to replicate
-func (r *ReplicatedVm) SourceVmId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceVmId"])
-}
-
-// Id of availability set that the new VM should belong to when a failover is done.
-func (r *ReplicatedVm) TargetAvailabilitySetId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetAvailabilitySetId"])
-}
-
-// Id of fabric where the VM replication should be handled when a failover is done.
-func (r *ReplicatedVm) TargetRecoveryFabricId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetRecoveryFabricId"])
-}
-
-// Id of protection container where the VM replication should be created when a failover is done.
-func (r *ReplicatedVm) TargetRecoveryProtectionContainerId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetRecoveryProtectionContainerId"])
-}
-
-// Id of resource group where the VM should be created when a failover is done.
-func (r *ReplicatedVm) TargetResourceGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["targetResourceGroupId"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ReplicatedVm resources.
 type ReplicatedVmState struct {
 	// One or more `managedDisk` block.
-	ManagedDisks interface{}
+	ManagedDisks ReplicatedVmManagedDisksArrayInput `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name interface{}
-	RecoveryReplicationPolicyId interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	RecoveryReplicationPolicyId pulumi.StringInput `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Name of fabric that should contains this replication.
-	SourceRecoveryFabricName interface{}
+	SourceRecoveryFabricName pulumi.StringInput `pulumi:"sourceRecoveryFabricName"`
 	// Name of the protection container to use.
-	SourceRecoveryProtectionContainerName interface{}
+	SourceRecoveryProtectionContainerName pulumi.StringInput `pulumi:"sourceRecoveryProtectionContainerName"`
 	// Id of the VM to replicate
-	SourceVmId interface{}
+	SourceVmId pulumi.StringInput `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
-	TargetAvailabilitySetId interface{}
+	TargetAvailabilitySetId pulumi.StringInput `pulumi:"targetAvailabilitySetId"`
 	// Id of fabric where the VM replication should be handled when a failover is done.
-	TargetRecoveryFabricId interface{}
+	TargetRecoveryFabricId pulumi.StringInput `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done.
-	TargetRecoveryProtectionContainerId interface{}
+	TargetRecoveryProtectionContainerId pulumi.StringInput `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done.
-	TargetResourceGroupId interface{}
+	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
 }
 
 // The set of arguments for constructing a ReplicatedVm resource.
 type ReplicatedVmArgs struct {
 	// One or more `managedDisk` block.
-	ManagedDisks interface{}
+	ManagedDisks ReplicatedVmManagedDisksArrayInput `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name interface{}
-	RecoveryReplicationPolicyId interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	RecoveryReplicationPolicyId pulumi.StringInput `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
-	RecoveryVaultName interface{}
+	RecoveryVaultName pulumi.StringInput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// Name of fabric that should contains this replication.
-	SourceRecoveryFabricName interface{}
+	SourceRecoveryFabricName pulumi.StringInput `pulumi:"sourceRecoveryFabricName"`
 	// Name of the protection container to use.
-	SourceRecoveryProtectionContainerName interface{}
+	SourceRecoveryProtectionContainerName pulumi.StringInput `pulumi:"sourceRecoveryProtectionContainerName"`
 	// Id of the VM to replicate
-	SourceVmId interface{}
+	SourceVmId pulumi.StringInput `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
-	TargetAvailabilitySetId interface{}
+	TargetAvailabilitySetId pulumi.StringInput `pulumi:"targetAvailabilitySetId"`
 	// Id of fabric where the VM replication should be handled when a failover is done.
-	TargetRecoveryFabricId interface{}
+	TargetRecoveryFabricId pulumi.StringInput `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done.
-	TargetRecoveryProtectionContainerId interface{}
+	TargetRecoveryProtectionContainerId pulumi.StringInput `pulumi:"targetRecoveryProtectionContainerId"`
 	// Id of resource group where the VM should be created when a failover is done.
-	TargetResourceGroupId interface{}
+	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
 }
+type ReplicatedVmManagedDisks struct {
+	DiskId string `pulumi:"diskId"`
+	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
+	TargetDiskType string `pulumi:"targetDiskType"`
+	TargetReplicaDiskType string `pulumi:"targetReplicaDiskType"`
+	// Id of resource group where the VM should be created when a failover is done.
+	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
+}
+var replicatedVmManagedDisksType = reflect.TypeOf((*ReplicatedVmManagedDisks)(nil)).Elem()
+
+type ReplicatedVmManagedDisksInput interface {
+	pulumi.Input
+
+	ToReplicatedVmManagedDisksOutput() ReplicatedVmManagedDisksOutput
+	ToReplicatedVmManagedDisksOutputWithContext(ctx context.Context) ReplicatedVmManagedDisksOutput
+}
+
+type ReplicatedVmManagedDisksArgs struct {
+	DiskId pulumi.StringInput `pulumi:"diskId"`
+	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
+	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
+	TargetReplicaDiskType pulumi.StringInput `pulumi:"targetReplicaDiskType"`
+	// Id of resource group where the VM should be created when a failover is done.
+	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
+}
+
+func (ReplicatedVmManagedDisksArgs) ElementType() reflect.Type {
+	return replicatedVmManagedDisksType
+}
+
+func (a ReplicatedVmManagedDisksArgs) ToReplicatedVmManagedDisksOutput() ReplicatedVmManagedDisksOutput {
+	return pulumi.ToOutput(a).(ReplicatedVmManagedDisksOutput)
+}
+
+func (a ReplicatedVmManagedDisksArgs) ToReplicatedVmManagedDisksOutputWithContext(ctx context.Context) ReplicatedVmManagedDisksOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReplicatedVmManagedDisksOutput)
+}
+
+type ReplicatedVmManagedDisksOutput struct { *pulumi.OutputState }
+
+func (o ReplicatedVmManagedDisksOutput) DiskId() pulumi.StringOutput {
+	return o.Apply(func(v ReplicatedVmManagedDisks) string {
+		return v.DiskId
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatedVmManagedDisksOutput) StagingStorageAccountId() pulumi.StringOutput {
+	return o.Apply(func(v ReplicatedVmManagedDisks) string {
+		return v.StagingStorageAccountId
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatedVmManagedDisksOutput) TargetDiskType() pulumi.StringOutput {
+	return o.Apply(func(v ReplicatedVmManagedDisks) string {
+		return v.TargetDiskType
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatedVmManagedDisksOutput) TargetReplicaDiskType() pulumi.StringOutput {
+	return o.Apply(func(v ReplicatedVmManagedDisks) string {
+		return v.TargetReplicaDiskType
+	}).(pulumi.StringOutput)
+}
+
+// Id of resource group where the VM should be created when a failover is done.
+func (o ReplicatedVmManagedDisksOutput) TargetResourceGroupId() pulumi.StringOutput {
+	return o.Apply(func(v ReplicatedVmManagedDisks) string {
+		return v.TargetResourceGroupId
+	}).(pulumi.StringOutput)
+}
+
+func (ReplicatedVmManagedDisksOutput) ElementType() reflect.Type {
+	return replicatedVmManagedDisksType
+}
+
+func (o ReplicatedVmManagedDisksOutput) ToReplicatedVmManagedDisksOutput() ReplicatedVmManagedDisksOutput {
+	return o
+}
+
+func (o ReplicatedVmManagedDisksOutput) ToReplicatedVmManagedDisksOutputWithContext(ctx context.Context) ReplicatedVmManagedDisksOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReplicatedVmManagedDisksOutput{}) }
+
+var replicatedVmManagedDisksArrayType = reflect.TypeOf((*[]ReplicatedVmManagedDisks)(nil)).Elem()
+
+type ReplicatedVmManagedDisksArrayInput interface {
+	pulumi.Input
+
+	ToReplicatedVmManagedDisksArrayOutput() ReplicatedVmManagedDisksArrayOutput
+	ToReplicatedVmManagedDisksArrayOutputWithContext(ctx context.Context) ReplicatedVmManagedDisksArrayOutput
+}
+
+type ReplicatedVmManagedDisksArrayArgs []ReplicatedVmManagedDisksInput
+
+func (ReplicatedVmManagedDisksArrayArgs) ElementType() reflect.Type {
+	return replicatedVmManagedDisksArrayType
+}
+
+func (a ReplicatedVmManagedDisksArrayArgs) ToReplicatedVmManagedDisksArrayOutput() ReplicatedVmManagedDisksArrayOutput {
+	return pulumi.ToOutput(a).(ReplicatedVmManagedDisksArrayOutput)
+}
+
+func (a ReplicatedVmManagedDisksArrayArgs) ToReplicatedVmManagedDisksArrayOutputWithContext(ctx context.Context) ReplicatedVmManagedDisksArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ReplicatedVmManagedDisksArrayOutput)
+}
+
+type ReplicatedVmManagedDisksArrayOutput struct { *pulumi.OutputState }
+
+func (o ReplicatedVmManagedDisksArrayOutput) Index(i pulumi.IntInput) ReplicatedVmManagedDisksOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) ReplicatedVmManagedDisks {
+		return vs[0].([]ReplicatedVmManagedDisks)[vs[1].(int)]
+	}).(ReplicatedVmManagedDisksOutput)
+}
+
+func (ReplicatedVmManagedDisksArrayOutput) ElementType() reflect.Type {
+	return replicatedVmManagedDisksArrayType
+}
+
+func (o ReplicatedVmManagedDisksArrayOutput) ToReplicatedVmManagedDisksArrayOutput() ReplicatedVmManagedDisksArrayOutput {
+	return o
+}
+
+func (o ReplicatedVmManagedDisksArrayOutput) ToReplicatedVmManagedDisksArrayOutputWithContext(ctx context.Context) ReplicatedVmManagedDisksArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ReplicatedVmManagedDisksArrayOutput{}) }
+

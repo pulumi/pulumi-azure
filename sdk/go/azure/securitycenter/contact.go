@@ -14,12 +14,24 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
 type Contact struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Whether to send security alerts notifications to the security contact.
+	AlertNotifications pulumi.BoolOutput `pulumi:"alertNotifications"`
+
+	// Whether to send security alerts notifications to subscription admins.
+	AlertsToAdmins pulumi.BoolOutput `pulumi:"alertsToAdmins"`
+
+	// The email of the Security Center Contact.
+	Email pulumi.StringOutput `pulumi:"email"`
+
+	// The phone number of the Security Center Contact.
+	Phone pulumi.StringOutput `pulumi:"phone"`
 }
 
 // NewContact registers a new resource with the given unique name, arguments, and options.
 func NewContact(ctx *pulumi.Context,
-	name string, args *ContactArgs, opts ...pulumi.ResourceOpt) (*Contact, error) {
+	name string, args *ContactArgs, opts ...pulumi.ResourceOption) (*Contact, error) {
 	if args == nil || args.AlertNotifications == nil {
 		return nil, errors.New("missing required argument 'AlertNotifications'")
 	}
@@ -29,93 +41,60 @@ func NewContact(ctx *pulumi.Context,
 	if args == nil || args.Email == nil {
 		return nil, errors.New("missing required argument 'Email'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["alertNotifications"] = nil
-		inputs["alertsToAdmins"] = nil
-		inputs["email"] = nil
-		inputs["phone"] = nil
-	} else {
-		inputs["alertNotifications"] = args.AlertNotifications
-		inputs["alertsToAdmins"] = args.AlertsToAdmins
-		inputs["email"] = args.Email
-		inputs["phone"] = args.Phone
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AlertNotifications; i != nil { inputs["alertNotifications"] = i.ToBoolOutput() }
+		if i := args.AlertsToAdmins; i != nil { inputs["alertsToAdmins"] = i.ToBoolOutput() }
+		if i := args.Email; i != nil { inputs["email"] = i.ToStringOutput() }
+		if i := args.Phone; i != nil { inputs["phone"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:securitycenter/contact:Contact", name, true, inputs, opts...)
+	var resource Contact
+	err := ctx.RegisterResource("azure:securitycenter/contact:Contact", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Contact{s: s}, nil
+	return &resource, nil
 }
 
 // GetContact gets an existing Contact resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetContact(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ContactState, opts ...pulumi.ResourceOpt) (*Contact, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ContactState, opts ...pulumi.ResourceOption) (*Contact, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["alertNotifications"] = state.AlertNotifications
-		inputs["alertsToAdmins"] = state.AlertsToAdmins
-		inputs["email"] = state.Email
-		inputs["phone"] = state.Phone
+		if i := state.AlertNotifications; i != nil { inputs["alertNotifications"] = i.ToBoolOutput() }
+		if i := state.AlertsToAdmins; i != nil { inputs["alertsToAdmins"] = i.ToBoolOutput() }
+		if i := state.Email; i != nil { inputs["email"] = i.ToStringOutput() }
+		if i := state.Phone; i != nil { inputs["phone"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:securitycenter/contact:Contact", name, id, inputs, opts...)
+	var resource Contact
+	err := ctx.ReadResource("azure:securitycenter/contact:Contact", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Contact{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Contact) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Contact) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Whether to send security alerts notifications to the security contact.
-func (r *Contact) AlertNotifications() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["alertNotifications"])
-}
-
-// Whether to send security alerts notifications to subscription admins.
-func (r *Contact) AlertsToAdmins() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["alertsToAdmins"])
-}
-
-// The email of the Security Center Contact.
-func (r *Contact) Email() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["email"])
-}
-
-// The phone number of the Security Center Contact.
-func (r *Contact) Phone() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["phone"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Contact resources.
 type ContactState struct {
 	// Whether to send security alerts notifications to the security contact.
-	AlertNotifications interface{}
+	AlertNotifications pulumi.BoolInput `pulumi:"alertNotifications"`
 	// Whether to send security alerts notifications to subscription admins.
-	AlertsToAdmins interface{}
+	AlertsToAdmins pulumi.BoolInput `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
-	Email interface{}
+	Email pulumi.StringInput `pulumi:"email"`
 	// The phone number of the Security Center Contact.
-	Phone interface{}
+	Phone pulumi.StringInput `pulumi:"phone"`
 }
 
 // The set of arguments for constructing a Contact resource.
 type ContactArgs struct {
 	// Whether to send security alerts notifications to the security contact.
-	AlertNotifications interface{}
+	AlertNotifications pulumi.BoolInput `pulumi:"alertNotifications"`
 	// Whether to send security alerts notifications to subscription admins.
-	AlertsToAdmins interface{}
+	AlertsToAdmins pulumi.BoolInput `pulumi:"alertsToAdmins"`
 	// The email of the Security Center Contact.
-	Email interface{}
+	Email pulumi.StringInput `pulumi:"email"`
 	// The phone number of the Security Center Contact.
-	Phone interface{}
+	Phone pulumi.StringInput `pulumi:"phone"`
 }

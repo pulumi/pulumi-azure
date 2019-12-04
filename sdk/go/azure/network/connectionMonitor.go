@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -14,12 +16,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/connection_monitor.html.markdown.
 type ConnectionMonitor struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+	AutoStart pulumi.BoolOutput `pulumi:"autoStart"`
+
+	// A `destination` block as defined below.
+	Destination ConnectionMonitorDestinationOutput `pulumi:"destination"`
+
+	// Monitoring interval in seconds. Defaults to `60`.
+	IntervalInSeconds pulumi.IntOutput `pulumi:"intervalInSeconds"`
+
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the Connection Monitor. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	NetworkWatcherName pulumi.StringOutput `pulumi:"networkWatcherName"`
+
+	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `source` block as defined below.
+	Source ConnectionMonitorSourceOutput `pulumi:"source"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewConnectionMonitor registers a new resource with the given unique name, arguments, and options.
 func NewConnectionMonitor(ctx *pulumi.Context,
-	name string, args *ConnectionMonitorArgs, opts ...pulumi.ResourceOpt) (*ConnectionMonitor, error) {
+	name string, args *ConnectionMonitorArgs, opts ...pulumi.ResourceOption) (*ConnectionMonitor, error) {
 	if args == nil || args.Destination == nil {
 		return nil, errors.New("missing required argument 'Destination'")
 	}
@@ -32,153 +61,214 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 	if args == nil || args.Source == nil {
 		return nil, errors.New("missing required argument 'Source'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["autoStart"] = nil
-		inputs["destination"] = nil
-		inputs["intervalInSeconds"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["networkWatcherName"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["source"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["autoStart"] = args.AutoStart
-		inputs["destination"] = args.Destination
-		inputs["intervalInSeconds"] = args.IntervalInSeconds
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["networkWatcherName"] = args.NetworkWatcherName
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["source"] = args.Source
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AutoStart; i != nil { inputs["autoStart"] = i.ToBoolOutput() }
+		if i := args.Destination; i != nil { inputs["destination"] = i.ToConnectionMonitorDestinationOutput() }
+		if i := args.IntervalInSeconds; i != nil { inputs["intervalInSeconds"] = i.ToIntOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkWatcherName; i != nil { inputs["networkWatcherName"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Source; i != nil { inputs["source"] = i.ToConnectionMonitorSourceOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/connectionMonitor:ConnectionMonitor", name, true, inputs, opts...)
+	var resource ConnectionMonitor
+	err := ctx.RegisterResource("azure:network/connectionMonitor:ConnectionMonitor", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConnectionMonitor{s: s}, nil
+	return &resource, nil
 }
 
 // GetConnectionMonitor gets an existing ConnectionMonitor resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetConnectionMonitor(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ConnectionMonitorState, opts ...pulumi.ResourceOpt) (*ConnectionMonitor, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ConnectionMonitorState, opts ...pulumi.ResourceOption) (*ConnectionMonitor, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["autoStart"] = state.AutoStart
-		inputs["destination"] = state.Destination
-		inputs["intervalInSeconds"] = state.IntervalInSeconds
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["networkWatcherName"] = state.NetworkWatcherName
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["source"] = state.Source
-		inputs["tags"] = state.Tags
+		if i := state.AutoStart; i != nil { inputs["autoStart"] = i.ToBoolOutput() }
+		if i := state.Destination; i != nil { inputs["destination"] = i.ToConnectionMonitorDestinationOutput() }
+		if i := state.IntervalInSeconds; i != nil { inputs["intervalInSeconds"] = i.ToIntOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkWatcherName; i != nil { inputs["networkWatcherName"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Source; i != nil { inputs["source"] = i.ToConnectionMonitorSourceOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/connectionMonitor:ConnectionMonitor", name, id, inputs, opts...)
+	var resource ConnectionMonitor
+	err := ctx.ReadResource("azure:network/connectionMonitor:ConnectionMonitor", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ConnectionMonitor{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ConnectionMonitor) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ConnectionMonitor) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
-func (r *ConnectionMonitor) AutoStart() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["autoStart"])
-}
-
-// A `destination` block as defined below.
-func (r *ConnectionMonitor) Destination() pulumi.Output {
-	return r.s.State["destination"]
-}
-
-// Monitoring interval in seconds. Defaults to `60`.
-func (r *ConnectionMonitor) IntervalInSeconds() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["intervalInSeconds"])
-}
-
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ConnectionMonitor) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the Connection Monitor. Changing this forces a new resource to be created.
-func (r *ConnectionMonitor) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the Network Watcher. Changing this forces a new resource to be created.
-func (r *ConnectionMonitor) NetworkWatcherName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkWatcherName"])
-}
-
-// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
-func (r *ConnectionMonitor) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `source` block as defined below.
-func (r *ConnectionMonitor) Source() pulumi.Output {
-	return r.s.State["source"]
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ConnectionMonitor) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ConnectionMonitor resources.
 type ConnectionMonitorState struct {
 	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
-	AutoStart interface{}
+	AutoStart pulumi.BoolInput `pulumi:"autoStart"`
 	// A `destination` block as defined below.
-	Destination interface{}
+	Destination ConnectionMonitorDestinationInput `pulumi:"destination"`
 	// Monitoring interval in seconds. Defaults to `60`.
-	IntervalInSeconds interface{}
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Connection Monitor. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
-	NetworkWatcherName interface{}
+	NetworkWatcherName pulumi.StringInput `pulumi:"networkWatcherName"`
 	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `source` block as defined below.
-	Source interface{}
+	Source ConnectionMonitorSourceInput `pulumi:"source"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionMonitor resource.
 type ConnectionMonitorArgs struct {
 	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
-	AutoStart interface{}
+	AutoStart pulumi.BoolInput `pulumi:"autoStart"`
 	// A `destination` block as defined below.
-	Destination interface{}
+	Destination ConnectionMonitorDestinationInput `pulumi:"destination"`
 	// Monitoring interval in seconds. Defaults to `60`.
-	IntervalInSeconds interface{}
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the Connection Monitor. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
-	NetworkWatcherName interface{}
+	NetworkWatcherName pulumi.StringInput `pulumi:"networkWatcherName"`
 	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `source` block as defined below.
-	Source interface{}
+	Source ConnectionMonitorSourceInput `pulumi:"source"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type ConnectionMonitorDestination struct {
+	Address *string `pulumi:"address"`
+	Port int `pulumi:"port"`
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+}
+var connectionMonitorDestinationType = reflect.TypeOf((*ConnectionMonitorDestination)(nil)).Elem()
+
+type ConnectionMonitorDestinationInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorDestinationOutput() ConnectionMonitorDestinationOutput
+	ToConnectionMonitorDestinationOutputWithContext(ctx context.Context) ConnectionMonitorDestinationOutput
+}
+
+type ConnectionMonitorDestinationArgs struct {
+	Address pulumi.StringInput `pulumi:"address"`
+	Port pulumi.IntInput `pulumi:"port"`
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
+}
+
+func (ConnectionMonitorDestinationArgs) ElementType() reflect.Type {
+	return connectionMonitorDestinationType
+}
+
+func (a ConnectionMonitorDestinationArgs) ToConnectionMonitorDestinationOutput() ConnectionMonitorDestinationOutput {
+	return pulumi.ToOutput(a).(ConnectionMonitorDestinationOutput)
+}
+
+func (a ConnectionMonitorDestinationArgs) ToConnectionMonitorDestinationOutputWithContext(ctx context.Context) ConnectionMonitorDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConnectionMonitorDestinationOutput)
+}
+
+type ConnectionMonitorDestinationOutput struct { *pulumi.OutputState }
+
+func (o ConnectionMonitorDestinationOutput) Address() pulumi.StringOutput {
+	return o.Apply(func(v ConnectionMonitorDestination) string {
+		if v.Address == nil { return *new(string) } else { return *v.Address }
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionMonitorDestinationOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ConnectionMonitorDestination) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+func (o ConnectionMonitorDestinationOutput) VirtualMachineId() pulumi.StringOutput {
+	return o.Apply(func(v ConnectionMonitorDestination) string {
+		if v.VirtualMachineId == nil { return *new(string) } else { return *v.VirtualMachineId }
+	}).(pulumi.StringOutput)
+}
+
+func (ConnectionMonitorDestinationOutput) ElementType() reflect.Type {
+	return connectionMonitorDestinationType
+}
+
+func (o ConnectionMonitorDestinationOutput) ToConnectionMonitorDestinationOutput() ConnectionMonitorDestinationOutput {
+	return o
+}
+
+func (o ConnectionMonitorDestinationOutput) ToConnectionMonitorDestinationOutputWithContext(ctx context.Context) ConnectionMonitorDestinationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConnectionMonitorDestinationOutput{}) }
+
+type ConnectionMonitorSource struct {
+	Port *int `pulumi:"port"`
+	VirtualMachineId string `pulumi:"virtualMachineId"`
+}
+var connectionMonitorSourceType = reflect.TypeOf((*ConnectionMonitorSource)(nil)).Elem()
+
+type ConnectionMonitorSourceInput interface {
+	pulumi.Input
+
+	ToConnectionMonitorSourceOutput() ConnectionMonitorSourceOutput
+	ToConnectionMonitorSourceOutputWithContext(ctx context.Context) ConnectionMonitorSourceOutput
+}
+
+type ConnectionMonitorSourceArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
+}
+
+func (ConnectionMonitorSourceArgs) ElementType() reflect.Type {
+	return connectionMonitorSourceType
+}
+
+func (a ConnectionMonitorSourceArgs) ToConnectionMonitorSourceOutput() ConnectionMonitorSourceOutput {
+	return pulumi.ToOutput(a).(ConnectionMonitorSourceOutput)
+}
+
+func (a ConnectionMonitorSourceArgs) ToConnectionMonitorSourceOutputWithContext(ctx context.Context) ConnectionMonitorSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ConnectionMonitorSourceOutput)
+}
+
+type ConnectionMonitorSourceOutput struct { *pulumi.OutputState }
+
+func (o ConnectionMonitorSourceOutput) Port() pulumi.IntOutput {
+	return o.Apply(func(v ConnectionMonitorSource) int {
+		if v.Port == nil { return *new(int) } else { return *v.Port }
+	}).(pulumi.IntOutput)
+}
+
+func (o ConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringOutput {
+	return o.Apply(func(v ConnectionMonitorSource) string {
+		return v.VirtualMachineId
+	}).(pulumi.StringOutput)
+}
+
+func (ConnectionMonitorSourceOutput) ElementType() reflect.Type {
+	return connectionMonitorSourceType
+}
+
+func (o ConnectionMonitorSourceOutput) ToConnectionMonitorSourceOutput() ConnectionMonitorSourceOutput {
+	return o
+}
+
+func (o ConnectionMonitorSourceOutput) ToConnectionMonitorSourceOutputWithContext(ctx context.Context) ConnectionMonitorSourceOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ConnectionMonitorSourceOutput{}) }
+

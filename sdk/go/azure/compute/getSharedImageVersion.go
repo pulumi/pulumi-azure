@@ -10,61 +10,50 @@ import (
 // Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
-func LookupSharedImageVersion(ctx *pulumi.Context, args *GetSharedImageVersionArgs) (*GetSharedImageVersionResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["galleryName"] = args.GalleryName
-		inputs["imageName"] = args.ImageName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", inputs)
+func LookupSharedImageVersion(ctx *pulumi.Context, args *GetSharedImageVersionArgs, opts ...pulumi.InvokeOption) (*GetSharedImageVersionResult, error) {
+	var rv GetSharedImageVersionResult
+	err := ctx.Invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetSharedImageVersionResult{
-		ExcludeFromLatest: outputs["excludeFromLatest"],
-		GalleryName: outputs["galleryName"],
-		ImageName: outputs["imageName"],
-		Location: outputs["location"],
-		ManagedImageId: outputs["managedImageId"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		TargetRegions: outputs["targetRegions"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getSharedImageVersion.
 type GetSharedImageVersionArgs struct {
 	// The name of the Shared Image in which the Shared Image exists.
-	GalleryName interface{}
+	GalleryName string `pulumi:"galleryName"`
 	// The name of the Shared Image in which this Version exists.
-	ImageName interface{}
+	ImageName string `pulumi:"imageName"`
 	// The name of the Image Version.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getSharedImageVersion.
 type GetSharedImageVersionResult struct {
 	// Is this Image Version excluded from the `latest` filter?
-	ExcludeFromLatest interface{}
-	GalleryName interface{}
-	ImageName interface{}
+	ExcludeFromLatest bool `pulumi:"excludeFromLatest"`
+	GalleryName string `pulumi:"galleryName"`
+	ImageName string `pulumi:"imageName"`
 	// The supported Azure location where the Shared Image Gallery exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The ID of the Managed Image which was the source of this Shared Image Version.
-	ManagedImageId interface{}
+	ManagedImageId string `pulumi:"managedImageId"`
 	// The Azure Region in which this Image Version exists.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Shared Image.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
-	TargetRegions interface{}
+	TargetRegions []GetSharedImageVersionTargetRegionsResult `pulumi:"targetRegions"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetSharedImageVersionTargetRegionsResult struct {
+	// The name of the Image Version.
+	Name string `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region.
+	RegionalReplicaCount int `pulumi:"regionalReplicaCount"`
 }

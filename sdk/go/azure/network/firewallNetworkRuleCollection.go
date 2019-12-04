@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
 type FirewallNetworkRuleCollection struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
+	Action pulumi.StringOutput `pulumi:"action"`
+
+	// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
+	AzureFirewallName pulumi.StringOutput `pulumi:"azureFirewallName"`
+
+	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+	Priority pulumi.IntOutput `pulumi:"priority"`
+
+	// Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// One or more `rule` blocks as defined below.
+	Rules FirewallNetworkRuleCollectionRulesArrayOutput `pulumi:"rules"`
 }
 
 // NewFirewallNetworkRuleCollection registers a new resource with the given unique name, arguments, and options.
 func NewFirewallNetworkRuleCollection(ctx *pulumi.Context,
-	name string, args *FirewallNetworkRuleCollectionArgs, opts ...pulumi.ResourceOpt) (*FirewallNetworkRuleCollection, error) {
+	name string, args *FirewallNetworkRuleCollectionArgs, opts ...pulumi.ResourceOption) (*FirewallNetworkRuleCollection, error) {
 	if args == nil || args.Action == nil {
 		return nil, errors.New("missing required argument 'Action'")
 	}
@@ -33,117 +53,210 @@ func NewFirewallNetworkRuleCollection(ctx *pulumi.Context,
 	if args == nil || args.Rules == nil {
 		return nil, errors.New("missing required argument 'Rules'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["action"] = nil
-		inputs["azureFirewallName"] = nil
-		inputs["name"] = nil
-		inputs["priority"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["rules"] = nil
-	} else {
-		inputs["action"] = args.Action
-		inputs["azureFirewallName"] = args.AzureFirewallName
-		inputs["name"] = args.Name
-		inputs["priority"] = args.Priority
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["rules"] = args.Rules
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.Action; i != nil { inputs["action"] = i.ToStringOutput() }
+		if i := args.AzureFirewallName; i != nil { inputs["azureFirewallName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Priority; i != nil { inputs["priority"] = i.ToIntOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Rules; i != nil { inputs["rules"] = i.ToFirewallNetworkRuleCollectionRulesArrayOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, true, inputs, opts...)
+	var resource FirewallNetworkRuleCollection
+	err := ctx.RegisterResource("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallNetworkRuleCollection{s: s}, nil
+	return &resource, nil
 }
 
 // GetFirewallNetworkRuleCollection gets an existing FirewallNetworkRuleCollection resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFirewallNetworkRuleCollection(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FirewallNetworkRuleCollectionState, opts ...pulumi.ResourceOpt) (*FirewallNetworkRuleCollection, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FirewallNetworkRuleCollectionState, opts ...pulumi.ResourceOption) (*FirewallNetworkRuleCollection, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["action"] = state.Action
-		inputs["azureFirewallName"] = state.AzureFirewallName
-		inputs["name"] = state.Name
-		inputs["priority"] = state.Priority
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["rules"] = state.Rules
+		if i := state.Action; i != nil { inputs["action"] = i.ToStringOutput() }
+		if i := state.AzureFirewallName; i != nil { inputs["azureFirewallName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Priority; i != nil { inputs["priority"] = i.ToIntOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Rules; i != nil { inputs["rules"] = i.ToFirewallNetworkRuleCollectionRulesArrayOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, id, inputs, opts...)
+	var resource FirewallNetworkRuleCollection
+	err := ctx.ReadResource("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallNetworkRuleCollection{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallNetworkRuleCollection) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallNetworkRuleCollection) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
-func (r *FirewallNetworkRuleCollection) Action() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["action"])
-}
-
-// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
-func (r *FirewallNetworkRuleCollection) AzureFirewallName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["azureFirewallName"])
-}
-
-// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-func (r *FirewallNetworkRuleCollection) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
-func (r *FirewallNetworkRuleCollection) Priority() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["priority"])
-}
-
-// Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-func (r *FirewallNetworkRuleCollection) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// One or more `rule` blocks as defined below.
-func (r *FirewallNetworkRuleCollection) Rules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["rules"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FirewallNetworkRuleCollection resources.
 type FirewallNetworkRuleCollectionState struct {
 	// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
-	Action interface{}
+	Action pulumi.StringInput `pulumi:"action"`
 	// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
-	AzureFirewallName interface{}
+	AzureFirewallName pulumi.StringInput `pulumi:"azureFirewallName"`
 	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
-	Priority interface{}
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `rule` blocks as defined below.
-	Rules interface{}
+	Rules FirewallNetworkRuleCollectionRulesArrayInput `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a FirewallNetworkRuleCollection resource.
 type FirewallNetworkRuleCollectionArgs struct {
 	// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
-	Action interface{}
+	Action pulumi.StringInput `pulumi:"action"`
 	// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
-	AzureFirewallName interface{}
+	AzureFirewallName pulumi.StringInput `pulumi:"azureFirewallName"`
 	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
-	Priority interface{}
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// One or more `rule` blocks as defined below.
-	Rules interface{}
+	Rules FirewallNetworkRuleCollectionRulesArrayInput `pulumi:"rules"`
 }
+type FirewallNetworkRuleCollectionRules struct {
+	Description *string `pulumi:"description"`
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Protocols []string `pulumi:"protocols"`
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+}
+var firewallNetworkRuleCollectionRulesType = reflect.TypeOf((*FirewallNetworkRuleCollectionRules)(nil)).Elem()
+
+type FirewallNetworkRuleCollectionRulesInput interface {
+	pulumi.Input
+
+	ToFirewallNetworkRuleCollectionRulesOutput() FirewallNetworkRuleCollectionRulesOutput
+	ToFirewallNetworkRuleCollectionRulesOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionRulesOutput
+}
+
+type FirewallNetworkRuleCollectionRulesArgs struct {
+	Description pulumi.StringInput `pulumi:"description"`
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+}
+
+func (FirewallNetworkRuleCollectionRulesArgs) ElementType() reflect.Type {
+	return firewallNetworkRuleCollectionRulesType
+}
+
+func (a FirewallNetworkRuleCollectionRulesArgs) ToFirewallNetworkRuleCollectionRulesOutput() FirewallNetworkRuleCollectionRulesOutput {
+	return pulumi.ToOutput(a).(FirewallNetworkRuleCollectionRulesOutput)
+}
+
+func (a FirewallNetworkRuleCollectionRulesArgs) ToFirewallNetworkRuleCollectionRulesOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallNetworkRuleCollectionRulesOutput)
+}
+
+type FirewallNetworkRuleCollectionRulesOutput struct { *pulumi.OutputState }
+
+func (o FirewallNetworkRuleCollectionRulesOutput) Description() pulumi.StringOutput {
+	return o.Apply(func(v FirewallNetworkRuleCollectionRules) string {
+		if v.Description == nil { return *new(string) } else { return *v.Description }
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallNetworkRuleCollectionRulesOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v FirewallNetworkRuleCollectionRules) []string {
+		return v.DestinationAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallNetworkRuleCollectionRulesOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.Apply(func(v FirewallNetworkRuleCollectionRules) []string {
+		return v.DestinationPorts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+func (o FirewallNetworkRuleCollectionRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FirewallNetworkRuleCollectionRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallNetworkRuleCollectionRulesOutput) Protocols() pulumi.StringArrayOutput {
+	return o.Apply(func(v FirewallNetworkRuleCollectionRules) []string {
+		return v.Protocols
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallNetworkRuleCollectionRulesOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.Apply(func(v FirewallNetworkRuleCollectionRules) []string {
+		return v.SourceAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+func (FirewallNetworkRuleCollectionRulesOutput) ElementType() reflect.Type {
+	return firewallNetworkRuleCollectionRulesType
+}
+
+func (o FirewallNetworkRuleCollectionRulesOutput) ToFirewallNetworkRuleCollectionRulesOutput() FirewallNetworkRuleCollectionRulesOutput {
+	return o
+}
+
+func (o FirewallNetworkRuleCollectionRulesOutput) ToFirewallNetworkRuleCollectionRulesOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRulesOutput{}) }
+
+var firewallNetworkRuleCollectionRulesArrayType = reflect.TypeOf((*[]FirewallNetworkRuleCollectionRules)(nil)).Elem()
+
+type FirewallNetworkRuleCollectionRulesArrayInput interface {
+	pulumi.Input
+
+	ToFirewallNetworkRuleCollectionRulesArrayOutput() FirewallNetworkRuleCollectionRulesArrayOutput
+	ToFirewallNetworkRuleCollectionRulesArrayOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionRulesArrayOutput
+}
+
+type FirewallNetworkRuleCollectionRulesArrayArgs []FirewallNetworkRuleCollectionRulesInput
+
+func (FirewallNetworkRuleCollectionRulesArrayArgs) ElementType() reflect.Type {
+	return firewallNetworkRuleCollectionRulesArrayType
+}
+
+func (a FirewallNetworkRuleCollectionRulesArrayArgs) ToFirewallNetworkRuleCollectionRulesArrayOutput() FirewallNetworkRuleCollectionRulesArrayOutput {
+	return pulumi.ToOutput(a).(FirewallNetworkRuleCollectionRulesArrayOutput)
+}
+
+func (a FirewallNetworkRuleCollectionRulesArrayArgs) ToFirewallNetworkRuleCollectionRulesArrayOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallNetworkRuleCollectionRulesArrayOutput)
+}
+
+type FirewallNetworkRuleCollectionRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallNetworkRuleCollectionRulesArrayOutput) Index(i pulumi.IntInput) FirewallNetworkRuleCollectionRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallNetworkRuleCollectionRules {
+		return vs[0].([]FirewallNetworkRuleCollectionRules)[vs[1].(int)]
+	}).(FirewallNetworkRuleCollectionRulesOutput)
+}
+
+func (FirewallNetworkRuleCollectionRulesArrayOutput) ElementType() reflect.Type {
+	return firewallNetworkRuleCollectionRulesArrayType
+}
+
+func (o FirewallNetworkRuleCollectionRulesArrayOutput) ToFirewallNetworkRuleCollectionRulesArrayOutput() FirewallNetworkRuleCollectionRulesArrayOutput {
+	return o
+}
+
+func (o FirewallNetworkRuleCollectionRulesArrayOutput) ToFirewallNetworkRuleCollectionRulesArrayOutputWithContext(ctx context.Context) FirewallNetworkRuleCollectionRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRulesArrayOutput{}) }
+

@@ -10,39 +10,29 @@ import (
 // Use this data source to access information about an existing Proximity Placement Group.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
-func LookupPlacementGroup(ctx *pulumi.Context, args *GetPlacementGroupArgs) (*GetPlacementGroupResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:proximity/getPlacementGroup:getPlacementGroup", inputs)
+func LookupPlacementGroup(ctx *pulumi.Context, args *GetPlacementGroupArgs, opts ...pulumi.InvokeOption) (*GetPlacementGroupResult, error) {
+	var rv GetPlacementGroupResult
+	err := ctx.Invoke("azure:proximity/getPlacementGroup:getPlacementGroup", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetPlacementGroupResult{
-		Location: outputs["location"],
-		Name: outputs["name"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getPlacementGroup.
 type GetPlacementGroupArgs struct {
 	// The name of the Proximity Placement Group.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the Proximity Placement Group exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getPlacementGroup.
 type GetPlacementGroupResult struct {
-	Location interface{}
-	Name interface{}
-	ResourceGroupName interface{}
-	Tags interface{}
+	Location string `pulumi:"location"`
+	Name string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
 }

@@ -4,6 +4,8 @@
 package frontdoor
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,192 +14,767 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor_firewall_policy.html.markdown.
 type FirewallPolicy struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+	CustomBlockResponseBody pulumi.StringOutput `pulumi:"customBlockResponseBody"`
+
+	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+	CustomBlockResponseStatusCode pulumi.IntOutput `pulumi:"customBlockResponseStatusCode"`
+
+	// One or more `customRule` blocks as defined below.
+	CustomRules FirewallPolicyCustomRulesArrayOutput `pulumi:"customRules"`
+
+	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+
+	// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
+
+	// Resource location.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// One or more `managedRule` blocks as defined below.
+	ManagedRules FirewallPolicyManagedRulesArrayOutput `pulumi:"managedRules"`
+
+	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+	Mode pulumi.StringOutput `pulumi:"mode"`
+
+	// The name of the policy. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// If action type is redirect, this field represents redirect URL for the client.
+	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
+
+	// The name of the resource group. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the Web Application Firewall Policy.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewFirewallPolicy(ctx *pulumi.Context,
-	name string, args *FirewallPolicyArgs, opts ...pulumi.ResourceOpt) (*FirewallPolicy, error) {
+	name string, args *FirewallPolicyArgs, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["customBlockResponseBody"] = nil
-		inputs["customBlockResponseStatusCode"] = nil
-		inputs["customRules"] = nil
-		inputs["enabled"] = nil
-		inputs["managedRules"] = nil
-		inputs["mode"] = nil
-		inputs["name"] = nil
-		inputs["redirectUrl"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["customBlockResponseBody"] = args.CustomBlockResponseBody
-		inputs["customBlockResponseStatusCode"] = args.CustomBlockResponseStatusCode
-		inputs["customRules"] = args.CustomRules
-		inputs["enabled"] = args.Enabled
-		inputs["managedRules"] = args.ManagedRules
-		inputs["mode"] = args.Mode
-		inputs["name"] = args.Name
-		inputs["redirectUrl"] = args.RedirectUrl
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CustomBlockResponseBody; i != nil { inputs["customBlockResponseBody"] = i.ToStringOutput() }
+		if i := args.CustomBlockResponseStatusCode; i != nil { inputs["customBlockResponseStatusCode"] = i.ToIntOutput() }
+		if i := args.CustomRules; i != nil { inputs["customRules"] = i.ToFirewallPolicyCustomRulesArrayOutput() }
+		if i := args.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := args.ManagedRules; i != nil { inputs["managedRules"] = i.ToFirewallPolicyManagedRulesArrayOutput() }
+		if i := args.Mode; i != nil { inputs["mode"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.RedirectUrl; i != nil { inputs["redirectUrl"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	inputs["frontendEndpointIds"] = nil
-	inputs["location"] = nil
-	s, err := ctx.RegisterResource("azure:frontdoor/firewallPolicy:FirewallPolicy", name, true, inputs, opts...)
+	var resource FirewallPolicy
+	err := ctx.RegisterResource("azure:frontdoor/firewallPolicy:FirewallPolicy", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallPolicy{s: s}, nil
+	return &resource, nil
 }
 
 // GetFirewallPolicy gets an existing FirewallPolicy resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetFirewallPolicy(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FirewallPolicyState, opts ...pulumi.ResourceOpt) (*FirewallPolicy, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *FirewallPolicyState, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["customBlockResponseBody"] = state.CustomBlockResponseBody
-		inputs["customBlockResponseStatusCode"] = state.CustomBlockResponseStatusCode
-		inputs["customRules"] = state.CustomRules
-		inputs["enabled"] = state.Enabled
-		inputs["frontendEndpointIds"] = state.FrontendEndpointIds
-		inputs["location"] = state.Location
-		inputs["managedRules"] = state.ManagedRules
-		inputs["mode"] = state.Mode
-		inputs["name"] = state.Name
-		inputs["redirectUrl"] = state.RedirectUrl
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.CustomBlockResponseBody; i != nil { inputs["customBlockResponseBody"] = i.ToStringOutput() }
+		if i := state.CustomBlockResponseStatusCode; i != nil { inputs["customBlockResponseStatusCode"] = i.ToIntOutput() }
+		if i := state.CustomRules; i != nil { inputs["customRules"] = i.ToFirewallPolicyCustomRulesArrayOutput() }
+		if i := state.Enabled; i != nil { inputs["enabled"] = i.ToBoolOutput() }
+		if i := state.FrontendEndpointIds; i != nil { inputs["frontendEndpointIds"] = i.ToStringArrayOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.ManagedRules; i != nil { inputs["managedRules"] = i.ToFirewallPolicyManagedRulesArrayOutput() }
+		if i := state.Mode; i != nil { inputs["mode"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.RedirectUrl; i != nil { inputs["redirectUrl"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:frontdoor/firewallPolicy:FirewallPolicy", name, id, inputs, opts...)
+	var resource FirewallPolicy
+	err := ctx.ReadResource("azure:frontdoor/firewallPolicy:FirewallPolicy", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FirewallPolicy{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *FirewallPolicy) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *FirewallPolicy) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-func (r *FirewallPolicy) CustomBlockResponseBody() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["customBlockResponseBody"])
-}
-
-// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-func (r *FirewallPolicy) CustomBlockResponseStatusCode() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["customBlockResponseStatusCode"])
-}
-
-// One or more `customRule` blocks as defined below.
-func (r *FirewallPolicy) CustomRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["customRules"])
-}
-
-// Is the policy a enabled state or disabled state. Defaults to `true`.
-func (r *FirewallPolicy) Enabled() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enabled"])
-}
-
-// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
-func (r *FirewallPolicy) FrontendEndpointIds() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["frontendEndpointIds"])
-}
-
-// Resource location.
-func (r *FirewallPolicy) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// One or more `managedRule` blocks as defined below.
-func (r *FirewallPolicy) ManagedRules() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["managedRules"])
-}
-
-// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
-func (r *FirewallPolicy) Mode() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["mode"])
-}
-
-// The name of the policy. Changing this forces a new resource to be created.
-func (r *FirewallPolicy) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// If action type is redirect, this field represents redirect URL for the client.
-func (r *FirewallPolicy) RedirectUrl() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["redirectUrl"])
-}
-
-// The name of the resource group. Changing this forces a new resource to be created.
-func (r *FirewallPolicy) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the Web Application Firewall Policy.
-func (r *FirewallPolicy) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type FirewallPolicyState struct {
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-	CustomBlockResponseBody interface{}
+	CustomBlockResponseBody pulumi.StringInput `pulumi:"customBlockResponseBody"`
 	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-	CustomBlockResponseStatusCode interface{}
+	CustomBlockResponseStatusCode pulumi.IntInput `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
-	CustomRules interface{}
+	CustomRules FirewallPolicyCustomRulesArrayInput `pulumi:"customRules"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
-	FrontendEndpointIds interface{}
+	FrontendEndpointIds pulumi.StringArrayInput `pulumi:"frontendEndpointIds"`
 	// Resource location.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
-	ManagedRules interface{}
+	ManagedRules FirewallPolicyManagedRulesArrayInput `pulumi:"managedRules"`
 	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
-	Mode interface{}
+	Mode pulumi.StringInput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// If action type is redirect, this field represents redirect URL for the client.
-	RedirectUrl interface{}
+	RedirectUrl pulumi.StringInput `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Web Application Firewall Policy.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-	CustomBlockResponseBody interface{}
+	CustomBlockResponseBody pulumi.StringInput `pulumi:"customBlockResponseBody"`
 	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-	CustomBlockResponseStatusCode interface{}
+	CustomBlockResponseStatusCode pulumi.IntInput `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
-	CustomRules interface{}
+	CustomRules FirewallPolicyCustomRulesArrayInput `pulumi:"customRules"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
-	Enabled interface{}
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// One or more `managedRule` blocks as defined below.
-	ManagedRules interface{}
+	ManagedRules FirewallPolicyManagedRulesArrayInput `pulumi:"managedRules"`
 	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
-	Mode interface{}
+	Mode pulumi.StringInput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// If action type is redirect, this field represents redirect URL for the client.
-	RedirectUrl interface{}
+	RedirectUrl pulumi.StringInput `pulumi:"redirectUrl"`
 	// The name of the resource group. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the Web Application Firewall Policy.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type FirewallPolicyCustomRules struct {
+	Action string `pulumi:"action"`
+	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	MatchConditions *[]FirewallPolicyCustomRulesMatchConditions `pulumi:"matchConditions"`
+	// The name of the policy. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	Priority *int `pulumi:"priority"`
+	RateLimitDurationInMinutes *int `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
+	Type string `pulumi:"type"`
+}
+var firewallPolicyCustomRulesType = reflect.TypeOf((*FirewallPolicyCustomRules)(nil)).Elem()
+
+type FirewallPolicyCustomRulesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyCustomRulesOutput() FirewallPolicyCustomRulesOutput
+	ToFirewallPolicyCustomRulesOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesOutput
+}
+
+type FirewallPolicyCustomRulesArgs struct {
+	Action pulumi.StringInput `pulumi:"action"`
+	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	MatchConditions FirewallPolicyCustomRulesMatchConditionsArrayInput `pulumi:"matchConditions"`
+	// The name of the policy. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	Priority pulumi.IntInput `pulumi:"priority"`
+	RateLimitDurationInMinutes pulumi.IntInput `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold pulumi.IntInput `pulumi:"rateLimitThreshold"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallPolicyCustomRulesArgs) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesType
+}
+
+func (a FirewallPolicyCustomRulesArgs) ToFirewallPolicyCustomRulesOutput() FirewallPolicyCustomRulesOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyCustomRulesOutput)
+}
+
+func (a FirewallPolicyCustomRulesArgs) ToFirewallPolicyCustomRulesOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyCustomRulesOutput)
+}
+
+type FirewallPolicyCustomRulesOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyCustomRulesOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+// Is the policy a enabled state or disabled state. Defaults to `true`.
+func (o FirewallPolicyCustomRulesOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FirewallPolicyCustomRulesOutput) MatchConditions() FirewallPolicyCustomRulesMatchConditionsArrayOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) []FirewallPolicyCustomRulesMatchConditions {
+		if v.MatchConditions == nil { return *new([]FirewallPolicyCustomRulesMatchConditions) } else { return *v.MatchConditions }
+	}).(FirewallPolicyCustomRulesMatchConditionsArrayOutput)
+}
+
+// The name of the policy. Changing this forces a new resource to be created.
+func (o FirewallPolicyCustomRulesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyCustomRulesOutput) Priority() pulumi.IntOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) int {
+		if v.Priority == nil { return *new(int) } else { return *v.Priority }
+	}).(pulumi.IntOutput)
+}
+
+func (o FirewallPolicyCustomRulesOutput) RateLimitDurationInMinutes() pulumi.IntOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) int {
+		if v.RateLimitDurationInMinutes == nil { return *new(int) } else { return *v.RateLimitDurationInMinutes }
+	}).(pulumi.IntOutput)
+}
+
+func (o FirewallPolicyCustomRulesOutput) RateLimitThreshold() pulumi.IntOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) int {
+		if v.RateLimitThreshold == nil { return *new(int) } else { return *v.RateLimitThreshold }
+	}).(pulumi.IntOutput)
+}
+
+func (o FirewallPolicyCustomRulesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyCustomRules) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (FirewallPolicyCustomRulesOutput) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesType
+}
+
+func (o FirewallPolicyCustomRulesOutput) ToFirewallPolicyCustomRulesOutput() FirewallPolicyCustomRulesOutput {
+	return o
+}
+
+func (o FirewallPolicyCustomRulesOutput) ToFirewallPolicyCustomRulesOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyCustomRulesOutput{}) }
+
+var firewallPolicyCustomRulesArrayType = reflect.TypeOf((*[]FirewallPolicyCustomRules)(nil)).Elem()
+
+type FirewallPolicyCustomRulesArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyCustomRulesArrayOutput() FirewallPolicyCustomRulesArrayOutput
+	ToFirewallPolicyCustomRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesArrayOutput
+}
+
+type FirewallPolicyCustomRulesArrayArgs []FirewallPolicyCustomRulesInput
+
+func (FirewallPolicyCustomRulesArrayArgs) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesArrayType
+}
+
+func (a FirewallPolicyCustomRulesArrayArgs) ToFirewallPolicyCustomRulesArrayOutput() FirewallPolicyCustomRulesArrayOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyCustomRulesArrayOutput)
+}
+
+func (a FirewallPolicyCustomRulesArrayArgs) ToFirewallPolicyCustomRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyCustomRulesArrayOutput)
+}
+
+type FirewallPolicyCustomRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyCustomRulesArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallPolicyCustomRules {
+		return vs[0].([]FirewallPolicyCustomRules)[vs[1].(int)]
+	}).(FirewallPolicyCustomRulesOutput)
+}
+
+func (FirewallPolicyCustomRulesArrayOutput) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesArrayType
+}
+
+func (o FirewallPolicyCustomRulesArrayOutput) ToFirewallPolicyCustomRulesArrayOutput() FirewallPolicyCustomRulesArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyCustomRulesArrayOutput) ToFirewallPolicyCustomRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyCustomRulesArrayOutput{}) }
+
+type FirewallPolicyCustomRulesMatchConditions struct {
+	MatchValues []string `pulumi:"matchValues"`
+	MatchVariable string `pulumi:"matchVariable"`
+	NegationCondition *bool `pulumi:"negationCondition"`
+	Operator string `pulumi:"operator"`
+	Selector *string `pulumi:"selector"`
+	Transforms *[]string `pulumi:"transforms"`
+}
+var firewallPolicyCustomRulesMatchConditionsType = reflect.TypeOf((*FirewallPolicyCustomRulesMatchConditions)(nil)).Elem()
+
+type FirewallPolicyCustomRulesMatchConditionsInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyCustomRulesMatchConditionsOutput() FirewallPolicyCustomRulesMatchConditionsOutput
+	ToFirewallPolicyCustomRulesMatchConditionsOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesMatchConditionsOutput
+}
+
+type FirewallPolicyCustomRulesMatchConditionsArgs struct {
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	NegationCondition pulumi.BoolInput `pulumi:"negationCondition"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	Selector pulumi.StringInput `pulumi:"selector"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FirewallPolicyCustomRulesMatchConditionsArgs) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesMatchConditionsType
+}
+
+func (a FirewallPolicyCustomRulesMatchConditionsArgs) ToFirewallPolicyCustomRulesMatchConditionsOutput() FirewallPolicyCustomRulesMatchConditionsOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyCustomRulesMatchConditionsOutput)
+}
+
+func (a FirewallPolicyCustomRulesMatchConditionsArgs) ToFirewallPolicyCustomRulesMatchConditionsOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesMatchConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyCustomRulesMatchConditionsOutput)
+}
+
+type FirewallPolicyCustomRulesMatchConditionsOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.Apply(func(v FirewallPolicyCustomRulesMatchConditions) []string {
+		return v.MatchValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) MatchVariable() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyCustomRulesMatchConditions) string {
+		return v.MatchVariable
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) NegationCondition() pulumi.BoolOutput {
+	return o.Apply(func(v FirewallPolicyCustomRulesMatchConditions) bool {
+		if v.NegationCondition == nil { return *new(bool) } else { return *v.NegationCondition }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) Operator() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyCustomRulesMatchConditions) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) Selector() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyCustomRulesMatchConditions) string {
+		if v.Selector == nil { return *new(string) } else { return *v.Selector }
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) Transforms() pulumi.StringArrayOutput {
+	return o.Apply(func(v FirewallPolicyCustomRulesMatchConditions) []string {
+		if v.Transforms == nil { return *new([]string) } else { return *v.Transforms }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (FirewallPolicyCustomRulesMatchConditionsOutput) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesMatchConditionsType
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) ToFirewallPolicyCustomRulesMatchConditionsOutput() FirewallPolicyCustomRulesMatchConditionsOutput {
+	return o
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsOutput) ToFirewallPolicyCustomRulesMatchConditionsOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesMatchConditionsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyCustomRulesMatchConditionsOutput{}) }
+
+var firewallPolicyCustomRulesMatchConditionsArrayType = reflect.TypeOf((*[]FirewallPolicyCustomRulesMatchConditions)(nil)).Elem()
+
+type FirewallPolicyCustomRulesMatchConditionsArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyCustomRulesMatchConditionsArrayOutput() FirewallPolicyCustomRulesMatchConditionsArrayOutput
+	ToFirewallPolicyCustomRulesMatchConditionsArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesMatchConditionsArrayOutput
+}
+
+type FirewallPolicyCustomRulesMatchConditionsArrayArgs []FirewallPolicyCustomRulesMatchConditionsInput
+
+func (FirewallPolicyCustomRulesMatchConditionsArrayArgs) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesMatchConditionsArrayType
+}
+
+func (a FirewallPolicyCustomRulesMatchConditionsArrayArgs) ToFirewallPolicyCustomRulesMatchConditionsArrayOutput() FirewallPolicyCustomRulesMatchConditionsArrayOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyCustomRulesMatchConditionsArrayOutput)
+}
+
+func (a FirewallPolicyCustomRulesMatchConditionsArrayArgs) ToFirewallPolicyCustomRulesMatchConditionsArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesMatchConditionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyCustomRulesMatchConditionsArrayOutput)
+}
+
+type FirewallPolicyCustomRulesMatchConditionsArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyCustomRulesMatchConditionsArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRulesMatchConditionsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallPolicyCustomRulesMatchConditions {
+		return vs[0].([]FirewallPolicyCustomRulesMatchConditions)[vs[1].(int)]
+	}).(FirewallPolicyCustomRulesMatchConditionsOutput)
+}
+
+func (FirewallPolicyCustomRulesMatchConditionsArrayOutput) ElementType() reflect.Type {
+	return firewallPolicyCustomRulesMatchConditionsArrayType
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsArrayOutput) ToFirewallPolicyCustomRulesMatchConditionsArrayOutput() FirewallPolicyCustomRulesMatchConditionsArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyCustomRulesMatchConditionsArrayOutput) ToFirewallPolicyCustomRulesMatchConditionsArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRulesMatchConditionsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyCustomRulesMatchConditionsArrayOutput{}) }
+
+type FirewallPolicyManagedRules struct {
+	Overrides *[]FirewallPolicyManagedRulesOverrides `pulumi:"overrides"`
+	Type string `pulumi:"type"`
+	Version string `pulumi:"version"`
+}
+var firewallPolicyManagedRulesType = reflect.TypeOf((*FirewallPolicyManagedRules)(nil)).Elem()
+
+type FirewallPolicyManagedRulesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyManagedRulesOutput() FirewallPolicyManagedRulesOutput
+	ToFirewallPolicyManagedRulesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOutput
+}
+
+type FirewallPolicyManagedRulesArgs struct {
+	Overrides FirewallPolicyManagedRulesOverridesArrayInput `pulumi:"overrides"`
+	Type pulumi.StringInput `pulumi:"type"`
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (FirewallPolicyManagedRulesArgs) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesType
+}
+
+func (a FirewallPolicyManagedRulesArgs) ToFirewallPolicyManagedRulesOutput() FirewallPolicyManagedRulesOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyManagedRulesOutput)
+}
+
+func (a FirewallPolicyManagedRulesArgs) ToFirewallPolicyManagedRulesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyManagedRulesOutput)
+}
+
+type FirewallPolicyManagedRulesOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyManagedRulesOutput) Overrides() FirewallPolicyManagedRulesOverridesArrayOutput {
+	return o.Apply(func(v FirewallPolicyManagedRules) []FirewallPolicyManagedRulesOverrides {
+		if v.Overrides == nil { return *new([]FirewallPolicyManagedRulesOverrides) } else { return *v.Overrides }
+	}).(FirewallPolicyManagedRulesOverridesArrayOutput)
+}
+
+func (o FirewallPolicyManagedRulesOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyManagedRules) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyManagedRulesOutput) Version() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyManagedRules) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+func (FirewallPolicyManagedRulesOutput) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesType
+}
+
+func (o FirewallPolicyManagedRulesOutput) ToFirewallPolicyManagedRulesOutput() FirewallPolicyManagedRulesOutput {
+	return o
+}
+
+func (o FirewallPolicyManagedRulesOutput) ToFirewallPolicyManagedRulesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyManagedRulesOutput{}) }
+
+var firewallPolicyManagedRulesArrayType = reflect.TypeOf((*[]FirewallPolicyManagedRules)(nil)).Elem()
+
+type FirewallPolicyManagedRulesArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyManagedRulesArrayOutput() FirewallPolicyManagedRulesArrayOutput
+	ToFirewallPolicyManagedRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesArrayOutput
+}
+
+type FirewallPolicyManagedRulesArrayArgs []FirewallPolicyManagedRulesInput
+
+func (FirewallPolicyManagedRulesArrayArgs) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesArrayType
+}
+
+func (a FirewallPolicyManagedRulesArrayArgs) ToFirewallPolicyManagedRulesArrayOutput() FirewallPolicyManagedRulesArrayOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyManagedRulesArrayOutput)
+}
+
+func (a FirewallPolicyManagedRulesArrayArgs) ToFirewallPolicyManagedRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyManagedRulesArrayOutput)
+}
+
+type FirewallPolicyManagedRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyManagedRulesArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallPolicyManagedRules {
+		return vs[0].([]FirewallPolicyManagedRules)[vs[1].(int)]
+	}).(FirewallPolicyManagedRulesOutput)
+}
+
+func (FirewallPolicyManagedRulesArrayOutput) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesArrayType
+}
+
+func (o FirewallPolicyManagedRulesArrayOutput) ToFirewallPolicyManagedRulesArrayOutput() FirewallPolicyManagedRulesArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyManagedRulesArrayOutput) ToFirewallPolicyManagedRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyManagedRulesArrayOutput{}) }
+
+type FirewallPolicyManagedRulesOverrides struct {
+	Rules *[]FirewallPolicyManagedRulesOverridesRules `pulumi:"rules"`
+	RuleGroupName string `pulumi:"ruleGroupName"`
+}
+var firewallPolicyManagedRulesOverridesType = reflect.TypeOf((*FirewallPolicyManagedRulesOverrides)(nil)).Elem()
+
+type FirewallPolicyManagedRulesOverridesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyManagedRulesOverridesOutput() FirewallPolicyManagedRulesOverridesOutput
+	ToFirewallPolicyManagedRulesOverridesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesOutput
+}
+
+type FirewallPolicyManagedRulesOverridesArgs struct {
+	Rules FirewallPolicyManagedRulesOverridesRulesArrayInput `pulumi:"rules"`
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+}
+
+func (FirewallPolicyManagedRulesOverridesArgs) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesType
+}
+
+func (a FirewallPolicyManagedRulesOverridesArgs) ToFirewallPolicyManagedRulesOverridesOutput() FirewallPolicyManagedRulesOverridesOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyManagedRulesOverridesOutput)
+}
+
+func (a FirewallPolicyManagedRulesOverridesArgs) ToFirewallPolicyManagedRulesOverridesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyManagedRulesOverridesOutput)
+}
+
+type FirewallPolicyManagedRulesOverridesOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyManagedRulesOverridesOutput) Rules() FirewallPolicyManagedRulesOverridesRulesArrayOutput {
+	return o.Apply(func(v FirewallPolicyManagedRulesOverrides) []FirewallPolicyManagedRulesOverridesRules {
+		if v.Rules == nil { return *new([]FirewallPolicyManagedRulesOverridesRules) } else { return *v.Rules }
+	}).(FirewallPolicyManagedRulesOverridesRulesArrayOutput)
+}
+
+func (o FirewallPolicyManagedRulesOverridesOutput) RuleGroupName() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyManagedRulesOverrides) string {
+		return v.RuleGroupName
+	}).(pulumi.StringOutput)
+}
+
+func (FirewallPolicyManagedRulesOverridesOutput) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesType
+}
+
+func (o FirewallPolicyManagedRulesOverridesOutput) ToFirewallPolicyManagedRulesOverridesOutput() FirewallPolicyManagedRulesOverridesOutput {
+	return o
+}
+
+func (o FirewallPolicyManagedRulesOverridesOutput) ToFirewallPolicyManagedRulesOverridesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyManagedRulesOverridesOutput{}) }
+
+var firewallPolicyManagedRulesOverridesArrayType = reflect.TypeOf((*[]FirewallPolicyManagedRulesOverrides)(nil)).Elem()
+
+type FirewallPolicyManagedRulesOverridesArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyManagedRulesOverridesArrayOutput() FirewallPolicyManagedRulesOverridesArrayOutput
+	ToFirewallPolicyManagedRulesOverridesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesArrayOutput
+}
+
+type FirewallPolicyManagedRulesOverridesArrayArgs []FirewallPolicyManagedRulesOverridesInput
+
+func (FirewallPolicyManagedRulesOverridesArrayArgs) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesArrayType
+}
+
+func (a FirewallPolicyManagedRulesOverridesArrayArgs) ToFirewallPolicyManagedRulesOverridesArrayOutput() FirewallPolicyManagedRulesOverridesArrayOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyManagedRulesOverridesArrayOutput)
+}
+
+func (a FirewallPolicyManagedRulesOverridesArrayArgs) ToFirewallPolicyManagedRulesOverridesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyManagedRulesOverridesArrayOutput)
+}
+
+type FirewallPolicyManagedRulesOverridesArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyManagedRulesOverridesArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRulesOverridesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallPolicyManagedRulesOverrides {
+		return vs[0].([]FirewallPolicyManagedRulesOverrides)[vs[1].(int)]
+	}).(FirewallPolicyManagedRulesOverridesOutput)
+}
+
+func (FirewallPolicyManagedRulesOverridesArrayOutput) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesArrayType
+}
+
+func (o FirewallPolicyManagedRulesOverridesArrayOutput) ToFirewallPolicyManagedRulesOverridesArrayOutput() FirewallPolicyManagedRulesOverridesArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyManagedRulesOverridesArrayOutput) ToFirewallPolicyManagedRulesOverridesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyManagedRulesOverridesArrayOutput{}) }
+
+type FirewallPolicyManagedRulesOverridesRules struct {
+	Action string `pulumi:"action"`
+	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	RuleId string `pulumi:"ruleId"`
+}
+var firewallPolicyManagedRulesOverridesRulesType = reflect.TypeOf((*FirewallPolicyManagedRulesOverridesRules)(nil)).Elem()
+
+type FirewallPolicyManagedRulesOverridesRulesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyManagedRulesOverridesRulesOutput() FirewallPolicyManagedRulesOverridesRulesOutput
+	ToFirewallPolicyManagedRulesOverridesRulesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesRulesOutput
+}
+
+type FirewallPolicyManagedRulesOverridesRulesArgs struct {
+	Action pulumi.StringInput `pulumi:"action"`
+	// Is the policy a enabled state or disabled state. Defaults to `true`.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+}
+
+func (FirewallPolicyManagedRulesOverridesRulesArgs) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesRulesType
+}
+
+func (a FirewallPolicyManagedRulesOverridesRulesArgs) ToFirewallPolicyManagedRulesOverridesRulesOutput() FirewallPolicyManagedRulesOverridesRulesOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyManagedRulesOverridesRulesOutput)
+}
+
+func (a FirewallPolicyManagedRulesOverridesRulesArgs) ToFirewallPolicyManagedRulesOverridesRulesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyManagedRulesOverridesRulesOutput)
+}
+
+type FirewallPolicyManagedRulesOverridesRulesOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyManagedRulesOverridesRulesOutput) Action() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyManagedRulesOverridesRules) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+// Is the policy a enabled state or disabled state. Defaults to `true`.
+func (o FirewallPolicyManagedRulesOverridesRulesOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v FirewallPolicyManagedRulesOverridesRules) bool {
+		if v.Enabled == nil { return *new(bool) } else { return *v.Enabled }
+	}).(pulumi.BoolOutput)
+}
+
+func (o FirewallPolicyManagedRulesOverridesRulesOutput) RuleId() pulumi.StringOutput {
+	return o.Apply(func(v FirewallPolicyManagedRulesOverridesRules) string {
+		return v.RuleId
+	}).(pulumi.StringOutput)
+}
+
+func (FirewallPolicyManagedRulesOverridesRulesOutput) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesRulesType
+}
+
+func (o FirewallPolicyManagedRulesOverridesRulesOutput) ToFirewallPolicyManagedRulesOverridesRulesOutput() FirewallPolicyManagedRulesOverridesRulesOutput {
+	return o
+}
+
+func (o FirewallPolicyManagedRulesOverridesRulesOutput) ToFirewallPolicyManagedRulesOverridesRulesOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesRulesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyManagedRulesOverridesRulesOutput{}) }
+
+var firewallPolicyManagedRulesOverridesRulesArrayType = reflect.TypeOf((*[]FirewallPolicyManagedRulesOverridesRules)(nil)).Elem()
+
+type FirewallPolicyManagedRulesOverridesRulesArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyManagedRulesOverridesRulesArrayOutput() FirewallPolicyManagedRulesOverridesRulesArrayOutput
+	ToFirewallPolicyManagedRulesOverridesRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesRulesArrayOutput
+}
+
+type FirewallPolicyManagedRulesOverridesRulesArrayArgs []FirewallPolicyManagedRulesOverridesRulesInput
+
+func (FirewallPolicyManagedRulesOverridesRulesArrayArgs) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesRulesArrayType
+}
+
+func (a FirewallPolicyManagedRulesOverridesRulesArrayArgs) ToFirewallPolicyManagedRulesOverridesRulesArrayOutput() FirewallPolicyManagedRulesOverridesRulesArrayOutput {
+	return pulumi.ToOutput(a).(FirewallPolicyManagedRulesOverridesRulesArrayOutput)
+}
+
+func (a FirewallPolicyManagedRulesOverridesRulesArrayArgs) ToFirewallPolicyManagedRulesOverridesRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesRulesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(FirewallPolicyManagedRulesOverridesRulesArrayOutput)
+}
+
+type FirewallPolicyManagedRulesOverridesRulesArrayOutput struct { *pulumi.OutputState }
+
+func (o FirewallPolicyManagedRulesOverridesRulesArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRulesOverridesRulesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) FirewallPolicyManagedRulesOverridesRules {
+		return vs[0].([]FirewallPolicyManagedRulesOverridesRules)[vs[1].(int)]
+	}).(FirewallPolicyManagedRulesOverridesRulesOutput)
+}
+
+func (FirewallPolicyManagedRulesOverridesRulesArrayOutput) ElementType() reflect.Type {
+	return firewallPolicyManagedRulesOverridesRulesArrayType
+}
+
+func (o FirewallPolicyManagedRulesOverridesRulesArrayOutput) ToFirewallPolicyManagedRulesOverridesRulesArrayOutput() FirewallPolicyManagedRulesOverridesRulesArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyManagedRulesOverridesRulesArrayOutput) ToFirewallPolicyManagedRulesOverridesRulesArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRulesOverridesRulesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(FirewallPolicyManagedRulesOverridesRulesArrayOutput{}) }
+

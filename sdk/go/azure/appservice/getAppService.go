@@ -10,79 +10,135 @@ import (
 // Use this data source to access information about an existing App Service.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service.html.markdown.
-func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServiceResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-	}
-	outputs, err := ctx.Invoke("azure:appservice/getAppService:getAppService", inputs)
+func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs, opts ...pulumi.InvokeOption) (*GetAppServiceResult, error) {
+	var rv GetAppServiceResult
+	err := ctx.Invoke("azure:appservice/getAppService:getAppService", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAppServiceResult{
-		AppServicePlanId: outputs["appServicePlanId"],
-		AppSettings: outputs["appSettings"],
-		ClientAffinityEnabled: outputs["clientAffinityEnabled"],
-		ClientCertEnabled: outputs["clientCertEnabled"],
-		ConnectionStrings: outputs["connectionStrings"],
-		DefaultSiteHostname: outputs["defaultSiteHostname"],
-		Enabled: outputs["enabled"],
-		HttpsOnly: outputs["httpsOnly"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		OutboundIpAddresses: outputs["outboundIpAddresses"],
-		PossibleOutboundIpAddresses: outputs["possibleOutboundIpAddresses"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SiteConfigs: outputs["siteConfigs"],
-		SiteCredentials: outputs["siteCredentials"],
-		SourceControls: outputs["sourceControls"],
-		Tags: outputs["tags"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getAppService.
 type GetAppServiceArgs struct {
 	// The name of the App Service.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the App Service exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAppService.
 type GetAppServiceResult struct {
 	// The ID of the App Service Plan within which the App Service exists.
-	AppServicePlanId interface{}
+	AppServicePlanId string `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings for the App Service.
-	AppSettings interface{}
+	AppSettings map[string]string `pulumi:"appSettings"`
 	// Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled interface{}
+	ClientAffinityEnabled bool `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests?
-	ClientCertEnabled interface{}
+	ClientCertEnabled bool `pulumi:"clientCertEnabled"`
 	// An `connectionString` block as defined below.
-	ConnectionStrings interface{}
+	ConnectionStrings []GetAppServiceConnectionStringsResult `pulumi:"connectionStrings"`
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-	DefaultSiteHostname interface{}
+	DefaultSiteHostname string `pulumi:"defaultSiteHostname"`
 	// Is the App Service Enabled?
-	Enabled interface{}
+	Enabled bool `pulumi:"enabled"`
 	// Can the App Service only be accessed via HTTPS?
-	HttpsOnly interface{}
+	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The Azure location where the App Service exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// The name of the Connection String.
-	Name interface{}
+	Name string `pulumi:"name"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-	OutboundIpAddresses interface{}
+	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses interface{}
-	ResourceGroupName interface{}
+	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
-	SiteConfigs interface{}
-	SiteCredentials interface{}
-	SourceControls interface{}
+	SiteConfigs []GetAppServiceSiteConfigsResult `pulumi:"siteConfigs"`
+	SiteCredentials []GetAppServiceSiteCredentialsResult `pulumi:"siteCredentials"`
+	SourceControls []GetAppServiceSourceControlsResult `pulumi:"sourceControls"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetAppServiceConnectionStringsResult struct {
+	// The name of the App Service.
+	Name string `pulumi:"name"`
+	// The type of the Connection String.
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
+	Value string `pulumi:"value"`
+}
+type GetAppServiceSiteConfigsCorsResult struct {
+	// A list of origins which are able to make cross-origin calls.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// Are credentials supported?
+	SupportCredentials bool `pulumi:"supportCredentials"`
+}
+type GetAppServiceSiteConfigsIpRestrictionsResult struct {
+	// The IP Address used for this IP Restriction.
+	IpAddress string `pulumi:"ipAddress"`
+	// The Subnet mask used for this IP Restriction.
+	SubnetMask string `pulumi:"subnetMask"`
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+type GetAppServiceSiteConfigsResult struct {
+	// Is the app be loaded at all times?
+	AlwaysOn bool `pulumi:"alwaysOn"`
+	// App command line to launch.
+	AppCommandLine string `pulumi:"appCommandLine"`
+	// A `cors` block as defined above.
+	Cors GetAppServiceSiteConfigsCorsResult `pulumi:"cors"`
+	// The ordering of default documents to load, if an address isn't specified.
+	DefaultDocuments []string `pulumi:"defaultDocuments"`
+	// The version of the .net framework's CLR used in this App Service.
+	DotnetFrameworkVersion string `pulumi:"dotnetFrameworkVersion"`
+	// State of FTP / FTPS service for this AppService.
+	FtpsState string `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service?
+	Http2Enabled bool `pulumi:"http2Enabled"`
+	// One or more `ipRestriction` blocks as defined above.
+	IpRestrictions []GetAppServiceSiteConfigsIpRestrictionsResult `pulumi:"ipRestrictions"`
+	// The Java Container in use.
+	JavaContainer string `pulumi:"javaContainer"`
+	// The version of the Java Container in use.
+	JavaContainerVersion string `pulumi:"javaContainerVersion"`
+	// The version of Java in use.
+	JavaVersion string `pulumi:"javaVersion"`
+	// Linux App Framework and version for the AppService.
+	LinuxFxVersion string `pulumi:"linuxFxVersion"`
+	// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+	LocalMysqlEnabled bool `pulumi:"localMysqlEnabled"`
+	// The Managed Pipeline Mode used in this App Service.
+	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	// The minimum supported TLS version for this App Service.
+	MinTlsVersion string `pulumi:"minTlsVersion"`
+	// The version of PHP used in this App Service.
+	PhpVersion string `pulumi:"phpVersion"`
+	// The version of Python used in this App Service.
+	PythonVersion string `pulumi:"pythonVersion"`
+	// Is Remote Debugging Enabled in this App Service?
+	RemoteDebuggingEnabled bool `pulumi:"remoteDebuggingEnabled"`
+	// Which version of Visual Studio is the Remote Debugger compatible with?
+	RemoteDebuggingVersion string `pulumi:"remoteDebuggingVersion"`
+	// The type of Source Control enabled for this App Service.
+	ScmType string `pulumi:"scmType"`
+	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
+	// The name of the Virtual Network which this App Service is attached to.
+	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	// Are WebSockets enabled for this App Service?
+	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
+	// Windows Container Docker Image for the AppService.
+	WindowsFxVersion string `pulumi:"windowsFxVersion"`
+}
+type GetAppServiceSiteCredentialsResult struct {
+	Password string `pulumi:"password"`
+	Username string `pulumi:"username"`
+}
+type GetAppServiceSourceControlsResult struct {
+	Branch string `pulumi:"branch"`
+	RepoUrl string `pulumi:"repoUrl"`
 }

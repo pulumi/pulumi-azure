@@ -10,61 +10,70 @@ import (
 // Use this data source to access information about an existing Image.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
-func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error) {
-	inputs := make(map[string]interface{})
-	if args != nil {
-		inputs["name"] = args.Name
-		inputs["nameRegex"] = args.NameRegex
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sortDescending"] = args.SortDescending
-	}
-	outputs, err := ctx.Invoke("azure:compute/getImage:getImage", inputs)
+func LookupImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
+	var rv GetImageResult
+	err := ctx.Invoke("azure:compute/getImage:getImage", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &GetImageResult{
-		DataDisks: outputs["dataDisks"],
-		Location: outputs["location"],
-		Name: outputs["name"],
-		NameRegex: outputs["nameRegex"],
-		OsDisks: outputs["osDisks"],
-		ResourceGroupName: outputs["resourceGroupName"],
-		SortDescending: outputs["sortDescending"],
-		Tags: outputs["tags"],
-		ZoneResilient: outputs["zoneResilient"],
-		Id: outputs["id"],
-	}, nil
+	return &rv, nil
 }
 
 // A collection of arguments for invoking getImage.
 type GetImageArgs struct {
 	// The name of the Image.
-	Name interface{}
+	Name *string `pulumi:"name"`
 	// Regex pattern of the image to match.
-	NameRegex interface{}
+	NameRegex *string `pulumi:"nameRegex"`
 	// The Name of the Resource Group where this Image exists.
-	ResourceGroupName interface{}
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
-	SortDescending interface{}
+	SortDescending *bool `pulumi:"sortDescending"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
 	// a collection of `dataDisk` blocks as defined below.
-	DataDisks interface{}
+	DataDisks []GetImageDataDisksResult `pulumi:"dataDisks"`
 	// the Azure Location where this Image exists.
-	Location interface{}
+	Location string `pulumi:"location"`
 	// the name of the Image.
-	Name interface{}
-	NameRegex interface{}
+	Name *string `pulumi:"name"`
+	NameRegex *string `pulumi:"nameRegex"`
 	// a `osDisk` block as defined below.
-	OsDisks interface{}
-	ResourceGroupName interface{}
-	SortDescending interface{}
+	OsDisks []GetImageOsDisksResult `pulumi:"osDisks"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	SortDescending *bool `pulumi:"sortDescending"`
 	// a mapping of tags to assigned to the resource.
-	Tags interface{}
+	Tags map[string]string `pulumi:"tags"`
 	// is zone resiliency enabled?
-	ZoneResilient interface{}
+	ZoneResilient bool `pulumi:"zoneResilient"`
 	// id is the provider-assigned unique ID for this managed resource.
-	Id interface{}
+	Id string `pulumi:"id"`
+}
+type GetImageDataDisksResult struct {
+	// the URI in Azure storage of the blob used to create the image.
+	BlobUri string `pulumi:"blobUri"`
+	// the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
+	Caching string `pulumi:"caching"`
+	// the logical unit number of the data disk.
+	Lun int `pulumi:"lun"`
+	// the ID of the Managed Disk used as the Data Disk Image.
+	ManagedDiskId string `pulumi:"managedDiskId"`
+	// the size of this Data Disk in GB.
+	SizeGb int `pulumi:"sizeGb"`
+}
+type GetImageOsDisksResult struct {
+	// the URI in Azure storage of the blob used to create the image.
+	BlobUri string `pulumi:"blobUri"`
+	// the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
+	Caching string `pulumi:"caching"`
+	// the ID of the Managed Disk used as the Data Disk Image.
+	ManagedDiskId string `pulumi:"managedDiskId"`
+	// the State of the OS used in the Image, such as `Generalized`.
+	OsState string `pulumi:"osState"`
+	// the type of Operating System used on the OS Disk. such as `Linux` or `Windows`.
+	OsType string `pulumi:"osType"`
+	// the size of this Data Disk in GB.
+	SizeGb int `pulumi:"sizeGb"`
 }

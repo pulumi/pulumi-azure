@@ -4,6 +4,8 @@
 package streamanalytics
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_blob.html.markdown.
 type StreamInputBlob struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
+	DateFormat pulumi.StringOutput `pulumi:"dateFormat"`
+
+	// The name of the Stream Input Blob. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
+	PathPattern pulumi.StringOutput `pulumi:"pathPattern"`
+
+	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A `serialization` block as defined below.
+	Serialization StreamInputBlobSerializationOutput `pulumi:"serialization"`
+
+	// The Access Key which should be used to connect to this Storage Account.
+	StorageAccountKey pulumi.StringOutput `pulumi:"storageAccountKey"`
+
+	// The name of the Storage Account.
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+
+	// The name of the Container within the Storage Account.
+	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
+
+	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
+
+	// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
+	TimeFormat pulumi.StringOutput `pulumi:"timeFormat"`
 }
 
 // NewStreamInputBlob registers a new resource with the given unique name, arguments, and options.
 func NewStreamInputBlob(ctx *pulumi.Context,
-	name string, args *StreamInputBlobArgs, opts ...pulumi.ResourceOpt) (*StreamInputBlob, error) {
+	name string, args *StreamInputBlobArgs, opts ...pulumi.ResourceOption) (*StreamInputBlob, error) {
 	if args == nil || args.DateFormat == nil {
 		return nil, errors.New("missing required argument 'DateFormat'")
 	}
@@ -45,165 +77,162 @@ func NewStreamInputBlob(ctx *pulumi.Context,
 	if args == nil || args.TimeFormat == nil {
 		return nil, errors.New("missing required argument 'TimeFormat'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["dateFormat"] = nil
-		inputs["name"] = nil
-		inputs["pathPattern"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["serialization"] = nil
-		inputs["storageAccountKey"] = nil
-		inputs["storageAccountName"] = nil
-		inputs["storageContainerName"] = nil
-		inputs["streamAnalyticsJobName"] = nil
-		inputs["timeFormat"] = nil
-	} else {
-		inputs["dateFormat"] = args.DateFormat
-		inputs["name"] = args.Name
-		inputs["pathPattern"] = args.PathPattern
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["serialization"] = args.Serialization
-		inputs["storageAccountKey"] = args.StorageAccountKey
-		inputs["storageAccountName"] = args.StorageAccountName
-		inputs["storageContainerName"] = args.StorageContainerName
-		inputs["streamAnalyticsJobName"] = args.StreamAnalyticsJobName
-		inputs["timeFormat"] = args.TimeFormat
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.DateFormat; i != nil { inputs["dateFormat"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.PathPattern; i != nil { inputs["pathPattern"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Serialization; i != nil { inputs["serialization"] = i.ToStreamInputBlobSerializationOutput() }
+		if i := args.StorageAccountKey; i != nil { inputs["storageAccountKey"] = i.ToStringOutput() }
+		if i := args.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
+		if i := args.StorageContainerName; i != nil { inputs["storageContainerName"] = i.ToStringOutput() }
+		if i := args.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
+		if i := args.TimeFormat; i != nil { inputs["timeFormat"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, true, inputs, opts...)
+	var resource StreamInputBlob
+	err := ctx.RegisterResource("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StreamInputBlob{s: s}, nil
+	return &resource, nil
 }
 
 // GetStreamInputBlob gets an existing StreamInputBlob resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetStreamInputBlob(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *StreamInputBlobState, opts ...pulumi.ResourceOpt) (*StreamInputBlob, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *StreamInputBlobState, opts ...pulumi.ResourceOption) (*StreamInputBlob, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["dateFormat"] = state.DateFormat
-		inputs["name"] = state.Name
-		inputs["pathPattern"] = state.PathPattern
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["serialization"] = state.Serialization
-		inputs["storageAccountKey"] = state.StorageAccountKey
-		inputs["storageAccountName"] = state.StorageAccountName
-		inputs["storageContainerName"] = state.StorageContainerName
-		inputs["streamAnalyticsJobName"] = state.StreamAnalyticsJobName
-		inputs["timeFormat"] = state.TimeFormat
+		if i := state.DateFormat; i != nil { inputs["dateFormat"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.PathPattern; i != nil { inputs["pathPattern"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Serialization; i != nil { inputs["serialization"] = i.ToStreamInputBlobSerializationOutput() }
+		if i := state.StorageAccountKey; i != nil { inputs["storageAccountKey"] = i.ToStringOutput() }
+		if i := state.StorageAccountName; i != nil { inputs["storageAccountName"] = i.ToStringOutput() }
+		if i := state.StorageContainerName; i != nil { inputs["storageContainerName"] = i.ToStringOutput() }
+		if i := state.StreamAnalyticsJobName; i != nil { inputs["streamAnalyticsJobName"] = i.ToStringOutput() }
+		if i := state.TimeFormat; i != nil { inputs["timeFormat"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, id, inputs, opts...)
+	var resource StreamInputBlob
+	err := ctx.ReadResource("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &StreamInputBlob{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *StreamInputBlob) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *StreamInputBlob) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
-func (r *StreamInputBlob) DateFormat() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["dateFormat"])
-}
-
-// The name of the Stream Input Blob. Changing this forces a new resource to be created.
-func (r *StreamInputBlob) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
-func (r *StreamInputBlob) PathPattern() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["pathPattern"])
-}
-
-// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-func (r *StreamInputBlob) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A `serialization` block as defined below.
-func (r *StreamInputBlob) Serialization() pulumi.Output {
-	return r.s.State["serialization"]
-}
-
-// The Access Key which should be used to connect to this Storage Account.
-func (r *StreamInputBlob) StorageAccountKey() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountKey"])
-}
-
-// The name of the Storage Account.
-func (r *StreamInputBlob) StorageAccountName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountName"])
-}
-
-// The name of the Container within the Storage Account.
-func (r *StreamInputBlob) StorageContainerName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageContainerName"])
-}
-
-// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-func (r *StreamInputBlob) StreamAnalyticsJobName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
-}
-
-// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
-func (r *StreamInputBlob) TimeFormat() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["timeFormat"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering StreamInputBlob resources.
 type StreamInputBlobState struct {
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
-	DateFormat interface{}
+	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
 	// The name of the Stream Input Blob. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
-	PathPattern interface{}
+	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
-	Serialization interface{}
+	Serialization StreamInputBlobSerializationInput `pulumi:"serialization"`
 	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey interface{}
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The name of the Storage Account.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// The name of the Container within the Storage Account.
-	StorageContainerName interface{}
+	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 	// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
-	TimeFormat interface{}
+	TimeFormat pulumi.StringInput `pulumi:"timeFormat"`
 }
 
 // The set of arguments for constructing a StreamInputBlob resource.
 type StreamInputBlobArgs struct {
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
-	DateFormat interface{}
+	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
 	// The name of the Stream Input Blob. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
-	PathPattern interface{}
+	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
 	// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A `serialization` block as defined below.
-	Serialization interface{}
+	Serialization StreamInputBlobSerializationInput `pulumi:"serialization"`
 	// The Access Key which should be used to connect to this Storage Account.
-	StorageAccountKey interface{}
+	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The name of the Storage Account.
-	StorageAccountName interface{}
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
 	// The name of the Container within the Storage Account.
-	StorageContainerName interface{}
+	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-	StreamAnalyticsJobName interface{}
+	StreamAnalyticsJobName pulumi.StringInput `pulumi:"streamAnalyticsJobName"`
 	// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
-	TimeFormat interface{}
+	TimeFormat pulumi.StringInput `pulumi:"timeFormat"`
 }
+type StreamInputBlobSerialization struct {
+	Encoding *string `pulumi:"encoding"`
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	Type string `pulumi:"type"`
+}
+var streamInputBlobSerializationType = reflect.TypeOf((*StreamInputBlobSerialization)(nil)).Elem()
+
+type StreamInputBlobSerializationInput interface {
+	pulumi.Input
+
+	ToStreamInputBlobSerializationOutput() StreamInputBlobSerializationOutput
+	ToStreamInputBlobSerializationOutputWithContext(ctx context.Context) StreamInputBlobSerializationOutput
+}
+
+type StreamInputBlobSerializationArgs struct {
+	Encoding pulumi.StringInput `pulumi:"encoding"`
+	FieldDelimiter pulumi.StringInput `pulumi:"fieldDelimiter"`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StreamInputBlobSerializationArgs) ElementType() reflect.Type {
+	return streamInputBlobSerializationType
+}
+
+func (a StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationOutput() StreamInputBlobSerializationOutput {
+	return pulumi.ToOutput(a).(StreamInputBlobSerializationOutput)
+}
+
+func (a StreamInputBlobSerializationArgs) ToStreamInputBlobSerializationOutputWithContext(ctx context.Context) StreamInputBlobSerializationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(StreamInputBlobSerializationOutput)
+}
+
+type StreamInputBlobSerializationOutput struct { *pulumi.OutputState }
+
+func (o StreamInputBlobSerializationOutput) Encoding() pulumi.StringOutput {
+	return o.Apply(func(v StreamInputBlobSerialization) string {
+		if v.Encoding == nil { return *new(string) } else { return *v.Encoding }
+	}).(pulumi.StringOutput)
+}
+
+func (o StreamInputBlobSerializationOutput) FieldDelimiter() pulumi.StringOutput {
+	return o.Apply(func(v StreamInputBlobSerialization) string {
+		if v.FieldDelimiter == nil { return *new(string) } else { return *v.FieldDelimiter }
+	}).(pulumi.StringOutput)
+}
+
+func (o StreamInputBlobSerializationOutput) Type() pulumi.StringOutput {
+	return o.Apply(func(v StreamInputBlobSerialization) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+func (StreamInputBlobSerializationOutput) ElementType() reflect.Type {
+	return streamInputBlobSerializationType
+}
+
+func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationOutput() StreamInputBlobSerializationOutput {
+	return o
+}
+
+func (o StreamInputBlobSerializationOutput) ToStreamInputBlobSerializationOutputWithContext(ctx context.Context) StreamInputBlobSerializationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(StreamInputBlobSerializationOutput{}) }
+

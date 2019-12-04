@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -16,12 +18,42 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
 type Subnet struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The address prefix to use for the subnet.
+	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
+
+	// One or more `delegation` blocks as defined below.
+	Delegations SubnetDelegationsArrayOutput `pulumi:"delegations"`
+
+	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolOutput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
+
+	// The collection of IP Configurations with IPs within this subnet.
+	IpConfigurations pulumi.StringArrayOutput `pulumi:"ipConfigurations"`
+
+	// The name of the subnet. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The ID of the Network Security Group to associate with the subnet.
+	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
+
+	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The ID of the Route Table to associate with the subnet.
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
+
+	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
+	ServiceEndpoints pulumi.StringArrayOutput `pulumi:"serviceEndpoints"`
+
+	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
+	VirtualNetworkName pulumi.StringOutput `pulumi:"virtualNetworkName"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
 func NewSubnet(ctx *pulumi.Context,
-	name string, args *SubnetArgs, opts ...pulumi.ResourceOpt) (*Subnet, error) {
+	name string, args *SubnetArgs, opts ...pulumi.ResourceOption) (*Subnet, error) {
 	if args == nil || args.AddressPrefix == nil {
 		return nil, errors.New("missing required argument 'AddressPrefix'")
 	}
@@ -31,165 +63,263 @@ func NewSubnet(ctx *pulumi.Context,
 	if args == nil || args.VirtualNetworkName == nil {
 		return nil, errors.New("missing required argument 'VirtualNetworkName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addressPrefix"] = nil
-		inputs["delegations"] = nil
-		inputs["enforcePrivateLinkServiceNetworkPolicies"] = nil
-		inputs["ipConfigurations"] = nil
-		inputs["name"] = nil
-		inputs["networkSecurityGroupId"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["routeTableId"] = nil
-		inputs["serviceEndpoints"] = nil
-		inputs["virtualNetworkName"] = nil
-	} else {
-		inputs["addressPrefix"] = args.AddressPrefix
-		inputs["delegations"] = args.Delegations
-		inputs["enforcePrivateLinkServiceNetworkPolicies"] = args.EnforcePrivateLinkServiceNetworkPolicies
-		inputs["ipConfigurations"] = args.IpConfigurations
-		inputs["name"] = args.Name
-		inputs["networkSecurityGroupId"] = args.NetworkSecurityGroupId
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["routeTableId"] = args.RouteTableId
-		inputs["serviceEndpoints"] = args.ServiceEndpoints
-		inputs["virtualNetworkName"] = args.VirtualNetworkName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddressPrefix; i != nil { inputs["addressPrefix"] = i.ToStringOutput() }
+		if i := args.Delegations; i != nil { inputs["delegations"] = i.ToSubnetDelegationsArrayOutput() }
+		if i := args.EnforcePrivateLinkServiceNetworkPolicies; i != nil { inputs["enforcePrivateLinkServiceNetworkPolicies"] = i.ToBoolOutput() }
+		if i := args.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToStringArrayOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.NetworkSecurityGroupId; i != nil { inputs["networkSecurityGroupId"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := args.ServiceEndpoints; i != nil { inputs["serviceEndpoints"] = i.ToStringArrayOutput() }
+		if i := args.VirtualNetworkName; i != nil { inputs["virtualNetworkName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/subnet:Subnet", name, true, inputs, opts...)
+	var resource Subnet
+	err := ctx.RegisterResource("azure:network/subnet:Subnet", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subnet{s: s}, nil
+	return &resource, nil
 }
 
 // GetSubnet gets an existing Subnet resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetSubnet(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *SubnetState, opts ...pulumi.ResourceOpt) (*Subnet, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *SubnetState, opts ...pulumi.ResourceOption) (*Subnet, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addressPrefix"] = state.AddressPrefix
-		inputs["delegations"] = state.Delegations
-		inputs["enforcePrivateLinkServiceNetworkPolicies"] = state.EnforcePrivateLinkServiceNetworkPolicies
-		inputs["ipConfigurations"] = state.IpConfigurations
-		inputs["name"] = state.Name
-		inputs["networkSecurityGroupId"] = state.NetworkSecurityGroupId
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["routeTableId"] = state.RouteTableId
-		inputs["serviceEndpoints"] = state.ServiceEndpoints
-		inputs["virtualNetworkName"] = state.VirtualNetworkName
+		if i := state.AddressPrefix; i != nil { inputs["addressPrefix"] = i.ToStringOutput() }
+		if i := state.Delegations; i != nil { inputs["delegations"] = i.ToSubnetDelegationsArrayOutput() }
+		if i := state.EnforcePrivateLinkServiceNetworkPolicies; i != nil { inputs["enforcePrivateLinkServiceNetworkPolicies"] = i.ToBoolOutput() }
+		if i := state.IpConfigurations; i != nil { inputs["ipConfigurations"] = i.ToStringArrayOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.NetworkSecurityGroupId; i != nil { inputs["networkSecurityGroupId"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.RouteTableId; i != nil { inputs["routeTableId"] = i.ToStringOutput() }
+		if i := state.ServiceEndpoints; i != nil { inputs["serviceEndpoints"] = i.ToStringArrayOutput() }
+		if i := state.VirtualNetworkName; i != nil { inputs["virtualNetworkName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/subnet:Subnet", name, id, inputs, opts...)
+	var resource Subnet
+	err := ctx.ReadResource("azure:network/subnet:Subnet", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Subnet{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Subnet) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Subnet) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The address prefix to use for the subnet.
-func (r *Subnet) AddressPrefix() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["addressPrefix"])
-}
-
-// One or more `delegation` blocks as defined below.
-func (r *Subnet) Delegations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["delegations"])
-}
-
-// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
-func (r *Subnet) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
-	return (pulumi.BoolOutput)(r.s.State["enforcePrivateLinkServiceNetworkPolicies"])
-}
-
-// The collection of IP Configurations with IPs within this subnet.
-func (r *Subnet) IpConfigurations() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
-}
-
-// The name of the subnet. Changing this forces a new resource to be created.
-func (r *Subnet) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The ID of the Network Security Group to associate with the subnet.
-func (r *Subnet) NetworkSecurityGroupId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
-}
-
-// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
-func (r *Subnet) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The ID of the Route Table to associate with the subnet.
-func (r *Subnet) RouteTableId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["routeTableId"])
-}
-
-// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
-func (r *Subnet) ServiceEndpoints() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["serviceEndpoints"])
-}
-
-// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
-func (r *Subnet) VirtualNetworkName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualNetworkName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Subnet resources.
 type SubnetState struct {
 	// The address prefix to use for the subnet.
-	AddressPrefix interface{}
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
 	// One or more `delegation` blocks as defined below.
-	Delegations interface{}
+	Delegations SubnetDelegationsArrayInput `pulumi:"delegations"`
 	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
-	EnforcePrivateLinkServiceNetworkPolicies interface{}
+	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolInput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations interface{}
+	IpConfigurations pulumi.StringArrayInput `pulumi:"ipConfigurations"`
 	// The name of the subnet. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The ID of the Route Table to associate with the subnet.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
-	ServiceEndpoints interface{}
+	ServiceEndpoints pulumi.StringArrayInput `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
-	VirtualNetworkName interface{}
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
 	// The address prefix to use for the subnet.
-	AddressPrefix interface{}
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
 	// One or more `delegation` blocks as defined below.
-	Delegations interface{}
+	Delegations SubnetDelegationsArrayInput `pulumi:"delegations"`
 	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
-	EnforcePrivateLinkServiceNetworkPolicies interface{}
+	EnforcePrivateLinkServiceNetworkPolicies pulumi.BoolInput `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The collection of IP Configurations with IPs within this subnet.
-	IpConfigurations interface{}
+	IpConfigurations pulumi.StringArrayInput `pulumi:"ipConfigurations"`
 	// The name of the subnet. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Network Security Group to associate with the subnet.
-	NetworkSecurityGroupId interface{}
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
 	// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The ID of the Route Table to associate with the subnet.
-	RouteTableId interface{}
+	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
-	ServiceEndpoints interface{}
+	ServiceEndpoints pulumi.StringArrayInput `pulumi:"serviceEndpoints"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
-	VirtualNetworkName interface{}
+	VirtualNetworkName pulumi.StringInput `pulumi:"virtualNetworkName"`
 }
+type SubnetDelegations struct {
+	// The name of the subnet. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	ServiceDelegation SubnetDelegationsServiceDelegation `pulumi:"serviceDelegation"`
+}
+var subnetDelegationsType = reflect.TypeOf((*SubnetDelegations)(nil)).Elem()
+
+type SubnetDelegationsInput interface {
+	pulumi.Input
+
+	ToSubnetDelegationsOutput() SubnetDelegationsOutput
+	ToSubnetDelegationsOutputWithContext(ctx context.Context) SubnetDelegationsOutput
+}
+
+type SubnetDelegationsArgs struct {
+	// The name of the subnet. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	ServiceDelegation SubnetDelegationsServiceDelegationInput `pulumi:"serviceDelegation"`
+}
+
+func (SubnetDelegationsArgs) ElementType() reflect.Type {
+	return subnetDelegationsType
+}
+
+func (a SubnetDelegationsArgs) ToSubnetDelegationsOutput() SubnetDelegationsOutput {
+	return pulumi.ToOutput(a).(SubnetDelegationsOutput)
+}
+
+func (a SubnetDelegationsArgs) ToSubnetDelegationsOutputWithContext(ctx context.Context) SubnetDelegationsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SubnetDelegationsOutput)
+}
+
+type SubnetDelegationsOutput struct { *pulumi.OutputState }
+
+// The name of the subnet. Changing this forces a new resource to be created.
+func (o SubnetDelegationsOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v SubnetDelegations) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (o SubnetDelegationsOutput) ServiceDelegation() SubnetDelegationsServiceDelegationOutput {
+	return o.Apply(func(v SubnetDelegations) SubnetDelegationsServiceDelegation {
+		return v.ServiceDelegation
+	}).(SubnetDelegationsServiceDelegationOutput)
+}
+
+func (SubnetDelegationsOutput) ElementType() reflect.Type {
+	return subnetDelegationsType
+}
+
+func (o SubnetDelegationsOutput) ToSubnetDelegationsOutput() SubnetDelegationsOutput {
+	return o
+}
+
+func (o SubnetDelegationsOutput) ToSubnetDelegationsOutputWithContext(ctx context.Context) SubnetDelegationsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SubnetDelegationsOutput{}) }
+
+var subnetDelegationsArrayType = reflect.TypeOf((*[]SubnetDelegations)(nil)).Elem()
+
+type SubnetDelegationsArrayInput interface {
+	pulumi.Input
+
+	ToSubnetDelegationsArrayOutput() SubnetDelegationsArrayOutput
+	ToSubnetDelegationsArrayOutputWithContext(ctx context.Context) SubnetDelegationsArrayOutput
+}
+
+type SubnetDelegationsArrayArgs []SubnetDelegationsInput
+
+func (SubnetDelegationsArrayArgs) ElementType() reflect.Type {
+	return subnetDelegationsArrayType
+}
+
+func (a SubnetDelegationsArrayArgs) ToSubnetDelegationsArrayOutput() SubnetDelegationsArrayOutput {
+	return pulumi.ToOutput(a).(SubnetDelegationsArrayOutput)
+}
+
+func (a SubnetDelegationsArrayArgs) ToSubnetDelegationsArrayOutputWithContext(ctx context.Context) SubnetDelegationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SubnetDelegationsArrayOutput)
+}
+
+type SubnetDelegationsArrayOutput struct { *pulumi.OutputState }
+
+func (o SubnetDelegationsArrayOutput) Index(i pulumi.IntInput) SubnetDelegationsOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) SubnetDelegations {
+		return vs[0].([]SubnetDelegations)[vs[1].(int)]
+	}).(SubnetDelegationsOutput)
+}
+
+func (SubnetDelegationsArrayOutput) ElementType() reflect.Type {
+	return subnetDelegationsArrayType
+}
+
+func (o SubnetDelegationsArrayOutput) ToSubnetDelegationsArrayOutput() SubnetDelegationsArrayOutput {
+	return o
+}
+
+func (o SubnetDelegationsArrayOutput) ToSubnetDelegationsArrayOutputWithContext(ctx context.Context) SubnetDelegationsArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SubnetDelegationsArrayOutput{}) }
+
+type SubnetDelegationsServiceDelegation struct {
+	Actions *[]string `pulumi:"actions"`
+	// The name of the subnet. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var subnetDelegationsServiceDelegationType = reflect.TypeOf((*SubnetDelegationsServiceDelegation)(nil)).Elem()
+
+type SubnetDelegationsServiceDelegationInput interface {
+	pulumi.Input
+
+	ToSubnetDelegationsServiceDelegationOutput() SubnetDelegationsServiceDelegationOutput
+	ToSubnetDelegationsServiceDelegationOutputWithContext(ctx context.Context) SubnetDelegationsServiceDelegationOutput
+}
+
+type SubnetDelegationsServiceDelegationArgs struct {
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// The name of the subnet. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SubnetDelegationsServiceDelegationArgs) ElementType() reflect.Type {
+	return subnetDelegationsServiceDelegationType
+}
+
+func (a SubnetDelegationsServiceDelegationArgs) ToSubnetDelegationsServiceDelegationOutput() SubnetDelegationsServiceDelegationOutput {
+	return pulumi.ToOutput(a).(SubnetDelegationsServiceDelegationOutput)
+}
+
+func (a SubnetDelegationsServiceDelegationArgs) ToSubnetDelegationsServiceDelegationOutputWithContext(ctx context.Context) SubnetDelegationsServiceDelegationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(SubnetDelegationsServiceDelegationOutput)
+}
+
+type SubnetDelegationsServiceDelegationOutput struct { *pulumi.OutputState }
+
+func (o SubnetDelegationsServiceDelegationOutput) Actions() pulumi.StringArrayOutput {
+	return o.Apply(func(v SubnetDelegationsServiceDelegation) []string {
+		if v.Actions == nil { return *new([]string) } else { return *v.Actions }
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the subnet. Changing this forces a new resource to be created.
+func (o SubnetDelegationsServiceDelegationOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v SubnetDelegationsServiceDelegation) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (SubnetDelegationsServiceDelegationOutput) ElementType() reflect.Type {
+	return subnetDelegationsServiceDelegationType
+}
+
+func (o SubnetDelegationsServiceDelegationOutput) ToSubnetDelegationsServiceDelegationOutput() SubnetDelegationsServiceDelegationOutput {
+	return o
+}
+
+func (o SubnetDelegationsServiceDelegationOutput) ToSubnetDelegationsServiceDelegationOutputWithContext(ctx context.Context) SubnetDelegationsServiceDelegationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(SubnetDelegationsServiceDelegationOutput{}) }
+

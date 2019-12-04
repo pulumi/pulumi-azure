@@ -4,6 +4,8 @@
 package compute
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,64 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
 type ManagedDisk struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The method to use when creating the managed disk. Possible values include:
+	CreateOption pulumi.StringOutput `pulumi:"createOption"`
+
+	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite pulumi.IntOutput `pulumi:"diskIopsReadWrite"`
+
+	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
+
+	// Specifies the size of the managed disk to create in gigabytes.
+	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
+
+	// an `encryptionSettings` block as defined below.
+	EncryptionSettings ManagedDiskEncryptionSettingsOutput `pulumi:"encryptionSettings"`
+
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
+	ImageReferenceId pulumi.StringOutput `pulumi:"imageReferenceId"`
+
+	// Specified the supported Azure location where the resource exists.
+	// Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// Specifies the name of the managed disk. Changing this forces a
+	// new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// Specify a value when the source of an `Import` or `Copy`
+	// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+	OsType pulumi.StringOutput `pulumi:"osType"`
+
+	// The name of the resource group in which to create
+	// the managed disk.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// ID of an existing managed disk to copy `createOption` is `Copy`
+	// or the recovery point to restore when `createOption` is `Restore`
+	SourceResourceId pulumi.StringOutput `pulumi:"sourceResourceId"`
+
+	// URI to a valid VHD file to be used when `createOption` is `Import`.
+	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
+
+	// The type of storage to use for the managed disk.
+	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
+
+	// A collection containing the availability zone to allocate the Managed Disk in.
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewManagedDisk registers a new resource with the given unique name, arguments, and options.
 func NewManagedDisk(ctx *pulumi.Context,
-	name string, args *ManagedDiskArgs, opts ...pulumi.ResourceOpt) (*ManagedDisk, error) {
+	name string, args *ManagedDiskArgs, opts ...pulumi.ResourceOption) (*ManagedDisk, error) {
 	if args == nil || args.CreateOption == nil {
 		return nil, errors.New("missing required argument 'CreateOption'")
 	}
@@ -27,246 +81,343 @@ func NewManagedDisk(ctx *pulumi.Context,
 	if args == nil || args.StorageAccountType == nil {
 		return nil, errors.New("missing required argument 'StorageAccountType'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["createOption"] = nil
-		inputs["diskIopsReadWrite"] = nil
-		inputs["diskMbpsReadWrite"] = nil
-		inputs["diskSizeGb"] = nil
-		inputs["encryptionSettings"] = nil
-		inputs["imageReferenceId"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["osType"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sourceResourceId"] = nil
-		inputs["sourceUri"] = nil
-		inputs["storageAccountType"] = nil
-		inputs["tags"] = nil
-		inputs["zones"] = nil
-	} else {
-		inputs["createOption"] = args.CreateOption
-		inputs["diskIopsReadWrite"] = args.DiskIopsReadWrite
-		inputs["diskMbpsReadWrite"] = args.DiskMbpsReadWrite
-		inputs["diskSizeGb"] = args.DiskSizeGb
-		inputs["encryptionSettings"] = args.EncryptionSettings
-		inputs["imageReferenceId"] = args.ImageReferenceId
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["osType"] = args.OsType
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sourceResourceId"] = args.SourceResourceId
-		inputs["sourceUri"] = args.SourceUri
-		inputs["storageAccountType"] = args.StorageAccountType
-		inputs["tags"] = args.Tags
-		inputs["zones"] = args.Zones
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.CreateOption; i != nil { inputs["createOption"] = i.ToStringOutput() }
+		if i := args.DiskIopsReadWrite; i != nil { inputs["diskIopsReadWrite"] = i.ToIntOutput() }
+		if i := args.DiskMbpsReadWrite; i != nil { inputs["diskMbpsReadWrite"] = i.ToIntOutput() }
+		if i := args.DiskSizeGb; i != nil { inputs["diskSizeGb"] = i.ToIntOutput() }
+		if i := args.EncryptionSettings; i != nil { inputs["encryptionSettings"] = i.ToManagedDiskEncryptionSettingsOutput() }
+		if i := args.ImageReferenceId; i != nil { inputs["imageReferenceId"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SourceResourceId; i != nil { inputs["sourceResourceId"] = i.ToStringOutput() }
+		if i := args.SourceUri; i != nil { inputs["sourceUri"] = i.ToStringOutput() }
+		if i := args.StorageAccountType; i != nil { inputs["storageAccountType"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := args.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:compute/managedDisk:ManagedDisk", name, true, inputs, opts...)
+	var resource ManagedDisk
+	err := ctx.RegisterResource("azure:compute/managedDisk:ManagedDisk", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ManagedDisk{s: s}, nil
+	return &resource, nil
 }
 
 // GetManagedDisk gets an existing ManagedDisk resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetManagedDisk(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ManagedDiskState, opts ...pulumi.ResourceOpt) (*ManagedDisk, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *ManagedDiskState, opts ...pulumi.ResourceOption) (*ManagedDisk, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["createOption"] = state.CreateOption
-		inputs["diskIopsReadWrite"] = state.DiskIopsReadWrite
-		inputs["diskMbpsReadWrite"] = state.DiskMbpsReadWrite
-		inputs["diskSizeGb"] = state.DiskSizeGb
-		inputs["encryptionSettings"] = state.EncryptionSettings
-		inputs["imageReferenceId"] = state.ImageReferenceId
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["osType"] = state.OsType
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sourceResourceId"] = state.SourceResourceId
-		inputs["sourceUri"] = state.SourceUri
-		inputs["storageAccountType"] = state.StorageAccountType
-		inputs["tags"] = state.Tags
-		inputs["zones"] = state.Zones
+		if i := state.CreateOption; i != nil { inputs["createOption"] = i.ToStringOutput() }
+		if i := state.DiskIopsReadWrite; i != nil { inputs["diskIopsReadWrite"] = i.ToIntOutput() }
+		if i := state.DiskMbpsReadWrite; i != nil { inputs["diskMbpsReadWrite"] = i.ToIntOutput() }
+		if i := state.DiskSizeGb; i != nil { inputs["diskSizeGb"] = i.ToIntOutput() }
+		if i := state.EncryptionSettings; i != nil { inputs["encryptionSettings"] = i.ToManagedDiskEncryptionSettingsOutput() }
+		if i := state.ImageReferenceId; i != nil { inputs["imageReferenceId"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.OsType; i != nil { inputs["osType"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SourceResourceId; i != nil { inputs["sourceResourceId"] = i.ToStringOutput() }
+		if i := state.SourceUri; i != nil { inputs["sourceUri"] = i.ToStringOutput() }
+		if i := state.StorageAccountType; i != nil { inputs["storageAccountType"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
+		if i := state.Zones; i != nil { inputs["zones"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:compute/managedDisk:ManagedDisk", name, id, inputs, opts...)
+	var resource ManagedDisk
+	err := ctx.ReadResource("azure:compute/managedDisk:ManagedDisk", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ManagedDisk{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *ManagedDisk) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *ManagedDisk) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The method to use when creating the managed disk. Possible values include:
-func (r *ManagedDisk) CreateOption() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["createOption"])
-}
-
-// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-func (r *ManagedDisk) DiskIopsReadWrite() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["diskIopsReadWrite"])
-}
-
-// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
-func (r *ManagedDisk) DiskMbpsReadWrite() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["diskMbpsReadWrite"])
-}
-
-// Specifies the size of the managed disk to create in gigabytes.
-// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
-func (r *ManagedDisk) DiskSizeGb() pulumi.IntOutput {
-	return (pulumi.IntOutput)(r.s.State["diskSizeGb"])
-}
-
-// an `encryptionSettings` block as defined below.
-func (r *ManagedDisk) EncryptionSettings() pulumi.Output {
-	return r.s.State["encryptionSettings"]
-}
-
-// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
-func (r *ManagedDisk) ImageReferenceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["imageReferenceId"])
-}
-
-// Specified the supported Azure location where the resource exists.
-// Changing this forces a new resource to be created.
-func (r *ManagedDisk) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// Specifies the name of the managed disk. Changing this forces a
-// new resource to be created.
-func (r *ManagedDisk) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// Specify a value when the source of an `Import` or `Copy`
-// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
-func (r *ManagedDisk) OsType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["osType"])
-}
-
-// The name of the resource group in which to create
-// the managed disk.
-func (r *ManagedDisk) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// ID of an existing managed disk to copy `createOption` is `Copy`
-// or the recovery point to restore when `createOption` is `Restore`
-func (r *ManagedDisk) SourceResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceResourceId"])
-}
-
-// URI to a valid VHD file to be used when `createOption` is `Import`.
-func (r *ManagedDisk) SourceUri() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sourceUri"])
-}
-
-// The type of storage to use for the managed disk.
-// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
-func (r *ManagedDisk) StorageAccountType() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["storageAccountType"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *ManagedDisk) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
-}
-
-// A collection containing the availability zone to allocate the Managed Disk in.
-func (r *ManagedDisk) Zones() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["zones"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering ManagedDisk resources.
 type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Possible values include:
-	CreateOption interface{}
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIopsReadWrite interface{}
+	DiskIopsReadWrite pulumi.IntInput `pulumi:"diskIopsReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
-	DiskMbpsReadWrite interface{}
+	DiskMbpsReadWrite pulumi.IntInput `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes.
 	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
-	DiskSizeGb interface{}
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// an `encryptionSettings` block as defined below.
-	EncryptionSettings interface{}
+	EncryptionSettings ManagedDiskEncryptionSettingsInput `pulumi:"encryptionSettings"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
-	ImageReferenceId interface{}
+	ImageReferenceId pulumi.StringInput `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the managed disk. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specify a value when the source of an `Import` or `Copy`
 	// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The name of the resource group in which to create
 	// the managed disk.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ID of an existing managed disk to copy `createOption` is `Copy`
 	// or the recovery point to restore when `createOption` is `Restore`
-	SourceResourceId interface{}
+	SourceResourceId pulumi.StringInput `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
-	SourceUri interface{}
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
 	// The type of storage to use for the managed disk.
 	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
-	StorageAccountType interface{}
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a ManagedDisk resource.
 type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Possible values include:
-	CreateOption interface{}
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIopsReadWrite interface{}
+	DiskIopsReadWrite pulumi.IntInput `pulumi:"diskIopsReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
-	DiskMbpsReadWrite interface{}
+	DiskMbpsReadWrite pulumi.IntInput `pulumi:"diskMbpsReadWrite"`
 	// Specifies the size of the managed disk to create in gigabytes.
 	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
-	DiskSizeGb interface{}
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// an `encryptionSettings` block as defined below.
-	EncryptionSettings interface{}
+	EncryptionSettings ManagedDiskEncryptionSettingsInput `pulumi:"encryptionSettings"`
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
-	ImageReferenceId interface{}
+	ImageReferenceId pulumi.StringInput `pulumi:"imageReferenceId"`
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// Specifies the name of the managed disk. Changing this forces a
 	// new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// Specify a value when the source of an `Import` or `Copy`
 	// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
-	OsType interface{}
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// The name of the resource group in which to create
 	// the managed disk.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// ID of an existing managed disk to copy `createOption` is `Copy`
 	// or the recovery point to restore when `createOption` is `Restore`
-	SourceResourceId interface{}
+	SourceResourceId pulumi.StringInput `pulumi:"sourceResourceId"`
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
-	SourceUri interface{}
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
 	// The type of storage to use for the managed disk.
 	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
-	StorageAccountType interface{}
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
-	Zones interface{}
+	Zones pulumi.StringInput `pulumi:"zones"`
 }
+type ManagedDiskEncryptionSettings struct {
+	// A `diskEncryptionKey` block as defined below.
+	DiskEncryptionKey *ManagedDiskEncryptionSettingsDiskEncryptionKey `pulumi:"diskEncryptionKey"`
+	// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+	Enabled bool `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKey *ManagedDiskEncryptionSettingsKeyEncryptionKey `pulumi:"keyEncryptionKey"`
+}
+var managedDiskEncryptionSettingsType = reflect.TypeOf((*ManagedDiskEncryptionSettings)(nil)).Elem()
+
+type ManagedDiskEncryptionSettingsInput interface {
+	pulumi.Input
+
+	ToManagedDiskEncryptionSettingsOutput() ManagedDiskEncryptionSettingsOutput
+	ToManagedDiskEncryptionSettingsOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsOutput
+}
+
+type ManagedDiskEncryptionSettingsArgs struct {
+	// A `diskEncryptionKey` block as defined below.
+	DiskEncryptionKey ManagedDiskEncryptionSettingsDiskEncryptionKeyInput `pulumi:"diskEncryptionKey"`
+	// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKey ManagedDiskEncryptionSettingsKeyEncryptionKeyInput `pulumi:"keyEncryptionKey"`
+}
+
+func (ManagedDiskEncryptionSettingsArgs) ElementType() reflect.Type {
+	return managedDiskEncryptionSettingsType
+}
+
+func (a ManagedDiskEncryptionSettingsArgs) ToManagedDiskEncryptionSettingsOutput() ManagedDiskEncryptionSettingsOutput {
+	return pulumi.ToOutput(a).(ManagedDiskEncryptionSettingsOutput)
+}
+
+func (a ManagedDiskEncryptionSettingsArgs) ToManagedDiskEncryptionSettingsOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagedDiskEncryptionSettingsOutput)
+}
+
+type ManagedDiskEncryptionSettingsOutput struct { *pulumi.OutputState }
+
+// A `diskEncryptionKey` block as defined below.
+func (o ManagedDiskEncryptionSettingsOutput) DiskEncryptionKey() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettingsDiskEncryptionKey {
+		if v.DiskEncryptionKey == nil { return *new(ManagedDiskEncryptionSettingsDiskEncryptionKey) } else { return *v.DiskEncryptionKey }
+	}).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
+}
+
+// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+func (o ManagedDiskEncryptionSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettings) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+// A `keyEncryptionKey` block as defined below.
+func (o ManagedDiskEncryptionSettingsOutput) KeyEncryptionKey() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettings) ManagedDiskEncryptionSettingsKeyEncryptionKey {
+		if v.KeyEncryptionKey == nil { return *new(ManagedDiskEncryptionSettingsKeyEncryptionKey) } else { return *v.KeyEncryptionKey }
+	}).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
+}
+
+func (ManagedDiskEncryptionSettingsOutput) ElementType() reflect.Type {
+	return managedDiskEncryptionSettingsType
+}
+
+func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsOutput() ManagedDiskEncryptionSettingsOutput {
+	return o
+}
+
+func (o ManagedDiskEncryptionSettingsOutput) ToManagedDiskEncryptionSettingsOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsOutput{}) }
+
+type ManagedDiskEncryptionSettingsDiskEncryptionKey struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The URL of the Key Vault. This can be found as `vaultUri` on the `keyvault.KeyVault` resource.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+var managedDiskEncryptionSettingsDiskEncryptionKeyType = reflect.TypeOf((*ManagedDiskEncryptionSettingsDiskEncryptionKey)(nil)).Elem()
+
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToManagedDiskEncryptionSettingsDiskEncryptionKeyOutput() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput
+	ToManagedDiskEncryptionSettingsDiskEncryptionKeyOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput
+}
+
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The URL of the Key Vault. This can be found as `vaultUri` on the `keyvault.KeyVault` resource.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ElementType() reflect.Type {
+	return managedDiskEncryptionSettingsDiskEncryptionKeyType
+}
+
+func (a ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ToManagedDiskEncryptionSettingsDiskEncryptionKeyOutput() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
+	return pulumi.ToOutput(a).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
+}
+
+func (a ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ToManagedDiskEncryptionSettingsDiskEncryptionKeyOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput)
+}
+
+type ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput struct { *pulumi.OutputState }
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string {
+		return v.SecretUrl
+	}).(pulumi.StringOutput)
+}
+
+// The URL of the Key Vault. This can be found as `vaultUri` on the `keyvault.KeyVault` resource.
+func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettingsDiskEncryptionKey) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+func (ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ElementType() reflect.Type {
+	return managedDiskEncryptionSettingsDiskEncryptionKeyType
+}
+
+func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ToManagedDiskEncryptionSettingsDiskEncryptionKeyOutput() ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput) ToManagedDiskEncryptionSettingsDiskEncryptionKeyOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput{}) }
+
+type ManagedDiskEncryptionSettingsKeyEncryptionKey struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+	KeyUrl string `pulumi:"keyUrl"`
+	// The URL of the Key Vault. This can be found as `vaultUri` on the `keyvault.KeyVault` resource.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+var managedDiskEncryptionSettingsKeyEncryptionKeyType = reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKey)(nil)).Elem()
+
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToManagedDiskEncryptionSettingsKeyEncryptionKeyOutput() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput
+	ToManagedDiskEncryptionSettingsKeyEncryptionKeyOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput
+}
+
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The URL of the Key Vault. This can be found as `vaultUri` on the `keyvault.KeyVault` resource.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return managedDiskEncryptionSettingsKeyEncryptionKeyType
+}
+
+func (a ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ToManagedDiskEncryptionSettingsKeyEncryptionKeyOutput() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
+	return pulumi.ToOutput(a).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
+}
+
+func (a ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ToManagedDiskEncryptionSettingsKeyEncryptionKeyOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput)
+}
+
+type ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput struct { *pulumi.OutputState }
+
+// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string {
+		return v.KeyUrl
+	}).(pulumi.StringOutput)
+}
+
+// The URL of the Key Vault. This can be found as `vaultUri` on the `keyvault.KeyVault` resource.
+func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.Apply(func(v ManagedDiskEncryptionSettingsKeyEncryptionKey) string {
+		return v.SourceVaultId
+	}).(pulumi.StringOutput)
+}
+
+func (ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return managedDiskEncryptionSettingsKeyEncryptionKeyType
+}
+
+func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ToManagedDiskEncryptionSettingsKeyEncryptionKeyOutput() ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput) ToManagedDiskEncryptionSettingsKeyEncryptionKeyOutputWithContext(ctx context.Context) ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput{}) }
+

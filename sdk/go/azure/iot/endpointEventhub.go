@@ -14,12 +14,22 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_endpoint_eventhub.html.markdown.
 type EndpointEventhub struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The connection string for the endpoint.
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+
+	IothubName pulumi.StringOutput `pulumi:"iothubName"`
+
+	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
 // NewEndpointEventhub registers a new resource with the given unique name, arguments, and options.
 func NewEndpointEventhub(ctx *pulumi.Context,
-	name string, args *EndpointEventhubArgs, opts ...pulumi.ResourceOpt) (*EndpointEventhub, error) {
+	name string, args *EndpointEventhubArgs, opts ...pulumi.ResourceOption) (*EndpointEventhub, error) {
 	if args == nil || args.ConnectionString == nil {
 		return nil, errors.New("missing required argument 'ConnectionString'")
 	}
@@ -29,87 +39,56 @@ func NewEndpointEventhub(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["connectionString"] = nil
-		inputs["iothubName"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-	} else {
-		inputs["connectionString"] = args.ConnectionString
-		inputs["iothubName"] = args.IothubName
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ConnectionString; i != nil { inputs["connectionString"] = i.ToStringOutput() }
+		if i := args.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:iot/endpointEventhub:EndpointEventhub", name, true, inputs, opts...)
+	var resource EndpointEventhub
+	err := ctx.RegisterResource("azure:iot/endpointEventhub:EndpointEventhub", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EndpointEventhub{s: s}, nil
+	return &resource, nil
 }
 
 // GetEndpointEventhub gets an existing EndpointEventhub resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetEndpointEventhub(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EndpointEventhubState, opts ...pulumi.ResourceOpt) (*EndpointEventhub, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *EndpointEventhubState, opts ...pulumi.ResourceOption) (*EndpointEventhub, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["connectionString"] = state.ConnectionString
-		inputs["iothubName"] = state.IothubName
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
+		if i := state.ConnectionString; i != nil { inputs["connectionString"] = i.ToStringOutput() }
+		if i := state.IothubName; i != nil { inputs["iothubName"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:iot/endpointEventhub:EndpointEventhub", name, id, inputs, opts...)
+	var resource EndpointEventhub
+	err := ctx.ReadResource("azure:iot/endpointEventhub:EndpointEventhub", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EndpointEventhub{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *EndpointEventhub) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *EndpointEventhub) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The connection string for the endpoint.
-func (r *EndpointEventhub) ConnectionString() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["connectionString"])
-}
-
-func (r *EndpointEventhub) IothubName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["iothubName"])
-}
-
-// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-func (r *EndpointEventhub) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-func (r *EndpointEventhub) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering EndpointEventhub resources.
 type EndpointEventhubState struct {
 	// The connection string for the endpoint.
-	ConnectionString interface{}
-	IothubName interface{}
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a EndpointEventhub resource.
 type EndpointEventhubArgs struct {
 	// The connection string for the endpoint.
-	ConnectionString interface{}
-	IothubName interface{}
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	IothubName pulumi.StringInput `pulumi:"iothubName"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
-	Name interface{}
-	ResourceGroupName interface{}
+	Name pulumi.StringInput `pulumi:"name"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

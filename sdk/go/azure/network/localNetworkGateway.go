@@ -4,6 +4,8 @@
 package network
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,39 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
 type LocalNetworkGateway struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The list of string CIDRs representing the
+	// address spaces the gateway exposes.
+	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
+
+	// A `bgpSettings` block as defined below containing the
+	// Local Network Gateway's BGP speaker settings.
+	BgpSettings LocalNetworkGatewayBgpSettingsOutput `pulumi:"bgpSettings"`
+
+	// The IP address of the gateway to which to
+	// connect.
+	GatewayAddress pulumi.StringOutput `pulumi:"gatewayAddress"`
+
+	// The location/region where the local network gateway is
+	// created. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+
+	// The name of the local network gateway. Changing this
+	// forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The name of the resource group in which to
+	// create the local network gateway.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.MapOutput `pulumi:"tags"`
 }
 
 // NewLocalNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewLocalNetworkGateway(ctx *pulumi.Context,
-	name string, args *LocalNetworkGatewayArgs, opts ...pulumi.ResourceOpt) (*LocalNetworkGateway, error) {
+	name string, args *LocalNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*LocalNetworkGateway, error) {
 	if args == nil || args.AddressSpaces == nil {
 		return nil, errors.New("missing required argument 'AddressSpaces'")
 	}
@@ -27,147 +56,171 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["addressSpaces"] = nil
-		inputs["bgpSettings"] = nil
-		inputs["gatewayAddress"] = nil
-		inputs["location"] = nil
-		inputs["name"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["tags"] = nil
-	} else {
-		inputs["addressSpaces"] = args.AddressSpaces
-		inputs["bgpSettings"] = args.BgpSettings
-		inputs["gatewayAddress"] = args.GatewayAddress
-		inputs["location"] = args.Location
-		inputs["name"] = args.Name
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AddressSpaces; i != nil { inputs["addressSpaces"] = i.ToStringArrayOutput() }
+		if i := args.BgpSettings; i != nil { inputs["bgpSettings"] = i.ToLocalNetworkGatewayBgpSettingsOutput() }
+		if i := args.GatewayAddress; i != nil { inputs["gatewayAddress"] = i.ToStringOutput() }
+		if i := args.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:network/localNetworkGateway:LocalNetworkGateway", name, true, inputs, opts...)
+	var resource LocalNetworkGateway
+	err := ctx.RegisterResource("azure:network/localNetworkGateway:LocalNetworkGateway", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LocalNetworkGateway{s: s}, nil
+	return &resource, nil
 }
 
 // GetLocalNetworkGateway gets an existing LocalNetworkGateway resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetLocalNetworkGateway(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *LocalNetworkGatewayState, opts ...pulumi.ResourceOpt) (*LocalNetworkGateway, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *LocalNetworkGatewayState, opts ...pulumi.ResourceOption) (*LocalNetworkGateway, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["addressSpaces"] = state.AddressSpaces
-		inputs["bgpSettings"] = state.BgpSettings
-		inputs["gatewayAddress"] = state.GatewayAddress
-		inputs["location"] = state.Location
-		inputs["name"] = state.Name
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["tags"] = state.Tags
+		if i := state.AddressSpaces; i != nil { inputs["addressSpaces"] = i.ToStringArrayOutput() }
+		if i := state.BgpSettings; i != nil { inputs["bgpSettings"] = i.ToLocalNetworkGatewayBgpSettingsOutput() }
+		if i := state.GatewayAddress; i != nil { inputs["gatewayAddress"] = i.ToStringOutput() }
+		if i := state.Location; i != nil { inputs["location"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.Tags; i != nil { inputs["tags"] = i.ToMapOutput() }
 	}
-	s, err := ctx.ReadResource("azure:network/localNetworkGateway:LocalNetworkGateway", name, id, inputs, opts...)
+	var resource LocalNetworkGateway
+	err := ctx.ReadResource("azure:network/localNetworkGateway:LocalNetworkGateway", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &LocalNetworkGateway{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *LocalNetworkGateway) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *LocalNetworkGateway) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The list of string CIDRs representing the
-// address spaces the gateway exposes.
-func (r *LocalNetworkGateway) AddressSpaces() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["addressSpaces"])
-}
-
-// A `bgpSettings` block as defined below containing the
-// Local Network Gateway's BGP speaker settings.
-func (r *LocalNetworkGateway) BgpSettings() pulumi.Output {
-	return r.s.State["bgpSettings"]
-}
-
-// The IP address of the gateway to which to
-// connect.
-func (r *LocalNetworkGateway) GatewayAddress() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["gatewayAddress"])
-}
-
-// The location/region where the local network gateway is
-// created. Changing this forces a new resource to be created.
-func (r *LocalNetworkGateway) Location() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["location"])
-}
-
-// The name of the local network gateway. Changing this
-// forces a new resource to be created.
-func (r *LocalNetworkGateway) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The name of the resource group in which to
-// create the local network gateway.
-func (r *LocalNetworkGateway) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// A mapping of tags to assign to the resource.
-func (r *LocalNetworkGateway) Tags() pulumi.MapOutput {
-	return (pulumi.MapOutput)(r.s.State["tags"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering LocalNetworkGateway resources.
 type LocalNetworkGatewayState struct {
 	// The list of string CIDRs representing the
 	// address spaces the gateway exposes.
-	AddressSpaces interface{}
+	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
-	BgpSettings interface{}
+	BgpSettings LocalNetworkGatewayBgpSettingsInput `pulumi:"bgpSettings"`
 	// The IP address of the gateway to which to
 	// connect.
-	GatewayAddress interface{}
+	GatewayAddress pulumi.StringInput `pulumi:"gatewayAddress"`
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the local network gateway. Changing this
 	// forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the local network gateway.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocalNetworkGateway resource.
 type LocalNetworkGatewayArgs struct {
 	// The list of string CIDRs representing the
 	// address spaces the gateway exposes.
-	AddressSpaces interface{}
+	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
-	BgpSettings interface{}
+	BgpSettings LocalNetworkGatewayBgpSettingsInput `pulumi:"bgpSettings"`
 	// The IP address of the gateway to which to
 	// connect.
-	GatewayAddress interface{}
+	GatewayAddress pulumi.StringInput `pulumi:"gatewayAddress"`
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
-	Location interface{}
+	Location pulumi.StringInput `pulumi:"location"`
 	// The name of the local network gateway. Changing this
 	// forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group in which to
 	// create the local network gateway.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	Tags interface{}
+	Tags pulumi.MapInput `pulumi:"tags"`
 }
+type LocalNetworkGatewayBgpSettings struct {
+	// The BGP speaker's ASN.
+	Asn int `pulumi:"asn"`
+	// The BGP peering address and BGP identifier
+	// of this BGP speaker.
+	BgpPeeringAddress string `pulumi:"bgpPeeringAddress"`
+	// The weight added to routes learned from this
+	// BGP speaker.
+	PeerWeight *int `pulumi:"peerWeight"`
+}
+var localNetworkGatewayBgpSettingsType = reflect.TypeOf((*LocalNetworkGatewayBgpSettings)(nil)).Elem()
+
+type LocalNetworkGatewayBgpSettingsInput interface {
+	pulumi.Input
+
+	ToLocalNetworkGatewayBgpSettingsOutput() LocalNetworkGatewayBgpSettingsOutput
+	ToLocalNetworkGatewayBgpSettingsOutputWithContext(ctx context.Context) LocalNetworkGatewayBgpSettingsOutput
+}
+
+type LocalNetworkGatewayBgpSettingsArgs struct {
+	// The BGP speaker's ASN.
+	Asn pulumi.IntInput `pulumi:"asn"`
+	// The BGP peering address and BGP identifier
+	// of this BGP speaker.
+	BgpPeeringAddress pulumi.StringInput `pulumi:"bgpPeeringAddress"`
+	// The weight added to routes learned from this
+	// BGP speaker.
+	PeerWeight pulumi.IntInput `pulumi:"peerWeight"`
+}
+
+func (LocalNetworkGatewayBgpSettingsArgs) ElementType() reflect.Type {
+	return localNetworkGatewayBgpSettingsType
+}
+
+func (a LocalNetworkGatewayBgpSettingsArgs) ToLocalNetworkGatewayBgpSettingsOutput() LocalNetworkGatewayBgpSettingsOutput {
+	return pulumi.ToOutput(a).(LocalNetworkGatewayBgpSettingsOutput)
+}
+
+func (a LocalNetworkGatewayBgpSettingsArgs) ToLocalNetworkGatewayBgpSettingsOutputWithContext(ctx context.Context) LocalNetworkGatewayBgpSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(LocalNetworkGatewayBgpSettingsOutput)
+}
+
+type LocalNetworkGatewayBgpSettingsOutput struct { *pulumi.OutputState }
+
+// The BGP speaker's ASN.
+func (o LocalNetworkGatewayBgpSettingsOutput) Asn() pulumi.IntOutput {
+	return o.Apply(func(v LocalNetworkGatewayBgpSettings) int {
+		return v.Asn
+	}).(pulumi.IntOutput)
+}
+
+// The BGP peering address and BGP identifier
+// of this BGP speaker.
+func (o LocalNetworkGatewayBgpSettingsOutput) BgpPeeringAddress() pulumi.StringOutput {
+	return o.Apply(func(v LocalNetworkGatewayBgpSettings) string {
+		return v.BgpPeeringAddress
+	}).(pulumi.StringOutput)
+}
+
+// The weight added to routes learned from this
+// BGP speaker.
+func (o LocalNetworkGatewayBgpSettingsOutput) PeerWeight() pulumi.IntOutput {
+	return o.Apply(func(v LocalNetworkGatewayBgpSettings) int {
+		if v.PeerWeight == nil { return *new(int) } else { return *v.PeerWeight }
+	}).(pulumi.IntOutput)
+}
+
+func (LocalNetworkGatewayBgpSettingsOutput) ElementType() reflect.Type {
+	return localNetworkGatewayBgpSettingsType
+}
+
+func (o LocalNetworkGatewayBgpSettingsOutput) ToLocalNetworkGatewayBgpSettingsOutput() LocalNetworkGatewayBgpSettingsOutput {
+	return o
+}
+
+func (o LocalNetworkGatewayBgpSettingsOutput) ToLocalNetworkGatewayBgpSettingsOutputWithContext(ctx context.Context) LocalNetworkGatewayBgpSettingsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsOutput{}) }
+

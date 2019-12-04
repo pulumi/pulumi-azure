@@ -12,12 +12,30 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_custom_hostname_binding.html.markdown.
 type CustomHostnameBinding struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
+	AppServiceName pulumi.StringOutput `pulumi:"appServiceName"`
+
+	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+	Hostname pulumi.StringOutput `pulumi:"hostname"`
+
+	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
+	SslState pulumi.StringOutput `pulumi:"sslState"`
+
+	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
+
+	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIp pulumi.StringOutput `pulumi:"virtualIp"`
 }
 
 // NewCustomHostnameBinding registers a new resource with the given unique name, arguments, and options.
 func NewCustomHostnameBinding(ctx *pulumi.Context,
-	name string, args *CustomHostnameBindingArgs, opts ...pulumi.ResourceOpt) (*CustomHostnameBinding, error) {
+	name string, args *CustomHostnameBindingArgs, opts ...pulumi.ResourceOption) (*CustomHostnameBinding, error) {
 	if args == nil || args.AppServiceName == nil {
 		return nil, errors.New("missing required argument 'AppServiceName'")
 	}
@@ -27,114 +45,69 @@ func NewCustomHostnameBinding(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["appServiceName"] = nil
-		inputs["hostname"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["sslState"] = nil
-		inputs["thumbprint"] = nil
-	} else {
-		inputs["appServiceName"] = args.AppServiceName
-		inputs["hostname"] = args.Hostname
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["sslState"] = args.SslState
-		inputs["thumbprint"] = args.Thumbprint
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.AppServiceName; i != nil { inputs["appServiceName"] = i.ToStringOutput() }
+		if i := args.Hostname; i != nil { inputs["hostname"] = i.ToStringOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.SslState; i != nil { inputs["sslState"] = i.ToStringOutput() }
+		if i := args.Thumbprint; i != nil { inputs["thumbprint"] = i.ToStringOutput() }
 	}
-	inputs["virtualIp"] = nil
-	s, err := ctx.RegisterResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, true, inputs, opts...)
+	var resource CustomHostnameBinding
+	err := ctx.RegisterResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CustomHostnameBinding{s: s}, nil
+	return &resource, nil
 }
 
 // GetCustomHostnameBinding gets an existing CustomHostnameBinding resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetCustomHostnameBinding(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CustomHostnameBindingState, opts ...pulumi.ResourceOpt) (*CustomHostnameBinding, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *CustomHostnameBindingState, opts ...pulumi.ResourceOption) (*CustomHostnameBinding, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["appServiceName"] = state.AppServiceName
-		inputs["hostname"] = state.Hostname
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["sslState"] = state.SslState
-		inputs["thumbprint"] = state.Thumbprint
-		inputs["virtualIp"] = state.VirtualIp
+		if i := state.AppServiceName; i != nil { inputs["appServiceName"] = i.ToStringOutput() }
+		if i := state.Hostname; i != nil { inputs["hostname"] = i.ToStringOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.SslState; i != nil { inputs["sslState"] = i.ToStringOutput() }
+		if i := state.Thumbprint; i != nil { inputs["thumbprint"] = i.ToStringOutput() }
+		if i := state.VirtualIp; i != nil { inputs["virtualIp"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, id, inputs, opts...)
+	var resource CustomHostnameBinding
+	err := ctx.ReadResource("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &CustomHostnameBinding{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *CustomHostnameBinding) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *CustomHostnameBinding) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) AppServiceName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["appServiceName"])
-}
-
-// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) Hostname() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["hostname"])
-}
-
-// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) SslState() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["sslState"])
-}
-
-// The SSL certificate thumbprint. Changing this forces a new resource to be created.
-func (r *CustomHostnameBinding) Thumbprint() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["thumbprint"])
-}
-
-// The virtual IP address assigned to the hostname if IP based SSL is enabled.
-func (r *CustomHostnameBinding) VirtualIp() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["virtualIp"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering CustomHostnameBinding resources.
 type CustomHostnameBindingState struct {
 	// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
-	AppServiceName interface{}
+	AppServiceName pulumi.StringInput `pulumi:"appServiceName"`
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
-	Hostname interface{}
+	Hostname pulumi.StringInput `pulumi:"hostname"`
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
-	SslState interface{}
+	SslState pulumi.StringInput `pulumi:"sslState"`
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
-	Thumbprint interface{}
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 	// The virtual IP address assigned to the hostname if IP based SSL is enabled.
-	VirtualIp interface{}
+	VirtualIp pulumi.StringInput `pulumi:"virtualIp"`
 }
 
 // The set of arguments for constructing a CustomHostnameBinding resource.
 type CustomHostnameBindingArgs struct {
 	// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
-	AppServiceName interface{}
+	AppServiceName pulumi.StringInput `pulumi:"appServiceName"`
 	// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
-	Hostname interface{}
+	Hostname pulumi.StringInput `pulumi:"hostname"`
 	// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
-	SslState interface{}
+	SslState pulumi.StringInput `pulumi:"sslState"`
 	// The SSL certificate thumbprint. Changing this forces a new resource to be created.
-	Thumbprint interface{}
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }

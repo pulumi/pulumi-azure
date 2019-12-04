@@ -4,6 +4,8 @@
 package apimanagement
 
 import (
+	"context"
+	"reflect"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
@@ -12,12 +14,48 @@ import (
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_backend.html.markdown.
 type Backend struct {
-	s *pulumi.ResourceState
+	pulumi.CustomResourceState
+
+	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
+	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+
+	// A `credentials` block as documented below.
+	Credentials BackendCredentialsOutput `pulumi:"credentials"`
+
+	// The description of the backend.
+	Description pulumi.StringOutput `pulumi:"description"`
+
+	// The name of the API Management backend. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+
+	// The protocol used by the backend host. Possible values are `http` or `soap`.
+	Protocol pulumi.StringOutput `pulumi:"protocol"`
+
+	// A `proxy` block as documented below.
+	Proxy BackendProxyOutput `pulumi:"proxy"`
+
+	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+
+	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+
+	// A `serviceFabricCluster` block as documented below.
+	ServiceFabricCluster BackendServiceFabricClusterOutput `pulumi:"serviceFabricCluster"`
+
+	// The title of the backend.
+	Title pulumi.StringOutput `pulumi:"title"`
+
+	// A `tls` block as documented below.
+	Tls BackendTlsOutput `pulumi:"tls"`
+
+	// The URL of the backend host.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewBackend registers a new resource with the given unique name, arguments, and options.
 func NewBackend(ctx *pulumi.Context,
-	name string, args *BackendArgs, opts ...pulumi.ResourceOpt) (*Backend, error) {
+	name string, args *BackendArgs, opts ...pulumi.ResourceOption) (*Backend, error) {
 	if args == nil || args.ApiManagementName == nil {
 		return nil, errors.New("missing required argument 'ApiManagementName'")
 	}
@@ -30,189 +68,555 @@ func NewBackend(ctx *pulumi.Context,
 	if args == nil || args.Url == nil {
 		return nil, errors.New("missing required argument 'Url'")
 	}
-	inputs := make(map[string]interface{})
-	if args == nil {
-		inputs["apiManagementName"] = nil
-		inputs["credentials"] = nil
-		inputs["description"] = nil
-		inputs["name"] = nil
-		inputs["protocol"] = nil
-		inputs["proxy"] = nil
-		inputs["resourceGroupName"] = nil
-		inputs["resourceId"] = nil
-		inputs["serviceFabricCluster"] = nil
-		inputs["title"] = nil
-		inputs["tls"] = nil
-		inputs["url"] = nil
-	} else {
-		inputs["apiManagementName"] = args.ApiManagementName
-		inputs["credentials"] = args.Credentials
-		inputs["description"] = args.Description
-		inputs["name"] = args.Name
-		inputs["protocol"] = args.Protocol
-		inputs["proxy"] = args.Proxy
-		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["resourceId"] = args.ResourceId
-		inputs["serviceFabricCluster"] = args.ServiceFabricCluster
-		inputs["title"] = args.Title
-		inputs["tls"] = args.Tls
-		inputs["url"] = args.Url
+	inputs := map[string]pulumi.Input{}
+	if args != nil {
+		if i := args.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := args.Credentials; i != nil { inputs["credentials"] = i.ToBackendCredentialsOutput() }
+		if i := args.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := args.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := args.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := args.Proxy; i != nil { inputs["proxy"] = i.ToBackendProxyOutput() }
+		if i := args.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := args.ResourceId; i != nil { inputs["resourceId"] = i.ToStringOutput() }
+		if i := args.ServiceFabricCluster; i != nil { inputs["serviceFabricCluster"] = i.ToBackendServiceFabricClusterOutput() }
+		if i := args.Title; i != nil { inputs["title"] = i.ToStringOutput() }
+		if i := args.Tls; i != nil { inputs["tls"] = i.ToBackendTlsOutput() }
+		if i := args.Url; i != nil { inputs["url"] = i.ToStringOutput() }
 	}
-	s, err := ctx.RegisterResource("azure:apimanagement/backend:Backend", name, true, inputs, opts...)
+	var resource Backend
+	err := ctx.RegisterResource("azure:apimanagement/backend:Backend", name, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Backend{s: s}, nil
+	return &resource, nil
 }
 
 // GetBackend gets an existing Backend resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
 func GetBackend(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *BackendState, opts ...pulumi.ResourceOpt) (*Backend, error) {
-	inputs := make(map[string]interface{})
+	name string, id pulumi.IDInput, state *BackendState, opts ...pulumi.ResourceOption) (*Backend, error) {
+	inputs := map[string]pulumi.Input{}
 	if state != nil {
-		inputs["apiManagementName"] = state.ApiManagementName
-		inputs["credentials"] = state.Credentials
-		inputs["description"] = state.Description
-		inputs["name"] = state.Name
-		inputs["protocol"] = state.Protocol
-		inputs["proxy"] = state.Proxy
-		inputs["resourceGroupName"] = state.ResourceGroupName
-		inputs["resourceId"] = state.ResourceId
-		inputs["serviceFabricCluster"] = state.ServiceFabricCluster
-		inputs["title"] = state.Title
-		inputs["tls"] = state.Tls
-		inputs["url"] = state.Url
+		if i := state.ApiManagementName; i != nil { inputs["apiManagementName"] = i.ToStringOutput() }
+		if i := state.Credentials; i != nil { inputs["credentials"] = i.ToBackendCredentialsOutput() }
+		if i := state.Description; i != nil { inputs["description"] = i.ToStringOutput() }
+		if i := state.Name; i != nil { inputs["name"] = i.ToStringOutput() }
+		if i := state.Protocol; i != nil { inputs["protocol"] = i.ToStringOutput() }
+		if i := state.Proxy; i != nil { inputs["proxy"] = i.ToBackendProxyOutput() }
+		if i := state.ResourceGroupName; i != nil { inputs["resourceGroupName"] = i.ToStringOutput() }
+		if i := state.ResourceId; i != nil { inputs["resourceId"] = i.ToStringOutput() }
+		if i := state.ServiceFabricCluster; i != nil { inputs["serviceFabricCluster"] = i.ToBackendServiceFabricClusterOutput() }
+		if i := state.Title; i != nil { inputs["title"] = i.ToStringOutput() }
+		if i := state.Tls; i != nil { inputs["tls"] = i.ToBackendTlsOutput() }
+		if i := state.Url; i != nil { inputs["url"] = i.ToStringOutput() }
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/backend:Backend", name, id, inputs, opts...)
+	var resource Backend
+	err := ctx.ReadResource("azure:apimanagement/backend:Backend", name, id, inputs, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Backend{s: s}, nil
-}
-
-// URN is this resource's unique name assigned by Pulumi.
-func (r *Backend) URN() pulumi.URNOutput {
-	return r.s.URN()
-}
-
-// ID is this resource's unique identifier assigned by its provider.
-func (r *Backend) ID() pulumi.IDOutput {
-	return r.s.ID()
-}
-
-// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-func (r *Backend) ApiManagementName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["apiManagementName"])
-}
-
-// A `credentials` block as documented below.
-func (r *Backend) Credentials() pulumi.Output {
-	return r.s.State["credentials"]
-}
-
-// The description of the backend.
-func (r *Backend) Description() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["description"])
-}
-
-// The name of the API Management backend. Changing this forces a new resource to be created.
-func (r *Backend) Name() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["name"])
-}
-
-// The protocol used by the backend host. Possible values are `http` or `soap`.
-func (r *Backend) Protocol() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["protocol"])
-}
-
-// A `proxy` block as documented below.
-func (r *Backend) Proxy() pulumi.Output {
-	return r.s.State["proxy"]
-}
-
-// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *Backend) ResourceGroupName() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
-}
-
-// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-func (r *Backend) ResourceId() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["resourceId"])
-}
-
-// A `serviceFabricCluster` block as documented below.
-func (r *Backend) ServiceFabricCluster() pulumi.Output {
-	return r.s.State["serviceFabricCluster"]
-}
-
-// The title of the backend.
-func (r *Backend) Title() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["title"])
-}
-
-// A `tls` block as documented below.
-func (r *Backend) Tls() pulumi.Output {
-	return r.s.State["tls"]
-}
-
-// The URL of the backend host.
-func (r *Backend) Url() pulumi.StringOutput {
-	return (pulumi.StringOutput)(r.s.State["url"])
+	return &resource, nil
 }
 
 // Input properties used for looking up and filtering Backend resources.
 type BackendState struct {
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// A `credentials` block as documented below.
-	Credentials interface{}
+	Credentials BackendCredentialsInput `pulumi:"credentials"`
 	// The description of the backend.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the API Management backend. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// A `proxy` block as documented below.
-	Proxy interface{}
+	Proxy BackendProxyInput `pulumi:"proxy"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-	ResourceId interface{}
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// A `serviceFabricCluster` block as documented below.
-	ServiceFabricCluster interface{}
+	ServiceFabricCluster BackendServiceFabricClusterInput `pulumi:"serviceFabricCluster"`
 	// The title of the backend.
-	Title interface{}
+	Title pulumi.StringInput `pulumi:"title"`
 	// A `tls` block as documented below.
-	Tls interface{}
+	Tls BackendTlsInput `pulumi:"tls"`
 	// The URL of the backend host.
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Backend resource.
 type BackendArgs struct {
 	// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-	ApiManagementName interface{}
+	ApiManagementName pulumi.StringInput `pulumi:"apiManagementName"`
 	// A `credentials` block as documented below.
-	Credentials interface{}
+	Credentials BackendCredentialsInput `pulumi:"credentials"`
 	// The description of the backend.
-	Description interface{}
+	Description pulumi.StringInput `pulumi:"description"`
 	// The name of the API Management backend. Changing this forces a new resource to be created.
-	Name interface{}
+	Name pulumi.StringInput `pulumi:"name"`
 	// The protocol used by the backend host. Possible values are `http` or `soap`.
-	Protocol interface{}
+	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// A `proxy` block as documented below.
-	Proxy interface{}
+	Proxy BackendProxyInput `pulumi:"proxy"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-	ResourceGroupName interface{}
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-	ResourceId interface{}
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// A `serviceFabricCluster` block as documented below.
-	ServiceFabricCluster interface{}
+	ServiceFabricCluster BackendServiceFabricClusterInput `pulumi:"serviceFabricCluster"`
 	// The title of the backend.
-	Title interface{}
+	Title pulumi.StringInput `pulumi:"title"`
 	// A `tls` block as documented below.
-	Tls interface{}
+	Tls BackendTlsInput `pulumi:"tls"`
 	// The URL of the backend host.
-	Url interface{}
+	Url pulumi.StringInput `pulumi:"url"`
 }
+type BackendCredentials struct {
+	Authorization *BackendCredentialsAuthorization `pulumi:"authorization"`
+	Certificates *[]string `pulumi:"certificates"`
+	Header *map[string]string `pulumi:"header"`
+	Query *map[string]string `pulumi:"query"`
+}
+var backendCredentialsType = reflect.TypeOf((*BackendCredentials)(nil)).Elem()
+
+type BackendCredentialsInput interface {
+	pulumi.Input
+
+	ToBackendCredentialsOutput() BackendCredentialsOutput
+	ToBackendCredentialsOutputWithContext(ctx context.Context) BackendCredentialsOutput
+}
+
+type BackendCredentialsArgs struct {
+	Authorization BackendCredentialsAuthorizationInput `pulumi:"authorization"`
+	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
+	Header pulumi.StringMapInput `pulumi:"header"`
+	Query pulumi.StringMapInput `pulumi:"query"`
+}
+
+func (BackendCredentialsArgs) ElementType() reflect.Type {
+	return backendCredentialsType
+}
+
+func (a BackendCredentialsArgs) ToBackendCredentialsOutput() BackendCredentialsOutput {
+	return pulumi.ToOutput(a).(BackendCredentialsOutput)
+}
+
+func (a BackendCredentialsArgs) ToBackendCredentialsOutputWithContext(ctx context.Context) BackendCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendCredentialsOutput)
+}
+
+type BackendCredentialsOutput struct { *pulumi.OutputState }
+
+func (o BackendCredentialsOutput) Authorization() BackendCredentialsAuthorizationOutput {
+	return o.Apply(func(v BackendCredentials) BackendCredentialsAuthorization {
+		if v.Authorization == nil { return *new(BackendCredentialsAuthorization) } else { return *v.Authorization }
+	}).(BackendCredentialsAuthorizationOutput)
+}
+
+func (o BackendCredentialsOutput) Certificates() pulumi.StringArrayOutput {
+	return o.Apply(func(v BackendCredentials) []string {
+		if v.Certificates == nil { return *new([]string) } else { return *v.Certificates }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BackendCredentialsOutput) Header() pulumi.StringMapOutput {
+	return o.Apply(func(v BackendCredentials) map[string]string {
+		if v.Header == nil { return *new(map[string]string) } else { return *v.Header }
+	}).(pulumi.StringMapOutput)
+}
+
+func (o BackendCredentialsOutput) Query() pulumi.StringMapOutput {
+	return o.Apply(func(v BackendCredentials) map[string]string {
+		if v.Query == nil { return *new(map[string]string) } else { return *v.Query }
+	}).(pulumi.StringMapOutput)
+}
+
+func (BackendCredentialsOutput) ElementType() reflect.Type {
+	return backendCredentialsType
+}
+
+func (o BackendCredentialsOutput) ToBackendCredentialsOutput() BackendCredentialsOutput {
+	return o
+}
+
+func (o BackendCredentialsOutput) ToBackendCredentialsOutputWithContext(ctx context.Context) BackendCredentialsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendCredentialsOutput{}) }
+
+type BackendCredentialsAuthorization struct {
+	Parameter *string `pulumi:"parameter"`
+	Scheme *string `pulumi:"scheme"`
+}
+var backendCredentialsAuthorizationType = reflect.TypeOf((*BackendCredentialsAuthorization)(nil)).Elem()
+
+type BackendCredentialsAuthorizationInput interface {
+	pulumi.Input
+
+	ToBackendCredentialsAuthorizationOutput() BackendCredentialsAuthorizationOutput
+	ToBackendCredentialsAuthorizationOutputWithContext(ctx context.Context) BackendCredentialsAuthorizationOutput
+}
+
+type BackendCredentialsAuthorizationArgs struct {
+	Parameter pulumi.StringInput `pulumi:"parameter"`
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+}
+
+func (BackendCredentialsAuthorizationArgs) ElementType() reflect.Type {
+	return backendCredentialsAuthorizationType
+}
+
+func (a BackendCredentialsAuthorizationArgs) ToBackendCredentialsAuthorizationOutput() BackendCredentialsAuthorizationOutput {
+	return pulumi.ToOutput(a).(BackendCredentialsAuthorizationOutput)
+}
+
+func (a BackendCredentialsAuthorizationArgs) ToBackendCredentialsAuthorizationOutputWithContext(ctx context.Context) BackendCredentialsAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendCredentialsAuthorizationOutput)
+}
+
+type BackendCredentialsAuthorizationOutput struct { *pulumi.OutputState }
+
+func (o BackendCredentialsAuthorizationOutput) Parameter() pulumi.StringOutput {
+	return o.Apply(func(v BackendCredentialsAuthorization) string {
+		if v.Parameter == nil { return *new(string) } else { return *v.Parameter }
+	}).(pulumi.StringOutput)
+}
+
+func (o BackendCredentialsAuthorizationOutput) Scheme() pulumi.StringOutput {
+	return o.Apply(func(v BackendCredentialsAuthorization) string {
+		if v.Scheme == nil { return *new(string) } else { return *v.Scheme }
+	}).(pulumi.StringOutput)
+}
+
+func (BackendCredentialsAuthorizationOutput) ElementType() reflect.Type {
+	return backendCredentialsAuthorizationType
+}
+
+func (o BackendCredentialsAuthorizationOutput) ToBackendCredentialsAuthorizationOutput() BackendCredentialsAuthorizationOutput {
+	return o
+}
+
+func (o BackendCredentialsAuthorizationOutput) ToBackendCredentialsAuthorizationOutputWithContext(ctx context.Context) BackendCredentialsAuthorizationOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendCredentialsAuthorizationOutput{}) }
+
+type BackendProxy struct {
+	Password *string `pulumi:"password"`
+	// The URL of the backend host.
+	Url string `pulumi:"url"`
+	Username string `pulumi:"username"`
+}
+var backendProxyType = reflect.TypeOf((*BackendProxy)(nil)).Elem()
+
+type BackendProxyInput interface {
+	pulumi.Input
+
+	ToBackendProxyOutput() BackendProxyOutput
+	ToBackendProxyOutputWithContext(ctx context.Context) BackendProxyOutput
+}
+
+type BackendProxyArgs struct {
+	Password pulumi.StringInput `pulumi:"password"`
+	// The URL of the backend host.
+	Url pulumi.StringInput `pulumi:"url"`
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (BackendProxyArgs) ElementType() reflect.Type {
+	return backendProxyType
+}
+
+func (a BackendProxyArgs) ToBackendProxyOutput() BackendProxyOutput {
+	return pulumi.ToOutput(a).(BackendProxyOutput)
+}
+
+func (a BackendProxyArgs) ToBackendProxyOutputWithContext(ctx context.Context) BackendProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendProxyOutput)
+}
+
+type BackendProxyOutput struct { *pulumi.OutputState }
+
+func (o BackendProxyOutput) Password() pulumi.StringOutput {
+	return o.Apply(func(v BackendProxy) string {
+		if v.Password == nil { return *new(string) } else { return *v.Password }
+	}).(pulumi.StringOutput)
+}
+
+// The URL of the backend host.
+func (o BackendProxyOutput) Url() pulumi.StringOutput {
+	return o.Apply(func(v BackendProxy) string {
+		return v.Url
+	}).(pulumi.StringOutput)
+}
+
+func (o BackendProxyOutput) Username() pulumi.StringOutput {
+	return o.Apply(func(v BackendProxy) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+func (BackendProxyOutput) ElementType() reflect.Type {
+	return backendProxyType
+}
+
+func (o BackendProxyOutput) ToBackendProxyOutput() BackendProxyOutput {
+	return o
+}
+
+func (o BackendProxyOutput) ToBackendProxyOutputWithContext(ctx context.Context) BackendProxyOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendProxyOutput{}) }
+
+type BackendServiceFabricCluster struct {
+	ClientCertificateThumbprint string `pulumi:"clientCertificateThumbprint"`
+	ManagementEndpoints []string `pulumi:"managementEndpoints"`
+	MaxPartitionResolutionRetries int `pulumi:"maxPartitionResolutionRetries"`
+	ServerCertificateThumbprints *[]string `pulumi:"serverCertificateThumbprints"`
+	ServerX509Names *[]BackendServiceFabricClusterServerX509Names `pulumi:"serverX509Names"`
+}
+var backendServiceFabricClusterType = reflect.TypeOf((*BackendServiceFabricCluster)(nil)).Elem()
+
+type BackendServiceFabricClusterInput interface {
+	pulumi.Input
+
+	ToBackendServiceFabricClusterOutput() BackendServiceFabricClusterOutput
+	ToBackendServiceFabricClusterOutputWithContext(ctx context.Context) BackendServiceFabricClusterOutput
+}
+
+type BackendServiceFabricClusterArgs struct {
+	ClientCertificateThumbprint pulumi.StringInput `pulumi:"clientCertificateThumbprint"`
+	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
+	MaxPartitionResolutionRetries pulumi.IntInput `pulumi:"maxPartitionResolutionRetries"`
+	ServerCertificateThumbprints pulumi.StringArrayInput `pulumi:"serverCertificateThumbprints"`
+	ServerX509Names BackendServiceFabricClusterServerX509NamesArrayInput `pulumi:"serverX509Names"`
+}
+
+func (BackendServiceFabricClusterArgs) ElementType() reflect.Type {
+	return backendServiceFabricClusterType
+}
+
+func (a BackendServiceFabricClusterArgs) ToBackendServiceFabricClusterOutput() BackendServiceFabricClusterOutput {
+	return pulumi.ToOutput(a).(BackendServiceFabricClusterOutput)
+}
+
+func (a BackendServiceFabricClusterArgs) ToBackendServiceFabricClusterOutputWithContext(ctx context.Context) BackendServiceFabricClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendServiceFabricClusterOutput)
+}
+
+type BackendServiceFabricClusterOutput struct { *pulumi.OutputState }
+
+func (o BackendServiceFabricClusterOutput) ClientCertificateThumbprint() pulumi.StringOutput {
+	return o.Apply(func(v BackendServiceFabricCluster) string {
+		return v.ClientCertificateThumbprint
+	}).(pulumi.StringOutput)
+}
+
+func (o BackendServiceFabricClusterOutput) ManagementEndpoints() pulumi.StringArrayOutput {
+	return o.Apply(func(v BackendServiceFabricCluster) []string {
+		return v.ManagementEndpoints
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BackendServiceFabricClusterOutput) MaxPartitionResolutionRetries() pulumi.IntOutput {
+	return o.Apply(func(v BackendServiceFabricCluster) int {
+		return v.MaxPartitionResolutionRetries
+	}).(pulumi.IntOutput)
+}
+
+func (o BackendServiceFabricClusterOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
+	return o.Apply(func(v BackendServiceFabricCluster) []string {
+		if v.ServerCertificateThumbprints == nil { return *new([]string) } else { return *v.ServerCertificateThumbprints }
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BackendServiceFabricClusterOutput) ServerX509Names() BackendServiceFabricClusterServerX509NamesArrayOutput {
+	return o.Apply(func(v BackendServiceFabricCluster) []BackendServiceFabricClusterServerX509Names {
+		if v.ServerX509Names == nil { return *new([]BackendServiceFabricClusterServerX509Names) } else { return *v.ServerX509Names }
+	}).(BackendServiceFabricClusterServerX509NamesArrayOutput)
+}
+
+func (BackendServiceFabricClusterOutput) ElementType() reflect.Type {
+	return backendServiceFabricClusterType
+}
+
+func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterOutput() BackendServiceFabricClusterOutput {
+	return o
+}
+
+func (o BackendServiceFabricClusterOutput) ToBackendServiceFabricClusterOutputWithContext(ctx context.Context) BackendServiceFabricClusterOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendServiceFabricClusterOutput{}) }
+
+type BackendServiceFabricClusterServerX509Names struct {
+	IssuerCertificateThumbprint string `pulumi:"issuerCertificateThumbprint"`
+	// The name of the API Management backend. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+var backendServiceFabricClusterServerX509NamesType = reflect.TypeOf((*BackendServiceFabricClusterServerX509Names)(nil)).Elem()
+
+type BackendServiceFabricClusterServerX509NamesInput interface {
+	pulumi.Input
+
+	ToBackendServiceFabricClusterServerX509NamesOutput() BackendServiceFabricClusterServerX509NamesOutput
+	ToBackendServiceFabricClusterServerX509NamesOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NamesOutput
+}
+
+type BackendServiceFabricClusterServerX509NamesArgs struct {
+	IssuerCertificateThumbprint pulumi.StringInput `pulumi:"issuerCertificateThumbprint"`
+	// The name of the API Management backend. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (BackendServiceFabricClusterServerX509NamesArgs) ElementType() reflect.Type {
+	return backendServiceFabricClusterServerX509NamesType
+}
+
+func (a BackendServiceFabricClusterServerX509NamesArgs) ToBackendServiceFabricClusterServerX509NamesOutput() BackendServiceFabricClusterServerX509NamesOutput {
+	return pulumi.ToOutput(a).(BackendServiceFabricClusterServerX509NamesOutput)
+}
+
+func (a BackendServiceFabricClusterServerX509NamesArgs) ToBackendServiceFabricClusterServerX509NamesOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NamesOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendServiceFabricClusterServerX509NamesOutput)
+}
+
+type BackendServiceFabricClusterServerX509NamesOutput struct { *pulumi.OutputState }
+
+func (o BackendServiceFabricClusterServerX509NamesOutput) IssuerCertificateThumbprint() pulumi.StringOutput {
+	return o.Apply(func(v BackendServiceFabricClusterServerX509Names) string {
+		return v.IssuerCertificateThumbprint
+	}).(pulumi.StringOutput)
+}
+
+// The name of the API Management backend. Changing this forces a new resource to be created.
+func (o BackendServiceFabricClusterServerX509NamesOutput) Name() pulumi.StringOutput {
+	return o.Apply(func(v BackendServiceFabricClusterServerX509Names) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+func (BackendServiceFabricClusterServerX509NamesOutput) ElementType() reflect.Type {
+	return backendServiceFabricClusterServerX509NamesType
+}
+
+func (o BackendServiceFabricClusterServerX509NamesOutput) ToBackendServiceFabricClusterServerX509NamesOutput() BackendServiceFabricClusterServerX509NamesOutput {
+	return o
+}
+
+func (o BackendServiceFabricClusterServerX509NamesOutput) ToBackendServiceFabricClusterServerX509NamesOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NamesOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendServiceFabricClusterServerX509NamesOutput{}) }
+
+var backendServiceFabricClusterServerX509NamesArrayType = reflect.TypeOf((*[]BackendServiceFabricClusterServerX509Names)(nil)).Elem()
+
+type BackendServiceFabricClusterServerX509NamesArrayInput interface {
+	pulumi.Input
+
+	ToBackendServiceFabricClusterServerX509NamesArrayOutput() BackendServiceFabricClusterServerX509NamesArrayOutput
+	ToBackendServiceFabricClusterServerX509NamesArrayOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NamesArrayOutput
+}
+
+type BackendServiceFabricClusterServerX509NamesArrayArgs []BackendServiceFabricClusterServerX509NamesInput
+
+func (BackendServiceFabricClusterServerX509NamesArrayArgs) ElementType() reflect.Type {
+	return backendServiceFabricClusterServerX509NamesArrayType
+}
+
+func (a BackendServiceFabricClusterServerX509NamesArrayArgs) ToBackendServiceFabricClusterServerX509NamesArrayOutput() BackendServiceFabricClusterServerX509NamesArrayOutput {
+	return pulumi.ToOutput(a).(BackendServiceFabricClusterServerX509NamesArrayOutput)
+}
+
+func (a BackendServiceFabricClusterServerX509NamesArrayArgs) ToBackendServiceFabricClusterServerX509NamesArrayOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NamesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendServiceFabricClusterServerX509NamesArrayOutput)
+}
+
+type BackendServiceFabricClusterServerX509NamesArrayOutput struct { *pulumi.OutputState }
+
+func (o BackendServiceFabricClusterServerX509NamesArrayOutput) Index(i pulumi.IntInput) BackendServiceFabricClusterServerX509NamesOutput {
+	return pulumi.All(o, i).Apply(func(vs []interface{}) BackendServiceFabricClusterServerX509Names {
+		return vs[0].([]BackendServiceFabricClusterServerX509Names)[vs[1].(int)]
+	}).(BackendServiceFabricClusterServerX509NamesOutput)
+}
+
+func (BackendServiceFabricClusterServerX509NamesArrayOutput) ElementType() reflect.Type {
+	return backendServiceFabricClusterServerX509NamesArrayType
+}
+
+func (o BackendServiceFabricClusterServerX509NamesArrayOutput) ToBackendServiceFabricClusterServerX509NamesArrayOutput() BackendServiceFabricClusterServerX509NamesArrayOutput {
+	return o
+}
+
+func (o BackendServiceFabricClusterServerX509NamesArrayOutput) ToBackendServiceFabricClusterServerX509NamesArrayOutputWithContext(ctx context.Context) BackendServiceFabricClusterServerX509NamesArrayOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendServiceFabricClusterServerX509NamesArrayOutput{}) }
+
+type BackendTls struct {
+	ValidateCertificateChain *bool `pulumi:"validateCertificateChain"`
+	ValidateCertificateName *bool `pulumi:"validateCertificateName"`
+}
+var backendTlsType = reflect.TypeOf((*BackendTls)(nil)).Elem()
+
+type BackendTlsInput interface {
+	pulumi.Input
+
+	ToBackendTlsOutput() BackendTlsOutput
+	ToBackendTlsOutputWithContext(ctx context.Context) BackendTlsOutput
+}
+
+type BackendTlsArgs struct {
+	ValidateCertificateChain pulumi.BoolInput `pulumi:"validateCertificateChain"`
+	ValidateCertificateName pulumi.BoolInput `pulumi:"validateCertificateName"`
+}
+
+func (BackendTlsArgs) ElementType() reflect.Type {
+	return backendTlsType
+}
+
+func (a BackendTlsArgs) ToBackendTlsOutput() BackendTlsOutput {
+	return pulumi.ToOutput(a).(BackendTlsOutput)
+}
+
+func (a BackendTlsArgs) ToBackendTlsOutputWithContext(ctx context.Context) BackendTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, a).(BackendTlsOutput)
+}
+
+type BackendTlsOutput struct { *pulumi.OutputState }
+
+func (o BackendTlsOutput) ValidateCertificateChain() pulumi.BoolOutput {
+	return o.Apply(func(v BackendTls) bool {
+		if v.ValidateCertificateChain == nil { return *new(bool) } else { return *v.ValidateCertificateChain }
+	}).(pulumi.BoolOutput)
+}
+
+func (o BackendTlsOutput) ValidateCertificateName() pulumi.BoolOutput {
+	return o.Apply(func(v BackendTls) bool {
+		if v.ValidateCertificateName == nil { return *new(bool) } else { return *v.ValidateCertificateName }
+	}).(pulumi.BoolOutput)
+}
+
+func (BackendTlsOutput) ElementType() reflect.Type {
+	return backendTlsType
+}
+
+func (o BackendTlsOutput) ToBackendTlsOutput() BackendTlsOutput {
+	return o
+}
+
+func (o BackendTlsOutput) ToBackendTlsOutputWithContext(ctx context.Context) BackendTlsOutput {
+	return o
+}
+
+func init() { pulumi.RegisterOutputType(BackendTlsOutput{}) }
+
