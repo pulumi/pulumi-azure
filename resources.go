@@ -1441,7 +1441,165 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	renameLegacyModules(&prov)
+	// New Authorization Mod - this combines the old MSI and Role Modules
+	prov.RenameResourceWithAlias("azurerm_role_assignment", azureResource(azureLegacyRole, "Assignment"),
+		azureResource(azureAuthorization, "Assignment"), azureLegacyRole, azureAuthorization, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
+				azureName: {Name: azureName},
+			},
+		})
+	prov.RenameResourceWithAlias("azurerm_role_definition", azureResource(azureLegacyRole, "Definition"),
+		azureResource(azureAuthorization, "RoleDefinition"), azureLegacyRole, azureAuthorization, nil)
+	prov.RenameResourceWithAlias("azurerm_user_assigned_identity", azureResource(azureLegacyMSI, "UserAssignedIdentity"),
+		azureResource(azureAuthorization, "UserAssignedIdentity"), azureLegacyMSI, azureAuthorization, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "user_assigned_identity.markdown",
+			},
+		})
+	prov.RenameDataSource("azurerm_role_definition", azureDataSource(azureLegacyRole, "getRoleDefinition"),
+		azureDataSource(azureAuthorization, "getRoleDefinition"), azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "role_definition.markdown",
+			},
+		})
+	prov.RenameDataSource("azurerm_builtin_role_definition", azureDataSource(azureLegacyRole, "getBuiltinRoleDefinition"),
+		azureDataSource(azureAuthorization, "getBuiltinRoleDefinition"), azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "builtin_role_definition.markdown",
+			},
+		})
+	prov.RenameDataSource("azurerm_user_assigned_identity", azureDataSource(azureCore, "getUserAssignedIdentity"),
+		azureDataSource(azureAuthorization, "getUserAssignedIdentity"), azureCore, azureAuthorization, nil)
+
+	// Migrate azureLegacyManagementGroups -> azureManagement
+	prov.RenameResourceWithAlias("azurerm_management_group", azureResource(azureLegacyManagementGroups, "ManagementGroup"),
+		azureResource(azureManagement, "Group"), azureLegacyManagementGroups, azureManagement, nil)
+	prov.RenameDataSource("azurerm_management_group", azureDataSource(azureLegacyManagementGroups, "getManagementGroup"),
+		azureDataSource(azureManagement, "getGroup"), azureLegacyManagementGroups, azureManagement, nil)
+
+	// Migrate azureLegacyMgmtResource -> azureManagement
+	prov.RenameResourceWithAlias("azurerm_management_lock", azureResource(azureLegacyMgmtResource, "ManangementLock"),
+		azureResource(azureManagement, "Lock"), azureLegacyMgmtResource, azureManagement, nil)
+
+	// Migrate `azurerm_event_grid_*` to new EventGrid Mod
+	prov.RenameResourceWithAlias("azurerm_eventgrid_domain", azureResource(azureEventHub, "Domain"),
+		azureResource(azureEventGrid, "Domain"), azureEventHub, azureEventGrid, nil)
+	prov.RenameResourceWithAlias("azurerm_eventgrid_event_subscription", azureResource(azureEventHub, "EventSubscription"),
+		azureResource(azureEventGrid, "EventSubscription"), azureEventHub, azureEventGrid, nil)
+	prov.RenameResourceWithAlias("azurerm_eventgrid_topic", azureResource(azureEventHub, "EventGridTopic"),
+		azureResource(azureEventGrid, "Topic"), azureEventHub, azureEventGrid, nil)
+
+	// Migrate `azurerm_servicebus_*` to new ServiceBus Mod
+	prov.RenameResourceWithAlias("azurerm_servicebus_namespace", azureResource(azureEventHub, "Namespace"),
+		azureResource(azureServiceBus, "Namespace"), azureEventHub, azureServiceBus, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
+				// Max length of a servicehub namespace is 50.
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    50,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
+			},
+		})
+	prov.RenameResourceWithAlias("azurerm_servicebus_namespace_authorization_rule",
+		azureResource(azureEventHub, "NamespaceAuthorizationRule"),
+		azureResource(azureServiceBus, "NamespaceAuthorizationRule"),
+		azureEventHub, azureServiceBus, nil)
+	prov.RenameResourceWithAlias("azurerm_servicebus_queue", azureResource(azureEventHub, "Queue"),
+		azureResource(azureServiceBus, "Queue"), azureEventHub, azureServiceBus, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+				// Max length of a servicehub queue is 260.
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    260,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
+			},
+		})
+	prov.RenameResourceWithAlias("azurerm_servicebus_queue_authorization_rule",
+		azureResource(azureEventHub, "QueueAuthorizationRule"), azureResource(azureServiceBus, "QueueAuthorizationRule"),
+		azureEventHub, azureServiceBus, nil)
+	prov.RenameResourceWithAlias("azurerm_servicebus_subscription",
+		azureResource(azureEventHub, "Subscription"), azureResource(azureServiceBus, "Subscription"),
+		azureEventHub, azureServiceBus, nil)
+	prov.RenameResourceWithAlias("azurerm_servicebus_subscription_rule",
+		azureResource(azureEventHub, "SubscriptionRule"), azureResource(azureServiceBus, "SubscriptionRule"),
+		azureEventHub, azureServiceBus, nil)
+	prov.RenameResourceWithAlias("azurerm_servicebus_topic",
+		azureResource(azureEventHub, "Topic"), azureResource(azureServiceBus, "Topic"),
+		azureEventHub, azureServiceBus, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+				// Max length of a servicehub topic is 260.
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    260,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
+			},
+		})
+	prov.RenameResourceWithAlias("azurerm_servicebus_topic_authorization_rule",
+		azureResource(azureEventHub, "TopicAuthorizationRule"), azureResource(azureServiceBus, "TopicAuthorizationRule"),
+		azureEventHub, azureServiceBus, nil)
+	prov.RenameDataSource("azurerm_servicebus_namespace",
+		azureDataSource(azureEventHub, "getServiceBusNamespace"), azureDataSource(azureServiceBus, "getNamespace"),
+		azureEventHub, azureServiceBus, nil)
+
+	// Rename Eventhub Resources
+	prov.RenameResourceWithAlias("azurerm_eventhub_authorization_rule",
+		azureResource(azureEventHub, "EventHubAuthorizationRule"), azureResource(azureEventHub, "AuthorizationRule"),
+		azureEventHub, azureEventHub, nil)
+	prov.RenameResourceWithAlias("azurerm_eventhub_consumer_group",
+		azureResource(azureEventHub, "EventHubConsumerGroup"), azureResource(azureEventHub, "ConsumerGroup"),
+		azureEventHub, azureEventHub, nil)
+	prov.RenameDataSource("azurerm_eventhub_namespace",
+		azureDataSource(azureEventHub, "getEventhubNamespace"), azureDataSource(azureEventHub, "getNamespace"),
+		azureEventHub, azureEventHub, nil)
+
+	// Migrate `azurerm_traffic_manager_*` to network module
+	prov.RenameResourceWithAlias("azurerm_traffic_manager_endpoint",
+		azureResource(azureLegacyTrafficManager, "Endpoint"), azureResource(azureNetwork, "TrafficManagerEndpoint"),
+		azureLegacyTrafficManager, azureNetwork, nil)
+	prov.RenameResourceWithAlias("azurerm_traffic_manager_profile",
+		azureResource(azureLegacyTrafficManager, "Profile"), azureResource(azureNetwork, "TrafficManagerProfile"),
+		azureLegacyTrafficManager, azureNetwork, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// Max length of a Traffic Manager Profile is 80.
+				// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
+				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+					Separator: "",
+					Maxlen:    80,
+					Randlen:   8,
+					Transform: func(name string) string {
+						return strings.ToLower(name)
+					},
+				}),
+			}})
+	prov.RenameDataSource("azurerm_traffic_manager_geographical_location",
+		azureDataSource(azureLegacyTrafficManager, "getGeographicalLocation"),
+		azureDataSource(azureNetwork, "getTrafficManager"), azureLegacyTrafficManager, azureNetwork, nil)
+
+	// Fix the spelling on the KeyVault Certificate
+	prov.RenameResourceWithAlias("azurerm_key_vault_certificate",
+		azureResource(azureKeyVault, "Certifiate"), azureResource(azureKeyVault, "Certificate"),
+		azureKeyVault, azureKeyVault, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"certificate": {
+					CSharpName: "KeyVaultCertificate",
+				},
+			}})
 
 	// TODO[pulumi/pulumi#280]: Until we can pass an Archive as an Asset, create a resource type
 	// specifically for uploading ZIP blobs to Azure storage.
@@ -1549,237 +1707,4 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	return prov
-}
-
-func renameLegacyModules(prov *tfbridge.ProviderInfo) {
-
-	renameResourceWithAlias := func(
-		tfName string,
-		tokName string,
-		newTokName string,
-		legacyModule string,
-		currentModule string,
-		info *tfbridge.ResourceInfo) {
-
-		legacyTFName := tfName + "_legacy"
-
-		if info == nil {
-			info = &tfbridge.ResourceInfo{}
-		}
-		legacyInfo := *info
-		currentInfo := *info
-
-		legacyInfo.Tok = azureResource(legacyModule, tokName)
-		legacyType := legacyInfo.Tok.String()
-
-		if newTokName != "" {
-			tokName = newTokName
-		}
-
-		currentInfo.Tok = azureResource(currentModule, tokName)
-		currentInfo.Aliases = []tfbridge.AliasInfo{
-			{Type: &legacyType},
-		}
-
-		if legacyInfo.Docs == nil {
-			legacyInfo.Docs = &tfbridge.DocInfo{
-				Source: tfName[len("azurerm_"):] + ".html.markdown",
-			}
-		}
-
-		prov.Resources[tfName] = &currentInfo
-		prov.Resources[legacyTFName] = &legacyInfo
-		prov.P.ResourcesMap[legacyTFName] = prov.P.ResourcesMap[tfName]
-	}
-
-	renameDataSourceWithAlias := func(
-		tfName string,
-		tokName string,
-		newTokName string,
-		legacyModule string,
-		currentModule string,
-		info *tfbridge.DataSourceInfo) {
-
-		legacyTFName := tfName + "_legacy"
-
-		if info == nil {
-			info = &tfbridge.DataSourceInfo{}
-		}
-		legacyInfo := *info
-		currentInfo := *info
-
-		legacyInfo.Tok = azureDataSource(legacyModule, tokName)
-
-		if newTokName != "" {
-			tokName = newTokName
-		}
-
-		currentInfo.Tok = azureDataSource(currentModule, tokName)
-
-		if legacyInfo.Docs == nil {
-			legacyInfo.Docs = &tfbridge.DocInfo{
-				Source: tfName[len("azurerm_"):] + ".html.markdown",
-			}
-		}
-
-		prov.DataSources[tfName] = &currentInfo
-		prov.DataSources[legacyTFName] = &legacyInfo
-		prov.P.DataSourcesMap[legacyTFName] = prov.P.DataSourcesMap[tfName]
-	}
-
-	// New Authorization Mod - this combines the old MSI and Role Modules
-	renameResourceWithAlias("azurerm_role_assignment", "Assignment", "", azureLegacyRole, azureAuthorization,
-		&tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
-				azureName: {Name: azureName},
-			},
-		},
-	)
-	renameResourceWithAlias("azurerm_role_definition", "Definition", "RoleDefinition", azureLegacyRole,
-		azureAuthorization, nil)
-	renameResourceWithAlias("azurerm_user_assigned_identity", "UserAssignedIdentity", "", azureLegacyMSI,
-		azureAuthorization, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{
-				Source: "user_assigned_identity.markdown",
-			},
-		},
-	)
-	renameDataSourceWithAlias("azurerm_role_definition", "getRoleDefinition", "",
-		azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{
-				Source: "role_definition.markdown",
-			},
-		},
-	)
-	renameDataSourceWithAlias("azurerm_builtin_role_definition", "getBuiltinRoleDefinition", "",
-		azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{
-				Source: "builtin_role_definition.markdown",
-			},
-		},
-	)
-	renameDataSourceWithAlias("azurerm_user_assigned_identity", "getUserAssignedIdentity", "",
-		azureCore, azureAuthorization, nil)
-
-	// Migrate azureLegacyManagementGroups -> azureManagement
-	renameResourceWithAlias("azurerm_management_group", "ManagementGroup", "Group",
-		azureLegacyManagementGroups, azureManagement, nil)
-	renameDataSourceWithAlias("azurerm_management_group", "getManagementGroup", "getGroup",
-		azureLegacyManagementGroups, azureManagement, nil)
-
-	// Migrate azureLegacyMgmtResource -> azureManagement
-	renameResourceWithAlias("azurerm_management_lock", "ManangementLock", "Lock",
-		azureLegacyMgmtResource, azureManagement, nil)
-
-	// Migrate `azurerm_event_grid_*` to new EventGrid Mod
-	renameResourceWithAlias("azurerm_eventgrid_domain", "Domain", "", azureEventHub, azureEventGrid,
-		nil)
-	renameResourceWithAlias("azurerm_eventgrid_event_subscription", "EventSubscription", "",
-		azureEventHub, azureEventGrid, nil)
-	renameResourceWithAlias("azurerm_eventgrid_topic", "EventGridTopic", "Topic", azureEventHub,
-		azureEventGrid, nil)
-
-	// Migrate `azurerm_servicebus_*` to new ServiceBus Mod
-	renameResourceWithAlias("azurerm_servicebus_namespace", "Namespace", "", azureEventHub,
-		azureServiceBus, &tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
-				// Max length of a servicehub namespace is 50.
-				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-					Separator: "",
-					Maxlen:    50,
-					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
-				}),
-			},
-		},
-	)
-	renameResourceWithAlias("azurerm_servicebus_namespace_authorization_rule", "NamespaceAuthorizationRule",
-		"", azureEventHub, azureServiceBus, nil)
-	renameResourceWithAlias("azurerm_servicebus_queue", "Queue", "", azureEventHub, azureServiceBus,
-		&tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
-				// Max length of a servicehub queue is 260.
-				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-					Separator: "",
-					Maxlen:    260,
-					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
-				}),
-			},
-		},
-	)
-	renameResourceWithAlias("azurerm_servicebus_queue_authorization_rule", "QueueAuthorizationRule",
-		"", azureEventHub, azureServiceBus, nil)
-	renameResourceWithAlias("azurerm_servicebus_subscription", "Subscription", "",
-		azureEventHub, azureServiceBus, nil)
-	renameResourceWithAlias("azurerm_servicebus_subscription_rule", "SubscriptionRule", "",
-		azureEventHub, azureServiceBus, nil)
-	renameResourceWithAlias("azurerm_servicebus_topic", "Topic", "", azureEventHub, azureServiceBus,
-		&tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
-				// Max length of a servicehub topic is 260.
-				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-					Separator: "",
-					Maxlen:    260,
-					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
-				}),
-			},
-		},
-	)
-	renameResourceWithAlias("azurerm_servicebus_topic_authorization_rule", "TopicAuthorizationRule", "",
-		azureEventHub, azureServiceBus, nil)
-	renameDataSourceWithAlias("azurerm_servicebus_namespace", "getServiceBusNamespace", "getNamespace",
-		azureEventHub, azureServiceBus, nil)
-
-	// Rename Eventhub Resources
-	renameDataSourceWithAlias("azurerm_eventhub_namespace", "getEventhubNamespace", "getNamespace",
-		azureEventHub, azureEventHub, nil)
-	renameResourceWithAlias("azurerm_eventhub_authorization_rule", "EventHubAuthorizationRule", "AuthorizationRule",
-		azureEventHub, azureEventHub, nil)
-	renameResourceWithAlias("azurerm_eventhub_consumer_group", "EventHubConsumerGroup", "ConsumerGroup",
-		azureEventHub, azureEventHub, nil)
-
-	// Migrate `azurerm_traffic_manager_*` to network module
-	renameResourceWithAlias("azurerm_traffic_manager_endpoint", "Endpoint", "TrafficManagerEndpoint",
-		azureLegacyTrafficManager, azureNetwork, nil)
-	renameResourceWithAlias("azurerm_traffic_manager_profile", "Profile", "TrafficManagerProfile",
-		azureLegacyTrafficManager, azureNetwork, &tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				// Max length of a Traffic Manager Profile is 80.
-				// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-				azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-					Separator: "",
-					Maxlen:    80,
-					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
-				}),
-			},
-		},
-	)
-	renameDataSourceWithAlias("azurerm_traffic_manager_geographical_location", "getGeographicalLocation",
-		"getTrafficManager", azureLegacyTrafficManager, azureNetwork, nil)
-
-	// Fix the spelling on the KeyVault Certificate
-	renameResourceWithAlias("azurerm_key_vault_certificate", "Certifiate", "Certificate",
-		azureKeyVault, azureKeyVault, &tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"certificate": {
-					CSharpName: "KeyVaultCertificate",
-				},
-			},
-		},
-	)
 }
