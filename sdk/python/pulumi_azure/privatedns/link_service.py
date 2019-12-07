@@ -12,15 +12,15 @@ from .. import utilities, tables
 class LinkService(pulumi.CustomResource):
     alias: pulumi.Output[str]
     """
-    The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+    A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
     """
     auto_approval_subscription_ids: pulumi.Output[list]
     """
-    A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+    A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
     """
     load_balancer_frontend_ip_configuration_ids: pulumi.Output[list]
     """
-    A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+    A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
     """
     location: pulumi.Output[str]
     """
@@ -28,13 +28,13 @@ class LinkService(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the private link service. Changing this forces a new resource to be created.
+    Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
     """
     nat_ip_configurations: pulumi.Output[list]
     """
-    A `nat_ip_configuration` block as defined below.
+    One or more (up to 8) `nat_ip_configuration` block as defined below.
     
-      * `name` (`str`) - The name of the private link service. Changing this forces a new resource to be created.
+      * `name` (`str`) - Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
       * `primary` (`bool`)
       * `private_ip_address` (`str`)
       * `privateIpAddressVersion` (`str`)
@@ -43,7 +43,7 @@ class LinkService(pulumi.CustomResource):
     network_interface_ids: pulumi.Output[list]
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+    The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -51,26 +51,28 @@ class LinkService(pulumi.CustomResource):
     """
     visibility_subscription_ids: pulumi.Output[list]
     """
-    A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+    A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
     """
     def __init__(__self__, resource_name, opts=None, auto_approval_subscription_ids=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an Azure Private Link Service.
+        Manages a Private Link Service.
+        
+        > **NOTE** Private Link is currently in Public Preview.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] auto_approval_subscription_ids: A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
-        :param pulumi.Input[list] load_balancer_frontend_ip_configuration_ids: A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+        :param pulumi.Input[list] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[list] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the private link service. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] nat_ip_configurations: A `nat_ip_configuration` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] visibility_subscription_ids: A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+        :param pulumi.Input[list] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         
         The **nat_ip_configurations** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The name of the private link service. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
           * `primary` (`pulumi.Input[bool]`)
           * `private_ip_address` (`pulumi.Input[str]`)
           * `privateIpAddressVersion` (`pulumi.Input[str]`)
@@ -126,19 +128,19 @@ class LinkService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
-        :param pulumi.Input[list] auto_approval_subscription_ids: A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
-        :param pulumi.Input[list] load_balancer_frontend_ip_configuration_ids: A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+        :param pulumi.Input[str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
+        :param pulumi.Input[list] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[list] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the private link service. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] nat_ip_configurations: A `nat_ip_configuration` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] visibility_subscription_ids: A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+        :param pulumi.Input[list] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         
         The **nat_ip_configurations** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The name of the private link service. Changing this forces a new resource to be created.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
           * `primary` (`pulumi.Input[bool]`)
           * `private_ip_address` (`pulumi.Input[str]`)
           * `privateIpAddressVersion` (`pulumi.Input[str]`)

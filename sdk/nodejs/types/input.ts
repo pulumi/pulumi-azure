@@ -1308,7 +1308,7 @@ export namespace compute {
          */
         osState?: pulumi.Input<string>;
         /**
-         * Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+         * Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
          */
         osType?: pulumi.Input<string>;
         /**
@@ -5149,6 +5149,18 @@ export namespace network {
         storagePath?: pulumi.Input<string>;
     }
 
+    export interface PointToPointVpnGatewayConnectionConfiguration {
+        /**
+         * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        vpnClientAddressPool: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool>;
+    }
+
+    export interface PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+        addressPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ProfileContainerNetworkInterface {
         ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.ProfileContainerNetworkInterfaceIpConfiguration>[]>;
         /**
@@ -5229,6 +5241,11 @@ export namespace network {
         toleratedNumberOfFailures?: pulumi.Input<number>;
     }
 
+    export interface VirtualHubRoute {
+        addressPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+        nextHopIpAddress: pulumi.Input<string>;
+    }
+
     export interface VirtualNetworkDdosProtectionPlan {
         enable: pulumi.Input<boolean>;
         /**
@@ -5304,6 +5321,74 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         securityGroup?: pulumi.Input<string>;
+    }
+
+    export interface VpnGatewayBgpSetting {
+        asn: pulumi.Input<number>;
+        /**
+         * The Address which should be used for the BGP Peering.
+         */
+        bgpPeeringAddress?: pulumi.Input<string>;
+        peerWeight: pulumi.Input<number>;
+    }
+
+    export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {
+        audience: pulumi.Input<string>;
+        issuer: pulumi.Input<string>;
+        tenant: pulumi.Input<string>;
+    }
+
+    export interface VpnServerConfigurationClientRevokedCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        thumbprint: pulumi.Input<string>;
+    }
+
+    export interface VpnServerConfigurationClientRootCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        publicCertData: pulumi.Input<string>;
+    }
+
+    export interface VpnServerConfigurationIpsecPolicy {
+        dhGroup: pulumi.Input<string>;
+        ikeEncryption: pulumi.Input<string>;
+        ikeIntegrity: pulumi.Input<string>;
+        ipsecEncryption: pulumi.Input<string>;
+        ipsecIntegrity: pulumi.Input<string>;
+        pfsGroup: pulumi.Input<string>;
+        saDataSizeKilobytes: pulumi.Input<number>;
+        saLifetimeSeconds: pulumi.Input<number>;
+    }
+
+    export interface VpnServerConfigurationRadiusServer {
+        address: pulumi.Input<string>;
+        /**
+         * One or more `clientRootCertificate` blocks as defined below.
+         */
+        clientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusServerClientRootCertificate>[]>;
+        secret: pulumi.Input<string>;
+        serverRootCertificates: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationRadiusServerServerRootCertificate>[]>;
+    }
+
+    export interface VpnServerConfigurationRadiusServerClientRootCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        thumbprint: pulumi.Input<string>;
+    }
+
+    export interface VpnServerConfigurationRadiusServerServerRootCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        publicCertData: pulumi.Input<string>;
     }
 }
 
@@ -5399,15 +5484,43 @@ export namespace postgresql {
 }
 
 export namespace privatedns {
+    export interface LinkEndpointPrivateServiceConnection {
+        /**
+         * Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+         */
+        isManualConnection: pulumi.Input<boolean>;
+        /**
+         * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
+         */
+        privateConnectionResourceId: pulumi.Input<string>;
+        /**
+         * A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+         */
+        requestMessage?: pulumi.Input<string>;
+        /**
+         * A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
+         */
+        subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface LinkServiceNatIpConfiguration {
         /**
-         * The name of the private link service. Changing this forces a new resource to be created.
+         * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         primary: pulumi.Input<boolean>;
         privateIpAddress?: pulumi.Input<string>;
         privateIpAddressVersion?: pulumi.Input<string>;
         subnetId: pulumi.Input<string>;
+    }
+
+    export interface MxRecordRecord {
+        exchange: pulumi.Input<string>;
+        preference: pulumi.Input<number>;
     }
 
     export interface SRVRecordRecord {

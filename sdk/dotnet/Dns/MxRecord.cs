@@ -15,6 +15,12 @@ namespace Pulumi.Azure.Dns
     public partial class MxRecord : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN of the DNS MX Record.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the DNS MX Record.
         /// </summary>
         [Output("name")]
@@ -151,6 +157,12 @@ namespace Pulumi.Azure.Dns
 
     public sealed class MxRecordState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The FQDN of the DNS MX Record.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
         /// <summary>
         /// The name of the DNS MX Record.
         /// </summary>

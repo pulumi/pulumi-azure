@@ -57,7 +57,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
-        /// The pipeline parameters that the the trigger will act upon.
+        /// The pipeline parameters that the trigger will act upon.
         /// </summary>
         [Output("pipelineParameters")]
         public Output<ImmutableDictionary<string, string>?> PipelineParameters { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _pipelineParameters;
 
         /// <summary>
-        /// The pipeline parameters that the the trigger will act upon.
+        /// The pipeline parameters that the trigger will act upon.
         /// </summary>
         public InputMap<string> PipelineParameters
         {
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _pipelineParameters;
 
         /// <summary>
-        /// The pipeline parameters that the the trigger will act upon.
+        /// The pipeline parameters that the trigger will act upon.
         /// </summary>
         public InputMap<string> PipelineParameters
         {

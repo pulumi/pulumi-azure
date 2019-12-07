@@ -38,7 +38,7 @@ class Image(pulumi.CustomResource):
       * `caching` (`str`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
       * `managed_disk_id` (`str`) - Specifies the ID of the managed disk resource that you want to use to create the image.
       * `osState` (`str`) - Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
-      * `os_type` (`str`) - Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+      * `os_type` (`str`) - Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
       * `sizeGb` (`float`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
     """
     resource_group_name: pulumi.Output[str]
@@ -90,7 +90,7 @@ class Image(pulumi.CustomResource):
           * `caching` (`pulumi.Input[str]`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
           * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of the managed disk resource that you want to use to create the image.
           * `osState` (`pulumi.Input[str]`) - Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
-          * `os_type` (`pulumi.Input[str]`) - Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+          * `os_type` (`pulumi.Input[str]`) - Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
           * `sizeGb` (`pulumi.Input[float]`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
@@ -163,7 +163,7 @@ class Image(pulumi.CustomResource):
           * `caching` (`pulumi.Input[str]`) - Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
           * `managed_disk_id` (`pulumi.Input[str]`) - Specifies the ID of the managed disk resource that you want to use to create the image.
           * `osState` (`pulumi.Input[str]`) - Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
-          * `os_type` (`pulumi.Input[str]`) - Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+          * `os_type` (`pulumi.Input[str]`) - Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
           * `sizeGb` (`pulumi.Input[float]`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.

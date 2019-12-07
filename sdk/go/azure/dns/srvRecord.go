@@ -46,6 +46,7 @@ func NewSrvRecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/srvRecord:SrvRecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetSrvRecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *SrvRecordState, opts ...pulumi.ResourceOpt) (*SrvRecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -81,6 +83,11 @@ func (r *SrvRecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SrvRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS SRV Record.
+func (r *SrvRecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS SRV Record.
@@ -115,6 +122,8 @@ func (r *SrvRecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering SrvRecord resources.
 type SrvRecordState struct {
+	// The FQDN of the DNS SRV Record.
+	Fqdn interface{}
 	// The name of the DNS SRV Record.
 	Name interface{}
 	// A list of values that make up the SRV record. Each `record` block supports fields documented below.

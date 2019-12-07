@@ -12,6 +12,8 @@ namespace Pulumi.Azure.PrivateLink
         /// <summary>
         /// Use this data source to access information about an existing Private Link Service.
         /// 
+        /// &gt; **NOTE** Private Link is currently in Public Preview.
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
         /// </summary>
         public static Task<GetServiceResult> GetService(GetServiceArgs args, InvokeOptions? options = null)
@@ -126,11 +128,11 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly string PrivateIpAddress;
         /// <summary>
-        /// The ip address version of the `ip_configuration`.
+        /// The version of the IP Protocol.
         /// </summary>
         public readonly string PrivateIpAddressVersion;
         /// <summary>
-        /// The resource ID of the subnet to be used by the service.
+        /// The ID of the subnet to be used by the service.
         /// </summary>
         public readonly string SubnetId;
 

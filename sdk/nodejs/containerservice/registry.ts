@@ -99,7 +99,7 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     public readonly storageAccount!: pulumi.Output<outputs.containerservice.RegistryStorageAccount | undefined>;
@@ -208,7 +208,7 @@ export interface RegistryState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
     readonly sku?: pulumi.Input<string>;
     readonly storageAccount?: pulumi.Input<inputs.containerservice.RegistryStorageAccount>;
@@ -251,7 +251,7 @@ export interface RegistryArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+     * The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
     readonly sku?: pulumi.Input<string>;
     readonly storageAccount?: pulumi.Input<inputs.containerservice.RegistryStorageAccount>;

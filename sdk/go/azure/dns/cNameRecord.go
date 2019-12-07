@@ -46,6 +46,7 @@ func NewCNameRecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/cNameRecord:CNameRecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetCNameRecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *CNameRecordState, opts ...pulumi.ResourceOpt) (*CNameRecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["record"] = state.Record
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -81,6 +83,11 @@ func (r *CNameRecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *CNameRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS CName Record.
+func (r *CNameRecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS CNAME Record.
@@ -114,6 +121,8 @@ func (r *CNameRecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering CNameRecord resources.
 type CNameRecordState struct {
+	// The FQDN of the DNS CName Record.
+	Fqdn interface{}
 	// The name of the DNS CNAME Record.
 	Name interface{}
 	// The target of the CNAME.

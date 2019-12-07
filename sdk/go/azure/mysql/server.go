@@ -156,7 +156,7 @@ func (r *Server) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 func (r *Server) Version() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["version"])
 }
@@ -183,7 +183,7 @@ type ServerState struct {
 	StorageProfile interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version interface{}
 }
 
@@ -207,6 +207,6 @@ type ServerArgs struct {
 	StorageProfile interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version interface{}
 }

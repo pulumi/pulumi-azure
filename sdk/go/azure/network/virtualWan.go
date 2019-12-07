@@ -118,7 +118,6 @@ func (r *VirtualWan) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The name of the Security Provider.
 func (r *VirtualWan) SecurityProviderName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["securityProviderName"])
 }
@@ -144,7 +143,6 @@ type VirtualWanState struct {
 	Office365LocalBreakoutCategory interface{}
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The name of the Security Provider.
 	SecurityProviderName interface{}
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags interface{}
@@ -166,7 +164,6 @@ type VirtualWanArgs struct {
 	Office365LocalBreakoutCategory interface{}
 	// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The name of the Security Provider.
 	SecurityProviderName interface{}
 	// A mapping of tags to assign to the Virtual WAN.
 	Tags interface{}

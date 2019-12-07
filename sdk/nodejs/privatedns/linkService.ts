@@ -7,7 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Private Link Service.
+ * Manages a Private Link Service.
+ * 
+ * > **NOTE** Private Link is currently in Public Preview.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
  */
@@ -39,15 +41,15 @@ export class LinkService extends pulumi.CustomResource {
     }
 
     /**
-     * The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+     * A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
      */
     public /*out*/ readonly alias!: pulumi.Output<string>;
     /**
-     * A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+     * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
     public readonly autoApprovalSubscriptionIds!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
      */
     public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[]>;
     /**
@@ -55,16 +57,16 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the private link service. Changing this forces a new resource to be created.
+     * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `natIpConfiguration` block as defined below.
+     * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     public readonly natIpConfigurations!: pulumi.Output<outputs.privatedns.LinkServiceNatIpConfiguration[]>;
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
-     * The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -72,7 +74,7 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+     * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */
     public readonly visibilitySubscriptionIds!: pulumi.Output<string[] | undefined>;
 
@@ -136,15 +138,15 @@ export class LinkService extends pulumi.CustomResource {
  */
 export interface LinkServiceState {
     /**
-     * The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+     * A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
      */
     readonly alias?: pulumi.Input<string>;
     /**
-     * A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+     * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
     readonly autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
      */
     readonly loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -152,16 +154,16 @@ export interface LinkServiceState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the private link service. Changing this forces a new resource to be created.
+     * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `natIpConfiguration` block as defined below.
+     * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     readonly natIpConfigurations?: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[]>;
     readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -169,7 +171,7 @@ export interface LinkServiceState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+     * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */
     readonly visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -179,11 +181,11 @@ export interface LinkServiceState {
  */
 export interface LinkServiceArgs {
     /**
-     * A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+     * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
     readonly autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+     * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
      */
     readonly loadBalancerFrontendIpConfigurationIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -191,15 +193,15 @@ export interface LinkServiceArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the private link service. Changing this forces a new resource to be created.
+     * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `natIpConfiguration` block as defined below.
+     * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
     readonly natIpConfigurations: pulumi.Input<pulumi.Input<inputs.privatedns.LinkServiceNatIpConfiguration>[]>;
     /**
-     * The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -207,7 +209,7 @@ export interface LinkServiceArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+     * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */
     readonly visibilitySubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

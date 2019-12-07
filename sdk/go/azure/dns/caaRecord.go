@@ -46,6 +46,7 @@ func NewCaaRecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/caaRecord:CaaRecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetCaaRecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *CaaRecordState, opts ...pulumi.ResourceOpt) (*CaaRecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -81,6 +83,11 @@ func (r *CaaRecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *CaaRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS CAA Record.
+func (r *CaaRecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS CAA Record.
@@ -115,6 +122,8 @@ func (r *CaaRecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering CaaRecord resources.
 type CaaRecordState struct {
+	// The FQDN of the DNS CAA Record.
+	Fqdn interface{}
 	// The name of the DNS CAA Record.
 	Name interface{}
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.

@@ -8,8 +8,9 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Private Link Service.
  * 
+ * > **NOTE** Private Link is currently in Public Preview.
  * 
- * ## Private Link Service Usage
+ * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

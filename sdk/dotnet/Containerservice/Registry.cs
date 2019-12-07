@@ -72,7 +72,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+        /// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+        /// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+        /// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

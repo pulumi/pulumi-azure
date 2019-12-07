@@ -69,6 +69,10 @@ export class TxtRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS TXT Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS TXT Record.
      */
     public readonly name!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class TxtRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TxtRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -131,6 +136,7 @@ export class TxtRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -147,6 +153,10 @@ export class TxtRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TxtRecord resources.
  */
 export interface TxtRecordState {
+    /**
+     * The FQDN of the DNS TXT Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS TXT Record.
      */

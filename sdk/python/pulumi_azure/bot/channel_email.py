@@ -20,7 +20,7 @@ class ChannelEmail(pulumi.CustomResource):
     """
     email_password: pulumi.Output[str]
     """
-    The email password that the the Bot will authenticate with.
+    The email password that the Bot will authenticate with.
     """
     location: pulumi.Output[str]
     """
@@ -40,7 +40,7 @@ class ChannelEmail(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] email_address: The email address that the Bot will authenticate with.
-        :param pulumi.Input[str] email_password: The email password that the the Bot will authenticate with.
+        :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 
@@ -93,7 +93,7 @@ class ChannelEmail(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] email_address: The email address that the Bot will authenticate with.
-        :param pulumi.Input[str] email_password: The email password that the the Bot will authenticate with.
+        :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 

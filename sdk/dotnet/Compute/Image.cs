@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsState { get; set; }
 
         /// <summary>
-        /// Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsState { get; set; }
 
         /// <summary>
-        /// Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -476,7 +476,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string? OsState;
         /// <summary>
-        /// Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+        /// Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
         /// </summary>
         public readonly string? OsType;
         /// <summary>

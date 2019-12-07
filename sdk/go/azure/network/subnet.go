@@ -35,6 +35,7 @@ func NewSubnet(ctx *pulumi.Context,
 	if args == nil {
 		inputs["addressPrefix"] = nil
 		inputs["delegations"] = nil
+		inputs["enforcePrivateLinkEndpointNetworkPolicies"] = nil
 		inputs["enforcePrivateLinkServiceNetworkPolicies"] = nil
 		inputs["ipConfigurations"] = nil
 		inputs["name"] = nil
@@ -46,6 +47,7 @@ func NewSubnet(ctx *pulumi.Context,
 	} else {
 		inputs["addressPrefix"] = args.AddressPrefix
 		inputs["delegations"] = args.Delegations
+		inputs["enforcePrivateLinkEndpointNetworkPolicies"] = args.EnforcePrivateLinkEndpointNetworkPolicies
 		inputs["enforcePrivateLinkServiceNetworkPolicies"] = args.EnforcePrivateLinkServiceNetworkPolicies
 		inputs["ipConfigurations"] = args.IpConfigurations
 		inputs["name"] = args.Name
@@ -70,6 +72,7 @@ func GetSubnet(ctx *pulumi.Context,
 	if state != nil {
 		inputs["addressPrefix"] = state.AddressPrefix
 		inputs["delegations"] = state.Delegations
+		inputs["enforcePrivateLinkEndpointNetworkPolicies"] = state.EnforcePrivateLinkEndpointNetworkPolicies
 		inputs["enforcePrivateLinkServiceNetworkPolicies"] = state.EnforcePrivateLinkServiceNetworkPolicies
 		inputs["ipConfigurations"] = state.IpConfigurations
 		inputs["name"] = state.Name
@@ -106,7 +109,12 @@ func (r *Subnet) Delegations() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["delegations"])
 }
 
-// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+func (r *Subnet) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enforcePrivateLinkEndpointNetworkPolicies"])
+}
+
+// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
 func (r *Subnet) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enforcePrivateLinkServiceNetworkPolicies"])
 }
@@ -152,7 +160,9 @@ type SubnetState struct {
 	AddressPrefix interface{}
 	// One or more `delegation` blocks as defined below.
 	Delegations interface{}
-	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	EnforcePrivateLinkEndpointNetworkPolicies interface{}
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
 	EnforcePrivateLinkServiceNetworkPolicies interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}
@@ -176,7 +186,9 @@ type SubnetArgs struct {
 	AddressPrefix interface{}
 	// One or more `delegation` blocks as defined below.
 	Delegations interface{}
-	// Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+	// Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+	EnforcePrivateLinkEndpointNetworkPolicies interface{}
+	// Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
 	EnforcePrivateLinkServiceNetworkPolicies interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}

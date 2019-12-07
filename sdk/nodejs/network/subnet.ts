@@ -82,7 +82,11 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
     /**
-     * Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+     * Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+     */
+    public readonly enforcePrivateLinkEndpointNetworkPolicies!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
      */
     public readonly enforcePrivateLinkServiceNetworkPolicies!: pulumi.Output<boolean | undefined>;
     /**
@@ -128,6 +132,7 @@ export class Subnet extends pulumi.CustomResource {
             const state = argsOrState as SubnetState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["delegations"] = state ? state.delegations : undefined;
+            inputs["enforcePrivateLinkEndpointNetworkPolicies"] = state ? state.enforcePrivateLinkEndpointNetworkPolicies : undefined;
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = state ? state.enforcePrivateLinkServiceNetworkPolicies : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -149,6 +154,7 @@ export class Subnet extends pulumi.CustomResource {
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["delegations"] = args ? args.delegations : undefined;
+            inputs["enforcePrivateLinkEndpointNetworkPolicies"] = args ? args.enforcePrivateLinkEndpointNetworkPolicies : undefined;
             inputs["enforcePrivateLinkServiceNetworkPolicies"] = args ? args.enforcePrivateLinkServiceNetworkPolicies : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -182,7 +188,11 @@ export interface SubnetState {
      */
     readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+     * Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+     */
+    readonly enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
+    /**
+     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**
@@ -228,7 +238,11 @@ export interface SubnetArgs {
      */
     readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
-     * Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+     * Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+     */
+    readonly enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
+    /**
+     * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**

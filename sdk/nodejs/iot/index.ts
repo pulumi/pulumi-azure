@@ -9,6 +9,7 @@ export * from "./endpointEventhub";
 export * from "./endpointServicebusQueue";
 export * from "./endpointServicebusTopic";
 export * from "./endpointStorageContainer";
+export * from "./fallbackRoute";
 export * from "./ioTHub";
 export * from "./iotHubCertificate";
 export * from "./iotHubDps";

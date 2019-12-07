@@ -8,7 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages an Azure Private Link Service.
+// Manages a Private Link Service.
+// 
+// > **NOTE** Private Link is currently in Public Preview.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_link_service.html.markdown.
 type LinkService struct {
@@ -90,17 +92,17 @@ func (r *LinkService) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+// A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
 func (r *LinkService) Alias() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["alias"])
 }
 
-// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 func (r *LinkService) AutoApprovalSubscriptionIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["autoApprovalSubscriptionIds"])
 }
 
-// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
 func (r *LinkService) LoadBalancerFrontendIpConfigurationIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["loadBalancerFrontendIpConfigurationIds"])
 }
@@ -110,12 +112,12 @@ func (r *LinkService) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the private link service. Changing this forces a new resource to be created.
+// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
 func (r *LinkService) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `natIpConfiguration` block as defined below.
+// One or more (up to 8) `natIpConfiguration` block as defined below.
 func (r *LinkService) NatIpConfigurations() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["natIpConfigurations"])
 }
@@ -124,7 +126,7 @@ func (r *LinkService) NetworkInterfaceIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
 }
 
-// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 func (r *LinkService) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -134,50 +136,50 @@ func (r *LinkService) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 func (r *LinkService) VisibilitySubscriptionIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["visibilitySubscriptionIds"])
 }
 
 // Input properties used for looking up and filtering LinkService resources.
 type LinkServiceState struct {
-	// The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
+	// A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
 	Alias interface{}
-	// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds interface{}
-	// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
 	LoadBalancerFrontendIpConfigurationIds interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the private link service. Changing this forces a new resource to be created.
+	// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `natIpConfiguration` block as defined below.
+	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations interface{}
 	NetworkInterfaceIds interface{}
-	// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags interface{}
-	// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds interface{}
 }
 
 // The set of arguments for constructing a LinkService resource.
 type LinkServiceArgs struct {
-	// A list of subscription globally unique identifiers(GUID) that will be automatically be able to use this service.
+	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds interface{}
-	// A list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
+	// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
 	LoadBalancerFrontendIpConfigurationIds interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the private link service. Changing this forces a new resource to be created.
+	// Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `natIpConfiguration` block as defined below.
+	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations interface{}
-	// The name of the resource group in which the private link service resides. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags interface{}
-	// A list of subscription globally unique identifiers(GUID) that will be able to see this service. If left undefined all Azure subscriptions will be able to see this service.
+	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	VisibilitySubscriptionIds interface{}
 }

@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .account import *
+from .account_network_rules import *
 from .blob import *
 from .container import *
 from .data_lake_gen2_filesystem import *

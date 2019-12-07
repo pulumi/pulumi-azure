@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Healthcare Service Resource.
+ * Manages a Healthcare Service.
  * 
  * ## Example Usage
  * 

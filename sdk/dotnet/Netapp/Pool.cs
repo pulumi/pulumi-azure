@@ -8,7 +8,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp
 {
     /// <summary>
-    /// Manages a NetApp Pool.
+    /// Manages a Pool within a NetApp Account.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_pool.html.markdown.
     /// </summary>

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access endpoint connection information about an existing Private Link Service.
+ * 
+ * > **NOTE** Private Link is currently in Public Preview.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
  */
@@ -19,8 +21,8 @@ export function getServiceEndpointConnections(args: GetServiceEndpointConnection
         opts.version = utilities.getVersion();
     }
     const promise: Promise<GetServiceEndpointConnectionsResult> = pulumi.runtime.invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", {
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "serviceId": args.serviceId,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -31,13 +33,13 @@ export function getServiceEndpointConnections(args: GetServiceEndpointConnection
  */
 export interface GetServiceEndpointConnectionsArgs {
     /**
-     * The name of the private link service.
-     */
-    readonly name: string;
-    /**
      * The name of the resource group in which the private link service resides.
      */
     readonly resourceGroupName: string;
+    /**
+     * The resource ID of the private link service.
+     */
+    readonly serviceId: string;
 }
 
 /**
@@ -45,9 +47,13 @@ export interface GetServiceEndpointConnectionsArgs {
  */
 export interface GetServiceEndpointConnectionsResult {
     readonly location: string;
-    readonly name: string;
     readonly privateEndpointConnections: outputs.privatelink.GetServiceEndpointConnectionsPrivateEndpointConnection[];
     readonly resourceGroupName: string;
+    readonly serviceId: string;
+    /**
+     * The name of the private link service.
+     */
+    readonly serviceName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

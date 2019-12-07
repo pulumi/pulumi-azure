@@ -73,7 +73,7 @@ export class ChannelEmail extends pulumi.CustomResource {
      */
     public readonly emailAddress!: pulumi.Output<string>;
     /**
-     * The email password that the the Bot will authenticate with.
+     * The email password that the Bot will authenticate with.
      */
     public readonly emailPassword!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface ChannelEmailState {
      */
     readonly emailAddress?: pulumi.Input<string>;
     /**
-     * The email password that the the Bot will authenticate with.
+     * The email password that the Bot will authenticate with.
      */
     readonly emailPassword?: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface ChannelEmailArgs {
      */
     readonly emailAddress: pulumi.Input<string>;
     /**
-     * The email password that the the Bot will authenticate with.
+     * The email password that the Bot will authenticate with.
      */
     readonly emailPassword: pulumi.Input<string>;
     /**

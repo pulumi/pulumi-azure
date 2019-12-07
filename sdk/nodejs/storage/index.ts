@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./account";
+export * from "./accountNetworkRules";
 export * from "./blob";
 export * from "./container";
 export * from "./dataLakeGen2Filesystem";

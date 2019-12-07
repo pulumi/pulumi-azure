@@ -75,7 +75,7 @@ namespace Pulumi.Azure.MySql
         public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+        /// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
-        /// Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+        /// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
-        /// Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+        /// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

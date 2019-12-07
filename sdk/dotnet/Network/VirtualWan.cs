@@ -56,9 +56,6 @@ namespace Pulumi.Azure.Network
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Security Provider.
-        /// </summary>
         [Output("securityProviderName")]
         public Output<string?> SecurityProviderName { get; private set; } = null!;
 
@@ -156,9 +153,6 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Security Provider.
-        /// </summary>
         [Input("securityProviderName")]
         public Input<string>? SecurityProviderName { get; set; }
 
@@ -223,9 +217,6 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// The name of the Security Provider.
-        /// </summary>
         [Input("securityProviderName")]
         public Input<string>? SecurityProviderName { get; set; }
 

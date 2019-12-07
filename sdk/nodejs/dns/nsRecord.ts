@@ -65,6 +65,10 @@ export class NsRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS NS Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS NS Record.
      */
     public readonly name!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class NsRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as NsRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["record"] = state ? state.record : undefined;
             inputs["records"] = state ? state.records : undefined;
@@ -130,6 +135,7 @@ export class NsRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -146,6 +152,10 @@ export class NsRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NsRecord resources.
  */
 export interface NsRecordState {
+    /**
+     * The FQDN of the DNS NS Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS NS Record.
      */

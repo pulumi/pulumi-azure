@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 1,
- *     kafkaEnabled: false,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",

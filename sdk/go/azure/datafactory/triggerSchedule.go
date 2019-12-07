@@ -127,7 +127,7 @@ func (r *TriggerSchedule) PipelineName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["pipelineName"])
 }
 
-// The pipeline parameters that the the trigger will act upon.
+// The pipeline parameters that the trigger will act upon.
 func (r *TriggerSchedule) PipelineParameters() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["pipelineParameters"])
 }
@@ -158,7 +158,7 @@ type TriggerScheduleState struct {
 	Name interface{}
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName interface{}
-	// The pipeline parameters that the the trigger will act upon.
+	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters interface{}
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName interface{}
@@ -182,7 +182,7 @@ type TriggerScheduleArgs struct {
 	Name interface{}
 	// The Data Factory Pipeline name that the trigger will act on.
 	PipelineName interface{}
-	// The pipeline parameters that the the trigger will act upon.
+	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters interface{}
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName interface{}

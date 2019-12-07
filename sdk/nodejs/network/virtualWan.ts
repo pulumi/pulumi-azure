@@ -81,9 +81,6 @@ export class VirtualWan extends pulumi.CustomResource {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * The name of the Security Provider.
-     */
     public readonly securityProviderName!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
@@ -169,9 +166,6 @@ export interface VirtualWanState {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    /**
-     * The name of the Security Provider.
-     */
     readonly securityProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
@@ -211,9 +205,6 @@ export interface VirtualWanArgs {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the Security Provider.
-     */
     readonly securityProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.

@@ -23,6 +23,7 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 	}
 	return &GetSubnetResult{
 		AddressPrefix: outputs["addressPrefix"],
+		EnforcePrivateLinkEndpointNetworkPolicies: outputs["enforcePrivateLinkEndpointNetworkPolicies"],
 		EnforcePrivateLinkServiceNetworkPolicies: outputs["enforcePrivateLinkServiceNetworkPolicies"],
 		IpConfigurations: outputs["ipConfigurations"],
 		Name: outputs["name"],
@@ -49,7 +50,9 @@ type GetSubnetArgs struct {
 type GetSubnetResult struct {
 	// The address prefix used for the subnet.
 	AddressPrefix interface{}
-	// Enable or Disable network policies on private link service in the subnet.
+	// Enable or Disable network policies for the private link endpoint on the subnet.
+	EnforcePrivateLinkEndpointNetworkPolicies interface{}
+	// Enable or Disable network policies for the private link service on the subnet.
 	EnforcePrivateLinkServiceNetworkPolicies interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}

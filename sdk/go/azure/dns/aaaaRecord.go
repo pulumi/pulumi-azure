@@ -46,6 +46,7 @@ func NewAaaaRecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/aaaaRecord:AaaaRecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetAaaaRecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *AaaaRecordState, opts ...pulumi.ResourceOpt) (*AaaaRecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -81,6 +83,11 @@ func (r *AaaaRecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *AaaaRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS AAAA Record.
+func (r *AaaaRecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS AAAA Record.
@@ -114,6 +121,8 @@ func (r *AaaaRecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering AaaaRecord resources.
 type AaaaRecordState struct {
+	// The FQDN of the DNS AAAA Record.
+	Fqdn interface{}
 	// The name of the DNS AAAA Record.
 	Name interface{}
 	// List of IPv6 Addresses.
