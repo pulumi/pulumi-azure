@@ -13,5 +13,6 @@ from .endpoint_eventhub import *
 from .endpoint_servicebus_queue import *
 from .endpoint_servicebus_topic import *
 from .endpoint_storage_container import *
+from .fallback_route import *
 from .route import *
 from .shared_access_policy import *

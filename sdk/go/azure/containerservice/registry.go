@@ -140,7 +140,7 @@ func (r *Registry) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
 func (r *Registry) Sku() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["sku"])
 }
@@ -179,7 +179,7 @@ type RegistryState struct {
 	NetworkRuleSet interface{}
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
 	Sku interface{}
 	StorageAccount interface{}
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
@@ -202,7 +202,7 @@ type RegistryArgs struct {
 	NetworkRuleSet interface{}
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
 	Sku interface{}
 	StorageAccount interface{}
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.

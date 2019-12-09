@@ -96,6 +96,8 @@ def get_service(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Private Link Service.
     
+    > **NOTE** Private Link is currently in Public Preview.
+    
     :param str name: The name of the private link service.
     :param str resource_group_name: The name of the resource group in which the private link service resides.
 

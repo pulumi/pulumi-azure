@@ -8,13 +8,15 @@ import (
 )
 
 // Use this data source to access endpoint connection information about an existing Private Link Service.
+// 
+// > **NOTE** Private Link is currently in Public Preview.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
 func LookupServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpointConnectionsArgs) (*GetServiceEndpointConnectionsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
-		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["serviceId"] = args.ServiceId
 	}
 	outputs, err := ctx.Invoke("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", inputs)
 	if err != nil {
@@ -22,27 +24,30 @@ func LookupServiceEndpointConnections(ctx *pulumi.Context, args *GetServiceEndpo
 	}
 	return &GetServiceEndpointConnectionsResult{
 		Location: outputs["location"],
-		Name: outputs["name"],
 		PrivateEndpointConnections: outputs["privateEndpointConnections"],
 		ResourceGroupName: outputs["resourceGroupName"],
+		ServiceId: outputs["serviceId"],
+		ServiceName: outputs["serviceName"],
 		Id: outputs["id"],
 	}, nil
 }
 
 // A collection of arguments for invoking getServiceEndpointConnections.
 type GetServiceEndpointConnectionsArgs struct {
-	// The name of the private link service.
-	Name interface{}
 	// The name of the resource group in which the private link service resides.
 	ResourceGroupName interface{}
+	// The resource ID of the private link service.
+	ServiceId interface{}
 }
 
 // A collection of values returned by getServiceEndpointConnections.
 type GetServiceEndpointConnectionsResult struct {
 	Location interface{}
-	Name interface{}
 	PrivateEndpointConnections interface{}
 	ResourceGroupName interface{}
+	ServiceId interface{}
+	// The name of the private link service.
+	ServiceName interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

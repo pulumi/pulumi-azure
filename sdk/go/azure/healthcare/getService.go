@@ -16,7 +16,6 @@ func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["tags"] = args.Tags
 	}
 	outputs, err := ctx.Invoke("azure:healthcare/getService:getService", inputs)
 	if err != nil {
@@ -43,7 +42,6 @@ type GetServiceArgs struct {
 	Name interface{}
 	// The name of the Resource Group in which the Healthcare Service exists.
 	ResourceGroupName interface{}
-	Tags interface{}
 }
 
 // A collection of values returned by getService.

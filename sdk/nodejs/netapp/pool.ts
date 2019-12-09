@@ -7,30 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a NetApp Pool.
- * 
- * 
- * ## NetApp Pool Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.netapp.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePool = new azure.netapp.Pool("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     sizeInTb: 4,
- * });
- * ```
+ * Manages a Pool within a NetApp Account.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_pool.html.markdown.
  */

@@ -62,7 +62,7 @@ class Server(pulumi.CustomResource):
     """
     version: pulumi.Output[str]
     """
-    Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+    Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, location=None, name=None, resource_group_name=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -79,7 +79,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_enforcement: Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[dict] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         
         The **sku** object supports the following:
         
@@ -164,7 +164,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_enforcement: Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[dict] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         
         The **sku** object supports the following:
         

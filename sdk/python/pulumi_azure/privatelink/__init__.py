@@ -3,5 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_private_link_endpoint_connection import *
 from .get_service import *
 from .get_service_endpoint_connections import *

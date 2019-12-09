@@ -46,6 +46,7 @@ func NewARecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/aRecord:ARecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetARecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ARecordState, opts ...pulumi.ResourceOpt) (*ARecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -81,6 +83,11 @@ func (r *ARecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ARecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS A Record.
+func (r *ARecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS A Record.
@@ -114,6 +121,8 @@ func (r *ARecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering ARecord resources.
 type ARecordState struct {
+	// The FQDN of the DNS A Record.
+	Fqdn interface{}
 	// The name of the DNS A Record.
 	Name interface{}
 	// List of IPv4 Addresses.

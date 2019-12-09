@@ -39,9 +39,6 @@ class VirtualWan(pulumi.CustomResource):
     The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
     """
     security_provider_name: pulumi.Output[str]
-    """
-    The name of the Security Provider.
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the Virtual WAN.
@@ -59,7 +56,6 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         :param pulumi.Input[str] office365_local_breakout_category: Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] security_provider_name: The name of the Security Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual WAN.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.
@@ -114,7 +110,6 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         :param pulumi.Input[str] office365_local_breakout_category: Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] security_provider_name: The name of the Security Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual WAN.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_wan.html.markdown.

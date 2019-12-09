@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class ARecord(pulumi.CustomResource):
+    fqdn: pulumi.Output[str]
+    """
+    The FQDN of the DNS A Record.
+    """
     name: pulumi.Output[str]
     """
     The name of the DNS A Record.
@@ -76,6 +80,7 @@ class ARecord(pulumi.CustomResource):
             if zone_name is None:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            __props__['fqdn'] = None
         super(ARecord, __self__).__init__(
             'azure:dns/aRecord:ARecord',
             resource_name,
@@ -83,7 +88,7 @@ class ARecord(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
+    def get(resource_name, id, opts=None, fqdn=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
         """
         Get an existing ARecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,6 +96,7 @@ class ARecord(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] fqdn: The FQDN of the DNS A Record.
         :param pulumi.Input[str] name: The name of the DNS A Record.
         :param pulumi.Input[list] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
@@ -102,6 +108,7 @@ class ARecord(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["fqdn"] = fqdn
         __props__["name"] = name
         __props__["records"] = records
         __props__["resource_group_name"] = resource_group_name

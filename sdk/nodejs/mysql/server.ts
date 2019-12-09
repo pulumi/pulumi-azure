@@ -109,7 +109,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+     * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -227,7 +227,7 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+     * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -273,7 +273,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of MySQL to use. Valid values are `5.6` and `5.7`. Changing this forces a new resource to be created.
+     * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
     readonly version: pulumi.Input<string>;
 }

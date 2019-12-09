@@ -24,9 +24,13 @@ class Subnet(pulumi.CustomResource):
         * `actions` (`list`)
         * `name` (`str`) - The name of the subnet. Changing this forces a new resource to be created.
     """
+    enforce_private_link_endpoint_network_policies: pulumi.Output[bool]
+    """
+    Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+    """
     enforce_private_link_service_network_policies: pulumi.Output[bool]
     """
-    Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+    Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
     """
     ip_configurations: pulumi.Output[list]
     """
@@ -56,7 +60,7 @@ class Subnet(pulumi.CustomResource):
     """
     The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, address_prefix=None, delegations=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address_prefix=None, delegations=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
         
@@ -68,7 +72,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
         :param pulumi.Input[list] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
         :param pulumi.Input[list] ip_configurations: The collection of IP Configurations with IPs within this subnet.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group to associate with the subnet.
@@ -108,6 +113,7 @@ class Subnet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_prefix'")
             __props__['address_prefix'] = address_prefix
             __props__['delegations'] = delegations
+            __props__['enforce_private_link_endpoint_network_policies'] = enforce_private_link_endpoint_network_policies
             __props__['enforce_private_link_service_network_policies'] = enforce_private_link_service_network_policies
             __props__['ip_configurations'] = ip_configurations
             __props__['name'] = name
@@ -127,7 +133,7 @@ class Subnet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address_prefix=None, delegations=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
+    def get(resource_name, id, opts=None, address_prefix=None, delegations=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         """
         Get an existing Subnet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -137,7 +143,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
         :param pulumi.Input[list] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies on the `private link service` in the subnet. Default is `false`.
+        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default valule is `false`. Conflicts with enforce_private_link_service_network_policies.
+        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with enforce_private_link_endpoint_network_policies.
         :param pulumi.Input[list] ip_configurations: The collection of IP Configurations with IPs within this subnet.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group to associate with the subnet.
@@ -161,6 +168,7 @@ class Subnet(pulumi.CustomResource):
         __props__ = dict()
         __props__["address_prefix"] = address_prefix
         __props__["delegations"] = delegations
+        __props__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
         __props__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
         __props__["ip_configurations"] = ip_configurations
         __props__["name"] = name

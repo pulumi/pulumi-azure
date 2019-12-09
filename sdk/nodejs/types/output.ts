@@ -1822,7 +1822,7 @@ export namespace compute {
          */
         osState?: string;
         /**
-         * Specifies the type of operating system contained in the the virtual machine image. Possible values are: Windows or Linux.
+         * Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
          */
         osType?: string;
         /**
@@ -6795,6 +6795,18 @@ export namespace network {
         storagePath: string;
     }
 
+    export interface PointToPointVpnGatewayConnectionConfiguration {
+        /**
+         * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
+         */
+        name: string;
+        vpnClientAddressPool: outputs.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool;
+    }
+
+    export interface PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
+        addressPrefixes: string[];
+    }
+
     export interface ProfileContainerNetworkInterface {
         ipConfigurations: outputs.network.ProfileContainerNetworkInterfaceIpConfiguration[];
         /**
@@ -6875,6 +6887,11 @@ export namespace network {
         toleratedNumberOfFailures?: number;
     }
 
+    export interface VirtualHubRoute {
+        addressPrefixes: string[];
+        nextHopIpAddress: string;
+    }
+
     export interface VirtualNetworkDdosProtectionPlan {
         enable: boolean;
         /**
@@ -6950,6 +6967,74 @@ export namespace network {
          */
         name: string;
         securityGroup?: string;
+    }
+
+    export interface VpnGatewayBgpSetting {
+        asn: number;
+        /**
+         * The Address which should be used for the BGP Peering.
+         */
+        bgpPeeringAddress: string;
+        peerWeight: number;
+    }
+
+    export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {
+        audience: string;
+        issuer: string;
+        tenant: string;
+    }
+
+    export interface VpnServerConfigurationClientRevokedCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: string;
+        thumbprint: string;
+    }
+
+    export interface VpnServerConfigurationClientRootCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicCertData: string;
+    }
+
+    export interface VpnServerConfigurationIpsecPolicy {
+        dhGroup: string;
+        ikeEncryption: string;
+        ikeIntegrity: string;
+        ipsecEncryption: string;
+        ipsecIntegrity: string;
+        pfsGroup: string;
+        saDataSizeKilobytes: number;
+        saLifetimeSeconds: number;
+    }
+
+    export interface VpnServerConfigurationRadiusServer {
+        address: string;
+        /**
+         * One or more `clientRootCertificate` blocks as defined below.
+         */
+        clientRootCertificates?: outputs.network.VpnServerConfigurationRadiusServerClientRootCertificate[];
+        secret: string;
+        serverRootCertificates: outputs.network.VpnServerConfigurationRadiusServerServerRootCertificate[];
+    }
+
+    export interface VpnServerConfigurationRadiusServerClientRootCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: string;
+        thumbprint: string;
+    }
+
+    export interface VpnServerConfigurationRadiusServerServerRootCertificate {
+        /**
+         * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicCertData: string;
     }
 }
 
@@ -7082,15 +7167,43 @@ export namespace postgresql {
 }
 
 export namespace privatedns {
+    export interface LinkEndpointPrivateServiceConnection {
+        /**
+         * Does the Private Link Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+         */
+        isManualConnection: boolean;
+        /**
+         * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The ID of the Private Link Enabled Remote Resource which this Private Link Endpoint should be connected to. Changing this forces a new resource to be created.
+         */
+        privateConnectionResourceId: string;
+        /**
+         * A message passed to the owner of the remote resource when the private link endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+         */
+        requestMessage?: string;
+        /**
+         * A list of subresource names which the Private Link Endpoint is able to connect to. Changing this forces a new resource to be created.
+         */
+        subresourceNames?: string[];
+    }
+
     export interface LinkServiceNatIpConfiguration {
         /**
-         * The name of the private link service. Changing this forces a new resource to be created.
+         * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
          */
         name: string;
         primary: boolean;
         privateIpAddress?: string;
         privateIpAddressVersion?: string;
         subnetId: string;
+    }
+
+    export interface MxRecordRecord {
+        exchange: string;
+        preference: number;
     }
 
     export interface SRVRecordRecord {
@@ -7102,6 +7215,30 @@ export namespace privatedns {
 }
 
 export namespace privatelink {
+    export interface GetPrivateLinkEndpointConnectionPrivateServiceConnection {
+        /**
+         * Specifies the Name of the private link endpoint.
+         */
+        name: string;
+        /**
+         * The private IP address associated with the private link endpoint, note that you will have a private IP address assigned to the private link endpoint even if the connection request was `Rejected`.
+         */
+        privateIpAddress: string;
+        /**
+         * Possible values are as follows:
+         * Value | Meaning
+         * -- | --
+         * `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private link endpoint connection requests will be automatically `Approved`.
+         * `Deleted state` | The resource owner has `Rejected` the private link endpoint connection request and has removed your private link endpoint request from the remote resource.
+         * `request/response message` | If you submitted a manual private link endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private link endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private link endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
+         */
+        requestResponse: string;
+        /**
+         * The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+         */
+        status: string;
+    }
+
     export interface GetServiceEndpointConnectionsPrivateEndpointConnection {
         /**
          * A message indicating if changes on the service provider require any updates or not.
@@ -7147,11 +7284,11 @@ export namespace privatelink {
          */
         privateIpAddress: string;
         /**
-         * The ip address version of the `ipConfiguration`.
+         * The version of the IP Protocol.
          */
         privateIpAddressVersion: string;
         /**
-         * The resource ID of the subnet to be used by the service.
+         * The ID of the subnet to be used by the service.
          */
         subnetId: string;
     }

@@ -70,7 +70,11 @@ export interface GetSubnetResult {
      */
     readonly addressPrefix: string;
     /**
-     * Enable or Disable network policies on private link service in the subnet.
+     * Enable or Disable network policies for the private link endpoint on the subnet.
+     */
+    readonly enforcePrivateLinkEndpointNetworkPolicies: boolean;
+    /**
+     * Enable or Disable network policies for the private link service on the subnet.
      */
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
     /**

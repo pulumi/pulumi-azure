@@ -80,9 +80,9 @@ class Account(pulumi.CustomResource):
     A `network_rules` block as documented below.
     
       * `bypasses` (`list`)
-      * `defaultAction` (`str`)
-      * `ipRules` (`list`)
-      * `virtualNetworkSubnetIds` (`list`)
+      * `default_action` (`str`)
+      * `ip_rules` (`list`)
+      * `virtual_network_subnet_ids` (`list`)
     """
     primary_access_key: pulumi.Output[str]
     """
@@ -294,9 +294,9 @@ class Account(pulumi.CustomResource):
         The **network_rules** object supports the following:
         
           * `bypasses` (`pulumi.Input[list]`)
-          * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
         
         The **queue_properties** object supports the following:
         
@@ -487,9 +487,9 @@ class Account(pulumi.CustomResource):
         The **network_rules** object supports the following:
         
           * `bypasses` (`pulumi.Input[list]`)
-          * `defaultAction` (`pulumi.Input[str]`)
-          * `ipRules` (`pulumi.Input[list]`)
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+          * `default_action` (`pulumi.Input[str]`)
+          * `ip_rules` (`pulumi.Input[list]`)
+          * `virtual_network_subnet_ids` (`pulumi.Input[list]`)
         
         The **queue_properties** object supports the following:
         

@@ -93,7 +93,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string>;
     /**
-     * The pipeline parameters that the the trigger will act upon.
+     * The pipeline parameters that the trigger will act upon.
      */
     public readonly pipelineParameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface TriggerScheduleState {
      */
     readonly pipelineName?: pulumi.Input<string>;
     /**
-     * The pipeline parameters that the the trigger will act upon.
+     * The pipeline parameters that the trigger will act upon.
      */
     readonly pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -239,7 +239,7 @@ export interface TriggerScheduleArgs {
      */
     readonly pipelineName: pulumi.Input<string>;
     /**
-     * The pipeline parameters that the the trigger will act upon.
+     * The pipeline parameters that the trigger will act upon.
      */
     readonly pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

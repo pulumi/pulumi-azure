@@ -12,6 +12,8 @@ namespace Pulumi.Azure.PrivateLink
         /// <summary>
         /// Use this data source to access endpoint connection information about an existing Private Link Service.
         /// 
+        /// &gt; **NOTE** Private Link is currently in Public Preview.
+        /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service_endpoint_connections.html.markdown.
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> GetServiceEndpointConnections(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
@@ -21,16 +23,16 @@ namespace Pulumi.Azure.PrivateLink
     public sealed class GetServiceEndpointConnectionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the private link service.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group in which the private link service resides.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the private link service.
+        /// </summary>
+        [Input("serviceId", required: true)]
+        public Input<string> ServiceId { get; set; } = null!;
 
         public GetServiceEndpointConnectionsArgs()
         {
@@ -41,9 +43,13 @@ namespace Pulumi.Azure.PrivateLink
     public sealed class GetServiceEndpointConnectionsResult
     {
         public readonly string Location;
-        public readonly string Name;
         public readonly ImmutableArray<Outputs.GetServiceEndpointConnectionsPrivateEndpointConnectionsResult> PrivateEndpointConnections;
         public readonly string ResourceGroupName;
+        public readonly string ServiceId;
+        /// <summary>
+        /// The name of the private link service.
+        /// </summary>
+        public readonly string ServiceName;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -52,15 +58,17 @@ namespace Pulumi.Azure.PrivateLink
         [OutputConstructor]
         private GetServiceEndpointConnectionsResult(
             string location,
-            string name,
             ImmutableArray<Outputs.GetServiceEndpointConnectionsPrivateEndpointConnectionsResult> privateEndpointConnections,
             string resourceGroupName,
+            string serviceId,
+            string serviceName,
             string id)
         {
             Location = location;
-            Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ResourceGroupName = resourceGroupName;
+            ServiceId = serviceId;
+            ServiceName = serviceName;
             Id = id;
         }
     }

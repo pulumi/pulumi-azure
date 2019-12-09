@@ -92,7 +92,7 @@ func (r *ChannelEmail) EmailAddress() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["emailAddress"])
 }
 
-// The email password that the the Bot will authenticate with.
+// The email password that the Bot will authenticate with.
 func (r *ChannelEmail) EmailPassword() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["emailPassword"])
 }
@@ -113,7 +113,7 @@ type ChannelEmailState struct {
 	BotName interface{}
 	// The email address that the Bot will authenticate with.
 	EmailAddress interface{}
-	// The email password that the the Bot will authenticate with.
+	// The email password that the Bot will authenticate with.
 	EmailPassword interface{}
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -127,7 +127,7 @@ type ChannelEmailArgs struct {
 	BotName interface{}
 	// The email address that the Bot will authenticate with.
 	EmailAddress interface{}
-	// The email password that the the Bot will authenticate with.
+	// The email password that the Bot will authenticate with.
 	EmailPassword interface{}
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

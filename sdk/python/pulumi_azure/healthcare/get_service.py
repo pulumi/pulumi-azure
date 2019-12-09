@@ -79,7 +79,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             tags=self.tags,
             id=self.id)
 
-def get_service(location=None,name=None,resource_group_name=None,tags=None,opts=None):
+def get_service(location=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Healthcare Service
     
@@ -93,7 +93,6 @@ def get_service(location=None,name=None,resource_group_name=None,tags=None,opts=
     __args__['location'] = location
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

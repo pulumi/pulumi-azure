@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Healthcare Service
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.healthcare.getService({
- *     location: "westus2",
- *     name: "example-healthcare_service",
- *     resourceGroupName: "example-resources",
- * });
- * 
- * export const healthcareServiceId = {
- *     accessPolicyObjectIds: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
- *     cosmosdbThroughput: "2000",
- *     kind: "fhir-R4",
- *     name: "uniquefhirname",
- *     resourceGroupName: "sample-resource-group",
- *     tags: [{
- *         environment: "testenv",
- *         purpose: "AcceptanceTests",
- *     }],
- * };
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/healthcare_service.html.markdown.
  */
@@ -48,7 +23,6 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         "location": args.location,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -67,7 +41,6 @@ export interface GetServiceArgs {
      * The name of the Resource Group in which the Healthcare Service exists.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
 }
 
 /**
@@ -97,7 +70,7 @@ export interface GetServiceResult {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

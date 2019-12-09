@@ -708,6 +708,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_route":                      {Tok: azureResource(azureIot, "Route")},
 			"azurerm_iothub_dps":                        {Tok: azureResource(azureIot, "IotHubDps")},
 			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
+			"azurerm_iothub_fallback_route":             {Tok: azureResource(azureIot, "FallbackRoute")},
 
 			// KeyVault
 			"azurerm_key_vault": {
@@ -868,6 +869,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_private_link_service": {
 				Tok: azureResource(azurePrivateDNS, "LinkService"),
+			},
+			"azurerm_private_link_endpoint": {
+				Tok: azureResource(azurePrivateDNS, "LinkEndpoint"),
+			},
+			"azurerm_private_dns_mx_record": {
+				Tok: azureResource(azurePrivateDNS, "MxRecord"),
 			},
 
 			// SQL
@@ -1032,6 +1039,12 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
 			},
+			"azurerm_nat_gateway":                    {Tok: azureResource(azureNetwork, "NatGateway")},
+			"azurerm_subnet_nat_gateway_association": {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
+			"azurerm_point_to_site_vpn_gateway":      {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
+			"azurerm_virtual_hub":                    {Tok: azureResource(azureNetwork, "VirtualHub")},
+			"azurerm_vpn_gateway":                    {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_server_configuration":       {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
 
 			// Recovery Services
 			"azurerm_recovery_network_mapping": {Tok: azureResource(azureRecoveryServices, "NetworkMapping")},
@@ -1139,6 +1152,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_storage_data_lake_gen2_filesystem": {Tok: azureResource(azureStorage, "DataLakeGen2Filesystem")},
 			"azurerm_storage_management_policy":         {Tok: azureResource(azureStorage, "ManagementPolicy")},
+			"azurerm_storage_account_network_rules":     {Tok: azureResource(azureStorage, "AccountNetworkRules")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {Tok: azureResource(azureStreamAnalytics, "FunctionJavaScriptUDF")},
@@ -1352,6 +1366,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_link_service_endpoint_connections": {
 				Tok: azureDataSource(azurePrivateLink, "getServiceEndpointConnections"),
 			},
+			"azurerm_nat_gateway": {Tok: azureDataSource(azureNetwork, "getNatGateway")},
+			"azurerm_private_link_endpoint_connection": {
+				Tok: azureDataSource(azurePrivateLink, "getPrivateLinkEndpointConnection"),
+			},
+			"azurerm_virtual_hub": {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

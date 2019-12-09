@@ -35,14 +35,6 @@ namespace Pulumi.Azure.Healthcare
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<object>? _tags;
-        public InputMap<object> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<object>());
-            set => _tags = value;
-        }
-
         public GetServiceArgs()
         {
         }
@@ -74,7 +66,7 @@ namespace Pulumi.Azure.Healthcare
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -90,7 +82,7 @@ namespace Pulumi.Azure.Healthcare
             string location,
             string name,
             string resourceGroupName,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             AccessPolicyObjectIds = accessPolicyObjectIds;

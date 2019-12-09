@@ -45,6 +45,7 @@ func NewNsRecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/nsRecord:NsRecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -58,6 +59,7 @@ func GetNsRecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *NsRecordState, opts ...pulumi.ResourceOpt) (*NsRecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["record"] = state.Record
 		inputs["records"] = state.Records
@@ -81,6 +83,11 @@ func (r *NsRecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NsRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS NS Record.
+func (r *NsRecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS NS Record.
@@ -120,6 +127,8 @@ func (r *NsRecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering NsRecord resources.
 type NsRecordState struct {
+	// The FQDN of the DNS NS Record.
+	Fqdn interface{}
 	// The name of the DNS NS Record.
 	Name interface{}
 	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.

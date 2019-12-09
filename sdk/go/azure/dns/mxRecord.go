@@ -46,6 +46,7 @@ func NewMxRecord(ctx *pulumi.Context,
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
+	inputs["fqdn"] = nil
 	s, err := ctx.RegisterResource("azure:dns/mxRecord:MxRecord", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetMxRecord(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *MxRecordState, opts ...pulumi.ResourceOpt) (*MxRecord, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["fqdn"] = state.Fqdn
 		inputs["name"] = state.Name
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -81,6 +83,11 @@ func (r *MxRecord) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *MxRecord) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The FQDN of the DNS MX Record.
+func (r *MxRecord) Fqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
 // The name of the DNS MX Record.
@@ -115,6 +122,8 @@ func (r *MxRecord) ZoneName() pulumi.StringOutput {
 
 // Input properties used for looking up and filtering MxRecord resources.
 type MxRecordState struct {
+	// The FQDN of the DNS MX Record.
+	Fqdn interface{}
 	// The name of the DNS MX Record.
 	Name interface{}
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.

@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> EmailAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The email password that the the Bot will authenticate with.
+        /// The email password that the Bot will authenticate with.
         /// </summary>
         [Output("emailPassword")]
         public Output<string> EmailPassword { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Bot
         public Input<string> EmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// The email password that the the Bot will authenticate with.
+        /// The email password that the Bot will authenticate with.
         /// </summary>
         [Input("emailPassword", required: true)]
         public Input<string> EmailPassword { get; set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? EmailAddress { get; set; }
 
         /// <summary>
-        /// The email password that the the Bot will authenticate with.
+        /// The email password that the Bot will authenticate with.
         /// </summary>
         [Input("emailPassword")]
         public Input<string>? EmailPassword { get; set; }

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.servicefabric.Cluster("example", {
- *     clusterCodeVersion: "6.3.176.9494",
+ *     clusterCodeVersion: "6.5.639.9590",
  *     location: exampleResourceGroup.location,
  *     managementEndpoint: "https://example:80",
  *     nodeTypes: [{

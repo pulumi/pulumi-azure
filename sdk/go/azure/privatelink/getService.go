@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Private Link Service.
+// 
+// > **NOTE** Private Link is currently in Public Preview.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
 func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {

@@ -57,6 +57,10 @@ export class AaaaRecord extends pulumi.CustomResource {
     }
 
     /**
+     * The FQDN of the DNS AAAA Record.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
      * The name of the DNS AAAA Record.
      */
     public readonly name!: pulumi.Output<string>;
@@ -90,6 +94,7 @@ export class AaaaRecord extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AaaaRecordState | undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -116,6 +121,7 @@ export class AaaaRecord extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["fqdn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -132,6 +138,10 @@ export class AaaaRecord extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AaaaRecord resources.
  */
 export interface AaaaRecordState {
+    /**
+     * The FQDN of the DNS AAAA Record.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS AAAA Record.
      */

@@ -1,3 +1,7 @@
+module github.com/pulumi/pulumi-azure
+
+go 1.13
+
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.3.0
 	github.com/hashicorp/terraform-plugin-sdk v1.1.1
@@ -10,9 +14,5 @@ require (
 
 replace (
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20191126095907-3f8a94c0853f
+	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20191207185454-57f848af83b1
 )
-
-module github.com/pulumi/pulumi-azure
-
-go 1.13

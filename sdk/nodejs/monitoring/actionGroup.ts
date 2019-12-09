@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
  *     armRoleReceivers: [{
  *         name: "armroleaction",
- *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+ *         roleId: "de139f84-1756-47ae-9be6-808fbbe84772",
  *         useCommonAlertSchema: true,
  *     }],
  *     automationRunbookReceivers: [{
