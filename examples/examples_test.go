@@ -134,6 +134,17 @@ func TestAccWebserver(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccNetwork(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:                  path.Join(getCwd(t), "network"),
+			RunUpdateTest:        true,
+			ExpectRefreshChanges: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccHttp(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
