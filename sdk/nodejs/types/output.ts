@@ -460,6 +460,68 @@ export namespace apimanagement {
     }
 }
 
+export namespace appconfiguration {
+    export interface ConfigurationStorePrimaryReadKey {
+        /**
+         * The connection string including the endpoint, id and secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the access key.
+         */
+        id: string;
+        /**
+         * The secret of the access key.
+         */
+        secret: string;
+    }
+
+    export interface ConfigurationStorePrimaryWriteKey {
+        /**
+         * The connection string including the endpoint, id and secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the access key.
+         */
+        id: string;
+        /**
+         * The secret of the access key.
+         */
+        secret: string;
+    }
+
+    export interface ConfigurationStoreSecondaryReadKey {
+        /**
+         * The connection string including the endpoint, id and secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the access key.
+         */
+        id: string;
+        /**
+         * The secret of the access key.
+         */
+        secret: string;
+    }
+
+    export interface ConfigurationStoreSecondaryWriteKey {
+        /**
+         * The connection string including the endpoint, id and secret.
+         */
+        connectionString: string;
+        /**
+         * The ID of the access key.
+         */
+        id: string;
+        /**
+         * The secret of the access key.
+         */
+        secret: string;
+    }
+}
+
 export namespace appservice {
     export interface AppServiceAuthSettings {
         activeDirectory?: outputs.appservice.AppServiceAuthSettingsActiveDirectory;
@@ -771,6 +833,10 @@ export namespace appservice {
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion: string;
+        /**
+         * The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+         */
+        minTlsVersion: string;
         /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
@@ -4685,7 +4751,7 @@ export namespace keyvault {
 
     export interface CertifiateCertificatePolicyIssuerParameters {
         /**
-         * The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+         * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -4819,7 +4885,7 @@ export namespace keyvault {
 
     export interface CertificateCertificatePolicyIssuerParameters {
         /**
-         * The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+         * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -5726,6 +5792,10 @@ export namespace mssql {
 }
 
 export namespace mysql {
+    export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
+        results: string[];
+    }
+
     export interface ServerSku {
         /**
          * The scale up/out capacity, representing server's compute units.
@@ -5762,6 +5832,21 @@ export namespace mysql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
          */
         storageMb: number;
+    }
+
+    export interface ServerVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdmins?: boolean;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: string[];
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: boolean;
     }
 }
 

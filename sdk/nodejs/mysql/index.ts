@@ -4,6 +4,9 @@
 // Export members:
 export * from "./configuration";
 export * from "./database";
+export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./firewallRule";
 export * from "./server";
+export * from "./serverSecurityAlertPolicy";
+export * from "./serverVulnerabilityAssessment";
 export * from "./virtualNetworkRule";

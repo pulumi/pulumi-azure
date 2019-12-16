@@ -120,7 +120,6 @@ func (r *MongoCollection) ShardKey() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["shardKey"])
 }
 
-// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
 func (r *MongoCollection) Throughput() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["throughput"])
 }
@@ -140,7 +139,6 @@ type MongoCollectionState struct {
 	ResourceGroupName interface{}
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey interface{}
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
 	Throughput interface{}
 }
 
@@ -159,6 +157,5 @@ type MongoCollectionArgs struct {
 	ResourceGroupName interface{}
 	// The name of the key to partition on for sharding. There must not be any other unique index keys.
 	ShardKey interface{}
-	// The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
 	Throughput interface{}
 }

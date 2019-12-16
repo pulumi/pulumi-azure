@@ -47,6 +47,7 @@ const (
 	azureAD                  = "AD"                  // Active Directory (AAD)
 	azureAnalysisServices    = "AnalysisServices"    // Analysis Services
 	azureAPIManagement       = "ApiManagement"       // API Management
+	azureAppConfiguration    = "AppConfiguration"    // AppConfiguration
 	azureAppInsights         = "AppInsights"         // AppInsights
 	azureAppService          = "AppService"          // App Service
 	azureAutomation          = "Automation"          // Automation
@@ -838,6 +839,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_firewall_rule":        {Tok: azureResource(azureMySQL, "FirewallRule")},
 			"azurerm_mysql_server":               {Tok: azureResource(azureMySQL, "Server")},
 			"azurerm_mysql_virtual_network_rule": {Tok: azureResource(azureMySQL, "VirtualNetworkRule")},
+			"azurerm_mssql_database_vulnerability_assessment_rule_baseline": {
+				Tok: azureResource(azureMySQL, "DatabaseVulnerabilityAssessmentRuleBaseline"),
+			},
+			"azurerm_mssql_server_vulnerability_assessment": {
+				Tok: azureResource(azureMySQL, "ServerVulnerabilityAssessment"),
+			},
+			"azurerm_mssql_server_security_alert_policy": {
+				Tok: azureResource(azureMySQL, "ServerSecurityAlertPolicy"),
+			},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration":        {Tok: azureResource(azurePostgresql, "Configuration")},
@@ -1194,6 +1204,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_email":         {Tok: azureResource(azureBot, "ChannelEmail")},
 			"azurerm_bot_channel_slack":         {Tok: azureResource(azureBot, "ChannelSlack")},
 			"azurerm_bot_web_app":               {Tok: azureResource(azureBot, "WebApp")},
+			"azurerm_bot_channel_ms_teams":      {Tok: azureResource(azureBot, "ChannelMsTeams")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
@@ -1210,6 +1221,9 @@ func Provider() tfbridge.ProviderInfo {
 			// NetApp
 			"azurerm_netapp_account": {Tok: azureResource(azureNetapp, "Account")},
 			"azurerm_netapp_pool":    {Tok: azureResource(azureNetapp, "Pool")},
+
+			//AppConfiguration
+			"azurerm_app_configuration": {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},

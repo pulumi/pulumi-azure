@@ -7,10 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the connection status information about an existing Private Link Endpoint.
-// 
-// > **NOTE** Private Link is currently in Public Preview.
-//
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_endpoint_connection.html.markdown.
 func LookupPrivateLinkEndpointConnection(ctx *pulumi.Context, args *GetPrivateLinkEndpointConnectionArgs) (*GetPrivateLinkEndpointConnectionResult, error) {
 	inputs := make(map[string]interface{})

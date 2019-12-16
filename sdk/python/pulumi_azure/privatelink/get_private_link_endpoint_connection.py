@@ -52,9 +52,7 @@ class AwaitableGetPrivateLinkEndpointConnectionResult(GetPrivateLinkEndpointConn
 
 def get_private_link_endpoint_connection(name=None,resource_group_name=None,opts=None):
     """
-    Use this data source to access the connection status information about an existing Private Link Endpoint.
-    
-    > **NOTE** Private Link is currently in Public Preview.
+    Use this data source to access information about an existing resource.
     
     :param str name: Specifies the Name of the private link endpoint.
     :param str resource_group_name: Specifies the Name of the Resource Group within which the private link endpoint exists.

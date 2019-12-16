@@ -38,11 +38,7 @@ class LinkEndpoint(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an Endpoint within a Private Link Service.
-        
-        > **NOTE** Private Link is currently in Public Preview.
-        
-        Azure Private Link Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Link Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
+        Create a LinkEndpoint resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
