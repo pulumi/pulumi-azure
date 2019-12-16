@@ -99,7 +99,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_endpoint'] = storage_endpoint
         super(ServerSecurityAlertPolicy, __self__).__init__(
-            'azure:mysql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy',
+            'azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy',
             resource_name,
             __props__,
             opts)

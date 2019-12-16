@@ -13,13 +13,13 @@ import (
 // > **Note** A bot can only have a single MS Teams Channel associated with it.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_ms_teams.html.markdown.
-type ChannelMsTeams struct {
+type ChannelTeams struct {
 	s *pulumi.ResourceState
 }
 
-// NewChannelMsTeams registers a new resource with the given unique name, arguments, and options.
-func NewChannelMsTeams(ctx *pulumi.Context,
-	name string, args *ChannelMsTeamsArgs, opts ...pulumi.ResourceOpt) (*ChannelMsTeams, error) {
+// NewChannelTeams registers a new resource with the given unique name, arguments, and options.
+func NewChannelTeams(ctx *pulumi.Context,
+	name string, args *ChannelTeamsArgs, opts ...pulumi.ResourceOpt) (*ChannelTeams, error) {
 	if args == nil || args.BotName == nil {
 		return nil, errors.New("missing required argument 'BotName'")
 	}
@@ -40,17 +40,17 @@ func NewChannelMsTeams(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["resourceGroupName"] = args.ResourceGroupName
 	}
-	s, err := ctx.RegisterResource("azure:bot/channelMsTeams:ChannelMsTeams", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:bot/channelTeams:ChannelTeams", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ChannelMsTeams{s: s}, nil
+	return &ChannelTeams{s: s}, nil
 }
 
-// GetChannelMsTeams gets an existing ChannelMsTeams resource's state with the given name, ID, and optional
+// GetChannelTeams gets an existing ChannelTeams resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetChannelMsTeams(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *ChannelMsTeamsState, opts ...pulumi.ResourceOpt) (*ChannelMsTeams, error) {
+func GetChannelTeams(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *ChannelTeamsState, opts ...pulumi.ResourceOpt) (*ChannelTeams, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["botName"] = state.BotName
@@ -59,50 +59,50 @@ func GetChannelMsTeams(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["resourceGroupName"] = state.ResourceGroupName
 	}
-	s, err := ctx.ReadResource("azure:bot/channelMsTeams:ChannelMsTeams", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:bot/channelTeams:ChannelTeams", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &ChannelMsTeams{s: s}, nil
+	return &ChannelTeams{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ChannelMsTeams) URN() pulumi.URNOutput {
+func (r *ChannelTeams) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ChannelMsTeams) ID() pulumi.IDOutput {
+func (r *ChannelTeams) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-func (r *ChannelMsTeams) BotName() pulumi.StringOutput {
+func (r *ChannelTeams) BotName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["botName"])
 }
 
 // Specifies the webhook for Microsoft Teams channel calls.
-func (r *ChannelMsTeams) CallingWebHook() pulumi.StringOutput {
+func (r *ChannelTeams) CallingWebHook() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["callingWebHook"])
 }
 
 // Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
-func (r *ChannelMsTeams) EnableCalling() pulumi.BoolOutput {
+func (r *ChannelTeams) EnableCalling() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enableCalling"])
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *ChannelMsTeams) Location() pulumi.StringOutput {
+func (r *ChannelTeams) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-func (r *ChannelMsTeams) ResourceGroupName() pulumi.StringOutput {
+func (r *ChannelTeams) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Input properties used for looking up and filtering ChannelMsTeams resources.
-type ChannelMsTeamsState struct {
+// Input properties used for looking up and filtering ChannelTeams resources.
+type ChannelTeamsState struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName interface{}
 	// Specifies the webhook for Microsoft Teams channel calls.
@@ -115,8 +115,8 @@ type ChannelMsTeamsState struct {
 	ResourceGroupName interface{}
 }
 
-// The set of arguments for constructing a ChannelMsTeams resource.
-type ChannelMsTeamsArgs struct {
+// The set of arguments for constructing a ChannelTeams resource.
+type ChannelTeamsArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName interface{}
 	// Specifies the webhook for Microsoft Teams channel calls.

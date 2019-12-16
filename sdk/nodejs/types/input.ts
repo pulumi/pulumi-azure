@@ -4457,6 +4457,10 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
+        results: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ElasticPoolElasticPoolProperties {
         creationDate?: pulumi.Input<string>;
         licenseType?: pulumi.Input<string>;
@@ -4500,13 +4504,24 @@ export namespace mssql {
          */
         tier: pulumi.Input<string>;
     }
+
+    export interface ServerVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdmins?: pulumi.Input<boolean>;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
 }
 
 export namespace mysql {
-    export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
-        results: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface ServerSku {
         /**
          * The scale up/out capacity, representing server's compute units.
@@ -4543,21 +4558,6 @@ export namespace mysql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
          */
         storageMb: pulumi.Input<number>;
-    }
-
-    export interface ServerVulnerabilityAssessmentRecurringScans {
-        /**
-         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
-         */
-        emailSubscriptionAdmins?: pulumi.Input<boolean>;
-        /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
-         */
-        emails?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
-         */
-        enabled?: pulumi.Input<boolean>;
     }
 }
 

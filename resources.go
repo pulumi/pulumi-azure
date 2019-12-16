@@ -47,7 +47,7 @@ const (
 	azureAD                  = "AD"                  // Active Directory (AAD)
 	azureAnalysisServices    = "AnalysisServices"    // Analysis Services
 	azureAPIManagement       = "ApiManagement"       // API Management
-	azureAppConfiguration    = "AppConfiguration"    // AppConfiguration
+	azureAppConfiguration    = "AppConfiguration"    // App Configuration
 	azureAppInsights         = "AppInsights"         // AppInsights
 	azureAppService          = "AppService"          // App Service
 	azureAutomation          = "Automation"          // Automation
@@ -832,6 +832,15 @@ func Provider() tfbridge.ProviderInfo {
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
+			"azurerm_mssql_database_vulnerability_assessment_rule_baseline": {
+				Tok: azureResource(azureMSSQL, "DatabaseVulnerabilityAssessmentRuleBaseline"),
+			},
+			"azurerm_mssql_server_vulnerability_assessment": {
+				Tok: azureResource(azureMSSQL, "ServerVulnerabilityAssessment"),
+			},
+			"azurerm_mssql_server_security_alert_policy": {
+				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
+			},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
@@ -839,15 +848,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_firewall_rule":        {Tok: azureResource(azureMySQL, "FirewallRule")},
 			"azurerm_mysql_server":               {Tok: azureResource(azureMySQL, "Server")},
 			"azurerm_mysql_virtual_network_rule": {Tok: azureResource(azureMySQL, "VirtualNetworkRule")},
-			"azurerm_mssql_database_vulnerability_assessment_rule_baseline": {
-				Tok: azureResource(azureMySQL, "DatabaseVulnerabilityAssessmentRuleBaseline"),
-			},
-			"azurerm_mssql_server_vulnerability_assessment": {
-				Tok: azureResource(azureMySQL, "ServerVulnerabilityAssessment"),
-			},
-			"azurerm_mssql_server_security_alert_policy": {
-				Tok: azureResource(azureMySQL, "ServerSecurityAlertPolicy"),
-			},
 
 			// Postgress SQL
 			"azurerm_postgresql_configuration":        {Tok: azureResource(azurePostgresql, "Configuration")},
@@ -1204,7 +1204,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bot_channel_email":         {Tok: azureResource(azureBot, "ChannelEmail")},
 			"azurerm_bot_channel_slack":         {Tok: azureResource(azureBot, "ChannelSlack")},
 			"azurerm_bot_web_app":               {Tok: azureResource(azureBot, "WebApp")},
-			"azurerm_bot_channel_ms_teams":      {Tok: azureResource(azureBot, "ChannelMsTeams")},
+			"azurerm_bot_channel_ms_teams":      {Tok: azureResource(azureBot, "ChannelTeams")},
 
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},

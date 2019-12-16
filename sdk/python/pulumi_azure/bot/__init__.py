@@ -4,7 +4,7 @@
 
 # Export this package's modules as members:
 from .channel_email import *
-from .channel_ms_teams import *
+from .channel_teams import *
 from .channel_slack import *
 from .channels_registration import *
 from .connection import *

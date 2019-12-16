@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Azure.MySql
+namespace Pulumi.Azure.MSSql
 {
     /// <summary>
     /// Manages a Security Alert Policy for a MSSQL Server.
@@ -80,12 +80,12 @@ namespace Pulumi.Azure.MySql
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServerSecurityAlertPolicy(string name, ServerSecurityAlertPolicyArgs args, CustomResourceOptions? options = null)
-            : base("azure:mysql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
         private ServerSecurityAlertPolicy(string name, Input<string> id, ServerSecurityAlertPolicyState? state = null, CustomResourceOptions? options = null)
-            : base("azure:mysql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, state, MakeResourceOptions(options, id))
+            : base("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, state, MakeResourceOptions(options, id))
         {
         }
 

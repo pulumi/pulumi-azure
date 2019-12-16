@@ -9,7 +9,7 @@ import pulumi.runtime
 from typing import Union
 from .. import utilities, tables
 
-class ChannelMsTeams(pulumi.CustomResource):
+class ChannelTeams(pulumi.CustomResource):
     bot_name: pulumi.Output[str]
     """
     The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -72,8 +72,8 @@ class ChannelMsTeams(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-        super(ChannelMsTeams, __self__).__init__(
-            'azure:bot/channelMsTeams:ChannelMsTeams',
+        super(ChannelTeams, __self__).__init__(
+            'azure:bot/channelTeams:ChannelTeams',
             resource_name,
             __props__,
             opts)
@@ -81,7 +81,7 @@ class ChannelMsTeams(pulumi.CustomResource):
     @staticmethod
     def get(resource_name, id, opts=None, bot_name=None, calling_web_hook=None, enable_calling=None, location=None, resource_group_name=None):
         """
-        Get an existing ChannelMsTeams resource's state with the given name, id, and optional extra
+        Get an existing ChannelTeams resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
         
         :param str resource_name: The unique name of the resulting resource.
@@ -103,7 +103,7 @@ class ChannelMsTeams(pulumi.CustomResource):
         __props__["enable_calling"] = enable_calling
         __props__["location"] = location
         __props__["resource_group_name"] = resource_group_name
-        return ChannelMsTeams(resource_name, opts=opts, __props__=__props__)
+        return ChannelTeams(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -5746,6 +5746,10 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
+        results: string[];
+    }
+
     export interface ElasticPoolElasticPoolProperties {
         creationDate: string;
         licenseType: string;
@@ -5789,13 +5793,24 @@ export namespace mssql {
          */
         tier: string;
     }
+
+    export interface ServerVulnerabilityAssessmentRecurringScans {
+        /**
+         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+         */
+        emailSubscriptionAdmins?: boolean;
+        /**
+         * Specifies an array of e-mail addresses to which the scan notification is sent.
+         */
+        emails?: string[];
+        /**
+         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+         */
+        enabled?: boolean;
+    }
 }
 
 export namespace mysql {
-    export interface DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult {
-        results: string[];
-    }
-
     export interface ServerSku {
         /**
          * The scale up/out capacity, representing server's compute units.
@@ -5832,21 +5847,6 @@ export namespace mysql {
          * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
          */
         storageMb: number;
-    }
-
-    export interface ServerVulnerabilityAssessmentRecurringScans {
-        /**
-         * Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
-         */
-        emailSubscriptionAdmins?: boolean;
-        /**
-         * Specifies an array of e-mail addresses to which the scan notification is sent.
-         */
-        emails?: string[];
-        /**
-         * Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
-         */
-        enabled?: boolean;
     }
 }
 

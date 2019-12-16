@@ -27,7 +27,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:mysql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy';
+    public static readonly __pulumiType = 'azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy';
 
     /**
      * Returns true if the given object is an instance of ServerSecurityAlertPolicy.  This is designed to work even

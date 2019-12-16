@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Bot
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_ms_teams.html.markdown.
     /// </summary>
-    public partial class ChannelMsTeams : Pulumi.CustomResource
+    public partial class ChannelTeams : Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -49,19 +49,19 @@ namespace Pulumi.Azure.Bot
 
 
         /// <summary>
-        /// Create a ChannelMsTeams resource with the given unique name, arguments, and options.
+        /// Create a ChannelTeams resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ChannelMsTeams(string name, ChannelMsTeamsArgs args, CustomResourceOptions? options = null)
-            : base("azure:bot/channelMsTeams:ChannelMsTeams", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+        public ChannelTeams(string name, ChannelTeamsArgs args, CustomResourceOptions? options = null)
+            : base("azure:bot/channelTeams:ChannelTeams", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 
-        private ChannelMsTeams(string name, Input<string> id, ChannelMsTeamsState? state = null, CustomResourceOptions? options = null)
-            : base("azure:bot/channelMsTeams:ChannelMsTeams", name, state, MakeResourceOptions(options, id))
+        private ChannelTeams(string name, Input<string> id, ChannelTeamsState? state = null, CustomResourceOptions? options = null)
+            : base("azure:bot/channelTeams:ChannelTeams", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Bot
             return merged;
         }
         /// <summary>
-        /// Get an existing ChannelMsTeams resource's state with the given name, ID, and optional extra
+        /// Get an existing ChannelTeams resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -85,13 +85,13 @@ namespace Pulumi.Azure.Bot
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static ChannelMsTeams Get(string name, Input<string> id, ChannelMsTeamsState? state = null, CustomResourceOptions? options = null)
+        public static ChannelTeams Get(string name, Input<string> id, ChannelTeamsState? state = null, CustomResourceOptions? options = null)
         {
-            return new ChannelMsTeams(name, id, state, options);
+            return new ChannelTeams(name, id, state, options);
         }
     }
 
-    public sealed class ChannelMsTeamsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelTeamsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -123,12 +123,12 @@ namespace Pulumi.Azure.Bot
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public ChannelMsTeamsArgs()
+        public ChannelTeamsArgs()
         {
         }
     }
 
-    public sealed class ChannelMsTeamsState : Pulumi.ResourceArgs
+    public sealed class ChannelTeamsState : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Bot
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        public ChannelMsTeamsState()
+        public ChannelTeamsState()
         {
         }
     }

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });
- * const exampleChannelMsTeams = new azure.bot.ChannelMsTeams("example", {
+ * const exampleChannelTeams = new azure.bot.ChannelTeams("example", {
  *     botName: exampleChannelsRegistration.name,
  *     callingWebHook: "https://example2.com/",
  *     enableCalling: false,
@@ -36,31 +36,31 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bot_channel_ms_teams.html.markdown.
  */
-export class ChannelMsTeams extends pulumi.CustomResource {
+export class ChannelTeams extends pulumi.CustomResource {
     /**
-     * Get an existing ChannelMsTeams resource's state with the given name, ID, and optional extra
+     * Get an existing ChannelTeams resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ChannelMsTeamsState, opts?: pulumi.CustomResourceOptions): ChannelMsTeams {
-        return new ChannelMsTeams(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ChannelTeamsState, opts?: pulumi.CustomResourceOptions): ChannelTeams {
+        return new ChannelTeams(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:bot/channelMsTeams:ChannelMsTeams';
+    public static readonly __pulumiType = 'azure:bot/channelTeams:ChannelTeams';
 
     /**
-     * Returns true if the given object is an instance of ChannelMsTeams.  This is designed to work even
+     * Returns true if the given object is an instance of ChannelTeams.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is ChannelMsTeams {
+    public static isInstance(obj: any): obj is ChannelTeams {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === ChannelMsTeams.__pulumiType;
+        return obj['__pulumiType'] === ChannelTeams.__pulumiType;
     }
 
     /**
@@ -85,24 +85,24 @@ export class ChannelMsTeams extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
-     * Create a ChannelMsTeams resource with the given unique name, arguments, and options.
+     * Create a ChannelTeams resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ChannelMsTeamsArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ChannelMsTeamsArgs | ChannelMsTeamsState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ChannelTeamsArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ChannelTeamsArgs | ChannelTeamsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ChannelMsTeamsState | undefined;
+            const state = argsOrState as ChannelTeamsState | undefined;
             inputs["botName"] = state ? state.botName : undefined;
             inputs["callingWebHook"] = state ? state.callingWebHook : undefined;
             inputs["enableCalling"] = state ? state.enableCalling : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
-            const args = argsOrState as ChannelMsTeamsArgs | undefined;
+            const args = argsOrState as ChannelTeamsArgs | undefined;
             if (!args || args.botName === undefined) {
                 throw new Error("Missing required property 'botName'");
             }
@@ -122,14 +122,14 @@ export class ChannelMsTeams extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(ChannelMsTeams.__pulumiType, name, inputs, opts);
+        super(ChannelTeams.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering ChannelMsTeams resources.
+ * Input properties used for looking up and filtering ChannelTeams resources.
  */
-export interface ChannelMsTeamsState {
+export interface ChannelTeamsState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
@@ -153,9 +153,9 @@ export interface ChannelMsTeamsState {
 }
 
 /**
- * The set of arguments for constructing a ChannelMsTeams resource.
+ * The set of arguments for constructing a ChannelTeams resource.
  */
-export interface ChannelMsTeamsArgs {
+export interface ChannelTeamsArgs {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
