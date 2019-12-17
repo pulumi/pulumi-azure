@@ -102,7 +102,7 @@ func (r *Certificate) KeyVaultId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
-// The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 func (r *Certificate) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
@@ -141,7 +141,7 @@ type CertificateState struct {
 	CertificatePolicy interface{}
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId interface{}
-	// The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 	Name interface{}
 	// The ID of the associated Key Vault Secret.
 	SecretId interface{}
@@ -162,7 +162,7 @@ type CertificateArgs struct {
 	CertificatePolicy interface{}
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId interface{}
-	// The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

@@ -4,6 +4,7 @@
 // Export members:
 export * from "./channelEmail";
 export * from "./channelSlack";
+export * from "./channelTeams";
 export * from "./channelsRegistration";
 export * from "./connection";
 export * from "./webApp";

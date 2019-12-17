@@ -97,10 +97,7 @@ export class MongoCollection extends pulumi.CustomResource {
      * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     public readonly shardKey!: pulumi.Output<string | undefined>;
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-     */
-    public readonly throughput!: pulumi.Output<number | undefined>;
+    public readonly throughput!: pulumi.Output<number>;
 
     /**
      * Create a MongoCollection resource with the given unique name, arguments, and options.
@@ -182,9 +179,6 @@ export interface MongoCollectionState {
      * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     readonly shardKey?: pulumi.Input<string>;
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-     */
     readonly throughput?: pulumi.Input<number>;
 }
 
@@ -217,8 +211,5 @@ export interface MongoCollectionArgs {
      * The name of the key to partition on for sharding. There must not be any other unique index keys.
      */
     readonly shardKey?: pulumi.Input<string>;
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The default and minimum value is `400`.
-     */
     readonly throughput?: pulumi.Input<number>;
 }

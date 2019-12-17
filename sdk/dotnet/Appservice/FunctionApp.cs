@@ -905,6 +905,12 @@ namespace Pulumi.Azure.AppService
         public Input<string>? LinuxFxVersion { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
+
+        /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
@@ -988,6 +994,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
+
+        /// <summary>
+        /// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -1258,6 +1270,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string LinuxFxVersion;
         /// <summary>
+        /// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+        /// </summary>
+        public readonly string MinTlsVersion;
+        /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
@@ -1276,6 +1292,7 @@ namespace Pulumi.Azure.AppService
             FunctionAppSiteConfigCors cors,
             bool? http2Enabled,
             string linuxFxVersion,
+            string minTlsVersion,
             bool? use32BitWorkerProcess,
             string? virtualNetworkName,
             bool? websocketsEnabled)
@@ -1284,6 +1301,7 @@ namespace Pulumi.Azure.AppService
             Cors = cors;
             Http2Enabled = http2Enabled;
             LinuxFxVersion = linuxFxVersion;
+            MinTlsVersion = minTlsVersion;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             VirtualNetworkName = virtualNetworkName;
             WebsocketsEnabled = websocketsEnabled;
