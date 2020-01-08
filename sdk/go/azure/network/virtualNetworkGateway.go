@@ -38,6 +38,7 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 		inputs["bgpSettings"] = nil
 		inputs["defaultLocalNetworkGatewayId"] = nil
 		inputs["enableBgp"] = nil
+		inputs["generation"] = nil
 		inputs["ipConfigurations"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
@@ -52,6 +53,7 @@ func NewVirtualNetworkGateway(ctx *pulumi.Context,
 		inputs["bgpSettings"] = args.BgpSettings
 		inputs["defaultLocalNetworkGatewayId"] = args.DefaultLocalNetworkGatewayId
 		inputs["enableBgp"] = args.EnableBgp
+		inputs["generation"] = args.Generation
 		inputs["ipConfigurations"] = args.IpConfigurations
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
@@ -79,6 +81,7 @@ func GetVirtualNetworkGateway(ctx *pulumi.Context,
 		inputs["bgpSettings"] = state.BgpSettings
 		inputs["defaultLocalNetworkGatewayId"] = state.DefaultLocalNetworkGatewayId
 		inputs["enableBgp"] = state.EnableBgp
+		inputs["generation"] = state.Generation
 		inputs["ipConfigurations"] = state.IpConfigurations
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
@@ -133,6 +136,11 @@ func (r *VirtualNetworkGateway) EnableBgp() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enableBgp"])
 }
 
+// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+func (r *VirtualNetworkGateway) Generation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["generation"])
+}
+
 // One or two `ipConfiguration` blocks documented below.
 // An active-standby gateway requires exactly one `ipConfiguration` block whereas
 // an active-active gateway requires exactly two `ipConfiguration` blocks.
@@ -161,8 +169,9 @@ func (r *VirtualNetworkGateway) ResourceGroupName() pulumi.StringOutput {
 
 // Configuration of the size and capacity of the virtual network
 // gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-// and depend on the `type` and `vpnType` arguments.
+// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
+// `generation` arguments.
 // A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 // sku is only supported by an `ExpressRoute` gateway.
 func (r *VirtualNetworkGateway) Sku() pulumi.StringOutput {
@@ -210,6 +219,8 @@ type VirtualNetworkGatewayState struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp interface{}
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	Generation interface{}
 	// One or two `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
 	// an active-active gateway requires exactly two `ipConfiguration` blocks.
@@ -226,8 +237,9 @@ type VirtualNetworkGatewayState struct {
 	ResourceGroupName interface{}
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-	// and depend on the `type` and `vpnType` arguments.
+	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
+	// `generation` arguments.
 	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 	// sku is only supported by an `ExpressRoute` gateway.
 	Sku interface{}
@@ -262,6 +274,8 @@ type VirtualNetworkGatewayArgs struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp interface{}
+	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+	Generation interface{}
 	// One or two `ipConfiguration` blocks documented below.
 	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
 	// an active-active gateway requires exactly two `ipConfiguration` blocks.
@@ -278,8 +292,9 @@ type VirtualNetworkGatewayArgs struct {
 	ResourceGroupName interface{}
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-	// and depend on the `type` and `vpnType` arguments.
+	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+	// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
+	// `generation` arguments.
 	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 	// sku is only supported by an `ExpressRoute` gateway.
 	Sku interface{}

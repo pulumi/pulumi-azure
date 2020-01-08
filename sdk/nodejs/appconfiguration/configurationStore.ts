@@ -54,7 +54,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     }
 
     /**
-     * The URL that can be used to log into the container registry.
+     * The URL of the App Configuration.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
  */
 export interface ConfigurationStoreState {
     /**
-     * The URL that can be used to log into the container registry.
+     * The URL of the App Configuration.
      */
     readonly endpoint?: pulumi.Input<string>;
     /**

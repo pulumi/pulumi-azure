@@ -26,6 +26,13 @@ class Service(pulumi.CustomResource):
     """
     The Search Service Administration primary key.
     """
+    query_keys: pulumi.Output[list]
+    """
+    A `query_keys` block as defined below.
+    
+      * `key` (`str`) - The value of the query key.
+      * `name` (`str`) - The name of the Search Service. Changing this forces a new resource to be created.
+    """
     replica_count: pulumi.Output[float]
     """
     Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
@@ -91,6 +98,7 @@ class Service(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['primary_key'] = None
+            __props__['query_keys'] = None
             __props__['secondary_key'] = None
         super(Service, __self__).__init__(
             'azure:search/service:Service',
@@ -99,7 +107,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, partition_count=None, primary_key=None, replica_count=None, resource_group_name=None, secondary_key=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, location=None, name=None, partition_count=None, primary_key=None, query_keys=None, replica_count=None, resource_group_name=None, secondary_key=None, sku=None, tags=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,11 +119,17 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Search Service. Changing this forces a new resource to be created.
         :param pulumi.Input[float] partition_count: Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_key: The Search Service Administration primary key.
+        :param pulumi.Input[list] query_keys: A `query_keys` block as defined below.
         :param pulumi.Input[float] replica_count: Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_key: The Search Service Administration secondary key.
         :param pulumi.Input[str] sku: Valid values are `basic`, `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **query_keys** object supports the following:
+        
+          * `key` (`pulumi.Input[str]`) - The value of the query key.
+          * `name` (`pulumi.Input[str]`) - The name of the Search Service. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
         """
@@ -126,6 +140,7 @@ class Service(pulumi.CustomResource):
         __props__["name"] = name
         __props__["partition_count"] = partition_count
         __props__["primary_key"] = primary_key
+        __props__["query_keys"] = query_keys
         __props__["replica_count"] = replica_count
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_key"] = secondary_key

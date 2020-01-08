@@ -25,6 +25,7 @@ func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult
 	return &GetServiceResult{
 		Alias: outputs["alias"],
 		AutoApprovalSubscriptionIds: outputs["autoApprovalSubscriptionIds"],
+		EnableProxyProtocol: outputs["enableProxyProtocol"],
 		LoadBalancerFrontendIpConfigurationIds: outputs["loadBalancerFrontendIpConfigurationIds"],
 		Location: outputs["location"],
 		Name: outputs["name"],
@@ -51,6 +52,8 @@ type GetServiceResult struct {
 	Alias interface{}
 	// The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
 	AutoApprovalSubscriptionIds interface{}
+	// Does the Private Link Service support the Proxy Protocol?
+	EnableProxyProtocol interface{}
 	// The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
 	LoadBalancerFrontendIpConfigurationIds interface{}
 	// The supported Azure location where the resource exists.

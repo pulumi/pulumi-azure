@@ -63,6 +63,8 @@ class ReplicatedVm(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, managed_disks=None, name=None, recovery_replication_policy_id=None, recovery_vault_name=None, resource_group_name=None, source_recovery_fabric_name=None, source_recovery_protection_container_name=None, source_vm_id=None, target_availability_set_id=None, target_recovery_fabric_id=None, target_recovery_protection_container_id=None, target_resource_group_id=None, __props__=None, __name__=None, __opts__=None):
         """
+        > **NOTE:** This resource has been deprecated in favour of the `siterecovery.ReplicatedVM` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+        
         Manages a Azure recovery replicated vms (Azure to Azure). An replicated VM keeps a copiously updated image of the vm in another region in order to be able to start the VM in that region in case of a disaster. 
         
         :param str resource_name: The name of the resource.

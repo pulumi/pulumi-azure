@@ -20,6 +20,10 @@ class Image(pulumi.CustomResource):
       * `managed_disk_id` (`str`) - Specifies the ID of the managed disk resource that you want to use to create the image.
       * `sizeGb` (`float`) - Specifies the size of the image to be created. The target size can't be smaller than the source size.
     """
+    hyper_v_generation: pulumi.Output[str]
+    """
+    The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+    """
     location: pulumi.Output[str]
     """
     Specified the supported Azure location where the resource exists.
@@ -58,13 +62,14 @@ class Image(pulumi.CustomResource):
     """
     Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_disks=None, hyper_v_generation=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a custom virtual machine image that can be used to create virtual machines.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] data_disks: One or more `data_disk` elements as defined below.
+        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
@@ -113,6 +118,7 @@ class Image(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_disks'] = data_disks
+            __props__['hyper_v_generation'] = hyper_v_generation
             __props__['location'] = location
             __props__['name'] = name
             __props__['os_disk'] = os_disk
@@ -129,7 +135,7 @@ class Image(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None):
+    def get(resource_name, id, opts=None, data_disks=None, hyper_v_generation=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None):
         """
         Get an existing Image resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -138,6 +144,7 @@ class Image(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] data_disks: One or more `data_disk` elements as defined below.
+        :param pulumi.Input[str] hyper_v_generation: The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
@@ -172,6 +179,7 @@ class Image(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["data_disks"] = data_disks
+        __props__["hyper_v_generation"] = hyper_v_generation
         __props__["location"] = location
         __props__["name"] = name
         __props__["os_disk"] = os_disk

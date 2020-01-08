@@ -22,7 +22,8 @@ class CassandraKeyspace(pulumi.CustomResource):
     """
     The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    throughput: pulumi.Output[float]
+    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, resource_group_name=None, throughput=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
         
@@ -58,6 +59,7 @@ class CassandraKeyspace(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['throughput'] = throughput
         super(CassandraKeyspace, __self__).__init__(
             'azure:cosmosdb/cassandraKeyspace:CassandraKeyspace',
             resource_name,
@@ -65,7 +67,7 @@ class CassandraKeyspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, name=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, account_name=None, name=None, resource_group_name=None, throughput=None):
         """
         Get an existing CassandraKeyspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,6 +87,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         __props__["account_name"] = account_name
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["throughput"] = throughput
         return CassandraKeyspace(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

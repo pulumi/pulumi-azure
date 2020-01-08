@@ -62,6 +62,7 @@ class ApplicationGateway(pulumi.CustomResource):
       * `probeName` (`str`)
       * `protocol` (`str`)
       * `requestTimeout` (`float`)
+      * `trustedRootCertificateNames` (`list`)
     """
     custom_error_configurations: pulumi.Output[list]
     """
@@ -403,6 +404,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `probeName` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
           * `requestTimeout` (`pulumi.Input[float]`)
+          * `trustedRootCertificateNames` (`pulumi.Input[list]`)
         
         The **custom_error_configurations** object supports the following:
         
@@ -756,6 +758,7 @@ class ApplicationGateway(pulumi.CustomResource):
           * `probeName` (`pulumi.Input[str]`)
           * `protocol` (`pulumi.Input[str]`)
           * `requestTimeout` (`pulumi.Input[float]`)
+          * `trustedRootCertificateNames` (`pulumi.Input[list]`)
         
         The **custom_error_configurations** object supports the following:
         

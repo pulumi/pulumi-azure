@@ -31,6 +31,14 @@ class Account(pulumi.CustomResource):
     Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
     """
     account_type: pulumi.Output[str]
+    blob_properties: pulumi.Output[dict]
+    """
+    A `blob_properties` block as defined below.
+    
+      * `deleteRetentionPolicy` (`dict`)
+    
+        * `days` (`float`)
+    """
     custom_domain: pulumi.Output[dict]
     """
     A `custom_domain` block as documented below.
@@ -254,7 +262,7 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, blob_properties=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Storage Account.
         
@@ -265,6 +273,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_advanced_threat_protection: Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
         :param pulumi.Input[bool] enable_blob_encryption: Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -279,6 +288,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **blob_properties** object supports the following:
+        
+          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
+        
+            * `days` (`pulumi.Input[float]`)
         
         The **custom_domain** object supports the following:
         
@@ -359,6 +374,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_tier'")
             __props__['account_tier'] = account_tier
             __props__['account_type'] = account_type
+            __props__['blob_properties'] = blob_properties
             __props__['custom_domain'] = custom_domain
             __props__['enable_advanced_threat_protection'] = enable_advanced_threat_protection
             __props__['enable_blob_encryption'] = enable_blob_encryption
@@ -413,7 +429,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
+    def get(resource_name, id, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, blob_properties=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -426,6 +442,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_advanced_threat_protection: Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
         :param pulumi.Input[bool] enable_blob_encryption: Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -472,6 +489,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **blob_properties** object supports the following:
+        
+          * `deleteRetentionPolicy` (`pulumi.Input[dict]`)
+        
+            * `days` (`pulumi.Input[float]`)
         
         The **custom_domain** object supports the following:
         
@@ -534,6 +557,7 @@ class Account(pulumi.CustomResource):
         __props__["account_replication_type"] = account_replication_type
         __props__["account_tier"] = account_tier
         __props__["account_type"] = account_type
+        __props__["blob_properties"] = blob_properties
         __props__["custom_domain"] = custom_domain
         __props__["enable_advanced_threat_protection"] = enable_advanced_threat_protection
         __props__["enable_blob_encryption"] = enable_blob_encryption

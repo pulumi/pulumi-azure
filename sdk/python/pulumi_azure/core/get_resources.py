@@ -18,7 +18,7 @@ class GetResourcesResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        The name of this resource.
+        The name of this Resource.
         """
         if required_tags and not isinstance(required_tags, dict):
             raise TypeError("Expected argument 'required_tags' to be a dict")
@@ -36,7 +36,7 @@ class GetResourcesResult:
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
-        The type of this resoource.
+        The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

@@ -25,6 +25,7 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGat
 		BgpSettings: outputs["bgpSettings"],
 		DefaultLocalNetworkGatewayId: outputs["defaultLocalNetworkGatewayId"],
 		EnableBgp: outputs["enableBgp"],
+		Generation: outputs["generation"],
 		IpConfigurations: outputs["ipConfigurations"],
 		Location: outputs["location"],
 		Name: outputs["name"],
@@ -59,6 +60,8 @@ type GetVirtualNetworkGatewayResult struct {
 	// Will BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway.
 	EnableBgp interface{}
+	// The Generation of the Virtual Network Gateway.
+	Generation interface{}
 	// One or two `ipConfiguration` blocks documented below.
 	IpConfigurations interface{}
 	// The location/region where the Virtual Network Gateway is located.

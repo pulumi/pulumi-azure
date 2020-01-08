@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
@@ -68,6 +69,10 @@ export interface GetServiceResult {
      * The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
      */
     readonly autoApprovalSubscriptionIds: string[];
+    /**
+     * Does the Private Link Service support the Proxy Protocol?
+     */
+    readonly enableProxyProtocol: boolean;
     /**
      * The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
      */

@@ -9,6 +9,7 @@ from .io_t_hub import *
 from .consumer_group import *
 from .iot_hub_dps import *
 from .iot_hub_certificate import *
+from .dps_shared_access_policy import *
 from .endpoint_eventhub import *
 from .endpoint_servicebus_queue import *
 from .endpoint_servicebus_topic import *

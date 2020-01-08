@@ -191,6 +191,13 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
+     * The IKE protocol version to use. Possible
+     * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+     * Changing this value will force a resource to be created.
+     * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+     */
+    public readonly connectionProtocol!: pulumi.Output<string>;
+    /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
@@ -286,6 +293,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
+            inputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
             inputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
@@ -313,6 +321,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
             inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
@@ -350,6 +359,13 @@ export interface VirtualNetworkGatewayConnectionState {
      * ExpressRoute connection.
      */
     readonly authorizationKey?: pulumi.Input<string>;
+    /**
+     * The IKE protocol version to use. Possible
+     * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+     * Changing this value will force a resource to be created.
+     * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+     */
+    readonly connectionProtocol?: pulumi.Input<string>;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
@@ -444,6 +460,13 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * ExpressRoute connection.
      */
     readonly authorizationKey?: pulumi.Input<string>;
+    /**
+     * The IKE protocol version to use. Possible
+     * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+     * Changing this value will force a resource to be created.
+     * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+     */
+    readonly connectionProtocol?: pulumi.Input<string>;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.

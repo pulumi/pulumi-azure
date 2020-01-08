@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of IPv4 Addresses.
+        /// List of IPv4 Addresses. Conflicts with `target_resource_id`.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
@@ -44,6 +44,12 @@ namespace Pulumi.Azure.Dns
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure resource id of the target object. Conflicts with `records`
+        /// </summary>
+        [Output("targetResourceId")]
+        public Output<string?> TargetResourceId { get; private set; } = null!;
 
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
@@ -106,11 +112,11 @@ namespace Pulumi.Azure.Dns
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("records", required: true)]
+        [Input("records")]
         private InputList<string>? _records;
 
         /// <summary>
-        /// List of IPv4 Addresses.
+        /// List of IPv4 Addresses. Conflicts with `target_resource_id`.
         /// </summary>
         public InputList<string> Records
         {
@@ -135,6 +141,12 @@ namespace Pulumi.Azure.Dns
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Azure resource id of the target object. Conflicts with `records`
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
 
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
@@ -168,7 +180,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// List of IPv4 Addresses.
+        /// List of IPv4 Addresses. Conflicts with `target_resource_id`.
         /// </summary>
         public InputList<string> Records
         {
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.Dns
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Azure resource id of the target object. Conflicts with `records`
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
 
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }

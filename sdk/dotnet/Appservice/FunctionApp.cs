@@ -893,6 +893,12 @@ namespace Pulumi.Azure.AppService
         public Input<FunctionAppSiteConfigCorsArgs>? Cors { get; set; }
 
         /// <summary>
+        /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
+        [Input("ftpsState")]
+        public Input<string>? FtpsState { get; set; }
+
+        /// <summary>
         /// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         [Input("http2Enabled")]
@@ -982,6 +988,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("cors")]
         public Input<FunctionAppSiteConfigCorsGetArgs>? Cors { get; set; }
+
+        /// <summary>
+        /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
+        [Input("ftpsState")]
+        public Input<string>? FtpsState { get; set; }
 
         /// <summary>
         /// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
@@ -1262,6 +1274,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly FunctionAppSiteConfigCors Cors;
         /// <summary>
+        /// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        /// </summary>
+        public readonly string FtpsState;
+        /// <summary>
         /// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? Http2Enabled;
@@ -1290,6 +1306,7 @@ namespace Pulumi.Azure.AppService
         private FunctionAppSiteConfig(
             bool? alwaysOn,
             FunctionAppSiteConfigCors cors,
+            string ftpsState,
             bool? http2Enabled,
             string linuxFxVersion,
             string minTlsVersion,
@@ -1299,6 +1316,7 @@ namespace Pulumi.Azure.AppService
         {
             AlwaysOn = alwaysOn;
             Cors = cors;
+            FtpsState = ftpsState;
             Http2Enabled = http2Enabled;
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;

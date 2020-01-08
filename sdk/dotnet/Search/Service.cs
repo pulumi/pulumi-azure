@@ -40,6 +40,12 @@ namespace Pulumi.Azure.Search
         public Output<string> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// A `query_keys` block as defined below.
+        /// </summary>
+        [Output("queryKeys")]
+        public Output<ImmutableArray<Outputs.ServiceQueryKeys>> QueryKeys { get; private set; } = null!;
+
+        /// <summary>
         /// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("replicaCount")]
@@ -194,6 +200,18 @@ namespace Pulumi.Azure.Search
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
+        [Input("queryKeys")]
+        private InputList<Inputs.ServiceQueryKeysGetArgs>? _queryKeys;
+
+        /// <summary>
+        /// A `query_keys` block as defined below.
+        /// </summary>
+        public InputList<Inputs.ServiceQueryKeysGetArgs> QueryKeys
+        {
+            get => _queryKeys ?? (_queryKeys = new InputList<Inputs.ServiceQueryKeysGetArgs>());
+            set => _queryKeys = value;
+        }
+
         /// <summary>
         /// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
         /// </summary>
@@ -233,5 +251,54 @@ namespace Pulumi.Azure.Search
         public ServiceState()
         {
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class ServiceQueryKeysGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The value of the query key.
+        /// </summary>
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public ServiceQueryKeysGetArgs()
+        {
+        }
+    }
+    }
+
+    namespace Outputs
+    {
+
+    [OutputType]
+    public sealed class ServiceQueryKeys
+    {
+        /// <summary>
+        /// The value of the query key.
+        /// </summary>
+        public readonly string Key;
+        /// <summary>
+        /// The name of the Search Service. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+
+        [OutputConstructor]
+        private ServiceQueryKeys(
+            string key,
+            string name)
+        {
+            Key = key;
+            Name = name;
+        }
+    }
     }
 }

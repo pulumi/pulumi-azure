@@ -17,6 +17,9 @@ namespace Pulumi.Azure.ContainerService
     /// </summary>
     public partial class KubernetesCluster : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `addon_profile` block as defined below.
+        /// </summary>
         [Output("addonProfile")]
         public Output<Outputs.KubernetesClusterAddonProfile> AddonProfile { get; private set; } = null!;
 
@@ -26,6 +29,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("agentPoolProfiles")]
         public Output<ImmutableArray<Outputs.KubernetesClusterAgentPoolProfiles>> AgentPoolProfiles { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// </summary>
         [Output("apiServerAuthorizedIpRanges")]
         public Output<ImmutableArray<string>> ApiServerAuthorizedIpRanges { get; private set; } = null!;
 
@@ -41,6 +47,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("dnsPrefix")]
         public Output<string> DnsPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
+        /// </summary>
         [Output("enablePodSecurityPolicy")]
         public Output<bool> EnablePodSecurityPolicy { get; private set; } = null!;
 
@@ -49,6 +58,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// A `identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.KubernetesClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -74,9 +89,15 @@ namespace Pulumi.Azure.ContainerService
         [Output("kubeConfigRaw")]
         public Output<string> KubeConfigRaw { get; private set; } = null!;
 
+        /// <summary>
+        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        /// </summary>
         [Output("kubernetesVersion")]
         public Output<string> KubernetesVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// A `linux_profile` block as defined below.
+        /// </summary>
         [Output("linuxProfile")]
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
@@ -92,14 +113,26 @@ namespace Pulumi.Azure.ContainerService
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.KubernetesClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("nodeResourceGroup")]
         public Output<string> NodeResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        /// </summary>
+        [Output("privateFqdn")]
+        public Output<string> PrivateFqdn { get; private set; } = null!;
+
+        [Output("privateLinkEnabled")]
+        public Output<bool?> PrivateLinkEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -107,6 +140,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("roleBasedAccessControl")]
         public Output<Outputs.KubernetesClusterRoleBasedAccessControl> RoleBasedAccessControl { get; private set; } = null!;
 
@@ -116,9 +152,15 @@ namespace Pulumi.Azure.ContainerService
         [Output("servicePrincipal")]
         public Output<Outputs.KubernetesClusterServicePrincipal> ServicePrincipal { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A `windows_profile` block as defined below.
+        /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterWindowsProfile?> WindowsProfile { get; private set; } = null!;
 
@@ -168,6 +210,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `addon_profile` block as defined below.
+        /// </summary>
         [Input("addonProfile")]
         public Input<Inputs.KubernetesClusterAddonProfileArgs>? AddonProfile { get; set; }
 
@@ -185,6 +230,10 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("apiServerAuthorizedIpRanges")]
         private InputList<string>? _apiServerAuthorizedIpRanges;
+
+        /// <summary>
+        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// </summary>
         public InputList<string> ApiServerAuthorizedIpRanges
         {
             get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
@@ -203,12 +252,27 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsPrefix", required: true)]
         public Input<string> DnsPrefix { get; set; } = null!;
 
+        /// <summary>
+        /// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
+        /// </summary>
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
+        /// <summary>
+        /// A `identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.KubernetesClusterIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }
 
+        /// <summary>
+        /// A `linux_profile` block as defined below.
+        /// </summary>
         [Input("linuxProfile")]
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
@@ -224,14 +288,20 @@ namespace Pulumi.Azure.ContainerService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        [Input("privateLinkEnabled")]
+        public Input<bool>? PrivateLinkEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -239,6 +309,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlArgs>? RoleBasedAccessControl { get; set; }
 
@@ -250,12 +323,19 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("tags")]
         private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<object> Tags
         {
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A `windows_profile` block as defined below.
+        /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileArgs>? WindowsProfile { get; set; }
 
@@ -266,6 +346,9 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class KubernetesClusterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `addon_profile` block as defined below.
+        /// </summary>
         [Input("addonProfile")]
         public Input<Inputs.KubernetesClusterAddonProfileGetArgs>? AddonProfile { get; set; }
 
@@ -283,6 +366,10 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("apiServerAuthorizedIpRanges")]
         private InputList<string>? _apiServerAuthorizedIpRanges;
+
+        /// <summary>
+        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// </summary>
         public InputList<string> ApiServerAuthorizedIpRanges
         {
             get => _apiServerAuthorizedIpRanges ?? (_apiServerAuthorizedIpRanges = new InputList<string>());
@@ -301,6 +388,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsPrefix")]
         public Input<string>? DnsPrefix { get; set; }
 
+        /// <summary>
+        /// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
+        /// </summary>
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
@@ -309,6 +399,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// A `identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -334,9 +430,15 @@ namespace Pulumi.Azure.ContainerService
         [Input("kubeConfigRaw")]
         public Input<string>? KubeConfigRaw { get; set; }
 
+        /// <summary>
+        /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }
 
+        /// <summary>
+        /// A `linux_profile` block as defined below.
+        /// </summary>
         [Input("linuxProfile")]
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
@@ -352,14 +454,26 @@ namespace Pulumi.Azure.ContainerService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A `network_profile` block as defined below.
+        /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+        /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("nodeResourceGroup")]
         public Input<string>? NodeResourceGroup { get; set; }
+
+        /// <summary>
+        /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+        /// </summary>
+        [Input("privateFqdn")]
+        public Input<string>? PrivateFqdn { get; set; }
+
+        [Input("privateLinkEnabled")]
+        public Input<bool>? PrivateLinkEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -367,6 +481,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlGetArgs>? RoleBasedAccessControl { get; set; }
 
@@ -378,12 +495,19 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("tags")]
         private InputMap<object>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<object> Tags
         {
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// A `windows_profile` block as defined below.
+        /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileGetArgs>? WindowsProfile { get; set; }
 
@@ -835,6 +959,50 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
+    public sealed class KubernetesClusterIdentityArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The principal id of the system assigned identity which is used by master components.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The tenant id of the system assigned identity which is used by master components.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public KubernetesClusterIdentityArgs()
+        {
+        }
+    }
+
+    public sealed class KubernetesClusterIdentityGetArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The principal id of the system assigned identity which is used by master components.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The tenant id of the system assigned identity which is used by master components.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public KubernetesClusterIdentityGetArgs()
+        {
+        }
+    }
+
     public sealed class KubernetesClusterKubeAdminConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -1047,6 +1215,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("serverAppSecret", required: true)]
         public Input<string> ServerAppSecret { get; set; } = null!;
 
+        /// <summary>
+        /// The tenant id of the system assigned identity which is used by master components.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
@@ -1066,6 +1237,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("serverAppSecret", required: true)]
         public Input<string> ServerAppSecret { get; set; } = null!;
 
+        /// <summary>
+        /// The tenant id of the system assigned identity which is used by master components.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
@@ -1366,6 +1540,31 @@ namespace Pulumi.Azure.ContainerService
     }
 
     [OutputType]
+    public sealed class KubernetesClusterIdentity
+    {
+        /// <summary>
+        /// The principal id of the system assigned identity which is used by master components.
+        /// </summary>
+        public readonly string PrincipalId;
+        /// <summary>
+        /// The tenant id of the system assigned identity which is used by master components.
+        /// </summary>
+        public readonly string TenantId;
+        public readonly string Type;
+
+        [OutputConstructor]
+        private KubernetesClusterIdentity(
+            string principalId,
+            string tenantId,
+            string type)
+        {
+            PrincipalId = principalId;
+            TenantId = tenantId;
+            Type = type;
+        }
+    }
+
+    [OutputType]
     public sealed class KubernetesClusterKubeAdminConfig
     {
         /// <summary>
@@ -1538,6 +1737,9 @@ namespace Pulumi.Azure.ContainerService
         public readonly string ClientAppId;
         public readonly string ServerAppId;
         public readonly string ServerAppSecret;
+        /// <summary>
+        /// The tenant id of the system assigned identity which is used by master components.
+        /// </summary>
         public readonly string TenantId;
 
         [OutputConstructor]

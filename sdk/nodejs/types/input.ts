@@ -706,6 +706,10 @@ export namespace appservice {
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
         /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         */
+        ftpsState?: pulumi.Input<string>;
+        /**
          * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
@@ -1116,6 +1120,45 @@ export namespace autoscale {
         direction: pulumi.Input<string>;
         type: pulumi.Input<string>;
         value: pulumi.Input<number>;
+    }
+}
+
+export namespace backup {
+    export interface PolicyFileShareBackup {
+        frequency: pulumi.Input<string>;
+        time: pulumi.Input<string>;
+    }
+
+    export interface PolicyFileShareRetentionDaily {
+        count: pulumi.Input<number>;
+    }
+
+    export interface PolicyVMBackup {
+        frequency: pulumi.Input<string>;
+        time: pulumi.Input<string>;
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMRetentionDaily {
+        count: pulumi.Input<number>;
+    }
+
+    export interface PolicyVMRetentionMonthly {
+        count: pulumi.Input<number>;
+        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weeks: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMRetentionWeekly {
+        count: pulumi.Input<number>;
+        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMRetentionYearly {
+        count: pulumi.Input<number>;
+        months: pulumi.Input<pulumi.Input<string>[]>;
+        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+        weeks: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -1807,6 +1850,7 @@ export namespace compute {
          */
         name: pulumi.Input<string>;
         regionalReplicaCount: pulumi.Input<number>;
+        storageAccountType?: pulumi.Input<string>;
     }
 
     export interface SnapshotEncryptionSettings {
@@ -2125,6 +2169,18 @@ export namespace containerservice {
         vnetSubnetId?: pulumi.Input<string>;
     }
 
+    export interface KubernetesClusterIdentity {
+        /**
+         * The principal id of the system assigned identity which is used by master components.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The tenant id of the system assigned identity which is used by master components.
+         */
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterKubeAdminConfig {
         /**
          * Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -2207,6 +2263,9 @@ export namespace containerservice {
         clientAppId: pulumi.Input<string>;
         serverAppId: pulumi.Input<string>;
         serverAppSecret: pulumi.Input<string>;
+        /**
+         * The tenant id of the system assigned identity which is used by master components.
+         */
         tenantId?: pulumi.Input<string>;
     }
 
@@ -3570,10 +3629,10 @@ export namespace healthcare {
 
     export interface ServiceCorsConfiguration {
         allowCredentials?: pulumi.Input<boolean>;
-        allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
-        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
-        maxAgeInSeconds: pulumi.Input<number>;
+        allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        maxAgeInSeconds?: pulumi.Input<number>;
     }
 }
 
@@ -4570,6 +4629,16 @@ export namespace netapp {
         smbServerName: pulumi.Input<string>;
         username: pulumi.Input<string>;
     }
+
+    export interface VolumeExportPolicyRule {
+        allowedClients: pulumi.Input<pulumi.Input<string>[]>;
+        cifsEnabled: pulumi.Input<boolean>;
+        nfsv3Enabled: pulumi.Input<boolean>;
+        nfsv4Enabled: pulumi.Input<boolean>;
+        ruleIndex: pulumi.Input<number>;
+        unixReadOnly?: pulumi.Input<boolean>;
+        unixReadWrite?: pulumi.Input<boolean>;
+    }
 }
 
 export namespace network {
@@ -4632,6 +4701,7 @@ export namespace network {
         probeName?: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
         requestTimeout?: pulumi.Input<number>;
+        trustedRootCertificateNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
@@ -5217,6 +5287,36 @@ export namespace network {
         sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface NetworkWatcherFlowLogRetentionPolicy {
+        /**
+         * The number of days to retain flow log records.
+         */
+        days: pulumi.Input<number>;
+        /**
+         * Boolean flag to enable/disable traffic analytics.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface NetworkWatcherFlowLogTrafficAnalytics {
+        /**
+         * Boolean flag to enable/disable traffic analytics.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The resource guid of the attached workspace.
+         */
+        workspaceId: pulumi.Input<string>;
+        /**
+         * The location of the attached workspace.
+         */
+        workspaceRegion: pulumi.Input<string>;
+        /**
+         * The resource ID of the attached workspace.
+         */
+        workspaceResourceId: pulumi.Input<string>;
+    }
+
     export interface PacketCaptureFilter {
         localIpAddress?: pulumi.Input<string>;
         localPort?: pulumi.Input<string>;
@@ -5617,6 +5717,28 @@ export namespace privatedns {
 }
 
 export namespace privatelink {
+    export interface EndpointPrivateServiceConnection {
+        /**
+         * Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+         */
+        isManualConnection: pulumi.Input<boolean>;
+        /**
+         * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+         */
+        privateConnectionResourceId: pulumi.Input<string>;
+        /**
+         * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+         */
+        requestMessage?: pulumi.Input<string>;
+        /**
+         * A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         */
+        subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace recoveryservices {
@@ -5828,6 +5950,19 @@ export namespace scheduler {
     }
 }
 
+export namespace search {
+    export interface ServiceQueryKey {
+        /**
+         * The value of the query key.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * The name of the Search Service. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+    }
+}
+
 export namespace servicebus {
     export interface SubscriptionRuleCorrelationFilter {
         /**
@@ -5962,6 +6097,19 @@ export namespace signalr {
     }
 }
 
+export namespace siterecovery {
+    export interface ReplicatedVMManagedDisk {
+        diskId: pulumi.Input<string>;
+        stagingStorageAccountId: pulumi.Input<string>;
+        targetDiskType: pulumi.Input<string>;
+        targetReplicaDiskType: pulumi.Input<string>;
+        /**
+         * Id of resource group where the VM should be created when a failover is done.
+         */
+        targetResourceGroupId: pulumi.Input<string>;
+    }
+}
+
 export namespace sql {
     export interface DatabaseImport {
         /**
@@ -6076,6 +6224,14 @@ export namespace sql {
 }
 
 export namespace storage {
+    export interface AccountBlobProperties {
+        deleteRetentionPolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesDeleteRetentionPolicy>;
+    }
+
+    export interface AccountBlobPropertiesDeleteRetentionPolicy {
+        days?: pulumi.Input<number>;
+    }
+
     export interface AccountCustomDomain {
         /**
          * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -6299,6 +6455,12 @@ export namespace streamanalytics {
         encoding?: pulumi.Input<string>;
         fieldDelimiter?: pulumi.Input<string>;
         format?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface ReferenceInputBlobSerialization {
+        encoding?: pulumi.Input<string>;
+        fieldDelimiter?: pulumi.Input<string>;
         type: pulumi.Input<string>;
     }
 

@@ -32,6 +32,7 @@ func NewLinkService(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["autoApprovalSubscriptionIds"] = nil
+		inputs["enableProxyProtocol"] = nil
 		inputs["loadBalancerFrontendIpConfigurationIds"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
@@ -41,6 +42,7 @@ func NewLinkService(ctx *pulumi.Context,
 		inputs["visibilitySubscriptionIds"] = nil
 	} else {
 		inputs["autoApprovalSubscriptionIds"] = args.AutoApprovalSubscriptionIds
+		inputs["enableProxyProtocol"] = args.EnableProxyProtocol
 		inputs["loadBalancerFrontendIpConfigurationIds"] = args.LoadBalancerFrontendIpConfigurationIds
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
@@ -66,6 +68,7 @@ func GetLinkService(ctx *pulumi.Context,
 	if state != nil {
 		inputs["alias"] = state.Alias
 		inputs["autoApprovalSubscriptionIds"] = state.AutoApprovalSubscriptionIds
+		inputs["enableProxyProtocol"] = state.EnableProxyProtocol
 		inputs["loadBalancerFrontendIpConfigurationIds"] = state.LoadBalancerFrontendIpConfigurationIds
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
@@ -100,6 +103,11 @@ func (r *LinkService) Alias() pulumi.StringOutput {
 // A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 func (r *LinkService) AutoApprovalSubscriptionIds() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["autoApprovalSubscriptionIds"])
+}
+
+// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+func (r *LinkService) EnableProxyProtocol() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableProxyProtocol"])
 }
 
 // A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
@@ -147,6 +155,8 @@ type LinkServiceState struct {
 	Alias interface{}
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds interface{}
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	EnableProxyProtocol interface{}
 	// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
 	LoadBalancerFrontendIpConfigurationIds interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -168,6 +178,8 @@ type LinkServiceState struct {
 type LinkServiceArgs struct {
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds interface{}
+	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+	EnableProxyProtocol interface{}
 	// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
 	LoadBalancerFrontendIpConfigurationIds interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

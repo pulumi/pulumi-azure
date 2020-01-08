@@ -99,7 +99,7 @@ export class KeyVault extends pulumi.CustomResource {
     /**
      * A `networkAcls` block as defined below.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.keyvault.KeyVaultNetworkAcls | undefined>;
+    public readonly networkAcls!: pulumi.Output<outputs.keyvault.KeyVaultNetworkAcls>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */

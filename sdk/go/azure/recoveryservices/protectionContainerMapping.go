@@ -8,6 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// > **NOTE:** This resource has been deprecated in favour of the `siterecovery.ProtectionContainerMapping` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+// 
 // Manages a Azure recovery vault protection container mapping. A network protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_container_mapping.html.markdown.

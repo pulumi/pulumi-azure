@@ -40,6 +40,8 @@ class NetworkMapping(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, recovery_vault_name=None, resource_group_name=None, source_network_id=None, source_recovery_fabric_name=None, target_network_id=None, target_recovery_fabric_name=None, __props__=None, __name__=None, __opts__=None):
         """
+        > **NOTE:** This resource has been deprecated in favour of the `siterecovery.NetworkMapping` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+        
         Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
         
         :param str resource_name: The name of the resource.

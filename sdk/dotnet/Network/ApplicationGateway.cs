@@ -1027,6 +1027,14 @@ namespace Pulumi.Azure.Network
         [Input("requestTimeout")]
         public Input<int>? RequestTimeout { get; set; }
 
+        [Input("trustedRootCertificateNames")]
+        private InputList<string>? _trustedRootCertificateNames;
+        public InputList<string> TrustedRootCertificateNames
+        {
+            get => _trustedRootCertificateNames ?? (_trustedRootCertificateNames = new InputList<string>());
+            set => _trustedRootCertificateNames = value;
+        }
+
         public ApplicationGatewayBackendHttpSettingsArgs()
         {
         }
@@ -1157,6 +1165,14 @@ namespace Pulumi.Azure.Network
 
         [Input("requestTimeout")]
         public Input<int>? RequestTimeout { get; set; }
+
+        [Input("trustedRootCertificateNames")]
+        private InputList<string>? _trustedRootCertificateNames;
+        public InputList<string> TrustedRootCertificateNames
+        {
+            get => _trustedRootCertificateNames ?? (_trustedRootCertificateNames = new InputList<string>());
+            set => _trustedRootCertificateNames = value;
+        }
 
         public ApplicationGatewayBackendHttpSettingsGetArgs()
         {
@@ -2853,6 +2869,7 @@ namespace Pulumi.Azure.Network
         public readonly string? ProbeName;
         public readonly string Protocol;
         public readonly int? RequestTimeout;
+        public readonly ImmutableArray<string> TrustedRootCertificateNames;
 
         [OutputConstructor]
         private ApplicationGatewayBackendHttpSettings(
@@ -2869,7 +2886,8 @@ namespace Pulumi.Azure.Network
             string probeId,
             string? probeName,
             string protocol,
-            int? requestTimeout)
+            int? requestTimeout,
+            ImmutableArray<string> trustedRootCertificateNames)
         {
             AffinityCookieName = affinityCookieName;
             AuthenticationCertificates = authenticationCertificates;
@@ -2885,6 +2903,7 @@ namespace Pulumi.Azure.Network
             ProbeName = probeName;
             Protocol = protocol;
             RequestTimeout = requestTimeout;
+            TrustedRootCertificateNames = trustedRootCertificateNames;
         }
     }
 

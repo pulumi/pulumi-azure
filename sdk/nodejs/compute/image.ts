@@ -80,6 +80,10 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly dataDisks!: pulumi.Output<outputs.compute.ImageDataDisk[] | undefined>;
     /**
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     */
+    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
@@ -124,6 +128,7 @@ export class Image extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ImageState | undefined;
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
+            inputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["osDisk"] = state ? state.osDisk : undefined;
@@ -137,6 +142,7 @@ export class Image extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataDisks"] = args ? args.dataDisks : undefined;
+            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["osDisk"] = args ? args.osDisk : undefined;
@@ -164,6 +170,10 @@ export interface ImageState {
      * One or more `dataDisk` elements as defined below.
      */
     readonly dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
+    /**
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     */
+    readonly hyperVGeneration?: pulumi.Input<string>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
@@ -205,6 +215,10 @@ export interface ImageArgs {
      * One or more `dataDisk` elements as defined below.
      */
     readonly dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
+    /**
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+     */
+    readonly hyperVGeneration?: pulumi.Input<string>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.

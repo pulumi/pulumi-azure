@@ -37,12 +37,14 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["defaultNodePool"] = nil
 		inputs["dnsPrefix"] = nil
 		inputs["enablePodSecurityPolicy"] = nil
+		inputs["identity"] = nil
 		inputs["kubernetesVersion"] = nil
 		inputs["linuxProfile"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["networkProfile"] = nil
 		inputs["nodeResourceGroup"] = nil
+		inputs["privateLinkEnabled"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["roleBasedAccessControl"] = nil
 		inputs["servicePrincipal"] = nil
@@ -55,12 +57,14 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["defaultNodePool"] = args.DefaultNodePool
 		inputs["dnsPrefix"] = args.DnsPrefix
 		inputs["enablePodSecurityPolicy"] = args.EnablePodSecurityPolicy
+		inputs["identity"] = args.Identity
 		inputs["kubernetesVersion"] = args.KubernetesVersion
 		inputs["linuxProfile"] = args.LinuxProfile
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["networkProfile"] = args.NetworkProfile
 		inputs["nodeResourceGroup"] = args.NodeResourceGroup
+		inputs["privateLinkEnabled"] = args.PrivateLinkEnabled
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["roleBasedAccessControl"] = args.RoleBasedAccessControl
 		inputs["servicePrincipal"] = args.ServicePrincipal
@@ -72,6 +76,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	inputs["kubeAdminConfigRaw"] = nil
 	inputs["kubeConfig"] = nil
 	inputs["kubeConfigRaw"] = nil
+	inputs["privateFqdn"] = nil
 	s, err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -92,6 +97,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["enablePodSecurityPolicy"] = state.EnablePodSecurityPolicy
 		inputs["fqdn"] = state.Fqdn
+		inputs["identity"] = state.Identity
 		inputs["kubeAdminConfig"] = state.KubeAdminConfig
 		inputs["kubeAdminConfigRaw"] = state.KubeAdminConfigRaw
 		inputs["kubeConfig"] = state.KubeConfig
@@ -102,6 +108,8 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["networkProfile"] = state.NetworkProfile
 		inputs["nodeResourceGroup"] = state.NodeResourceGroup
+		inputs["privateFqdn"] = state.PrivateFqdn
+		inputs["privateLinkEnabled"] = state.PrivateLinkEnabled
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["roleBasedAccessControl"] = state.RoleBasedAccessControl
 		inputs["servicePrincipal"] = state.ServicePrincipal
@@ -125,6 +133,7 @@ func (r *KubernetesCluster) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// A `addonProfile` block as defined below.
 func (r *KubernetesCluster) AddonProfile() pulumi.Output {
 	return r.s.State["addonProfile"]
 }
@@ -134,6 +143,7 @@ func (r *KubernetesCluster) AgentPoolProfiles() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["agentPoolProfiles"])
 }
 
+// The IP ranges to whitelist for incoming traffic to the masters.
 func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
 }
@@ -148,6 +158,7 @@ func (r *KubernetesCluster) DnsPrefix() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["dnsPrefix"])
 }
 
+// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
 func (r *KubernetesCluster) EnablePodSecurityPolicy() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enablePodSecurityPolicy"])
 }
@@ -155,6 +166,11 @@ func (r *KubernetesCluster) EnablePodSecurityPolicy() pulumi.BoolOutput {
 // The FQDN of the Azure Kubernetes Managed Cluster.
 func (r *KubernetesCluster) Fqdn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["fqdn"])
+}
+
+// A `identity` block as defined below. Changing this forces a new resource to be created.
+func (r *KubernetesCluster) Identity() pulumi.Output {
+	return r.s.State["identity"]
 }
 
 // A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -177,10 +193,12 @@ func (r *KubernetesCluster) KubeConfigRaw() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["kubeConfigRaw"])
 }
 
+// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 func (r *KubernetesCluster) KubernetesVersion() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["kubernetesVersion"])
 }
 
+// A `linuxProfile` block as defined below.
 func (r *KubernetesCluster) LinuxProfile() pulumi.Output {
 	return r.s.State["linuxProfile"]
 }
@@ -195,13 +213,23 @@ func (r *KubernetesCluster) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A `networkProfile` block as defined below.
 func (r *KubernetesCluster) NetworkProfile() pulumi.Output {
 	return r.s.State["networkProfile"]
 }
 
-// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) NodeResourceGroup() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["nodeResourceGroup"])
+}
+
+// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+func (r *KubernetesCluster) PrivateFqdn() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privateFqdn"])
+}
+
+func (r *KubernetesCluster) PrivateLinkEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["privateLinkEnabled"])
 }
 
 // Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -209,6 +237,7 @@ func (r *KubernetesCluster) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) RoleBasedAccessControl() pulumi.Output {
 	return r.s.State["roleBasedAccessControl"]
 }
@@ -218,27 +247,34 @@ func (r *KubernetesCluster) ServicePrincipal() pulumi.Output {
 	return r.s.State["servicePrincipal"]
 }
 
+// A mapping of tags to assign to the resource.
 func (r *KubernetesCluster) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// A `windowsProfile` block as defined below.
 func (r *KubernetesCluster) WindowsProfile() pulumi.Output {
 	return r.s.State["windowsProfile"]
 }
 
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type KubernetesClusterState struct {
+	// A `addonProfile` block as defined below.
 	AddonProfile interface{}
 	// One or more `agentPoolProfile` blocks as defined below.
 	AgentPoolProfiles interface{}
+	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges interface{}
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
+	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
 	EnablePodSecurityPolicy interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
+	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity interface{}
 	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfig interface{}
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -247,49 +283,70 @@ type KubernetesClusterState struct {
 	KubeConfig interface{}
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw interface{}
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
+	// A `linuxProfile` block as defined below.
 	LinuxProfile interface{}
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `networkProfile` block as defined below.
 	NetworkProfile interface{}
-	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup interface{}
+	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
+	PrivateFqdn interface{}
+	PrivateLinkEnabled interface{}
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl interface{}
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// A `windowsProfile` block as defined below.
 	WindowsProfile interface{}
 }
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
+	// A `addonProfile` block as defined below.
 	AddonProfile interface{}
 	// One or more `agentPoolProfile` blocks as defined below.
 	AgentPoolProfiles interface{}
+	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges interface{}
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
+	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
 	EnablePodSecurityPolicy interface{}
+	// A `identity` block as defined below. Changing this forces a new resource to be created.
+	Identity interface{}
+	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
+	// A `linuxProfile` block as defined below.
 	LinuxProfile interface{}
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `networkProfile` block as defined below.
 	NetworkProfile interface{}
-	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	NodeResourceGroup interface{}
+	PrivateLinkEnabled interface{}
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl interface{}
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// A `windowsProfile` block as defined below.
 	WindowsProfile interface{}
 }

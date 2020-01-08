@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Dns
         /// The target of the CNAME.
         /// </summary>
         [Output("record")]
-        public Output<string> Record { get; private set; } = null!;
+        public Output<string?> Record { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
@@ -44,6 +44,12 @@ namespace Pulumi.Azure.Dns
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure resource id of the target object. Conflicts with `records`
+        /// </summary>
+        [Output("targetResourceId")]
+        public Output<string?> TargetResourceId { get; private set; } = null!;
 
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
@@ -109,8 +115,8 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// The target of the CNAME.
         /// </summary>
-        [Input("record", required: true)]
-        public Input<string> Record { get; set; } = null!;
+        [Input("record")]
+        public Input<string>? Record { get; set; }
 
         /// <summary>
         /// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
@@ -129,6 +135,12 @@ namespace Pulumi.Azure.Dns
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Azure resource id of the target object. Conflicts with `records`
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
 
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
@@ -181,6 +193,12 @@ namespace Pulumi.Azure.Dns
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Azure resource id of the target object. Conflicts with `records`
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
 
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }

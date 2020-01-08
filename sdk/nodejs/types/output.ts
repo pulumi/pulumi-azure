@@ -826,6 +826,10 @@ export namespace appservice {
          */
         cors: outputs.appservice.FunctionAppSiteConfigCors;
         /**
+         * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+         */
+        ftpsState: string;
+        /**
          * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: boolean;
@@ -1467,6 +1471,45 @@ export namespace autoscale {
     }
 }
 
+export namespace backup {
+    export interface PolicyFileShareBackup {
+        frequency: string;
+        time: string;
+    }
+
+    export interface PolicyFileShareRetentionDaily {
+        count: number;
+    }
+
+    export interface PolicyVMBackup {
+        frequency: string;
+        time: string;
+        weekdays?: string[];
+    }
+
+    export interface PolicyVMRetentionDaily {
+        count: number;
+    }
+
+    export interface PolicyVMRetentionMonthly {
+        count: number;
+        weekdays: string[];
+        weeks: string[];
+    }
+
+    export interface PolicyVMRetentionWeekly {
+        count: number;
+        weekdays: string[];
+    }
+
+    export interface PolicyVMRetentionYearly {
+        count: number;
+        months: string[];
+        weekdays: string[];
+        weeks: string[];
+    }
+}
+
 export namespace batch {
     export interface AccountKeyVaultReference {
         /**
@@ -1829,6 +1872,10 @@ export namespace compute {
          * The number of replicas of the Image Version to be created per region.
          */
         regionalReplicaCount: number;
+        /**
+         * The storage account type for the image version.
+         */
+        storageAccountType: string;
     }
 
     export interface GetSnapshotEncryptionSetting {
@@ -2321,6 +2368,7 @@ export namespace compute {
          */
         name: string;
         regionalReplicaCount: number;
+        storageAccountType: string;
     }
 
     export interface SnapshotEncryptionSettings {
@@ -2894,6 +2942,18 @@ export namespace containerservice {
         vnetSubnetId?: string;
     }
 
+    export interface KubernetesClusterIdentity {
+        /**
+         * The principal id of the system assigned identity which is used by master components.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the system assigned identity which is used by master components.
+         */
+        tenantId: string;
+        type: string;
+    }
+
     export interface KubernetesClusterKubeAdminConfig {
         /**
          * Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -2976,6 +3036,9 @@ export namespace containerservice {
         clientAppId: string;
         serverAppId: string;
         serverAppSecret: string;
+        /**
+         * The tenant id of the system assigned identity which is used by master components.
+         */
         tenantId: string;
     }
 
@@ -3107,11 +3170,11 @@ export namespace containerservice {
 export namespace core {
     export interface GetResourcesResource {
         /**
-         * The Resource ID of this resource.
+         * The ID of this Resource.
          */
         id: string;
         /**
-         * The location of this resource.
+         * The Azure Region in which this Resource exists.
          */
         location: string;
         /**
@@ -3119,7 +3182,7 @@ export namespace core {
          */
         name: string;
         /**
-         * The type of resource that this is, such as `Microsoft.Network/virtualNetworks`.
+         * A map of tags assigned to this Resource.
          */
         tags: {[key: string]: string};
         /**
@@ -4586,10 +4649,10 @@ export namespace healthcare {
 
     export interface ServiceCorsConfiguration {
         allowCredentials?: boolean;
-        allowedHeaders: string[];
-        allowedMethods: string[];
-        allowedOrigins: string[];
-        maxAgeInSeconds: number;
+        allowedHeaders?: string[];
+        allowedMethods?: string[];
+        allowedOrigins?: string[];
+        maxAgeInSeconds?: number;
     }
 }
 
@@ -5859,6 +5922,16 @@ export namespace netapp {
         smbServerName: string;
         username: string;
     }
+
+    export interface VolumeExportPolicyRule {
+        allowedClients: string[];
+        cifsEnabled: boolean;
+        nfsv3Enabled: boolean;
+        nfsv4Enabled: boolean;
+        ruleIndex: number;
+        unixReadOnly?: boolean;
+        unixReadWrite?: boolean;
+    }
 }
 
 export namespace network {
@@ -5921,6 +5994,7 @@ export namespace network {
         probeName?: string;
         protocol: string;
         requestTimeout?: number;
+        trustedRootCertificateNames?: string[];
     }
 
     export interface ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
@@ -6863,6 +6937,36 @@ export namespace network {
         sourcePortRanges?: string[];
     }
 
+    export interface NetworkWatcherFlowLogRetentionPolicy {
+        /**
+         * The number of days to retain flow log records.
+         */
+        days: number;
+        /**
+         * Boolean flag to enable/disable traffic analytics.
+         */
+        enabled: boolean;
+    }
+
+    export interface NetworkWatcherFlowLogTrafficAnalytics {
+        /**
+         * Boolean flag to enable/disable traffic analytics.
+         */
+        enabled: boolean;
+        /**
+         * The resource guid of the attached workspace.
+         */
+        workspaceId: string;
+        /**
+         * The location of the attached workspace.
+         */
+        workspaceRegion: string;
+        /**
+         * The resource ID of the attached workspace.
+         */
+        workspaceResourceId: string;
+    }
+
     export interface PacketCaptureFilter {
         localIpAddress?: string;
         localPort?: string;
@@ -7300,6 +7404,53 @@ export namespace privatedns {
 }
 
 export namespace privatelink {
+    export interface EndpointPrivateServiceConnection {
+        /**
+         * Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+         */
+        isManualConnection: boolean;
+        /**
+         * Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+         */
+        privateConnectionResourceId: string;
+        /**
+         * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
+         */
+        requestMessage?: string;
+        /**
+         * A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         */
+        subresourceNames?: string[];
+    }
+
+    export interface GetEndpointConnectionPrivateServiceConnection {
+        /**
+         * Specifies the Name of the private endpoint.
+         */
+        name: string;
+        /**
+         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         */
+        privateIpAddress: string;
+        /**
+         * Possible values are as follows:
+         * Value | Meaning
+         * -- | --
+         * `Auto-Approved` | The remote resource owner has added you to the `Auto-Approved` RBAC permission list for the remote resource, all private endpoint connection requests will be automatically `Approved`.
+         * `Deleted state` | The resource owner has `Rejected` the private endpoint connection request and has removed your private endpoint request from the remote resource.
+         * `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
+         */
+        requestResponse: string;
+        /**
+         * The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+         */
+        status: string;
+    }
+
     export interface GetPrivateLinkEndpointConnectionPrivateServiceConnection {
         /**
          * Specifies the Name of the private link endpoint.
@@ -7691,6 +7842,19 @@ export namespace scheduler {
     }
 }
 
+export namespace search {
+    export interface ServiceQueryKey {
+        /**
+         * The value of the query key.
+         */
+        key: string;
+        /**
+         * The name of the Search Service. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+}
+
 export namespace servicebus {
     export interface SubscriptionRuleCorrelationFilter {
         /**
@@ -7825,6 +7989,19 @@ export namespace signalr {
     }
 }
 
+export namespace siterecovery {
+    export interface ReplicatedVMManagedDisk {
+        diskId: string;
+        stagingStorageAccountId: string;
+        targetDiskType: string;
+        targetReplicaDiskType: string;
+        /**
+         * Id of resource group where the VM should be created when a failover is done.
+         */
+        targetResourceGroupId: string;
+    }
+}
+
 export namespace sql {
     export interface DatabaseImport {
         /**
@@ -7954,6 +8131,14 @@ export namespace sql {
 }
 
 export namespace storage {
+    export interface AccountBlobProperties {
+        deleteRetentionPolicy?: outputs.storage.AccountBlobPropertiesDeleteRetentionPolicy;
+    }
+
+    export interface AccountBlobPropertiesDeleteRetentionPolicy {
+        days?: number;
+    }
+
     export interface AccountCustomDomain {
         /**
          * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -8247,6 +8432,12 @@ export namespace streamanalytics {
         encoding?: string;
         fieldDelimiter?: string;
         format?: string;
+        type: string;
+    }
+
+    export interface ReferenceInputBlobSerialization {
+        encoding?: string;
+        fieldDelimiter?: string;
         type: string;
     }
 

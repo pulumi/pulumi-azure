@@ -30,13 +30,14 @@ class SqlContainer(pulumi.CustomResource):
     """
     The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
     """
+    throughput: pulumi.Output[float]
     unique_keys: pulumi.Output[list]
     """
     One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
     
       * `paths` (`list`)
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, partition_key_path=None, resource_group_name=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a SQL Container within a Cosmos DB Account.
         
@@ -83,6 +84,7 @@ class SqlContainer(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['throughput'] = throughput
             __props__['unique_keys'] = unique_keys
         super(SqlContainer, __self__).__init__(
             'azure:cosmosdb/sqlContainer:SqlContainer',
@@ -91,7 +93,7 @@ class SqlContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, database_name=None, name=None, partition_key_path=None, resource_group_name=None, unique_keys=None):
+    def get(resource_name, id, opts=None, account_name=None, database_name=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None):
         """
         Get an existing SqlContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,6 +122,7 @@ class SqlContainer(pulumi.CustomResource):
         __props__["name"] = name
         __props__["partition_key_path"] = partition_key_path
         __props__["resource_group_name"] = resource_group_name
+        __props__["throughput"] = throughput
         __props__["unique_keys"] = unique_keys
         return SqlContainer(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

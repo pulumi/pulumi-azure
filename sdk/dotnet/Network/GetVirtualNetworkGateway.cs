@@ -59,6 +59,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly bool EnableBgp;
         /// <summary>
+        /// The Generation of the Virtual Network Gateway.
+        /// </summary>
+        public readonly string Generation;
+        /// <summary>
         /// One or two `ip_configuration` blocks documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayIpConfigurationsResult> IpConfigurations;
@@ -102,6 +106,7 @@ namespace Pulumi.Azure.Network
             ImmutableArray<Outputs.GetVirtualNetworkGatewayBgpSettingsResult> bgpSettings,
             string defaultLocalNetworkGatewayId,
             bool enableBgp,
+            string generation,
             ImmutableArray<Outputs.GetVirtualNetworkGatewayIpConfigurationsResult> ipConfigurations,
             string location,
             string name,
@@ -117,6 +122,7 @@ namespace Pulumi.Azure.Network
             BgpSettings = bgpSettings;
             DefaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
             EnableBgp = enableBgp;
+            Generation = generation;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;

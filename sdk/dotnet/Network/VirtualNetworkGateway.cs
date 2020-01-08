@@ -47,6 +47,12 @@ namespace Pulumi.Azure.Network
         public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
+        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        /// </summary>
+        [Output("generation")]
+        public Output<string> Generation { get; private set; } = null!;
+
+        /// <summary>
         /// One or two `ip_configuration` blocks documented below.
         /// An active-standby gateway requires exactly one `ip_configuration` block whereas
         /// an active-active gateway requires exactly two `ip_configuration` blocks.
@@ -79,8 +85,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Configuration of the size and capacity of the virtual network
         /// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-        /// and depend on the `type` and `vpn_type` arguments.
+        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+        /// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+        /// `generation` arguments.
         /// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
         /// sku is only supported by an `ExpressRoute` gateway.
         /// </summary>
@@ -190,6 +197,12 @@ namespace Pulumi.Azure.Network
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 
+        /// <summary>
+        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.VirtualNetworkGatewayIpConfigurationsArgs>? _ipConfigurations;
 
@@ -229,8 +242,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Configuration of the size and capacity of the virtual network
         /// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-        /// and depend on the `type` and `vpn_type` arguments.
+        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+        /// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+        /// `generation` arguments.
         /// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
         /// sku is only supported by an `ExpressRoute` gateway.
         /// </summary>
@@ -307,6 +321,12 @@ namespace Pulumi.Azure.Network
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
 
+        /// <summary>
+        /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
         [Input("ipConfigurations")]
         private InputList<Inputs.VirtualNetworkGatewayIpConfigurationsGetArgs>? _ipConfigurations;
 
@@ -346,8 +366,9 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Configuration of the size and capacity of the virtual network
         /// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-        /// and depend on the `type` and `vpn_type` arguments.
+        /// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+        /// `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+        /// `generation` arguments.
         /// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
         /// sku is only supported by an `ExpressRoute` gateway.
         /// </summary>

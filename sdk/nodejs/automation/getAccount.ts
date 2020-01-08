@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Automation Account Registration Information.
+ * Use this data source to access information about an existing Automation Account.
  * 
  * ## Example Usage
  * 
@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.AutomationAccountRegistrationInfo({
- *     name: "automation-account",
- *     resourceGroupName: "automation-resource-group",
+ * const example = azure.automation.getAccount({
+ *     name: "example-account",
+ *     resourceGroupName: "example-resources",
  * });
  * 
  * export const automationAccountId = example.id;
@@ -60,17 +60,17 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The Assigned Automation Account Registration endpoint
+     * The Endpoint for this Auomation Account.
      */
     readonly endpoint: string;
     readonly name: string;
     /**
-     * The primary key for the Automation Account Registration information
+     * The Primary Access Key for the Automation Account.
      */
     readonly primaryKey: string;
     readonly resourceGroupName: string;
     /**
-     * The primary key for the Automation Account Registration information
+     * The Secondary Access Key for the Automation Account.
      */
     readonly secondaryKey: string;
     /**

@@ -52,6 +52,10 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly ImmutableArray<string> AutoApprovalSubscriptionIds;
         /// <summary>
+        /// Does the Private Link Service support the Proxy Protocol?
+        /// </summary>
+        public readonly bool EnableProxyProtocol;
+        /// <summary>
         /// The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerFrontendIpConfigurationIds;
@@ -86,6 +90,7 @@ namespace Pulumi.Azure.PrivateLink
         private GetServiceResult(
             string alias,
             ImmutableArray<string> autoApprovalSubscriptionIds,
+            bool enableProxyProtocol,
             ImmutableArray<string> loadBalancerFrontendIpConfigurationIds,
             string location,
             string name,
@@ -98,6 +103,7 @@ namespace Pulumi.Azure.PrivateLink
         {
             Alias = alias;
             AutoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
+            EnableProxyProtocol = enableProxyProtocol;
             LoadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             Location = location;
             Name = name;

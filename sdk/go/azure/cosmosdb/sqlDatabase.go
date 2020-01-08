@@ -29,10 +29,12 @@ func NewSqlDatabase(ctx *pulumi.Context,
 		inputs["accountName"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["throughput"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["throughput"] = args.Throughput
 	}
 	s, err := ctx.RegisterResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, true, inputs, opts...)
 	if err != nil {
@@ -50,6 +52,7 @@ func GetSqlDatabase(ctx *pulumi.Context,
 		inputs["accountName"] = state.AccountName
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["throughput"] = state.Throughput
 	}
 	s, err := ctx.ReadResource("azure:cosmosdb/sqlDatabase:SqlDatabase", name, id, inputs, opts...)
 	if err != nil {
@@ -83,6 +86,10 @@ func (r *SqlDatabase) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+func (r *SqlDatabase) Throughput() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["throughput"])
+}
+
 // Input properties used for looking up and filtering SqlDatabase resources.
 type SqlDatabaseState struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
@@ -91,6 +98,7 @@ type SqlDatabaseState struct {
 	Name interface{}
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	Throughput interface{}
 }
 
 // The set of arguments for constructing a SqlDatabase resource.
@@ -101,4 +109,5 @@ type SqlDatabaseArgs struct {
 	Name interface{}
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	Throughput interface{}
 }

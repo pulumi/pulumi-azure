@@ -273,6 +273,9 @@ namespace Pulumi.Azure.Compute
         [Input("regionalReplicaCount", required: true)]
         public Input<int> RegionalReplicaCount { get; set; } = null!;
 
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
+
         public SharedImageVersionTargetRegionsArgs()
         {
         }
@@ -288,6 +291,9 @@ namespace Pulumi.Azure.Compute
 
         [Input("regionalReplicaCount", required: true)]
         public Input<int> RegionalReplicaCount { get; set; } = null!;
+
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         public SharedImageVersionTargetRegionsGetArgs()
         {
@@ -306,14 +312,17 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Name;
         public readonly int RegionalReplicaCount;
+        public readonly string StorageAccountType;
 
         [OutputConstructor]
         private SharedImageVersionTargetRegions(
             string name,
-            int regionalReplicaCount)
+            int regionalReplicaCount,
+            string storageAccountType)
         {
             Name = name;
             RegionalReplicaCount = regionalReplicaCount;
+            StorageAccountType = storageAccountType;
         }
     }
     }

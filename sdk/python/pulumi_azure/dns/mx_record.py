@@ -16,7 +16,7 @@ class MxRecord(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the DNS MX Record.
+    The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
     """
     records: pulumi.Output[list]
     """
@@ -47,7 +47,7 @@ class MxRecord(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the DNS MX Record.
+        :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[list] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -109,7 +109,7 @@ class MxRecord(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS MX Record.
-        :param pulumi.Input[str] name: The name of the DNS MX Record.
+        :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[list] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

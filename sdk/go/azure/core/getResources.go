@@ -46,13 +46,13 @@ type GetResourcesArgs struct {
 
 // A collection of values returned by getResources.
 type GetResourcesResult struct {
-	// The name of this resource.
+	// The name of this Resource.
 	Name interface{}
 	RequiredTags interface{}
 	ResourceGroupName interface{}
 	// One or more `resource` blocks as defined below.
 	Resources interface{}
-	// The type of this resoource.
+	// The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
 	Type interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

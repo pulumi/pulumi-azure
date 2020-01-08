@@ -48,6 +48,7 @@ class SharedImageVersion(pulumi.CustomResource):
     
       * `name` (`str`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
       * `regionalReplicaCount` (`float`)
+      * `storage_account_type` (`str`)
     """
     def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -69,6 +70,7 @@ class SharedImageVersion(pulumi.CustomResource):
         
           * `name` (`pulumi.Input[str]`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
           * `regionalReplicaCount` (`pulumi.Input[float]`)
+          * `storage_account_type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
         """
@@ -137,6 +139,7 @@ class SharedImageVersion(pulumi.CustomResource):
         
           * `name` (`pulumi.Input[str]`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
           * `regionalReplicaCount` (`pulumi.Input[float]`)
+          * `storage_account_type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
         """

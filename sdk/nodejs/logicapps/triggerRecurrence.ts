@@ -72,6 +72,10 @@ export class TriggerRecurrence extends pulumi.CustomResource {
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+     */
+    public readonly startTime!: pulumi.Output<string | undefined>;
 
     /**
      * Create a TriggerRecurrence resource with the given unique name, arguments, and options.
@@ -89,6 +93,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["interval"] = state ? state.interval : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as TriggerRecurrenceArgs | undefined;
             if (!args || args.frequency === undefined) {
@@ -104,6 +109,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["interval"] = args ? args.interval : undefined;
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
         }
         if (!opts) {
             opts = {}
@@ -136,6 +142,10 @@ export interface TriggerRecurrenceState {
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+     */
+    readonly startTime?: pulumi.Input<string>;
 }
 
 /**
@@ -158,4 +168,8 @@ export interface TriggerRecurrenceArgs {
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+     */
+    readonly startTime?: pulumi.Input<string>;
 }

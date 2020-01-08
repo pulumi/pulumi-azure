@@ -13,8 +13,11 @@ from .api_version_set import *
 from .authorization_server import *
 from .backend import *
 from .certificate import *
+from .diagnostic import *
 from .group import *
 from .group_user import *
+from .identity_provider_aad import *
+from .identity_provider_google import *
 from .logger import *
 from .open_id_connect_provider import *
 from .product import *

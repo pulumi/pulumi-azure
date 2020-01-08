@@ -26,6 +26,7 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 	return &GetKubernetesClusterResult{
 		AddonProfiles: outputs["addonProfiles"],
 		AgentPoolProfiles: outputs["agentPoolProfiles"],
+		ApiServerAuthorizedIpRanges: outputs["apiServerAuthorizedIpRanges"],
 		DnsPrefix: outputs["dnsPrefix"],
 		Fqdn: outputs["fqdn"],
 		KubeAdminConfigs: outputs["kubeAdminConfigs"],
@@ -38,6 +39,8 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		Name: outputs["name"],
 		NetworkProfiles: outputs["networkProfiles"],
 		NodeResourceGroup: outputs["nodeResourceGroup"],
+		PrivateFqdn: outputs["privateFqdn"],
+		PrivateLinkEnabled: outputs["privateLinkEnabled"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		RoleBasedAccessControls: outputs["roleBasedAccessControls"],
 		ServicePrincipals: outputs["servicePrincipals"],
@@ -61,6 +64,8 @@ type GetKubernetesClusterResult struct {
 	AddonProfiles interface{}
 	// An `agentPoolProfile` block as documented below.
 	AgentPoolProfiles interface{}
+	// The IP ranges to whitelist for incoming traffic to the masters.
+	ApiServerAuthorizedIpRanges interface{}
 	// The DNS Prefix of the managed Kubernetes cluster.
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
@@ -85,6 +90,10 @@ type GetKubernetesClusterResult struct {
 	NetworkProfiles interface{}
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup interface{}
+	// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
+	PrivateFqdn interface{}
+	// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
+	PrivateLinkEnabled interface{}
 	ResourceGroupName interface{}
 	// A `roleBasedAccessControl` block as documented below.
 	RoleBasedAccessControls interface{}

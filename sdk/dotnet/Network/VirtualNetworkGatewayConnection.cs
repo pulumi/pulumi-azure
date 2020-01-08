@@ -24,6 +24,15 @@ namespace Pulumi.Azure.Network
         public Output<string?> AuthorizationKey { get; private set; } = null!;
 
         /// <summary>
+        /// The IKE protocol version to use. Possible
+        /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+        /// Changing this value will force a resource to be created.
+        /// &gt; **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        /// </summary>
+        [Output("connectionProtocol")]
+        public Output<string> ConnectionProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
         /// </summary>
@@ -190,6 +199,15 @@ namespace Pulumi.Azure.Network
         public Input<string>? AuthorizationKey { get; set; }
 
         /// <summary>
+        /// The IKE protocol version to use. Possible
+        /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+        /// Changing this value will force a resource to be created.
+        /// &gt; **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        /// </summary>
+        [Input("connectionProtocol")]
+        public Input<string>? ConnectionProtocol { get; set; }
+
+        /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled
         /// for this connection. Defaults to `false`.
         /// </summary>
@@ -321,6 +339,15 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// The IKE protocol version to use. Possible
+        /// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+        /// Changing this value will force a resource to be created.
+        /// &gt; **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        /// </summary>
+        [Input("connectionProtocol")]
+        public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
         /// If `true`, BGP (Border Gateway Protocol) is enabled

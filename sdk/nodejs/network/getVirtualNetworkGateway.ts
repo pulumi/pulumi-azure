@@ -77,6 +77,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly enableBgp: boolean;
     /**
+     * The Generation of the Virtual Network Gateway.
+     */
+    readonly generation: string;
+    /**
      * One or two `ipConfiguration` blocks documented below.
      */
     readonly ipConfigurations: outputs.network.GetVirtualNetworkGatewayIpConfiguration[];

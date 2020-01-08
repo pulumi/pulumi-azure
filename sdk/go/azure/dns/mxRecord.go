@@ -90,7 +90,7 @@ func (r *MxRecord) Fqdn() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
-// The name of the DNS MX Record.
+// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 func (r *MxRecord) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
@@ -124,7 +124,7 @@ func (r *MxRecord) ZoneName() pulumi.StringOutput {
 type MxRecordState struct {
 	// The FQDN of the DNS MX Record.
 	Fqdn interface{}
-	// The name of the DNS MX Record.
+	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name interface{}
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records interface{}
@@ -140,7 +140,7 @@ type MxRecordState struct {
 
 // The set of arguments for constructing a MxRecord resource.
 type MxRecordArgs struct {
-	// The name of the DNS MX Record.
+	// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
 	Name interface{}
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records interface{}

@@ -16,6 +16,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     Express Route Circuit. This field is required only if the type is an
     ExpressRoute connection.
     """
+    connection_protocol: pulumi.Output[str]
+    """
+    The IKE protocol version to use. Possible
+    values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+    Changing this value will force a resource to be created.
+    > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+    """
     enable_bgp: pulumi.Output[bool]
     """
     If `true`, BGP (Border Gateway Protocol) is enabled
@@ -107,7 +114,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     in which the connection will be created. Changing the gateway forces a new
     resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a connection in an existing Virtual Network Gateway.
         
@@ -116,6 +123,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+               Changing this value will force a resource to be created.
+               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
@@ -185,6 +196,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization_key'] = authorization_key
+            __props__['connection_protocol'] = connection_protocol
             __props__['enable_bgp'] = enable_bgp
             __props__['express_route_circuit_id'] = express_route_circuit_id
             __props__['express_route_gateway_bypass'] = express_route_gateway_bypass
@@ -213,7 +225,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def get(resource_name, id, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         """
         Get an existing VirtualNetworkGatewayConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -224,6 +236,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+               Changing this value will force a resource to be created.
+               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
                for this connection. Defaults to `false`.
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
@@ -279,6 +295,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["authorization_key"] = authorization_key
+        __props__["connection_protocol"] = connection_protocol
         __props__["enable_bgp"] = enable_bgp
         __props__["express_route_circuit_id"] = express_route_circuit_id
         __props__["express_route_gateway_bypass"] = express_route_gateway_bypass

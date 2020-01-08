@@ -16,7 +16,7 @@ class CertificateOrder(pulumi.CustomResource):
     """
     auto_renew: pulumi.Output[bool]
     """
-    true if the certificate should be automatically renewed when it expires; otherwise, false.
+    true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
     """
     certificates: pulumi.Output[list]
     """
@@ -53,11 +53,11 @@ class CertificateOrder(pulumi.CustomResource):
     """
     key_size: pulumi.Output[float]
     """
-    Certificate key size.
+    Certificate key size.  Defaults to 2048.
     """
     location: pulumi.Output[str]
     """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
     """
     name: pulumi.Output[str]
     """
@@ -89,7 +89,7 @@ class CertificateOrder(pulumi.CustomResource):
     """
     validity_in_years: pulumi.Output[float]
     """
-    Duration in years (must be between 1 and 3).
+    Duration in years (must be between `1` and `3`).  Defaults to `1`.
     """
     def __init__(__self__, resource_name, opts=None, auto_renew=None, csr=None, distinguished_name=None, key_size=None, location=None, name=None, product_type=None, resource_group_name=None, tags=None, validity_in_years=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -97,16 +97,16 @@ class CertificateOrder(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
-        :param pulumi.Input[float] key_size: Certificate key size.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[float] validity_in_years: Duration in years (must be between 1 and 3).
+        :param pulumi.Input[float] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_certificate_order.html.markdown.
         """
@@ -164,7 +164,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
-        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
         :param pulumi.Input[list] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
@@ -172,8 +172,8 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time: Certificate expiration time.
         :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
         :param pulumi.Input[bool] is_private_key_external: Whether the private key is external or not.
-        :param pulumi.Input[float] key_size: Certificate key size.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
@@ -181,7 +181,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] signed_certificate_thumbprint: Certificate thumbprint for signed certificate.
         :param pulumi.Input[str] status: Current order status.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[float] validity_in_years: Duration in years (must be between 1 and 3).
+        :param pulumi.Input[float] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
         
         The **certificates** object supports the following:
         

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppConfiguration
     public partial class ConfigurationStore : Pulumi.CustomResource
     {
         /// <summary>
-        /// The URL that can be used to log into the container registry.
+        /// The URL of the App Configuration.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL that can be used to log into the container registry.
+        /// The URL of the App Configuration.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }

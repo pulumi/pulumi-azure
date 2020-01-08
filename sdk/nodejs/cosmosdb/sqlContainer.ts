@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     databaseName: azurerm_cosmosdb_sql_database_example.name,
  *     partitionKeyPath: "/definition/id",
  *     resourceGroupName: azurerm_cosmosdb_account_example.resourceGroupName,
+ *     throughput: 400,
  *     uniqueKeys: [{
  *         paths: [
  *             "/definition/idlong",
@@ -78,6 +79,7 @@ export class SqlContainer extends pulumi.CustomResource {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly throughput!: pulumi.Output<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -100,6 +102,7 @@ export class SqlContainer extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["throughput"] = state ? state.throughput : undefined;
             inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
         } else {
             const args = argsOrState as SqlContainerArgs | undefined;
@@ -117,6 +120,7 @@ export class SqlContainer extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["throughput"] = args ? args.throughput : undefined;
             inputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
         }
         if (!opts) {
@@ -154,6 +158,7 @@ export interface SqlContainerState {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    readonly throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -184,6 +189,7 @@ export interface SqlContainerArgs {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */

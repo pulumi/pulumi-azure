@@ -5,6 +5,7 @@
 export * from "./certificate";
 export * from "./consumerGroup";
 export * from "./dps";
+export * from "./dpsSharedAccessPolicy";
 export * from "./endpointEventhub";
 export * from "./endpointServicebusQueue";
 export * from "./endpointServicebusTopic";

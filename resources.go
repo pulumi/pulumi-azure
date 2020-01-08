@@ -53,6 +53,7 @@ const (
 	azureAutomation          = "Automation"          // Automation
 	azureAuthorization       = "Authorization"       // Authorization
 	azureAutoscale           = "Autoscale"           // Autoscale
+	azureBackup              = "Backup"              // Backup
 	azureBatch               = "Batch"               // Batch
 	azureBot                 = "Bot"                 // Bot
 	azureCDN                 = "Cdn"                 // CDN
@@ -106,6 +107,7 @@ const (
 	azureServiceFabric       = "ServiceFabric"       // Service Fabric
 	azureSearch              = "Search"              // Search
 	azureSignalr             = "SignalR"             // SignalR
+	azureSiteRecovery        = "SiteRecovery"        // SiteRecovery
 	azureSQL                 = "Sql"                 // SQL
 	azureStorage             = "Storage"             // Storage
 	azureStreamAnalytics     = "StreamAnalytics"     // StreamAnalytics
@@ -334,26 +336,29 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_api_management_api":                     {Tok: azureResource(azureAPIManagement, "Api")},
-			"azurerm_api_management_api_operation":           {Tok: azureResource(azureAPIManagement, "ApiOperation")},
-			"azurerm_api_management_api_operation_policy":    {Tok: azureResource(azureAPIManagement, "ApiOperationPolicy")},
-			"azurerm_api_management_api_policy":              {Tok: azureResource(azureAPIManagement, "ApiPolicy")},
-			"azurerm_api_management_api_schema":              {Tok: azureResource(azureAPIManagement, "ApiSchema")},
-			"azurerm_api_management_api_version_set":         {Tok: azureResource(azureAPIManagement, "ApiVersionSet")},
-			"azurerm_api_management_authorization_server":    {Tok: azureResource(azureAPIManagement, "AuthorizationServer")},
-			"azurerm_api_management_backend":                 {Tok: azureResource(azureAPIManagement, "Backend")},
-			"azurerm_api_management_certificate":             {Tok: azureResource(azureAPIManagement, "Certificate")},
-			"azurerm_api_management_group":                   {Tok: azureResource(azureAPIManagement, "Group")},
-			"azurerm_api_management_group_user":              {Tok: azureResource(azureAPIManagement, "GroupUser")},
-			"azurerm_api_management_logger":                  {Tok: azureResource(azureAPIManagement, "Logger")},
-			"azurerm_api_management_openid_connect_provider": {Tok: azureResource(azureAPIManagement, "OpenIdConnectProvider")},
-			"azurerm_api_management_product":                 {Tok: azureResource(azureAPIManagement, "Product")},
-			"azurerm_api_management_product_api":             {Tok: azureResource(azureAPIManagement, "ProductApi")},
-			"azurerm_api_management_product_group":           {Tok: azureResource(azureAPIManagement, "ProductGroup")},
-			"azurerm_api_management_product_policy":          {Tok: azureResource(azureAPIManagement, "ProductPolicy")},
-			"azurerm_api_management_property":                {Tok: azureResource(azureAPIManagement, "Property")},
-			"azurerm_api_management_subscription":            {Tok: azureResource(azureAPIManagement, "Subscription")},
-			"azurerm_api_management_user":                    {Tok: azureResource(azureAPIManagement, "User")},
+			"azurerm_api_management_api":                      {Tok: azureResource(azureAPIManagement, "Api")},
+			"azurerm_api_management_api_operation":            {Tok: azureResource(azureAPIManagement, "ApiOperation")},
+			"azurerm_api_management_api_operation_policy":     {Tok: azureResource(azureAPIManagement, "ApiOperationPolicy")},
+			"azurerm_api_management_api_policy":               {Tok: azureResource(azureAPIManagement, "ApiPolicy")},
+			"azurerm_api_management_api_schema":               {Tok: azureResource(azureAPIManagement, "ApiSchema")},
+			"azurerm_api_management_api_version_set":          {Tok: azureResource(azureAPIManagement, "ApiVersionSet")},
+			"azurerm_api_management_authorization_server":     {Tok: azureResource(azureAPIManagement, "AuthorizationServer")},
+			"azurerm_api_management_backend":                  {Tok: azureResource(azureAPIManagement, "Backend")},
+			"azurerm_api_management_certificate":              {Tok: azureResource(azureAPIManagement, "Certificate")},
+			"azurerm_api_management_group":                    {Tok: azureResource(azureAPIManagement, "Group")},
+			"azurerm_api_management_group_user":               {Tok: azureResource(azureAPIManagement, "GroupUser")},
+			"azurerm_api_management_logger":                   {Tok: azureResource(azureAPIManagement, "Logger")},
+			"azurerm_api_management_openid_connect_provider":  {Tok: azureResource(azureAPIManagement, "OpenIdConnectProvider")},
+			"azurerm_api_management_product":                  {Tok: azureResource(azureAPIManagement, "Product")},
+			"azurerm_api_management_product_api":              {Tok: azureResource(azureAPIManagement, "ProductApi")},
+			"azurerm_api_management_product_group":            {Tok: azureResource(azureAPIManagement, "ProductGroup")},
+			"azurerm_api_management_product_policy":           {Tok: azureResource(azureAPIManagement, "ProductPolicy")},
+			"azurerm_api_management_property":                 {Tok: azureResource(azureAPIManagement, "Property")},
+			"azurerm_api_management_subscription":             {Tok: azureResource(azureAPIManagement, "Subscription")},
+			"azurerm_api_management_user":                     {Tok: azureResource(azureAPIManagement, "User")},
+			"azurerm_api_management_diagnostic":               {Tok: azureResource(azureAPIManagement, "Diagnostic")},
+			"azurerm_api_management_identity_provider_aad":    {Tok: azureResource(azureAPIManagement, "IdentityProviderAad")},
+			"azurerm_api_management_identity_provider_google": {Tok: azureResource(azureAPIManagement, "IdentityProviderGoogle")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -448,6 +453,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
 			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
 			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
+			"azurerm_app_service_virtual_network_swift_connection": {
+				Tok: azureResource(azureAppService, "VirtualNetworkSwiftConnection"),
+			},
 
 			// Automation
 			"azurerm_automation_account":               {Tok: azureResource(azureAutomation, "Account")},
@@ -462,6 +470,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_variable_int":          {Tok: azureResource(azureAutomation, "IntVariable")},
 			"azurerm_automation_variable_string":       {Tok: azureResource(azureAutomation, "StringVariable")},
 			"azurerm_automation_job_schedule":          {Tok: azureResource(azureAutomation, "JobSchedule")},
+			"azurerm_automation_certificate":           {Tok: azureResource(azureAutomation, "Certificate")},
 
 			// Autoscale
 			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
@@ -710,6 +719,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_dps":                        {Tok: azureResource(azureIot, "IotHubDps")},
 			"azurerm_iothub_dps_certificate":            {Tok: azureResource(azureIot, "IotHubCertificate")},
 			"azurerm_iothub_fallback_route":             {Tok: azureResource(azureIot, "FallbackRoute")},
+			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
 
 			// KeyVault
 			"azurerm_key_vault": {
@@ -813,6 +823,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_sql_container":      {Tok: azureResource(azureCosmosDB, "SqlContainer")},
 			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
 			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
+			"azurerm_cosmosdb_gremlin_database":   {Tok: azureResource(azureCosmosDB, "GremlinDatabase")},
 
 			// Maps
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
@@ -995,8 +1006,9 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_network_watcher": {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_packet_capture":  {Tok: azureResource(azureNetwork, "PacketCapture")},
+			"azurerm_network_watcher":          {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_network_watcher_flow_log": {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
+			"azurerm_packet_capture":           {Tok: azureResource(azureNetwork, "PacketCapture")},
 			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1087,6 +1099,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_contact":              {Tok: azureResource(azureSecurityCenter, "Contact")},
 			"azurerm_security_center_subscription_pricing": {Tok: azureResource(azureSecurityCenter, "SubscriptionPricing")},
 			"azurerm_security_center_workspace":            {Tok: azureResource(azureSecurityCenter, "Workspace")},
+			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster": {Tok: azureResource(azureServiceFabric, "Cluster")},
@@ -1175,6 +1188,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_eventhub":   {Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub")},
 			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
 			"azurerm_stream_analytics_output_servicebus_topic": {Tok: azureResource(azureStreamAnalytics, "OutputServicebusTopic")},
+			"azurerm_stream_analytics_reference_input_blob":    {Tok: azureResource(azureStreamAnalytics, "ReferenceInputBlob")},
 
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
@@ -1183,6 +1197,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kusto_cluster":                  {Tok: azureResource(azureKusto, "Cluster")},
 			"azurerm_kusto_database":                 {Tok: azureResource(azureKusto, "Database")},
 			"azurerm_kusto_eventhub_data_connection": {Tok: azureResource(azureKusto, "EventhubDataConnection")},
+			"azurerm_kusto_database_principal":       {Tok: azureResource(azureKusto, "DatabasePrincipal")},
 
 			// Frontdoor
 			"azurerm_frontdoor": {
@@ -1219,11 +1234,33 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_healthcare_service": {Tok: azureResource(azureHealthcare, "Service")},
 
 			// NetApp
-			"azurerm_netapp_account": {Tok: azureResource(azureNetapp, "Account")},
-			"azurerm_netapp_pool":    {Tok: azureResource(azureNetapp, "Pool")},
+			"azurerm_netapp_account":  {Tok: azureResource(azureNetapp, "Account")},
+			"azurerm_netapp_pool":     {Tok: azureResource(azureNetapp, "Pool")},
+			"azurerm_netapp_volume":   {Tok: azureResource(azureNetapp, "Volume")},
+			"azurerm_netapp_snapshot": {Tok: azureResource(azureNetapp, "Snapshot")},
 
 			//AppConfiguration
 			"azurerm_app_configuration": {Tok: azureResource(azureAppConfiguration, "ConfigurationStore")},
+
+			// Backup
+			"azurerm_backup_container_storage_account": {Tok: azureResource(azureBackup, "ContainerStorageAccount")},
+			"azurerm_backup_policy_file_share":         {Tok: azureResource(azureBackup, "PolicyFileShare")},
+			"azurerm_backup_protected_file_share":      {Tok: azureResource(azureBackup, "ProtectedFileShare")},
+			"azurerm_backup_policy_vm":                 {Tok: azureResource(azureBackup, "PolicyVM")},
+			"azurerm_backup_protected_vm":              {Tok: azureResource(azureBackup, "ProtectedVM")},
+
+			// Private Link
+			"azurerm_private_endpoint": {Tok: azureResource(azurePrivateLink, "Endpoint")},
+
+			// SiteRecovery
+			"azurerm_site_recovery_fabric":               {Tok: azureResource(azureSiteRecovery, "Fabric")},
+			"azurerm_site_recovery_network_mapping":      {Tok: azureResource(azureSiteRecovery, "NetworkMapping")},
+			"azurerm_site_recovery_protection_container": {Tok: azureResource(azureSiteRecovery, "ProtectionContainer")},
+			"azurerm_site_recovery_replicated_vm":        {Tok: azureResource(azureSiteRecovery, "ReplicatedVM")},
+			"azurerm_site_recovery_replication_policy":   {Tok: azureResource(azureSiteRecovery, "ReplicationPolicy")},
+			"azurerm_site_recovery_protection_container_mapping": {
+				Tok: azureResource(azureSiteRecovery, "ProtectionContainerMapping"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1376,7 +1413,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_resources":                               {Tok: azureDataSource(azureCore, "getResources")},
 			"azurerm_netapp_account":                          {Tok: azureDataSource(azureNetapp, "getAccount")},
 			"azurerm_netapp_pool":                             {Tok: azureDataSource(azureNetapp, "getPool")},
+			"azurerm_netapp_volume":                           {Tok: azureDataSource(azureNetapp, "getVolume")},
+			"azurerm_netapp_snapshot":                         {Tok: azureDataSource(azureNetapp, "getSnapshot")},
 			"azurerm_private_link_service":                    {Tok: azureDataSource(azurePrivateLink, "getService")},
+			"azurerm_private_endpoint_connection":             {Tok: azureDataSource(azurePrivateLink, "getEndpointConnection")},
 			"azurerm_private_link_service_endpoint_connections": {
 				Tok: azureDataSource(azurePrivateLink, "getServiceEndpointConnections"),
 			},
@@ -1384,7 +1424,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_private_link_endpoint_connection": {
 				Tok: azureDataSource(azurePrivateLink, "getPrivateLinkEndpointConnection"),
 			},
-			"azurerm_virtual_hub": {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
+			"azurerm_virtual_hub":     {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
+			"azurerm_signalr_service": {Tok: azureDataSource(azureSignalr, "getService")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
