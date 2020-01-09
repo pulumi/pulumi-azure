@@ -32,6 +32,8 @@ class ReplicationPolicy(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, application_consistent_snapshot_frequency_in_minutes=None, name=None, recovery_point_retention_in_minutes=None, recovery_vault_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
+        > **NOTE:** This resource has been deprecated in favour of the `siterecovery.ReplicationPolicy` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+        
         Manages a Azure recovery vault replication policy.
         
         :param str resource_name: The name of the resource.

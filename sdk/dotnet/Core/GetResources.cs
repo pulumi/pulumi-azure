@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Core
     public sealed class GetResourcesResult
     {
         /// <summary>
-        /// The name of this resource.
+        /// The name of this Resource.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableDictionary<string, object> RequiredTags;
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResourcesResourcesResult> Resources;
         /// <summary>
-        /// The type of this resoource.
+        /// The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -103,11 +103,11 @@ namespace Pulumi.Azure.Core
     public sealed class GetResourcesResourcesResult
     {
         /// <summary>
-        /// The Resource ID of this resource.
+        /// The ID of this Resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of this resource.
+        /// The Azure Region in which this Resource exists.
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Core
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of resource that this is, such as `Microsoft.Network/virtualNetworks`.
+        /// A map of tags assigned to this Resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

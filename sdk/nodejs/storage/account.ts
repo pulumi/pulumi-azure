@@ -119,13 +119,17 @@ export class Account extends pulumi.CustomResource {
     public readonly accountTier!: pulumi.Output<string>;
     public readonly accountType!: pulumi.Output<string>;
     /**
+     * A `blobProperties` block as defined below.
+     */
+    public readonly blobProperties!: pulumi.Output<outputs.storage.AccountBlobProperties>;
+    /**
      * A `customDomain` block as documented below.
      */
     public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
     /**
      * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
      */
-    public readonly enableAdvancedThreatProtection!: pulumi.Output<boolean | undefined>;
+    public readonly enableAdvancedThreatProtection!: pulumi.Output<boolean>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -318,6 +322,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
             inputs["accountTier"] = state ? state.accountTier : undefined;
             inputs["accountType"] = state ? state.accountType : undefined;
+            inputs["blobProperties"] = state ? state.blobProperties : undefined;
             inputs["customDomain"] = state ? state.customDomain : undefined;
             inputs["enableAdvancedThreatProtection"] = state ? state.enableAdvancedThreatProtection : undefined;
             inputs["enableBlobEncryption"] = state ? state.enableBlobEncryption : undefined;
@@ -380,6 +385,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
             inputs["accountTier"] = args ? args.accountTier : undefined;
             inputs["accountType"] = args ? args.accountType : undefined;
+            inputs["blobProperties"] = args ? args.blobProperties : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
             inputs["enableAdvancedThreatProtection"] = args ? args.enableAdvancedThreatProtection : undefined;
             inputs["enableBlobEncryption"] = args ? args.enableBlobEncryption : undefined;
@@ -462,6 +468,10 @@ export interface AccountState {
      */
     readonly accountTier?: pulumi.Input<string>;
     readonly accountType?: pulumi.Input<string>;
+    /**
+     * A `blobProperties` block as defined below.
+     */
+    readonly blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
     /**
      * A `customDomain` block as documented below.
      */
@@ -670,6 +680,10 @@ export interface AccountArgs {
      */
     readonly accountTier: pulumi.Input<string>;
     readonly accountType?: pulumi.Input<string>;
+    /**
+     * A `blobProperties` block as defined below.
+     */
+    readonly blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
     /**
      * A `customDomain` block as documented below.
      */

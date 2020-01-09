@@ -125,14 +125,20 @@ namespace Pulumi.Azure.Compute
         /// The number of replicas of the Image Version to be created per region.
         /// </summary>
         public readonly int RegionalReplicaCount;
+        /// <summary>
+        /// The storage account type for the image version.
+        /// </summary>
+        public readonly string StorageAccountType;
 
         [OutputConstructor]
         private GetSharedImageVersionTargetRegionsResult(
             string name,
-            int regionalReplicaCount)
+            int regionalReplicaCount,
+            string storageAccountType)
         {
             Name = name;
             RegionalReplicaCount = regionalReplicaCount;
+            StorageAccountType = storageAccountType;
         }
     }
     }

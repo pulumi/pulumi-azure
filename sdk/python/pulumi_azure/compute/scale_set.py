@@ -78,7 +78,7 @@ class ScaleSet(pulumi.CustomResource):
           * `idleTimeout` (`float`) - The idle timeout in minutes. This value must be between 4 and 30.
           * `name` (`str`) - Specifies the name of the image from the marketplace.
     
-        * `subnetId` (`str`) - Specifies the identifier of the subnet.
+        * `subnet_id` (`str`) - Specifies the identifier of the subnet.
     
       * `ipForwarding` (`bool`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
       * `name` (`str`) - Specifies the name of the image from the marketplace.
@@ -301,7 +301,7 @@ class ScaleSet(pulumi.CustomResource):
               * `idleTimeout` (`pulumi.Input[float]`) - The idle timeout in minutes. This value must be between 4 and 30.
               * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
         
-            * `subnetId` (`pulumi.Input[str]`) - Specifies the identifier of the subnet.
+            * `subnet_id` (`pulumi.Input[str]`) - Specifies the identifier of the subnet.
         
           * `ipForwarding` (`pulumi.Input[bool]`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
@@ -540,7 +540,7 @@ class ScaleSet(pulumi.CustomResource):
               * `idleTimeout` (`pulumi.Input[float]`) - The idle timeout in minutes. This value must be between 4 and 30.
               * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
         
-            * `subnetId` (`pulumi.Input[str]`) - Specifies the identifier of the subnet.
+            * `subnet_id` (`pulumi.Input[str]`) - Specifies the identifier of the subnet.
         
           * `ipForwarding` (`pulumi.Input[bool]`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.

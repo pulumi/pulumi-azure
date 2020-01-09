@@ -109,7 +109,7 @@ func (r *CertificateOrder) AppServiceCertificateNotRenewableReasons() pulumi.Arr
 	return (pulumi.ArrayOutput)(r.s.State["appServiceCertificateNotRenewableReasons"])
 }
 
-// true if the certificate should be automatically renewed when it expires; otherwise, false.
+// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
 func (r *CertificateOrder) AutoRenew() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["autoRenew"])
 }
@@ -149,12 +149,12 @@ func (r *CertificateOrder) IsPrivateKeyExternal() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["isPrivateKeyExternal"])
 }
 
-// Certificate key size.
+// Certificate key size.  Defaults to 2048.
 func (r *CertificateOrder) KeySize() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["keySize"])
 }
 
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 func (r *CertificateOrder) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
 }
@@ -194,7 +194,7 @@ func (r *CertificateOrder) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Duration in years (must be between 1 and 3).
+// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 func (r *CertificateOrder) ValidityInYears() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["validityInYears"])
 }
@@ -203,7 +203,7 @@ func (r *CertificateOrder) ValidityInYears() pulumi.IntOutput {
 type CertificateOrderState struct {
 	// Reasons why App Service Certificate is not renewable at the current moment.
 	AppServiceCertificateNotRenewableReasons interface{}
-	// true if the certificate should be automatically renewed when it expires; otherwise, false.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
 	AutoRenew interface{}
 	// State of the Key Vault secret. A `certificates` block as defined below.
 	Certificates interface{}
@@ -219,9 +219,9 @@ type CertificateOrderState struct {
 	IntermediateThumbprint interface{}
 	// Whether the private key is external or not.
 	IsPrivateKeyExternal interface{}
-	// Certificate key size.
+	// Certificate key size.  Defaults to 2048.
 	KeySize interface{}
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location interface{}
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name interface{}
@@ -237,21 +237,21 @@ type CertificateOrderState struct {
 	Status interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Duration in years (must be between 1 and 3).
+	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears interface{}
 }
 
 // The set of arguments for constructing a CertificateOrder resource.
 type CertificateOrderArgs struct {
-	// true if the certificate should be automatically renewed when it expires; otherwise, false.
+	// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
 	AutoRenew interface{}
 	// Last CSR that was created for this order.
 	Csr interface{}
 	// The Distinguished Name for the App Service Certificate Order.
 	DistinguishedName interface{}
-	// Certificate key size.
+	// Certificate key size.  Defaults to 2048.
 	KeySize interface{}
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
 	Location interface{}
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name interface{}
@@ -261,6 +261,6 @@ type CertificateOrderArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Duration in years (must be between 1 and 3).
+	// Duration in years (must be between `1` and `3`).  Defaults to `1`.
 	ValidityInYears interface{}
 }

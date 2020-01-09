@@ -48,8 +48,8 @@ import * as utilities from "../utilities";
  *     bypasses: ["Metrics"],
  *     defaultAction: "Allow",
  *     ipRules: ["127.0.0.1"],
- *     resourceGroupName: azurerm_resource_group_testrg.name,
- *     storageAccountName: azurerm_storage_account_testsa.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
  *     virtualNetworkSubnetIds: [azurerm_subnet_test.id],
  * });
  * ```

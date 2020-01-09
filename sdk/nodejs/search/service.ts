@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,6 +75,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
+     * A `queryKeys` block as defined below.
+     */
+    public /*out*/ readonly queryKeys!: pulumi.Output<outputs.search.ServiceQueryKey[]>;
+    /**
      * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
      */
     public readonly replicaCount!: pulumi.Output<number>;
@@ -109,6 +115,7 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionCount"] = state ? state.partitionCount : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
+            inputs["queryKeys"] = state ? state.queryKeys : undefined;
             inputs["replicaCount"] = state ? state.replicaCount : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
@@ -130,6 +137,7 @@ export class Service extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryKey"] = undefined /*out*/;
+            inputs["queryKeys"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
         if (!opts) {
@@ -163,6 +171,10 @@ export interface ServiceState {
      * The Search Service Administration primary key.
      */
     readonly primaryKey?: pulumi.Input<string>;
+    /**
+     * A `queryKeys` block as defined below.
+     */
+    readonly queryKeys?: pulumi.Input<pulumi.Input<inputs.search.ServiceQueryKey>[]>;
     /**
      * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
      */

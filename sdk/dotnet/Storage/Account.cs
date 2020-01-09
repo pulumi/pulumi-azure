@@ -49,6 +49,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccountType { get; private set; } = null!;
 
         /// <summary>
+        /// A `blob_properties` block as defined below.
+        /// </summary>
+        [Output("blobProperties")]
+        public Output<Outputs.AccountBlobProperties> BlobProperties { get; private set; } = null!;
+
+        /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
         [Output("customDomain")]
@@ -58,7 +64,7 @@ namespace Pulumi.Azure.Storage
         /// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
         /// </summary>
         [Output("enableAdvancedThreatProtection")]
-        public Output<bool?> EnableAdvancedThreatProtection { get; private set; } = null!;
+        public Output<bool> EnableAdvancedThreatProtection { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -399,6 +405,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountType { get; set; }
 
         /// <summary>
+        /// A `blob_properties` block as defined below.
+        /// </summary>
+        [Input("blobProperties")]
+        public Input<Inputs.AccountBlobPropertiesArgs>? BlobProperties { get; set; }
+
+        /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
         [Input("customDomain")]
@@ -522,6 +534,12 @@ namespace Pulumi.Azure.Storage
 
         [Input("accountType")]
         public Input<string>? AccountType { get; set; }
+
+        /// <summary>
+        /// A `blob_properties` block as defined below.
+        /// </summary>
+        [Input("blobProperties")]
+        public Input<Inputs.AccountBlobPropertiesGetArgs>? BlobProperties { get; set; }
 
         /// <summary>
         /// A `custom_domain` block as documented below.
@@ -807,6 +825,46 @@ namespace Pulumi.Azure.Storage
 
     namespace Inputs
     {
+
+    public sealed class AccountBlobPropertiesArgs : Pulumi.ResourceArgs
+    {
+        [Input("deleteRetentionPolicy")]
+        public Input<AccountBlobPropertiesDeleteRetentionPolicyArgs>? DeleteRetentionPolicy { get; set; }
+
+        public AccountBlobPropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class AccountBlobPropertiesDeleteRetentionPolicyArgs : Pulumi.ResourceArgs
+    {
+        [Input("days")]
+        public Input<int>? Days { get; set; }
+
+        public AccountBlobPropertiesDeleteRetentionPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class AccountBlobPropertiesDeleteRetentionPolicyGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("days")]
+        public Input<int>? Days { get; set; }
+
+        public AccountBlobPropertiesDeleteRetentionPolicyGetArgs()
+        {
+        }
+    }
+
+    public sealed class AccountBlobPropertiesGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("deleteRetentionPolicy")]
+        public Input<AccountBlobPropertiesDeleteRetentionPolicyGetArgs>? DeleteRetentionPolicy { get; set; }
+
+        public AccountBlobPropertiesGetArgs()
+        {
+        }
+    }
 
     public sealed class AccountCustomDomainArgs : Pulumi.ResourceArgs
     {
@@ -1207,6 +1265,30 @@ namespace Pulumi.Azure.Storage
 
     namespace Outputs
     {
+
+    [OutputType]
+    public sealed class AccountBlobProperties
+    {
+        public readonly AccountBlobPropertiesDeleteRetentionPolicy? DeleteRetentionPolicy;
+
+        [OutputConstructor]
+        private AccountBlobProperties(AccountBlobPropertiesDeleteRetentionPolicy? deleteRetentionPolicy)
+        {
+            DeleteRetentionPolicy = deleteRetentionPolicy;
+        }
+    }
+
+    [OutputType]
+    public sealed class AccountBlobPropertiesDeleteRetentionPolicy
+    {
+        public readonly int? Days;
+
+        [OutputConstructor]
+        private AccountBlobPropertiesDeleteRetentionPolicy(int? days)
+        {
+            Days = days;
+        }
+    }
 
     [OutputType]
     public sealed class AccountCustomDomain

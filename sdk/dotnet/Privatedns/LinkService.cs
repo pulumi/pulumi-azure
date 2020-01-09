@@ -30,6 +30,12 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableArray<string>> AutoApprovalSubscriptionIds { get; private set; } = null!;
 
         /// <summary>
+        /// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        /// </summary>
+        [Output("enableProxyProtocol")]
+        public Output<bool?> EnableProxyProtocol { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
         /// </summary>
         [Output("loadBalancerFrontendIpConfigurationIds")]
@@ -132,6 +138,12 @@ namespace Pulumi.Azure.PrivateDns
             set => _autoApprovalSubscriptionIds = value;
         }
 
+        /// <summary>
+        /// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        /// </summary>
+        [Input("enableProxyProtocol")]
+        public Input<bool>? EnableProxyProtocol { get; set; }
+
         [Input("loadBalancerFrontendIpConfigurationIds", required: true)]
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
@@ -222,6 +234,12 @@ namespace Pulumi.Azure.PrivateDns
             get => _autoApprovalSubscriptionIds ?? (_autoApprovalSubscriptionIds = new InputList<string>());
             set => _autoApprovalSubscriptionIds = value;
         }
+
+        /// <summary>
+        /// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+        /// </summary>
+        [Input("enableProxyProtocol")]
+        public Input<bool>? EnableProxyProtocol { get; set; }
 
         [Input("loadBalancerFrontendIpConfigurationIds")]
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;

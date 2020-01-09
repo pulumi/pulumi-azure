@@ -18,9 +18,6 @@ type CNameRecord struct {
 // NewCNameRecord registers a new resource with the given unique name, arguments, and options.
 func NewCNameRecord(ctx *pulumi.Context,
 	name string, args *CNameRecordArgs, opts ...pulumi.ResourceOpt) (*CNameRecord, error) {
-	if args == nil || args.Record == nil {
-		return nil, errors.New("missing required argument 'Record'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -36,6 +33,7 @@ func NewCNameRecord(ctx *pulumi.Context,
 		inputs["record"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
+		inputs["targetResourceId"] = nil
 		inputs["ttl"] = nil
 		inputs["zoneName"] = nil
 	} else {
@@ -43,6 +41,7 @@ func NewCNameRecord(ctx *pulumi.Context,
 		inputs["record"] = args.Record
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
+		inputs["targetResourceId"] = args.TargetResourceId
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
@@ -65,6 +64,7 @@ func GetCNameRecord(ctx *pulumi.Context,
 		inputs["record"] = state.Record
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["tags"] = state.Tags
+		inputs["targetResourceId"] = state.TargetResourceId
 		inputs["ttl"] = state.Ttl
 		inputs["zoneName"] = state.ZoneName
 	}
@@ -110,6 +110,11 @@ func (r *CNameRecord) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// The Azure resource id of the target object. Conflicts with `records`
+func (r *CNameRecord) TargetResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
+}
+
 func (r *CNameRecord) Ttl() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["ttl"])
 }
@@ -131,6 +136,8 @@ type CNameRecordState struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The Azure resource id of the target object. Conflicts with `records`
+	TargetResourceId interface{}
 	Ttl interface{}
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName interface{}
@@ -146,6 +153,8 @@ type CNameRecordArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The Azure resource id of the target object. Conflicts with `records`
+	TargetResourceId interface{}
 	Ttl interface{}
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName interface{}

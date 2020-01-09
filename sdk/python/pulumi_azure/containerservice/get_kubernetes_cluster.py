@@ -13,7 +13,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None, id=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None, id=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError("Expected argument 'addon_profiles' to be a list")
         __self__.addon_profiles = addon_profiles
@@ -25,6 +25,12 @@ class GetKubernetesClusterResult:
         __self__.agent_pool_profiles = agent_pool_profiles
         """
         An `agent_pool_profile` block as documented below.
+        """
+        if api_server_authorized_ip_ranges and not isinstance(api_server_authorized_ip_ranges, list):
+            raise TypeError("Expected argument 'api_server_authorized_ip_ranges' to be a list")
+        __self__.api_server_authorized_ip_ranges = api_server_authorized_ip_ranges
+        """
+        The IP ranges to whitelist for incoming traffic to the masters.
         """
         if dns_prefix and not isinstance(dns_prefix, str):
             raise TypeError("Expected argument 'dns_prefix' to be a str")
@@ -98,6 +104,18 @@ class GetKubernetesClusterResult:
         """
         Auto-generated Resource Group containing AKS Cluster resources.
         """
+        if private_fqdn and not isinstance(private_fqdn, str):
+            raise TypeError("Expected argument 'private_fqdn' to be a str")
+        __self__.private_fqdn = private_fqdn
+        """
+        The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
+        """
+        if private_link_enabled and not isinstance(private_link_enabled, bool):
+            raise TypeError("Expected argument 'private_link_enabled' to be a bool")
+        __self__.private_link_enabled = private_link_enabled
+        """
+        Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
+        """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
@@ -139,6 +157,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
         return GetKubernetesClusterResult(
             addon_profiles=self.addon_profiles,
             agent_pool_profiles=self.agent_pool_profiles,
+            api_server_authorized_ip_ranges=self.api_server_authorized_ip_ranges,
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
             kube_admin_configs=self.kube_admin_configs,
@@ -151,6 +170,8 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             name=self.name,
             network_profiles=self.network_profiles,
             node_resource_group=self.node_resource_group,
+            private_fqdn=self.private_fqdn,
+            private_link_enabled=self.private_link_enabled,
             resource_group_name=self.resource_group_name,
             role_based_access_controls=self.role_based_access_controls,
             service_principals=self.service_principals,
@@ -183,6 +204,7 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     return AwaitableGetKubernetesClusterResult(
         addon_profiles=__ret__.get('addonProfiles'),
         agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        api_server_authorized_ip_ranges=__ret__.get('apiServerAuthorizedIpRanges'),
         dns_prefix=__ret__.get('dnsPrefix'),
         fqdn=__ret__.get('fqdn'),
         kube_admin_configs=__ret__.get('kubeAdminConfigs'),
@@ -195,6 +217,8 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
         name=__ret__.get('name'),
         network_profiles=__ret__.get('networkProfiles'),
         node_resource_group=__ret__.get('nodeResourceGroup'),
+        private_fqdn=__ret__.get('privateFqdn'),
+        private_link_enabled=__ret__.get('privateLinkEnabled'),
         resource_group_name=__ret__.get('resourceGroupName'),
         role_based_access_controls=__ret__.get('roleBasedAccessControls'),
         service_principals=__ret__.get('servicePrincipals'),

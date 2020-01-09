@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Healthcare
         /// An `authentication_configuration` block as defined below.
         /// </summary>
         [Output("authenticationConfiguration")]
-        public Output<Outputs.ServiceAuthenticationConfiguration?> AuthenticationConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceAuthenticationConfiguration> AuthenticationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A `cors_configuration` block as defined below.
         /// </summary>
         [Output("corsConfiguration")]
-        public Output<Outputs.ServiceCorsConfiguration?> CorsConfiguration { get; private set; } = null!;
+        public Output<Outputs.ServiceCorsConfiguration> CorsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Healthcare
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
 
-        [Input("allowedHeaders", required: true)]
+        [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
         public InputList<string> AllowedHeaders
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Healthcare
             set => _allowedHeaders = value;
         }
 
-        [Input("allowedMethods", required: true)]
+        [Input("allowedMethods")]
         private InputList<string>? _allowedMethods;
         public InputList<string> AllowedMethods
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Healthcare
             set => _allowedMethods = value;
         }
 
-        [Input("allowedOrigins", required: true)]
+        [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
         public InputList<string> AllowedOrigins
         {
@@ -324,8 +324,8 @@ namespace Pulumi.Azure.Healthcare
             set => _allowedOrigins = value;
         }
 
-        [Input("maxAgeInSeconds", required: true)]
-        public Input<int> MaxAgeInSeconds { get; set; } = null!;
+        [Input("maxAgeInSeconds")]
+        public Input<int>? MaxAgeInSeconds { get; set; }
 
         public ServiceCorsConfigurationArgs()
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Healthcare
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
 
-        [Input("allowedHeaders", required: true)]
+        [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
         public InputList<string> AllowedHeaders
         {
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.Healthcare
             set => _allowedHeaders = value;
         }
 
-        [Input("allowedMethods", required: true)]
+        [Input("allowedMethods")]
         private InputList<string>? _allowedMethods;
         public InputList<string> AllowedMethods
         {
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Healthcare
             set => _allowedMethods = value;
         }
 
-        [Input("allowedOrigins", required: true)]
+        [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
         public InputList<string> AllowedOrigins
         {
@@ -361,8 +361,8 @@ namespace Pulumi.Azure.Healthcare
             set => _allowedOrigins = value;
         }
 
-        [Input("maxAgeInSeconds", required: true)]
-        public Input<int> MaxAgeInSeconds { get; set; } = null!;
+        [Input("maxAgeInSeconds")]
+        public Input<int>? MaxAgeInSeconds { get; set; }
 
         public ServiceCorsConfigurationGetArgs()
         {
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.Healthcare
         public readonly ImmutableArray<string> AllowedHeaders;
         public readonly ImmutableArray<string> AllowedMethods;
         public readonly ImmutableArray<string> AllowedOrigins;
-        public readonly int MaxAgeInSeconds;
+        public readonly int? MaxAgeInSeconds;
 
         [OutputConstructor]
         private ServiceCorsConfiguration(
@@ -413,7 +413,7 @@ namespace Pulumi.Azure.Healthcare
             ImmutableArray<string> allowedHeaders,
             ImmutableArray<string> allowedMethods,
             ImmutableArray<string> allowedOrigins,
-            int maxAgeInSeconds)
+            int? maxAgeInSeconds)
         {
             AllowCredentials = allowCredentials;
             AllowedHeaders = allowedHeaders;

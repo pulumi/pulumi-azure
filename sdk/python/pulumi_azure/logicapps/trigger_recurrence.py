@@ -26,7 +26,11 @@ class TriggerRecurrence(pulumi.CustomResource):
     """
     Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, frequency=None, interval=None, logic_app_id=None, name=None, __props__=None, __name__=None, __opts__=None):
+    start_time: pulumi.Output[str]
+    """
+    Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+    """
+    def __init__(__self__, resource_name, opts=None, frequency=None, interval=None, logic_app_id=None, name=None, start_time=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
         
@@ -36,6 +40,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[float] interval: Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
         """
@@ -66,6 +71,7 @@ class TriggerRecurrence(pulumi.CustomResource):
                 raise TypeError("Missing required property 'logic_app_id'")
             __props__['logic_app_id'] = logic_app_id
             __props__['name'] = name
+            __props__['start_time'] = start_time
         super(TriggerRecurrence, __self__).__init__(
             'azure:logicapps/triggerRecurrence:TriggerRecurrence',
             resource_name,
@@ -73,7 +79,7 @@ class TriggerRecurrence(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, frequency=None, interval=None, logic_app_id=None, name=None):
+    def get(resource_name, id, opts=None, frequency=None, interval=None, logic_app_id=None, name=None, start_time=None):
         """
         Get an existing TriggerRecurrence resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,6 +91,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[float] interval: Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
         """
@@ -95,6 +102,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         __props__["interval"] = interval
         __props__["logic_app_id"] = logic_app_id
         __props__["name"] = name
+        __props__["start_time"] = start_time
         return TriggerRecurrence(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

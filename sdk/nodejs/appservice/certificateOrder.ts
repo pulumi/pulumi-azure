@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const exampleCertificateOrder = new azure.appservice.CertificateOrder("example", {
  *     distinguishedName: "CN=example.com",
  *     location: "global",
- *     productType: "standard",
+ *     productType: "Standard",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
@@ -60,7 +60,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly appServiceCertificateNotRenewableReasons!: pulumi.Output<string[]>;
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
      */
     public readonly autoRenew!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,11 +92,11 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public /*out*/ readonly isPrivateKeyExternal!: pulumi.Output<boolean>;
     /**
-     * Certificate key size.
+     * Certificate key size.  Defaults to 2048.
      */
     public readonly keySize!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -128,7 +128,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Duration in years (must be between 1 and 3).
+     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
      */
     public readonly validityInYears!: pulumi.Output<number | undefined>;
 
@@ -208,7 +208,7 @@ export interface CertificateOrderState {
      */
     readonly appServiceCertificateNotRenewableReasons?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
      */
     readonly autoRenew?: pulumi.Input<boolean>;
     /**
@@ -240,11 +240,11 @@ export interface CertificateOrderState {
      */
     readonly isPrivateKeyExternal?: pulumi.Input<boolean>;
     /**
-     * Certificate key size.
+     * Certificate key size.  Defaults to 2048.
      */
     readonly keySize?: pulumi.Input<number>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -276,7 +276,7 @@ export interface CertificateOrderState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Duration in years (must be between 1 and 3).
+     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
      */
     readonly validityInYears?: pulumi.Input<number>;
 }
@@ -286,7 +286,7 @@ export interface CertificateOrderState {
  */
 export interface CertificateOrderArgs {
     /**
-     * true if the certificate should be automatically renewed when it expires; otherwise, false.
+     * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
      */
     readonly autoRenew?: pulumi.Input<boolean>;
     /**
@@ -298,11 +298,11 @@ export interface CertificateOrderArgs {
      */
     readonly distinguishedName?: pulumi.Input<string>;
     /**
-     * Certificate key size.
+     * Certificate key size.  Defaults to 2048.
      */
     readonly keySize?: pulumi.Input<number>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface CertificateOrderArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Duration in years (must be between 1 and 3).
+     * Duration in years (must be between `1` and `3`).  Defaults to `1`.
      */
     readonly validityInYears?: pulumi.Input<number>;
 }

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Name of the Resource Group where the NAT Gateway exists.
+        /// Specifies the Name of the NAT Gateway.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

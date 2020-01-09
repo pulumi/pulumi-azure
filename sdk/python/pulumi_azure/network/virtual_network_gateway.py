@@ -31,6 +31,10 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     If `true`, BGP (Border Gateway Protocol) will be enabled
     for this Virtual Network Gateway. Defaults to `false`.
     """
+    generation: pulumi.Output[str]
+    """
+    The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+    """
     ip_configurations: pulumi.Output[list]
     """
     One or two `ip_configuration` blocks documented below.
@@ -63,8 +67,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     """
     Configuration of the size and capacity of the virtual network
     gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-    `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-    and depend on the `type` and `vpn_type` arguments.
+    `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+    `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+    `generation` arguments.
     A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
     sku is only supported by an `ExpressRoute` gateway.
     """
@@ -105,7 +110,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     The routing type of the Virtual Network Gateway. Valid
     options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
     """
-    def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
         
@@ -124,6 +129,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                If not specified, forced tunneling is disabled.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
         :param pulumi.Input[list] ip_configurations: One or two `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block whereas
                an active-active gateway requires exactly two `ip_configuration` blocks.
@@ -136,8 +142,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                a new resource to be created.
         :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
                gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-               and depend on the `type` and `vpn_type` arguments.
+               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+               `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+               `generation` arguments.
                A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
                sku is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -205,6 +212,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['bgp_settings'] = bgp_settings
             __props__['default_local_network_gateway_id'] = default_local_network_gateway_id
             __props__['enable_bgp'] = enable_bgp
+            __props__['generation'] = generation
             if ip_configurations is None:
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__['ip_configurations'] = ip_configurations
@@ -229,7 +237,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
+    def get(resource_name, id, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
         """
         Get an existing VirtualNetworkGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -248,6 +256,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                If not specified, forced tunneling is disabled.
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
         :param pulumi.Input[list] ip_configurations: One or two `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block whereas
                an active-active gateway requires exactly two `ip_configuration` blocks.
@@ -260,8 +269,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                a new resource to be created.
         :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
                gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-               and depend on the `type` and `vpn_type` arguments.
+               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+               `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+               `generation` arguments.
                A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
                sku is only supported by an `ExpressRoute` gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -315,6 +325,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__["bgp_settings"] = bgp_settings
         __props__["default_local_network_gateway_id"] = default_local_network_gateway_id
         __props__["enable_bgp"] = enable_bgp
+        __props__["generation"] = generation
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
         __props__["name"] = name

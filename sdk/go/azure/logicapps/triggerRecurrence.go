@@ -33,11 +33,13 @@ func NewTriggerRecurrence(ctx *pulumi.Context,
 		inputs["interval"] = nil
 		inputs["logicAppId"] = nil
 		inputs["name"] = nil
+		inputs["startTime"] = nil
 	} else {
 		inputs["frequency"] = args.Frequency
 		inputs["interval"] = args.Interval
 		inputs["logicAppId"] = args.LogicAppId
 		inputs["name"] = args.Name
+		inputs["startTime"] = args.StartTime
 	}
 	s, err := ctx.RegisterResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, true, inputs, opts...)
 	if err != nil {
@@ -56,6 +58,7 @@ func GetTriggerRecurrence(ctx *pulumi.Context,
 		inputs["interval"] = state.Interval
 		inputs["logicAppId"] = state.LogicAppId
 		inputs["name"] = state.Name
+		inputs["startTime"] = state.StartTime
 	}
 	s, err := ctx.ReadResource("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, id, inputs, opts...)
 	if err != nil {
@@ -94,6 +97,11 @@ func (r *TriggerRecurrence) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+func (r *TriggerRecurrence) StartTime() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["startTime"])
+}
+
 // Input properties used for looking up and filtering TriggerRecurrence resources.
 type TriggerRecurrenceState struct {
 	// Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
@@ -104,6 +112,8 @@ type TriggerRecurrenceState struct {
 	LogicAppId interface{}
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name interface{}
+	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+	StartTime interface{}
 }
 
 // The set of arguments for constructing a TriggerRecurrence resource.
@@ -116,4 +126,6 @@ type TriggerRecurrenceArgs struct {
 	LogicAppId interface{}
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	Name interface{}
+	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+	StartTime interface{}
 }

@@ -39,7 +39,7 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the NetApp account in which the NetApp Pool should be created.
+     * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
@@ -118,7 +118,7 @@ export class Pool extends pulumi.CustomResource {
  */
 export interface PoolState {
     /**
-     * The name of the NetApp account in which the NetApp Pool should be created.
+     * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
     /**
@@ -148,7 +148,7 @@ export interface PoolState {
  */
 export interface PoolArgs {
     /**
-     * The name of the NetApp account in which the NetApp Pool should be created.
+     * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
     /**

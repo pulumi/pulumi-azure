@@ -34,6 +34,7 @@ func NewSqlContainer(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["partitionKeyPath"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["throughput"] = nil
 		inputs["uniqueKeys"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
@@ -41,6 +42,7 @@ func NewSqlContainer(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["partitionKeyPath"] = args.PartitionKeyPath
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["throughput"] = args.Throughput
 		inputs["uniqueKeys"] = args.UniqueKeys
 	}
 	s, err := ctx.RegisterResource("azure:cosmosdb/sqlContainer:SqlContainer", name, true, inputs, opts...)
@@ -61,6 +63,7 @@ func GetSqlContainer(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["partitionKeyPath"] = state.PartitionKeyPath
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["throughput"] = state.Throughput
 		inputs["uniqueKeys"] = state.UniqueKeys
 	}
 	s, err := ctx.ReadResource("azure:cosmosdb/sqlContainer:SqlContainer", name, id, inputs, opts...)
@@ -105,6 +108,10 @@ func (r *SqlContainer) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+func (r *SqlContainer) Throughput() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["throughput"])
+}
+
 // One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 func (r *SqlContainer) UniqueKeys() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["uniqueKeys"])
@@ -122,6 +129,7 @@ type SqlContainerState struct {
 	PartitionKeyPath interface{}
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	Throughput interface{}
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys interface{}
 }
@@ -138,6 +146,7 @@ type SqlContainerArgs struct {
 	PartitionKeyPath interface{}
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	Throughput interface{}
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys interface{}
 }

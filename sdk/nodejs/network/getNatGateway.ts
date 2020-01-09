@@ -36,7 +36,7 @@ export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetNatGatewayArgs {
     /**
-     * The Name of the Resource Group where the NAT Gateway exists.
+     * Specifies the Name of the NAT Gateway.
      */
     readonly name: string;
     readonly publicIpAddressIds?: string[];

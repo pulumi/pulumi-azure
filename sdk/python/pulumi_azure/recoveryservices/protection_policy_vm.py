@@ -70,6 +70,8 @@ class ProtectionPolicyVM(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None, __props__=None, __name__=None, __opts__=None):
         """
+        > **NOTE:** This resource has been deprecated in favour of the `backup.PolicyVM` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+        
         Manages an Recovery Services VM Protection Policy.
         
         :param str resource_name: The name of the resource.

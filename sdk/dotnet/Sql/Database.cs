@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
+        /// Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
+        /// Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
+        /// Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }

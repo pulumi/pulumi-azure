@@ -11,7 +11,7 @@ namespace Pulumi.Azure.Automation
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to access information about an existing Automation Account Registration Information.
+        /// Use this data source to access information about an existing Automation Account.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
         /// </summary>
@@ -42,17 +42,17 @@ namespace Pulumi.Azure.Automation
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The Assigned Automation Account Registration endpoint
+        /// The Endpoint for this Auomation Account.
         /// </summary>
         public readonly string Endpoint;
         public readonly string Name;
         /// <summary>
-        /// The primary key for the Automation Account Registration information
+        /// The Primary Access Key for the Automation Account.
         /// </summary>
         public readonly string PrimaryKey;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The primary key for the Automation Account Registration information
+        /// The Secondary Access Key for the Automation Account.
         /// </summary>
         public readonly string SecondaryKey;
         /// <summary>

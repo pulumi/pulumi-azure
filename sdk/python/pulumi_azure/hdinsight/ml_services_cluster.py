@@ -50,7 +50,7 @@ class MLServicesCluster(pulumi.CustomResource):
     
         * `password` (`str`)
         * `sshKeys` (`list`)
-        * `subnetId` (`str`)
+        * `subnet_id` (`str`)
         * `username` (`str`)
         * `virtualNetworkId` (`str`)
         * `vm_size` (`str`)
@@ -59,7 +59,7 @@ class MLServicesCluster(pulumi.CustomResource):
     
         * `password` (`str`)
         * `sshKeys` (`list`)
-        * `subnetId` (`str`)
+        * `subnet_id` (`str`)
         * `username` (`str`)
         * `virtualNetworkId` (`str`)
         * `vm_size` (`str`)
@@ -69,7 +69,7 @@ class MLServicesCluster(pulumi.CustomResource):
         * `minInstanceCount` (`float`)
         * `password` (`str`)
         * `sshKeys` (`list`)
-        * `subnetId` (`str`)
+        * `subnet_id` (`str`)
         * `targetInstanceCount` (`float`)
         * `username` (`str`)
         * `virtualNetworkId` (`str`)
@@ -79,7 +79,7 @@ class MLServicesCluster(pulumi.CustomResource):
     
         * `password` (`str`)
         * `sshKeys` (`list`)
-        * `subnetId` (`str`)
+        * `subnet_id` (`str`)
         * `username` (`str`)
         * `virtualNetworkId` (`str`)
         * `vm_size` (`str`)
@@ -137,7 +137,7 @@ class MLServicesCluster(pulumi.CustomResource):
         
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
@@ -146,7 +146,7 @@ class MLServicesCluster(pulumi.CustomResource):
         
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
@@ -156,7 +156,7 @@ class MLServicesCluster(pulumi.CustomResource):
             * `minInstanceCount` (`pulumi.Input[float]`)
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
@@ -166,7 +166,7 @@ class MLServicesCluster(pulumi.CustomResource):
         
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
@@ -262,7 +262,7 @@ class MLServicesCluster(pulumi.CustomResource):
         
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
@@ -271,7 +271,7 @@ class MLServicesCluster(pulumi.CustomResource):
         
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)
@@ -281,7 +281,7 @@ class MLServicesCluster(pulumi.CustomResource):
             * `minInstanceCount` (`pulumi.Input[float]`)
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `targetInstanceCount` (`pulumi.Input[float]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
@@ -291,7 +291,7 @@ class MLServicesCluster(pulumi.CustomResource):
         
             * `password` (`pulumi.Input[str]`)
             * `sshKeys` (`pulumi.Input[list]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
             * `username` (`pulumi.Input[str]`)
             * `virtualNetworkId` (`pulumi.Input[str]`)
             * `vm_size` (`pulumi.Input[str]`)

@@ -134,6 +134,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly enableBgp!: pulumi.Output<boolean>;
     /**
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     */
+    public readonly generation!: pulumi.Output<string>;
+    /**
      * One or two `ipConfiguration` blocks documented below.
      * An active-standby gateway requires exactly one `ipConfiguration` block whereas
      * an active-active gateway requires exactly two `ipConfiguration` blocks.
@@ -158,8 +162,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-     * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-     * and depend on the `type` and `vpnType` arguments.
+     * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+     * `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
+     * `generation` arguments.
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */
@@ -201,6 +206,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
+            inputs["generation"] = state ? state.generation : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -228,6 +234,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             inputs["defaultLocalNetworkGatewayId"] = args ? args.defaultLocalNetworkGatewayId : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
+            inputs["generation"] = args ? args.generation : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -275,6 +282,10 @@ export interface VirtualNetworkGatewayState {
      */
     readonly enableBgp?: pulumi.Input<boolean>;
     /**
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     */
+    readonly generation?: pulumi.Input<string>;
+    /**
      * One or two `ipConfiguration` blocks documented below.
      * An active-standby gateway requires exactly one `ipConfiguration` block whereas
      * an active-active gateway requires exactly two `ipConfiguration` blocks.
@@ -299,8 +310,9 @@ export interface VirtualNetworkGatewayState {
     /**
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-     * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-     * and depend on the `type` and `vpnType` arguments.
+     * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+     * `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
+     * `generation` arguments.
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */
@@ -353,6 +365,10 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly enableBgp?: pulumi.Input<boolean>;
     /**
+     * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+     */
+    readonly generation?: pulumi.Input<string>;
+    /**
      * One or two `ipConfiguration` blocks documented below.
      * An active-standby gateway requires exactly one `ipConfiguration` block whereas
      * an active-active gateway requires exactly two `ipConfiguration` blocks.
@@ -377,8 +393,9 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-     * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-     * and depend on the `type` and `vpnType` arguments.
+     * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+     * `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and
+     * `generation` arguments.
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */

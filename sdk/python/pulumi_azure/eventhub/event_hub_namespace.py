@@ -65,7 +65,7 @@ class EventHubNamespace(pulumi.CustomResource):
       * `virtual_network_rules` (`list`)
     
         * `ignoreMissingVirtualNetworkServiceEndpoint` (`bool`)
-        * `subnetId` (`str`)
+        * `subnet_id` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -107,7 +107,7 @@ class EventHubNamespace(pulumi.CustomResource):
           * `virtual_network_rules` (`pulumi.Input[list]`)
         
             * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
         """
@@ -189,7 +189,7 @@ class EventHubNamespace(pulumi.CustomResource):
           * `virtual_network_rules` (`pulumi.Input[list]`)
         
             * `ignoreMissingVirtualNetworkServiceEndpoint` (`pulumi.Input[bool]`)
-            * `subnetId` (`pulumi.Input[str]`)
+            * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
         """

@@ -9,6 +9,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.RecoveryServices
 {
     /// <summary>
+    /// &gt; **NOTE:** This resource has been deprecated in favour of the `azure.siterecovery.ProtectionContainer` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+    /// 
     /// Manages a Azure recovery vault protection container.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_container.html.markdown.

@@ -35,6 +35,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["accountReplicationType"] = nil
 		inputs["accountTier"] = nil
 		inputs["accountType"] = nil
+		inputs["blobProperties"] = nil
 		inputs["customDomain"] = nil
 		inputs["enableAdvancedThreatProtection"] = nil
 		inputs["enableBlobEncryption"] = nil
@@ -55,6 +56,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["accountReplicationType"] = args.AccountReplicationType
 		inputs["accountTier"] = args.AccountTier
 		inputs["accountType"] = args.AccountType
+		inputs["blobProperties"] = args.BlobProperties
 		inputs["customDomain"] = args.CustomDomain
 		inputs["enableAdvancedThreatProtection"] = args.EnableAdvancedThreatProtection
 		inputs["enableBlobEncryption"] = args.EnableBlobEncryption
@@ -120,6 +122,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["accountReplicationType"] = state.AccountReplicationType
 		inputs["accountTier"] = state.AccountTier
 		inputs["accountType"] = state.AccountType
+		inputs["blobProperties"] = state.BlobProperties
 		inputs["customDomain"] = state.CustomDomain
 		inputs["enableAdvancedThreatProtection"] = state.EnableAdvancedThreatProtection
 		inputs["enableBlobEncryption"] = state.EnableBlobEncryption
@@ -210,6 +213,11 @@ func (r *Account) AccountTier() pulumi.StringOutput {
 
 func (r *Account) AccountType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["accountType"])
+}
+
+// A `blobProperties` block as defined below.
+func (r *Account) BlobProperties() pulumi.Output {
+	return r.s.State["blobProperties"]
 }
 
 // A `customDomain` block as documented below.
@@ -451,6 +459,8 @@ type AccountState struct {
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier interface{}
 	AccountType interface{}
+	// A `blobProperties` block as defined below.
+	BlobProperties interface{}
 	// A `customDomain` block as documented below.
 	CustomDomain interface{}
 	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
@@ -557,6 +567,8 @@ type AccountArgs struct {
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier interface{}
 	AccountType interface{}
+	// A `blobProperties` block as defined below.
+	BlobProperties interface{}
 	// A `customDomain` block as documented below.
 	CustomDomain interface{}
 	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.

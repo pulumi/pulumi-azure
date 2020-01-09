@@ -57,7 +57,7 @@ namespace Pulumi.Azure.KeyVault
         /// A `network_acls` block as defined below.
         /// </summary>
         [Output("networkAcls")]
-        public Output<Outputs.KeyVaultNetworkAcls?> NetworkAcls { get; private set; } = null!;
+        public Output<Outputs.KeyVaultNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.

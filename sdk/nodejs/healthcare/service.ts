@@ -82,11 +82,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * An `authenticationConfiguration` block as defined below.
      */
-    public readonly authenticationConfiguration!: pulumi.Output<outputs.healthcare.ServiceAuthenticationConfiguration | undefined>;
+    public readonly authenticationConfiguration!: pulumi.Output<outputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
      * A `corsConfiguration` block as defined below.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration | undefined>;
+    public readonly corsConfiguration!: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
      */

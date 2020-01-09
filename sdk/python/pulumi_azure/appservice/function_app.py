@@ -131,6 +131,7 @@ class FunctionApp(pulumi.CustomResource):
         * `allowedOrigins` (`list`)
         * `supportCredentials` (`bool`)
     
+      * `ftpsState` (`str`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
       * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `minTlsVersion` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -241,6 +242,7 @@ class FunctionApp(pulumi.CustomResource):
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
         
+          * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -392,6 +394,7 @@ class FunctionApp(pulumi.CustomResource):
             * `allowedOrigins` (`pulumi.Input[list]`)
             * `supportCredentials` (`pulumi.Input[bool]`)
         
+          * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.

@@ -53,6 +53,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfilesResult> AgentPoolProfiles;
         /// <summary>
+        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// </summary>
+        public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
+        /// <summary>
         /// The DNS Prefix of the managed Kubernetes cluster.
         /// </summary>
         public readonly string DnsPrefix;
@@ -100,6 +104,14 @@ namespace Pulumi.Azure.ContainerService
         /// Auto-generated Resource Group containing AKS Cluster resources.
         /// </summary>
         public readonly string NodeResourceGroup;
+        /// <summary>
+        /// The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
+        /// </summary>
+        public readonly string PrivateFqdn;
+        /// <summary>
+        /// Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
+        /// </summary>
+        public readonly bool PrivateLinkEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `role_based_access_control` block as documented below.
@@ -126,6 +138,7 @@ namespace Pulumi.Azure.ContainerService
         private GetKubernetesClusterResult(
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfilesResult> addonProfiles,
             ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfilesResult> agentPoolProfiles,
+            ImmutableArray<string> apiServerAuthorizedIpRanges,
             string dnsPrefix,
             string fqdn,
             ImmutableArray<Outputs.GetKubernetesClusterKubeAdminConfigsResult> kubeAdminConfigs,
@@ -138,6 +151,8 @@ namespace Pulumi.Azure.ContainerService
             string name,
             ImmutableArray<Outputs.GetKubernetesClusterNetworkProfilesResult> networkProfiles,
             string nodeResourceGroup,
+            string privateFqdn,
+            bool privateLinkEnabled,
             string resourceGroupName,
             ImmutableArray<Outputs.GetKubernetesClusterRoleBasedAccessControlsResult> roleBasedAccessControls,
             ImmutableArray<Outputs.GetKubernetesClusterServicePrincipalsResult> servicePrincipals,
@@ -147,6 +162,7 @@ namespace Pulumi.Azure.ContainerService
         {
             AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
+            ApiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             DnsPrefix = dnsPrefix;
             Fqdn = fqdn;
             KubeAdminConfigs = kubeAdminConfigs;
@@ -159,6 +175,8 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NetworkProfiles = networkProfiles;
             NodeResourceGroup = nodeResourceGroup;
+            PrivateFqdn = privateFqdn;
+            PrivateLinkEnabled = privateLinkEnabled;
             ResourceGroupName = resourceGroupName;
             RoleBasedAccessControls = roleBasedAccessControls;
             ServicePrincipals = servicePrincipals;

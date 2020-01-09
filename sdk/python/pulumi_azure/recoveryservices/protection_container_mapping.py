@@ -40,6 +40,8 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, name=None, recovery_fabric_name=None, recovery_replication_policy_id=None, recovery_source_protection_container_name=None, recovery_target_protection_container_id=None, recovery_vault_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
+        > **NOTE:** This resource has been deprecated in favour of the `siterecovery.ProtectionContainerMapping` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+        
         Manages a Azure recovery vault protection container mapping. A network protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
         
         :param str resource_name: The name of the resource.

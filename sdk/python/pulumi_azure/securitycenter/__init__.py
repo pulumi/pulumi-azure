@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .advanced_threat_protection import *
 from .contact import *
 from .subscription_pricing import *
 from .workspace import *

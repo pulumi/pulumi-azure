@@ -20,7 +20,7 @@ class BastionHost(pulumi.CustomResource):
     
       * `name` (`str`) - Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
       * `publicIpAddressId` (`str`)
-      * `subnetId` (`str`)
+      * `subnet_id` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -56,7 +56,7 @@ class BastionHost(pulumi.CustomResource):
         
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
           * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnetId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
         """
@@ -111,7 +111,7 @@ class BastionHost(pulumi.CustomResource):
         
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
           * `publicIpAddressId` (`pulumi.Input[str]`)
-          * `subnetId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
         """

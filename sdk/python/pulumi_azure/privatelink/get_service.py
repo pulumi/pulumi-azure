@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configuration=None, network_interface_ids=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configuration=None, network_interface_ids=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         __self__.alias = alias
@@ -25,6 +25,12 @@ class GetServiceResult:
         __self__.auto_approval_subscription_ids = auto_approval_subscription_ids
         """
         The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
+        """
+        if enable_proxy_protocol and not isinstance(enable_proxy_protocol, bool):
+            raise TypeError("Expected argument 'enable_proxy_protocol' to be a bool")
+        __self__.enable_proxy_protocol = enable_proxy_protocol
+        """
+        Does the Private Link Service support the Proxy Protocol?
         """
         if load_balancer_frontend_ip_configuration_ids and not isinstance(load_balancer_frontend_ip_configuration_ids, list):
             raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration_ids' to be a list")
@@ -82,6 +88,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             alias=self.alias,
             auto_approval_subscription_ids=self.auto_approval_subscription_ids,
+            enable_proxy_protocol=self.enable_proxy_protocol,
             load_balancer_frontend_ip_configuration_ids=self.load_balancer_frontend_ip_configuration_ids,
             location=self.location,
             name=self.name,
@@ -116,6 +123,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
     return AwaitableGetServiceResult(
         alias=__ret__.get('alias'),
         auto_approval_subscription_ids=__ret__.get('autoApprovalSubscriptionIds'),
+        enable_proxy_protocol=__ret__.get('enableProxyProtocol'),
         load_balancer_frontend_ip_configuration_ids=__ret__.get('loadBalancerFrontendIpConfigurationIds'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

@@ -28,6 +28,32 @@ import * as utilities from "../utilities";
  *     zoneName: exampleZone.name,
  * });
  * ```
+ * 
+ * ## Example Usage (Alias Record)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const target = new azure.dns.CNameRecord("target", {
+ *     record: "contoso.com",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     zoneName: exampleZone.name,
+ * });
+ * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     targetResourceId: target.id,
+ *     ttl: 300,
+ *     zoneName: exampleZone.name,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_cname_record.html.markdown.
  */
@@ -69,7 +95,7 @@ export class CNameRecord extends pulumi.CustomResource {
     /**
      * The target of the CNAME.
      */
-    public readonly record!: pulumi.Output<string>;
+    public readonly record!: pulumi.Output<string | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
@@ -78,6 +104,10 @@ export class CNameRecord extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * The Azure resource id of the target object. Conflicts with `records`
+     */
+    public readonly targetResourceId!: pulumi.Output<string | undefined>;
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -101,13 +131,11 @@ export class CNameRecord extends pulumi.CustomResource {
             inputs["record"] = state ? state.record : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             inputs["ttl"] = state ? state.ttl : undefined;
             inputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as CNameRecordArgs | undefined;
-            if (!args || args.record === undefined) {
-                throw new Error("Missing required property 'record'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,6 +149,7 @@ export class CNameRecord extends pulumi.CustomResource {
             inputs["record"] = args ? args.record : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
             inputs["fqdn"] = undefined /*out*/;
@@ -160,6 +189,10 @@ export interface CNameRecordState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The Azure resource id of the target object. Conflicts with `records`
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
     readonly ttl?: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -178,7 +211,7 @@ export interface CNameRecordArgs {
     /**
      * The target of the CNAME.
      */
-    readonly record: pulumi.Input<string>;
+    readonly record?: pulumi.Input<string>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
@@ -187,6 +220,10 @@ export interface CNameRecordArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The Azure resource id of the target object. Conflicts with `records`
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
     readonly ttl: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.

@@ -30,6 +30,7 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["authorizationKey"] = nil
+		inputs["connectionProtocol"] = nil
 		inputs["enableBgp"] = nil
 		inputs["expressRouteCircuitId"] = nil
 		inputs["expressRouteGatewayBypass"] = nil
@@ -47,6 +48,7 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		inputs["virtualNetworkGatewayId"] = nil
 	} else {
 		inputs["authorizationKey"] = args.AuthorizationKey
+		inputs["connectionProtocol"] = args.ConnectionProtocol
 		inputs["enableBgp"] = args.EnableBgp
 		inputs["expressRouteCircuitId"] = args.ExpressRouteCircuitId
 		inputs["expressRouteGatewayBypass"] = args.ExpressRouteGatewayBypass
@@ -77,6 +79,7 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["authorizationKey"] = state.AuthorizationKey
+		inputs["connectionProtocol"] = state.ConnectionProtocol
 		inputs["enableBgp"] = state.EnableBgp
 		inputs["expressRouteCircuitId"] = state.ExpressRouteCircuitId
 		inputs["expressRouteGatewayBypass"] = state.ExpressRouteGatewayBypass
@@ -115,6 +118,14 @@ func (r *VirtualNetworkGatewayConnection) ID() pulumi.IDOutput {
 // ExpressRoute connection.
 func (r *VirtualNetworkGatewayConnection) AuthorizationKey() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["authorizationKey"])
+}
+
+// The IKE protocol version to use. Possible
+// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+// Changing this value will force a resource to be created.
+// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+func (r *VirtualNetworkGatewayConnection) ConnectionProtocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["connectionProtocol"])
 }
 
 // If `true`, BGP (Border Gateway Protocol) is enabled
@@ -220,6 +231,11 @@ type VirtualNetworkGatewayConnectionState struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey interface{}
+	// The IKE protocol version to use. Possible
+	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+	// Changing this value will force a resource to be created.
+	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	ConnectionProtocol interface{}
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp interface{}
@@ -280,6 +296,11 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// Express Route Circuit. This field is required only if the type is an
 	// ExpressRoute connection.
 	AuthorizationKey interface{}
+	// The IKE protocol version to use. Possible
+	// values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+	// Changing this value will force a resource to be created.
+	// > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+	ConnectionProtocol interface{}
 	// If `true`, BGP (Border Gateway Protocol) is enabled
 	// for this connection. Defaults to `false`.
 	EnableBgp interface{}

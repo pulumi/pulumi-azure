@@ -12,7 +12,7 @@ from .. import utilities, tables
 class ConfigurationStore(pulumi.CustomResource):
     endpoint: pulumi.Output[str]
     """
-    The URL that can be used to log into the container registry.
+    The URL of the App Configuration.
     """
     location: pulumi.Output[str]
     """
@@ -124,7 +124,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] endpoint: The URL that can be used to log into the container registry.
+        :param pulumi.Input[str] endpoint: The URL of the App Configuration.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[list] primary_read_keys: An `access_key` block as defined below containing the primary read access key.

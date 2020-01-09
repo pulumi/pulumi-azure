@@ -29,10 +29,12 @@ func NewTable(ctx *pulumi.Context,
 		inputs["accountName"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["throughput"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["throughput"] = args.Throughput
 	}
 	s, err := ctx.RegisterResource("azure:cosmosdb/table:Table", name, true, inputs, opts...)
 	if err != nil {
@@ -50,6 +52,7 @@ func GetTable(ctx *pulumi.Context,
 		inputs["accountName"] = state.AccountName
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["throughput"] = state.Throughput
 	}
 	s, err := ctx.ReadResource("azure:cosmosdb/table:Table", name, id, inputs, opts...)
 	if err != nil {
@@ -83,6 +86,10 @@ func (r *Table) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+func (r *Table) Throughput() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["throughput"])
+}
+
 // Input properties used for looking up and filtering Table resources.
 type TableState struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
@@ -91,6 +98,7 @@ type TableState struct {
 	Name interface{}
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	Throughput interface{}
 }
 
 // The set of arguments for constructing a Table resource.
@@ -101,4 +109,5 @@ type TableArgs struct {
 	Name interface{}
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	Throughput interface{}
 }

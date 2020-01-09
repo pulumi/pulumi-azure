@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> AppServiceCertificateNotRenewableReasons { get; private set; } = null!;
 
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
         /// </summary>
         [Output("autoRenew")]
         public Output<bool?> AutoRenew { get; private set; } = null!;
@@ -70,13 +70,13 @@ namespace Pulumi.Azure.AppService
         public Output<bool> IsPrivateKeyExternal { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate key size.
+        /// Certificate key size.  Defaults to 2048.
         /// </summary>
         [Output("keySize")]
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Duration in years (must be between 1 and 3).
+        /// Duration in years (must be between `1` and `3`).  Defaults to `1`.
         /// </summary>
         [Output("validityInYears")]
         public Output<int?> ValidityInYears { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateOrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -194,13 +194,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DistinguishedName { get; set; }
 
         /// <summary>
-        /// Certificate key size.
+        /// Certificate key size.  Defaults to 2048.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Duration in years (must be between 1 and 3).
+        /// Duration in years (must be between `1` and `3`).  Defaults to `1`.
         /// </summary>
         [Input("validityInYears")]
         public Input<int>? ValidityInYears { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -315,13 +315,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? IsPrivateKeyExternal { get; set; }
 
         /// <summary>
-        /// Certificate key size.
+        /// Certificate key size.  Defaults to 2048.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Duration in years (must be between 1 and 3).
+        /// Duration in years (must be between `1` and `3`).  Defaults to `1`.
         /// </summary>
         [Input("validityInYears")]
         public Input<int>? ValidityInYears { get; set; }

@@ -27,6 +27,7 @@ from .profile import *
 from .network_security_group import *
 from .network_security_rule import *
 from .network_watcher import *
+from .network_watcher_flow_log import *
 from .packet_capture import *
 from .point_to_point_vpn_gateway import *
 from .public_ip import *

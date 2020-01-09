@@ -10,6 +10,7 @@ export * from "./outputEventHub";
 export * from "./outputMssql";
 export * from "./outputServiceBusQueue";
 export * from "./outputServicebusTopic";
+export * from "./referenceInputBlob";
 export * from "./streamInputBlob";
 export * from "./streamInputEventHub";
 export * from "./streamInputIotHub";

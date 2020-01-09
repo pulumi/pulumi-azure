@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
  *     accountName: exampleAccount.name,
  *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     throughput: 400,
  * });
  * ```
  *
@@ -66,6 +67,7 @@ export class SqlDatabase extends pulumi.CustomResource {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly throughput!: pulumi.Output<number>;
 
     /**
      * Create a SqlDatabase resource with the given unique name, arguments, and options.
@@ -82,6 +84,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["throughput"] = state ? state.throughput : undefined;
         } else {
             const args = argsOrState as SqlDatabaseArgs | undefined;
             if (!args || args.accountName === undefined) {
@@ -93,6 +96,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["throughput"] = args ? args.throughput : undefined;
         }
         if (!opts) {
             opts = {}
@@ -121,6 +125,7 @@ export interface SqlDatabaseState {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    readonly throughput?: pulumi.Input<number>;
 }
 
 /**
@@ -139,4 +144,5 @@ export interface SqlDatabaseArgs {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly throughput?: pulumi.Input<number>;
 }

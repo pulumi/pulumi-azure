@@ -69,6 +69,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly agentPoolProfiles: outputs.containerservice.GetKubernetesClusterAgentPoolProfile[];
     /**
+     * The IP ranges to whitelist for incoming traffic to the masters.
+     */
+    readonly apiServerAuthorizedIpRanges: string[];
+    /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */
     readonly dnsPrefix: string;
@@ -116,6 +120,14 @@ export interface GetKubernetesClusterResult {
      * Auto-generated Resource Group containing AKS Cluster resources.
      */
     readonly nodeResourceGroup: string;
+    /**
+     * The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located                   
+     */
+    readonly privateFqdn: string;
+    /**
+     * Does this Kubernetes Cluster have the Kubernetes API exposed via Private Link?                           
+     */
+    readonly privateLinkEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * A `roleBasedAccessControl` block as documented below.

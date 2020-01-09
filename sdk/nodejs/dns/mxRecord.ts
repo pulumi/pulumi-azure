@@ -75,7 +75,7 @@ export class MxRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS MX Record.
+     * The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface MxRecordState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS MX Record.
+     * The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface MxRecordState {
  */
 export interface MxRecordArgs {
     /**
-     * The name of the DNS MX Record.
+     * The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

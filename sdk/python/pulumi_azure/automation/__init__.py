@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .account import *
+from .certificate import *
 from .credential import *
 from .dsc_configuration import *
 from .dsc_node_configuration import *

@@ -45,6 +45,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("throughput")]
+        public Output<int> Throughput { get; private set; } = null!;
+
         /// <summary>
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
@@ -127,6 +130,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
         [Input("uniqueKeys")]
         private InputList<Inputs.SqlContainerUniqueKeysArgs>? _uniqueKeys;
 
@@ -175,6 +181,9 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
 
         [Input("uniqueKeys")]
         private InputList<Inputs.SqlContainerUniqueKeysGetArgs>? _uniqueKeys;

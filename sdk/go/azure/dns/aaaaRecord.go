@@ -18,9 +18,6 @@ type AaaaRecord struct {
 // NewAaaaRecord registers a new resource with the given unique name, arguments, and options.
 func NewAaaaRecord(ctx *pulumi.Context,
 	name string, args *AaaaRecordArgs, opts ...pulumi.ResourceOpt) (*AaaaRecord, error) {
-	if args == nil || args.Records == nil {
-		return nil, errors.New("missing required argument 'Records'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -36,6 +33,7 @@ func NewAaaaRecord(ctx *pulumi.Context,
 		inputs["records"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
+		inputs["targetResourceId"] = nil
 		inputs["ttl"] = nil
 		inputs["zoneName"] = nil
 	} else {
@@ -43,6 +41,7 @@ func NewAaaaRecord(ctx *pulumi.Context,
 		inputs["records"] = args.Records
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
+		inputs["targetResourceId"] = args.TargetResourceId
 		inputs["ttl"] = args.Ttl
 		inputs["zoneName"] = args.ZoneName
 	}
@@ -65,6 +64,7 @@ func GetAaaaRecord(ctx *pulumi.Context,
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["tags"] = state.Tags
+		inputs["targetResourceId"] = state.TargetResourceId
 		inputs["ttl"] = state.Ttl
 		inputs["zoneName"] = state.ZoneName
 	}
@@ -95,7 +95,7 @@ func (r *AaaaRecord) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-// List of IPv6 Addresses.
+// List of IPv4 Addresses. Conflicts with `targetResourceId`.
 func (r *AaaaRecord) Records() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["records"])
 }
@@ -108,6 +108,11 @@ func (r *AaaaRecord) ResourceGroupName() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (r *AaaaRecord) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
+}
+
+// The Azure resource id of the target object. Conflicts with `records`
+func (r *AaaaRecord) TargetResourceId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["targetResourceId"])
 }
 
 func (r *AaaaRecord) Ttl() pulumi.IntOutput {
@@ -125,12 +130,14 @@ type AaaaRecordState struct {
 	Fqdn interface{}
 	// The name of the DNS AAAA Record.
 	Name interface{}
-	// List of IPv6 Addresses.
+	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
 	Records interface{}
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The Azure resource id of the target object. Conflicts with `records`
+	TargetResourceId interface{}
 	Ttl interface{}
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName interface{}
@@ -140,12 +147,14 @@ type AaaaRecordState struct {
 type AaaaRecordArgs struct {
 	// The name of the DNS AAAA Record.
 	Name interface{}
-	// List of IPv6 Addresses.
+	// List of IPv4 Addresses. Conflicts with `targetResourceId`.
 	Records interface{}
 	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The Azure resource id of the target object. Conflicts with `records`
+	TargetResourceId interface{}
 	Ttl interface{}
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName interface{}

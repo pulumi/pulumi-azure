@@ -16,7 +16,7 @@ namespace Pulumi.Azure.NetApp
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the NetApp account in which the NetApp Pool should be created.
+        /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class PoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the NetApp account in which the NetApp Pool should be created.
+        /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class PoolState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the NetApp account in which the NetApp Pool should be created.
+        /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }

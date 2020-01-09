@@ -11,6 +11,7 @@ from .custom_hostname_binding import *
 from .plan import *
 from .slot import *
 from .source_code_token import *
+from .virtual_network_swift_connection import *
 from .function_app import *
 from .get_app_service import *
 from .get_certificate import *

@@ -83,7 +83,7 @@ func (r *Pool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the NetApp account in which the NetApp Pool should be created.
+// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 func (r *Pool) AccountName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["accountName"])
 }
@@ -115,7 +115,7 @@ func (r *Pool) SizeInTb() pulumi.IntOutput {
 
 // Input properties used for looking up and filtering Pool resources.
 type PoolState struct {
-	// The name of the NetApp account in which the NetApp Pool should be created.
+	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -131,7 +131,7 @@ type PoolState struct {
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
-	// The name of the NetApp account in which the NetApp Pool should be created.
+	// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
 	AccountName interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

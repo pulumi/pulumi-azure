@@ -81,7 +81,7 @@ func (r *ConfigurationStore) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The URL that can be used to log into the container registry.
+// The URL of the App Configuration.
 func (r *ConfigurationStore) Endpoint() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["endpoint"])
 }
@@ -133,7 +133,7 @@ func (r *ConfigurationStore) Tags() pulumi.MapOutput {
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type ConfigurationStoreState struct {
-	// The URL that can be used to log into the container registry.
+	// The URL of the App Configuration.
 	Endpoint interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

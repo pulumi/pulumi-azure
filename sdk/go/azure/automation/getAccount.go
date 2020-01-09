@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about an existing Automation Account Registration Information.
+// Use this data source to access information about an existing Automation Account.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_account.html.markdown.
 func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
@@ -40,13 +40,13 @@ type GetAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
-	// The Assigned Automation Account Registration endpoint
+	// The Endpoint for this Auomation Account.
 	Endpoint interface{}
 	Name interface{}
-	// The primary key for the Automation Account Registration information
+	// The Primary Access Key for the Automation Account.
 	PrimaryKey interface{}
 	ResourceGroupName interface{}
-	// The primary key for the Automation Account Registration information
+	// The Secondary Access Key for the Automation Account.
 	SecondaryKey interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

@@ -20,8 +20,33 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAaaaRecord = new azure.dns.AaaaRecord("example", {
- *     records: ["2607:f8b0:4009:1803::1005"],
  *     resourceGroupName: exampleResourceGroup.name,
+ *     ttl: 300,
+ *     zoneName: exampleZone.name,
+ * });
+ * ```
+ * 
+ * ## Example Usage (Alias Record)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     allocationMethod: "Dynamic",
+ *     ipVersion: "IPv6",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAaaaRecord = new azure.dns.AaaaRecord("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     targetResourceId: examplePublicIp.id,
  *     ttl: 300,
  *     zoneName: exampleZone.name,
  * });
@@ -65,9 +90,9 @@ export class AaaaRecord extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of IPv6 Addresses.
+     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
      */
-    public readonly records!: pulumi.Output<string[]>;
+    public readonly records!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
@@ -76,6 +101,10 @@ export class AaaaRecord extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * The Azure resource id of the target object. Conflicts with `records`
+     */
+    public readonly targetResourceId!: pulumi.Output<string | undefined>;
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -99,13 +128,11 @@ export class AaaaRecord extends pulumi.CustomResource {
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             inputs["ttl"] = state ? state.ttl : undefined;
             inputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as AaaaRecordArgs | undefined;
-            if (!args || args.records === undefined) {
-                throw new Error("Missing required property 'records'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,6 +146,7 @@ export class AaaaRecord extends pulumi.CustomResource {
             inputs["records"] = args ? args.records : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
             inputs["fqdn"] = undefined /*out*/;
@@ -147,7 +175,7 @@ export interface AaaaRecordState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * List of IPv6 Addresses.
+     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
      */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -158,6 +186,10 @@ export interface AaaaRecordState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The Azure resource id of the target object. Conflicts with `records`
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
     readonly ttl?: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -174,9 +206,9 @@ export interface AaaaRecordArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * List of IPv6 Addresses.
+     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
      */
-    readonly records: pulumi.Input<pulumi.Input<string>[]>;
+    readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
@@ -185,6 +217,10 @@ export interface AaaaRecordArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The Azure resource id of the target object. Conflicts with `records`
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
     readonly ttl: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.

@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     targetRegions: [{
  *         name: existingSharedImage.location,
  *         regionalReplicaCount: 5,
+ *         storageAccountType: "Standard_LRS",
  *     }],
  * });
  * ```

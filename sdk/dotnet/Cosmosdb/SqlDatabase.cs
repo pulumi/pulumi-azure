@@ -33,6 +33,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("throughput")]
+        public Output<int> Throughput { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SqlDatabase resource with the given unique name, arguments, and options.
@@ -97,6 +100,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
         public SqlDatabaseArgs()
         {
         }
@@ -121,6 +127,9 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
 
         public SqlDatabaseState()
         {

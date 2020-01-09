@@ -43,6 +43,7 @@ func NewService(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["primaryKey"] = nil
+	inputs["queryKeys"] = nil
 	inputs["secondaryKey"] = nil
 	s, err := ctx.RegisterResource("azure:search/service:Service", name, true, inputs, opts...)
 	if err != nil {
@@ -61,6 +62,7 @@ func GetService(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["partitionCount"] = state.PartitionCount
 		inputs["primaryKey"] = state.PrimaryKey
+		inputs["queryKeys"] = state.QueryKeys
 		inputs["replicaCount"] = state.ReplicaCount
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secondaryKey"] = state.SecondaryKey
@@ -104,6 +106,11 @@ func (r *Service) PrimaryKey() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
+// A `queryKeys` block as defined below.
+func (r *Service) QueryKeys() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["queryKeys"])
+}
+
 // Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
 func (r *Service) ReplicaCount() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["replicaCount"])
@@ -139,6 +146,8 @@ type ServiceState struct {
 	PartitionCount interface{}
 	// The Search Service Administration primary key.
 	PrimaryKey interface{}
+	// A `queryKeys` block as defined below.
+	QueryKeys interface{}
 	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
 	ReplicaCount interface{}
 	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.

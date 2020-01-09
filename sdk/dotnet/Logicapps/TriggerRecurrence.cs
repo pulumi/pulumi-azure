@@ -39,6 +39,12 @@ namespace Pulumi.Azure.LogicApps
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string?> StartTime { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TriggerRecurrence resource with the given unique name, arguments, and options.
@@ -109,6 +115,12 @@ namespace Pulumi.Azure.LogicApps
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
+
         public TriggerRecurrenceArgs()
         {
         }
@@ -139,6 +151,12 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
 
         public TriggerRecurrenceState()
         {

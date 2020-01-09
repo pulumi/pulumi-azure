@@ -43,6 +43,7 @@ export * from "./networkPacketCapture";
 export * from "./networkSecurityGroup";
 export * from "./networkSecurityRule";
 export * from "./networkWatcher";
+export * from "./networkWatcherFlowLog";
 export * from "./packetCapture";
 export * from "./pointToPointVpnGateway";
 export * from "./profile";

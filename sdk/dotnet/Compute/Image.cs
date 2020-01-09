@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.ImageDataDisks>> DataDisks { get; private set; } = null!;
 
         /// <summary>
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        /// </summary>
+        [Output("hyperVGeneration")]
+        public Output<string?> HyperVGeneration { get; private set; } = null!;
+
+        /// <summary>
         /// Specified the supported Azure location where the resource exists.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -125,6 +131,12 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
+
+        /// <summary>
         /// Specified the supported Azure location where the resource exists.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.Compute
             get => _dataDisks ?? (_dataDisks = new InputList<Inputs.ImageDataDisksGetArgs>());
             set => _dataDisks = value;
         }
+
+        /// <summary>
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// Specified the supported Azure location where the resource exists.

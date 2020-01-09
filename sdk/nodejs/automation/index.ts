@@ -4,6 +4,7 @@
 // Export members:
 export * from "./account";
 export * from "./boolVariable";
+export * from "./certificate";
 export * from "./credential";
 export * from "./dateTimeVariable";
 export * from "./dscConfiguration";

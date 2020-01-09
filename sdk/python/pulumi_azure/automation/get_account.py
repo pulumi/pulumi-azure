@@ -18,7 +18,7 @@ class GetAccountResult:
             raise TypeError("Expected argument 'endpoint' to be a str")
         __self__.endpoint = endpoint
         """
-        The Assigned Automation Account Registration endpoint
+        The Endpoint for this Auomation Account.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -27,7 +27,7 @@ class GetAccountResult:
             raise TypeError("Expected argument 'primary_key' to be a str")
         __self__.primary_key = primary_key
         """
-        The primary key for the Automation Account Registration information
+        The Primary Access Key for the Automation Account.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -36,7 +36,7 @@ class GetAccountResult:
             raise TypeError("Expected argument 'secondary_key' to be a str")
         __self__.secondary_key = secondary_key
         """
-        The primary key for the Automation Account Registration information
+        The Secondary Access Key for the Automation Account.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -59,7 +59,7 @@ class AwaitableGetAccountResult(GetAccountResult):
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
-    Use this data source to access information about an existing Automation Account Registration Information.
+    Use this data source to access information about an existing Automation Account.
     
     :param str name: The name of the Automation Account.
     :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.

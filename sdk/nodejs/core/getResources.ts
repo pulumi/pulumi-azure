@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about existing resources.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * // Get Resources with specific Tags
- * const example = azure.core.getResources({
- *     requiredTags: {
- *         environment: "production",
- *         role: "webserver",
- *     },
- *     resourceGroupName: "example-resources",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
  */
@@ -72,7 +56,7 @@ export interface GetResourcesArgs {
  */
 export interface GetResourcesResult {
     /**
-     * The name of this resource.
+     * The name of this Resource.
      */
     readonly name: string;
     readonly requiredTags: {[key: string]: any};
@@ -82,7 +66,7 @@ export interface GetResourcesResult {
      */
     readonly resources: outputs.core.GetResourcesResource[];
     /**
-     * The type of this resoource.
+     * The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
      */
     readonly type: string;
     /**

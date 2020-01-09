@@ -49,6 +49,10 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly autoApprovalSubscriptionIds!: pulumi.Output<string[] | undefined>;
     /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     */
+    public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
      */
     public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[]>;
@@ -92,6 +96,7 @@ export class LinkService extends pulumi.CustomResource {
             const state = argsOrState as LinkServiceState | undefined;
             inputs["alias"] = state ? state.alias : undefined;
             inputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
+            inputs["enableProxyProtocol"] = state ? state.enableProxyProtocol : undefined;
             inputs["loadBalancerFrontendIpConfigurationIds"] = state ? state.loadBalancerFrontendIpConfigurationIds : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -112,6 +117,7 @@ export class LinkService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
+            inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
             inputs["loadBalancerFrontendIpConfigurationIds"] = args ? args.loadBalancerFrontendIpConfigurationIds : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -145,6 +151,10 @@ export interface LinkServiceState {
      * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
     readonly autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     */
+    readonly enableProxyProtocol?: pulumi.Input<boolean>;
     /**
      * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
      */
@@ -184,6 +194,10 @@ export interface LinkServiceArgs {
      * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
     readonly autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
+     */
+    readonly enableProxyProtocol?: pulumi.Input<boolean>;
     /**
      * A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
      */

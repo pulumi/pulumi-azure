@@ -13,7 +13,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         __self__.active_active = active_active
@@ -38,6 +38,12 @@ class GetVirtualNetworkGatewayResult:
         """
         Will BGP (Border Gateway Protocol) will be enabled
         for this Virtual Network Gateway.
+        """
+        if generation and not isinstance(generation, str):
+            raise TypeError("Expected argument 'generation' to be a str")
+        __self__.generation = generation
+        """
+        The Generation of the Virtual Network Gateway.
         """
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
@@ -106,6 +112,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             bgp_settings=self.bgp_settings,
             default_local_network_gateway_id=self.default_local_network_gateway_id,
             enable_bgp=self.enable_bgp,
+            generation=self.generation,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
@@ -141,6 +148,7 @@ def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
         bgp_settings=__ret__.get('bgpSettings'),
         default_local_network_gateway_id=__ret__.get('defaultLocalNetworkGatewayId'),
         enable_bgp=__ret__.get('enableBgp'),
+        generation=__ret__.get('generation'),
         ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

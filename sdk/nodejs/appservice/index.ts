@@ -16,6 +16,7 @@ export * from "./kind";
 export * from "./plan";
 export * from "./slot";
 export * from "./sourceCodeToken";
+export * from "./virtualNetworkSwiftConnection";
 export * from "./zMixins";
 export * from "./zMixins_http";
 export * from "./zMixins_timer";

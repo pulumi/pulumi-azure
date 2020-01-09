@@ -24,6 +24,7 @@ func NewImage(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["dataDisks"] = nil
+		inputs["hyperVGeneration"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["osDisk"] = nil
@@ -33,6 +34,7 @@ func NewImage(ctx *pulumi.Context,
 		inputs["zoneResilient"] = nil
 	} else {
 		inputs["dataDisks"] = args.DataDisks
+		inputs["hyperVGeneration"] = args.HyperVGeneration
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["osDisk"] = args.OsDisk
@@ -55,6 +57,7 @@ func GetImage(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["dataDisks"] = state.DataDisks
+		inputs["hyperVGeneration"] = state.HyperVGeneration
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["osDisk"] = state.OsDisk
@@ -83,6 +86,11 @@ func (r *Image) ID() pulumi.IDOutput {
 // One or more `dataDisk` elements as defined below.
 func (r *Image) DataDisks() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["dataDisks"])
+}
+
+// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+func (r *Image) HyperVGeneration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hyperVGeneration"])
 }
 
 // Specified the supported Azure location where the resource exists.
@@ -127,6 +135,8 @@ func (r *Image) ZoneResilient() pulumi.BoolOutput {
 type ImageState struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks interface{}
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	HyperVGeneration interface{}
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
 	Location interface{}
@@ -150,6 +160,8 @@ type ImageState struct {
 type ImageArgs struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks interface{}
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
+	HyperVGeneration interface{}
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
 	Location interface{}

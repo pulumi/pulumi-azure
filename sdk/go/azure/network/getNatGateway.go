@@ -41,7 +41,7 @@ func LookupNatGateway(ctx *pulumi.Context, args *GetNatGatewayArgs) (*GetNatGate
 
 // A collection of arguments for invoking getNatGateway.
 type GetNatGatewayArgs struct {
-	// The Name of the Resource Group where the NAT Gateway exists.
+	// Specifies the Name of the NAT Gateway.
 	Name interface{}
 	PublicIpAddressIds interface{}
 	PublicIpPrefixIds interface{}
