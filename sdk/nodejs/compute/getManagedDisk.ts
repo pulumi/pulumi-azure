@@ -8,82 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Managed Disk.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const datasourcemd = azure.compute.getManagedDisk({
- *     name: "testManagedDisk",
- *     resourceGroupName: "acctestRG",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: "West US 2",
- *     resourceGroupName: "acctestRG",
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: "acctestRG",
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     ipConfigurations: [{
- *         name: "testconfiguration1",
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: exampleSubnet.id,
- *     }],
- *     location: "West US 2",
- *     resourceGroupName: "acctestRG",
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
- *     location: "West US 2",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     osProfile: {
- *         adminPassword: "Password1234!",
- *         adminUsername: "testadmin",
- *         computerName: "hostname",
- *     },
- *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: false,
- *     },
- *     resourceGroupName: "acctestRG",
- *     storageDataDisks: [
- *         {
- *             createOption: "Empty",
- *             diskSizeGb: 1023,
- *             lun: 0,
- *             managedDiskType: "Standard_LRS",
- *             name: "datadiskNew",
- *         },
- *         {
- *             createOption: "Attach",
- *             diskSizeGb: datasourcemd.diskSizeGb,
- *             lun: 1,
- *             managedDiskId: datasourcemd.id,
- *             name: datasourcemd.name,
- *         },
- *     ],
- *     storageImageReference: {
- *         offer: "UbuntuServer",
- *         publisher: "Canonical",
- *         sku: "16.04-LTS",
- *         version: "latest",
- *     },
- *     storageOsDisk: {
- *         caching: "ReadWrite",
- *         createOption: "FromImage",
- *         managedDiskType: "Standard_LRS",
- *         name: "myosdisk1",
- *     },
- *     tags: {
- *         environment: "staging",
- *     },
- *     vmSize: "Standard_DS1_v2",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
  */
@@ -114,7 +38,7 @@ export interface GetManagedDiskArgs {
      */
     readonly name: string;
     /**
-     * Specifies the name of the resource group.
+     * Specifies the name of the Resource Group where this Managed Disk exists.
      */
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: any};
@@ -127,33 +51,41 @@ export interface GetManagedDiskArgs {
 export interface GetManagedDiskResult {
     readonly createOption: string;
     /**
-     * The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
+     * The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+     */
+    readonly diskEncryptionSetId: string;
+    /**
+     * The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
      */
     readonly diskIopsReadWrite: number;
     /**
-     * The bandwidth allowed for this disk. 
+     * The bandwidth allowed for this disk.
      */
     readonly diskMbpsReadWrite: number;
     /**
-     * The size of the managed disk in gigabytes.
+     * The size of the Managed Disk in gigabytes.
      */
     readonly diskSizeGb: number;
     readonly name: string;
     /**
-     * The operating system for managed disk. Valid values are `Linux` or `Windows`
+     * The operating system used for this Managed Disk.
      */
     readonly osType: string;
     readonly resourceGroupName: string;
     /**
-     * ID of an existing managed disk that the current resource was created from.
+     * The ID of an existing Managed Disk which this Disk was created from.
      */
     readonly sourceResourceId: string;
     /**
-     * The source URI for the managed disk
+     * The Source URI for this Managed Disk.
      */
     readonly sourceUri: string;
     /**
-     * The storage account type for the managed disk.
+     * The ID of the Storage Account where the `sourceUri` is located.
+     */
+    readonly storageAccountId: string;
+    /**
+     * The storage account type for the Managed Disk.
      */
     readonly storageAccountType: string;
     /**
@@ -161,7 +93,7 @@ export interface GetManagedDiskResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * A collection containing the availability zone the managed disk is allocated in.
+     * A list of Availability Zones where the Managed Disk exists.
      */
     readonly zones: string[];
     /**

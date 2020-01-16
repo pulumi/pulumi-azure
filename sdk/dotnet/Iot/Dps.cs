@@ -269,8 +269,8 @@ namespace Pulumi.Azure.Iot
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
 
         public DpsSkuArgs()
         {
@@ -288,8 +288,8 @@ namespace Pulumi.Azure.Iot
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
 
         public DpsSkuGetArgs()
         {

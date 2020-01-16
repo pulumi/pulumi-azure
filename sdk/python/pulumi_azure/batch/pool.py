@@ -58,6 +58,10 @@ class Pool(pulumi.CustomResource):
     """
     Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
     """
+    metadata: pulumi.Output[dict]
+    """
+    A map of custom batch pool metadata.
+    """
     name: pulumi.Output[str]
     """
     Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -112,7 +116,7 @@ class Pool(pulumi.CustomResource):
     """
     Specifies the size of the VM created in the Batch pool.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, auto_scale=None, certificates=None, container_configuration=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, auto_scale=None, certificates=None, container_configuration=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, metadata=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Batch pool.
         
@@ -125,6 +129,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[dict] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input[float] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the Sku of the node agents that will be created in the Batch pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -221,6 +226,7 @@ class Pool(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['fixed_scale'] = fixed_scale
             __props__['max_tasks_per_node'] = max_tasks_per_node
+            __props__['metadata'] = metadata
             __props__['name'] = name
             if node_agent_sku_id is None:
                 raise TypeError("Missing required property 'node_agent_sku_id'")
@@ -243,7 +249,7 @@ class Pool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, auto_scale=None, certificates=None, container_configuration=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None):
+    def get(resource_name, id, opts=None, account_name=None, auto_scale=None, certificates=None, container_configuration=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, metadata=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None):
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -258,6 +264,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[dict] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input[float] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] metadata: A map of custom batch pool metadata.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the Sku of the node agents that will be created in the Batch pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -338,6 +345,7 @@ class Pool(pulumi.CustomResource):
         __props__["display_name"] = display_name
         __props__["fixed_scale"] = fixed_scale
         __props__["max_tasks_per_node"] = max_tasks_per_node
+        __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["node_agent_sku_id"] = node_agent_sku_id
         __props__["resource_group_name"] = resource_group_name

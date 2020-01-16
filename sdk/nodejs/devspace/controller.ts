@@ -58,10 +58,11 @@ export class Controller extends pulumi.CustomResource {
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * A `sku` block as documented below. Changing this forces a new resource to be created.
-     */
     public readonly sku!: pulumi.Output<outputs.devspace.ControllerSku>;
+    /**
+     * Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+     */
+    public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -93,6 +94,7 @@ export class Controller extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["targetContainerHostCredentialsBase64"] = state ? state.targetContainerHostCredentialsBase64 : undefined;
             inputs["targetContainerHostResourceId"] = state ? state.targetContainerHostResourceId : undefined;
@@ -100,9 +102,6 @@ export class Controller extends pulumi.CustomResource {
             const args = argsOrState as ControllerArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
             }
             if (!args || args.targetContainerHostCredentialsBase64 === undefined) {
                 throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
@@ -114,6 +113,7 @@ export class Controller extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
             inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
@@ -155,10 +155,11 @@ export interface ControllerState {
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    /**
-     * A `sku` block as documented below. Changing this forces a new resource to be created.
-     */
     readonly sku?: pulumi.Input<inputs.devspace.ControllerSku>;
+    /**
+     * Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -189,10 +190,11 @@ export interface ControllerArgs {
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<inputs.devspace.ControllerSku>;
     /**
-     * A `sku` block as documented below. Changing this forces a new resource to be created.
+     * Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
      */
-    readonly sku: pulumi.Input<inputs.devspace.ControllerSku>;
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

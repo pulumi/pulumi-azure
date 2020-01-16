@@ -13,7 +13,7 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None, id=None):
+    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, metadata=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None, id=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
@@ -53,6 +53,9 @@ class GetPoolResult:
         """
         The maximum number of tasks that can run concurrently on a single compute node in the pool.
         """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
@@ -105,6 +108,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             display_name=self.display_name,
             fixed_scales=self.fixed_scales,
             max_tasks_per_node=self.max_tasks_per_node,
+            metadata=self.metadata,
             name=self.name,
             node_agent_sku_id=self.node_agent_sku_id,
             resource_group_name=self.resource_group_name,
@@ -173,6 +177,7 @@ def get_pool(account_name=None,certificates=None,name=None,resource_group_name=N
         display_name=__ret__.get('displayName'),
         fixed_scales=__ret__.get('fixedScales'),
         max_tasks_per_node=__ret__.get('maxTasksPerNode'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
         node_agent_sku_id=__ret__.get('nodeAgentSkuId'),
         resource_group_name=__ret__.get('resourceGroupName'),

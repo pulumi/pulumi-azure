@@ -4,5 +4,6 @@
 // Export members:
 export * from "./domain";
 export * from "./eventSubscription";
+export * from "./getTopic";
 export * from "./topic";
 export * from "./zMixins";

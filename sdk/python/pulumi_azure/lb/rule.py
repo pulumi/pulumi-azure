@@ -20,11 +20,15 @@ class Rule(pulumi.CustomResource):
     """
     disable_outbound_snat: pulumi.Output[bool]
     """
-    Indicates whether outbound snat is disabled or enabled. Default false.
+    Is snat enabled for this Load Balancer Rule? Default `false`.
     """
     enable_floating_ip: pulumi.Output[bool]
     """
-    Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+    Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+    """
+    enable_tcp_reset: pulumi.Output[bool]
+    """
+    Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
     """
     frontend_ip_configuration_id: pulumi.Output[str]
     frontend_ip_configuration_name: pulumi.Output[str]
@@ -37,7 +41,7 @@ class Rule(pulumi.CustomResource):
     """
     idle_timeout_in_minutes: pulumi.Output[float]
     """
-    Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+    Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
     """
     load_distribution: pulumi.Output[str]
     """
@@ -64,7 +68,7 @@ class Rule(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Rule.
         
@@ -74,11 +78,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
-        :param pulumi.Input[bool] disable_outbound_snat: Indicates whether outbound snat is disabled or enabled. Default false.
-        :param pulumi.Input[bool] enable_floating_ip: Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+        :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
+        :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.
@@ -111,6 +116,7 @@ class Rule(pulumi.CustomResource):
             __props__['backend_port'] = backend_port
             __props__['disable_outbound_snat'] = disable_outbound_snat
             __props__['enable_floating_ip'] = enable_floating_ip
+            __props__['enable_tcp_reset'] = enable_tcp_reset
             if frontend_ip_configuration_name is None:
                 raise TypeError("Missing required property 'frontend_ip_configuration_name'")
             __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
@@ -139,7 +145,7 @@ class Rule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -149,11 +155,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
-        :param pulumi.Input[bool] disable_outbound_snat: Indicates whether outbound snat is disabled or enabled. Default false.
-        :param pulumi.Input[bool] enable_floating_ip: Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+        :param pulumi.Input[bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
+        :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.
@@ -170,6 +177,7 @@ class Rule(pulumi.CustomResource):
         __props__["backend_port"] = backend_port
         __props__["disable_outbound_snat"] = disable_outbound_snat
         __props__["enable_floating_ip"] = enable_floating_ip
+        __props__["enable_tcp_reset"] = enable_tcp_reset
         __props__["frontend_ip_configuration_id"] = frontend_ip_configuration_id
         __props__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
         __props__["frontend_port"] = frontend_port

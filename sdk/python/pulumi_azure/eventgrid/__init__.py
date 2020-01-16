@@ -6,3 +6,4 @@
 from .domain import *
 from .event_subscription import *
 from .topic import *
+from .get_topic import *

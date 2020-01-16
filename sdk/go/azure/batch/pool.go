@@ -42,6 +42,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["displayName"] = nil
 		inputs["fixedScale"] = nil
 		inputs["maxTasksPerNode"] = nil
+		inputs["metadata"] = nil
 		inputs["name"] = nil
 		inputs["nodeAgentSkuId"] = nil
 		inputs["resourceGroupName"] = nil
@@ -57,6 +58,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["displayName"] = args.DisplayName
 		inputs["fixedScale"] = args.FixedScale
 		inputs["maxTasksPerNode"] = args.MaxTasksPerNode
+		inputs["metadata"] = args.Metadata
 		inputs["name"] = args.Name
 		inputs["nodeAgentSkuId"] = args.NodeAgentSkuId
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -85,6 +87,7 @@ func GetPool(ctx *pulumi.Context,
 		inputs["displayName"] = state.DisplayName
 		inputs["fixedScale"] = state.FixedScale
 		inputs["maxTasksPerNode"] = state.MaxTasksPerNode
+		inputs["metadata"] = state.Metadata
 		inputs["name"] = state.Name
 		inputs["nodeAgentSkuId"] = state.NodeAgentSkuId
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -145,6 +148,11 @@ func (r *Pool) MaxTasksPerNode() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["maxTasksPerNode"])
 }
 
+// A map of custom batch pool metadata.
+func (r *Pool) Metadata() pulumi.MapOutput {
+	return (pulumi.MapOutput)(r.s.State["metadata"])
+}
+
 // Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 func (r *Pool) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
@@ -195,6 +203,8 @@ type PoolState struct {
 	FixedScale interface{}
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode interface{}
+	// A map of custom batch pool metadata.
+	Metadata interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the Sku of the node agents that will be created in the Batch pool.
@@ -226,6 +236,8 @@ type PoolArgs struct {
 	FixedScale interface{}
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode interface{}
+	// A map of custom batch pool metadata.
+	Metadata interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the Sku of the node agents that will be created in the Batch pool.

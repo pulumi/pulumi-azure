@@ -40,7 +40,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -51,11 +51,14 @@ namespace Pulumi.Azure.PostgreSql
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `sku` block as defined below.
-        /// </summary>
         [Output("sku")]
         public Output<Outputs.ServerSku> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// </summary>
+        [Output("skuName")]
+        public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -146,7 +149,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -157,11 +160,14 @@ namespace Pulumi.Azure.PostgreSql
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("sku")]
+        public Input<Inputs.ServerSkuArgs>? Sku { get; set; }
+
         /// <summary>
-        /// A `sku` block as defined below.
+        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
         /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.ServerSkuArgs> Sku { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -225,7 +231,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -236,11 +242,14 @@ namespace Pulumi.Azure.PostgreSql
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// A `sku` block as defined below.
-        /// </summary>
         [Input("sku")]
         public Input<Inputs.ServerSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -282,27 +291,18 @@ namespace Pulumi.Azure.PostgreSql
 
     public sealed class ServerSkuArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The scale up/out capacity, representing server's compute units.
-        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
-        /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-        /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
-        /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
 
@@ -313,27 +313,18 @@ namespace Pulumi.Azure.PostgreSql
 
     public sealed class ServerSkuGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The scale up/out capacity, representing server's compute units.
-        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
-        /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-        /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
-        /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
 
@@ -411,21 +402,12 @@ namespace Pulumi.Azure.PostgreSql
     [OutputType]
     public sealed class ServerSku
     {
-        /// <summary>
-        /// The scale up/out capacity, representing server's compute units.
-        /// </summary>
         public readonly int Capacity;
-        /// <summary>
-        /// The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-        /// </summary>
         public readonly string Family;
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+        /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
-        /// </summary>
         public readonly string Tier;
 
         [OutputConstructor]

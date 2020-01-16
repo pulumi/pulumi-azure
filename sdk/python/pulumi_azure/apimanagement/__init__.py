@@ -17,7 +17,10 @@ from .diagnostic import *
 from .group import *
 from .group_user import *
 from .identity_provider_aad import *
+from .identity_provider_facebook import *
 from .identity_provider_google import *
+from .identity_provider_microsoft import *
+from .identity_provider_twitter import *
 from .logger import *
 from .open_id_connect_provider import *
 from .product import *

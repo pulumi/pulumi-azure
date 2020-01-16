@@ -17,7 +17,11 @@ class NatRule(pulumi.CustomResource):
     """
     enable_floating_ip: pulumi.Output[bool]
     """
-    Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+    Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+    """
+    enable_tcp_reset: pulumi.Output[bool]
+    """
+    Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
     """
     frontend_ip_configuration_id: pulumi.Output[str]
     frontend_ip_configuration_name: pulumi.Output[str]
@@ -27,6 +31,10 @@ class NatRule(pulumi.CustomResource):
     frontend_port: pulumi.Output[float]
     """
     The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+    """
+    idle_timeout_in_minutes: pulumi.Output[float]
+    """
+    Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
     """
     loadbalancer_id: pulumi.Output[str]
     """
@@ -45,7 +53,7 @@ class NatRule(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer NAT Rule. 
         
@@ -56,9 +64,11 @@ class NatRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-        :param pulumi.Input[bool] enable_floating_ip: Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+        :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
         :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -87,12 +97,14 @@ class NatRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'backend_port'")
             __props__['backend_port'] = backend_port
             __props__['enable_floating_ip'] = enable_floating_ip
+            __props__['enable_tcp_reset'] = enable_tcp_reset
             if frontend_ip_configuration_name is None:
                 raise TypeError("Missing required property 'frontend_ip_configuration_name'")
             __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
             if frontend_port is None:
                 raise TypeError("Missing required property 'frontend_port'")
             __props__['frontend_port'] = frontend_port
+            __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             if loadbalancer_id is None:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__['loadbalancer_id'] = loadbalancer_id
@@ -113,7 +125,7 @@ class NatRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_ip_configuration_id=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, backend_ip_configuration_id=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None):
         """
         Get an existing NatRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -122,9 +134,11 @@ class NatRule(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-        :param pulumi.Input[bool] enable_floating_ip: Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+        :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
         :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -138,9 +152,11 @@ class NatRule(pulumi.CustomResource):
         __props__["backend_ip_configuration_id"] = backend_ip_configuration_id
         __props__["backend_port"] = backend_port
         __props__["enable_floating_ip"] = enable_floating_ip
+        __props__["enable_tcp_reset"] = enable_tcp_reset
         __props__["frontend_ip_configuration_id"] = frontend_ip_configuration_id
         __props__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
         __props__["frontend_port"] = frontend_port
+        __props__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
         __props__["loadbalancer_id"] = loadbalancer_id
         __props__["location"] = location
         __props__["name"] = name

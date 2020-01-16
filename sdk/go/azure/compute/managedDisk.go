@@ -30,6 +30,7 @@ func NewManagedDisk(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["createOption"] = nil
+		inputs["diskEncryptionSetId"] = nil
 		inputs["diskIopsReadWrite"] = nil
 		inputs["diskMbpsReadWrite"] = nil
 		inputs["diskSizeGb"] = nil
@@ -41,11 +42,13 @@ func NewManagedDisk(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["sourceResourceId"] = nil
 		inputs["sourceUri"] = nil
+		inputs["storageAccountId"] = nil
 		inputs["storageAccountType"] = nil
 		inputs["tags"] = nil
 		inputs["zones"] = nil
 	} else {
 		inputs["createOption"] = args.CreateOption
+		inputs["diskEncryptionSetId"] = args.DiskEncryptionSetId
 		inputs["diskIopsReadWrite"] = args.DiskIopsReadWrite
 		inputs["diskMbpsReadWrite"] = args.DiskMbpsReadWrite
 		inputs["diskSizeGb"] = args.DiskSizeGb
@@ -57,6 +60,7 @@ func NewManagedDisk(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sourceResourceId"] = args.SourceResourceId
 		inputs["sourceUri"] = args.SourceUri
+		inputs["storageAccountId"] = args.StorageAccountId
 		inputs["storageAccountType"] = args.StorageAccountType
 		inputs["tags"] = args.Tags
 		inputs["zones"] = args.Zones
@@ -75,6 +79,7 @@ func GetManagedDisk(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["createOption"] = state.CreateOption
+		inputs["diskEncryptionSetId"] = state.DiskEncryptionSetId
 		inputs["diskIopsReadWrite"] = state.DiskIopsReadWrite
 		inputs["diskMbpsReadWrite"] = state.DiskMbpsReadWrite
 		inputs["diskSizeGb"] = state.DiskSizeGb
@@ -86,6 +91,7 @@ func GetManagedDisk(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sourceResourceId"] = state.SourceResourceId
 		inputs["sourceUri"] = state.SourceUri
+		inputs["storageAccountId"] = state.StorageAccountId
 		inputs["storageAccountType"] = state.StorageAccountType
 		inputs["tags"] = state.Tags
 		inputs["zones"] = state.Zones
@@ -112,6 +118,11 @@ func (r *ManagedDisk) CreateOption() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["createOption"])
 }
 
+// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+func (r *ManagedDisk) DiskEncryptionSetId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["diskEncryptionSetId"])
+}
+
 // The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 func (r *ManagedDisk) DiskIopsReadWrite() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["diskIopsReadWrite"])
@@ -122,13 +133,12 @@ func (r *ManagedDisk) DiskMbpsReadWrite() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["diskMbpsReadWrite"])
 }
 
-// Specifies the size of the managed disk to create in gigabytes.
-// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 func (r *ManagedDisk) DiskSizeGb() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["diskSizeGb"])
 }
 
-// an `encryptionSettings` block as defined below.
+// A `encryptionSettings` block as defined below.
 func (r *ManagedDisk) EncryptionSettings() pulumi.Output {
 	return r.s.State["encryptionSettings"]
 }
@@ -138,32 +148,27 @@ func (r *ManagedDisk) ImageReferenceId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["imageReferenceId"])
 }
 
-// Specified the supported Azure location where the resource exists.
-// Changing this forces a new resource to be created.
+// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *ManagedDisk) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the managed disk. Changing this forces a
-// new resource to be created.
+// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 func (r *ManagedDisk) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Specify a value when the source of an `Import` or `Copy`
-// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 func (r *ManagedDisk) OsType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["osType"])
 }
 
-// The name of the resource group in which to create
-// the managed disk.
+// The name of the Resource Group where the Managed Disk should exist.
 func (r *ManagedDisk) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// ID of an existing managed disk to copy `createOption` is `Copy`
-// or the recovery point to restore when `createOption` is `Restore`
+// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 func (r *ManagedDisk) SourceResourceId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["sourceResourceId"])
 }
@@ -173,8 +178,12 @@ func (r *ManagedDisk) SourceUri() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["sourceUri"])
 }
 
-// The type of storage to use for the managed disk.
-// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+func (r *ManagedDisk) StorageAccountId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["storageAccountId"])
+}
+
+// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 func (r *ManagedDisk) StorageAccountType() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["storageAccountType"])
 }
@@ -193,36 +202,33 @@ func (r *ManagedDisk) Zones() pulumi.StringOutput {
 type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Possible values include:
 	CreateOption interface{}
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	DiskEncryptionSetId interface{}
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite interface{}
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite interface{}
-	// Specifies the size of the managed disk to create in gigabytes.
-	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 	DiskSizeGb interface{}
-	// an `encryptionSettings` block as defined below.
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings interface{}
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId interface{}
-	// Specified the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the managed disk. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name interface{}
-	// Specify a value when the source of an `Import` or `Copy`
-	// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType interface{}
-	// The name of the resource group in which to create
-	// the managed disk.
+	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName interface{}
-	// ID of an existing managed disk to copy `createOption` is `Copy`
-	// or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId interface{}
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri interface{}
-	// The type of storage to use for the managed disk.
-	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	StorageAccountId interface{}
+	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -234,36 +240,33 @@ type ManagedDiskState struct {
 type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Possible values include:
 	CreateOption interface{}
+	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+	DiskEncryptionSetId interface{}
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite interface{}
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite interface{}
-	// Specifies the size of the managed disk to create in gigabytes.
-	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 	DiskSizeGb interface{}
-	// an `encryptionSettings` block as defined below.
+	// A `encryptionSettings` block as defined below.
 	EncryptionSettings interface{}
 	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId interface{}
-	// Specified the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
+	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the managed disk. Changing this forces a
-	// new resource to be created.
+	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name interface{}
-	// Specify a value when the source of an `Import` or `Copy`
-	// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType interface{}
-	// The name of the resource group in which to create
-	// the managed disk.
+	// The name of the Resource Group where the Managed Disk should exist.
 	ResourceGroupName interface{}
-	// ID of an existing managed disk to copy `createOption` is `Copy`
-	// or the recovery point to restore when `createOption` is `Restore`
+	// The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId interface{}
 	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri interface{}
-	// The type of storage to use for the managed disk.
-	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+	StorageAccountId interface{}
+	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

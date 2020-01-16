@@ -81,13 +81,17 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
-     * Indicates whether outbound snat is disabled or enabled. Default false.
+     * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
     public readonly disableOutboundSnat!: pulumi.Output<boolean | undefined>;
     /**
-     * Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     public readonly enableFloatingIp!: pulumi.Output<boolean | undefined>;
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     */
+    public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
@@ -98,7 +102,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly frontendPort!: pulumi.Output<number>;
     /**
-     * Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
     public readonly idleTimeoutInMinutes!: pulumi.Output<number>;
     /**
@@ -143,6 +147,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["disableOutboundSnat"] = state ? state.disableOutboundSnat : undefined;
             inputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
+            inputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
             inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
             inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
             inputs["frontendPort"] = state ? state.frontendPort : undefined;
@@ -178,6 +183,7 @@ export class Rule extends pulumi.CustomResource {
             inputs["backendPort"] = args ? args.backendPort : undefined;
             inputs["disableOutboundSnat"] = args ? args.disableOutboundSnat : undefined;
             inputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
+            inputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
             inputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
             inputs["frontendPort"] = args ? args.frontendPort : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
@@ -214,13 +220,17 @@ export interface RuleState {
      */
     readonly backendPort?: pulumi.Input<number>;
     /**
-     * Indicates whether outbound snat is disabled or enabled. Default false.
+     * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
     readonly disableOutboundSnat?: pulumi.Input<boolean>;
     /**
-     * Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     readonly enableFloatingIp?: pulumi.Input<boolean>;
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     */
+    readonly enableTcpReset?: pulumi.Input<boolean>;
     readonly frontendIpConfigurationId?: pulumi.Input<string>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
@@ -231,7 +241,7 @@ export interface RuleState {
      */
     readonly frontendPort?: pulumi.Input<number>;
     /**
-     * Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
     readonly idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
@@ -274,13 +284,17 @@ export interface RuleArgs {
      */
     readonly backendPort: pulumi.Input<number>;
     /**
-     * Indicates whether outbound snat is disabled or enabled. Default false.
+     * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
     readonly disableOutboundSnat?: pulumi.Input<boolean>;
     /**
-     * Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     readonly enableFloatingIp?: pulumi.Input<boolean>;
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     */
+    readonly enableTcpReset?: pulumi.Input<boolean>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
      */
@@ -290,7 +304,7 @@ export interface RuleArgs {
      */
     readonly frontendPort: pulumi.Input<number>;
     /**
-     * Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
     readonly idleTimeoutInMinutes?: pulumi.Input<number>;
     /**

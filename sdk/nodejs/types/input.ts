@@ -1376,6 +1376,18 @@ export namespace compute {
         subnetId: pulumi.Input<string>;
     }
 
+    export interface DiskEncryptionSetIdentity {
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface ImageDataDisk {
         /**
          * Specifies the URI in Azure storage of the blob that you want to use to create the image.
@@ -1427,39 +1439,18 @@ export namespace compute {
     }
 
     export interface ManagedDiskEncryptionSettings {
-        /**
-         * A `diskEncryptionKey` block as defined below.
-         */
         diskEncryptionKey?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey>;
-        /**
-         * Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-         */
         enabled: pulumi.Input<boolean>;
-        /**
-         * A `keyEncryptionKey` block as defined below.
-         */
         keyEncryptionKey?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettingsKeyEncryptionKey>;
     }
 
     export interface ManagedDiskEncryptionSettingsDiskEncryptionKey {
-        /**
-         * The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
-         */
         secretUrl: pulumi.Input<string>;
-        /**
-         * The URL of the Key Vault. This can be found as `vaultUri` on the `azure.keyvault.KeyVault` resource.
-         */
         sourceVaultId: pulumi.Input<string>;
     }
 
     export interface ManagedDiskEncryptionSettingsKeyEncryptionKey {
-        /**
-         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
-         */
         keyUrl: pulumi.Input<string>;
-        /**
-         * The URL of the Key Vault. This can be found as `vaultUri` on the `azure.keyvault.KeyVault` resource.
-         */
         sourceVaultId: pulumi.Input<string>;
     }
 
@@ -2456,6 +2447,23 @@ export namespace cosmosdb {
          * The ID of the virtual network subnet.
          */
         id: pulumi.Input<string>;
+    }
+
+    export interface GremlinGraphConflictResolutionPolicy {
+        conflictResolutionPath?: pulumi.Input<string>;
+        conflictResolutionProcedure?: pulumi.Input<string>;
+        mode: pulumi.Input<string>;
+    }
+
+    export interface GremlinGraphIndexPolicy {
+        automatic?: pulumi.Input<boolean>;
+        excludedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+        indexingMode: pulumi.Input<string>;
+    }
+
+    export interface GremlinGraphUniqueKey {
+        paths: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MongoCollectionIndex {
@@ -3654,7 +3662,7 @@ export namespace iot {
          * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        tier: pulumi.Input<string>;
+        tier?: pulumi.Input<string>;
     }
 
     export interface IoTHubEndpoint {
@@ -3733,7 +3741,7 @@ export namespace iot {
          * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        tier: pulumi.Input<string>;
+        tier?: pulumi.Input<string>;
     }
 
     export interface IotHubDpsLinkedHub {
@@ -3753,7 +3761,7 @@ export namespace iot {
          * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        tier: pulumi.Input<string>;
+        tier?: pulumi.Input<string>;
     }
 }
 
@@ -4582,21 +4590,12 @@ export namespace mssql {
 
 export namespace mysql {
     export interface ServerSku {
-        /**
-         * The scale up/out capacity, representing server's compute units.
-         */
         capacity: pulumi.Input<number>;
-        /**
-         * The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-         */
         family: pulumi.Input<string>;
         /**
-         * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
+         * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
          */
         name: pulumi.Input<string>;
-        /**
-         * The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
-         */
         tier: pulumi.Input<string>;
     }
 
@@ -5630,21 +5629,12 @@ export namespace policy {
 
 export namespace postgresql {
     export interface ServerSku {
-        /**
-         * The scale up/out capacity, representing server's compute units.
-         */
         capacity: pulumi.Input<number>;
-        /**
-         * The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-         */
         family: pulumi.Input<string>;
         /**
-         * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+         * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
-        /**
-         * The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
-         */
         tier: pulumi.Input<string>;
     }
 

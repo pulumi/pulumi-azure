@@ -6,6 +6,7 @@ export * from "./account";
 export * from "./cassandraKeyspace";
 export * from "./getAccount";
 export * from "./gremlinDatabase";
+export * from "./gremlinGraph";
 export * from "./mongoCollection";
 export * from "./mongoDatabase";
 export * from "./sqlContainer";

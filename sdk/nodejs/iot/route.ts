@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  *     sku: {
  *         capacity: 1,
  *         name: "S1",
- *         tier: "Standard",
  *     },
  *     tags: {
  *         purpose: "testing",

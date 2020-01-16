@@ -30,16 +30,22 @@ namespace Pulumi.Azure.Lb
         public Output<int> BackendPort { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether outbound snat is disabled or enabled. Default false.
+        /// Is snat enabled for this Load Balancer Rule? Default `false`.
         /// </summary>
         [Output("disableOutboundSnat")]
         public Output<bool?> DisableOutboundSnat { get; private set; } = null!;
 
         /// <summary>
-        /// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Output("enableFloatingIp")]
         public Output<bool?> EnableFloatingIp { get; private set; } = null!;
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Output("enableTcpReset")]
+        public Output<bool?> EnableTcpReset { get; private set; } = null!;
 
         [Output("frontendIpConfigurationId")]
         public Output<string> FrontendIpConfigurationId { get; private set; } = null!;
@@ -57,7 +63,7 @@ namespace Pulumi.Azure.Lb
         public Output<int> FrontendPort { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         /// </summary>
         [Output("idleTimeoutInMinutes")]
         public Output<int> IdleTimeoutInMinutes { get; private set; } = null!;
@@ -160,16 +166,22 @@ namespace Pulumi.Azure.Lb
         public Input<int> BackendPort { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether outbound snat is disabled or enabled. Default false.
+        /// Is snat enabled for this Load Balancer Rule? Default `false`.
         /// </summary>
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
 
         /// <summary>
-        /// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Input("enableTcpReset")]
+        public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
         /// The name of the frontend IP configuration to which the rule is associated.
@@ -184,7 +196,7 @@ namespace Pulumi.Azure.Lb
         public Input<int> FrontendPort { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
@@ -248,16 +260,22 @@ namespace Pulumi.Azure.Lb
         public Input<int>? BackendPort { get; set; }
 
         /// <summary>
-        /// Indicates whether outbound snat is disabled or enabled. Default false.
+        /// Is snat enabled for this Load Balancer Rule? Default `false`.
         /// </summary>
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
 
         /// <summary>
-        /// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Input("enableTcpReset")]
+        public Input<bool>? EnableTcpReset { get; set; }
 
         [Input("frontendIpConfigurationId")]
         public Input<string>? FrontendIpConfigurationId { get; set; }
@@ -275,7 +293,7 @@ namespace Pulumi.Azure.Lb
         public Input<int>? FrontendPort { get; set; }
 
         /// <summary>
-        /// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }

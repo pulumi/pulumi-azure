@@ -1798,6 +1798,18 @@ export namespace compute {
         subnetId: string;
     }
 
+    export interface DiskEncryptionSetIdentity {
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        type: string;
+    }
+
     export interface GetImageDataDisk {
         /**
          * the URI in Azure storage of the blob used to create the image.
@@ -1945,39 +1957,18 @@ export namespace compute {
     }
 
     export interface ManagedDiskEncryptionSettings {
-        /**
-         * A `diskEncryptionKey` block as defined below.
-         */
         diskEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey;
-        /**
-         * Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-         */
         enabled: boolean;
-        /**
-         * A `keyEncryptionKey` block as defined below.
-         */
         keyEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsKeyEncryptionKey;
     }
 
     export interface ManagedDiskEncryptionSettingsDiskEncryptionKey {
-        /**
-         * The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
-         */
         secretUrl: string;
-        /**
-         * The URL of the Key Vault. This can be found as `vaultUri` on the `azure.keyvault.KeyVault` resource.
-         */
         sourceVaultId: string;
     }
 
     export interface ManagedDiskEncryptionSettingsKeyEncryptionKey {
-        /**
-         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
-         */
         keyUrl: string;
-        /**
-         * The URL of the Key Vault. This can be found as `vaultUri` on the `azure.keyvault.KeyVault` resource.
-         */
         sourceVaultId: string;
     }
 
@@ -3323,6 +3314,23 @@ export namespace cosmosdb {
          * The ID of the virtual network subnet.
          */
         id: string;
+    }
+
+    export interface GremlinGraphConflictResolutionPolicy {
+        conflictResolutionPath?: string;
+        conflictResolutionProcedure?: string;
+        mode: string;
+    }
+
+    export interface GremlinGraphIndexPolicy {
+        automatic?: boolean;
+        excludedPaths?: string[];
+        includedPaths?: string[];
+        indexingMode: string;
+    }
+
+    export interface GremlinGraphUniqueKey {
+        paths: string[];
     }
 
     export interface MongoCollectionIndex {
@@ -5875,21 +5883,12 @@ export namespace mssql {
 
 export namespace mysql {
     export interface ServerSku {
-        /**
-         * The scale up/out capacity, representing server's compute units.
-         */
         capacity: number;
-        /**
-         * The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-         */
         family: string;
         /**
-         * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
+         * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
          */
         name: string;
-        /**
-         * The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers).
-         */
         tier: string;
     }
 
@@ -7317,21 +7316,12 @@ export namespace policy {
 
 export namespace postgresql {
     export interface ServerSku {
-        /**
-         * The scale up/out capacity, representing server's compute units.
-         */
         capacity: number;
-        /**
-         * The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
-         */
         family: string;
         /**
-         * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+         * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
          */
         name: string;
-        /**
-         * The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
-         */
         tier: string;
     }
 

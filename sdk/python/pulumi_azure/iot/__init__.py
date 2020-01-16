@@ -17,3 +17,5 @@ from .endpoint_storage_container import *
 from .fallback_route import *
 from .route import *
 from .shared_access_policy import *
+from .get_dps import *
+from .get_shared_access_policy import *

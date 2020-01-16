@@ -21,9 +21,6 @@ func NewController(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil || args.TargetContainerHostCredentialsBase64 == nil {
 		return nil, errors.New("missing required argument 'TargetContainerHostCredentialsBase64'")
 	}
@@ -36,6 +33,7 @@ func NewController(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["tags"] = nil
 		inputs["targetContainerHostCredentialsBase64"] = nil
 		inputs["targetContainerHostResourceId"] = nil
@@ -44,6 +42,7 @@ func NewController(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["tags"] = args.Tags
 		inputs["targetContainerHostCredentialsBase64"] = args.TargetContainerHostCredentialsBase64
 		inputs["targetContainerHostResourceId"] = args.TargetContainerHostResourceId
@@ -69,6 +68,7 @@ func GetController(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["tags"] = state.Tags
 		inputs["targetContainerHostCredentialsBase64"] = state.TargetContainerHostCredentialsBase64
 		inputs["targetContainerHostResourceId"] = state.TargetContainerHostResourceId
@@ -115,9 +115,13 @@ func (r *Controller) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `sku` block as documented below. Changing this forces a new resource to be created.
 func (r *Controller) Sku() pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+func (r *Controller) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -147,8 +151,9 @@ type ControllerState struct {
 	Name interface{}
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as documented below. Changing this forces a new resource to be created.
 	Sku interface{}
+	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
@@ -165,8 +170,9 @@ type ControllerArgs struct {
 	Name interface{}
 	// The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as documented below. Changing this forces a new resource to be created.
 	Sku interface{}
+	// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.

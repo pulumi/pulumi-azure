@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the resource group.
+        /// Specifies the name of the Resource Group where this Managed Disk exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -59,33 +59,41 @@ namespace Pulumi.Azure.Compute
     {
         public readonly string CreateOption;
         /// <summary>
-        /// The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
+        /// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+        /// </summary>
+        public readonly string DiskEncryptionSetId;
+        /// <summary>
+        /// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
         /// </summary>
         public readonly int DiskIopsReadWrite;
         /// <summary>
-        /// The bandwidth allowed for this disk. 
+        /// The bandwidth allowed for this disk.
         /// </summary>
         public readonly int DiskMbpsReadWrite;
         /// <summary>
-        /// The size of the managed disk in gigabytes.
+        /// The size of the Managed Disk in gigabytes.
         /// </summary>
         public readonly int DiskSizeGb;
         public readonly string Name;
         /// <summary>
-        /// The operating system for managed disk. Valid values are `Linux` or `Windows`
+        /// The operating system used for this Managed Disk.
         /// </summary>
         public readonly string OsType;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// ID of an existing managed disk that the current resource was created from.
+        /// The ID of an existing Managed Disk which this Disk was created from.
         /// </summary>
         public readonly string SourceResourceId;
         /// <summary>
-        /// The source URI for the managed disk
+        /// The Source URI for this Managed Disk.
         /// </summary>
         public readonly string SourceUri;
         /// <summary>
-        /// The storage account type for the managed disk.
+        /// The ID of the Storage Account where the `source_uri` is located.
+        /// </summary>
+        public readonly string StorageAccountId;
+        /// <summary>
+        /// The storage account type for the Managed Disk.
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>
@@ -93,7 +101,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableDictionary<string, object> Tags;
         /// <summary>
-        /// A collection containing the availability zone the managed disk is allocated in.
+        /// A list of Availability Zones where the Managed Disk exists.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
         /// <summary>
@@ -104,6 +112,7 @@ namespace Pulumi.Azure.Compute
         [OutputConstructor]
         private GetManagedDiskResult(
             string createOption,
+            string diskEncryptionSetId,
             int diskIopsReadWrite,
             int diskMbpsReadWrite,
             int diskSizeGb,
@@ -112,12 +121,14 @@ namespace Pulumi.Azure.Compute
             string resourceGroupName,
             string sourceResourceId,
             string sourceUri,
+            string storageAccountId,
             string storageAccountType,
             ImmutableDictionary<string, object> tags,
             ImmutableArray<string> zones,
             string id)
         {
             CreateOption = createOption;
+            DiskEncryptionSetId = diskEncryptionSetId;
             DiskIopsReadWrite = diskIopsReadWrite;
             DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
@@ -126,6 +137,7 @@ namespace Pulumi.Azure.Compute
             ResourceGroupName = resourceGroupName;
             SourceResourceId = sourceResourceId;
             SourceUri = sourceUri;
+            StorageAccountId = storageAccountId;
             StorageAccountType = storageAccountType;
             Tags = tags;
             Zones = zones;

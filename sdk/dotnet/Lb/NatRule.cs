@@ -29,10 +29,16 @@ namespace Pulumi.Azure.Lb
         public Output<int> BackendPort { get; private set; } = null!;
 
         /// <summary>
-        /// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Output("enableFloatingIp")]
         public Output<bool> EnableFloatingIp { get; private set; } = null!;
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Output("enableTcpReset")]
+        public Output<bool?> EnableTcpReset { get; private set; } = null!;
 
         [Output("frontendIpConfigurationId")]
         public Output<string> FrontendIpConfigurationId { get; private set; } = null!;
@@ -48,6 +54,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("frontendPort")]
         public Output<int> FrontendPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int> IdleTimeoutInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT Rule.
@@ -129,10 +141,16 @@ namespace Pulumi.Azure.Lb
         public Input<int> BackendPort { get; set; } = null!;
 
         /// <summary>
-        /// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Input("enableTcpReset")]
+        public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
         /// The name of the frontend IP configuration exposing this rule.
@@ -145,6 +163,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("frontendPort", required: true)]
         public Input<int> FrontendPort { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT Rule.
@@ -190,10 +214,16 @@ namespace Pulumi.Azure.Lb
         public Input<int>? BackendPort { get; set; }
 
         /// <summary>
-        /// Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        /// </summary>
+        [Input("enableTcpReset")]
+        public Input<bool>? EnableTcpReset { get; set; }
 
         [Input("frontendIpConfigurationId")]
         public Input<string>? FrontendIpConfigurationId { get; set; }
@@ -209,6 +239,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }
+
+        /// <summary>
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// The ID of the Load Balancer in which to create the NAT Rule.
