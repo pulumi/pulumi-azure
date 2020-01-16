@@ -80,9 +80,13 @@ export class NatRule extends pulumi.CustomResource {
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
-     * Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     public readonly enableFloatingIp!: pulumi.Output<boolean>;
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     */
+    public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
     /**
      * The name of the frontend IP configuration exposing this rule.
@@ -92,6 +96,10 @@ export class NatRule extends pulumi.CustomResource {
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     public readonly frontendPort!: pulumi.Output<number>;
+    /**
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     */
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
@@ -125,9 +133,11 @@ export class NatRule extends pulumi.CustomResource {
             inputs["backendIpConfigurationId"] = state ? state.backendIpConfigurationId : undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
+            inputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
             inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
             inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
             inputs["frontendPort"] = state ? state.frontendPort : undefined;
+            inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -155,8 +165,10 @@ export class NatRule extends pulumi.CustomResource {
             }
             inputs["backendPort"] = args ? args.backendPort : undefined;
             inputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
+            inputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
             inputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
             inputs["frontendPort"] = args ? args.frontendPort : undefined;
+            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -186,9 +198,13 @@ export interface NatRuleState {
      */
     readonly backendPort?: pulumi.Input<number>;
     /**
-     * Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     readonly enableFloatingIp?: pulumi.Input<boolean>;
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     */
+    readonly enableTcpReset?: pulumi.Input<boolean>;
     readonly frontendIpConfigurationId?: pulumi.Input<string>;
     /**
      * The name of the frontend IP configuration exposing this rule.
@@ -198,6 +214,10 @@ export interface NatRuleState {
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     readonly frontendPort?: pulumi.Input<number>;
+    /**
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     */
+    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
@@ -226,9 +246,13 @@ export interface NatRuleArgs {
      */
     readonly backendPort: pulumi.Input<number>;
     /**
-     * Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
+     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     readonly enableFloatingIp?: pulumi.Input<boolean>;
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+     */
+    readonly enableTcpReset?: pulumi.Input<boolean>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
@@ -237,6 +261,10 @@ export interface NatRuleArgs {
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
     readonly frontendPort: pulumi.Input<number>;
+    /**
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     */
+    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule.
      */

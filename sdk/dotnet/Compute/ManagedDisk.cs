@@ -22,6 +22,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> CreateOption { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("diskEncryptionSetId")]
+        public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
+
+        /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Output("diskIopsReadWrite")]
@@ -34,14 +40,13 @@ namespace Pulumi.Azure.Compute
         public Output<int> DiskMbpsReadWrite { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in gigabytes.
-        /// If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
         /// </summary>
         [Output("diskSizeGb")]
         public Output<int> DiskSizeGb { get; private set; } = null!;
 
         /// <summary>
-        /// an `encryption_settings` block as defined below.
+        /// A `encryption_settings` block as defined below.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
@@ -53,36 +58,31 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ImageReferenceId { get; private set; } = null!;
 
         /// <summary>
-        /// Specified the supported Azure location where the resource exists.
-        /// Changing this forces a new resource to be created.
+        /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the managed disk. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specify a value when the source of an `Import` or `Copy`
-        /// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+        /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Output("osType")]
         public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create
-        /// the managed disk.
+        /// The name of the Resource Group where the Managed Disk should exist.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// ID of an existing managed disk to copy `create_option` is `Copy`
-        /// or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Output("sourceResourceId")]
         public Output<string?> SourceResourceId { get; private set; } = null!;
@@ -94,8 +94,13 @@ namespace Pulumi.Azure.Compute
         public Output<string> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of storage to use for the managed disk.
-        /// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string> StorageAccountType { get; private set; } = null!;
@@ -165,6 +170,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> CreateOption { get; set; } = null!;
 
         /// <summary>
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
+
+        /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadWrite")]
@@ -177,14 +188,13 @@ namespace Pulumi.Azure.Compute
         public Input<int>? DiskMbpsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in gigabytes.
-        /// If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// an `encryption_settings` block as defined below.
+        /// A `encryption_settings` block as defined below.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
@@ -196,36 +206,31 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ImageReferenceId { get; set; }
 
         /// <summary>
-        /// Specified the supported Azure location where the resource exists.
-        /// Changing this forces a new resource to be created.
+        /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the managed disk. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specify a value when the source of an `Import` or `Copy`
-        /// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+        /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create
-        /// the managed disk.
+        /// The name of the Resource Group where the Managed Disk should exist.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// ID of an existing managed disk to copy `create_option` is `Copy`
-        /// or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
@@ -237,8 +242,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The type of storage to use for the managed disk.
-        /// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
@@ -275,6 +285,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CreateOption { get; set; }
 
         /// <summary>
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
+
+        /// <summary>
         /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         /// </summary>
         [Input("diskIopsReadWrite")]
@@ -287,14 +303,13 @@ namespace Pulumi.Azure.Compute
         public Input<int>? DiskMbpsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in gigabytes.
-        /// If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+        /// Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// an `encryption_settings` block as defined below.
+        /// A `encryption_settings` block as defined below.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
@@ -306,36 +321,31 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ImageReferenceId { get; set; }
 
         /// <summary>
-        /// Specified the supported Azure location where the resource exists.
-        /// Changing this forces a new resource to be created.
+        /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the managed disk. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specify a value when the source of an `Import` or `Copy`
-        /// operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+        /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create
-        /// the managed disk.
+        /// The name of the Resource Group where the Managed Disk should exist.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// ID of an existing managed disk to copy `create_option` is `Copy`
-        /// or the recovery point to restore when `create_option` is `Restore`
+        /// The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
@@ -347,8 +357,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The type of storage to use for the managed disk.
-        /// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -381,21 +396,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `disk_encryption_key` block as defined below.
-        /// </summary>
         [Input("diskEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs>? DiskEncryptionKey { get; set; }
 
-        /// <summary>
-        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// A `key_encryption_key` block as defined below.
-        /// </summary>
         [Input("keyEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs>? KeyEncryptionKey { get; set; }
 
@@ -406,15 +412,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
-        /// </summary>
         [Input("secretUrl", required: true)]
         public Input<string> SecretUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The URL of the Key Vault. This can be found as `vault_uri` on the `azure.keyvault.KeyVault` resource.
-        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -425,15 +425,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKeyGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
-        /// </summary>
         [Input("secretUrl", required: true)]
         public Input<string> SecretUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The URL of the Key Vault. This can be found as `vault_uri` on the `azure.keyvault.KeyVault` resource.
-        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -444,21 +438,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A `disk_encryption_key` block as defined below.
-        /// </summary>
         [Input("diskEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsDiskEncryptionKeyGetArgs>? DiskEncryptionKey { get; set; }
 
-        /// <summary>
-        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// A `key_encryption_key` block as defined below.
-        /// </summary>
         [Input("keyEncryptionKey")]
         public Input<ManagedDiskEncryptionSettingsKeyEncryptionKeyGetArgs>? KeyEncryptionKey { get; set; }
 
@@ -469,15 +454,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
-        /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The URL of the Key Vault. This can be found as `vault_uri` on the `azure.keyvault.KeyVault` resource.
-        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -488,15 +467,9 @@ namespace Pulumi.Azure.Compute
 
     public sealed class ManagedDiskEncryptionSettingsKeyEncryptionKeyGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
-        /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The URL of the Key Vault. This can be found as `vault_uri` on the `azure.keyvault.KeyVault` resource.
-        /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;
 
@@ -512,17 +485,8 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class ManagedDiskEncryptionSettings
     {
-        /// <summary>
-        /// A `disk_encryption_key` block as defined below.
-        /// </summary>
         public readonly ManagedDiskEncryptionSettingsDiskEncryptionKey? DiskEncryptionKey;
-        /// <summary>
-        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// A `key_encryption_key` block as defined below.
-        /// </summary>
         public readonly ManagedDiskEncryptionSettingsKeyEncryptionKey? KeyEncryptionKey;
 
         [OutputConstructor]
@@ -540,13 +504,7 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKey
     {
-        /// <summary>
-        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
-        /// </summary>
         public readonly string SecretUrl;
-        /// <summary>
-        /// The URL of the Key Vault. This can be found as `vault_uri` on the `azure.keyvault.KeyVault` resource.
-        /// </summary>
         public readonly string SourceVaultId;
 
         [OutputConstructor]
@@ -562,13 +520,7 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class ManagedDiskEncryptionSettingsKeyEncryptionKey
     {
-        /// <summary>
-        /// The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
-        /// </summary>
         public readonly string KeyUrl;
-        /// <summary>
-        /// The URL of the Key Vault. This can be found as `vault_uri` on the `azure.keyvault.KeyVault` resource.
-        /// </summary>
         public readonly string SourceVaultId;
 
         [OutputConstructor]

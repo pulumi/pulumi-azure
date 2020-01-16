@@ -11,6 +11,7 @@ export * from "./getAccount";
 export * from "./getAccountBlobContainerSAS";
 export * from "./getAccountSAS";
 export * from "./getPolicy";
+export * from "./getStorageContainer";
 export * from "./managementPolicy";
 export * from "./queue";
 export * from "./share";

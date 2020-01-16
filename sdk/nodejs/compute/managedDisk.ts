@@ -96,6 +96,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+     */
+    public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
+    /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
     public readonly diskIopsReadWrite!: pulumi.Output<number>;
@@ -104,12 +108,11 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly diskMbpsReadWrite!: pulumi.Output<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes.
-     * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
-     * an `encryptionSettings` block as defined below.
+     * A `encryptionSettings` block as defined below.
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
     /**
@@ -117,28 +120,23 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly imageReferenceId!: pulumi.Output<string | undefined>;
     /**
-     * Specified the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the managed disk. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specify a value when the source of an `Import` or `Copy`
-     * operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which to create
-     * the managed disk.
+     * The name of the Resource Group where the Managed Disk should exist.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * ID of an existing managed disk to copy `createOption` is `Copy`
-     * or the recovery point to restore when `createOption` is `Restore`
+     * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -146,8 +144,11 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly sourceUri!: pulumi.Output<string>;
     /**
-     * The type of storage to use for the managed disk.
-     * Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
     public readonly storageAccountType!: pulumi.Output<string>;
     /**
@@ -172,6 +173,7 @@ export class ManagedDisk extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ManagedDiskState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
+            inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             inputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
             inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
@@ -183,6 +185,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
             inputs["sourceUri"] = state ? state.sourceUri : undefined;
+            inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["zones"] = state ? state.zones : undefined;
@@ -198,6 +201,7 @@ export class ManagedDisk extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountType'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;
+            inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             inputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
             inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
             inputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
@@ -209,6 +213,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             inputs["sourceUri"] = args ? args.sourceUri : undefined;
+            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -233,6 +238,10 @@ export interface ManagedDiskState {
      */
     readonly createOption?: pulumi.Input<string>;
     /**
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+     */
+    readonly diskEncryptionSetId?: pulumi.Input<string>;
+    /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
     readonly diskIopsReadWrite?: pulumi.Input<number>;
@@ -241,12 +250,11 @@ export interface ManagedDiskState {
      */
     readonly diskMbpsReadWrite?: pulumi.Input<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes.
-     * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
     /**
-     * an `encryptionSettings` block as defined below.
+     * A `encryptionSettings` block as defined below.
      */
     readonly encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
@@ -254,28 +262,23 @@ export interface ManagedDiskState {
      */
     readonly imageReferenceId?: pulumi.Input<string>;
     /**
-     * Specified the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the managed disk. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specify a value when the source of an `Import` or `Copy`
-     * operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     readonly osType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create
-     * the managed disk.
+     * The name of the Resource Group where the Managed Disk should exist.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy `createOption` is `Copy`
-     * or the recovery point to restore when `createOption` is `Restore`
+     * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
@@ -283,8 +286,11 @@ export interface ManagedDiskState {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * The type of storage to use for the managed disk.
-     * Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     */
+    readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
     readonly storageAccountType?: pulumi.Input<string>;
     /**
@@ -306,6 +312,10 @@ export interface ManagedDiskArgs {
      */
     readonly createOption: pulumi.Input<string>;
     /**
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
+     */
+    readonly diskEncryptionSetId?: pulumi.Input<string>;
+    /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
     readonly diskIopsReadWrite?: pulumi.Input<number>;
@@ -314,12 +324,11 @@ export interface ManagedDiskArgs {
      */
     readonly diskMbpsReadWrite?: pulumi.Input<number>;
     /**
-     * Specifies the size of the managed disk to create in gigabytes.
-     * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
     /**
-     * an `encryptionSettings` block as defined below.
+     * A `encryptionSettings` block as defined below.
      */
     readonly encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
@@ -327,28 +336,23 @@ export interface ManagedDiskArgs {
      */
     readonly imageReferenceId?: pulumi.Input<string>;
     /**
-     * Specified the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
+     * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the managed disk. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specify a value when the source of an `Import` or `Copy`
-     * operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
+     * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
     readonly osType?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create
-     * the managed disk.
+     * The name of the Resource Group where the Managed Disk should exist.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy `createOption` is `Copy`
-     * or the recovery point to restore when `createOption` is `Restore`
+     * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
@@ -356,8 +360,11 @@ export interface ManagedDiskArgs {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * The type of storage to use for the managed disk.
-     * Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     */
+    readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
     readonly storageAccountType: pulumi.Input<string>;
     /**

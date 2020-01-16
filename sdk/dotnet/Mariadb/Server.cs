@@ -51,11 +51,14 @@ namespace Pulumi.Azure.MariaDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `sku` block as defined below.
-        /// </summary>
         [Output("sku")]
         public Output<Outputs.ServerSku> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        /// </summary>
+        [Output("skuName")]
+        public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -157,11 +160,14 @@ namespace Pulumi.Azure.MariaDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("sku")]
+        public Input<Inputs.ServerSkuArgs>? Sku { get; set; }
+
         /// <summary>
-        /// A `sku` block as defined below.
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
         /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.ServerSkuArgs> Sku { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -236,11 +242,14 @@ namespace Pulumi.Azure.MariaDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// A `sku` block as defined below.
-        /// </summary>
         [Input("sku")]
         public Input<Inputs.ServerSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         /// <summary>
         /// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.

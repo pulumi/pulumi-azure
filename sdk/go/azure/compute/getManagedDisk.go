@@ -24,6 +24,7 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 	}
 	return &GetManagedDiskResult{
 		CreateOption: outputs["createOption"],
+		DiskEncryptionSetId: outputs["diskEncryptionSetId"],
 		DiskIopsReadWrite: outputs["diskIopsReadWrite"],
 		DiskMbpsReadWrite: outputs["diskMbpsReadWrite"],
 		DiskSizeGb: outputs["diskSizeGb"],
@@ -32,6 +33,7 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 		ResourceGroupName: outputs["resourceGroupName"],
 		SourceResourceId: outputs["sourceResourceId"],
 		SourceUri: outputs["sourceUri"],
+		StorageAccountId: outputs["storageAccountId"],
 		StorageAccountType: outputs["storageAccountType"],
 		Tags: outputs["tags"],
 		Zones: outputs["zones"],
@@ -43,7 +45,7 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 type GetManagedDiskArgs struct {
 	// Specifies the name of the Managed Disk.
 	Name interface{}
-	// Specifies the name of the resource group.
+	// Specifies the name of the Resource Group where this Managed Disk exists.
 	ResourceGroupName interface{}
 	Tags interface{}
 	Zones interface{}
@@ -52,25 +54,29 @@ type GetManagedDiskArgs struct {
 // A collection of values returned by getManagedDisk.
 type GetManagedDiskResult struct {
 	CreateOption interface{}
-	// The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
+	// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+	DiskEncryptionSetId interface{}
+	// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
 	DiskIopsReadWrite interface{}
-	// The bandwidth allowed for this disk. 
+	// The bandwidth allowed for this disk.
 	DiskMbpsReadWrite interface{}
-	// The size of the managed disk in gigabytes.
+	// The size of the Managed Disk in gigabytes.
 	DiskSizeGb interface{}
 	Name interface{}
-	// The operating system for managed disk. Valid values are `Linux` or `Windows`
+	// The operating system used for this Managed Disk.
 	OsType interface{}
 	ResourceGroupName interface{}
-	// ID of an existing managed disk that the current resource was created from.
+	// The ID of an existing Managed Disk which this Disk was created from.
 	SourceResourceId interface{}
-	// The source URI for the managed disk
+	// The Source URI for this Managed Disk.
 	SourceUri interface{}
-	// The storage account type for the managed disk.
+	// The ID of the Storage Account where the `sourceUri` is located.
+	StorageAccountId interface{}
+	// The storage account type for the Managed Disk.
 	StorageAccountType interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
-	// A collection containing the availability zone the managed disk is allocated in.
+	// A list of Availability Zones where the Managed Disk exists.
 	Zones interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

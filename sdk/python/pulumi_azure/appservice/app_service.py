@@ -35,7 +35,7 @@ class AppService(pulumi.CustomResource):
       * `facebook` (`dict`)
     
         * `app_id` (`str`)
-        * `appSecret` (`str`)
+        * `app_secret` (`str`)
         * `oauthScopes` (`list`)
     
       * `google` (`dict`)
@@ -251,7 +251,7 @@ class AppService(pulumi.CustomResource):
           * `facebook` (`pulumi.Input[dict]`)
         
             * `app_id` (`pulumi.Input[str]`)
-            * `appSecret` (`pulumi.Input[str]`)
+            * `app_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
         
           * `google` (`pulumi.Input[dict]`)
@@ -469,7 +469,7 @@ class AppService(pulumi.CustomResource):
           * `facebook` (`pulumi.Input[dict]`)
         
             * `app_id` (`pulumi.Input[str]`)
-            * `appSecret` (`pulumi.Input[str]`)
+            * `app_secret` (`pulumi.Input[str]`)
             * `oauthScopes` (`pulumi.Input[list]`)
         
           * `google` (`pulumi.Input[dict]`)

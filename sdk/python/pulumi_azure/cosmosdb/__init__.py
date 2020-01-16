@@ -6,6 +6,7 @@
 from .account import *
 from .cassandra_keyspace import *
 from .gremlin_database import *
+from .gremlin_graph import *
 from .mongo_collection import *
 from .mongo_database import *
 from .sql_container import *

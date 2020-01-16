@@ -83,6 +83,7 @@ export interface GetPoolResult {
      * The maximum number of tasks that can run concurrently on a single compute node in the pool.
      */
     readonly maxTasksPerNode: number;
+    readonly metadata: {[key: string]: string};
     /**
      * The name of the Batch pool.
      */

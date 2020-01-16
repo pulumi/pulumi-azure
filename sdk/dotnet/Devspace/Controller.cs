@@ -45,11 +45,14 @@ namespace Pulumi.Azure.DevSpace
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// A `sku` block as documented below. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("sku")]
         public Output<Outputs.ControllerSku> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+        /// </summary>
+        [Output("skuName")]
+        public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -133,11 +136,14 @@ namespace Pulumi.Azure.DevSpace
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("sku")]
+        public Input<Inputs.ControllerSkuArgs>? Sku { get; set; }
+
         /// <summary>
-        /// A `sku` block as documented below. Changing this forces a new resource to be created.
+        /// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
         /// </summary>
-        [Input("sku", required: true)]
-        public Input<Inputs.ControllerSkuArgs> Sku { get; set; } = null!;
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -200,11 +206,14 @@ namespace Pulumi.Azure.DevSpace
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// A `sku` block as documented below. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("sku")]
         public Input<Inputs.ControllerSkuGetArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
         private InputMap<object>? _tags;

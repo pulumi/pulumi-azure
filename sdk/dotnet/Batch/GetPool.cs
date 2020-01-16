@@ -74,6 +74,7 @@ namespace Pulumi.Azure.Batch
         /// The maximum number of tasks that can run concurrently on a single compute node in the pool.
         /// </summary>
         public readonly int MaxTasksPerNode;
+        public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
         /// The name of the Batch pool.
         /// </summary>
@@ -109,6 +110,7 @@ namespace Pulumi.Azure.Batch
             string displayName,
             ImmutableArray<Outputs.GetPoolFixedScalesResult> fixedScales,
             int maxTasksPerNode,
+            ImmutableDictionary<string, string> metadata,
             string name,
             string nodeAgentSkuId,
             string resourceGroupName,
@@ -124,6 +126,7 @@ namespace Pulumi.Azure.Batch
             DisplayName = displayName;
             FixedScales = fixedScales;
             MaxTasksPerNode = maxTasksPerNode;
+            Metadata = metadata;
             Name = name;
             NodeAgentSkuId = nodeAgentSkuId;
             ResourceGroupName = resourceGroupName;

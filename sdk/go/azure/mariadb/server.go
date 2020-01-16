@@ -27,9 +27,6 @@ func NewServer(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil || args.SslEnforcement == nil {
 		return nil, errors.New("missing required argument 'SslEnforcement'")
 	}
@@ -47,6 +44,7 @@ func NewServer(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["sslEnforcement"] = nil
 		inputs["storageProfile"] = nil
 		inputs["tags"] = nil
@@ -58,6 +56,7 @@ func NewServer(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["sslEnforcement"] = args.SslEnforcement
 		inputs["storageProfile"] = args.StorageProfile
 		inputs["tags"] = args.Tags
@@ -84,6 +83,7 @@ func GetServer(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["sslEnforcement"] = state.SslEnforcement
 		inputs["storageProfile"] = state.StorageProfile
 		inputs["tags"] = state.Tags
@@ -136,9 +136,13 @@ func (r *Server) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `sku` block as defined below.
 func (r *Server) Sku() pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+func (r *Server) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
@@ -175,8 +179,9 @@ type ServerState struct {
 	Name interface{}
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
 	Sku interface{}
+	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+	SkuName interface{}
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement interface{}
 	// A `storageProfile` block as defined below.
@@ -199,8 +204,9 @@ type ServerArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
 	Sku interface{}
+	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+	SkuName interface{}
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement interface{}
 	// A `storageProfile` block as defined below.

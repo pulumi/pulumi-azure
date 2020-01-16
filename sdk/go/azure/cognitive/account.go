@@ -24,9 +24,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["kind"] = nil
@@ -34,6 +31,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["kind"] = args.Kind
@@ -41,6 +39,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["tags"] = args.Tags
 	}
 	inputs["endpoint"] = nil
@@ -67,6 +66,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:cognitive/account:Account", name, id, inputs, opts...)
@@ -121,9 +121,13 @@ func (r *Account) SecondaryAccessKey() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
-// A `sku` block as defined below.
 func (r *Account) Sku() pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+func (r *Account) SkuName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -147,8 +151,9 @@ type AccountState struct {
 	ResourceGroupName interface{}
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey interface{}
-	// A `sku` block as defined below.
 	Sku interface{}
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -163,8 +168,9 @@ type AccountArgs struct {
 	Name interface{}
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
 	Sku interface{}
+	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

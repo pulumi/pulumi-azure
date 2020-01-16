@@ -22,10 +22,7 @@ import * as utilities from "../utilities";
  *     kind: "Face",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "S0",
- *         tier: "Standard",
- *     },
+ *     skuName: "S0",
  *     tags: {
  *         Acceptance: "Test",
  *     },
@@ -89,10 +86,11 @@ export class Account extends pulumi.CustomResource {
      * The secondary access key which can be used to connect to the Cognitive Service Account.
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
-    /**
-     * A `sku` block as defined below.
-     */
     public readonly sku!: pulumi.Output<outputs.cognitive.AccountSku>;
+    /**
+     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+     */
+    public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -118,6 +116,7 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
@@ -127,14 +126,12 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
-            }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -183,10 +180,11 @@ export interface AccountState {
      * The secondary access key which can be used to connect to the Cognitive Service Account.
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
-    /**
-     * A `sku` block as defined below.
-     */
     readonly sku?: pulumi.Input<inputs.cognitive.AccountSku>;
+    /**
+     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -213,10 +211,11 @@ export interface AccountArgs {
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<inputs.cognitive.AccountSku>;
     /**
-     * A `sku` block as defined below.
+     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
      */
-    readonly sku: pulumi.Input<inputs.cognitive.AccountSku>;
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

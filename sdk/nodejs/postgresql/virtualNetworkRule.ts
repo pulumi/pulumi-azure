@@ -36,12 +36,7 @@ import * as utilities from "../utilities";
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         capacity: 2,
- *         family: "Gen5",
- *         name: "GP_Gen5_2",
- *         tier: "GeneralPurpose",
- *     },
+ *     skuName: "B_Gen5_2",
  *     sslEnforcement: "Enabled",
  *     storageProfile: {
  *         backupRetentionDays: 7,

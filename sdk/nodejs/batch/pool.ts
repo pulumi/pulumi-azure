@@ -67,6 +67,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly maxTasksPerNode!: pulumi.Output<number | undefined>;
     /**
+     * A map of custom batch pool metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -111,6 +115,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fixedScale"] = state ? state.fixedScale : undefined;
             inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
+            inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -142,6 +147,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["fixedScale"] = args ? args.fixedScale : undefined;
             inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -193,6 +199,10 @@ export interface PoolState {
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
     readonly maxTasksPerNode?: pulumi.Input<number>;
+    /**
+     * A map of custom batch pool metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
@@ -252,6 +262,10 @@ export interface PoolArgs {
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
     readonly maxTasksPerNode?: pulumi.Input<number>;
+    /**
+     * A map of custom batch pool metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */

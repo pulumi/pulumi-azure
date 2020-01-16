@@ -44,6 +44,7 @@ func NewRule(ctx *pulumi.Context,
 		inputs["backendPort"] = nil
 		inputs["disableOutboundSnat"] = nil
 		inputs["enableFloatingIp"] = nil
+		inputs["enableTcpReset"] = nil
 		inputs["frontendIpConfigurationName"] = nil
 		inputs["frontendPort"] = nil
 		inputs["idleTimeoutInMinutes"] = nil
@@ -59,6 +60,7 @@ func NewRule(ctx *pulumi.Context,
 		inputs["backendPort"] = args.BackendPort
 		inputs["disableOutboundSnat"] = args.DisableOutboundSnat
 		inputs["enableFloatingIp"] = args.EnableFloatingIp
+		inputs["enableTcpReset"] = args.EnableTcpReset
 		inputs["frontendIpConfigurationName"] = args.FrontendIpConfigurationName
 		inputs["frontendPort"] = args.FrontendPort
 		inputs["idleTimeoutInMinutes"] = args.IdleTimeoutInMinutes
@@ -88,6 +90,7 @@ func GetRule(ctx *pulumi.Context,
 		inputs["backendPort"] = state.BackendPort
 		inputs["disableOutboundSnat"] = state.DisableOutboundSnat
 		inputs["enableFloatingIp"] = state.EnableFloatingIp
+		inputs["enableTcpReset"] = state.EnableTcpReset
 		inputs["frontendIpConfigurationId"] = state.FrontendIpConfigurationId
 		inputs["frontendIpConfigurationName"] = state.FrontendIpConfigurationName
 		inputs["frontendPort"] = state.FrontendPort
@@ -127,14 +130,19 @@ func (r *Rule) BackendPort() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["backendPort"])
 }
 
-// Indicates whether outbound snat is disabled or enabled. Default false.
+// Is snat enabled for this Load Balancer Rule? Default `false`.
 func (r *Rule) DisableOutboundSnat() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["disableOutboundSnat"])
 }
 
-// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 func (r *Rule) EnableFloatingIp() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enableFloatingIp"])
+}
+
+// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+func (r *Rule) EnableTcpReset() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enableTcpReset"])
 }
 
 func (r *Rule) FrontendIpConfigurationId() pulumi.StringOutput {
@@ -151,7 +159,7 @@ func (r *Rule) FrontendPort() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["frontendPort"])
 }
 
-// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 func (r *Rule) IdleTimeoutInMinutes() pulumi.IntOutput {
 	return (pulumi.IntOutput)(r.s.State["idleTimeoutInMinutes"])
 }
@@ -196,16 +204,18 @@ type RuleState struct {
 	BackendAddressPoolId interface{}
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort interface{}
-	// Indicates whether outbound snat is disabled or enabled. Default false.
+	// Is snat enabled for this Load Balancer Rule? Default `false`.
 	DisableOutboundSnat interface{}
-	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp interface{}
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	EnableTcpReset interface{}
 	FrontendIpConfigurationId interface{}
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName interface{}
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort interface{}
-	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes interface{}
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution interface{}
@@ -228,15 +238,17 @@ type RuleArgs struct {
 	BackendAddressPoolId interface{}
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort interface{}
-	// Indicates whether outbound snat is disabled or enabled. Default false.
+	// Is snat enabled for this Load Balancer Rule? Default `false`.
 	DisableOutboundSnat interface{}
-	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
+	// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	EnableFloatingIp interface{}
+	// Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+	EnableTcpReset interface{}
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName interface{}
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort interface{}
-	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes interface{}
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution interface{}

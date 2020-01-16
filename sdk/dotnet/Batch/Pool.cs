@@ -58,6 +58,12 @@ namespace Pulumi.Azure.Batch
         public Output<int?> MaxTasksPerNode { get; private set; } = null!;
 
         /// <summary>
+        /// A map of custom batch pool metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -190,6 +196,18 @@ namespace Pulumi.Azure.Batch
         [Input("maxTasksPerNode")]
         public Input<int>? MaxTasksPerNode { get; set; }
 
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// A map of custom batch pool metadata.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
@@ -283,6 +301,18 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("maxTasksPerNode")]
         public Input<int>? MaxTasksPerNode { get; set; }
+
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// A map of custom batch pool metadata.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.

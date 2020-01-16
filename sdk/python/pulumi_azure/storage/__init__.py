@@ -18,4 +18,5 @@ from .zip_blob import *
 from .get_account import *
 from .get_account_blob_container_sas import *
 from .get_account_sas import *
+from .get_storage_container import *
 from .get_policy import *
