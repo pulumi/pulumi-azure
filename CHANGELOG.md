@@ -239,3 +239,4 @@ _(none)_
 
 ## 0.14.1 (2018-07-03)
 * The result of calls to data sources now include an `id` property. Special thanks to [@Frassle](https://github.com/Frassle) for adding this support in [pulumi/pulumi-terraform#189](https://github.com/pulumi/pulumi-terraform/pull/189).
+
