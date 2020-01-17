@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resources.html.markdown.
  */
-export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> & GetResourcesResult {
+export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
     if (!opts) {
         opts = {}
@@ -19,14 +19,12 @@ export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOption
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResourcesResult> = pulumi.runtime.invoke("azure:core/getResources:getResources", {
+    return pulumi.runtime.invoke("azure:core/getResources:getResources", {
         "name": args.name,
         "requiredTags": args.requiredTags,
         "resourceGroupName": args.resourceGroupName,
         "type": args.type,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

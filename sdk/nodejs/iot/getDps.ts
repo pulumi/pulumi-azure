@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_dps.html.markdown.
  */
-export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> & GetDpsResult {
+export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsResult> {
     if (!opts) {
         opts = {}
     }
@@ -31,13 +31,11 @@ export function getDps(args: GetDpsArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDpsResult> = pulumi.runtime.invoke("azure:iot/getDps:getDps", {
+    return pulumi.runtime.invoke("azure:iot/getDps:getDps", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

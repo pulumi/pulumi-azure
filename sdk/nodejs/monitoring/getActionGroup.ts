@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
  */
-export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> & GetActionGroupResult {
+export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetActionGroupResult> = pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
+    return pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

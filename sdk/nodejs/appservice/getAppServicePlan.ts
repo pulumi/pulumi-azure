@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
  */
-export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> & GetAppServicePlanResult {
+export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAppServicePlanResult> = pulumi.runtime.invoke("azure:appservice/getAppServicePlan:getAppServicePlan", {
+    return pulumi.runtime.invoke("azure:appservice/getAppServicePlan:getAppServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

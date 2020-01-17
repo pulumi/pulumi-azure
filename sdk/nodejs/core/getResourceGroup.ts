@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
  */
-export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> & GetResourceGroupResult {
+export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,11 +35,9 @@ export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetResourceGroupResult> = pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {
+    return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {
         "name": args.name,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

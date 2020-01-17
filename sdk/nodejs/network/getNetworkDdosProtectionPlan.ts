@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_ddos_protection_plan.html.markdown.
  */
-export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDdosProtectionPlanResult> & GetNetworkDdosProtectionPlanResult {
+export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDdosProtectionPlanResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,13 +33,11 @@ export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanA
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNetworkDdosProtectionPlanResult> = pulumi.runtime.invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", {
+    return pulumi.runtime.invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
  */
-export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> & GetJobResult {
+export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetJobResult> = pulumi.runtime.invoke("azure:streamanalytics/getJob:getJob", {
+    return pulumi.runtime.invoke("azure:streamanalytics/getJob:getJob", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

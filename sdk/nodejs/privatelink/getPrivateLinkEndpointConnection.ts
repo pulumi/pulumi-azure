@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_endpoint_connection.html.markdown.
  */
-export function getPrivateLinkEndpointConnection(args: GetPrivateLinkEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkEndpointConnectionResult> & GetPrivateLinkEndpointConnectionResult {
+export function getPrivateLinkEndpointConnection(args: GetPrivateLinkEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkEndpointConnectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,12 +17,10 @@ export function getPrivateLinkEndpointConnection(args: GetPrivateLinkEndpointCon
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPrivateLinkEndpointConnectionResult> = pulumi.runtime.invoke("azure:privatelink/getPrivateLinkEndpointConnection:getPrivateLinkEndpointConnection", {
+    return pulumi.runtime.invoke("azure:privatelink/getPrivateLinkEndpointConnection:getPrivateLinkEndpointConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

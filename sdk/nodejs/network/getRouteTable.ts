@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
  */
-export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> & GetRouteTableResult {
+export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     if (!opts) {
         opts = {}
     }
@@ -31,12 +31,10 @@ export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptio
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRouteTableResult> = pulumi.runtime.invoke("azure:network/getRouteTable:getRouteTable", {
+    return pulumi.runtime.invoke("azure:network/getRouteTable:getRouteTable", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

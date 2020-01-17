@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
  */
-export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> & GetNetworkInterfaceResult {
+export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetNetworkInterfaceResult> = pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {
+    return pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

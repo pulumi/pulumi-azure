@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_container.html.markdown.
  */
-export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> & GetStorageContainerResult {
+export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
     if (!opts) {
         opts = {}
     }
@@ -31,13 +31,11 @@ export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetStorageContainerResult> = pulumi.runtime.invoke("azure:storage/getStorageContainer:getStorageContainer", {
+    return pulumi.runtime.invoke("azure:storage/getStorageContainer:getStorageContainer", {
         "metadata": args.metadata,
         "name": args.name,
         "storageAccountName": args.storageAccountName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

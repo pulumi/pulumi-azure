@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
  */
-export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> & GetAvailabilitySetResult {
+export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetAvailabilitySetResult> = pulumi.runtime.invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", {
+    return pulumi.runtime.invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

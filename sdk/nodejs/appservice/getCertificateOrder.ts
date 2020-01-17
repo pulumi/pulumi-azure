@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate_order.html.markdown.
  */
-export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> & GetCertificateOrderResult {
+export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetCertificateOrderResult> = pulumi.runtime.invoke("azure:appservice/getCertificateOrder:getCertificateOrder", {
+    return pulumi.runtime.invoke("azure:appservice/getCertificateOrder:getCertificateOrder", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

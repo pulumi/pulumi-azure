@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/iothub_shared_access_policy.html.markdown.
  */
-export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedAccessPolicyResult> & GetSharedAccessPolicyResult {
+export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedAccessPolicyResult> {
     if (!opts) {
         opts = {}
     }
@@ -32,13 +32,11 @@ export function getSharedAccessPolicy(args: GetSharedAccessPolicyArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetSharedAccessPolicyResult> = pulumi.runtime.invoke("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", {
+    return pulumi.runtime.invoke("azure:iot/getSharedAccessPolicy:getSharedAccessPolicy", {
         "iothubName": args.iothubName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

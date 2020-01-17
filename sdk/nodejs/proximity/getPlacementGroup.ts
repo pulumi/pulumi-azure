@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/proximity_placement_group.html.markdown.
  */
-export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> & GetPlacementGroupResult {
+export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
     if (!opts) {
         opts = {}
     }
@@ -31,12 +31,10 @@ export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.Inv
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetPlacementGroupResult> = pulumi.runtime.invoke("azure:proximity/getPlacementGroup:getPlacementGroup", {
+    return pulumi.runtime.invoke("azure:proximity/getPlacementGroup:getPlacementGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_endpoint_connection.html.markdown.
  */
-export function getEndpointConnection(args: GetEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointConnectionResult> & GetEndpointConnectionResult {
+export function getEndpointConnection(args: GetEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointConnectionResult> {
     if (!opts) {
         opts = {}
     }
@@ -21,12 +21,10 @@ export function getEndpointConnection(args: GetEndpointConnectionArgs, opts?: pu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetEndpointConnectionResult> = pulumi.runtime.invoke("azure:privatelink/getEndpointConnection:getEndpointConnection", {
+    return pulumi.runtime.invoke("azure:privatelink/getEndpointConnection:getEndpointConnection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

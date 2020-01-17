@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
  */
-export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> & GetDateTimeVariableResult {
+export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,13 +35,11 @@ export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDateTimeVariableResult> = pulumi.runtime.invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", {
+    return pulumi.runtime.invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

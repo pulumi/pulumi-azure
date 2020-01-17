@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
  */
-export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> & GetLBResult {
+export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {
     if (!opts) {
         opts = {}
     }
@@ -33,12 +33,10 @@ export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<Get
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetLBResult> = pulumi.runtime.invoke("azure:lb/getLB:getLB", {
+    return pulumi.runtime.invoke("azure:lb/getLB:getLB", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

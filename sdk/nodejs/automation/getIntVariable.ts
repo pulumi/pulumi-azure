@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
  */
-export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> & GetIntVariableResult {
+export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> {
     if (!opts) {
         opts = {}
     }
@@ -35,13 +35,11 @@ export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOpt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetIntVariableResult> = pulumi.runtime.invoke("azure:automation/getIntVariable:getIntVariable", {
+    return pulumi.runtime.invoke("azure:automation/getIntVariable:getIntVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
