@@ -57,6 +57,12 @@ namespace Pulumi.Azure.Network
         [Output("trafficAnalytics")]
         public Output<Outputs.NetworkWatcherFlowLogTrafficAnalytics?> TrafficAnalytics { get; private set; } = null!;
 
+        /// <summary>
+        /// The version (revision) of the flow log. Possible values are `1` and `2`.
+        /// </summary>
+        [Output("version")]
+        public Output<int> Version { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NetworkWatcherFlowLog resource with the given unique name, arguments, and options.
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.Network
         [Input("trafficAnalytics")]
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs>? TrafficAnalytics { get; set; }
 
+        /// <summary>
+        /// The version (revision) of the flow log. Possible values are `1` and `2`.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
+
         public NetworkWatcherFlowLogArgs()
         {
         }
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("trafficAnalytics")]
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsGetArgs>? TrafficAnalytics { get; set; }
+
+        /// <summary>
+        /// The version (revision) of the flow log. Possible values are `1` and `2`.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         public NetworkWatcherFlowLogState()
         {

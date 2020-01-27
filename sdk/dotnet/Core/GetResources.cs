@@ -28,14 +28,14 @@ namespace Pulumi.Azure.Core
         public string? Name { get; set; }
 
         [Input("requiredTags")]
-        private Dictionary<string, object>? _requiredTags;
+        private Dictionary<string, string>? _requiredTags;
 
         /// <summary>
         /// A mapping of tags which the resource has to have in order to be included in the result.
         /// </summary>
-        public Dictionary<string, object> RequiredTags
+        public Dictionary<string, string> RequiredTags
         {
-            get => _requiredTags ?? (_requiredTags = new Dictionary<string, object>());
+            get => _requiredTags ?? (_requiredTags = new Dictionary<string, string>());
             set => _requiredTags = value;
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Core
         /// The name of this Resource.
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableDictionary<string, object> RequiredTags;
+        public readonly ImmutableDictionary<string, string> RequiredTags;
         public readonly string ResourceGroupName;
         /// <summary>
         /// One or more `resource` blocks as defined below.
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Core
         [OutputConstructor]
         private GetResourcesResult(
             string name,
-            ImmutableDictionary<string, object> requiredTags,
+            ImmutableDictionary<string, string> requiredTags,
             string resourceGroupName,
             ImmutableArray<Outputs.GetResourcesResourcesResult> resources,
             string type,

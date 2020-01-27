@@ -27,18 +27,18 @@ import * as utilities from "../utilities";
  *     location: "West US",
  * });
  * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
- *     dnsConfigs: [{
+ *     dnsConfig: {
  *         relativeName: server.hex,
  *         ttl: 100,
- *     }],
- *     monitorConfigs: [{
+ *     },
+ *     monitorConfig: {
  *         intervalInSeconds: 30,
  *         path: "/",
  *         port: 80,
  *         protocol: "http",
  *         timeoutInSeconds: 9,
  *         toleratedNumberOfFailures: 3,
- *     }],
+ *     },
  *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "Production",
@@ -84,7 +84,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
      */
-    public readonly dnsConfigs!: pulumi.Output<outputs.network.TrafficManagerProfileDnsConfig[]>;
+    public readonly dnsConfig!: pulumi.Output<outputs.network.TrafficManagerProfileDnsConfig>;
     /**
      * The FQDN of the created Profile.
      */
@@ -93,7 +93,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
      * This block specifies the Endpoint monitoring
      * configuration for the Profile, it supports the fields documented below.
      */
-    public readonly monitorConfigs!: pulumi.Output<outputs.network.TrafficManagerProfileMonitorConfig[]>;
+    public readonly monitorConfig!: pulumi.Output<outputs.network.TrafficManagerProfileMonitorConfig>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.
@@ -112,7 +112,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -136,9 +136,9 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as TrafficManagerProfileState | undefined;
-            inputs["dnsConfigs"] = state ? state.dnsConfigs : undefined;
+            inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["monitorConfigs"] = state ? state.monitorConfigs : undefined;
+            inputs["monitorConfig"] = state ? state.monitorConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["profileStatus"] = state ? state.profileStatus : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -146,11 +146,11 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
             inputs["trafficRoutingMethod"] = state ? state.trafficRoutingMethod : undefined;
         } else {
             const args = argsOrState as TrafficManagerProfileArgs | undefined;
-            if (!args || args.dnsConfigs === undefined) {
-                throw new Error("Missing required property 'dnsConfigs'");
+            if (!args || args.dnsConfig === undefined) {
+                throw new Error("Missing required property 'dnsConfig'");
             }
-            if (!args || args.monitorConfigs === undefined) {
-                throw new Error("Missing required property 'monitorConfigs'");
+            if (!args || args.monitorConfig === undefined) {
+                throw new Error("Missing required property 'monitorConfig'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -158,8 +158,8 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
             if (!args || args.trafficRoutingMethod === undefined) {
                 throw new Error("Missing required property 'trafficRoutingMethod'");
             }
-            inputs["dnsConfigs"] = args ? args.dnsConfigs : undefined;
-            inputs["monitorConfigs"] = args ? args.monitorConfigs : undefined;
+            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            inputs["monitorConfig"] = args ? args.monitorConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["profileStatus"] = args ? args.profileStatus : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -188,7 +188,7 @@ export interface TrafficManagerProfileState {
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
      */
-    readonly dnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>[]>;
+    readonly dnsConfig?: pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>;
     /**
      * The FQDN of the created Profile.
      */
@@ -197,7 +197,7 @@ export interface TrafficManagerProfileState {
      * This block specifies the Endpoint monitoring
      * configuration for the Profile, it supports the fields documented below.
      */
-    readonly monitorConfigs?: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>[]>;
+    readonly monitorConfig?: pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.
@@ -216,7 +216,7 @@ export interface TrafficManagerProfileState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -237,12 +237,12 @@ export interface TrafficManagerProfileArgs {
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
      */
-    readonly dnsConfigs: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>[]>;
+    readonly dnsConfig: pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>;
     /**
      * This block specifies the Endpoint monitoring
      * configuration for the Profile, it supports the fields documented below.
      */
-    readonly monitorConfigs: pulumi.Input<pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>[]>;
+    readonly monitorConfig: pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.
@@ -261,7 +261,7 @@ export interface TrafficManagerProfileArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.

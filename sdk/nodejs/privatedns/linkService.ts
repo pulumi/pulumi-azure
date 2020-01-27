@@ -76,7 +76,7 @@ export class LinkService extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */
@@ -179,7 +179,7 @@ export interface LinkServiceState {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */
@@ -221,7 +221,7 @@ export interface LinkServiceArgs {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      */

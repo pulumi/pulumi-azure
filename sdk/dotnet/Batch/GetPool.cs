@@ -35,6 +35,9 @@ namespace Pulumi.Azure.Batch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("networkConfiguration")]
+        public Inputs.GetPoolNetworkConfigurationArgs? NetworkConfiguration { get; set; }
+
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
@@ -76,9 +79,10 @@ namespace Pulumi.Azure.Batch
         public readonly int MaxTasksPerNode;
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
-        /// The name of the Batch pool.
+        /// The name of the endpoint.
         /// </summary>
         public readonly string Name;
+        public readonly Outputs.GetPoolNetworkConfigurationResult NetworkConfiguration;
         /// <summary>
         /// The Sku of the node agents in the Batch pool.
         /// </summary>
@@ -112,6 +116,7 @@ namespace Pulumi.Azure.Batch
             int maxTasksPerNode,
             ImmutableDictionary<string, string> metadata,
             string name,
+            Outputs.GetPoolNetworkConfigurationResult networkConfiguration,
             string nodeAgentSkuId,
             string resourceGroupName,
             Outputs.GetPoolStartTaskResult? startTask,
@@ -128,6 +133,7 @@ namespace Pulumi.Azure.Batch
             MaxTasksPerNode = maxTasksPerNode;
             Metadata = metadata;
             Name = name;
+            NetworkConfiguration = networkConfiguration;
             NodeAgentSkuId = nodeAgentSkuId;
             ResourceGroupName = resourceGroupName;
             StartTask = startTask;
@@ -173,6 +179,93 @@ namespace Pulumi.Azure.Batch
         }
 
         public GetPoolCertificatesArgs()
+        {
+        }
+    }
+
+    public sealed class GetPoolNetworkConfigurationArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+        /// </summary>
+        [Input("endpointConfiguration")]
+        public GetPoolNetworkConfigurationEndpointConfigurationArgs? EndpointConfiguration { get; set; }
+
+        /// <summary>
+        /// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+        /// </summary>
+        [Input("subnetId")]
+        public string? SubnetId { get; set; }
+
+        public GetPoolNetworkConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetPoolNetworkConfigurationEndpointConfigurationArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The port number on the compute node.
+        /// </summary>
+        [Input("backendPort")]
+        public int? BackendPort { get; set; }
+
+        /// <summary>
+        /// The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
+        /// </summary>
+        [Input("frontendPortRange")]
+        public string? FrontendPortRange { get; set; }
+
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
+
+        [Input("networkSecurityGroupRules")]
+        private List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs>? _networkSecurityGroupRules;
+
+        /// <summary>
+        /// (Optional) The list of network security group rules that are applied to the endpoint.
+        /// </summary>
+        public List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs> NetworkSecurityGroupRules
+        {
+            get => _networkSecurityGroupRules ?? (_networkSecurityGroupRules = new List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs>());
+            set => _networkSecurityGroupRules = value;
+        }
+
+        /// <summary>
+        /// The protocol of the endpoint.
+        /// </summary>
+        [Input("protocol")]
+        public string? Protocol { get; set; }
+
+        public GetPoolNetworkConfigurationEndpointConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The action that should be taken for a specified IP address, subnet range or tag.
+        /// </summary>
+        [Input("access")]
+        public string? Access { get; set; }
+
+        /// <summary>
+        /// The priority for this rule.
+        /// </summary>
+        [Input("priority")]
+        public int? Priority { get; set; }
+
+        /// <summary>
+        /// The source address prefix or tag to match for the rule.
+        /// </summary>
+        [Input("sourceAddressPrefix")]
+        public string? SourceAddressPrefix { get; set; }
+
+        public GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs()
         {
         }
     }
@@ -460,6 +553,96 @@ namespace Pulumi.Azure.Batch
             ResizeTimeout = resizeTimeout;
             TargetDedicatedNodes = targetDedicatedNodes;
             TargetLowPriorityNodes = targetLowPriorityNodes;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesResult
+    {
+        /// <summary>
+        /// The action that should be taken for a specified IP address, subnet range or tag.
+        /// </summary>
+        public readonly string Access;
+        /// <summary>
+        /// The priority for this rule.
+        /// </summary>
+        public readonly int Priority;
+        /// <summary>
+        /// The source address prefix or tag to match for the rule.
+        /// </summary>
+        public readonly string SourceAddressPrefix;
+
+        [OutputConstructor]
+        private GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesResult(
+            string access,
+            int priority,
+            string sourceAddressPrefix)
+        {
+            Access = access;
+            Priority = priority;
+            SourceAddressPrefix = sourceAddressPrefix;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetPoolNetworkConfigurationEndpointConfigurationResult
+    {
+        /// <summary>
+        /// The port number on the compute node.
+        /// </summary>
+        public readonly int BackendPort;
+        /// <summary>
+        /// The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
+        /// </summary>
+        public readonly string FrontendPortRange;
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// (Optional) The list of network security group rules that are applied to the endpoint.
+        /// </summary>
+        public readonly ImmutableArray<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesResult> NetworkSecurityGroupRules;
+        /// <summary>
+        /// The protocol of the endpoint.
+        /// </summary>
+        public readonly string Protocol;
+
+        [OutputConstructor]
+        private GetPoolNetworkConfigurationEndpointConfigurationResult(
+            int backendPort,
+            string frontendPortRange,
+            string name,
+            ImmutableArray<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesResult> networkSecurityGroupRules,
+            string protocol)
+        {
+            BackendPort = backendPort;
+            FrontendPortRange = frontendPortRange;
+            Name = name;
+            NetworkSecurityGroupRules = networkSecurityGroupRules;
+            Protocol = protocol;
+        }
+    }
+
+    [OutputType]
+    public sealed class GetPoolNetworkConfigurationResult
+    {
+        /// <summary>
+        /// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+        /// </summary>
+        public readonly GetPoolNetworkConfigurationEndpointConfigurationResult EndpointConfiguration;
+        /// <summary>
+        /// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+        /// </summary>
+        public readonly string SubnetId;
+
+        [OutputConstructor]
+        private GetPoolNetworkConfigurationResult(
+            GetPoolNetworkConfigurationEndpointConfigurationResult endpointConfiguration,
+            string subnetId)
+        {
+            EndpointConfiguration = endpointConfiguration;
+            SubnetId = subnetId;
         }
     }
 

@@ -118,7 +118,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
@@ -240,7 +240,7 @@ export interface WebTestState {
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
@@ -293,7 +293,7 @@ export interface WebTestArgs {
     /**
      * Resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */

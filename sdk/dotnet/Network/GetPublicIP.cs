@@ -34,10 +34,10 @@ namespace Pulumi.Azure.Network
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of tags to assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly ImmutableArray<string> Zones;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
             string resourceGroupName,
             string reverseFqdn,
             string sku,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             ImmutableArray<string> zones,
             string id)
         {

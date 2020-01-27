@@ -27,6 +27,7 @@ func LookupInsights(ctx *pulumi.Context, args *GetInsightsArgs) (*GetInsightsRes
 		Location: outputs["location"],
 		Name: outputs["name"],
 		ResourceGroupName: outputs["resourceGroupName"],
+		RetentionInDays: outputs["retentionInDays"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -52,6 +53,8 @@ type GetInsightsResult struct {
 	Location interface{}
 	Name interface{}
 	ResourceGroupName interface{}
+	// The retention period in days.
+	RetentionInDays interface{}
 	// Tags applied to the component.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

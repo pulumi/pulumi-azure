@@ -115,7 +115,7 @@ export class KeyVault extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
@@ -230,7 +230,7 @@ export interface KeyVaultState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
@@ -288,7 +288,7 @@ export interface KeyVaultArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */

@@ -34,10 +34,10 @@ namespace Pulumi.Azure.Iot
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Iot
         /// The service endpoint of the IoT Device Provisioning Service.
         /// </summary>
         public readonly string ServiceOperationsHostName;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Iot
             string name,
             string resourceGroupName,
             string serviceOperationsHostName,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             AllocationPolicy = allocationPolicy;

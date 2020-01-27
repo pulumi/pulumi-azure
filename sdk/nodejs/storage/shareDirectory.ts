@@ -66,7 +66,7 @@ export class ShareDirectory extends pulumi.CustomResource {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
@@ -127,7 +127,7 @@ export interface ShareDirectoryState {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
@@ -149,7 +149,7 @@ export interface ShareDirectoryArgs {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */

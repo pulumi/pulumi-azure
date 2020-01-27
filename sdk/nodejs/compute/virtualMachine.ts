@@ -123,7 +123,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
      */
@@ -310,7 +310,7 @@ export interface VirtualMachineState {
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
      */
@@ -412,7 +412,7 @@ export interface VirtualMachineArgs {
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
      */

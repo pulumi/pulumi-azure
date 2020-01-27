@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .availability_set import *
 from .bastion_host import *
+from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk_encryption_set import *
 from .image import *
@@ -18,6 +19,7 @@ from .data_disk_attachment import *
 from .extension import *
 from .scale_set import *
 from .get_availability_set import *
+from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk_encryption_set import *
 from .get_image import *

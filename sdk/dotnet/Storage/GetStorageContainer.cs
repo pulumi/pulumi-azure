@@ -22,10 +22,10 @@ namespace Pulumi.Azure.Storage
     public sealed class GetStorageContainerArgs : Pulumi.InvokeArgs
     {
         [Input("metadata")]
-        private Dictionary<string, object>? _metadata;
-        public Dictionary<string, object> Metadata
+        private Dictionary<string, string>? _metadata;
+        public Dictionary<string, string> Metadata
         {
-            get => _metadata ?? (_metadata = new Dictionary<string, object>());
+            get => _metadata ?? (_metadata = new Dictionary<string, string>());
             set => _metadata = value;
         }
 
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A mapping of MetaData for this Container.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Metadata;
+        public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
         public readonly string StorageAccountName;
         /// <summary>
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Storage
             string containerAccessType,
             bool hasImmutabilityPolicy,
             bool hasLegalHold,
-            ImmutableDictionary<string, object> metadata,
+            ImmutableDictionary<string, string> metadata,
             string name,
             string storageAccountName,
             string id)

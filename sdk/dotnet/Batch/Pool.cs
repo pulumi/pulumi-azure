@@ -70,6 +70,12 @@ namespace Pulumi.Azure.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `network_configuration` block that describes the network configurations for the Batch pool.
+        /// </summary>
+        [Output("networkConfiguration")]
+        public Output<Outputs.PoolNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Sku of the node agents that will be created in the Batch pool.
         /// </summary>
         [Output("nodeAgentSkuId")]
@@ -215,6 +221,12 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `network_configuration` block that describes the network configurations for the Batch pool.
+        /// </summary>
+        [Input("networkConfiguration")]
+        public Input<Inputs.PoolNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
         /// Specifies the Sku of the node agents that will be created in the Batch pool.
         /// </summary>
         [Input("nodeAgentSkuId", required: true)]
@@ -319,6 +331,12 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network_configuration` block that describes the network configurations for the Batch pool.
+        /// </summary>
+        [Input("networkConfiguration")]
+        public Input<Inputs.PoolNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the Sku of the node agents that will be created in the Batch pool.
@@ -537,6 +555,134 @@ namespace Pulumi.Azure.Batch
         public Input<int>? TargetLowPriorityNodes { get; set; }
 
         public PoolFixedScaleGetArgs()
+        {
+        }
+    }
+
+    public sealed class PoolNetworkConfigurationArgs : Pulumi.ResourceArgs
+    {
+        [Input("endpointConfigurations")]
+        private InputList<PoolNetworkConfigurationEndpointConfigurationsArgs>? _endpointConfigurations;
+        public InputList<PoolNetworkConfigurationEndpointConfigurationsArgs> EndpointConfigurations
+        {
+            get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<PoolNetworkConfigurationEndpointConfigurationsArgs>());
+            set => _endpointConfigurations = value;
+        }
+
+        [Input("subnetId", required: true)]
+        public Input<string> SubnetId { get; set; } = null!;
+
+        public PoolNetworkConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class PoolNetworkConfigurationEndpointConfigurationsArgs : Pulumi.ResourceArgs
+    {
+        [Input("backendPort", required: true)]
+        public Input<int> BackendPort { get; set; } = null!;
+
+        [Input("frontendPortRange", required: true)]
+        public Input<string> FrontendPortRange { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("networkSecurityGroupRules")]
+        private InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs>? _networkSecurityGroupRules;
+        public InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs> NetworkSecurityGroupRules
+        {
+            get => _networkSecurityGroupRules ?? (_networkSecurityGroupRules = new InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs>());
+            set => _networkSecurityGroupRules = value;
+        }
+
+        [Input("protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
+
+        public PoolNetworkConfigurationEndpointConfigurationsArgs()
+        {
+        }
+    }
+
+    public sealed class PoolNetworkConfigurationEndpointConfigurationsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("backendPort", required: true)]
+        public Input<int> BackendPort { get; set; } = null!;
+
+        [Input("frontendPortRange", required: true)]
+        public Input<string> FrontendPortRange { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("networkSecurityGroupRules")]
+        private InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs>? _networkSecurityGroupRules;
+        public InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs> NetworkSecurityGroupRules
+        {
+            get => _networkSecurityGroupRules ?? (_networkSecurityGroupRules = new InputList<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs>());
+            set => _networkSecurityGroupRules = value;
+        }
+
+        [Input("protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
+
+        public PoolNetworkConfigurationEndpointConfigurationsGetArgs()
+        {
+        }
+    }
+
+    public sealed class PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs : Pulumi.ResourceArgs
+    {
+        [Input("access", required: true)]
+        public Input<string> Access { get; set; } = null!;
+
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
+
+        [Input("sourceAddressPrefix", required: true)]
+        public Input<string> SourceAddressPrefix { get; set; } = null!;
+
+        public PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesArgs()
+        {
+        }
+    }
+
+    public sealed class PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("access", required: true)]
+        public Input<string> Access { get; set; } = null!;
+
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
+
+        [Input("sourceAddressPrefix", required: true)]
+        public Input<string> SourceAddressPrefix { get; set; } = null!;
+
+        public PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRulesGetArgs()
+        {
+        }
+    }
+
+    public sealed class PoolNetworkConfigurationGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("endpointConfigurations")]
+        private InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs>? _endpointConfigurations;
+        public InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs> EndpointConfigurations
+        {
+            get => _endpointConfigurations ?? (_endpointConfigurations = new InputList<PoolNetworkConfigurationEndpointConfigurationsGetArgs>());
+            set => _endpointConfigurations = value;
+        }
+
+        [Input("subnetId", required: true)]
+        public Input<string> SubnetId { get; set; } = null!;
+
+        public PoolNetworkConfigurationGetArgs()
         {
         }
     }
@@ -859,6 +1005,69 @@ namespace Pulumi.Azure.Batch
             ResizeTimeout = resizeTimeout;
             TargetDedicatedNodes = targetDedicatedNodes;
             TargetLowPriorityNodes = targetLowPriorityNodes;
+        }
+    }
+
+    [OutputType]
+    public sealed class PoolNetworkConfiguration
+    {
+        public readonly ImmutableArray<PoolNetworkConfigurationEndpointConfigurations> EndpointConfigurations;
+        public readonly string SubnetId;
+
+        [OutputConstructor]
+        private PoolNetworkConfiguration(
+            ImmutableArray<PoolNetworkConfigurationEndpointConfigurations> endpointConfigurations,
+            string subnetId)
+        {
+            EndpointConfigurations = endpointConfigurations;
+            SubnetId = subnetId;
+        }
+    }
+
+    [OutputType]
+    public sealed class PoolNetworkConfigurationEndpointConfigurations
+    {
+        public readonly int BackendPort;
+        public readonly string FrontendPortRange;
+        /// <summary>
+        /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string Name;
+        public readonly ImmutableArray<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRules> NetworkSecurityGroupRules;
+        public readonly string Protocol;
+
+        [OutputConstructor]
+        private PoolNetworkConfigurationEndpointConfigurations(
+            int backendPort,
+            string frontendPortRange,
+            string name,
+            ImmutableArray<PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRules> networkSecurityGroupRules,
+            string protocol)
+        {
+            BackendPort = backendPort;
+            FrontendPortRange = frontendPortRange;
+            Name = name;
+            NetworkSecurityGroupRules = networkSecurityGroupRules;
+            Protocol = protocol;
+        }
+    }
+
+    [OutputType]
+    public sealed class PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRules
+    {
+        public readonly string Access;
+        public readonly int Priority;
+        public readonly string SourceAddressPrefix;
+
+        [OutputConstructor]
+        private PoolNetworkConfigurationEndpointConfigurationsNetworkSecurityGroupRules(
+            string access,
+            int priority,
+            string sourceAddressPrefix)
+        {
+            Access = access;
+            Priority = priority;
+            SourceAddressPrefix = sourceAddressPrefix;
         }
     }
 

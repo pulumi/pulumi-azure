@@ -44,6 +44,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["maxTasksPerNode"] = nil
 		inputs["metadata"] = nil
 		inputs["name"] = nil
+		inputs["networkConfiguration"] = nil
 		inputs["nodeAgentSkuId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["startTask"] = nil
@@ -60,6 +61,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["maxTasksPerNode"] = args.MaxTasksPerNode
 		inputs["metadata"] = args.Metadata
 		inputs["name"] = args.Name
+		inputs["networkConfiguration"] = args.NetworkConfiguration
 		inputs["nodeAgentSkuId"] = args.NodeAgentSkuId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["startTask"] = args.StartTask
@@ -89,6 +91,7 @@ func GetPool(ctx *pulumi.Context,
 		inputs["maxTasksPerNode"] = state.MaxTasksPerNode
 		inputs["metadata"] = state.Metadata
 		inputs["name"] = state.Name
+		inputs["networkConfiguration"] = state.NetworkConfiguration
 		inputs["nodeAgentSkuId"] = state.NodeAgentSkuId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["startTask"] = state.StartTask
@@ -158,6 +161,11 @@ func (r *Pool) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A `networkConfiguration` block that describes the network configurations for the Batch pool.
+func (r *Pool) NetworkConfiguration() pulumi.Output {
+	return r.s.State["networkConfiguration"]
+}
+
 // Specifies the Sku of the node agents that will be created in the Batch pool.
 func (r *Pool) NodeAgentSkuId() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["nodeAgentSkuId"])
@@ -207,6 +215,8 @@ type PoolState struct {
 	Metadata interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
+	NetworkConfiguration interface{}
 	// Specifies the Sku of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId interface{}
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -240,6 +250,8 @@ type PoolArgs struct {
 	Metadata interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
+	NetworkConfiguration interface{}
 	// Specifies the Sku of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId interface{}
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.

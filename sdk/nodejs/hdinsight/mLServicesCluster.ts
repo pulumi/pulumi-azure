@@ -147,7 +147,7 @@ export class MLServicesCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight ML Services Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -274,7 +274,7 @@ export interface MLServicesClusterState {
     /**
      * A map of Tags which should be assigned to this HDInsight ML Services Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -320,7 +320,7 @@ export interface MLServicesClusterArgs {
     /**
      * A map of Tags which should be assigned to this HDInsight ML Services Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

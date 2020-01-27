@@ -86,7 +86,7 @@ export class Certificate extends pulumi.CustomResource {
      * The subject name of the certificate.
      */
     public /*out*/ readonly subjectName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The thumbprint for the certificate.
      */
@@ -201,7 +201,7 @@ export interface CertificateState {
      * The subject name of the certificate.
      */
     readonly subjectName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The thumbprint for the certificate.
      */
@@ -236,5 +236,5 @@ export interface CertificateArgs {
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

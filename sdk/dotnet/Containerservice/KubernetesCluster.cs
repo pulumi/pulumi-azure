@@ -141,7 +141,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
+        /// A `role_based_access_control` block.
         /// </summary>
         [Output("roleBasedAccessControl")]
         public Output<Outputs.KubernetesClusterRoleBasedAccessControl> RoleBasedAccessControl { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.ContainerService
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A `windows_profile` block as defined below.
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
+        /// A `role_based_access_control` block.
         /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlArgs>? RoleBasedAccessControl { get; set; }
@@ -322,14 +322,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterServicePrincipalArgs> ServicePrincipal { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `role_based_access_control` block. Changing this forces a new resource to be created.
+        /// A `role_based_access_control` block.
         /// </summary>
         [Input("roleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlGetArgs>? RoleBasedAccessControl { get; set; }
@@ -494,14 +494,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -1143,6 +1143,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
+        [Input("loadBalancerProfile")]
+        public Input<KubernetesClusterNetworkProfileLoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
+
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
 
@@ -1171,6 +1174,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("dockerBridgeCidr")]
         public Input<string>? DockerBridgeCidr { get; set; }
 
+        [Input("loadBalancerProfile")]
+        public Input<KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
+
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
 
@@ -1187,6 +1193,82 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ServiceCidr { get; set; }
 
         public KubernetesClusterNetworkProfileGetArgs()
+        {
+        }
+    }
+
+    public sealed class KubernetesClusterNetworkProfileLoadBalancerProfileArgs : Pulumi.ResourceArgs
+    {
+        [Input("effectiveOutboundIps")]
+        private InputList<string>? _effectiveOutboundIps;
+
+        /// <summary>
+        /// The outcome (resource IDs) of the specified arguments.
+        /// </summary>
+        public InputList<string> EffectiveOutboundIps
+        {
+            get => _effectiveOutboundIps ?? (_effectiveOutboundIps = new InputList<string>());
+            set => _effectiveOutboundIps = value;
+        }
+
+        [Input("managedOutboundIpCount")]
+        public Input<int>? ManagedOutboundIpCount { get; set; }
+
+        [Input("outboundIpAddressIds")]
+        private InputList<string>? _outboundIpAddressIds;
+        public InputList<string> OutboundIpAddressIds
+        {
+            get => _outboundIpAddressIds ?? (_outboundIpAddressIds = new InputList<string>());
+            set => _outboundIpAddressIds = value;
+        }
+
+        [Input("outboundIpPrefixIds")]
+        private InputList<string>? _outboundIpPrefixIds;
+        public InputList<string> OutboundIpPrefixIds
+        {
+            get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());
+            set => _outboundIpPrefixIds = value;
+        }
+
+        public KubernetesClusterNetworkProfileLoadBalancerProfileArgs()
+        {
+        }
+    }
+
+    public sealed class KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("effectiveOutboundIps")]
+        private InputList<string>? _effectiveOutboundIps;
+
+        /// <summary>
+        /// The outcome (resource IDs) of the specified arguments.
+        /// </summary>
+        public InputList<string> EffectiveOutboundIps
+        {
+            get => _effectiveOutboundIps ?? (_effectiveOutboundIps = new InputList<string>());
+            set => _effectiveOutboundIps = value;
+        }
+
+        [Input("managedOutboundIpCount")]
+        public Input<int>? ManagedOutboundIpCount { get; set; }
+
+        [Input("outboundIpAddressIds")]
+        private InputList<string>? _outboundIpAddressIds;
+        public InputList<string> OutboundIpAddressIds
+        {
+            get => _outboundIpAddressIds ?? (_outboundIpAddressIds = new InputList<string>());
+            set => _outboundIpAddressIds = value;
+        }
+
+        [Input("outboundIpPrefixIds")]
+        private InputList<string>? _outboundIpPrefixIds;
+        public InputList<string> OutboundIpPrefixIds
+        {
+            get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());
+            set => _outboundIpPrefixIds = value;
+        }
+
+        public KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs()
         {
         }
     }
@@ -1689,6 +1771,7 @@ namespace Pulumi.Azure.ContainerService
     {
         public readonly string DnsServiceIp;
         public readonly string DockerBridgeCidr;
+        public readonly KubernetesClusterNetworkProfileLoadBalancerProfile LoadBalancerProfile;
         public readonly string? LoadBalancerSku;
         public readonly string NetworkPlugin;
         public readonly string NetworkPolicy;
@@ -1699,6 +1782,7 @@ namespace Pulumi.Azure.ContainerService
         private KubernetesClusterNetworkProfile(
             string dnsServiceIp,
             string dockerBridgeCidr,
+            KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile,
             string? loadBalancerSku,
             string networkPlugin,
             string networkPolicy,
@@ -1707,11 +1791,37 @@ namespace Pulumi.Azure.ContainerService
         {
             DnsServiceIp = dnsServiceIp;
             DockerBridgeCidr = dockerBridgeCidr;
+            LoadBalancerProfile = loadBalancerProfile;
             LoadBalancerSku = loadBalancerSku;
             NetworkPlugin = networkPlugin;
             NetworkPolicy = networkPolicy;
             PodCidr = podCidr;
             ServiceCidr = serviceCidr;
+        }
+    }
+
+    [OutputType]
+    public sealed class KubernetesClusterNetworkProfileLoadBalancerProfile
+    {
+        /// <summary>
+        /// The outcome (resource IDs) of the specified arguments.
+        /// </summary>
+        public readonly ImmutableArray<string> EffectiveOutboundIps;
+        public readonly int ManagedOutboundIpCount;
+        public readonly ImmutableArray<string> OutboundIpAddressIds;
+        public readonly ImmutableArray<string> OutboundIpPrefixIds;
+
+        [OutputConstructor]
+        private KubernetesClusterNetworkProfileLoadBalancerProfile(
+            ImmutableArray<string> effectiveOutboundIps,
+            int managedOutboundIpCount,
+            ImmutableArray<string> outboundIpAddressIds,
+            ImmutableArray<string> outboundIpPrefixIds)
+        {
+            EffectiveOutboundIps = effectiveOutboundIps;
+            ManagedOutboundIpCount = managedOutboundIpCount;
+            OutboundIpAddressIds = outboundIpAddressIds;
+            OutboundIpPrefixIds = outboundIpPrefixIds;
         }
     }
 

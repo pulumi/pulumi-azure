@@ -62,7 +62,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * A mapping of MetaData which should be assigned to this Storage Queue.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
      */
@@ -120,7 +120,7 @@ export interface QueueState {
     /**
      * A mapping of MetaData which should be assigned to this Storage Queue.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
      */
@@ -142,7 +142,7 @@ export interface QueueArgs {
     /**
      * A mapping of MetaData which should be assigned to this Storage Queue.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
      */

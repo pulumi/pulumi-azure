@@ -26,17 +26,11 @@ func NewExtension(ctx *pulumi.Context,
 	if args == nil || args.Publisher == nil {
 		return nil, errors.New("missing required argument 'Publisher'")
 	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil || args.Type == nil {
 		return nil, errors.New("missing required argument 'Type'")
 	}
 	if args == nil || args.TypeHandlerVersion == nil {
 		return nil, errors.New("missing required argument 'TypeHandlerVersion'")
-	}
-	if args == nil || args.VirtualMachineName == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineName'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
@@ -50,6 +44,7 @@ func NewExtension(ctx *pulumi.Context,
 		inputs["tags"] = nil
 		inputs["type"] = nil
 		inputs["typeHandlerVersion"] = nil
+		inputs["virtualMachineId"] = nil
 		inputs["virtualMachineName"] = nil
 	} else {
 		inputs["autoUpgradeMinorVersion"] = args.AutoUpgradeMinorVersion
@@ -62,6 +57,7 @@ func NewExtension(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["type"] = args.Type
 		inputs["typeHandlerVersion"] = args.TypeHandlerVersion
+		inputs["virtualMachineId"] = args.VirtualMachineId
 		inputs["virtualMachineName"] = args.VirtualMachineName
 	}
 	s, err := ctx.RegisterResource("azure:compute/extension:Extension", name, true, inputs, opts...)
@@ -87,6 +83,7 @@ func GetExtension(ctx *pulumi.Context,
 		inputs["tags"] = state.Tags
 		inputs["type"] = state.Type
 		inputs["typeHandlerVersion"] = state.TypeHandlerVersion
+		inputs["virtualMachineId"] = state.VirtualMachineId
 		inputs["virtualMachineName"] = state.VirtualMachineName
 	}
 	s, err := ctx.ReadResource("azure:compute/extension:Extension", name, id, inputs, opts...)
@@ -166,6 +163,13 @@ func (r *Extension) TypeHandlerVersion() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["typeHandlerVersion"])
 }
 
+// The resource ID of the virtual machine. This value replaces 
+// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+// resource to be created
+func (r *Extension) VirtualMachineId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["virtualMachineId"])
+}
+
 // The name of the virtual machine. Changing
 // this forces a new resource to be created.
 func (r *Extension) VirtualMachineName() pulumi.StringOutput {
@@ -204,6 +208,10 @@ type ExtensionState struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion interface{}
+	// The resource ID of the virtual machine. This value replaces 
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
+	VirtualMachineId interface{}
 	// The name of the virtual machine. Changing
 	// this forces a new resource to be created.
 	VirtualMachineName interface{}
@@ -241,6 +249,10 @@ type ExtensionArgs struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion interface{}
+	// The resource ID of the virtual machine. This value replaces 
+	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+	// resource to be created
+	VirtualMachineId interface{}
 	// The name of the virtual machine. Changing
 	// this forces a new resource to be created.
 	VirtualMachineName interface{}

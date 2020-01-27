@@ -78,7 +78,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * A mapping of MetaData for this Container.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any}>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Container which should be created within the Storage Account.
      */
@@ -160,7 +160,7 @@ export interface ContainerState {
     /**
      * A mapping of MetaData for this Container.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Container which should be created within the Storage Account.
      */
@@ -190,7 +190,7 @@ export interface ContainerArgs {
     /**
      * A mapping of MetaData for this Container.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Container which should be created within the Storage Account.
      */

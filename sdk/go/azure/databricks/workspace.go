@@ -26,6 +26,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["customParameters"] = nil
 		inputs["location"] = nil
 		inputs["managedResourceGroupName"] = nil
 		inputs["name"] = nil
@@ -33,6 +34,7 @@ func NewWorkspace(ctx *pulumi.Context,
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["customParameters"] = args.CustomParameters
 		inputs["location"] = args.Location
 		inputs["managedResourceGroupName"] = args.ManagedResourceGroupName
 		inputs["name"] = args.Name
@@ -54,6 +56,7 @@ func GetWorkspace(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *WorkspaceState, opts ...pulumi.ResourceOpt) (*Workspace, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["customParameters"] = state.CustomParameters
 		inputs["location"] = state.Location
 		inputs["managedResourceGroupId"] = state.ManagedResourceGroupId
 		inputs["managedResourceGroupName"] = state.ManagedResourceGroupName
@@ -77,6 +80,11 @@ func (r *Workspace) URN() pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Workspace) ID() pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// A `customParameters` block as documented below.
+func (r *Workspace) CustomParameters() pulumi.Output {
+	return r.s.State["customParameters"]
 }
 
 // Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -116,6 +124,8 @@ func (r *Workspace) Tags() pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Workspace resources.
 type WorkspaceState struct {
+	// A `customParameters` block as documented below.
+	CustomParameters interface{}
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
@@ -134,6 +144,8 @@ type WorkspaceState struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// A `customParameters` block as documented below.
+	CustomParameters interface{}
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.

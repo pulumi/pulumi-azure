@@ -108,7 +108,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
      */
@@ -202,7 +202,7 @@ export interface NatGatewayState {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
      */
@@ -244,7 +244,7 @@ export interface NatGatewayArgs {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
      */

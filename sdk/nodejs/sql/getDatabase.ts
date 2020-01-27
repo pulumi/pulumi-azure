@@ -45,7 +45,7 @@ export interface GetDatabaseArgs {
      * The name of the SQL Server.
      */
     readonly serverName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -95,7 +95,7 @@ export interface GetDatabaseResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

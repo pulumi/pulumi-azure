@@ -30,6 +30,7 @@ func NewInsights(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["retentionInDays"] = nil
 		inputs["samplingPercentage"] = nil
 		inputs["tags"] = nil
 	} else {
@@ -37,6 +38,7 @@ func NewInsights(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["retentionInDays"] = args.RetentionInDays
 		inputs["samplingPercentage"] = args.SamplingPercentage
 		inputs["tags"] = args.Tags
 	}
@@ -61,6 +63,7 @@ func GetInsights(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["retentionInDays"] = state.RetentionInDays
 		inputs["samplingPercentage"] = state.SamplingPercentage
 		inputs["tags"] = state.Tags
 	}
@@ -113,6 +116,11 @@ func (r *Insights) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+func (r *Insights) RetentionInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["retentionInDays"])
+}
+
 // Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 func (r *Insights) SamplingPercentage() pulumi.Float64Output {
 	return (pulumi.Float64Output)(r.s.State["samplingPercentage"])
@@ -139,6 +147,8 @@ type InsightsState struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName interface{}
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	RetentionInDays interface{}
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage interface{}
 	// A mapping of tags to assign to the resource.
@@ -157,6 +167,8 @@ type InsightsArgs struct {
 	// The name of the resource group in which to
 	// create the Application Insights component.
 	ResourceGroupName interface{}
+	// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+	RetentionInDays interface{}
 	// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
 	SamplingPercentage interface{}
 	// A mapping of tags to assign to the resource.

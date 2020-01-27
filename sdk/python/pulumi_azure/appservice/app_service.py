@@ -112,19 +112,19 @@ class AppService(pulumi.CustomResource):
         * `azureBlobStorage` (`dict`)
     
           * `level` (`str`)
-          * `retentionInDays` (`float`)
+          * `retention_in_days` (`float`)
           * `sasUrl` (`str`)
     
       * `httpLogs` (`dict`)
     
         * `azureBlobStorage` (`dict`)
     
-          * `retentionInDays` (`float`)
+          * `retention_in_days` (`float`)
           * `sasUrl` (`str`)
     
         * `fileSystem` (`dict`)
     
-          * `retentionInDays` (`float`)
+          * `retention_in_days` (`float`)
           * `retentionInMb` (`float`)
     """
     name: pulumi.Output[str]
@@ -311,19 +311,19 @@ class AppService(pulumi.CustomResource):
             * `azureBlobStorage` (`pulumi.Input[dict]`)
         
               * `level` (`pulumi.Input[str]`)
-              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
         
           * `httpLogs` (`pulumi.Input[dict]`)
         
             * `azureBlobStorage` (`pulumi.Input[dict]`)
         
-              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
         
             * `fileSystem` (`pulumi.Input[dict]`)
         
-              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retention_in_days` (`pulumi.Input[float]`)
               * `retentionInMb` (`pulumi.Input[float]`)
         
         The **site_config** object supports the following:
@@ -529,19 +529,19 @@ class AppService(pulumi.CustomResource):
             * `azureBlobStorage` (`pulumi.Input[dict]`)
         
               * `level` (`pulumi.Input[str]`)
-              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
         
           * `httpLogs` (`pulumi.Input[dict]`)
         
             * `azureBlobStorage` (`pulumi.Input[dict]`)
         
-              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retention_in_days` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
         
             * `fileSystem` (`pulumi.Input[dict]`)
         
-              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retention_in_days` (`pulumi.Input[float]`)
               * `retentionInMb` (`pulumi.Input[float]`)
         
         The **site_config** object supports the following:

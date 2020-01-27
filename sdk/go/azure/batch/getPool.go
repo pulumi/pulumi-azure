@@ -16,6 +16,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 		inputs["accountName"] = args.AccountName
 		inputs["certificates"] = args.Certificates
 		inputs["name"] = args.Name
+		inputs["networkConfiguration"] = args.NetworkConfiguration
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["startTask"] = args.StartTask
 	}
@@ -33,6 +34,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 		MaxTasksPerNode: outputs["maxTasksPerNode"],
 		Metadata: outputs["metadata"],
 		Name: outputs["name"],
+		NetworkConfiguration: outputs["networkConfiguration"],
 		NodeAgentSkuId: outputs["nodeAgentSkuId"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		StartTask: outputs["startTask"],
@@ -47,6 +49,7 @@ type GetPoolArgs struct {
 	AccountName interface{}
 	Certificates interface{}
 	Name interface{}
+	NetworkConfiguration interface{}
 	ResourceGroupName interface{}
 	StartTask interface{}
 }
@@ -67,8 +70,9 @@ type GetPoolResult struct {
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
 	MaxTasksPerNode interface{}
 	Metadata interface{}
-	// The name of the Batch pool.
+	// The name of the endpoint.
 	Name interface{}
+	NetworkConfiguration interface{}
 	// The Sku of the node agents in the Batch pool.
 	NodeAgentSkuId interface{}
 	ResourceGroupName interface{}

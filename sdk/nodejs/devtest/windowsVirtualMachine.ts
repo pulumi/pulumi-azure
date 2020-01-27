@@ -145,7 +145,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The unique immutable identifier of the Virtual Machine.
      */
@@ -311,7 +311,7 @@ export interface WindowsVirtualMachineState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of the Virtual Machine.
      */
@@ -385,7 +385,7 @@ export interface WindowsVirtualMachineArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */

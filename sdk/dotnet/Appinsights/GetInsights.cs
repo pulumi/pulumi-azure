@@ -60,6 +60,10 @@ namespace Pulumi.Azure.AppInsights
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// The retention period in days.
+        /// </summary>
+        public readonly int RetentionInDays;
+        /// <summary>
         /// Tags applied to the component.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -76,6 +80,7 @@ namespace Pulumi.Azure.AppInsights
             string location,
             string name,
             string resourceGroupName,
+            int retentionInDays,
             ImmutableDictionary<string, string> tags,
             string id)
         {
@@ -85,6 +90,7 @@ namespace Pulumi.Azure.AppInsights
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            RetentionInDays = retentionInDays;
             Tags = tags;
             Id = id;
         }

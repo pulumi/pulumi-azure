@@ -22,11 +22,11 @@ type TrafficManagerProfile struct {
 // NewTrafficManagerProfile registers a new resource with the given unique name, arguments, and options.
 func NewTrafficManagerProfile(ctx *pulumi.Context,
 	name string, args *TrafficManagerProfileArgs, opts ...pulumi.ResourceOpt) (*TrafficManagerProfile, error) {
-	if args == nil || args.DnsConfigs == nil {
-		return nil, errors.New("missing required argument 'DnsConfigs'")
+	if args == nil || args.DnsConfig == nil {
+		return nil, errors.New("missing required argument 'DnsConfig'")
 	}
-	if args == nil || args.MonitorConfigs == nil {
-		return nil, errors.New("missing required argument 'MonitorConfigs'")
+	if args == nil || args.MonitorConfig == nil {
+		return nil, errors.New("missing required argument 'MonitorConfig'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -36,16 +36,16 @@ func NewTrafficManagerProfile(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
-		inputs["dnsConfigs"] = nil
-		inputs["monitorConfigs"] = nil
+		inputs["dnsConfig"] = nil
+		inputs["monitorConfig"] = nil
 		inputs["name"] = nil
 		inputs["profileStatus"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
 		inputs["trafficRoutingMethod"] = nil
 	} else {
-		inputs["dnsConfigs"] = args.DnsConfigs
-		inputs["monitorConfigs"] = args.MonitorConfigs
+		inputs["dnsConfig"] = args.DnsConfig
+		inputs["monitorConfig"] = args.MonitorConfig
 		inputs["name"] = args.Name
 		inputs["profileStatus"] = args.ProfileStatus
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -66,9 +66,9 @@ func GetTrafficManagerProfile(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *TrafficManagerProfileState, opts ...pulumi.ResourceOpt) (*TrafficManagerProfile, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
-		inputs["dnsConfigs"] = state.DnsConfigs
+		inputs["dnsConfig"] = state.DnsConfig
 		inputs["fqdn"] = state.Fqdn
-		inputs["monitorConfigs"] = state.MonitorConfigs
+		inputs["monitorConfig"] = state.MonitorConfig
 		inputs["name"] = state.Name
 		inputs["profileStatus"] = state.ProfileStatus
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -94,8 +94,8 @@ func (r *TrafficManagerProfile) ID() pulumi.IDOutput {
 
 // This block specifies the DNS configuration of the
 // Profile, it supports the fields documented below.
-func (r *TrafficManagerProfile) DnsConfigs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["dnsConfigs"])
+func (r *TrafficManagerProfile) DnsConfig() pulumi.Output {
+	return r.s.State["dnsConfig"]
 }
 
 // The FQDN of the created Profile.
@@ -105,8 +105,8 @@ func (r *TrafficManagerProfile) Fqdn() pulumi.StringOutput {
 
 // This block specifies the Endpoint monitoring
 // configuration for the Profile, it supports the fields documented below.
-func (r *TrafficManagerProfile) MonitorConfigs() pulumi.ArrayOutput {
-	return (pulumi.ArrayOutput)(r.s.State["monitorConfigs"])
+func (r *TrafficManagerProfile) MonitorConfig() pulumi.Output {
+	return r.s.State["monitorConfig"]
 }
 
 // The name of the virtual network. Changing this forces a
@@ -147,12 +147,12 @@ func (r *TrafficManagerProfile) TrafficRoutingMethod() pulumi.StringOutput {
 type TrafficManagerProfileState struct {
 	// This block specifies the DNS configuration of the
 	// Profile, it supports the fields documented below.
-	DnsConfigs interface{}
+	DnsConfig interface{}
 	// The FQDN of the created Profile.
 	Fqdn interface{}
 	// This block specifies the Endpoint monitoring
 	// configuration for the Profile, it supports the fields documented below.
-	MonitorConfigs interface{}
+	MonitorConfig interface{}
 	// The name of the virtual network. Changing this forces a
 	// new resource to be created.
 	Name interface{}
@@ -178,10 +178,10 @@ type TrafficManagerProfileState struct {
 type TrafficManagerProfileArgs struct {
 	// This block specifies the DNS configuration of the
 	// Profile, it supports the fields documented below.
-	DnsConfigs interface{}
+	DnsConfig interface{}
 	// This block specifies the Endpoint monitoring
 	// configuration for the Profile, it supports the fields documented below.
-	MonitorConfigs interface{}
+	MonitorConfig interface{}
 	// The name of the virtual network. Changing this forces a
 	// new resource to be created.
 	Name interface{}

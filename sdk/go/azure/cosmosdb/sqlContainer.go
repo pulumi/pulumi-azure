@@ -31,6 +31,7 @@ func NewSqlContainer(ctx *pulumi.Context,
 	if args == nil {
 		inputs["accountName"] = nil
 		inputs["databaseName"] = nil
+		inputs["defaultTtl"] = nil
 		inputs["name"] = nil
 		inputs["partitionKeyPath"] = nil
 		inputs["resourceGroupName"] = nil
@@ -39,6 +40,7 @@ func NewSqlContainer(ctx *pulumi.Context,
 	} else {
 		inputs["accountName"] = args.AccountName
 		inputs["databaseName"] = args.DatabaseName
+		inputs["defaultTtl"] = args.DefaultTtl
 		inputs["name"] = args.Name
 		inputs["partitionKeyPath"] = args.PartitionKeyPath
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -60,6 +62,7 @@ func GetSqlContainer(ctx *pulumi.Context,
 	if state != nil {
 		inputs["accountName"] = state.AccountName
 		inputs["databaseName"] = state.DatabaseName
+		inputs["defaultTtl"] = state.DefaultTtl
 		inputs["name"] = state.Name
 		inputs["partitionKeyPath"] = state.PartitionKeyPath
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -93,6 +96,11 @@ func (r *SqlContainer) DatabaseName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["databaseName"])
 }
 
+// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+func (r *SqlContainer) DefaultTtl() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["defaultTtl"])
+}
+
 // Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 func (r *SqlContainer) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
@@ -123,6 +131,8 @@ type SqlContainerState struct {
 	AccountName interface{}
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName interface{}
+	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	DefaultTtl interface{}
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name interface{}
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -140,6 +150,8 @@ type SqlContainerArgs struct {
 	AccountName interface{}
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName interface{}
+	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	DefaultTtl interface{}
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name interface{}
 	// Define a partition key. Changing this forces a new resource to be created.

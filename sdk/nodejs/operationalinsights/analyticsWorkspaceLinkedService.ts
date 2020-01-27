@@ -96,7 +96,7 @@ export class AnalyticsWorkspaceLinkedService extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
      */
@@ -175,7 +175,7 @@ export interface AnalyticsWorkspaceLinkedServiceState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
      */
@@ -205,7 +205,7 @@ export interface AnalyticsWorkspaceLinkedServiceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
      */

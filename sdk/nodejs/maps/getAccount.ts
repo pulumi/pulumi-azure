@@ -52,7 +52,7 @@ export interface GetAccountArgs {
      * Specifies the name of the Resource Group in which the Maps Account is located.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -73,7 +73,7 @@ export interface GetAccountResult {
      * The sku of the Azure Maps Account.
      */
     readonly skuName: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * A unique identifier for the Maps Account.
      */

@@ -28,6 +28,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// </summary>
+        [Output("defaultTtl")]
+        public Output<int> DefaultTtl { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -113,6 +119,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// </summary>
+        [Input("defaultTtl")]
+        public Input<int>? DefaultTtl { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -163,6 +175,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// </summary>
+        [Input("defaultTtl")]
+        public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
