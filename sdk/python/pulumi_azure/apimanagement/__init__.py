@@ -32,6 +32,7 @@ from .subscription import *
 from .user import *
 from .get_service import *
 from .get_api import *
+from .get_api_version_set import *
 from .get_group import *
 from .get_product import *
 from .get_user import *

@@ -51,7 +51,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     A `sku` block for the ExpressRoute circuit as documented below.
     
       * `family` (`str`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-      * `tier` (`str`) - The service tier. Possible values are `Standard` or `Premium`.
+      * `tier` (`str`) - The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
     """
     tags: pulumi.Output[dict]
     """
@@ -76,7 +76,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         The **sku** object supports the following:
         
           * `family` (`pulumi.Input[str]`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-          * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Standard` or `Premium`.
+          * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """
@@ -148,7 +148,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         The **sku** object supports the following:
         
           * `family` (`pulumi.Input[str]`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
-          * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Standard` or `Premium`.
+          * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """

@@ -178,7 +178,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
@@ -271,7 +271,7 @@ export interface CertificateState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
@@ -306,6 +306,6 @@ export interface CertificateArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly vaultUri?: pulumi.Input<string>;
 }

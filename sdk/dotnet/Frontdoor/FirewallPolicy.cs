@@ -85,7 +85,7 @@ namespace Pulumi.Azure.FrontDoor
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -200,14 +200,14 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -303,14 +303,14 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -478,6 +478,14 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesArgs : Pulumi.ResourceArgs
     {
+        [Input("exclusions")]
+        private InputList<FirewallPolicyManagedRulesExclusionsArgs>? _exclusions;
+        public InputList<FirewallPolicyManagedRulesExclusionsArgs> Exclusions
+        {
+            get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesExclusionsArgs>());
+            set => _exclusions = value;
+        }
+
         [Input("overrides")]
         private InputList<FirewallPolicyManagedRulesOverridesArgs>? _overrides;
         public InputList<FirewallPolicyManagedRulesOverridesArgs> Overrides
@@ -497,8 +505,48 @@ namespace Pulumi.Azure.FrontDoor
         }
     }
 
+    public sealed class FirewallPolicyManagedRulesExclusionsArgs : Pulumi.ResourceArgs
+    {
+        [Input("matchVariable", required: true)]
+        public Input<string> MatchVariable { get; set; } = null!;
+
+        [Input("operator", required: true)]
+        public Input<string> Operator { get; set; } = null!;
+
+        [Input("selector", required: true)]
+        public Input<string> Selector { get; set; } = null!;
+
+        public FirewallPolicyManagedRulesExclusionsArgs()
+        {
+        }
+    }
+
+    public sealed class FirewallPolicyManagedRulesExclusionsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("matchVariable", required: true)]
+        public Input<string> MatchVariable { get; set; } = null!;
+
+        [Input("operator", required: true)]
+        public Input<string> Operator { get; set; } = null!;
+
+        [Input("selector", required: true)]
+        public Input<string> Selector { get; set; } = null!;
+
+        public FirewallPolicyManagedRulesExclusionsGetArgs()
+        {
+        }
+    }
+
     public sealed class FirewallPolicyManagedRulesGetArgs : Pulumi.ResourceArgs
     {
+        [Input("exclusions")]
+        private InputList<FirewallPolicyManagedRulesExclusionsGetArgs>? _exclusions;
+        public InputList<FirewallPolicyManagedRulesExclusionsGetArgs> Exclusions
+        {
+            get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesExclusionsGetArgs>());
+            set => _exclusions = value;
+        }
+
         [Input("overrides")]
         private InputList<FirewallPolicyManagedRulesOverridesGetArgs>? _overrides;
         public InputList<FirewallPolicyManagedRulesOverridesGetArgs> Overrides
@@ -520,6 +568,14 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class FirewallPolicyManagedRulesOverridesArgs : Pulumi.ResourceArgs
     {
+        [Input("exclusions")]
+        private InputList<FirewallPolicyManagedRulesOverridesExclusionsArgs>? _exclusions;
+        public InputList<FirewallPolicyManagedRulesOverridesExclusionsArgs> Exclusions
+        {
+            get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesExclusionsArgs>());
+            set => _exclusions = value;
+        }
+
         [Input("rules")]
         private InputList<FirewallPolicyManagedRulesOverridesRulesArgs>? _rules;
         public InputList<FirewallPolicyManagedRulesOverridesRulesArgs> Rules
@@ -536,8 +592,48 @@ namespace Pulumi.Azure.FrontDoor
         }
     }
 
+    public sealed class FirewallPolicyManagedRulesOverridesExclusionsArgs : Pulumi.ResourceArgs
+    {
+        [Input("matchVariable", required: true)]
+        public Input<string> MatchVariable { get; set; } = null!;
+
+        [Input("operator", required: true)]
+        public Input<string> Operator { get; set; } = null!;
+
+        [Input("selector", required: true)]
+        public Input<string> Selector { get; set; } = null!;
+
+        public FirewallPolicyManagedRulesOverridesExclusionsArgs()
+        {
+        }
+    }
+
+    public sealed class FirewallPolicyManagedRulesOverridesExclusionsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("matchVariable", required: true)]
+        public Input<string> MatchVariable { get; set; } = null!;
+
+        [Input("operator", required: true)]
+        public Input<string> Operator { get; set; } = null!;
+
+        [Input("selector", required: true)]
+        public Input<string> Selector { get; set; } = null!;
+
+        public FirewallPolicyManagedRulesOverridesExclusionsGetArgs()
+        {
+        }
+    }
+
     public sealed class FirewallPolicyManagedRulesOverridesGetArgs : Pulumi.ResourceArgs
     {
+        [Input("exclusions")]
+        private InputList<FirewallPolicyManagedRulesOverridesExclusionsGetArgs>? _exclusions;
+        public InputList<FirewallPolicyManagedRulesOverridesExclusionsGetArgs> Exclusions
+        {
+            get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesExclusionsGetArgs>());
+            set => _exclusions = value;
+        }
+
         [Input("rules")]
         private InputList<FirewallPolicyManagedRulesOverridesRulesGetArgs>? _rules;
         public InputList<FirewallPolicyManagedRulesOverridesRulesGetArgs> Rules
@@ -565,10 +661,50 @@ namespace Pulumi.Azure.FrontDoor
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("exclusions")]
+        private InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsArgs>? _exclusions;
+        public InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsArgs> Exclusions
+        {
+            get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsArgs>());
+            set => _exclusions = value;
+        }
+
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
         public FirewallPolicyManagedRulesOverridesRulesArgs()
+        {
+        }
+    }
+
+    public sealed class FirewallPolicyManagedRulesOverridesRulesExclusionsArgs : Pulumi.ResourceArgs
+    {
+        [Input("matchVariable", required: true)]
+        public Input<string> MatchVariable { get; set; } = null!;
+
+        [Input("operator", required: true)]
+        public Input<string> Operator { get; set; } = null!;
+
+        [Input("selector", required: true)]
+        public Input<string> Selector { get; set; } = null!;
+
+        public FirewallPolicyManagedRulesOverridesRulesExclusionsArgs()
+        {
+        }
+    }
+
+    public sealed class FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("matchVariable", required: true)]
+        public Input<string> MatchVariable { get; set; } = null!;
+
+        [Input("operator", required: true)]
+        public Input<string> Operator { get; set; } = null!;
+
+        [Input("selector", required: true)]
+        public Input<string> Selector { get; set; } = null!;
+
+        public FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs()
         {
         }
     }
@@ -583,6 +719,14 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("exclusions")]
+        private InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs>? _exclusions;
+        public InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs> Exclusions
+        {
+            get => _exclusions ?? (_exclusions = new InputList<FirewallPolicyManagedRulesOverridesRulesExclusionsGetArgs>());
+            set => _exclusions = value;
+        }
 
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
@@ -667,16 +811,19 @@ namespace Pulumi.Azure.FrontDoor
     [OutputType]
     public sealed class FirewallPolicyManagedRules
     {
+        public readonly ImmutableArray<FirewallPolicyManagedRulesExclusions> Exclusions;
         public readonly ImmutableArray<FirewallPolicyManagedRulesOverrides> Overrides;
         public readonly string Type;
         public readonly string Version;
 
         [OutputConstructor]
         private FirewallPolicyManagedRules(
+            ImmutableArray<FirewallPolicyManagedRulesExclusions> exclusions,
             ImmutableArray<FirewallPolicyManagedRulesOverrides> overrides,
             string type,
             string version)
         {
+            Exclusions = exclusions;
             Overrides = overrides;
             Type = type;
             Version = version;
@@ -684,18 +831,59 @@ namespace Pulumi.Azure.FrontDoor
     }
 
     [OutputType]
+    public sealed class FirewallPolicyManagedRulesExclusions
+    {
+        public readonly string MatchVariable;
+        public readonly string Operator;
+        public readonly string Selector;
+
+        [OutputConstructor]
+        private FirewallPolicyManagedRulesExclusions(
+            string matchVariable,
+            string @operator,
+            string selector)
+        {
+            MatchVariable = matchVariable;
+            Operator = @operator;
+            Selector = selector;
+        }
+    }
+
+    [OutputType]
     public sealed class FirewallPolicyManagedRulesOverrides
     {
+        public readonly ImmutableArray<FirewallPolicyManagedRulesOverridesExclusions> Exclusions;
         public readonly ImmutableArray<FirewallPolicyManagedRulesOverridesRules> Rules;
         public readonly string RuleGroupName;
 
         [OutputConstructor]
         private FirewallPolicyManagedRulesOverrides(
+            ImmutableArray<FirewallPolicyManagedRulesOverridesExclusions> exclusions,
             ImmutableArray<FirewallPolicyManagedRulesOverridesRules> rules,
             string ruleGroupName)
         {
+            Exclusions = exclusions;
             Rules = rules;
             RuleGroupName = ruleGroupName;
+        }
+    }
+
+    [OutputType]
+    public sealed class FirewallPolicyManagedRulesOverridesExclusions
+    {
+        public readonly string MatchVariable;
+        public readonly string Operator;
+        public readonly string Selector;
+
+        [OutputConstructor]
+        private FirewallPolicyManagedRulesOverridesExclusions(
+            string matchVariable,
+            string @operator,
+            string selector)
+        {
+            MatchVariable = matchVariable;
+            Operator = @operator;
+            Selector = selector;
         }
     }
 
@@ -707,17 +895,39 @@ namespace Pulumi.Azure.FrontDoor
         /// Is the policy a enabled state or disabled state. Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
+        public readonly ImmutableArray<FirewallPolicyManagedRulesOverridesRulesExclusions> Exclusions;
         public readonly string RuleId;
 
         [OutputConstructor]
         private FirewallPolicyManagedRulesOverridesRules(
             string action,
             bool? enabled,
+            ImmutableArray<FirewallPolicyManagedRulesOverridesRulesExclusions> exclusions,
             string ruleId)
         {
             Action = action;
             Enabled = enabled;
+            Exclusions = exclusions;
             RuleId = ruleId;
+        }
+    }
+
+    [OutputType]
+    public sealed class FirewallPolicyManagedRulesOverridesRulesExclusions
+    {
+        public readonly string MatchVariable;
+        public readonly string Operator;
+        public readonly string Selector;
+
+        [OutputConstructor]
+        private FirewallPolicyManagedRulesOverridesRulesExclusions(
+            string matchVariable,
+            string @operator,
+            string selector)
+        {
+            MatchVariable = matchVariable;
+            Operator = @operator;
+            Selector = selector;
         }
     }
     }

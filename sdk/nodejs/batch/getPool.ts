@@ -36,6 +36,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
         "accountName": args.accountName,
         "certificates": args.certificates,
         "name": args.name,
+        "networkConfiguration": args.networkConfiguration,
         "resourceGroupName": args.resourceGroupName,
         "startTask": args.startTask,
     }, opts);
@@ -50,6 +51,7 @@ export interface GetPoolArgs {
     readonly accountName: string;
     readonly certificates?: inputs.batch.GetPoolCertificate[];
     readonly name: string;
+    readonly networkConfiguration?: inputs.batch.GetPoolNetworkConfiguration;
     readonly resourceGroupName: string;
     readonly startTask?: inputs.batch.GetPoolStartTask;
 }
@@ -85,9 +87,10 @@ export interface GetPoolResult {
     readonly maxTasksPerNode: number;
     readonly metadata: {[key: string]: string};
     /**
-     * The name of the Batch pool.
+     * The name of the endpoint.
      */
     readonly name: string;
+    readonly networkConfiguration: outputs.batch.GetPoolNetworkConfiguration;
     /**
      * The Sku of the node agents in the Batch pool.
      */

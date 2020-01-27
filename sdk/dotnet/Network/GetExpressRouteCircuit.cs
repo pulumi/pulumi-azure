@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Family;
         /// <summary>
-        /// The service tier. Possible values are `Standard` or `Premium`.
+        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         /// </summary>
         public readonly string Tier;
 

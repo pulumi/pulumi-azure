@@ -18,6 +18,10 @@ class SqlContainer(pulumi.CustomResource):
     """
     The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
     """
+    default_ttl: pulumi.Output[float]
+    """
+    The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+    """
     name: pulumi.Output[str]
     """
     Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
@@ -37,7 +41,7 @@ class SqlContainer(pulumi.CustomResource):
     
       * `paths` (`list`)
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a SQL Container within a Cosmos DB Account.
         
@@ -45,6 +49,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -79,6 +84,7 @@ class SqlContainer(pulumi.CustomResource):
             if database_name is None:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
+            __props__['default_ttl'] = default_ttl
             __props__['name'] = name
             __props__['partition_key_path'] = partition_key_path
             if resource_group_name is None:
@@ -93,7 +99,7 @@ class SqlContainer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, database_name=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None):
+    def get(resource_name, id, opts=None, account_name=None, database_name=None, default_ttl=None, name=None, partition_key_path=None, resource_group_name=None, throughput=None, unique_keys=None):
         """
         Get an existing SqlContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -103,6 +109,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -119,6 +126,7 @@ class SqlContainer(pulumi.CustomResource):
         __props__ = dict()
         __props__["account_name"] = account_name
         __props__["database_name"] = database_name
+        __props__["default_ttl"] = default_ttl
         __props__["name"] = name
         __props__["partition_key_path"] = partition_key_path
         __props__["resource_group_name"] = resource_group_name

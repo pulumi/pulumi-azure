@@ -127,7 +127,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Reference to a VM with which this NIC has been associated.
      */
@@ -257,7 +257,7 @@ export interface NetworkInterfaceState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Reference to a VM with which this NIC has been associated.
      */
@@ -316,7 +316,7 @@ export interface NetworkInterfaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Reference to a VM with which this NIC has been associated.
      */

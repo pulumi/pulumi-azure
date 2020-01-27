@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -176,14 +176,14 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ExpressRouteCircuitSkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -255,14 +255,14 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.ExpressRouteCircuitSkuGetArgs>? Sku { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Network
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The service tier. Possible values are `Standard` or `Premium`.
+        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Network
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The service tier. Possible values are `Standard` or `Premium`.
+        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Family;
         /// <summary>
-        /// The service tier. Possible values are `Standard` or `Premium`.
+        /// The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         /// </summary>
         public readonly string Tier;
 

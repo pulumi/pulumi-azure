@@ -114,7 +114,7 @@ func (r *Workflow) WorkflowSchema() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["workflowSchema"])
 }
 
-// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
 func (r *Workflow) WorkflowVersion() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["workflowVersion"])
 }
@@ -135,7 +135,7 @@ type WorkflowState struct {
 	Tags interface{}
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema interface{}
-	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
 	WorkflowVersion interface{}
 }
 
@@ -153,6 +153,6 @@ type WorkflowArgs struct {
 	Tags interface{}
 	// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
 	WorkflowSchema interface{}
-	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+	// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
 	WorkflowVersion interface{}
 }

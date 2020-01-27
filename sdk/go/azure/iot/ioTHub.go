@@ -33,6 +33,8 @@ func NewIoTHub(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["endpoints"] = nil
+		inputs["eventHubPartitionCount"] = nil
+		inputs["eventHubRetentionInDays"] = nil
 		inputs["fallbackRoute"] = nil
 		inputs["fileUpload"] = nil
 		inputs["ipFilterRules"] = nil
@@ -44,6 +46,8 @@ func NewIoTHub(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["endpoints"] = args.Endpoints
+		inputs["eventHubPartitionCount"] = args.EventHubPartitionCount
+		inputs["eventHubRetentionInDays"] = args.EventHubRetentionInDays
 		inputs["fallbackRoute"] = args.FallbackRoute
 		inputs["fileUpload"] = args.FileUpload
 		inputs["ipFilterRules"] = args.IpFilterRules
@@ -79,6 +83,8 @@ func GetIoTHub(ctx *pulumi.Context,
 		inputs["eventHubEventsPath"] = state.EventHubEventsPath
 		inputs["eventHubOperationsEndpoint"] = state.EventHubOperationsEndpoint
 		inputs["eventHubOperationsPath"] = state.EventHubOperationsPath
+		inputs["eventHubPartitionCount"] = state.EventHubPartitionCount
+		inputs["eventHubRetentionInDays"] = state.EventHubRetentionInDays
 		inputs["fallbackRoute"] = state.FallbackRoute
 		inputs["fileUpload"] = state.FileUpload
 		inputs["hostname"] = state.Hostname
@@ -132,6 +138,16 @@ func (r *IoTHub) EventHubOperationsEndpoint() pulumi.StringOutput {
 // The EventHub compatible path for operational data
 func (r *IoTHub) EventHubOperationsPath() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["eventHubOperationsPath"])
+}
+
+// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+func (r *IoTHub) EventHubPartitionCount() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["eventHubPartitionCount"])
+}
+
+// The event hub retention to use in days. Must be between `1` and `7`.
+func (r *IoTHub) EventHubRetentionInDays() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["eventHubRetentionInDays"])
 }
 
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
@@ -205,6 +221,10 @@ type IoTHubState struct {
 	EventHubOperationsEndpoint interface{}
 	// The EventHub compatible path for operational data
 	EventHubOperationsPath interface{}
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+	EventHubPartitionCount interface{}
+	// The event hub retention to use in days. Must be between `1` and `7`.
+	EventHubRetentionInDays interface{}
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
 	// A `fileUpload` block as defined below.
@@ -234,6 +254,10 @@ type IoTHubState struct {
 type IoTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints interface{}
+	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+	EventHubPartitionCount interface{}
+	// The event hub retention to use in days. Must be between `1` and `7`.
+	EventHubRetentionInDays interface{}
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
 	// A `fileUpload` block as defined below.

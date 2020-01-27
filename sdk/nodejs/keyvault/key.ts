@@ -123,7 +123,7 @@ export class Key extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Key.
@@ -235,7 +235,7 @@ export interface KeyState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly vaultUri?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Key.
@@ -282,6 +282,6 @@ export interface KeyArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly vaultUri?: pulumi.Input<string>;
 }

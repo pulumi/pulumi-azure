@@ -114,6 +114,10 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      * A `trafficAnalytics` block as documented below.
      */
     public readonly trafficAnalytics!: pulumi.Output<outputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
+    /**
+     * The version (revision) of the flow log. Possible values are `1` and `2`.
+     */
+    public readonly version!: pulumi.Output<number>;
 
     /**
      * Create a NetworkWatcherFlowLog resource with the given unique name, arguments, and options.
@@ -134,6 +138,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["trafficAnalytics"] = state ? state.trafficAnalytics : undefined;
+            inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NetworkWatcherFlowLogArgs | undefined;
             if (!args || args.enabled === undefined) {
@@ -161,6 +166,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
+            inputs["version"] = args ? args.version : undefined;
         }
         if (!opts) {
             opts = {}
@@ -205,6 +211,10 @@ export interface NetworkWatcherFlowLogState {
      * A `trafficAnalytics` block as documented below.
      */
     readonly trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
+    /**
+     * The version (revision) of the flow log. Possible values are `1` and `2`.
+     */
+    readonly version?: pulumi.Input<number>;
 }
 
 /**
@@ -239,4 +249,8 @@ export interface NetworkWatcherFlowLogArgs {
      * A `trafficAnalytics` block as documented below.
      */
     readonly trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
+    /**
+     * The version (revision) of the flow log. Possible values are `1` and `2`.
+     */
+    readonly version?: pulumi.Input<number>;
 }

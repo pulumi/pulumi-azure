@@ -55,12 +55,30 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     One or more `managed_rule` blocks as defined below.
     
+      * `exclusions` (`list`)
+    
+        * `matchVariable` (`str`)
+        * `operator` (`str`)
+        * `selector` (`str`)
+    
       * `overrides` (`list`)
+    
+        * `exclusions` (`list`)
+    
+          * `matchVariable` (`str`)
+          * `operator` (`str`)
+          * `selector` (`str`)
     
         * `rules` (`list`)
     
           * `action` (`str`)
           * `enabled` (`bool`) - Is the policy a enabled state or disabled state. Defaults to `true`.
+          * `exclusions` (`list`)
+    
+            * `matchVariable` (`str`)
+            * `operator` (`str`)
+            * `selector` (`str`)
+    
           * `ruleId` (`str`)
     
         * `ruleGroupName` (`str`)
@@ -126,12 +144,30 @@ class FirewallPolicy(pulumi.CustomResource):
         
         The **managed_rules** object supports the following:
         
+          * `exclusions` (`pulumi.Input[list]`)
+        
+            * `matchVariable` (`pulumi.Input[str]`)
+            * `operator` (`pulumi.Input[str]`)
+            * `selector` (`pulumi.Input[str]`)
+        
           * `overrides` (`pulumi.Input[list]`)
+        
+            * `exclusions` (`pulumi.Input[list]`)
+        
+              * `matchVariable` (`pulumi.Input[str]`)
+              * `operator` (`pulumi.Input[str]`)
+              * `selector` (`pulumi.Input[str]`)
         
             * `rules` (`pulumi.Input[list]`)
         
               * `action` (`pulumi.Input[str]`)
               * `enabled` (`pulumi.Input[bool]`) - Is the policy a enabled state or disabled state. Defaults to `true`.
+              * `exclusions` (`pulumi.Input[list]`)
+        
+                * `matchVariable` (`pulumi.Input[str]`)
+                * `operator` (`pulumi.Input[str]`)
+                * `selector` (`pulumi.Input[str]`)
+        
               * `ruleId` (`pulumi.Input[str]`)
         
             * `ruleGroupName` (`pulumi.Input[str]`)
@@ -221,12 +257,30 @@ class FirewallPolicy(pulumi.CustomResource):
         
         The **managed_rules** object supports the following:
         
+          * `exclusions` (`pulumi.Input[list]`)
+        
+            * `matchVariable` (`pulumi.Input[str]`)
+            * `operator` (`pulumi.Input[str]`)
+            * `selector` (`pulumi.Input[str]`)
+        
           * `overrides` (`pulumi.Input[list]`)
+        
+            * `exclusions` (`pulumi.Input[list]`)
+        
+              * `matchVariable` (`pulumi.Input[str]`)
+              * `operator` (`pulumi.Input[str]`)
+              * `selector` (`pulumi.Input[str]`)
         
             * `rules` (`pulumi.Input[list]`)
         
               * `action` (`pulumi.Input[str]`)
               * `enabled` (`pulumi.Input[bool]`) - Is the policy a enabled state or disabled state. Defaults to `true`.
+              * `exclusions` (`pulumi.Input[list]`)
+        
+                * `matchVariable` (`pulumi.Input[str]`)
+                * `operator` (`pulumi.Input[str]`)
+                * `selector` (`pulumi.Input[str]`)
+        
               * `ruleId` (`pulumi.Input[str]`)
         
             * `ruleGroupName` (`pulumi.Input[str]`)

@@ -49,7 +49,7 @@ namespace Pulumi.Azure.LogicApps
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string?> WorkflowSchema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+        /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workflowVersion")]
         public Output<string?> WorkflowVersion { get; private set; } = null!;
@@ -140,14 +140,14 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? WorkflowSchema { get; set; }
 
         /// <summary>
-        /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+        /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workflowVersion")]
         public Input<string>? WorkflowVersion { get; set; }
@@ -207,14 +207,14 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? WorkflowSchema { get; set; }
 
         /// <summary>
-        /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
+        /// Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("workflowVersion")]
         public Input<string>? WorkflowVersion { get; set; }

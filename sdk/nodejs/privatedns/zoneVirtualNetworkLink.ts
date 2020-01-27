@@ -57,7 +57,7 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
@@ -133,7 +133,7 @@ export interface ZoneVirtualNetworkLinkState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
@@ -163,7 +163,7 @@ export interface ZoneVirtualNetworkLinkArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */

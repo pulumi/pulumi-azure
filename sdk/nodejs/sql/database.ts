@@ -141,7 +141,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
@@ -302,7 +302,7 @@ export interface DatabaseState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
@@ -381,7 +381,7 @@ export interface DatabaseArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */

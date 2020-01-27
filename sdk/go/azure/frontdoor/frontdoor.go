@@ -139,7 +139,7 @@ func (r *Frontdoor) Cname() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["cname"])
 }
 
-// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 func (r *Frontdoor) EnforceBackendPoolsCertificateNameCheck() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["enforceBackendPoolsCertificateNameCheck"])
 }
@@ -154,22 +154,22 @@ func (r *Frontdoor) FrontendEndpoints() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["frontendEndpoints"])
 }
 
-// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 func (r *Frontdoor) LoadBalancerEnabled() pulumi.BoolOutput {
 	return (pulumi.BoolOutput)(r.s.State["loadBalancerEnabled"])
 }
 
-// Resource location. Changing this forces a new resource to be created.
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *Frontdoor) Location() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 func (r *Frontdoor) Name() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 func (r *Frontdoor) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -179,7 +179,7 @@ func (r *Frontdoor) RoutingRules() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["routingRules"])
 }
 
-// Resource tags.
+// A mapping of tags to assign to the resource.
 func (r *Frontdoor) Tags() pulumi.MapOutput {
 	return (pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -194,23 +194,23 @@ type FrontdoorState struct {
 	BackendPoolLoadBalancings interface{}
 	// The host that each frontendEndpoint must CNAME to.
 	Cname interface{}
-	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck interface{}
 	// A friendly name for the Front Door service.
 	FriendlyName interface{}
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints interface{}
-	// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled interface{}
-	// Resource location. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name interface{}
-	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `routingRule` block as defined below.
 	RoutingRules interface{}
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
@@ -222,22 +222,22 @@ type FrontdoorArgs struct {
 	BackendPoolHealthProbes interface{}
 	// A `backendPoolLoadBalancing` block as defined below.
 	BackendPoolLoadBalancings interface{}
-	// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck interface{}
 	// A friendly name for the Front Door service.
 	FriendlyName interface{}
 	// A `frontendEndpoint` block as defined below.
 	FrontendEndpoints interface{}
-	// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+	// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
 	LoadBalancerEnabled interface{}
-	// Resource location. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name interface{}
-	// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `routingRule` block as defined below.
 	RoutingRules interface{}
-	// Resource tags.
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

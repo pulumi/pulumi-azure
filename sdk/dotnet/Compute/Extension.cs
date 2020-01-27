@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of extension, available types for a publisher can
@@ -89,6 +89,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the virtual machine. This value replaces 
+        /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
+        /// resource to be created
+        /// </summary>
+        [Output("virtualMachineId")]
+        public Output<string> VirtualMachineId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the virtual machine. Changing
@@ -183,8 +191,8 @@ namespace Pulumi.Azure.Compute
         /// create the virtual network. Changing this forces a new resource to be
         /// created.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// The settings passed to the extension, these are
@@ -194,14 +202,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Settings { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -220,11 +228,19 @@ namespace Pulumi.Azure.Compute
         public Input<string> TypeHandlerVersion { get; set; } = null!;
 
         /// <summary>
+        /// The resource ID of the virtual machine. This value replaces 
+        /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
+        /// resource to be created
+        /// </summary>
+        [Input("virtualMachineId")]
+        public Input<string>? VirtualMachineId { get; set; }
+
+        /// <summary>
         /// The name of the virtual machine. Changing
         /// this forces a new resource to be created.
         /// </summary>
-        [Input("virtualMachineName", required: true)]
-        public Input<string> VirtualMachineName { get; set; } = null!;
+        [Input("virtualMachineName")]
+        public Input<string>? VirtualMachineName { get; set; }
 
         public ExtensionArgs()
         {
@@ -284,14 +300,14 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Settings { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -308,6 +324,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
+
+        /// <summary>
+        /// The resource ID of the virtual machine. This value replaces 
+        /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
+        /// resource to be created
+        /// </summary>
+        [Input("virtualMachineId")]
+        public Input<string>? VirtualMachineId { get; set; }
 
         /// <summary>
         /// The name of the virtual machine. Changing

@@ -86,9 +86,7 @@ import * as utilities from "../utilities";
  *     vmSize: "Standard_F2",
  * });
  * const exampleExtension = new azure.compute.Extension("example", {
- *     location: exampleResourceGroup.location,
  *     publisher: "Microsoft.Azure.Extensions",
- *     resourceGroupName: exampleResourceGroup.name,
  *     settings: `	{
  * 		"commandToExecute": "hostname && uptime"
  * 	}
@@ -98,7 +96,7 @@ import * as utilities from "../utilities";
  *     },
  *     type: "CustomScript",
  *     typeHandlerVersion: "2.0",
- *     virtualMachineName: exampleVirtualMachine.name,
+ *     virtualMachineId: exampleVirtualMachine.id,
  * });
  * ```
  *
@@ -170,7 +168,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of extension, available types for a publisher can
      * be found using the Azure CLI.
@@ -181,6 +179,12 @@ export class Extension extends pulumi.CustomResource {
      * use, available versions can be found using the Azure CLI.
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
+    /**
+     * The resource ID of the virtual machine. This value replaces 
+     * `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+     * resource to be created
+     */
+    public readonly virtualMachineId!: pulumi.Output<string>;
     /**
      * The name of the virtual machine. Changing
      * this forces a new resource to be created.
@@ -209,23 +213,18 @@ export class Extension extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
+            inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
             inputs["virtualMachineName"] = state ? state.virtualMachineName : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
             if (!args || args.publisher === undefined) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
             if (!args || args.typeHandlerVersion === undefined) {
                 throw new Error("Missing required property 'typeHandlerVersion'");
-            }
-            if (!args || args.virtualMachineName === undefined) {
-                throw new Error("Missing required property 'virtualMachineName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -237,6 +236,7 @@ export class Extension extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
             inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
         }
         if (!opts) {
@@ -293,7 +293,7 @@ export interface ExtensionState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of extension, available types for a publisher can
      * be found using the Azure CLI.
@@ -304,6 +304,12 @@ export interface ExtensionState {
      * use, available versions can be found using the Azure CLI.
      */
     readonly typeHandlerVersion?: pulumi.Input<string>;
+    /**
+     * The resource ID of the virtual machine. This value replaces 
+     * `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+     * resource to be created
+     */
+    readonly virtualMachineId?: pulumi.Input<string>;
     /**
      * The name of the virtual machine. Changing
      * this forces a new resource to be created.
@@ -345,7 +351,7 @@ export interface ExtensionArgs {
      * create the virtual network. Changing this forces a new resource to be
      * created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * The settings passed to the extension, these are
      * specified as a JSON object in a string.
@@ -354,7 +360,7 @@ export interface ExtensionArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of extension, available types for a publisher can
      * be found using the Azure CLI.
@@ -366,8 +372,14 @@ export interface ExtensionArgs {
      */
     readonly typeHandlerVersion: pulumi.Input<string>;
     /**
+     * The resource ID of the virtual machine. This value replaces 
+     * `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
+     * resource to be created
+     */
+    readonly virtualMachineId?: pulumi.Input<string>;
+    /**
      * The name of the virtual machine. Changing
      * this forces a new resource to be created.
      */
-    readonly virtualMachineName: pulumi.Input<string>;
+    readonly virtualMachineName?: pulumi.Input<string>;
 }

@@ -52,6 +52,18 @@ namespace Pulumi.Azure.Iot
         public Output<string> EventHubOperationsPath { get; private set; } = null!;
 
         /// <summary>
+        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        /// </summary>
+        [Output("eventHubPartitionCount")]
+        public Output<int> EventHubPartitionCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The event hub retention to use in days. Must be between `1` and `7`.
+        /// </summary>
+        [Output("eventHubRetentionInDays")]
+        public Output<int> EventHubRetentionInDays { get; private set; } = null!;
+
+        /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// </summary>
         [Output("fallbackRoute")]
@@ -115,7 +127,7 @@ namespace Pulumi.Azure.Iot
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -179,6 +191,18 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
+        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        /// </summary>
+        [Input("eventHubPartitionCount")]
+        public Input<int>? EventHubPartitionCount { get; set; }
+
+        /// <summary>
+        /// The event hub retention to use in days. Must be between `1` and `7`.
+        /// </summary>
+        [Input("eventHubRetentionInDays")]
+        public Input<int>? EventHubRetentionInDays { get; set; }
+
+        /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// </summary>
         [Input("fallbackRoute")]
@@ -239,14 +263,14 @@ namespace Pulumi.Azure.Iot
         public Input<Inputs.IoTHubSkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -292,6 +316,18 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("eventHubOperationsPath")]
         public Input<string>? EventHubOperationsPath { get; set; }
+
+        /// <summary>
+        /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        /// </summary>
+        [Input("eventHubPartitionCount")]
+        public Input<int>? EventHubPartitionCount { get; set; }
+
+        /// <summary>
+        /// The event hub retention to use in days. Must be between `1` and `7`.
+        /// </summary>
+        [Input("eventHubRetentionInDays")]
+        public Input<int>? EventHubRetentionInDays { get; set; }
 
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
@@ -372,14 +408,14 @@ namespace Pulumi.Azure.Iot
         public Input<Inputs.IoTHubSkuGetArgs>? Sku { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

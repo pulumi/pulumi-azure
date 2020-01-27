@@ -36,7 +36,7 @@ export class ZipBlob extends pulumi.CustomResource {
     public readonly accessTier!: pulumi.Output<string>;
     public readonly attempts!: pulumi.Output<number | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
-    public readonly metadata!: pulumi.Output<{[key: string]: any}>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     public readonly name!: pulumi.Output<string>;
     public readonly parallelism!: pulumi.Output<number | undefined>;
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -121,7 +121,7 @@ export interface ZipBlobState {
     readonly accessTier?: pulumi.Input<string>;
     readonly attempts?: pulumi.Input<number>;
     readonly contentType?: pulumi.Input<string>;
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly name?: pulumi.Input<string>;
     readonly parallelism?: pulumi.Input<number>;
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -142,7 +142,7 @@ export interface ZipBlobArgs {
     readonly accessTier?: pulumi.Input<string>;
     readonly attempts?: pulumi.Input<number>;
     readonly contentType?: pulumi.Input<string>;
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly name?: pulumi.Input<string>;
     readonly parallelism?: pulumi.Input<number>;
     readonly resourceGroupName?: pulumi.Input<string>;

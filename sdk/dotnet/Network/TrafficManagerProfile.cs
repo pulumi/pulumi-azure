@@ -23,8 +23,8 @@ namespace Pulumi.Azure.Network
         /// This block specifies the DNS configuration of the
         /// Profile, it supports the fields documented below.
         /// </summary>
-        [Output("dnsConfigs")]
-        public Output<ImmutableArray<Outputs.TrafficManagerProfileDnsConfigs>> DnsConfigs { get; private set; } = null!;
+        [Output("dnsConfig")]
+        public Output<Outputs.TrafficManagerProfileDnsConfig> DnsConfig { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the created Profile.
@@ -36,8 +36,8 @@ namespace Pulumi.Azure.Network
         /// This block specifies the Endpoint monitoring
         /// configuration for the Profile, it supports the fields documented below.
         /// </summary>
-        [Output("monitorConfigs")]
-        public Output<ImmutableArray<Outputs.TrafficManagerProfileMonitorConfigs>> MonitorConfigs { get; private set; } = null!;
+        [Output("monitorConfig")]
+        public Output<Outputs.TrafficManagerProfileMonitorConfig> MonitorConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the virtual network. Changing this forces a
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the algorithm used to route traffic, possible values are:
@@ -124,31 +124,19 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerProfileArgs : Pulumi.ResourceArgs
     {
-        [Input("dnsConfigs", required: true)]
-        private InputList<Inputs.TrafficManagerProfileDnsConfigsArgs>? _dnsConfigs;
-
         /// <summary>
         /// This block specifies the DNS configuration of the
         /// Profile, it supports the fields documented below.
         /// </summary>
-        public InputList<Inputs.TrafficManagerProfileDnsConfigsArgs> DnsConfigs
-        {
-            get => _dnsConfigs ?? (_dnsConfigs = new InputList<Inputs.TrafficManagerProfileDnsConfigsArgs>());
-            set => _dnsConfigs = value;
-        }
-
-        [Input("monitorConfigs", required: true)]
-        private InputList<Inputs.TrafficManagerProfileMonitorConfigsArgs>? _monitorConfigs;
+        [Input("dnsConfig", required: true)]
+        public Input<Inputs.TrafficManagerProfileDnsConfigArgs> DnsConfig { get; set; } = null!;
 
         /// <summary>
         /// This block specifies the Endpoint monitoring
         /// configuration for the Profile, it supports the fields documented below.
         /// </summary>
-        public InputList<Inputs.TrafficManagerProfileMonitorConfigsArgs> MonitorConfigs
-        {
-            get => _monitorConfigs ?? (_monitorConfigs = new InputList<Inputs.TrafficManagerProfileMonitorConfigsArgs>());
-            set => _monitorConfigs = value;
-        }
+        [Input("monitorConfig", required: true)]
+        public Input<Inputs.TrafficManagerProfileMonitorConfigArgs> MonitorConfig { get; set; } = null!;
 
         /// <summary>
         /// The name of the virtual network. Changing this forces a
@@ -172,14 +160,14 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -202,18 +190,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerProfileState : Pulumi.ResourceArgs
     {
-        [Input("dnsConfigs")]
-        private InputList<Inputs.TrafficManagerProfileDnsConfigsGetArgs>? _dnsConfigs;
-
         /// <summary>
         /// This block specifies the DNS configuration of the
         /// Profile, it supports the fields documented below.
         /// </summary>
-        public InputList<Inputs.TrafficManagerProfileDnsConfigsGetArgs> DnsConfigs
-        {
-            get => _dnsConfigs ?? (_dnsConfigs = new InputList<Inputs.TrafficManagerProfileDnsConfigsGetArgs>());
-            set => _dnsConfigs = value;
-        }
+        [Input("dnsConfig")]
+        public Input<Inputs.TrafficManagerProfileDnsConfigGetArgs>? DnsConfig { get; set; }
 
         /// <summary>
         /// The FQDN of the created Profile.
@@ -221,18 +203,12 @@ namespace Pulumi.Azure.Network
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
-        [Input("monitorConfigs")]
-        private InputList<Inputs.TrafficManagerProfileMonitorConfigsGetArgs>? _monitorConfigs;
-
         /// <summary>
         /// This block specifies the Endpoint monitoring
         /// configuration for the Profile, it supports the fields documented below.
         /// </summary>
-        public InputList<Inputs.TrafficManagerProfileMonitorConfigsGetArgs> MonitorConfigs
-        {
-            get => _monitorConfigs ?? (_monitorConfigs = new InputList<Inputs.TrafficManagerProfileMonitorConfigsGetArgs>());
-            set => _monitorConfigs = value;
-        }
+        [Input("monitorConfig")]
+        public Input<Inputs.TrafficManagerProfileMonitorConfigGetArgs>? MonitorConfig { get; set; }
 
         /// <summary>
         /// The name of the virtual network. Changing this forces a
@@ -256,14 +232,14 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -287,7 +263,7 @@ namespace Pulumi.Azure.Network
     namespace Inputs
     {
 
-    public sealed class TrafficManagerProfileDnsConfigsArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerProfileDnsConfigArgs : Pulumi.ResourceArgs
     {
         [Input("relativeName", required: true)]
         public Input<string> RelativeName { get; set; } = null!;
@@ -295,12 +271,12 @@ namespace Pulumi.Azure.Network
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
-        public TrafficManagerProfileDnsConfigsArgs()
+        public TrafficManagerProfileDnsConfigArgs()
         {
         }
     }
 
-    public sealed class TrafficManagerProfileDnsConfigsGetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerProfileDnsConfigGetArgs : Pulumi.ResourceArgs
     {
         [Input("relativeName", required: true)]
         public Input<string> RelativeName { get; set; } = null!;
@@ -308,13 +284,21 @@ namespace Pulumi.Azure.Network
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
-        public TrafficManagerProfileDnsConfigsGetArgs()
+        public TrafficManagerProfileDnsConfigGetArgs()
         {
         }
     }
 
-    public sealed class TrafficManagerProfileMonitorConfigsArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerProfileMonitorConfigArgs : Pulumi.ResourceArgs
     {
+        [Input("expectedStatusCodeRanges")]
+        private InputList<string>? _expectedStatusCodeRanges;
+        public InputList<string> ExpectedStatusCodeRanges
+        {
+            get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<string>());
+            set => _expectedStatusCodeRanges = value;
+        }
+
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
@@ -333,13 +317,21 @@ namespace Pulumi.Azure.Network
         [Input("toleratedNumberOfFailures")]
         public Input<int>? ToleratedNumberOfFailures { get; set; }
 
-        public TrafficManagerProfileMonitorConfigsArgs()
+        public TrafficManagerProfileMonitorConfigArgs()
         {
         }
     }
 
-    public sealed class TrafficManagerProfileMonitorConfigsGetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerProfileMonitorConfigGetArgs : Pulumi.ResourceArgs
     {
+        [Input("expectedStatusCodeRanges")]
+        private InputList<string>? _expectedStatusCodeRanges;
+        public InputList<string> ExpectedStatusCodeRanges
+        {
+            get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<string>());
+            set => _expectedStatusCodeRanges = value;
+        }
+
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
@@ -358,7 +350,7 @@ namespace Pulumi.Azure.Network
         [Input("toleratedNumberOfFailures")]
         public Input<int>? ToleratedNumberOfFailures { get; set; }
 
-        public TrafficManagerProfileMonitorConfigsGetArgs()
+        public TrafficManagerProfileMonitorConfigGetArgs()
         {
         }
     }
@@ -368,13 +360,13 @@ namespace Pulumi.Azure.Network
     {
 
     [OutputType]
-    public sealed class TrafficManagerProfileDnsConfigs
+    public sealed class TrafficManagerProfileDnsConfig
     {
         public readonly string RelativeName;
         public readonly int Ttl;
 
         [OutputConstructor]
-        private TrafficManagerProfileDnsConfigs(
+        private TrafficManagerProfileDnsConfig(
             string relativeName,
             int ttl)
         {
@@ -384,8 +376,9 @@ namespace Pulumi.Azure.Network
     }
 
     [OutputType]
-    public sealed class TrafficManagerProfileMonitorConfigs
+    public sealed class TrafficManagerProfileMonitorConfig
     {
+        public readonly ImmutableArray<string> ExpectedStatusCodeRanges;
         public readonly int? IntervalInSeconds;
         public readonly string? Path;
         public readonly int Port;
@@ -394,7 +387,8 @@ namespace Pulumi.Azure.Network
         public readonly int? ToleratedNumberOfFailures;
 
         [OutputConstructor]
-        private TrafficManagerProfileMonitorConfigs(
+        private TrafficManagerProfileMonitorConfig(
+            ImmutableArray<string> expectedStatusCodeRanges,
             int? intervalInSeconds,
             string? path,
             int port,
@@ -402,6 +396,7 @@ namespace Pulumi.Azure.Network
             int? timeoutInSeconds,
             int? toleratedNumberOfFailures)
         {
+            ExpectedStatusCodeRanges = expectedStatusCodeRanges;
             IntervalInSeconds = intervalInSeconds;
             Path = path;
             Port = port;

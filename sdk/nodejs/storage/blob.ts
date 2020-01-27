@@ -82,7 +82,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any}>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -214,7 +214,7 @@ export interface BlobState {
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -282,7 +282,7 @@ export interface BlobArgs {
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */

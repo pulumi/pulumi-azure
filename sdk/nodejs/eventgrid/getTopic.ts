@@ -52,7 +52,7 @@ export interface GetTopicArgs {
      * The name of the resource group in which the EventGrid Topic exists.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -74,7 +74,7 @@ export interface GetTopicResult {
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      */
     readonly secondaryAccessKey: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

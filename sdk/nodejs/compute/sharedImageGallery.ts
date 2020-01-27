@@ -77,7 +77,7 @@ export class SharedImageGallery extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Unique Name for this Shared Image Gallery.
      */
@@ -147,7 +147,7 @@ export interface SharedImageGalleryState {
     /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Unique Name for this Shared Image Gallery.
      */
@@ -177,5 +177,5 @@ export interface SharedImageGalleryArgs {
     /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

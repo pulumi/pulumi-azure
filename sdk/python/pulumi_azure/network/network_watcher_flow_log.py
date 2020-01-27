@@ -46,7 +46,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
       * `workspaceRegion` (`str`) - The location of the attached workspace.
       * `workspaceResourceId` (`str`) - The resource ID of the attached workspace.
     """
-    def __init__(__self__, resource_name, opts=None, enabled=None, network_security_group_id=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_account_id=None, traffic_analytics=None, __props__=None, __name__=None, __opts__=None):
+    version: pulumi.Output[float]
+    """
+    The version (revision) of the flow log. Possible values are `1` and `2`.
+    """
+    def __init__(__self__, resource_name, opts=None, enabled=None, network_security_group_id=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_account_id=None, traffic_analytics=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Network Watcher Flow Log.
         
@@ -59,6 +63,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[dict] traffic_analytics: A `traffic_analytics` block as documented below.
+        :param pulumi.Input[float] version: The version (revision) of the flow log. Possible values are `1` and `2`.
         
         The **retention_policy** object supports the following:
         
@@ -110,6 +115,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__['storage_account_id'] = storage_account_id
             __props__['traffic_analytics'] = traffic_analytics
+            __props__['version'] = version
         super(NetworkWatcherFlowLog, __self__).__init__(
             'azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog',
             resource_name,
@@ -117,7 +123,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, network_security_group_id=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_account_id=None, traffic_analytics=None):
+    def get(resource_name, id, opts=None, enabled=None, network_security_group_id=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_account_id=None, traffic_analytics=None, version=None):
         """
         Get an existing NetworkWatcherFlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -132,6 +138,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[dict] traffic_analytics: A `traffic_analytics` block as documented below.
+        :param pulumi.Input[float] version: The version (revision) of the flow log. Possible values are `1` and `2`.
         
         The **retention_policy** object supports the following:
         
@@ -157,6 +164,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         __props__["retention_policy"] = retention_policy
         __props__["storage_account_id"] = storage_account_id
         __props__["traffic_analytics"] = traffic_analytics
+        __props__["version"] = version
         return NetworkWatcherFlowLog(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

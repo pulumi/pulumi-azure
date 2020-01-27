@@ -47,7 +47,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
      */
-    public readonly properties!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
@@ -99,7 +99,7 @@ export interface DataLakeGen2FilesystemState {
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
@@ -117,7 +117,7 @@ export interface DataLakeGen2FilesystemArgs {
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */

@@ -84,7 +84,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
@@ -166,7 +166,7 @@ export interface PublicIpPrefixState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
@@ -200,7 +200,7 @@ export interface PublicIpPrefixArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */

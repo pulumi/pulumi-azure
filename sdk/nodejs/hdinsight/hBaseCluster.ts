@@ -144,7 +144,7 @@ export class HBaseCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -271,7 +271,7 @@ export interface HBaseClusterState {
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -321,7 +321,7 @@ export interface HBaseClusterArgs {
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

@@ -132,7 +132,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
@@ -295,7 +295,7 @@ export interface ClusterState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
@@ -373,7 +373,7 @@ export interface ClusterArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */

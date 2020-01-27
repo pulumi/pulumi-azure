@@ -34,10 +34,10 @@ namespace Pulumi.Azure.EventGrid
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.EventGrid
         /// The Secondary Shared Access Key associated with the EventGrid Topic.
         /// </summary>
         public readonly string SecondaryAccessKey;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.EventGrid
             string primaryAccessKey,
             string resourceGroupName,
             string secondaryAccessKey,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             string id)
         {
             Endpoint = endpoint;

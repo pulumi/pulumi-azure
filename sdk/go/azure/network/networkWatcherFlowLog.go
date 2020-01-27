@@ -45,6 +45,7 @@ func NewNetworkWatcherFlowLog(ctx *pulumi.Context,
 		inputs["retentionPolicy"] = nil
 		inputs["storageAccountId"] = nil
 		inputs["trafficAnalytics"] = nil
+		inputs["version"] = nil
 	} else {
 		inputs["enabled"] = args.Enabled
 		inputs["networkSecurityGroupId"] = args.NetworkSecurityGroupId
@@ -53,6 +54,7 @@ func NewNetworkWatcherFlowLog(ctx *pulumi.Context,
 		inputs["retentionPolicy"] = args.RetentionPolicy
 		inputs["storageAccountId"] = args.StorageAccountId
 		inputs["trafficAnalytics"] = args.TrafficAnalytics
+		inputs["version"] = args.Version
 	}
 	s, err := ctx.RegisterResource("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog", name, true, inputs, opts...)
 	if err != nil {
@@ -74,6 +76,7 @@ func GetNetworkWatcherFlowLog(ctx *pulumi.Context,
 		inputs["retentionPolicy"] = state.RetentionPolicy
 		inputs["storageAccountId"] = state.StorageAccountId
 		inputs["trafficAnalytics"] = state.TrafficAnalytics
+		inputs["version"] = state.Version
 	}
 	s, err := ctx.ReadResource("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog", name, id, inputs, opts...)
 	if err != nil {
@@ -127,6 +130,11 @@ func (r *NetworkWatcherFlowLog) TrafficAnalytics() pulumi.Output {
 	return r.s.State["trafficAnalytics"]
 }
 
+// The version (revision) of the flow log. Possible values are `1` and `2`.
+func (r *NetworkWatcherFlowLog) Version() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["version"])
+}
+
 // Input properties used for looking up and filtering NetworkWatcherFlowLog resources.
 type NetworkWatcherFlowLogState struct {
 	// Boolean flag to enable/disable traffic analytics.
@@ -143,6 +151,8 @@ type NetworkWatcherFlowLogState struct {
 	StorageAccountId interface{}
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics interface{}
+	// The version (revision) of the flow log. Possible values are `1` and `2`.
+	Version interface{}
 }
 
 // The set of arguments for constructing a NetworkWatcherFlowLog resource.
@@ -161,4 +171,6 @@ type NetworkWatcherFlowLogArgs struct {
 	StorageAccountId interface{}
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics interface{}
+	// The version (revision) of the flow log. Possible values are `1` and `2`.
+	Version interface{}
 }

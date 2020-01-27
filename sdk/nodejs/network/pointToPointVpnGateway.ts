@@ -61,7 +61,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -155,7 +155,7 @@ export interface PointToPointVpnGatewayState {
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -193,7 +193,7 @@ export interface PointToPointVpnGatewayArgs {
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */

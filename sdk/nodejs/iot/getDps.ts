@@ -52,7 +52,7 @@ export interface GetDpsArgs {
      * The name of the resource group under which the Iot Device Provisioning Service is located in.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -81,7 +81,7 @@ export interface GetDpsResult {
      * The service endpoint of the IoT Device Provisioning Service.
      */
     readonly serviceOperationsHostName: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

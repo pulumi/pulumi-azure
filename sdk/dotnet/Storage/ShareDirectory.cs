@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage
         /// A mapping of metadata to assign to this Directory.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
@@ -86,14 +86,14 @@ namespace Pulumi.Azure.Storage
     public sealed class ShareDirectoryArgs : Pulumi.ResourceArgs
     {
         [Input("metadata")]
-        private InputMap<object>? _metadata;
+        private InputMap<string>? _metadata;
 
         /// <summary>
         /// A mapping of metadata to assign to this Directory.
         /// </summary>
-        public InputMap<object> Metadata
+        public InputMap<string> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<object>());
+            get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 
@@ -123,14 +123,14 @@ namespace Pulumi.Azure.Storage
     public sealed class ShareDirectoryState : Pulumi.ResourceArgs
     {
         [Input("metadata")]
-        private InputMap<object>? _metadata;
+        private InputMap<string>? _metadata;
 
         /// <summary>
         /// A mapping of metadata to assign to this Directory.
         /// </summary>
-        public InputMap<object> Metadata
+        public InputMap<string> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<object>());
+            get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 

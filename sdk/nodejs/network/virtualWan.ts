@@ -85,7 +85,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -170,7 +170,7 @@ export interface VirtualWanState {
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -209,5 +209,5 @@ export interface VirtualWanArgs {
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage
         /// A mapping of MetaData which should be assigned to this Storage Queue.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
@@ -86,14 +86,14 @@ namespace Pulumi.Azure.Storage
     public sealed class QueueArgs : Pulumi.ResourceArgs
     {
         [Input("metadata")]
-        private InputMap<object>? _metadata;
+        private InputMap<string>? _metadata;
 
         /// <summary>
         /// A mapping of MetaData which should be assigned to this Storage Queue.
         /// </summary>
-        public InputMap<object> Metadata
+        public InputMap<string> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<object>());
+            get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 
@@ -123,14 +123,14 @@ namespace Pulumi.Azure.Storage
     public sealed class QueueState : Pulumi.ResourceArgs
     {
         [Input("metadata")]
-        private InputMap<object>? _metadata;
+        private InputMap<string>? _metadata;
 
         /// <summary>
         /// A mapping of MetaData which should be assigned to this Storage Queue.
         /// </summary>
-        public InputMap<object> Metadata
+        public InputMap<string> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<object>());
+            get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 

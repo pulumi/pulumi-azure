@@ -22,7 +22,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = new azure.frontdoor.Frontdoor("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "EastUS2",
+ * });
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
  *     backendPools: [{
  *         backends: [{
  *             address: "www.bing.com",
@@ -46,8 +49,8 @@ import * as utilities from "../utilities";
  *         hostName: "example-FrontDoor.azurefd.net",
  *         name: "exampleFrontendEndpoint1",
  *     }],
- *     location: azurerm_resource_group_example.location,
- *     resourceGroupName: azurerm_resource_group_example.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     routingRules: [{
  *         acceptedProtocols: [
  *             "Http",
@@ -110,7 +113,7 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public /*out*/ readonly cname!: pulumi.Output<string>;
     /**
-     * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+     * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
     public readonly enforceBackendPoolsCertificateNameCheck!: pulumi.Output<boolean>;
     /**
@@ -122,19 +125,19 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly frontendEndpoints!: pulumi.Output<outputs.frontdoor.FrontdoorFrontendEndpoint[]>;
     /**
-     * Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+     * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource location. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+     * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -142,9 +145,9 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly routingRules!: pulumi.Output<outputs.frontdoor.FrontdoorRoutingRule[]>;
     /**
-     * Resource tags.
+     * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Frontdoor resource with the given unique name, arguments, and options.
@@ -240,7 +243,7 @@ export interface FrontdoorState {
      */
     readonly cname?: pulumi.Input<string>;
     /**
-     * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+     * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
     readonly enforceBackendPoolsCertificateNameCheck?: pulumi.Input<boolean>;
     /**
@@ -252,19 +255,19 @@ export interface FrontdoorState {
      */
     readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
     /**
-     * Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+     * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource location. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+     * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -272,9 +275,9 @@ export interface FrontdoorState {
      */
     readonly routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
     /**
-     * Resource tags.
+     * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -294,7 +297,7 @@ export interface FrontdoorArgs {
      */
     readonly backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
     /**
-     * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+     * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
     readonly enforceBackendPoolsCertificateNameCheck: pulumi.Input<boolean>;
     /**
@@ -306,19 +309,19 @@ export interface FrontdoorArgs {
      */
     readonly frontendEndpoints: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
     /**
-     * Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+     * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource location. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+     * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -326,7 +329,7 @@ export interface FrontdoorArgs {
      */
     readonly routingRules: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
     /**
-     * Resource tags.
+     * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

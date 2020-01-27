@@ -237,7 +237,7 @@ func (r *KubernetesCluster) ResourceGroupName() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+// A `roleBasedAccessControl` block.
 func (r *KubernetesCluster) RoleBasedAccessControl() pulumi.Output {
 	return r.s.State["roleBasedAccessControl"]
 }
@@ -300,7 +300,7 @@ type KubernetesClusterState struct {
 	PrivateLinkEnabled interface{}
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+	// A `roleBasedAccessControl` block.
 	RoleBasedAccessControl interface{}
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal interface{}
@@ -341,7 +341,7 @@ type KubernetesClusterArgs struct {
 	PrivateLinkEnabled interface{}
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+	// A `roleBasedAccessControl` block.
 	RoleBasedAccessControl interface{}
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal interface{}

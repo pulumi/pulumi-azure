@@ -10,6 +10,15 @@ from typing import Union
 from .. import utilities, tables
 
 class Workspace(pulumi.CustomResource):
+    custom_parameters: pulumi.Output[dict]
+    """
+    A `custom_parameters` block as documented below.
+    
+      * `noPublicIp` (`bool`) - Are public IP Addresses not allowed?
+      * `privateSubnetName` (`str`) - The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+      * `publicSubnetName` (`str`) - The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+      * `virtualNetworkId` (`str`) - The ID of a Virtual Network where this Databricks Cluster should be created.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -38,18 +47,26 @@ class Workspace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_parameters=None, location=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Databricks Workspace
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **custom_parameters** object supports the following:
+        
+          * `noPublicIp` (`pulumi.Input[bool]`) - Are public IP Addresses not allowed?
+          * `privateSubnetName` (`pulumi.Input[str]`) - The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+          * `publicSubnetName` (`pulumi.Input[str]`) - The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+          * `virtualNetworkId` (`pulumi.Input[str]`) - The ID of a Virtual Network where this Databricks Cluster should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/databricks_workspace.html.markdown.
         """
@@ -70,6 +87,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_parameters'] = custom_parameters
             __props__['location'] = location
             __props__['managed_resource_group_name'] = managed_resource_group_name
             __props__['name'] = name
@@ -88,7 +106,7 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, managed_resource_group_id=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, custom_parameters=None, location=None, managed_resource_group_id=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -96,6 +114,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] custom_parameters: A `custom_parameters` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_id: The ID of the Managed Resource Group created by the Databricks Workspace.
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
@@ -103,12 +122,20 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **custom_parameters** object supports the following:
+        
+          * `noPublicIp` (`pulumi.Input[bool]`) - Are public IP Addresses not allowed?
+          * `privateSubnetName` (`pulumi.Input[str]`) - The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+          * `publicSubnetName` (`pulumi.Input[str]`) - The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set.
+          * `virtualNetworkId` (`pulumi.Input[str]`) - The ID of a Virtual Network where this Databricks Cluster should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/databricks_workspace.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["custom_parameters"] = custom_parameters
         __props__["location"] = location
         __props__["managed_resource_group_id"] = managed_resource_group_id
         __props__["managed_resource_group_name"] = managed_resource_group_name
