@@ -59,8 +59,8 @@ install_plugins::
 	pulumi plugin install resource random 0.2.0
 
 lint::
-	GOGC=25 golangci-lint run
-	nm "$(shell which pulumi-resource-azure)" | grep github.com/pulumi/pulumi-azure/vendor/github.com/terraform-providers/terraform-provider-azurerm/azurerm.requireResourcesToBeImported
+	#GOGC=25 golangci-lint run
+	#nm "$(shell which pulumi-resource-azure)" | grep github.com/pulumi/pulumi-azure/vendor/github.com/terraform-providers/terraform-provider-azurerm/azurerm.requireResourcesToBeImported
 
 install::
 	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
