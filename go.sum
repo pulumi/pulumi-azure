@@ -403,12 +403,10 @@ github.com/prometheus/client_model v0.0.0-20190115171406-56726106282f/go.mod h1:
 github.com/prometheus/common v0.2.0/go.mod h1:TNfzLD0ON7rHzMJeJkieUDPYmFC7Snx/y86RQel1bk4=
 github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d/go.mod h1:c3At6R/oaqEKCNdg8wHV1ftS6bRYblBhIjjI8uT2IGk=
 github.com/prometheus/procfs v0.0.0-20190117184657-bf6a532e95b1/go.mod h1:c3At6R/oaqEKCNdg8wHV1ftS6bRYblBhIjjI8uT2IGk=
-github.com/pulumi/pulumi v1.6.0 h1:HgALIMX6kv5lwlgyezjKPPc2nNYv+/leFrOjJoo8EB8=
-github.com/pulumi/pulumi v1.6.0/go.mod h1:gJBsD+SkjIhWRWPY+0ID9QM6sngLsMGQH8KiknlH0lU=
-github.com/pulumi/pulumi v1.8.1 h1:gK1E8kvph8PQjkpJPMQm9FI5EqQmrfkq1I+rTuQWor8=
-github.com/pulumi/pulumi v1.8.1/go.mod h1:BEybmRwcqAcC857LYU5YUhmi1rOze72wWWFLvkduy30=
-github.com/pulumi/pulumi-terraform-bridge v1.5.2 h1:vKzPPTsDYk3qIq9v4Ez4BTEQUKkz9vwEk7qLiEdc3wE=
-github.com/pulumi/pulumi-terraform-bridge v1.5.2/go.mod h1:dSbi1sxIj9D4VYdX+HEWCUkPEsh4hAj6pKhXC4Z9FzE=
+github.com/pulumi/pulumi v1.9.1 h1:wygm/gf9XH9B3mvEyCfQvSIJrgl3Eo1qBUN0RekhEUg=
+github.com/pulumi/pulumi v1.9.1/go.mod h1:BEybmRwcqAcC857LYU5YUhmi1rOze72wWWFLvkduy30=
+github.com/pulumi/pulumi-terraform-bridge v1.6.4 h1:UXAiG7nnBeJxTtZ6Me0Ap74Cgn9+O8Ymr8doLnnM0tc=
+github.com/pulumi/pulumi-terraform-bridge v1.6.4/go.mod h1:M3QruladgQIUq3QPd8vp3H6PwjmNZVKKHdJ9RhI17Yo=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200127185434-ab509a4a12de h1:uqd/Bg6NJOoNFKlfqGw65Qidj+mbTTTVASk9FwXjZRM=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200127185434-ab509a4a12de/go.mod h1:IUzig7FGIt2cwCAsdeRwjLL2i6tYrGAb90eHcSRzM0k=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
@@ -456,8 +454,6 @@ github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/stretchr/objx v0.2.0/go.mod h1:qt09Ya8vawLte6SNmTgCsAVtYtaKzEcn8ATUoHMkEqE=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
-github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJyk=
-github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832 h1:oun9LXpnh9ourZ6f+yQUGVg4g+Klumg+eFXQztqkHSY=
 github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/terraform-providers/terraform-provider-azuread v0.6.1-0.20191007035844-361c0a206ad4 h1:y/dkBZSHkz38ofRGgebSARSOdRzQsH6r0gQ0B46B+uU=
