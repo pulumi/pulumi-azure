@@ -1443,6 +1443,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
+			AsyncDataSources: true,
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.0", // so we can access strongly typed node definitions.
 			},

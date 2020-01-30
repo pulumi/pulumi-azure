@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dedicated_host.html.markdown.
  */
-export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> & GetDedicatedHostResult {
+export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     if (!opts) {
         opts = {}
     }
@@ -19,13 +19,11 @@ export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetDedicatedHostResult> = pulumi.runtime.invoke("azure:compute/getDedicatedHost:getDedicatedHost", {
+    return pulumi.runtime.invoke("azure:compute/getDedicatedHost:getDedicatedHost", {
         "dedicatedHostGroupName": args.dedicatedHostGroupName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

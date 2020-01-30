@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.apimanagement.getApiVersionSet({
+ * const example = azure.ApiManagementApiVersionSet({
  *     apiManagementName: "example-api",
  *     name: "example-api-version-set",
  *     resourceGroupName: "example-resources",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api_version_set.html.markdown.
  */
-export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> & GetApiVersionSetResult {
+export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetApiVersionSetResult> {
     if (!opts) {
         opts = {}
     }
@@ -34,13 +34,11 @@ export function getApiVersionSet(args: GetApiVersionSetArgs, opts?: pulumi.Invok
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetApiVersionSetResult> = pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
+    return pulumi.runtime.invoke("azure:apimanagement/getApiVersionSet:getApiVersionSet", {
         "apiManagementName": args.apiManagementName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
-
-    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -27,18 +27,18 @@ import * as utilities from "../utilities";
  *     location: "West US",
  * });
  * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
- *     dnsConfig: {
+ *     dnsConfigs: [{
  *         relativeName: server.hex,
  *         ttl: 100,
- *     },
- *     monitorConfig: {
+ *     }],
+ *     monitorConfigs: [{
  *         intervalInSeconds: 30,
  *         path: "/",
  *         port: 80,
  *         protocol: "http",
  *         timeoutInSeconds: 9,
  *         toleratedNumberOfFailures: 3,
- *     },
+ *     }],
  *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "Production",
