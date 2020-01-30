@@ -34,10 +34,10 @@ namespace Pulumi.Azure.Maps
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Maps
         /// The sku of the Azure Maps Account.
         /// </summary>
         public readonly string SkuName;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// A unique identifier for the Maps Account.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Maps
             string resourceGroupName,
             string secondaryAccessKey,
             string skuName,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             string xMsClientId,
             string id)
         {

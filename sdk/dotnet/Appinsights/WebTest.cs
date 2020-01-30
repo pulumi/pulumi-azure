@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppInsights
         /// Resource tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Seconds until this WebTest will timeout and fail. Default is `30`.
@@ -205,14 +205,14 @@ namespace Pulumi.Azure.AppInsights
         public Input<bool>? RetryEnabled { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -300,14 +300,14 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? SyntheticMonitorId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

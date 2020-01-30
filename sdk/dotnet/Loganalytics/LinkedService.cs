@@ -49,7 +49,7 @@ namespace Pulumi.Azure.LogAnalytics
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
@@ -128,14 +128,14 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -183,14 +183,14 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceId { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

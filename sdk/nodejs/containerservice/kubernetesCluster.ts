@@ -122,7 +122,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+     * A `roleBasedAccessControl` block.
      */
     public readonly roleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
@@ -132,7 +132,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A `windowsProfile` block as defined below.
      */
@@ -309,7 +309,7 @@ export interface KubernetesClusterState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+     * A `roleBasedAccessControl` block.
      */
     readonly roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
@@ -319,7 +319,7 @@ export interface KubernetesClusterState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `windowsProfile` block as defined below.
      */
@@ -388,7 +388,7 @@ export interface KubernetesClusterArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
+     * A `roleBasedAccessControl` block.
      */
     readonly roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
@@ -398,7 +398,7 @@ export interface KubernetesClusterArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `windowsProfile` block as defined below.
      */

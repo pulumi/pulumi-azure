@@ -13,6 +13,7 @@ export * from "./backend";
 export * from "./certificate";
 export * from "./diagnostic";
 export * from "./getApi";
+export * from "./getApiVersionSet";
 export * from "./getGroup";
 export * from "./getProduct";
 export * from "./getService";

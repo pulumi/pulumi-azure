@@ -168,7 +168,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
@@ -295,7 +295,7 @@ export interface ActionGroupState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
@@ -361,7 +361,7 @@ export interface ActionGroupArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */

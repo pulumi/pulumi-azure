@@ -179,7 +179,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
@@ -345,7 +345,7 @@ export interface FunctionAppState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
@@ -415,7 +415,7 @@ export interface FunctionAppArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */

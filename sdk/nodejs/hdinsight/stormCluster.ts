@@ -140,7 +140,7 @@ export class StormCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -261,7 +261,7 @@ export interface StormClusterState {
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
@@ -307,7 +307,7 @@ export interface StormClusterArgs {
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

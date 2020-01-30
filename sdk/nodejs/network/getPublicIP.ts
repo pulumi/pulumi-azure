@@ -106,7 +106,7 @@ export interface GetPublicIPArgs {
      * Specifies the name of the resource group.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     readonly zones?: string[];
 }
 
@@ -143,7 +143,7 @@ export interface GetPublicIPResult {
     /**
      * A mapping of tags to assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly zones: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

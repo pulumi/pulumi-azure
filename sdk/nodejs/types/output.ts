@@ -1601,6 +1601,55 @@ export namespace batch {
         targetLowPriorityNodes: number;
     }
 
+    export interface GetPoolNetworkConfiguration {
+        /**
+         * (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+         */
+        endpointConfiguration: outputs.batch.GetPoolNetworkConfigurationEndpointConfiguration;
+        /**
+         * (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+         */
+        subnetId: string;
+    }
+
+    export interface GetPoolNetworkConfigurationEndpointConfiguration {
+        /**
+         * The port number on the compute node.
+         */
+        backendPort: number;
+        /**
+         * The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
+         */
+        frontendPortRange: string;
+        /**
+         * The name of the endpoint.
+         */
+        name: string;
+        /**
+         * (Optional) The list of network security group rules that are applied to the endpoint.
+         */
+        networkSecurityGroupRules: outputs.batch.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
+        /**
+         * The protocol of the endpoint.
+         */
+        protocol: string;
+    }
+
+    export interface GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+        /**
+         * The action that should be taken for a specified IP address, subnet range or tag.
+         */
+        access: string;
+        /**
+         * The priority for this rule.
+         */
+        priority: number;
+        /**
+         * The source address prefix or tag to match for the rule.
+         */
+        sourceAddressPrefix: string;
+    }
+
     export interface GetPoolStartTask {
         /**
          * The command line executed by the start task.
@@ -1718,6 +1767,28 @@ export namespace batch {
         resizeTimeout?: string;
         targetDedicatedNodes?: number;
         targetLowPriorityNodes?: number;
+    }
+
+    export interface PoolNetworkConfiguration {
+        endpointConfigurations?: outputs.batch.PoolNetworkConfigurationEndpointConfiguration[];
+        subnetId: string;
+    }
+
+    export interface PoolNetworkConfigurationEndpointConfiguration {
+        backendPort: number;
+        frontendPortRange: string;
+        /**
+         * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupRules?: outputs.batch.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
+        protocol: string;
+    }
+
+    export interface PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+        access: string;
+        priority: number;
+        sourceAddressPrefix: string;
     }
 
     export interface PoolStartTask {
@@ -3011,11 +3082,22 @@ export namespace containerservice {
     export interface KubernetesClusterNetworkProfile {
         dnsServiceIp: string;
         dockerBridgeCidr: string;
+        loadBalancerProfile: outputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile;
         loadBalancerSku?: string;
         networkPlugin: string;
         networkPolicy: string;
         podCidr: string;
         serviceCidr: string;
+    }
+
+    export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
+        /**
+         * The outcome (resource IDs) of the specified arguments.
+         */
+        effectiveOutboundIps: string[];
+        managedOutboundIpCount: number;
+        outboundIpAddressIds: string[];
+        outboundIpPrefixIds: string[];
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -3217,7 +3299,7 @@ export namespace core {
 export namespace cosmosdb {
     export interface AccountCapability {
         /**
-         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
          */
         name: string;
     }
@@ -3340,6 +3422,27 @@ export namespace cosmosdb {
 
     export interface SqlContainerUniqueKey {
         paths: string[];
+    }
+}
+
+export namespace databricks {
+    export interface WorkspaceCustomParameters {
+        /**
+         * Are public IP Addresses not allowed?
+         */
+        noPublicIp?: boolean;
+        /**
+         * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         */
+        privateSubnetName?: string;
+        /**
+         * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         */
+        publicSubnetName?: string;
+        /**
+         * The ID of a Virtual Network where this Databricks Cluster should be created.
+         */
+        virtualNetworkId?: string;
     }
 }
 
@@ -3972,14 +4075,28 @@ export namespace frontdoor {
     }
 
     export interface FirewallPolicyManagedRule {
+        exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleExclusion[];
         overrides?: outputs.frontdoor.FirewallPolicyManagedRuleOverride[];
         type: string;
         version: string;
     }
 
+    export interface FirewallPolicyManagedRuleExclusion {
+        matchVariable: string;
+        operator: string;
+        selector: string;
+    }
+
     export interface FirewallPolicyManagedRuleOverride {
+        exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideExclusion[];
         rules?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRule[];
         ruleGroupName: string;
+    }
+
+    export interface FirewallPolicyManagedRuleOverrideExclusion {
+        matchVariable: string;
+        operator: string;
+        selector: string;
     }
 
     export interface FirewallPolicyManagedRuleOverrideRule {
@@ -3988,7 +4105,14 @@ export namespace frontdoor {
          * Is the policy a enabled state or disabled state. Defaults to `true`.
          */
         enabled?: boolean;
+        exclusions?: outputs.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusion[];
         ruleId: string;
+    }
+
+    export interface FirewallPolicyManagedRuleOverrideRuleExclusion {
+        matchVariable: string;
+        operator: string;
+        selector: string;
     }
 
     export interface FrontdoorBackendPool {
@@ -4000,7 +4124,7 @@ export namespace frontdoor {
         id: string;
         loadBalancingName: string;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -4022,7 +4146,7 @@ export namespace frontdoor {
         id: string;
         intervalInSeconds?: number;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: string;
         path?: string;
@@ -4036,7 +4160,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: string;
         sampleSize?: number;
@@ -4052,7 +4176,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: string;
         sessionAffinityEnabled?: boolean;
@@ -4088,7 +4212,7 @@ export namespace frontdoor {
          */
         id: string;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: string;
         patternsToMatches: string[];
@@ -4097,6 +4221,7 @@ export namespace frontdoor {
 
     export interface FrontdoorRoutingRuleForwardingConfiguration {
         backendPoolName: string;
+        cacheEnabled?: boolean;
         cacheQueryParameterStripDirective?: string;
         cacheUseDynamicCompression?: boolean;
         customForwardingPath?: string;
@@ -6385,7 +6510,7 @@ export namespace network {
          */
         family: string;
         /**
-         * The service tier. Possible values are `Standard` or `Premium`.
+         * The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
          */
         tier: string;
     }
@@ -6500,7 +6625,7 @@ export namespace network {
          */
         family: string;
         /**
-         * The service tier. Possible values are `Standard` or `Premium`.
+         * The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
          */
         tier: string;
     }
@@ -7039,7 +7164,7 @@ export namespace network {
     }
 
     export interface SubnetDelegationServiceDelegation {
-        actions?: string[];
+        actions: string[];
         /**
          * The name of the subnet. Changing this forces a new resource to be created.
          */
@@ -7067,6 +7192,7 @@ export namespace network {
     }
 
     export interface TrafficManagerProfileMonitorConfig {
+        expectedStatusCodeRanges?: string[];
         intervalInSeconds?: number;
         path?: string;
         port: number;
@@ -8472,6 +8598,7 @@ export namespace trafficmanager {
     }
 
     export interface ProfileMonitorConfig {
+        expectedStatusCodeRanges?: string[];
         intervalInSeconds?: number;
         path?: string;
         port: number;

@@ -74,6 +74,10 @@ export interface GetInsightsResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
+     * The retention period in days.
+     */
+    readonly retentionInDays: number;
+    /**
      * Tags applied to the component.
      */
     readonly tags: {[key: string]: string};

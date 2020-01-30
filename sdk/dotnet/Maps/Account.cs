@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Maps
         /// A mapping of tags to assign to the Azure Maps Account.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the Maps Account.
@@ -122,14 +122,14 @@ namespace Pulumi.Azure.Maps
         public Input<string> SkuName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the Azure Maps Account.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -171,14 +171,14 @@ namespace Pulumi.Azure.Maps
         public Input<string>? SkuName { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the Azure Maps Account.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

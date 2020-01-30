@@ -61,7 +61,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
@@ -140,7 +140,7 @@ export interface VpnGatewayState {
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
@@ -174,7 +174,7 @@ export interface VpnGatewayArgs {
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */

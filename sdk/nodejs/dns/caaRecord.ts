@@ -101,7 +101,7 @@ export class CaaRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
@@ -186,7 +186,7 @@ export interface CaaRecordState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
@@ -216,7 +216,7 @@ export interface CaaRecordArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */

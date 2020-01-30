@@ -157,6 +157,13 @@ class KubernetesCluster(pulumi.CustomResource):
     
       * `dnsServiceIp` (`str`)
       * `dockerBridgeCidr` (`str`)
+      * `loadBalancerProfile` (`dict`)
+    
+        * `effectiveOutboundIps` (`list`) - The outcome (resource IDs) of the specified arguments.
+        * `managedOutboundIpCount` (`float`)
+        * `outboundIpAddressIds` (`list`)
+        * `outboundIpPrefixIds` (`list`)
+    
       * `loadBalancerSku` (`str`)
       * `networkPlugin` (`str`)
       * `networkPolicy` (`str`)
@@ -178,7 +185,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     role_based_access_control: pulumi.Output[dict]
     """
-    A `role_based_access_control` block. Changing this forces a new resource to be created.
+    A `role_based_access_control` block.
     
       * `azureActiveDirectory` (`dict`)
     
@@ -229,7 +236,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
@@ -311,6 +318,13 @@ class KubernetesCluster(pulumi.CustomResource):
         
           * `dnsServiceIp` (`pulumi.Input[str]`)
           * `dockerBridgeCidr` (`pulumi.Input[str]`)
+          * `loadBalancerProfile` (`pulumi.Input[dict]`)
+        
+            * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
+            * `managedOutboundIpCount` (`pulumi.Input[float]`)
+            * `outboundIpAddressIds` (`pulumi.Input[list]`)
+            * `outboundIpPrefixIds` (`pulumi.Input[list]`)
+        
           * `loadBalancerSku` (`pulumi.Input[str]`)
           * `networkPlugin` (`pulumi.Input[str]`)
           * `networkPolicy` (`pulumi.Input[str]`)
@@ -423,7 +437,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
@@ -523,6 +537,13 @@ class KubernetesCluster(pulumi.CustomResource):
         
           * `dnsServiceIp` (`pulumi.Input[str]`)
           * `dockerBridgeCidr` (`pulumi.Input[str]`)
+          * `loadBalancerProfile` (`pulumi.Input[dict]`)
+        
+            * `effectiveOutboundIps` (`pulumi.Input[list]`) - The outcome (resource IDs) of the specified arguments.
+            * `managedOutboundIpCount` (`pulumi.Input[float]`)
+            * `outboundIpAddressIds` (`pulumi.Input[list]`)
+            * `outboundIpPrefixIds` (`pulumi.Input[list]`)
+        
           * `loadBalancerSku` (`pulumi.Input[str]`)
           * `networkPlugin` (`pulumi.Input[str]`)
           * `networkPolicy` (`pulumi.Input[str]`)

@@ -123,7 +123,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
@@ -298,7 +298,7 @@ export interface AccountState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -332,7 +332,7 @@ export interface AccountState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
@@ -385,7 +385,7 @@ export interface AccountArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+     * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -399,7 +399,7 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */

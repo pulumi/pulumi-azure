@@ -66,7 +66,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * A mapping of MetaData for this File Share.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
@@ -144,7 +144,7 @@ export interface ShareState {
     /**
      * A mapping of MetaData for this File Share.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
@@ -180,7 +180,7 @@ export interface ShareArgs {
     /**
      * A mapping of MetaData for this File Share.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */

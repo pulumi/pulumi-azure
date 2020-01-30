@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Storage
         /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>?> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
@@ -88,14 +88,14 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         [Input("properties")]
-        private InputMap<object>? _properties;
+        private InputMap<string>? _properties;
 
         /// <summary>
         /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
         /// </summary>
-        public InputMap<object> Properties
+        public InputMap<string> Properties
         {
-            get => _properties ?? (_properties = new InputMap<object>());
+            get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 
@@ -119,14 +119,14 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         [Input("properties")]
-        private InputMap<object>? _properties;
+        private InputMap<string>? _properties;
 
         /// <summary>
         /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
         /// </summary>
-        public InputMap<object> Properties
+        public InputMap<string> Properties
         {
-            get => _properties ?? (_properties = new InputMap<object>());
+            get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
 

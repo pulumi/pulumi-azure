@@ -34,10 +34,10 @@ namespace Pulumi.Azure.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// A list of Availability Zones where the Managed Disk exists.
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Compute
             string sourceUri,
             string storageAccountId,
             string storageAccountType,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             ImmutableArray<string> zones,
             string id)
         {

@@ -38,7 +38,7 @@ export interface GetResourcesArgs {
     /**
      * A mapping of tags which the resource has to have in order to be included in the result.
      */
-    readonly requiredTags?: {[key: string]: any};
+    readonly requiredTags?: {[key: string]: string};
     /**
      * The name of the Resource group where the Resources are located.
      */
@@ -57,7 +57,7 @@ export interface GetResourcesResult {
      * The name of this Resource.
      */
     readonly name: string;
-    readonly requiredTags: {[key: string]: any};
+    readonly requiredTags: {[key: string]: string};
     readonly resourceGroupName: string;
     /**
      * One or more `resource` blocks as defined below.

@@ -21,69 +21,95 @@ import * as utilities from "../utilities";
  * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("example", {
  *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
  *     customBlockResponseStatusCode: 403,
- *     customRules: [{
- *         action: "Block",
- *         enabled: true,
- *         matchConditions: [{
- *             matchValues: [
- *                 "192.168.1.0/24",
- *                 "10.0.0.0/24",
- *             ],
- *             matchVariable: "RemoteAddr",
- *             negationCondition: false,
- *             operator: "IPMatch",
- *         }],
- *         name: "Rule1",
- *         priority: 1,
- *         rateLimitDurationInMinutes: 1,
- *         rateLimitThreshold: 10,
- *         type: "MatchRule",
- *     }],
- *     customRules: [{
- *         action: "Block",
- *         enabled: true,
- *         matchCondition: [
- *             {
- *                 matchValues: ["192.168.1.0/24"],
+ *     customRules: [
+ *         {
+ *             action: "Block",
+ *             enabled: true,
+ *             matchConditions: [{
+ *                 matchValues: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
  *                 matchVariable: "RemoteAddr",
  *                 negationCondition: false,
  *                 operator: "IPMatch",
- *             },
- *             {
- *                 matchValues: ["windows"],
- *                 matchVariable: "RequestHeader",
- *                 negationCondition: false,
- *                 operator: "Contains",
- *                 selector: "UserAgent",
- *                 transforms: [
- *                     "Lowercase",
- *                     "Trim",
- *                 ],
- *             },
- *         ],
- *         name: "Rule2",
- *         priority: 2,
- *         rateLimitDurationInMinutes: 1,
- *         rateLimitThreshold: 10,
- *         type: "MatchRule",
- *     }],
+ *             }],
+ *             name: "Rule1",
+ *             priority: 1,
+ *             rateLimitDurationInMinutes: 1,
+ *             rateLimitThreshold: 10,
+ *             type: "MatchRule",
+ *         },
+ *         {
+ *             action: "Block",
+ *             enabled: true,
+ *             matchConditions: [
+ *                 {
+ *                     matchValues: ["192.168.1.0/24"],
+ *                     matchVariable: "RemoteAddr",
+ *                     negationCondition: false,
+ *                     operator: "IPMatch",
+ *                 },
+ *                 {
+ *                     matchValues: ["windows"],
+ *                     matchVariable: "RequestHeader",
+ *                     negationCondition: false,
+ *                     operator: "Contains",
+ *                     selector: "UserAgent",
+ *                     transforms: [
+ *                         "Lowercase",
+ *                         "Trim",
+ *                     ],
+ *                 },
+ *             ],
+ *             name: "Rule2",
+ *             priority: 2,
+ *             rateLimitDurationInMinutes: 1,
+ *             rateLimitThreshold: 10,
+ *             type: "MatchRule",
+ *         },
+ *     ],
  *     enabled: true,
  *     managedRules: [
  *         {
- *             overrides: [{
- *                 rules: [{
- *                     action: "Block",
- *                     enabled: false,
- *                     ruleId: "933111",
- *                 }],
- *                 ruleGroupName: "PHP",
+ *             exclusions: [{
+ *                 matchVariable: "QueryStringArgNames",
+ *                 operator: "Equals",
+ *                 selector: "notSuspicious",
  *             }],
+ *             overrides: [
+ *                 {
+ *                     rules: [{
+ *                         action: "Block",
+ *                         enabled: false,
+ *                         ruleId: "933100",
+ *                     }],
+ *                     ruleGroupName: "PHP",
+ *                 },
+ *                 {
+ *                     exclusions: [{
+ *                         matchVariable: "QueryStringArgNames",
+ *                         operator: "Equals",
+ *                         selector: "reallyNotSuspicious",
+ *                     }],
+ *                     rules: [{
+ *                         action: "Block",
+ *                         exclusions: [{
+ *                             matchVariable: "QueryStringArgNames",
+ *                             operator: "Equals",
+ *                             selector: "innocent",
+ *                         }],
+ *                         ruleId: "942200",
+ *                     }],
+ *                     ruleGroupName: "SQLI",
+ *                 },
+ *             ],
  *             type: "DefaultRuleSet",
- *             version: "preview-0.1",
+ *             version: "1.0",
  *         },
  *         {
- *             type: "BotProtection",
- *             version: "preview-0.1",
+ *             type: "Microsoft_BotManagerRuleSet",
+ *             version: "1.0",
  *         },
  *     ],
  *     mode: "Prevention",
@@ -168,7 +194,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -274,7 +300,7 @@ export interface FirewallPolicyState {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -320,5 +346,5 @@ export interface FirewallPolicyArgs {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

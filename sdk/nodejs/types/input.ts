@@ -1190,6 +1190,55 @@ export namespace batch {
         visibilities?: string[];
     }
 
+    export interface GetPoolNetworkConfiguration {
+        /**
+         * (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+         */
+        endpointConfiguration?: inputs.batch.GetPoolNetworkConfigurationEndpointConfiguration;
+        /**
+         * (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+         */
+        subnetId?: string;
+    }
+
+    export interface GetPoolNetworkConfigurationEndpointConfiguration {
+        /**
+         * The port number on the compute node.
+         */
+        backendPort?: number;
+        /**
+         * The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
+         */
+        frontendPortRange?: string;
+        /**
+         * The name of the endpoint.
+         */
+        name?: string;
+        /**
+         * (Optional) The list of network security group rules that are applied to the endpoint.
+         */
+        networkSecurityGroupRules?: inputs.batch.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
+        /**
+         * The protocol of the endpoint.
+         */
+        protocol?: string;
+    }
+
+    export interface GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+        /**
+         * The action that should be taken for a specified IP address, subnet range or tag.
+         */
+        access?: string;
+        /**
+         * The priority for this rule.
+         */
+        priority?: number;
+        /**
+         * The source address prefix or tag to match for the rule.
+         */
+        sourceAddressPrefix?: string;
+    }
+
     export interface GetPoolStartTask {
         /**
          * The command line executed by the start task.
@@ -1296,6 +1345,28 @@ export namespace batch {
         resizeTimeout?: pulumi.Input<string>;
         targetDedicatedNodes?: pulumi.Input<number>;
         targetLowPriorityNodes?: pulumi.Input<number>;
+    }
+
+    export interface PoolNetworkConfiguration {
+        endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.batch.PoolNetworkConfigurationEndpointConfiguration>[]>;
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface PoolNetworkConfigurationEndpointConfiguration {
+        backendPort: pulumi.Input<number>;
+        frontendPortRange: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        networkSecurityGroupRules?: pulumi.Input<pulumi.Input<inputs.batch.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule>[]>;
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule {
+        access: pulumi.Input<string>;
+        priority: pulumi.Input<number>;
+        sourceAddressPrefix: pulumi.Input<string>;
     }
 
     export interface PoolStartTask {
@@ -2238,11 +2309,22 @@ export namespace containerservice {
     export interface KubernetesClusterNetworkProfile {
         dnsServiceIp?: pulumi.Input<string>;
         dockerBridgeCidr?: pulumi.Input<string>;
+        loadBalancerProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfileLoadBalancerProfile>;
         loadBalancerSku?: pulumi.Input<string>;
         networkPlugin: pulumi.Input<string>;
         networkPolicy?: pulumi.Input<string>;
         podCidr?: pulumi.Input<string>;
         serviceCidr?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
+        /**
+         * The outcome (resource IDs) of the specified arguments.
+         */
+        effectiveOutboundIps?: pulumi.Input<pulumi.Input<string>[]>;
+        managedOutboundIpCount?: pulumi.Input<number>;
+        outboundIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+        outboundIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface KubernetesClusterRoleBasedAccessControl {
@@ -2391,7 +2473,7 @@ export namespace core {
 export namespace cosmosdb {
     export interface AccountCapability {
         /**
-         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+         * The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
          */
         name: pulumi.Input<string>;
     }
@@ -2473,6 +2555,27 @@ export namespace cosmosdb {
 
     export interface SqlContainerUniqueKey {
         paths: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
+export namespace databricks {
+    export interface WorkspaceCustomParameters {
+        /**
+         * Are public IP Addresses not allowed?
+         */
+        noPublicIp?: pulumi.Input<boolean>;
+        /**
+         * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         */
+        privateSubnetName?: pulumi.Input<string>;
+        /**
+         * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set.
+         */
+        publicSubnetName?: pulumi.Input<string>;
+        /**
+         * The ID of a Virtual Network where this Databricks Cluster should be created.
+         */
+        virtualNetworkId?: pulumi.Input<string>;
     }
 }
 
@@ -3005,14 +3108,28 @@ export namespace frontdoor {
     }
 
     export interface FirewallPolicyManagedRule {
+        exclusions?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleExclusion>[]>;
         overrides?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverride>[]>;
         type: pulumi.Input<string>;
         version: pulumi.Input<string>;
     }
 
+    export interface FirewallPolicyManagedRuleExclusion {
+        matchVariable: pulumi.Input<string>;
+        operator: pulumi.Input<string>;
+        selector: pulumi.Input<string>;
+    }
+
     export interface FirewallPolicyManagedRuleOverride {
+        exclusions?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideExclusion>[]>;
         rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideRule>[]>;
         ruleGroupName: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyManagedRuleOverrideExclusion {
+        matchVariable: pulumi.Input<string>;
+        operator: pulumi.Input<string>;
+        selector: pulumi.Input<string>;
     }
 
     export interface FirewallPolicyManagedRuleOverrideRule {
@@ -3021,7 +3138,14 @@ export namespace frontdoor {
          * Is the policy a enabled state or disabled state. Defaults to `true`.
          */
         enabled?: pulumi.Input<boolean>;
+        exclusions?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusion>[]>;
         ruleId: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyManagedRuleOverrideRuleExclusion {
+        matchVariable: pulumi.Input<string>;
+        operator: pulumi.Input<string>;
+        selector: pulumi.Input<string>;
     }
 
     export interface FrontdoorBackendPool {
@@ -3033,7 +3157,7 @@ export namespace frontdoor {
         id?: pulumi.Input<string>;
         loadBalancingName: pulumi.Input<string>;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
     }
@@ -3055,7 +3179,7 @@ export namespace frontdoor {
         id?: pulumi.Input<string>;
         intervalInSeconds?: pulumi.Input<number>;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         path?: pulumi.Input<string>;
@@ -3069,7 +3193,7 @@ export namespace frontdoor {
          */
         id?: pulumi.Input<string>;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         sampleSize?: pulumi.Input<number>;
@@ -3085,7 +3209,7 @@ export namespace frontdoor {
          */
         id?: pulumi.Input<string>;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         sessionAffinityEnabled?: pulumi.Input<boolean>;
@@ -3121,7 +3245,7 @@ export namespace frontdoor {
          */
         id?: pulumi.Input<string>;
         /**
-         * Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+         * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         patternsToMatches: pulumi.Input<pulumi.Input<string>[]>;
@@ -3130,6 +3254,7 @@ export namespace frontdoor {
 
     export interface FrontdoorRoutingRuleForwardingConfiguration {
         backendPoolName: pulumi.Input<string>;
+        cacheEnabled?: pulumi.Input<boolean>;
         cacheQueryParameterStripDirective?: pulumi.Input<string>;
         cacheUseDynamicCompression?: pulumi.Input<boolean>;
         customForwardingPath?: pulumi.Input<string>;
@@ -5092,7 +5217,7 @@ export namespace network {
          */
         family: pulumi.Input<string>;
         /**
-         * The service tier. Possible values are `Standard` or `Premium`.
+         * The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
          */
         tier: pulumi.Input<string>;
     }
@@ -5417,6 +5542,7 @@ export namespace network {
     }
 
     export interface TrafficManagerProfileMonitorConfig {
+        expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
         intervalInSeconds?: pulumi.Input<number>;
         path?: pulumi.Input<string>;
         port: pulumi.Input<number>;
@@ -6495,6 +6621,7 @@ export namespace trafficmanager {
     }
 
     export interface ProfileMonitorConfig {
+        expectedStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
         intervalInSeconds?: pulumi.Input<number>;
         path?: pulumi.Input<string>;
         port: pulumi.Input<number>;

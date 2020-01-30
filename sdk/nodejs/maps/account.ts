@@ -77,7 +77,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Azure Maps Account.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * A unique identifier for the Maps Account.
      */
@@ -156,7 +156,7 @@ export interface AccountState {
     /**
      * A mapping of tags to assign to the Azure Maps Account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A unique identifier for the Maps Account.
      */
@@ -182,5 +182,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the Azure Maps Account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

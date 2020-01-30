@@ -34,10 +34,10 @@ namespace Pulumi.Azure.AppService
         public string ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private Dictionary<string, object>? _tags;
-        public Dictionary<string, object> Tags
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
         {
-            get => _tags ?? (_tags = new Dictionary<string, object>());
+            get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.AppService
         /// The subject name of the certificate.
         /// </summary>
         public readonly string SubjectName;
-        public readonly ImmutableDictionary<string, object> Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// The thumbprint for the certificate.
         /// </summary>
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.AppService
             string name,
             string resourceGroupName,
             string subjectName,
-            ImmutableDictionary<string, object> tags,
+            ImmutableDictionary<string, string> tags,
             string thumbprint,
             string id)
         {

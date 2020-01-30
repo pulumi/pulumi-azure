@@ -54,6 +54,12 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+        /// </summary>
+        [Output("retentionInDays")]
+        public Output<int?> RetentionInDays { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         /// </summary>
         [Output("samplingPercentage")]
@@ -63,7 +69,7 @@ namespace Pulumi.Azure.AppInsights
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,20 +144,26 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
         /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<double>? SamplingPercentage { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -201,20 +213,26 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
         /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         /// </summary>
         [Input("samplingPercentage")]
         public Input<double>? SamplingPercentage { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

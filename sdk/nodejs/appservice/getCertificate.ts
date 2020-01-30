@@ -52,7 +52,7 @@ export interface GetCertificateArgs {
      * The name of the resource group in which to create the certificate.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -86,7 +86,7 @@ export interface GetCertificateResult {
      * The subject name of the certificate.
      */
     readonly subjectName: string;
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The thumbprint for the certificate.
      */

@@ -103,7 +103,7 @@ export class RegistryWebook extends pulumi.CustomResource {
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RegistryWebook resource with the given unique name, arguments, and options.
@@ -203,7 +203,7 @@ export interface RegistryWebookState {
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
      */
     readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -246,5 +246,5 @@ export interface RegistryWebookArgs {
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
      */
     readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

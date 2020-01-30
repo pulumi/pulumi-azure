@@ -616,6 +616,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_bastion_host":         {Tok: azureResource(azureCompute, "BastionHost")},
 			"azurerm_dedicated_host_group": {Tok: azureResource(azureCompute, "DedicatedHostGroup")},
 			"azurerm_disk_encryption_set":  {Tok: azureResource(azureCompute, "DiskEncryptionSet")},
+			"azurerm_dedicated_host":       {Tok: azureResource(azureCompute, "DedicatedHost")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1279,10 +1280,11 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_api_management_api":     {Tok: azureDataSource(azureAPIManagement, "getApi")},
-			"azurerm_api_management_group":   {Tok: azureDataSource(azureAPIManagement, "getGroup")},
-			"azurerm_api_management_product": {Tok: azureDataSource(azureAPIManagement, "getProduct")},
-			"azurerm_api_management_user":    {Tok: azureDataSource(azureAPIManagement, "getUser")},
+			"azurerm_api_management_api":             {Tok: azureDataSource(azureAPIManagement, "getApi")},
+			"azurerm_api_management_group":           {Tok: azureDataSource(azureAPIManagement, "getGroup")},
+			"azurerm_api_management_product":         {Tok: azureDataSource(azureAPIManagement, "getProduct")},
+			"azurerm_api_management_user":            {Tok: azureDataSource(azureAPIManagement, "getUser")},
+			"azurerm_api_management_api_version_set": {Tok: azureDataSource(azureAPIManagement, "getApiVersionSet")},
 			"azurerm_app_service": {
 				Tok: azureDataSource(azureAppService, "getAppService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1438,6 +1440,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
 			"azurerm_dedicated_host_group":        {Tok: azureDataSource(azureCompute, "getDedicatedHostGroup")},
+			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
@@ -1511,7 +1514,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "1.7.0-preview",
+				"Pulumi":                       "1.9.1-preview",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Overlay: &tfbridge.OverlayInfo{

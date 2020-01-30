@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> ContentType { get; private set; } = null!;
 
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, object>> Metadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -111,10 +111,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ContentType { get; set; }
 
         [Input("metadata")]
-        private InputMap<object>? _metadata;
-        public InputMap<object> Metadata
+        private InputMap<string>? _metadata;
+        public InputMap<string> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<object>());
+            get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 
@@ -165,10 +165,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ContentType { get; set; }
 
         [Input("metadata")]
-        private InputMap<object>? _metadata;
-        public InputMap<object> Metadata
+        private InputMap<string>? _metadata;
+        public InputMap<string> Metadata
         {
-            get => _metadata ?? (_metadata = new InputMap<object>());
+            get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
 

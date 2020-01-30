@@ -10,7 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class TrafficManagerProfile(pulumi.CustomResource):
-    dns_configs: pulumi.Output[list]
+    dns_config: pulumi.Output[dict]
     """
     This block specifies the DNS configuration of the
     Profile, it supports the fields documented below.
@@ -22,11 +22,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
     """
     The FQDN of the created Profile.
     """
-    monitor_configs: pulumi.Output[list]
+    monitor_config: pulumi.Output[dict]
     """
     This block specifies the Endpoint monitoring
     configuration for the Profile, it supports the fields documented below.
     
+      * `expectedStatusCodeRanges` (`list`)
       * `interval_in_seconds` (`float`)
       * `path` (`str`)
       * `port` (`float`)
@@ -63,7 +64,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
     - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
     - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
     """
-    def __init__(__self__, resource_name, opts=None, dns_configs=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, dns_config=None, monitor_config=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
         
@@ -73,9 +74,9 @@ class TrafficManagerProfile(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dns_configs: This block specifies the DNS configuration of the
+        :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the
                Profile, it supports the fields documented below.
-        :param pulumi.Input[list] monitor_configs: This block specifies the Endpoint monitoring
+        :param pulumi.Input[dict] monitor_config: This block specifies the Endpoint monitoring
                configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
                new resource to be created.
@@ -92,13 +93,14 @@ class TrafficManagerProfile(pulumi.CustomResource):
                - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
                - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         
-        The **dns_configs** object supports the following:
+        The **dns_config** object supports the following:
         
           * `relativeName` (`pulumi.Input[str]`)
           * `ttl` (`pulumi.Input[float]`)
         
-        The **monitor_configs** object supports the following:
+        The **monitor_config** object supports the following:
         
+          * `expectedStatusCodeRanges` (`pulumi.Input[list]`)
           * `interval_in_seconds` (`pulumi.Input[float]`)
           * `path` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`)
@@ -125,12 +127,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dns_configs is None:
-                raise TypeError("Missing required property 'dns_configs'")
-            __props__['dns_configs'] = dns_configs
-            if monitor_configs is None:
-                raise TypeError("Missing required property 'monitor_configs'")
-            __props__['monitor_configs'] = monitor_configs
+            if dns_config is None:
+                raise TypeError("Missing required property 'dns_config'")
+            __props__['dns_config'] = dns_config
+            if monitor_config is None:
+                raise TypeError("Missing required property 'monitor_config'")
+            __props__['monitor_config'] = monitor_config
             __props__['name'] = name
             __props__['profile_status'] = profile_status
             if resource_group_name is None:
@@ -150,7 +152,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, dns_configs=None, fqdn=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None):
+    def get(resource_name, id, opts=None, dns_config=None, fqdn=None, monitor_config=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None):
         """
         Get an existing TrafficManagerProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -158,10 +160,10 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] dns_configs: This block specifies the DNS configuration of the
+        :param pulumi.Input[dict] dns_config: This block specifies the DNS configuration of the
                Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
-        :param pulumi.Input[list] monitor_configs: This block specifies the Endpoint monitoring
+        :param pulumi.Input[dict] monitor_config: This block specifies the Endpoint monitoring
                configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
                new resource to be created.
@@ -178,13 +180,14 @@ class TrafficManagerProfile(pulumi.CustomResource):
                - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
                - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         
-        The **dns_configs** object supports the following:
+        The **dns_config** object supports the following:
         
           * `relativeName` (`pulumi.Input[str]`)
           * `ttl` (`pulumi.Input[float]`)
         
-        The **monitor_configs** object supports the following:
+        The **monitor_config** object supports the following:
         
+          * `expectedStatusCodeRanges` (`pulumi.Input[list]`)
           * `interval_in_seconds` (`pulumi.Input[float]`)
           * `path` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`)
@@ -197,9 +200,9 @@ class TrafficManagerProfile(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["dns_configs"] = dns_configs
+        __props__["dns_config"] = dns_config
         __props__["fqdn"] = fqdn
-        __props__["monitor_configs"] = monitor_configs
+        __props__["monitor_config"] = monitor_config
         __props__["name"] = name
         __props__["profile_status"] = profile_status
         __props__["resource_group_name"] = resource_group_name

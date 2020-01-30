@@ -109,7 +109,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
      */
@@ -200,7 +200,7 @@ export interface ImageState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
      */
@@ -245,7 +245,7 @@ export interface ImageArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
      */

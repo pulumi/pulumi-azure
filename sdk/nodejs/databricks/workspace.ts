@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,6 +58,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * A `customParameters` block as documented below.
+     */
+    public readonly customParameters!: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
+    /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -82,7 +88,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -96,6 +102,7 @@ export class Workspace extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
+            inputs["customParameters"] = state ? state.customParameters : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
@@ -111,6 +118,7 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["customParameters"] = args ? args.customParameters : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -134,6 +142,10 @@ export class Workspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workspace resources.
  */
 export interface WorkspaceState {
+    /**
+     * A `customParameters` block as documented below.
+     */
+    readonly customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
@@ -161,13 +173,17 @@ export interface WorkspaceState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
+    /**
+     * A `customParameters` block as documented below.
+     */
+    readonly customParameters?: pulumi.Input<inputs.databricks.WorkspaceCustomParameters>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
@@ -191,5 +207,5 @@ export interface WorkspaceArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -6,6 +6,10 @@ _(none)_
 
 ---
 
+## 1.12.0 (2020-01-29)
+* Upgrade to v1.42.0 of the AzureRM Terraform Provider
+* Upgrade to v1.6.4 of pulumi-terraform-bridge
+
 ## 1.11.0 (2020-01-16)
 * Upgrade to v1.41.0 of the AzureRM Terraform Provider
 

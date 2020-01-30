@@ -47,7 +47,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<string> Cname { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         /// </summary>
         [Output("enforceBackendPoolsCertificateNameCheck")]
         public Output<bool> EnforceBackendPoolsCertificateNameCheck { get; private set; } = null!;
@@ -65,25 +65,25 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<Outputs.FrontdoorFrontendEndpoints>> FrontendEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+        /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         /// </summary>
         [Output("loadBalancerEnabled")]
         public Output<bool?> LoadBalancerEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+        /// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -95,10 +95,10 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableArray<Outputs.FrontdoorRoutingRules>> RoutingRules { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         /// </summary>
         [Input("enforceBackendPoolsCertificateNameCheck", required: true)]
         public Input<bool> EnforceBackendPoolsCertificateNameCheck { get; set; } = null!;
@@ -207,25 +207,25 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+        /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         /// </summary>
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
 
         /// <summary>
-        /// Resource location. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+        /// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -243,14 +243,14 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Cname { get; set; }
 
         /// <summary>
-        /// Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests. Permitted values are `true` or `false`.
+        /// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         /// </summary>
         [Input("enforceBackendPoolsCertificateNameCheck")]
         public Input<bool>? EnforceBackendPoolsCertificateNameCheck { get; set; }
@@ -328,25 +328,25 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Operational status of the Front Door load balancer. Permitted values are `true` or `false` Defaults to `true`.
+        /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         /// </summary>
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
 
         /// <summary>
-        /// Resource location. Changing this forces a new resource to be created.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription. Changing this forces a new resource to be created.
+        /// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -364,14 +364,14 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -479,7 +479,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -518,7 +518,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> LoadBalancingName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -607,7 +607,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> LoadBalancingName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -635,7 +635,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -737,7 +737,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -790,7 +790,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -816,6 +816,9 @@ namespace Pulumi.Azure.FrontDoor
         [Input("backendPoolName", required: true)]
         public Input<string> BackendPoolName { get; set; } = null!;
 
+        [Input("cacheEnabled")]
+        public Input<bool>? CacheEnabled { get; set; }
+
         [Input("cacheQueryParameterStripDirective")]
         public Input<string>? CacheQueryParameterStripDirective { get; set; }
 
@@ -837,6 +840,9 @@ namespace Pulumi.Azure.FrontDoor
     {
         [Input("backendPoolName", required: true)]
         public Input<string> BackendPoolName { get; set; } = null!;
+
+        [Input("cacheEnabled")]
+        public Input<bool>? CacheEnabled { get; set; }
 
         [Input("cacheQueryParameterStripDirective")]
         public Input<string>? CacheQueryParameterStripDirective { get; set; }
@@ -886,7 +892,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -970,7 +976,7 @@ namespace Pulumi.Azure.FrontDoor
         public readonly string Id;
         public readonly int? IntervalInSeconds;
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         public readonly string? Path;
@@ -1001,7 +1007,7 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         public readonly int? SampleSize;
@@ -1034,7 +1040,7 @@ namespace Pulumi.Azure.FrontDoor
         public readonly string Id;
         public readonly string LoadBalancingName;
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
 
@@ -1096,7 +1102,7 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         public readonly bool? SessionAffinityEnabled;
@@ -1174,7 +1180,7 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the Front Door which is globally unique. Changing this forces a new resource to be created.
+        /// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> PatternsToMatches;
@@ -1206,6 +1212,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class FrontdoorRoutingRulesForwardingConfiguration
     {
         public readonly string BackendPoolName;
+        public readonly bool? CacheEnabled;
         public readonly string? CacheQueryParameterStripDirective;
         public readonly bool? CacheUseDynamicCompression;
         public readonly string? CustomForwardingPath;
@@ -1214,12 +1221,14 @@ namespace Pulumi.Azure.FrontDoor
         [OutputConstructor]
         private FrontdoorRoutingRulesForwardingConfiguration(
             string backendPoolName,
+            bool? cacheEnabled,
             string? cacheQueryParameterStripDirective,
             bool? cacheUseDynamicCompression,
             string? customForwardingPath,
             string? forwardingProtocol)
         {
             BackendPoolName = backendPoolName;
+            CacheEnabled = cacheEnabled;
             CacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
             CacheUseDynamicCompression = cacheUseDynamicCompression;
             CustomForwardingPath = customForwardingPath;

@@ -82,13 +82,17 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+     */
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
      */
     public readonly samplingPercentage!: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Insights resource with the given unique name, arguments, and options.
@@ -108,6 +112,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["retentionInDays"] = state ? state.retentionInDays : undefined;
             inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -122,6 +127,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["appId"] = undefined /*out*/;
@@ -169,13 +175,17 @@ export interface InsightsState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+     */
+    readonly retentionInDays?: pulumi.Input<number>;
+    /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
      */
     readonly samplingPercentage?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -201,11 +211,15 @@ export interface InsightsArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+     */
+    readonly retentionInDays?: pulumi.Input<number>;
+    /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
      */
     readonly samplingPercentage?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

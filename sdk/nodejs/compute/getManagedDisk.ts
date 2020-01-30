@@ -39,7 +39,7 @@ export interface GetManagedDiskArgs {
      * Specifies the name of the Resource Group where this Managed Disk exists.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
     readonly zones?: string[];
 }
 
@@ -89,7 +89,7 @@ export interface GetManagedDiskResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * A list of Availability Zones where the Managed Disk exists.
      */

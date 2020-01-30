@@ -213,7 +213,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
@@ -434,7 +434,7 @@ export interface ApplicationGatewayState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
@@ -549,7 +549,7 @@ export interface ApplicationGatewayArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */

@@ -88,7 +88,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
      */
@@ -176,7 +176,7 @@ export interface ZoneState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
      */
@@ -206,7 +206,7 @@ export interface ZoneArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
      */

@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the Point-to-Site VPN Gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
@@ -140,14 +140,14 @@ namespace Pulumi.Azure.Network
         public Input<int> ScaleUnit { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the Point-to-Site VPN Gateway.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -201,14 +201,14 @@ namespace Pulumi.Azure.Network
         public Input<int>? ScaleUnit { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the Point-to-Site VPN Gateway.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 

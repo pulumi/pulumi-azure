@@ -52,7 +52,7 @@ export interface GetNetworkDdosProtectionPlanArgs {
      * The name of the resource group where the Network DDoS Protection Plan exists.
      */
     readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: any};
+    readonly tags?: {[key: string]: string};
 }
 
 /**
@@ -68,7 +68,7 @@ export interface GetNetworkDdosProtectionPlanResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
      */

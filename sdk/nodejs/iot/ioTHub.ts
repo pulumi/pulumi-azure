@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
+ *     location: "Canada Central",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
@@ -32,41 +32,61 @@ import * as utilities from "../utilities";
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
- *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     endpoints: [{
- *         batchFrequencyInSeconds: 60,
- *         connectionString: exampleAccount.primaryBlobConnectionString,
- *         containerName: "test",
- *         encoding: "Avro",
- *         fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
- *         maxChunkSizeInBytes: 10485760,
- *         name: "export",
- *         type: "AzureIotHub.StorageContainer",
- *     }],
- *     fallbackRoute: {
- *         enabled: true,
- *     },
- *     fileUpload: {
- *         connectionString: exampleAccount.primaryBlobConnectionString,
- *         containerName: exampleContainer.name,
- *         defaultTtl: "PT1H",
- *         lockDuration: "PT1M",
- *         maxDeliveryCount: 10,
- *         notifications: true,
- *         sasTtl: "PT1H",
- *     },
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     routes: [{
- *         condition: "true",
- *         enabled: true,
- *         endpointNames: ["export"],
- *         name: "export",
- *         source: "DeviceMessages",
- *     }],
+ *     sku: "Basic",
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     messageRetention: 1,
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     partitionCount: 2,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ *     eventhubName: exampleEventHub.name,
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     send: true,
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     endpoints: [
+ *         {
+ *             batchFrequencyInSeconds: 60,
+ *             connectionString: exampleAccount.primaryBlobConnectionString,
+ *             containerName: exampleContainer.name,
+ *             encoding: "Avro",
+ *             fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+ *             maxChunkSizeInBytes: 10485760,
+ *             name: "export",
+ *             type: "AzureIotHub.StorageContainer",
+ *         },
+ *         {
+ *             connectionString: exampleAuthorizationRule.primaryConnectionString,
+ *             name: "export2",
+ *             type: "AzureIotHub.EventHub",
+ *         },
+ *     ],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     routes: [
+ *         {
+ *             condition: "true",
+ *             enabled: true,
+ *             endpointNames: ["export"],
+ *             name: "export",
+ *             source: "DeviceMessages",
+ *         },
+ *         {
+ *             condition: "true",
+ *             enabled: true,
+ *             endpointNames: ["export2"],
+ *             name: "export2",
+ *             source: "DeviceMessages",
+ *         },
+ *     ],
  *     sku: {
  *         capacity: 1,
  *         name: "S1",
@@ -127,6 +147,14 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventHubOperationsPath!: pulumi.Output<string>;
     /**
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     */
+    public readonly eventHubPartitionCount!: pulumi.Output<number>;
+    /**
+     * The event hub retention to use in days. Must be between `1` and `7`.
+     */
+    public readonly eventHubRetentionInDays!: pulumi.Output<number>;
+    /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     public readonly fallbackRoute!: pulumi.Output<outputs.iot.IoTHubFallbackRoute>;
@@ -169,7 +197,7 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
@@ -189,6 +217,8 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
             inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
             inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
+            inputs["eventHubPartitionCount"] = state ? state.eventHubPartitionCount : undefined;
+            inputs["eventHubRetentionInDays"] = state ? state.eventHubRetentionInDays : undefined;
             inputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
             inputs["fileUpload"] = state ? state.fileUpload : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
@@ -210,6 +240,8 @@ export class IoTHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["endpoints"] = args ? args.endpoints : undefined;
+            inputs["eventHubPartitionCount"] = args ? args.eventHubPartitionCount : undefined;
+            inputs["eventHubRetentionInDays"] = args ? args.eventHubRetentionInDays : undefined;
             inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
             inputs["fileUpload"] = args ? args.fileUpload : undefined;
             inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
@@ -263,6 +295,14 @@ export interface IoTHubState {
      */
     readonly eventHubOperationsPath?: pulumi.Input<string>;
     /**
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     */
+    readonly eventHubPartitionCount?: pulumi.Input<number>;
+    /**
+     * The event hub retention to use in days. Must be between `1` and `7`.
+     */
+    readonly eventHubRetentionInDays?: pulumi.Input<number>;
+    /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     readonly fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
@@ -305,7 +345,7 @@ export interface IoTHubState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly type?: pulumi.Input<string>;
 }
 
@@ -317,6 +357,14 @@ export interface IoTHubArgs {
      * An `endpoint` block as defined below.
      */
     readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
+    /**
+     * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+     */
+    readonly eventHubPartitionCount?: pulumi.Input<number>;
+    /**
+     * The event hub retention to use in days. Must be between `1` and `7`.
+     */
+    readonly eventHubRetentionInDays?: pulumi.Input<number>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
@@ -352,5 +400,5 @@ export interface IoTHubArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

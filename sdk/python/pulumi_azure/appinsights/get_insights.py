@@ -13,7 +13,7 @@ class GetInsightsResult:
     """
     A collection of values returned by getInsights.
     """
-    def __init__(__self__, app_id=None, application_type=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, tags=None, id=None):
+    def __init__(__self__, app_id=None, application_type=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None, id=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         __self__.app_id = app_id
@@ -44,6 +44,12 @@ class GetInsightsResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
+        if retention_in_days and not isinstance(retention_in_days, float):
+            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        __self__.retention_in_days = retention_in_days
+        """
+        The retention period in days.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -68,6 +74,7 @@ class AwaitableGetInsightsResult(GetInsightsResult):
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
+            retention_in_days=self.retention_in_days,
             tags=self.tags,
             id=self.id)
 
@@ -97,5 +104,6 @@ def get_insights(name=None,resource_group_name=None,opts=None):
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
+        retention_in_days=__ret__.get('retentionInDays'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

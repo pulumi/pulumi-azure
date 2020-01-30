@@ -36,6 +36,10 @@ class Insights(pulumi.CustomResource):
     The name of the resource group in which to
     create the Application Insights component.
     """
+    retention_in_days: pulumi.Output[float]
+    """
+    Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
+    """
     sampling_percentage: pulumi.Output[float]
     """
     Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
@@ -44,7 +48,7 @@ class Insights(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, application_type=None, location=None, name=None, resource_group_name=None, sampling_percentage=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_type=None, location=None, name=None, resource_group_name=None, retention_in_days=None, sampling_percentage=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Insights component.
         
@@ -56,6 +60,7 @@ class Insights(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Application Insights component.
+        :param pulumi.Input[float] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -86,6 +91,7 @@ class Insights(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['retention_in_days'] = retention_in_days
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
             __props__['app_id'] = None
@@ -97,7 +103,7 @@ class Insights(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_id=None, application_type=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, sampling_percentage=None, tags=None):
+    def get(resource_name, id, opts=None, app_id=None, application_type=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, sampling_percentage=None, tags=None):
         """
         Get an existing Insights resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -113,6 +119,7 @@ class Insights(pulumi.CustomResource):
                new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Application Insights component.
+        :param pulumi.Input[float] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -127,6 +134,7 @@ class Insights(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["retention_in_days"] = retention_in_days
         __props__["sampling_percentage"] = sampling_percentage
         __props__["tags"] = tags
         return Insights(resource_name, opts=opts, __props__=__props__)

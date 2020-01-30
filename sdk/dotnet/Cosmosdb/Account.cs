@@ -85,7 +85,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.CosmosDB
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, object>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -289,14 +289,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -466,14 +466,14 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? SecondaryReadonlyMasterKey { get; set; }
 
         [Input("tags")]
-        private InputMap<object>? _tags;
+        private InputMap<string>? _tags;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        public InputMap<object> Tags
+        public InputMap<string> Tags
         {
-            get => _tags ?? (_tags = new InputMap<object>());
+            get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
@@ -512,7 +512,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountCapabilitiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -525,7 +525,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountCapabilitiesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -725,7 +725,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountCapabilities
     {
         /// <summary>
-        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capability to enable - Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`,`EnableMongo`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         public readonly string Name;
 

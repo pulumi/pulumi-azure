@@ -75,6 +75,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool.
+     */
+    public readonly networkConfiguration!: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
+    /**
      * Specifies the Sku of the node agents that will be created in the Batch pool.
      */
     public readonly nodeAgentSkuId!: pulumi.Output<string>;
@@ -117,6 +121,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             inputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["startTask"] = state ? state.startTask : undefined;
@@ -149,6 +154,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             inputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTask"] = args ? args.startTask : undefined;
@@ -207,6 +213,10 @@ export interface PoolState {
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool.
+     */
+    readonly networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
      * Specifies the Sku of the node agents that will be created in the Batch pool.
      */
@@ -270,6 +280,10 @@ export interface PoolArgs {
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `networkConfiguration` block that describes the network configurations for the Batch pool.
+     */
+    readonly networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
      * Specifies the Sku of the node agents that will be created in the Batch pool.
      */
