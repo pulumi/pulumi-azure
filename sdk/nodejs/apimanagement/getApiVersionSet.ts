@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = azure.ApiManagementApiVersionSet({
+ * const example = azure.apimanagement.getApiVersionSet({
  *     apiManagementName: "example-api",
  *     name: "example-api-version-set",
  *     resourceGroupName: "example-resources",

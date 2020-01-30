@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     managedRules: [
  *         {
- *             exclusion: [{
+ *             exclusions: [{
  *                 matchVariable: "QueryStringArgNames",
  *                 operator: "Equals",
  *                 selector: "notSuspicious",
@@ -87,14 +87,14 @@ import * as utilities from "../utilities";
  *                     ruleGroupName: "PHP",
  *                 },
  *                 {
- *                     exclusion: [{
+ *                     exclusions: [{
  *                         matchVariable: "QueryStringArgNames",
  *                         operator: "Equals",
  *                         selector: "reallyNotSuspicious",
  *                     }],
  *                     rules: [{
  *                         action: "Block",
- *                         exclusion: [{
+ *                         exclusions: [{
  *                             matchVariable: "QueryStringArgNames",
  *                             operator: "Equals",
  *                             selector: "innocent",
