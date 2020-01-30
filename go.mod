@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk v1.1.1
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.9.1
-	github.com/pulumi/pulumi-terraform-bridge v1.6.4
+	github.com/pulumi/pulumi-terraform-bridge v1.6.5
 	github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832
 	github.com/terraform-providers/terraform-provider-azurerm v1.36.0
 )
