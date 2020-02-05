@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v1.43.0 of the AzureRM Terraform Provider
+  This release introduces some new experimental features that will be part of the 2.0 release of the AzureRM Terraform Provider
+  to use these new features, you can read the [2.0 Beta Guide](https://www.terraform.io/docs/providers/azurerm/guides/2.0-beta.html)
 
 ---
 
