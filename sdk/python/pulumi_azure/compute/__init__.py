@@ -9,6 +9,8 @@ from .dedicated_host import *
 from .dedicated_host_group import *
 from .disk_encryption_set import *
 from .image import *
+from .linux_virtual_machine import *
+from .linux_virtual_machine_scale_set import *
 from .managed_disk import *
 from .shared_image import *
 from .shared_image_gallery import *
@@ -18,6 +20,9 @@ from .virtual_machine import *
 from .data_disk_attachment import *
 from .extension import *
 from .scale_set import *
+from .virtual_machine_scale_set_extension import *
+from .windows_virtual_machine import *
+from .windows_virtual_machine_scale_set import *
 from .get_availability_set import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *

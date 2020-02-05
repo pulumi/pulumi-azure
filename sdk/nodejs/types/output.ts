@@ -2028,6 +2028,198 @@ export namespace compute {
         sizeGb: number;
     }
 
+    export interface LinuxVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineAdminSshKey {
+        publicKey: string;
+        username: string;
+    }
+
+    export interface LinuxVirtualMachineBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface LinuxVirtualMachineIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface LinuxVirtualMachinePlan {
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdminSshKey {
+        publicKey: string;
+        username: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: boolean;
+        enableAutomaticOsUpgrade: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetDataDisk {
+        caching: string;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        lun: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: string[];
+        enableAcceleratedNetworking?: boolean;
+        enableIpForwarding?: boolean;
+        ipConfigurations: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupId?: string;
+        primary?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: string[];
+        applicationSecurityGroupIds?: string[];
+        loadBalancerBackendAddressPoolIds?: string[];
+        loadBalancerInboundNatRulesIds?: string[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary?: boolean;
+        publicIpAddresses?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        subnetId?: string;
+        version?: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: string;
+        idleTimeoutInMinutes: number;
+        ipTags?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpPrefixId?: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: number;
+        maxUnhealthyInstancePercent: number;
+        maxUnhealthyUpgradedInstancePercent: number;
+        pauseTimeBetweenBatches: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecret {
+        certificates: outputs.compute.LinuxVirtualMachineScaleSetSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecretCertificate {
+        url: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSourceImageReference {
+        offer: string;
+        publisher: string;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: string;
+        version: string;
+    }
+
+    export interface LinuxVirtualMachineSecret {
+        certificates: outputs.compute.LinuxVirtualMachineSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface LinuxVirtualMachineSecretCertificate {
+        url: string;
+    }
+
+    export interface LinuxVirtualMachineSourceImageReference {
+        offer: string;
+        publisher: string;
+        sku: string;
+        version: string;
+    }
+
     export interface ManagedDiskEncryptionSettings {
         diskEncryptionKey?: outputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey;
         enabled: boolean;
@@ -2564,6 +2756,210 @@ export namespace compute {
         osType: string;
         vhdUri?: string;
         writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineAdditionalUnattendContent {
+        content: string;
+        setting: string;
+    }
+
+    export interface WindowsVirtualMachineBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface WindowsVirtualMachineIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface WindowsVirtualMachinePlan {
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+        content: string;
+        setting: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: boolean;
+        enableAutomaticOsUpgrade: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetDataDisk {
+        caching: string;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        lun: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: string[];
+        enableAcceleratedNetworking?: boolean;
+        enableIpForwarding?: boolean;
+        ipConfigurations: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupId?: string;
+        primary?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: string[];
+        applicationSecurityGroupIds?: string[];
+        loadBalancerBackendAddressPoolIds?: string[];
+        loadBalancerInboundNatRulesIds?: string[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary?: boolean;
+        publicIpAddresses?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        subnetId?: string;
+        version?: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: string;
+        idleTimeoutInMinutes: number;
+        ipTags?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpPrefixId?: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: number;
+        maxUnhealthyInstancePercent: number;
+        maxUnhealthyUpgradedInstancePercent: number;
+        pauseTimeBetweenBatches: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecret {
+        certificates: outputs.compute.WindowsVirtualMachineScaleSetSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecretCertificate {
+        store: string;
+        url: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSourceImageReference {
+        offer: string;
+        publisher: string;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: string;
+        version: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetWinrmListener {
+        certificateUrl?: string;
+        protocol: string;
+    }
+
+    export interface WindowsVirtualMachineSecret {
+        certificates: outputs.compute.WindowsVirtualMachineSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface WindowsVirtualMachineSecretCertificate {
+        store: string;
+        url: string;
+    }
+
+    export interface WindowsVirtualMachineSourceImageReference {
+        offer: string;
+        publisher: string;
+        sku: string;
+        version: string;
+    }
+
+    export interface WindowsVirtualMachineWinrmListener {
+        certificateUrl?: string;
+        protocol: string;
     }
 }
 
