@@ -12,7 +12,7 @@ from .. import utilities, tables
 class ProtectionPolicyVM(pulumi.CustomResource):
     backup: pulumi.Output[dict]
     """
-    Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+    Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
     
       * `frequency` (`str`)
       * `time` (`str`)
@@ -76,7 +76,7 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+        :param pulumi.Input[dict] backup: Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
@@ -165,7 +165,7 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+        :param pulumi.Input[dict] backup: Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.

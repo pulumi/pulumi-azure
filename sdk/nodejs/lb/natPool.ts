@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Load Balancer NAT pool. 
+ * Manages a Load Balancer NAT pool.
  * 
  * > **NOTE:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
  * 

@@ -88,7 +88,7 @@ export class Container extends pulumi.CustomResource {
      */
     public /*out*/ readonly properties!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface ContainerState {
      */
     readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface ContainerArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**

@@ -52,7 +52,7 @@ class AwaitableGetEndpointConnectionResult(GetEndpointConnectionResult):
 
 def get_endpoint_connection(name=None,resource_group_name=None,opts=None):
     """
-    Use this data source to access the connection status information about an existing Private Endpoint.
+    Use this data source to access the connection status information about an existing Private Endpoint Connection.
     
     > **NOTE** Private Endpoint is currently in Public Preview.
     

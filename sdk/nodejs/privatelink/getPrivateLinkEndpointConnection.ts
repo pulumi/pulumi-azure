@@ -48,7 +48,7 @@ export interface GetPrivateLinkEndpointConnectionResult {
      */
     readonly location: string;
     /**
-     * The name of the private linke endpoint.
+     * The name of the Private Link endpoint.
      */
     readonly name: string;
     readonly privateServiceConnections: outputs.privatelink.GetPrivateLinkEndpointConnectionPrivateServiceConnection[];

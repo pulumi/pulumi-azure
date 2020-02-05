@@ -12,7 +12,7 @@ from .. import utilities, tables
 class EndpointStorageContainer(pulumi.CustomResource):
     batch_frequency_in_seconds: pulumi.Output[float]
     """
-    Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+    Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
     """
     connection_string: pulumi.Output[str]
     """
@@ -55,7 +55,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *
@@ -117,7 +117,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *

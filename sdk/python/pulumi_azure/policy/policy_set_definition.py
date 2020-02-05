@@ -44,7 +44,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a policy set definition. 
+        Manages a policy set definition.
         
         > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
         

@@ -106,11 +106,11 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Secondary Connection String for the Event Hubs authorization Rule.
+     * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
     public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
-     * The Secondary Key for the Event Hubs authorization Rule.
+     * The Secondary Key for the Event Hubs Authorization Rule.
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
@@ -215,11 +215,11 @@ export interface EventHubAuthorizationRuleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Secondary Connection String for the Event Hubs authorization Rule.
+     * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
     readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
-     * The Secondary Key for the Event Hubs authorization Rule.
+     * The Secondary Key for the Event Hubs Authorization Rule.
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**

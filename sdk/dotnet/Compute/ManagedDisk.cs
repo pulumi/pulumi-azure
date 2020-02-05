@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute
     public partial class ManagedDisk : Pulumi.CustomResource
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Possible values include:
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Possible values include:
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Possible values include:
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

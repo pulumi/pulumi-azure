@@ -13,7 +13,7 @@ import (
 
 // Manages the subscription's Security Center Contact.
 // 
-// > **NOTE:** Owner access permission is required. 
+// > **NOTE:** Owner access permission is required.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
 type Contact struct {

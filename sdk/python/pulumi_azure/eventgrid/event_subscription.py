@@ -53,7 +53,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `storage_blob_dead_letter_destination` block as defined below.
     
-      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located. 
+      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
       * `storageBlobContainerName` (`str`) - Specifies the name of the Storage blob container that is the destination of the deadletter events
     """
     storage_queue_endpoint: pulumi.Output[dict]
@@ -61,7 +61,7 @@ class EventSubscription(pulumi.CustomResource):
     A `storage_queue_endpoint` block as defined below.
     
       * `queueName` (`str`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
-      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located. 
+      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
     """
     subject_filter: pulumi.Output[dict]
     """
@@ -79,7 +79,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `webhook_endpoint` block as defined below.
     
-      * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events. 
+      * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
     """
     def __init__(__self__, resource_name, opts=None, event_delivery_schema=None, eventhub_endpoint=None, hybrid_connection_endpoint=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -116,13 +116,13 @@ class EventSubscription(pulumi.CustomResource):
         
         The **storage_blob_dead_letter_destination** object supports the following:
         
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located. 
+          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
           * `storageBlobContainerName` (`pulumi.Input[str]`) - Specifies the name of the Storage blob container that is the destination of the deadletter events
         
         The **storage_queue_endpoint** object supports the following:
         
           * `queueName` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located. 
+          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
         
         The **subject_filter** object supports the following:
         
@@ -132,7 +132,7 @@ class EventSubscription(pulumi.CustomResource):
         
         The **webhook_endpoint** object supports the following:
         
-          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events. 
+          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
         """
@@ -214,13 +214,13 @@ class EventSubscription(pulumi.CustomResource):
         
         The **storage_blob_dead_letter_destination** object supports the following:
         
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located. 
+          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
           * `storageBlobContainerName` (`pulumi.Input[str]`) - Specifies the name of the Storage blob container that is the destination of the deadletter events
         
         The **storage_queue_endpoint** object supports the following:
         
           * `queueName` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscriptio will receive events.
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located. 
+          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
         
         The **subject_filter** object supports the following:
         
@@ -230,7 +230,7 @@ class EventSubscription(pulumi.CustomResource):
         
         The **webhook_endpoint** object supports the following:
         
-          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events. 
+          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
         """

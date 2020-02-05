@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Scheduler
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the Job collection quotas as documented in the `quota` block below. 
+        /// Configures the Job collection quotas as documented in the `quota` block below.
         /// </summary>
         [Output("quota")]
         public Output<Outputs.JobCollectionQuota?> Quota { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Scheduler
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configures the Job collection quotas as documented in the `quota` block below. 
+        /// Configures the Job collection quotas as documented in the `quota` block below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.JobCollectionQuotaArgs>? Quota { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Scheduler
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configures the Job collection quotas as documented in the `quota` block below. 
+        /// Configures the Job collection quotas as documented in the `quota` block below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.JobCollectionQuotaGetArgs>? Quota { get; set; }

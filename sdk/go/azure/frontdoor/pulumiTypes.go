@@ -867,7 +867,7 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Index(i pulum
 type FrontdoorBackendPool struct {
 	Backends []FrontdoorBackendPoolBackend `pulumi:"backends"`
 	HealthProbeName string `pulumi:"healthProbeName"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	LoadBalancingName string `pulumi:"loadBalancingName"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -884,7 +884,7 @@ type FrontdoorBackendPoolInput interface {
 type FrontdoorBackendPoolArgs struct {
 	Backends FrontdoorBackendPoolBackendArrayInput `pulumi:"backends"`
 	HealthProbeName pulumi.StringInput `pulumi:"healthProbeName"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	LoadBalancingName pulumi.StringInput `pulumi:"loadBalancingName"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -946,7 +946,7 @@ func (o FrontdoorBackendPoolOutput) HealthProbeName() pulumi.StringOutput {
 	return o.ApplyT(func (v FrontdoorBackendPool) string { return v.HealthProbeName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorBackendPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorBackendPool) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1103,7 +1103,7 @@ func (o FrontdoorBackendPoolBackendArrayOutput) Index(i pulumi.IntInput) Frontdo
 }
 
 type FrontdoorBackendPoolHealthProbe struct {
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -1120,7 +1120,7 @@ type FrontdoorBackendPoolHealthProbeInput interface {
 }
 
 type FrontdoorBackendPoolHealthProbeArgs struct {
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
@@ -1176,7 +1176,7 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbe
 	return o
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorBackendPoolHealthProbeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorBackendPoolHealthProbe) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1220,7 +1220,7 @@ func (o FrontdoorBackendPoolHealthProbeArrayOutput) Index(i pulumi.IntInput) Fro
 
 type FrontdoorBackendPoolLoadBalancing struct {
 	AdditionalLatencyMilliseconds *int `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -1237,7 +1237,7 @@ type FrontdoorBackendPoolLoadBalancingInput interface {
 
 type FrontdoorBackendPoolLoadBalancingArgs struct {
 	AdditionalLatencyMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyMilliseconds"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1296,7 +1296,7 @@ func (o FrontdoorBackendPoolLoadBalancingOutput) AdditionalLatencyMilliseconds()
 	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *int { return v.AdditionalLatencyMilliseconds }).(pulumi.IntPtrOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorBackendPoolLoadBalancingOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorBackendPoolLoadBalancing) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1338,7 +1338,7 @@ type FrontdoorFrontendEndpoint struct {
 	CustomHttpsConfiguration *FrontdoorFrontendEndpointCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
 	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
 	HostName string `pulumi:"hostName"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -1359,7 +1359,7 @@ type FrontdoorFrontendEndpointArgs struct {
 	CustomHttpsConfiguration FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput `pulumi:"customHttpsConfiguration"`
 	CustomHttpsProvisioningEnabled pulumi.BoolInput `pulumi:"customHttpsProvisioningEnabled"`
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1428,7 +1428,7 @@ func (o FrontdoorFrontendEndpointOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func (v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorFrontendEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorFrontendEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1476,6 +1476,8 @@ type FrontdoorFrontendEndpointCustomHttpsConfiguration struct {
 	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
 	CertificateSource *string `pulumi:"certificateSource"`
+	// Minimum client TLS version supported.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Provisioning state of the Front Door.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Provisioning substate of the Front Door
@@ -1494,6 +1496,8 @@ type FrontdoorFrontendEndpointCustomHttpsConfigurationArgs struct {
 	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// Minimum client TLS version supported.
+	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
 	// Provisioning state of the Front Door.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Provisioning substate of the Front Door
@@ -1583,6 +1587,11 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) CertificateSour
 	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// Minimum client TLS version supported.
+func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
@@ -1627,6 +1636,11 @@ func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) CertificateS
 	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
 
+// Minimum client TLS version supported.
+func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
 // Provisioning state of the Front Door.
 func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
@@ -1642,7 +1656,7 @@ type FrontdoorRoutingRule struct {
 	Enabled *bool `pulumi:"enabled"`
 	ForwardingConfiguration *FrontdoorRoutingRuleForwardingConfiguration `pulumi:"forwardingConfiguration"`
 	FrontendEndpoints []string `pulumi:"frontendEndpoints"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -1662,7 +1676,7 @@ type FrontdoorRoutingRuleArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	ForwardingConfiguration FrontdoorRoutingRuleForwardingConfigurationPtrInput `pulumi:"forwardingConfiguration"`
 	FrontendEndpoints pulumi.StringArrayInput `pulumi:"frontendEndpoints"`
-	// Resource ID.
+	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1733,7 +1747,7 @@ func (o FrontdoorRoutingRuleOutput) FrontendEndpoints() pulumi.StringArrayOutput
 	return o.ApplyT(func (v FrontdoorRoutingRule) []string { return v.FrontendEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// Resource ID.
+// The ID of the FrontDoor.
 func (o FrontdoorRoutingRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FrontdoorRoutingRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

@@ -25,7 +25,7 @@ class Pool(pulumi.CustomResource):
     """
     One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
     
-      * `id` (`str`) - The Batch pool ID.
+      * `id` (`str`) - The ID of the Batch Pool.
       * `storeLocation` (`str`)
       * `storeName` (`str`)
       * `visibilities` (`list`)
@@ -125,7 +125,7 @@ class Pool(pulumi.CustomResource):
     """
     A `storage_image_reference` for the virtual machines that will compose the Batch pool.
     
-      * `id` (`str`) - The Batch pool ID.
+      * `id` (`str`) - The ID of the Batch Pool.
       * `offer` (`str`)
       * `publisher` (`str`)
       * `sku` (`str`)
@@ -164,7 +164,7 @@ class Pool(pulumi.CustomResource):
         
         The **certificates** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the Batch Pool.
           * `storeLocation` (`pulumi.Input[str]`)
           * `storeName` (`pulumi.Input[str]`)
           * `visibilities` (`pulumi.Input[list]`)
@@ -229,7 +229,7 @@ class Pool(pulumi.CustomResource):
         
         The **storage_image_reference** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the Batch Pool.
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)
@@ -318,7 +318,7 @@ class Pool(pulumi.CustomResource):
         
         The **certificates** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the Batch Pool.
           * `storeLocation` (`pulumi.Input[str]`)
           * `storeName` (`pulumi.Input[str]`)
           * `visibilities` (`pulumi.Input[list]`)
@@ -383,7 +383,7 @@ class Pool(pulumi.CustomResource):
         
         The **storage_image_reference** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the Batch Pool.
           * `offer` (`pulumi.Input[str]`)
           * `publisher` (`pulumi.Input[str]`)
           * `sku` (`pulumi.Input[str]`)

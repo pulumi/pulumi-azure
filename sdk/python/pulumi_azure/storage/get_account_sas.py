@@ -87,7 +87,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
       * `delete` (`bool`)
       * `list` (`bool`)
       * `process` (`bool`)
-      * `read` (`bool`)
+      * `read` (`bool`) - (Defaults to 5 minutes) Used when retrieving the SAS Token.
       * `update` (`bool`)
       * `write` (`bool`)
     

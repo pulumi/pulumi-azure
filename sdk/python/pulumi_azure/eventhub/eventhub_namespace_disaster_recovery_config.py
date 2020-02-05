@@ -12,7 +12,7 @@ from .. import utilities, tables
 class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     alternate_name: pulumi.Output[str]
     """
-    An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+    An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
     """
     name: pulumi.Output[str]
     """
@@ -36,7 +36,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+        :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
@@ -87,7 +87,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+        :param pulumi.Input[str] alternate_name: An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.

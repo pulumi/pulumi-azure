@@ -26,7 +26,7 @@ class Endpoint(pulumi.CustomResource):
       * `name` (`str`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
       * `privateConnectionResourceId` (`str`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
       * `requestMessage` (`str`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-      * `subresourceNames` (`list`) - A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+      * `subresourceNames` (`list`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -38,7 +38,7 @@ class Endpoint(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, private_service_connection=None, resource_group_name=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages an Private Endpoint.
+        Manages a Private Endpoint.
         
         > **NOTE** Private Endpoint is currently in Public Preview.
         
@@ -58,7 +58,7 @@ class Endpoint(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
           * `privateConnectionResourceId` (`pulumi.Input[str]`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
           * `requestMessage` (`pulumi.Input[str]`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-          * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+          * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_endpoint.html.markdown.
         """
@@ -117,7 +117,7 @@ class Endpoint(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
           * `privateConnectionResourceId` (`pulumi.Input[str]`) - The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
           * `requestMessage` (`pulumi.Input[str]`) - A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-          * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+          * `subresourceNames` (`pulumi.Input[list]`) - A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_endpoint.html.markdown.
         """

@@ -28,6 +28,18 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ApplicationType { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Application Insights component daily data volume cap in GB.
+        /// </summary>
+        [Output("dailyDataCapInGb")]
+        public Output<double> DailyDataCapInGb { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if a notification email will be send when the daily data volume cap is met.
+        /// </summary>
+        [Output("dailyDataCapNotificationsDisabled")]
+        public Output<bool> DailyDataCapNotificationsDisabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Instrumentation Key for this Application Insights component.
         /// </summary>
         [Output("instrumentationKey")]
@@ -124,6 +136,18 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ApplicationType { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the Application Insights component daily data volume cap in GB.
+        /// </summary>
+        [Input("dailyDataCapInGb")]
+        public Input<double>? DailyDataCapInGb { get; set; }
+
+        /// <summary>
+        /// Specifies if a notification email will be send when the daily data volume cap is met.
+        /// </summary>
+        [Input("dailyDataCapNotificationsDisabled")]
+        public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -185,6 +209,18 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }
+
+        /// <summary>
+        /// Specifies the Application Insights component daily data volume cap in GB.
+        /// </summary>
+        [Input("dailyDataCapInGb")]
+        public Input<double>? DailyDataCapInGb { get; set; }
+
+        /// <summary>
+        /// Specifies if a notification email will be send when the daily data volume cap is met.
+        /// </summary>
+        [Input("dailyDataCapNotificationsDisabled")]
+        public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
 
         /// <summary>
         /// The Instrumentation Key for this Application Insights component.

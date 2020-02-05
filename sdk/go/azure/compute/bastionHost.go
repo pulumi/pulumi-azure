@@ -11,15 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Bastion Host Instance.
+// Manages a Bastion Host.
 // 
-// > **Note:** Bastion Host Instances are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
+// > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
-	// The FQDN for the Azure Bastion Host.
+	// The FQDN for the Bastion Host.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration BastionHostIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
@@ -64,7 +64,7 @@ func GetBastionHost(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BastionHost resources.
 type bastionHostState struct {
-	// The FQDN for the Azure Bastion Host.
+	// The FQDN for the Bastion Host.
 	DnsName *string `pulumi:"dnsName"`
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration *BastionHostIpConfiguration `pulumi:"ipConfiguration"`
@@ -79,7 +79,7 @@ type bastionHostState struct {
 }
 
 type BastionHostState struct {
-	// The FQDN for the Azure Bastion Host.
+	// The FQDN for the Bastion Host.
 	DnsName pulumi.StringPtrInput
 	// A `ipConfiguration` block as defined below.
 	IpConfiguration BastionHostIpConfigurationPtrInput

@@ -48,7 +48,7 @@ class StreamInputIotHub(pulumi.CustomResource):
     """
     stream_analytics_job_name: pulumi.Output[str]
     """
-    The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+    The name of the Stream Analytics Job. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, endpoint=None, eventhub_consumer_group_name=None, iothub_namespace=None, name=None, resource_group_name=None, serialization=None, shared_access_policy_key=None, shared_access_policy_name=None, stream_analytics_job_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -64,7 +64,7 @@ class StreamInputIotHub(pulumi.CustomResource):
         :param pulumi.Input[dict] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         
         The **serialization** object supports the following:
         
@@ -139,7 +139,7 @@ class StreamInputIotHub(pulumi.CustomResource):
         :param pulumi.Input[dict] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         
         The **serialization** object supports the following:
         

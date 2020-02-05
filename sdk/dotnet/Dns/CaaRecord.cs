@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DNS CAA Record.
+        /// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Dns
     public sealed class CaaRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the DNS CAA Record.
+        /// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Dns
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// The name of the DNS CAA Record.
+        /// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

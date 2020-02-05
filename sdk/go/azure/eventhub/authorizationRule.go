@@ -34,9 +34,9 @@ type AuthorizationRule struct {
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Secondary Connection String for the Event Hubs authorization Rule.
+	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
-	// The Secondary Key for the Event Hubs authorization Rule.
+	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 	Send pulumi.BoolPtrOutput `pulumi:"send"`
@@ -96,9 +96,9 @@ type authorizationRuleState struct {
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Secondary Connection String for the Event Hubs authorization Rule.
+	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// The Secondary Key for the Event Hubs authorization Rule.
+	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 	Send *bool `pulumi:"send"`
@@ -122,9 +122,9 @@ type AuthorizationRuleState struct {
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Secondary Connection String for the Event Hubs authorization Rule.
+	// The Secondary Connection String for the Event Hubs Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
-	// The Secondary Key for the Event Hubs authorization Rule.
+	// The Secondary Key for the Event Hubs Authorization Rule.
 	SecondaryKey pulumi.StringPtrInput
 	// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 	Send pulumi.BoolPtrInput

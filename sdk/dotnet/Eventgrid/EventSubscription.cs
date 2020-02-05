@@ -427,7 +427,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class EventSubscriptionStorageBlobDeadLetterDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located. 
+        /// Specifies the id of the storage account id where the storage blob is located.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class EventSubscriptionStorageBlobDeadLetterDestinationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located. 
+        /// Specifies the id of the storage account id where the storage blob is located.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -471,7 +471,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> QueueName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located. 
+        /// Specifies the id of the storage account id where the storage blob is located.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -490,7 +490,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<string> QueueName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located. 
+        /// Specifies the id of the storage account id where the storage blob is located.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -553,7 +553,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class EventSubscriptionWebhookEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the url of the webhook where the Event Subscription will receive events. 
+        /// Specifies the url of the webhook where the Event Subscription will receive events.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -566,7 +566,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class EventSubscriptionWebhookEndpointGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the url of the webhook where the Event Subscription will receive events. 
+        /// Specifies the url of the webhook where the Event Subscription will receive events.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -636,7 +636,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class EventSubscriptionStorageBlobDeadLetterDestination
     {
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located. 
+        /// Specifies the id of the storage account id where the storage blob is located.
         /// </summary>
         public readonly string StorageAccountId;
         /// <summary>
@@ -662,7 +662,7 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string QueueName;
         /// <summary>
-        /// Specifies the id of the storage account id where the storage blob is located. 
+        /// Specifies the id of the storage account id where the storage blob is located.
         /// </summary>
         public readonly string StorageAccountId;
 
@@ -708,7 +708,7 @@ namespace Pulumi.Azure.EventGrid
     public sealed class EventSubscriptionWebhookEndpoint
     {
         /// <summary>
-        /// Specifies the url of the webhook where the Event Subscription will receive events. 
+        /// Specifies the url of the webhook where the Event Subscription will receive events.
         /// </summary>
         public readonly string Url;
 

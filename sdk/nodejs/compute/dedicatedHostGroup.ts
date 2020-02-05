@@ -75,7 +75,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
 
@@ -148,7 +148,7 @@ export interface DedicatedHostGroupState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */
     readonly zones?: pulumi.Input<string>;
 }
@@ -178,7 +178,7 @@ export interface DedicatedHostGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+     * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */
     readonly zones?: pulumi.Input<string>;
 }

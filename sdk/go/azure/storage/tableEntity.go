@@ -26,7 +26,7 @@ type TableEntity struct {
 	// Specifies the storage account in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity. 
+	// The name of the storage table in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
@@ -83,7 +83,7 @@ type tableEntityState struct {
 	// Specifies the storage account in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity. 
+	// The name of the storage table in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	TableName *string `pulumi:"tableName"`
 }
@@ -98,7 +98,7 @@ type TableEntityState struct {
 	// Specifies the storage account in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
-	// The name of the storage table in which to create the storage table entity. 
+	// The name of the storage table in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	TableName pulumi.StringPtrInput
 }
@@ -117,7 +117,7 @@ type tableEntityArgs struct {
 	// Specifies the storage account in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
-	// The name of the storage table in which to create the storage table entity. 
+	// The name of the storage table in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	TableName string `pulumi:"tableName"`
 }
@@ -133,7 +133,7 @@ type TableEntityArgs struct {
 	// Specifies the storage account in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
-	// The name of the storage table in which to create the storage table entity. 
+	// The name of the storage table in which to create the storage table entity.
 	// Changing this forces a new resource to be created.
 	TableName pulumi.StringInput
 }

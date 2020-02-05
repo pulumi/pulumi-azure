@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Application(pulumi.CustomResource):
     application_id: pulumi.Output[str]
     """
-    The Application ID.
+    The ID of the Azure Active Directory Application.
     """
     available_to_other_tenants: pulumi.Output[bool]
     """
@@ -92,7 +92,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The Application ID.
+        :param pulumi.Input[str] application_id: The ID of the Azure Active Directory Application.
         :param pulumi.Input[bool] available_to_other_tenants: Is this Azure AD Application available to other tenants? Defaults to `false`.
         :param pulumi.Input[str] homepage: The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
         :param pulumi.Input[list] identifier_uris: A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.

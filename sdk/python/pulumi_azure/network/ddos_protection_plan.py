@@ -28,7 +28,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
     """
     virtual_network_ids: pulumi.Output[list]
     """
-    The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+    A list of Virtual Network ID's associated with the DDoS Protection Plan.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -88,7 +88,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Network DDoS Protection Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[list] virtual_network_ids: The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+        :param pulumi.Input[list] virtual_network_ids: A list of Virtual Network ID's associated with the DDoS Protection Plan.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_ddos_protection_plan.html.markdown.
         """

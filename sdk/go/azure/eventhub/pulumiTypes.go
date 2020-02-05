@@ -1246,7 +1246,7 @@ func (o EventSubscriptionRetryPolicyPtrOutput) MaxDeliveryAttempts() pulumi.IntO
 }
 
 type EventSubscriptionStorageBlobDeadLetterDestination struct {
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// Specifies the name of the Storage blob container that is the destination of the deadletter events
 	StorageBlobContainerName string `pulumi:"storageBlobContainerName"`
@@ -1260,7 +1260,7 @@ type EventSubscriptionStorageBlobDeadLetterDestinationInput interface {
 }
 
 type EventSubscriptionStorageBlobDeadLetterDestinationArgs struct {
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 	// Specifies the name of the Storage blob container that is the destination of the deadletter events
 	StorageBlobContainerName pulumi.StringInput `pulumi:"storageBlobContainerName"`
@@ -1333,7 +1333,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscrip
 		return &v
 	}).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func (v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -1361,7 +1361,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() Event
 	return o.ApplyT(func (v *EventSubscriptionStorageBlobDeadLetterDestination) EventSubscriptionStorageBlobDeadLetterDestination { return *v }).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func (v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -1374,7 +1374,7 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) StorageBlobC
 type EventSubscriptionStorageQueueEndpoint struct {
 	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
 	QueueName string `pulumi:"queueName"`
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -1388,7 +1388,7 @@ type EventSubscriptionStorageQueueEndpointInput interface {
 type EventSubscriptionStorageQueueEndpointArgs struct {
 	// Specifies the name of the storage queue where the Event Subscriptio will receive events.
 	QueueName pulumi.StringInput `pulumi:"queueName"`
-	// Specifies the id of the storage account id where the storage blob is located. 
+	// Specifies the id of the storage account id where the storage blob is located.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
@@ -1464,7 +1464,7 @@ func (o EventSubscriptionStorageQueueEndpointOutput) QueueName() pulumi.StringOu
 	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageQueueEndpointOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -1492,7 +1492,7 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) QueueName() pulumi.Strin
 	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// Specifies the id of the storage account id where the storage blob is located. 
+// Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func (v EventSubscriptionStorageQueueEndpoint) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
@@ -1638,7 +1638,7 @@ func (o EventSubscriptionSubjectFilterPtrOutput) SubjectEndsWith() pulumi.String
 }
 
 type EventSubscriptionWebhookEndpoint struct {
-	// Specifies the url of the webhook where the Event Subscription will receive events. 
+	// Specifies the url of the webhook where the Event Subscription will receive events.
 	Url string `pulumi:"url"`
 }
 
@@ -1650,7 +1650,7 @@ type EventSubscriptionWebhookEndpointInput interface {
 }
 
 type EventSubscriptionWebhookEndpointArgs struct {
-	// Specifies the url of the webhook where the Event Subscription will receive events. 
+	// Specifies the url of the webhook where the Event Subscription will receive events.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -1721,7 +1721,7 @@ func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpoi
 		return &v
 	}).(EventSubscriptionWebhookEndpointPtrOutput)
 }
-// Specifies the url of the webhook where the Event Subscription will receive events. 
+// Specifies the url of the webhook where the Event Subscription will receive events.
 func (o EventSubscriptionWebhookEndpointOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func (v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1744,7 +1744,7 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebho
 	return o.ApplyT(func (v *EventSubscriptionWebhookEndpoint) EventSubscriptionWebhookEndpoint { return *v }).(EventSubscriptionWebhookEndpointOutput)
 }
 
-// Specifies the url of the webhook where the Event Subscription will receive events. 
+// Specifies the url of the webhook where the Event Subscription will receive events.
 func (o EventSubscriptionWebhookEndpointPtrOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func (v EventSubscriptionWebhookEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }

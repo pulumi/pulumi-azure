@@ -95,7 +95,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
 
 def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
     """
-    Use this data source to access information about an App Service certificate.
+    Use this data source to access information about an App Service Certificate.
     
     :param str name: Specifies the name of the certificate.
     :param str resource_group_name: The name of the resource group in which to create the certificate.

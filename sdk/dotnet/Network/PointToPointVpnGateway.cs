@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Network
         public Output<string> VirtualHubId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+        /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         /// </summary>
         [Output("vpnServerConfigurationId")]
         public Output<string> VpnServerConfigurationId { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Network
         public Input<string> VirtualHubId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+        /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vpnServerConfigurationId", required: true)]
         public Input<string> VpnServerConfigurationId { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? VirtualHubId { get; set; }
 
         /// <summary>
-        /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+        /// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         /// </summary>
         [Input("vpnServerConfigurationId")]
         public Input<string>? VpnServerConfigurationId { get; set; }

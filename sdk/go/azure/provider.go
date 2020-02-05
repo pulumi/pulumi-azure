@@ -93,6 +93,7 @@ type providerArgs struct {
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 	// public.
 	Environment *string `pulumi:"environment"`
+	Features *ProviderFeatures `pulumi:"features"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
@@ -131,6 +132,7 @@ type ProviderArgs struct {
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
 	// public.
 	Environment pulumi.StringPtrInput
+	Features ProviderFeaturesPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrInput

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Dashboard
     public partial class Dashboard : Pulumi.CustomResource
     {
         /// <summary>
-        /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+        /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         /// </summary>
         [Output("dashboardProperties")]
         public Output<string> DashboardProperties { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Dashboard
     public sealed class DashboardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+        /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         /// </summary>
         [Input("dashboardProperties")]
         public Input<string>? DashboardProperties { get; set; }
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Dashboard
     public sealed class DashboardState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal. 
+        /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         /// </summary>
         [Input("dashboardProperties")]
         public Input<string>? DashboardProperties { get; set; }

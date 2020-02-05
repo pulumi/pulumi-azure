@@ -9571,7 +9571,6 @@ type GetExpressRouteCircuitPeeringType struct {
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn int `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-	// > **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
 	PeeringType string `pulumi:"peeringType"`
 	// A `/30` subnet for the primary link.
 	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
@@ -9596,7 +9595,6 @@ type GetExpressRouteCircuitPeeringTypeArgs struct {
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntInput `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-	// > **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
 	PeeringType pulumi.StringInput `pulumi:"peeringType"`
 	// A `/30` subnet for the primary link.
 	PrimaryPeerAddressPrefix pulumi.StringInput `pulumi:"primaryPeerAddressPrefix"`
@@ -9666,7 +9664,6 @@ func (o GetExpressRouteCircuitPeeringTypeOutput) PeerAsn() pulumi.IntOutput {
 }
 
 // The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-// > **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
 func (o GetExpressRouteCircuitPeeringTypeOutput) PeeringType() pulumi.StringOutput {
 	return o.ApplyT(func (v GetExpressRouteCircuitPeeringType) string { return v.PeeringType }).(pulumi.StringOutput)
 }

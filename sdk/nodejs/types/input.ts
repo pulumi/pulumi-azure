@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 
+export interface ProviderFeatures {
+    virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
+    virtualMachineScaleSet?: pulumi.Input<inputs.ProviderFeaturesVirtualMachineScaleSet>;
+}
+
+export interface ProviderFeaturesVirtualMachine {
+    deleteOsDiskOnDeletion: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesVirtualMachineScaleSet {
+    rollInstancesWhenRequired: pulumi.Input<boolean>;
+}
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -1165,7 +1178,7 @@ export namespace backup {
 export namespace batch {
     export interface AccountKeyVaultReference {
         /**
-         * The Batch account ID.
+         * The ID of the Batch Account.
          */
         id: pulumi.Input<string>;
         url: pulumi.Input<string>;
@@ -1322,7 +1335,7 @@ export namespace batch {
 
     export interface PoolCertificate {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id: pulumi.Input<string>;
         storeLocation: pulumi.Input<string>;
@@ -1399,7 +1412,7 @@ export namespace batch {
 
     export interface PoolStorageImageReference {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id?: pulumi.Input<string>;
         offer?: pulumi.Input<string>;
@@ -2854,7 +2867,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
         /**
@@ -2869,7 +2882,7 @@ export namespace eventgrid {
          */
         queueName: pulumi.Input<string>;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
     }
@@ -2891,7 +2904,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
     }
@@ -3002,7 +3015,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
         /**
@@ -3017,7 +3030,7 @@ export namespace eventhub {
          */
         queueName: pulumi.Input<string>;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
     }
@@ -3039,7 +3052,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
     }
@@ -3152,7 +3165,7 @@ export namespace frontdoor {
         backends: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolBackend>[]>;
         healthProbeName: pulumi.Input<string>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         loadBalancingName: pulumi.Input<string>;
@@ -3174,7 +3187,7 @@ export namespace frontdoor {
 
     export interface FrontdoorBackendPoolHealthProbe {
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         intervalInSeconds?: pulumi.Input<number>;
@@ -3189,7 +3202,7 @@ export namespace frontdoor {
     export interface FrontdoorBackendPoolLoadBalancing {
         additionalLatencyMilliseconds?: pulumi.Input<number>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         /**
@@ -3205,7 +3218,7 @@ export namespace frontdoor {
         customHttpsProvisioningEnabled: pulumi.Input<boolean>;
         hostName: pulumi.Input<string>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         /**
@@ -3226,6 +3239,10 @@ export namespace frontdoor {
         azureKeyVaultCertificateVaultId?: pulumi.Input<string>;
         certificateSource?: pulumi.Input<string>;
         /**
+         * Minimum client TLS version supported.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        /**
          * Provisioning state of the Front Door.
          */
         provisioningState?: pulumi.Input<string>;
@@ -3241,7 +3258,7 @@ export namespace frontdoor {
         forwardingConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration>;
         frontendEndpoints: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         /**
@@ -4279,7 +4296,7 @@ export namespace mariadb {
 export namespace mediaservices {
     export interface AccountStorageAccount {
         /**
-         * The Resource ID of the Media Services Account.
+         * The ID of the Media Services Account.
          */
         id: pulumi.Input<string>;
         isPrimary?: pulumi.Input<boolean>;
@@ -4688,7 +4705,7 @@ export namespace mssql {
          */
         family?: pulumi.Input<string>;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
          */
         name: pulumi.Input<string>;
         /**
@@ -5851,7 +5868,7 @@ export namespace privatelink {
          */
         requestMessage?: pulumi.Input<string>;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
         subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6398,7 +6415,13 @@ export namespace storage {
     }
 
     export interface AccountQueuePropertiesLogging {
+        /**
+         * (Defaults to 60 minutes) Used when deleting the Storage Account.
+         */
         delete: pulumi.Input<boolean>;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the Storage Account.
+         */
         read: pulumi.Input<boolean>;
         retentionPolicyDays?: pulumi.Input<number>;
         version: pulumi.Input<string>;
@@ -6417,6 +6440,9 @@ export namespace storage {
         create: boolean;
         delete: boolean;
         list: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the Blob Container.
+         */
         read: boolean;
         write: boolean;
     }
@@ -6427,6 +6453,9 @@ export namespace storage {
         delete: boolean;
         list: boolean;
         process: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the SAS Token.
+         */
         read: boolean;
         update: boolean;
         write: boolean;

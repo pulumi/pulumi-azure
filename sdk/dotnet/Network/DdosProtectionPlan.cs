@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+        /// A list of Virtual Network ID's associated with the DDoS Protection Plan.
         /// </summary>
         [Output("virtualNetworkIds")]
         public Output<ImmutableArray<string>> VirtualNetworkIds { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _virtualNetworkIds;
 
         /// <summary>
-        /// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+        /// A list of Virtual Network ID's associated with the DDoS Protection Plan.
         /// </summary>
         public InputList<string> VirtualNetworkIds
         {

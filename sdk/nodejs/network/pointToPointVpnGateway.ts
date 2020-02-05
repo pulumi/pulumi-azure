@@ -67,7 +67,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
      */
     public readonly virtualHubId!: pulumi.Output<string>;
     /**
-     * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+     * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
     public readonly vpnServerConfigurationId!: pulumi.Output<string>;
 
@@ -161,7 +161,7 @@ export interface PointToPointVpnGatewayState {
      */
     readonly virtualHubId?: pulumi.Input<string>;
     /**
-     * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+     * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
     readonly vpnServerConfigurationId?: pulumi.Input<string>;
 }
@@ -199,7 +199,7 @@ export interface PointToPointVpnGatewayArgs {
      */
     readonly virtualHubId: pulumi.Input<string>;
     /**
-     * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+     * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
     readonly vpnServerConfigurationId: pulumi.Input<string>;
 }

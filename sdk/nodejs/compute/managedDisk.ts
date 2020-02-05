@@ -92,7 +92,7 @@ export class ManagedDisk extends pulumi.CustomResource {
     }
 
     /**
-     * The method to use when creating the managed disk. Possible values include:
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly sourceUri!: pulumi.Output<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -234,7 +234,7 @@ export class ManagedDisk extends pulumi.CustomResource {
  */
 export interface ManagedDiskState {
     /**
-     * The method to use when creating the managed disk. Possible values include:
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      */
     readonly createOption?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface ManagedDiskState {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**
@@ -308,7 +308,7 @@ export interface ManagedDiskState {
  */
 export interface ManagedDiskArgs {
     /**
-     * The method to use when creating the managed disk. Possible values include:
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
      */
     readonly createOption: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface ManagedDiskArgs {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**

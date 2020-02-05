@@ -95,7 +95,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
     }
 
     /**
-     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
      */
     public readonly backup!: pulumi.Output<outputs.recoveryservices.ProtectionPolicyVMBackup>;
     /**
@@ -195,7 +195,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
  */
 export interface ProtectionPolicyVMState {
     /**
-     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
      */
     readonly backup?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMBackup>;
     /**
@@ -241,7 +241,7 @@ export interface ProtectionPolicyVMState {
  */
 export interface ProtectionPolicyVMArgs {
     /**
-     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
      */
     readonly backup: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMBackup>;
     /**

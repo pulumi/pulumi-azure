@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
 import * as utilities from "./utilities";
 
 /**
@@ -46,6 +47,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
             inputs["disableTerraformPartnerId"] = pulumi.output((args ? args.disableTerraformPartnerId : undefined) || (utilities.getEnvBoolean("ARM_DISABLE_TERRAFORM_PARTNER_ID") || true)).apply(JSON.stringify);
             inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
+            inputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
             inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
             inputs["partnerId"] = (args ? args.partnerId : undefined) || (utilities.getEnv("ARM_PARTNER_ID") || "");
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false)).apply(JSON.stringify);
@@ -101,6 +103,7 @@ export interface ProviderArgs {
      * public.
      */
     readonly environment?: pulumi.Input<string>;
+    readonly features?: pulumi.Input<inputs.ProviderFeatures>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.

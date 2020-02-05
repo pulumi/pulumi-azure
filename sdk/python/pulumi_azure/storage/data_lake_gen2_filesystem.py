@@ -16,7 +16,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     """
     properties: pulumi.Output[dict]
     """
-    A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+    A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
     """
     storage_account_id: pulumi.Output[str]
     """
@@ -31,7 +31,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+        :param pulumi.Input[dict] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_data_lake_gen2_filesystem.html.markdown.
@@ -74,7 +74,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+        :param pulumi.Input[dict] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_data_lake_gen2_filesystem.html.markdown.

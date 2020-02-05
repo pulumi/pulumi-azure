@@ -177,8 +177,8 @@ class Account(pulumi.CustomResource):
     
       * `logging` (`dict`)
     
-        * `delete` (`bool`)
-        * `read` (`bool`)
+        * `delete` (`bool`) - (Defaults to 60 minutes) Used when deleting the Storage Account.
+        * `read` (`bool`) - (Defaults to 5 minutes) Used when retrieving the Storage Account.
         * `retentionPolicyDays` (`float`)
         * `version` (`str`)
         * `write` (`bool`)
@@ -332,8 +332,8 @@ class Account(pulumi.CustomResource):
         
           * `logging` (`pulumi.Input[dict]`)
         
-            * `delete` (`pulumi.Input[bool]`)
-            * `read` (`pulumi.Input[bool]`)
+            * `delete` (`pulumi.Input[bool]`) - (Defaults to 60 minutes) Used when deleting the Storage Account.
+            * `read` (`pulumi.Input[bool]`) - (Defaults to 5 minutes) Used when retrieving the Storage Account.
             * `retentionPolicyDays` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
             * `write` (`pulumi.Input[bool]`)
@@ -533,8 +533,8 @@ class Account(pulumi.CustomResource):
         
           * `logging` (`pulumi.Input[dict]`)
         
-            * `delete` (`pulumi.Input[bool]`)
-            * `read` (`pulumi.Input[bool]`)
+            * `delete` (`pulumi.Input[bool]`) - (Defaults to 60 minutes) Used when deleting the Storage Account.
+            * `read` (`pulumi.Input[bool]`) - (Defaults to 5 minutes) Used when retrieving the Storage Account.
             * `retentionPolicyDays` (`pulumi.Input[float]`)
             * `version` (`pulumi.Input[str]`)
             * `write` (`pulumi.Input[bool]`)

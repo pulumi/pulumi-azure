@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Virtual Network within a Dev Test Lab.
+ * Manages a Virtual Network within a DevTest Lab.
  * 
  * ## Example Usage
  * 

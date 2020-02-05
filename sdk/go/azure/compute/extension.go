@@ -52,7 +52,7 @@ type Extension struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
-	// The resource ID of the virtual machine. This value replaces 
+	// The resource ID of the virtual machine. This value replaces
 	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
 	// resource to be created
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
@@ -128,7 +128,7 @@ type extensionState struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-	// The resource ID of the virtual machine. This value replaces 
+	// The resource ID of the virtual machine. This value replaces
 	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
 	// resource to be created
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
@@ -168,7 +168,7 @@ type ExtensionState struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
-	// The resource ID of the virtual machine. This value replaces 
+	// The resource ID of the virtual machine. This value replaces
 	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
 	// resource to be created
 	VirtualMachineId pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type extensionArgs struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
-	// The resource ID of the virtual machine. This value replaces 
+	// The resource ID of the virtual machine. This value replaces
 	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
 	// resource to be created
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
@@ -253,7 +253,7 @@ type ExtensionArgs struct {
 	// Specifies the version of the extension to
 	// use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
-	// The resource ID of the virtual machine. This value replaces 
+	// The resource ID of the virtual machine. This value replaces
 	// `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
 	// resource to be created
 	VirtualMachineId pulumi.StringPtrInput

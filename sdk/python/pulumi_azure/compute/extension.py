@@ -62,7 +62,7 @@ class Extension(pulumi.CustomResource):
     """
     virtual_machine_id: pulumi.Output[str]
     """
-    The resource ID of the virtual machine. This value replaces 
+    The resource ID of the virtual machine. This value replaces
     `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
     resource to be created
     """
@@ -102,7 +102,7 @@ class Extension(pulumi.CustomResource):
                be found using the Azure CLI.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
                use, available versions can be found using the Azure CLI.
-        :param pulumi.Input[str] virtual_machine_id: The resource ID of the virtual machine. This value replaces 
+        :param pulumi.Input[str] virtual_machine_id: The resource ID of the virtual machine. This value replaces
                `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
                resource to be created
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing
@@ -180,7 +180,7 @@ class Extension(pulumi.CustomResource):
                be found using the Azure CLI.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
                use, available versions can be found using the Azure CLI.
-        :param pulumi.Input[str] virtual_machine_id: The resource ID of the virtual machine. This value replaces 
+        :param pulumi.Input[str] virtual_machine_id: The resource ID of the virtual machine. This value replaces
                `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
                resource to be created
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing

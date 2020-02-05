@@ -21,7 +21,7 @@ type DataLakeGen2Filesystem struct {
 
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
@@ -60,7 +60,7 @@ func GetDataLakeGen2Filesystem(ctx *pulumi.Context,
 type dataLakeGen2FilesystemState struct {
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties map[string]string `pulumi:"properties"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -69,7 +69,7 @@ type dataLakeGen2FilesystemState struct {
 type DataLakeGen2FilesystemState struct {
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties pulumi.StringMapInput
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -82,7 +82,7 @@ func (DataLakeGen2FilesystemState) ElementType() reflect.Type {
 type dataLakeGen2FilesystemArgs struct {
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties map[string]string `pulumi:"properties"`
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -92,7 +92,7 @@ type dataLakeGen2FilesystemArgs struct {
 type DataLakeGen2FilesystemArgs struct {
 	// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+	// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
 	Properties pulumi.StringMapInput
 	// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput

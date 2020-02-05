@@ -69,7 +69,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
     }
 
     /**
-     * Configures the Policy backup frequency and times as documented in the `backup` block below. 
+     * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
     public readonly backup!: pulumi.Output<outputs.backup.PolicyFileShareBackup>;
     /**
@@ -148,7 +148,7 @@ export class PolicyFileShare extends pulumi.CustomResource {
  */
 export interface PolicyFileShareState {
     /**
-     * Configures the Policy backup frequency and times as documented in the `backup` block below. 
+     * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
     readonly backup?: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
     /**
@@ -178,7 +178,7 @@ export interface PolicyFileShareState {
  */
 export interface PolicyFileShareArgs {
     /**
-     * Configures the Policy backup frequency and times as documented in the `backup` block below. 
+     * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
     readonly backup: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
     /**

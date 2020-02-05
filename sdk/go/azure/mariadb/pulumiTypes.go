@@ -291,9 +291,127 @@ func (o ServerStorageProfilePtrOutput) StorageMb() pulumi.IntOutput {
 	return o.ApplyT(func (v ServerStorageProfile) int { return v.StorageMb }).(pulumi.IntOutput)
 }
 
+type GetMariaDbServerStorageProfile struct {
+	// Whether autogrow is enabled or disabled for the storage.
+	AutoGrow string `pulumi:"autoGrow"`
+	// Backup retention days for the server.
+	BackupRetentionDays int `pulumi:"backupRetentionDays"`
+	// Whether Geo-redundant is enabled or not for server backup.
+	GeoRedundantBackup string `pulumi:"geoRedundantBackup"`
+	// The max storage allowed for a server.
+	StorageMb int `pulumi:"storageMb"`
+}
+
+type GetMariaDbServerStorageProfileInput interface {
+	pulumi.Input
+
+	ToGetMariaDbServerStorageProfileOutput() GetMariaDbServerStorageProfileOutput
+	ToGetMariaDbServerStorageProfileOutputWithContext(context.Context) GetMariaDbServerStorageProfileOutput
+}
+
+type GetMariaDbServerStorageProfileArgs struct {
+	// Whether autogrow is enabled or disabled for the storage.
+	AutoGrow pulumi.StringInput `pulumi:"autoGrow"`
+	// Backup retention days for the server.
+	BackupRetentionDays pulumi.IntInput `pulumi:"backupRetentionDays"`
+	// Whether Geo-redundant is enabled or not for server backup.
+	GeoRedundantBackup pulumi.StringInput `pulumi:"geoRedundantBackup"`
+	// The max storage allowed for a server.
+	StorageMb pulumi.IntInput `pulumi:"storageMb"`
+}
+
+func (GetMariaDbServerStorageProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMariaDbServerStorageProfile)(nil)).Elem()
+}
+
+func (i GetMariaDbServerStorageProfileArgs) ToGetMariaDbServerStorageProfileOutput() GetMariaDbServerStorageProfileOutput {
+	return i.ToGetMariaDbServerStorageProfileOutputWithContext(context.Background())
+}
+
+func (i GetMariaDbServerStorageProfileArgs) ToGetMariaDbServerStorageProfileOutputWithContext(ctx context.Context) GetMariaDbServerStorageProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMariaDbServerStorageProfileOutput)
+}
+
+type GetMariaDbServerStorageProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetMariaDbServerStorageProfileArrayOutput() GetMariaDbServerStorageProfileArrayOutput
+	ToGetMariaDbServerStorageProfileArrayOutputWithContext(context.Context) GetMariaDbServerStorageProfileArrayOutput
+}
+
+type GetMariaDbServerStorageProfileArray []GetMariaDbServerStorageProfileInput
+
+func (GetMariaDbServerStorageProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMariaDbServerStorageProfile)(nil)).Elem()
+}
+
+func (i GetMariaDbServerStorageProfileArray) ToGetMariaDbServerStorageProfileArrayOutput() GetMariaDbServerStorageProfileArrayOutput {
+	return i.ToGetMariaDbServerStorageProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetMariaDbServerStorageProfileArray) ToGetMariaDbServerStorageProfileArrayOutputWithContext(ctx context.Context) GetMariaDbServerStorageProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMariaDbServerStorageProfileArrayOutput)
+}
+
+type GetMariaDbServerStorageProfileOutput struct { *pulumi.OutputState }
+
+func (GetMariaDbServerStorageProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMariaDbServerStorageProfile)(nil)).Elem()
+}
+
+func (o GetMariaDbServerStorageProfileOutput) ToGetMariaDbServerStorageProfileOutput() GetMariaDbServerStorageProfileOutput {
+	return o
+}
+
+func (o GetMariaDbServerStorageProfileOutput) ToGetMariaDbServerStorageProfileOutputWithContext(ctx context.Context) GetMariaDbServerStorageProfileOutput {
+	return o
+}
+
+// Whether autogrow is enabled or disabled for the storage.
+func (o GetMariaDbServerStorageProfileOutput) AutoGrow() pulumi.StringOutput {
+	return o.ApplyT(func (v GetMariaDbServerStorageProfile) string { return v.AutoGrow }).(pulumi.StringOutput)
+}
+
+// Backup retention days for the server.
+func (o GetMariaDbServerStorageProfileOutput) BackupRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func (v GetMariaDbServerStorageProfile) int { return v.BackupRetentionDays }).(pulumi.IntOutput)
+}
+
+// Whether Geo-redundant is enabled or not for server backup.
+func (o GetMariaDbServerStorageProfileOutput) GeoRedundantBackup() pulumi.StringOutput {
+	return o.ApplyT(func (v GetMariaDbServerStorageProfile) string { return v.GeoRedundantBackup }).(pulumi.StringOutput)
+}
+
+// The max storage allowed for a server.
+func (o GetMariaDbServerStorageProfileOutput) StorageMb() pulumi.IntOutput {
+	return o.ApplyT(func (v GetMariaDbServerStorageProfile) int { return v.StorageMb }).(pulumi.IntOutput)
+}
+
+type GetMariaDbServerStorageProfileArrayOutput struct { *pulumi.OutputState}
+
+func (GetMariaDbServerStorageProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMariaDbServerStorageProfile)(nil)).Elem()
+}
+
+func (o GetMariaDbServerStorageProfileArrayOutput) ToGetMariaDbServerStorageProfileArrayOutput() GetMariaDbServerStorageProfileArrayOutput {
+	return o
+}
+
+func (o GetMariaDbServerStorageProfileArrayOutput) ToGetMariaDbServerStorageProfileArrayOutputWithContext(ctx context.Context) GetMariaDbServerStorageProfileArrayOutput {
+	return o
+}
+
+func (o GetMariaDbServerStorageProfileArrayOutput) Index(i pulumi.IntInput) GetMariaDbServerStorageProfileOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetMariaDbServerStorageProfile {
+		return vs[0].([]GetMariaDbServerStorageProfile)[vs[1].(int)]
+	}).(GetMariaDbServerStorageProfileOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerSkuOutput{})
 	pulumi.RegisterOutputType(ServerSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfileOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetMariaDbServerStorageProfileOutput{})
+	pulumi.RegisterOutputType(GetMariaDbServerStorageProfileArrayOutput{})
 }

@@ -15,6 +15,7 @@ export * from "./eventSubscription";
 export * from "./eventhubNamespaceDisasterRecoveryConfig";
 export * from "./getEventhubNamespace";
 export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
 export * from "./getServiceBusNamespace";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";

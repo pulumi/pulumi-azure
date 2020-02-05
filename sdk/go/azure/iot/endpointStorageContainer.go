@@ -19,7 +19,7 @@ import (
 type EndpointStorageContainer struct {
 	pulumi.CustomResourceState
 
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds pulumi.IntPtrOutput `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
@@ -80,7 +80,7 @@ func GetEndpointStorageContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointStorageContainer resources.
 type endpointStorageContainerState struct {
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
 	ConnectionString *string `pulumi:"connectionString"`
@@ -102,7 +102,7 @@ type endpointStorageContainerState struct {
 }
 
 type EndpointStorageContainerState struct {
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds pulumi.IntPtrInput
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringPtrInput
@@ -128,7 +128,7 @@ func (EndpointStorageContainerState) ElementType() reflect.Type {
 }
 
 type endpointStorageContainerArgs struct {
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
 	// The connection string for the endpoint.
 	ConnectionString string `pulumi:"connectionString"`
@@ -151,7 +151,7 @@ type endpointStorageContainerArgs struct {
 
 // The set of arguments for constructing a EndpointStorageContainer resource.
 type EndpointStorageContainerArgs struct {
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 	BatchFrequencyInSeconds pulumi.IntPtrInput
 	// The connection string for the endpoint.
 	ConnectionString pulumi.StringInput

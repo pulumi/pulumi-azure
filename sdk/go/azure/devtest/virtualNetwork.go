@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Virtual Network within a Dev Test Lab.
+// Manages a Virtual Network within a DevTest Lab.
 // 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_virtual_network.html.markdown.
 type VirtualNetwork struct {

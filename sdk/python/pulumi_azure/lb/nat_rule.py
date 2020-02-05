@@ -55,7 +55,7 @@ class NatRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Load Balancer NAT Rule. 
+        Manages a Load Balancer NAT Rule.
         
         > **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
         

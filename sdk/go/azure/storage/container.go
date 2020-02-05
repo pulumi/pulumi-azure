@@ -29,7 +29,7 @@ type Container struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
@@ -78,7 +78,7 @@ type containerState struct {
 	Name *string `pulumi:"name"`
 	// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
 	Properties map[string]string `pulumi:"properties"`
-	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -97,7 +97,7 @@ type ContainerState struct {
 	Name pulumi.StringPtrInput
 	// (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
 	Properties pulumi.StringMapInput
-	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName pulumi.StringPtrInput
@@ -114,7 +114,7 @@ type containerArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container which should be created within the Storage Account.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
@@ -128,7 +128,7 @@ type ContainerArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name of the Container which should be created within the Storage Account.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+	// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created.
 	StorageAccountName pulumi.StringInput

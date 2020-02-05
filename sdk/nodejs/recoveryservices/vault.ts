@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     location: rg.location,
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
+ *     softDeleteEnabled: true,
  * });
  * ```
  *
@@ -71,6 +72,10 @@ export class Vault extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
+     * Is soft delete enable for this Vault? Defaults to `true`.
+     */
+    public readonly softDeleteEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
@@ -91,6 +96,7 @@ export class Vault extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VaultArgs | undefined;
@@ -104,6 +110,7 @@ export class Vault extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
@@ -138,6 +145,10 @@ export interface VaultState {
      */
     readonly sku?: pulumi.Input<string>;
     /**
+     * Is soft delete enable for this Vault? Defaults to `true`.
+     */
+    readonly softDeleteEnabled?: pulumi.Input<boolean>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -163,6 +174,10 @@ export interface VaultArgs {
      * Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
      */
     readonly sku: pulumi.Input<string>;
+    /**
+     * Is soft delete enable for this Vault? Defaults to `true`.
+     */
+    readonly softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */

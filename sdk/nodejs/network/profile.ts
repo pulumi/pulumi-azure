@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure Network Profile.
+ * Manages a Network Profile.
  * 
  * ## Example Usage
  * 
@@ -82,7 +82,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly containerNetworkInterface!: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
-     * One or more Resource IDs of Azure Container Network Interfaces.
+     * A list of Container Network Interface ID's.
      */
     public /*out*/ readonly containerNetworkInterfaceIds!: pulumi.Output<string[]>;
     /**
@@ -155,7 +155,7 @@ export interface ProfileState {
      */
     readonly containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
-     * One or more Resource IDs of Azure Container Network Interfaces.
+     * A list of Container Network Interface ID's.
      */
     readonly containerNetworkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

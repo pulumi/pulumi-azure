@@ -20,7 +20,7 @@ type EndpointPrivateServiceConnection struct {
 	PrivateConnectionResourceId string `pulumi:"privateConnectionResourceId"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage *string `pulumi:"requestMessage"`
-	// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 	SubresourceNames []string `pulumi:"subresourceNames"`
 }
 
@@ -40,7 +40,7 @@ type EndpointPrivateServiceConnectionArgs struct {
 	PrivateConnectionResourceId pulumi.StringInput `pulumi:"privateConnectionResourceId"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
-	// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 	SubresourceNames pulumi.StringArrayInput `pulumi:"subresourceNames"`
 }
 
@@ -131,7 +131,7 @@ func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPt
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
-// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
 }
@@ -174,7 +174,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.Strin
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
-// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
 }
@@ -322,7 +322,7 @@ type GetPrivateLinkEndpointConnectionPrivateServiceConnection struct {
 	// `Deleted state` | The resource owner has `Rejected` the private link endpoint connection request and has removed your private link endpoint request from the remote resource.
 	// `request/response message` | If you submitted a manual private link endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private link endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private link endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
 	RequestResponse string `pulumi:"requestResponse"`
-	// The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+	// The current status of the Private Link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
 	Status string `pulumi:"status"`
 }
 
@@ -345,7 +345,7 @@ type GetPrivateLinkEndpointConnectionPrivateServiceConnectionArgs struct {
 	// `Deleted state` | The resource owner has `Rejected` the private link endpoint connection request and has removed your private link endpoint request from the remote resource.
 	// `request/response message` | If you submitted a manual private link endpoint connection request, while in the `Pending` status the `requestResponse` will display the same text from your `requestMessage` in the `privateServiceConnection` block above. If the private link endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `requestResponse` text, if the private link endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `requestResponse` text
 	RequestResponse pulumi.StringInput `pulumi:"requestResponse"`
-	// The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+	// The current status of the Private Link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -416,7 +416,7 @@ func (o GetPrivateLinkEndpointConnectionPrivateServiceConnectionOutput) RequestR
 	return o.ApplyT(func (v GetPrivateLinkEndpointConnectionPrivateServiceConnection) string { return v.RequestResponse }).(pulumi.StringOutput)
 }
 
-// The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+// The current status of the Private Link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
 func (o GetPrivateLinkEndpointConnectionPrivateServiceConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func (v GetPrivateLinkEndpointConnectionPrivateServiceConnection) string { return v.Status }).(pulumi.StringOutput)
 }

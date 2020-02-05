@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolCertificatesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Batch pool ID.
+        /// The ID of the Batch Pool.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -435,7 +435,7 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolCertificatesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Batch pool ID.
+        /// The ID of the Batch Pool.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -862,7 +862,7 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolStorageImageReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Batch pool ID.
+        /// The ID of the Batch Pool.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -887,7 +887,7 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolStorageImageReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Batch pool ID.
+        /// The ID of the Batch Pool.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -933,7 +933,7 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolCertificates
     {
         /// <summary>
-        /// The Batch pool ID.
+        /// The ID of the Batch Pool.
         /// </summary>
         public readonly string Id;
         public readonly string StoreLocation;
@@ -1163,7 +1163,7 @@ namespace Pulumi.Azure.Batch
     public sealed class PoolStorageImageReference
     {
         /// <summary>
-        /// The Batch pool ID.
+        /// The ID of the Batch Pool.
         /// </summary>
         public readonly string? Id;
         public readonly string? Offer;

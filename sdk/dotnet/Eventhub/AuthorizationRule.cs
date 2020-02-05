@@ -67,13 +67,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Secondary Connection String for the Event Hubs authorization Rule.
+        /// The Secondary Connection String for the Event Hubs Authorization Rule.
         /// </summary>
         [Output("secondaryConnectionString")]
         public Output<string> SecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The Secondary Key for the Event Hubs authorization Rule.
+        /// The Secondary Key for the Event Hubs Authorization Rule.
         /// </summary>
         [Output("secondaryKey")]
         public Output<string> SecondaryKey { get; private set; } = null!;
@@ -234,13 +234,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Secondary Connection String for the Event Hubs authorization Rule.
+        /// The Secondary Connection String for the Event Hubs Authorization Rule.
         /// </summary>
         [Input("secondaryConnectionString")]
         public Input<string>? SecondaryConnectionString { get; set; }
 
         /// <summary>
-        /// The Secondary Key for the Event Hubs authorization Rule.
+        /// The Secondary Key for the Event Hubs Authorization Rule.
         /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }

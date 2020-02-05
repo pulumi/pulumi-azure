@@ -50,6 +50,8 @@ namespace Pulumi.Azure
         /// </summary>
         public static string? Environment { get; set; } = __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
 
+        public static ConfigTypes.Features? Features { get; set; } = __config.GetObject<ConfigTypes.Features>("features");
+
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
         /// automatically.
@@ -92,5 +94,21 @@ namespace Pulumi.Azure
     }
     namespace ConfigTypes
     {
+
+    public class Features
+    {
+        public FeaturesVirtualMachine? VirtualMachine { get; set; }
+        public FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; }
+    }
+
+    public class FeaturesVirtualMachine
+    {
+        public bool DeleteOsDiskOnDeletion { get; set; }
+    }
+
+    public class FeaturesVirtualMachineScaleSet
+    {
+        public bool RollInstancesWhenRequired { get; set; }
+    }
     }
 }

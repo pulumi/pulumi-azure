@@ -16,7 +16,7 @@ class CaaRecord(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the DNS CAA Record.
+    The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
     """
     records: pulumi.Output[list]
     """
@@ -48,7 +48,7 @@ class CaaRecord(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the DNS CAA Record.
+        :param pulumi.Input[str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
         :param pulumi.Input[list] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -111,7 +111,7 @@ class CaaRecord(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS CAA Record.
-        :param pulumi.Input[str] name: The name of the DNS CAA Record.
+        :param pulumi.Input[str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
         :param pulumi.Input[list] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

@@ -24,7 +24,7 @@ class ChannelsRegistration(pulumi.CustomResource):
     """
     display_name: pulumi.Output[str]
     """
-    The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+    The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
     """
     endpoint: pulumi.Output[str]
     """
@@ -63,7 +63,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
-        :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+        :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
@@ -126,7 +126,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Bot Channels Registration.
-        :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+        :param pulumi.Input[str] display_name: The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.

@@ -26,7 +26,7 @@ class Account(pulumi.CustomResource):
     """
     One or more `storage_account` blocks as defined below.
     
-      * `id` (`str`) - The Resource ID of the Media Services Account.
+      * `id` (`str`) - The ID of the Media Services Account.
       * `isPrimary` (`bool`)
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_accounts=None, __props__=None, __name__=None, __opts__=None):
@@ -42,7 +42,7 @@ class Account(pulumi.CustomResource):
         
         The **storage_accounts** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The Resource ID of the Media Services Account.
+          * `id` (`pulumi.Input[str]`) - The ID of the Media Services Account.
           * `isPrimary` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
@@ -94,7 +94,7 @@ class Account(pulumi.CustomResource):
         
         The **storage_accounts** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - The Resource ID of the Media Services Account.
+          * `id` (`pulumi.Input[str]`) - The ID of the Media Services Account.
           * `isPrimary` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.

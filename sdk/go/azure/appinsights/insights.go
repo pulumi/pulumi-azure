@@ -21,6 +21,10 @@ type Insights struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringOutput `pulumi:"applicationType"`
+	// Specifies the Application Insights component daily data volume cap in GB.
+	DailyDataCapInGb pulumi.Float64Output `pulumi:"dailyDataCapInGb"`
+	// Specifies if a notification email will be send when the daily data volume cap is met.
+	DailyDataCapNotificationsDisabled pulumi.BoolOutput `pulumi:"dailyDataCapNotificationsDisabled"`
 	// The Instrumentation Key for this Application Insights component.
 	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -77,6 +81,10 @@ type insightsState struct {
 	AppId *string `pulumi:"appId"`
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType *string `pulumi:"applicationType"`
+	// Specifies the Application Insights component daily data volume cap in GB.
+	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
+	// Specifies if a notification email will be send when the daily data volume cap is met.
+	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// The Instrumentation Key for this Application Insights component.
 	InstrumentationKey *string `pulumi:"instrumentationKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -100,6 +108,10 @@ type InsightsState struct {
 	AppId pulumi.StringPtrInput
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringPtrInput
+	// Specifies the Application Insights component daily data volume cap in GB.
+	DailyDataCapInGb pulumi.Float64PtrInput
+	// Specifies if a notification email will be send when the daily data volume cap is met.
+	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// The Instrumentation Key for this Application Insights component.
 	InstrumentationKey pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -125,6 +137,10 @@ func (InsightsState) ElementType() reflect.Type {
 type insightsArgs struct {
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType string `pulumi:"applicationType"`
+	// Specifies the Application Insights component daily data volume cap in GB.
+	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
+	// Specifies if a notification email will be send when the daily data volume cap is met.
+	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Application Insights component. Changing this forces a
@@ -145,6 +161,10 @@ type insightsArgs struct {
 type InsightsArgs struct {
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringInput
+	// Specifies the Application Insights component daily data volume cap in GB.
+	DailyDataCapInGb pulumi.Float64PtrInput
+	// Specifies if a notification email will be send when the daily data volume cap is met.
+	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Application Insights component. Changing this forces a

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a date/time variable in Azure Automation
+ * Manages a DateTime variable in Azure Automation
  * 
  * 
  * ## Example Usage

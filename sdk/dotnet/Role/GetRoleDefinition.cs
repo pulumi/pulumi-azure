@@ -10,32 +10,18 @@ namespace Pulumi.Azure.Role
 {
     public static partial class Invokes
     {
-        /// <summary>
-        /// Use this data source to access information about an existing Role Definition.
-        /// 
-        /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition_legacy.html.markdown.
-        /// </summary>
         public static Task<GetRoleDefinitionResult> GetRoleDefinition(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? InvokeArgs.Empty, options.WithVersion());
     }
 
     public sealed class GetRoleDefinitionArgs : Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specifies the Name of either a built-in or custom Role Definition.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the ID of the Role Definition as a UUID/GUID.
-        /// </summary>
         [Input("roleDefinitionId")]
         public string? RoleDefinitionId { get; set; }
 
-        /// <summary>
-        /// Specifies the Scope at which the Custom Role Definition exists.
-        /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
 
@@ -47,24 +33,12 @@ namespace Pulumi.Azure.Role
     [OutputType]
     public sealed class GetRoleDefinitionResult
     {
-        /// <summary>
-        /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
-        /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
-        /// <summary>
-        /// the Description of the built-in Role.
-        /// </summary>
         public readonly string Description;
         public readonly string Name;
-        /// <summary>
-        /// a `permissions` block as documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionsResult> Permissions;
         public readonly string RoleDefinitionId;
         public readonly string? Scope;
-        /// <summary>
-        /// the Type of the Role.
-        /// </summary>
         public readonly string Type;
         /// <summary>
         /// id is the provider-assigned unique ID for this managed resource.
@@ -99,14 +73,8 @@ namespace Pulumi.Azure.Role
     [OutputType]
     public sealed class GetRoleDefinitionPermissionsResult
     {
-        /// <summary>
-        /// a list of actions supported by this role
-        /// </summary>
         public readonly ImmutableArray<string> Actions;
         public readonly ImmutableArray<string> DataActions;
-        /// <summary>
-        /// a list of actions which are denied by this role
-        /// </summary>
         public readonly ImmutableArray<string> NotActions;
         public readonly ImmutableArray<string> NotDataActions;
 

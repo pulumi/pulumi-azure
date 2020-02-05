@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Storage
         }
 
         /// <summary>
-        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        /// The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

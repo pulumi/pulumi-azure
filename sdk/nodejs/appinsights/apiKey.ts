@@ -101,7 +101,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
     public readonly readPermissions!: pulumi.Output<string[] | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface ApiKeyState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
     readonly readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -189,7 +189,7 @@ export interface ApiKeyArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
     readonly readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

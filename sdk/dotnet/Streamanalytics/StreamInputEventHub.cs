@@ -64,7 +64,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> SharedAccessPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         /// </summary>
         [Output("streamAnalyticsJobName")]
         public Output<string> StreamAnalyticsJobName { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> SharedAccessPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         /// </summary>
         [Input("streamAnalyticsJobName", required: true)]
         public Input<string> StreamAnalyticsJobName { get; set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? SharedAccessPolicyName { get; set; }
 
         /// <summary>
-        /// The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         /// </summary>
         [Input("streamAnalyticsJobName")]
         public Input<string>? StreamAnalyticsJobName { get; set; }

@@ -86,7 +86,7 @@ export class TableEntity extends pulumi.CustomResource {
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * The name of the storage table in which to create the storage table entity. 
+     * The name of the storage table in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -164,7 +164,7 @@ export interface TableEntityState {
      */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
-     * The name of the storage table in which to create the storage table entity. 
+     * The name of the storage table in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
     readonly tableName?: pulumi.Input<string>;
@@ -192,7 +192,7 @@ export interface TableEntityArgs {
      */
     readonly storageAccountName: pulumi.Input<string>;
     /**
-     * The name of the storage table in which to create the storage table entity. 
+     * The name of the storage table in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
     readonly tableName: pulumi.Input<string>;

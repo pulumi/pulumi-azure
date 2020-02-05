@@ -18,7 +18,7 @@ namespace Pulumi.Azure.RecoveryServices
     public partial class ProtectionPolicyVM : Pulumi.CustomResource
     {
         /// <summary>
-        /// Configures the Policy backup frequecent, times &amp; days as documented in the `backup` block below. 
+        /// Configures the Policy backup frequecent, times &amp; days as documented in the `backup` block below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.ProtectionPolicyVMBackup> Backup { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class ProtectionPolicyVMArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequecent, times &amp; days as documented in the `backup` block below. 
+        /// Configures the Policy backup frequecent, times &amp; days as documented in the `backup` block below.
         /// </summary>
         [Input("backup", required: true)]
         public Input<Inputs.ProtectionPolicyVMBackupArgs> Backup { get; set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class ProtectionPolicyVMState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequecent, times &amp; days as documented in the `backup` block below. 
+        /// Configures the Policy backup frequecent, times &amp; days as documented in the `backup` block below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.ProtectionPolicyVMBackupGetArgs>? Backup { get; set; }

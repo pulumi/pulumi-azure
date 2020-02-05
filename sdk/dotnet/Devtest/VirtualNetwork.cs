@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest
 {
     /// <summary>
-    /// Manages a Virtual Network within a Dev Test Lab.
+    /// Manages a Virtual Network within a DevTest Lab.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_virtual_network.html.markdown.
     /// </summary>

@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, features=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -19,6 +19,16 @@ class Provider(pulumi.ProviderResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        
+        The **features** object supports the following:
+        
+          * `virtualMachine` (`pulumi.Input[dict]`)
+        
+            * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)
+        
+          * `virtualMachineScaleSet` (`pulumi.Input[dict]`)
+        
+            * `rollInstancesWhenRequired` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/index.html.markdown.
         """
@@ -59,6 +69,7 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
+            __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
             if msi_endpoint is None:
                 msi_endpoint = (utilities.get_env('ARM_MSI_ENDPOINT') or '')
             __props__['msi_endpoint'] = msi_endpoint

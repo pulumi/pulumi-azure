@@ -40,6 +40,12 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Is soft delete enable for this Vault? Defaults to `true`.
+        /// </summary>
+        [Output("softDeleteEnabled")]
+        public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -115,6 +121,12 @@ namespace Pulumi.Azure.RecoveryServices
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// Is soft delete enable for this Vault? Defaults to `true`.
+        /// </summary>
+        [Input("softDeleteEnabled")]
+        public Input<bool>? SoftDeleteEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -157,6 +169,12 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// Is soft delete enable for this Vault? Defaults to `true`.
+        /// </summary>
+        [Input("softDeleteEnabled")]
+        public Input<bool>? SoftDeleteEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

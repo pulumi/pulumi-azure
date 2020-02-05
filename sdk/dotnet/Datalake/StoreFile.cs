@@ -11,7 +11,7 @@ namespace Pulumi.Azure.DataLake
     /// <summary>
     /// Manages a Azure Data Lake Store File.
     /// 
-    /// &gt; **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
+    /// &gt; **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
     /// taint the resource so the `azure.datalake.StoreFile` gets recreated with the new data.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.

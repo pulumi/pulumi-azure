@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
     /// 
-    /// Below are some of the key scenarios that Azure Front Door Service addresses: 
+    /// Below are some of the key scenarios that Azure Front Door Service addresses:
     /// * Use Front Door to improve application scale and availability with instant multi-region failover
     /// * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
     /// * Use Front Door for application layer security and DDoS protection for your application.
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class FrontdoorBackendPoolHealthProbesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -414,7 +414,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class FrontdoorBackendPoolHealthProbesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -445,7 +445,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<int>? AdditionalLatencyMilliseconds { get; set; }
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<int>? AdditionalLatencyMilliseconds { get; set; }
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -509,7 +509,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> HealthProbeName { get; set; } = null!;
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -598,7 +598,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> HealthProbeName { get; set; } = null!;
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -672,6 +672,12 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? CertificateSource { get; set; }
 
         /// <summary>
+        /// Minimum client TLS version supported.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Provisioning state of the Front Door.
         /// </summary>
         [Input("provisioningState")]
@@ -703,6 +709,12 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? CertificateSource { get; set; }
 
         /// <summary>
+        /// Minimum client TLS version supported.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Provisioning state of the Front Door.
         /// </summary>
         [Input("provisioningState")]
@@ -731,7 +743,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -784,7 +796,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -886,7 +898,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -971,7 +983,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class FrontdoorBackendPoolHealthProbes
     {
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         public readonly int? IntervalInSeconds;
@@ -1003,7 +1015,7 @@ namespace Pulumi.Azure.FrontDoor
     {
         public readonly int? AdditionalLatencyMilliseconds;
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -1035,7 +1047,7 @@ namespace Pulumi.Azure.FrontDoor
         public readonly ImmutableArray<FrontdoorBackendPoolsBackends> Backends;
         public readonly string HealthProbeName;
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         public readonly string LoadBalancingName;
@@ -1098,7 +1110,7 @@ namespace Pulumi.Azure.FrontDoor
         public readonly bool CustomHttpsProvisioningEnabled;
         public readonly string HostName;
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -1142,6 +1154,10 @@ namespace Pulumi.Azure.FrontDoor
         public readonly string? AzureKeyVaultCertificateVaultId;
         public readonly string? CertificateSource;
         /// <summary>
+        /// Minimum client TLS version supported.
+        /// </summary>
+        public readonly string MinimumTlsVersion;
+        /// <summary>
         /// Provisioning state of the Front Door.
         /// </summary>
         public readonly string ProvisioningState;
@@ -1156,6 +1172,7 @@ namespace Pulumi.Azure.FrontDoor
             string? azureKeyVaultCertificateSecretVersion,
             string? azureKeyVaultCertificateVaultId,
             string? certificateSource,
+            string minimumTlsVersion,
             string provisioningState,
             string provisioningSubstate)
         {
@@ -1163,6 +1180,7 @@ namespace Pulumi.Azure.FrontDoor
             AzureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
             AzureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
             CertificateSource = certificateSource;
+            MinimumTlsVersion = minimumTlsVersion;
             ProvisioningState = provisioningState;
             ProvisioningSubstate = provisioningSubstate;
         }
@@ -1176,7 +1194,7 @@ namespace Pulumi.Azure.FrontDoor
         public readonly FrontdoorRoutingRulesForwardingConfiguration? ForwardingConfiguration;
         public readonly ImmutableArray<string> FrontendEndpoints;
         /// <summary>
-        /// Resource ID.
+        /// The ID of the FrontDoor.
         /// </summary>
         public readonly string Id;
         /// <summary>

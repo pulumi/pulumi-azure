@@ -24,7 +24,7 @@ class WebApp(pulumi.CustomResource):
     """
     display_name: pulumi.Output[str]
     """
-    The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+    The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
     """
     endpoint: pulumi.Output[str]
     """
@@ -64,14 +64,14 @@ class WebApp(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, developer_app_insights_api_key=None, developer_app_insights_application_id=None, developer_app_insights_key=None, display_name=None, endpoint=None, location=None, luis_app_ids=None, luis_key=None, microsoft_app_id=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Web App Bot.
+        Manages a Bot Web App.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Web App Bot.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Web App Bot.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Web App Bot.
-        :param pulumi.Input[str] display_name: The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+        :param pulumi.Input[str] display_name: The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Web App Bot endpoint.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] luis_app_ids: A list of LUIS App IDs to associate with the Web App Bot.
@@ -138,7 +138,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Web App Bot.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Web App Bot.
         :param pulumi.Input[str] developer_app_insights_key: The Application Insights Key to associate with the Web App Bot.
-        :param pulumi.Input[str] display_name: The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+        :param pulumi.Input[str] display_name: The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Web App Bot endpoint.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] luis_app_ids: A list of LUIS App IDs to associate with the Web App Bot.

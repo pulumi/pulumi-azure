@@ -58,7 +58,7 @@ class Definition(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a policy rule definition on a management group or your provider subscription. 
+        Manages a policy rule definition on a management group or your provider subscription.
         
         Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
         

@@ -24,7 +24,7 @@ class GetPrivateLinkEndpointConnectionResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        The name of the private linke endpoint.
+        The name of the Private Link endpoint.
         """
         if private_service_connections and not isinstance(private_service_connections, list):
             raise TypeError("Expected argument 'private_service_connections' to be a list")

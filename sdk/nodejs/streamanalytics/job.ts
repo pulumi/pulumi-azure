@@ -68,7 +68,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
      */
     readonly compatibilityLevel?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
+     * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and `1.1`.
      */
     readonly compatibilityLevel?: pulumi.Input<string>;
     /**

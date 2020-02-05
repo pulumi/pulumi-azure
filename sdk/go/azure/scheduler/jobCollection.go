@@ -23,7 +23,7 @@ type JobCollection struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configures the Job collection quotas as documented in the `quota` block below. 
+	// Configures the Job collection quotas as documented in the `quota` block below.
 	Quota JobCollectionQuotaPtrOutput `pulumi:"quota"`
 	// The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -73,7 +73,7 @@ type jobCollectionState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Configures the Job collection quotas as documented in the `quota` block below. 
+	// Configures the Job collection quotas as documented in the `quota` block below.
 	Quota *JobCollectionQuota `pulumi:"quota"`
 	// The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -90,7 +90,7 @@ type JobCollectionState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Configures the Job collection quotas as documented in the `quota` block below. 
+	// Configures the Job collection quotas as documented in the `quota` block below.
 	Quota JobCollectionQuotaPtrInput
 	// The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -111,7 +111,7 @@ type jobCollectionArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Configures the Job collection quotas as documented in the `quota` block below. 
+	// Configures the Job collection quotas as documented in the `quota` block below.
 	Quota *JobCollectionQuota `pulumi:"quota"`
 	// The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -129,7 +129,7 @@ type JobCollectionArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Configures the Job collection quotas as documented in the `quota` block below. 
+	// Configures the Job collection quotas as documented in the `quota` block below.
 	Quota JobCollectionQuotaPtrInput
 	// The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

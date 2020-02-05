@@ -71,7 +71,7 @@ export class JobCollection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Configures the Job collection quotas as documented in the `quota` block below. 
+     * Configures the Job collection quotas as documented in the `quota` block below.
      */
     public readonly quota!: pulumi.Output<outputs.scheduler.JobCollectionQuota | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface JobCollectionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Configures the Job collection quotas as documented in the `quota` block below. 
+     * Configures the Job collection quotas as documented in the `quota` block below.
      */
     readonly quota?: pulumi.Input<inputs.scheduler.JobCollectionQuota>;
     /**
@@ -184,7 +184,7 @@ export interface JobCollectionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Configures the Job collection quotas as documented in the `quota` block below. 
+     * Configures the Job collection quotas as documented in the `quota` block below.
      */
     readonly quota?: pulumi.Input<inputs.scheduler.JobCollectionQuota>;
     /**

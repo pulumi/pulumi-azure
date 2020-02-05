@@ -29,7 +29,7 @@ class TableEntity(pulumi.CustomResource):
     """
     table_name: pulumi.Output[str]
     """
-    The name of the storage table in which to create the storage table entity. 
+    The name of the storage table in which to create the storage table entity.
     Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, entity=None, partition_key=None, row_key=None, storage_account_name=None, table_name=None, __props__=None, __name__=None, __opts__=None):
@@ -43,7 +43,7 @@ class TableEntity(pulumi.CustomResource):
         :param pulumi.Input[str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. 
+        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
                Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.
@@ -100,7 +100,7 @@ class TableEntity(pulumi.CustomResource):
         :param pulumi.Input[str] row_key: The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table entity.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity. 
+        :param pulumi.Input[str] table_name: The name of the storage table in which to create the storage table entity.
                Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table_entity.html.markdown.

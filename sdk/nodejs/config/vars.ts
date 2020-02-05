@@ -38,6 +38,7 @@ export let disableTerraformPartnerId: boolean | undefined = __config.getObject<b
  * public.
  */
 export let environment: string | undefined = __config.get("environment") || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
+export let features: { virtualMachine?: { deleteOsDiskOnDeletion: boolean }, virtualMachineScaleSet?: { rollInstancesWhenRequired: boolean } } | undefined = __config.getObject<{ virtualMachine?: { deleteOsDiskOnDeletion: boolean }, virtualMachineScaleSet?: { rollInstancesWhenRequired: boolean } }>("features");
 /**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.

@@ -36,7 +36,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<bool?> EnableProxyProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
+        /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         /// </summary>
         [Output("loadBalancerFrontendIpConfigurationIds")]
         public Output<ImmutableArray<string>> LoadBalancerFrontendIpConfigurationIds { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
         /// <summary>
-        /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
+        /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         /// </summary>
         public InputList<string> LoadBalancerFrontendIpConfigurationIds
         {
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<string>? _loadBalancerFrontendIpConfigurationIds;
 
         /// <summary>
-        /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. 
+        /// A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         /// </summary>
         public InputList<string> LoadBalancerFrontendIpConfigurationIds
         {

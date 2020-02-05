@@ -14,7 +14,7 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The Application ID.
+	// The ID of the Azure Active Directory Application.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
 	AvailableToOtherTenants pulumi.BoolPtrOutput `pulumi:"availableToOtherTenants"`
@@ -58,7 +58,7 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// The Application ID.
+	// The ID of the Azure Active Directory Application.
 	ApplicationId *string `pulumi:"applicationId"`
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
 	AvailableToOtherTenants *bool `pulumi:"availableToOtherTenants"`
@@ -75,7 +75,7 @@ type applicationState struct {
 }
 
 type ApplicationState struct {
-	// The Application ID.
+	// The ID of the Azure Active Directory Application.
 	ApplicationId pulumi.StringPtrInput
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
 	AvailableToOtherTenants pulumi.BoolPtrInput

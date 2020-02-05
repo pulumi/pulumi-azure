@@ -1441,6 +1441,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
 			"azurerm_dedicated_host_group":        {Tok: azureDataSource(azureCompute, "getDedicatedHostGroup")},
 			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},
+			"azurerm_mariadb_server":              {Tok: azureDataSource(azureMariaDB, "getMariaDbServer")},
+			"azurerm_eventhub_namespace_authorization_rule": {
+				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an App Service certificate.
+ * Use this data source to access information about an App Service Certificate.
  * 
  * ## Example Usage
  * 

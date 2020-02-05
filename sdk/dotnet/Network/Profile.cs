@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages an Azure Network Profile.
+    /// Manages a Network Profile.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
     /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.ProfileContainerNetworkInterface> ContainerNetworkInterface { get; private set; } = null!;
 
         /// <summary>
-        /// One or more Resource IDs of Azure Container Network Interfaces.
+        /// A list of Container Network Interface ID's.
         /// </summary>
         [Output("containerNetworkInterfaceIds")]
         public Output<ImmutableArray<string>> ContainerNetworkInterfaceIds { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _containerNetworkInterfaceIds;
 
         /// <summary>
-        /// One or more Resource IDs of Azure Container Network Interfaces.
+        /// A list of Container Network Interface ID's.
         /// </summary>
         public InputList<string> ContainerNetworkInterfaceIds
         {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Web App Bot.
+ * Manages a Bot Web App.
  * 
  * ## Example Usage
  * 
@@ -67,7 +67,7 @@ export class WebApp extends pulumi.CustomResource {
      */
     public readonly developerAppInsightsKey!: pulumi.Output<string>;
     /**
-     * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+     * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -185,7 +185,7 @@ export interface WebAppState {
      */
     readonly developerAppInsightsKey?: pulumi.Input<string>;
     /**
-     * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+     * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */
     readonly displayName?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface WebAppArgs {
      */
     readonly developerAppInsightsKey?: pulumi.Input<string>;
     /**
-     * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. 
+     * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */
     readonly displayName?: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azure.authorization.RoleDefinition` data source instead.
  * 
- * > **NOTE:** The this datasource has been deprecated in favour of `azure.authorization.RoleDefinition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
+ * > **Note:** The this datasource has been deprecated in favour of `azure.authorization.RoleDefinition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
  * 
  * ## Example Usage
  * 

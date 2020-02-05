@@ -9,16 +9,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute
 {
     /// <summary>
-    /// Manages a Bastion Host Instance.
+    /// Manages a Bastion Host.
     /// 
-    /// &gt; **Note:** Bastion Host Instances are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
+    /// &gt; **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/bastion_host.html.markdown.
     /// </summary>
     public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>
-        /// The FQDN for the Azure Bastion Host.
+        /// The FQDN for the Bastion Host.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.Compute
     public sealed class BastionHostState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The FQDN for the Azure Bastion Host.
+        /// The FQDN for the Bastion Host.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }

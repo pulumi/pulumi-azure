@@ -107,7 +107,7 @@ export class StreamInputIotHub extends pulumi.CustomResource {
      */
     public readonly sharedAccessPolicyName!: pulumi.Output<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     public readonly streamAnalyticsJobName!: pulumi.Output<string>;
 
@@ -216,7 +216,7 @@ export interface StreamInputIotHubState {
      */
     readonly sharedAccessPolicyName?: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     readonly streamAnalyticsJobName?: pulumi.Input<string>;
 }
@@ -258,7 +258,7 @@ export interface StreamInputIotHubArgs {
      */
     readonly sharedAccessPolicyName: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     readonly streamAnalyticsJobName: pulumi.Input<string>;
 }

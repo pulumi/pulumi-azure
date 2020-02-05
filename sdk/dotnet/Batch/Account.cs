@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> AccountEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Output("keyVaultReference")]
         public Output<Outputs.AccountKeyVaultReference?> KeyVaultReference { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Input("keyVaultReference")]
         public Input<Inputs.AccountKeyVaultReferenceArgs>? KeyVaultReference { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? AccountEndpoint { get; set; }
 
         /// <summary>
-        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+        /// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Input("keyVaultReference")]
         public Input<Inputs.AccountKeyVaultReferenceGetArgs>? KeyVaultReference { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountKeyVaultReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Batch account ID.
+        /// The ID of the Batch Account.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountKeyVaultReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Batch account ID.
+        /// The ID of the Batch Account.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.Batch
     public sealed class AccountKeyVaultReference
     {
         /// <summary>
-        /// The Batch account ID.
+        /// The ID of the Batch Account.
         /// </summary>
         public readonly string Id;
         public readonly string Url;

@@ -23,5 +23,6 @@ from .subscription_rule import *
 from .topic_authorization_rule import *
 from .topic import *
 from .get_namespace import *
+from .get_namespace_authorization_rule import *
 from .get_eventhub_namespace import *
 from .get_service_bus_namespace import *

@@ -23,7 +23,7 @@ type ChannelsRegistration struct {
 	DeveloperAppInsightsApplicationId pulumi.StringOutput `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsKey pulumi.StringOutput `pulumi:"developerAppInsightsKey"`
-	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
@@ -84,7 +84,7 @@ type channelsRegistrationState struct {
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsKey *string `pulumi:"developerAppInsightsKey"`
-	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
 	Endpoint *string `pulumi:"endpoint"`
@@ -109,7 +109,7 @@ type ChannelsRegistrationState struct {
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput
 	// The Application Insights Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsKey pulumi.StringPtrInput
-	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringPtrInput
 	// The Bot Channels Registration endpoint.
 	Endpoint pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type channelsRegistrationArgs struct {
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
 	// The Application Insights Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsKey *string `pulumi:"developerAppInsightsKey"`
-	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
 	DisplayName *string `pulumi:"displayName"`
 	// The Bot Channels Registration endpoint.
 	Endpoint *string `pulumi:"endpoint"`
@@ -164,7 +164,7 @@ type ChannelsRegistrationArgs struct {
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput
 	// The Application Insights Key to associate with the Bot Channels Registration.
 	DeveloperAppInsightsKey pulumi.StringPtrInput
-	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified. 
+	// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
 	DisplayName pulumi.StringPtrInput
 	// The Bot Channels Registration endpoint.
 	Endpoint pulumi.StringPtrInput

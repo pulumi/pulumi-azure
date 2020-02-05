@@ -19,7 +19,7 @@ type Assignment struct {
 
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
@@ -69,7 +69,7 @@ func GetAssignment(ctx *pulumi.Context,
 type assignmentState struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
 	PrincipalId *string `pulumi:"principalId"`
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType *string `pulumi:"principalType"`
@@ -86,7 +86,7 @@ type assignmentState struct {
 type AssignmentState struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringPtrInput
 	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
 	PrincipalType pulumi.StringPtrInput
@@ -107,7 +107,7 @@ func (AssignmentState) ElementType() reflect.Type {
 type assignmentArgs struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
 	PrincipalId string `pulumi:"principalId"`
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
@@ -123,7 +123,7 @@ type assignmentArgs struct {
 type AssignmentArgs struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
 	PrincipalId pulumi.StringInput
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId pulumi.StringPtrInput

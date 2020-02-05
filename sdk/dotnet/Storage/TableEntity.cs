@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the storage table in which to create the storage table entity. 
+        /// The name of the storage table in which to create the storage table entity.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Output("tableName")]
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> StorageAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the storage table in which to create the storage table entity. 
+        /// The name of the storage table in which to create the storage table entity.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("tableName", required: true)]
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
-        /// The name of the storage table in which to create the storage table entity. 
+        /// The name of the storage table in which to create the storage table entity.
         /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("tableName")]
