@@ -32,7 +32,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     """
     zones: pulumi.Output[str]
     """
-    A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+    A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -45,7 +45,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.Input[float] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
         """
@@ -96,7 +96,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.Input[float] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host_group.html.markdown.
         """

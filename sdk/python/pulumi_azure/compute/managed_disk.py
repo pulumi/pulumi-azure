@@ -12,7 +12,7 @@ from .. import utilities, tables
 class ManagedDisk(pulumi.CustomResource):
     create_option: pulumi.Output[str]
     """
-    The method to use when creating the managed disk. Possible values include:
+    The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
     """
     disk_encryption_set_id: pulumi.Output[str]
     """
@@ -75,7 +75,7 @@ class ManagedDisk(pulumi.CustomResource):
     """
     storage_account_id: pulumi.Output[str]
     """
-    The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+    The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
     """
     storage_account_type: pulumi.Output[str]
     """
@@ -95,7 +95,7 @@ class ManagedDisk(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
+        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -108,7 +108,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
@@ -183,7 +183,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
+        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[float] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[float] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -196,7 +196,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.

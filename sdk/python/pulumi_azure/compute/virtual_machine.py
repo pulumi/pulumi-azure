@@ -63,16 +63,16 @@ class VirtualMachine(pulumi.CustomResource):
     """
     An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
     
-      * `adminPassword` (`str`)
-      * `adminUsername` (`str`)
-      * `computerName` (`str`)
-      * `customData` (`str`)
+      * `admin_password` (`str`)
+      * `admin_username` (`str`)
+      * `computer_name` (`str`)
+      * `custom_data` (`str`)
     """
     os_profile_linux_config: pulumi.Output[dict]
     """
     A `os_profile_linux_config` block.
     
-      * `disablePasswordAuthentication` (`bool`)
+      * `disable_password_authentication` (`bool`)
       * `sshKeys` (`list`)
     
         * `keyData` (`str`)
@@ -100,7 +100,7 @@ class VirtualMachine(pulumi.CustomResource):
         * `settingName` (`str`)
     
       * `enableAutomaticUpgrades` (`bool`)
-      * `provisionVmAgent` (`bool`)
+      * `provision_vm_agent` (`bool`)
       * `timezone` (`str`)
       * `winrms` (`list`)
     
@@ -226,14 +226,14 @@ class VirtualMachine(pulumi.CustomResource):
         
         The **os_profile** object supports the following:
         
-          * `adminPassword` (`pulumi.Input[str]`)
-          * `adminUsername` (`pulumi.Input[str]`)
-          * `computerName` (`pulumi.Input[str]`)
-          * `customData` (`pulumi.Input[str]`)
+          * `admin_password` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`)
+          * `computer_name` (`pulumi.Input[str]`)
+          * `custom_data` (`pulumi.Input[str]`)
         
         The **os_profile_linux_config** object supports the following:
         
-          * `disablePasswordAuthentication` (`pulumi.Input[bool]`)
+          * `disable_password_authentication` (`pulumi.Input[bool]`)
           * `sshKeys` (`pulumi.Input[list]`)
         
             * `keyData` (`pulumi.Input[str]`)
@@ -257,7 +257,7 @@ class VirtualMachine(pulumi.CustomResource):
             * `settingName` (`pulumi.Input[str]`)
         
           * `enableAutomaticUpgrades` (`pulumi.Input[bool]`)
-          * `provisionVmAgent` (`pulumi.Input[bool]`)
+          * `provision_vm_agent` (`pulumi.Input[bool]`)
           * `timezone` (`pulumi.Input[str]`)
           * `winrms` (`pulumi.Input[list]`)
         
@@ -411,14 +411,14 @@ class VirtualMachine(pulumi.CustomResource):
         
         The **os_profile** object supports the following:
         
-          * `adminPassword` (`pulumi.Input[str]`)
-          * `adminUsername` (`pulumi.Input[str]`)
-          * `computerName` (`pulumi.Input[str]`)
-          * `customData` (`pulumi.Input[str]`)
+          * `admin_password` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`)
+          * `computer_name` (`pulumi.Input[str]`)
+          * `custom_data` (`pulumi.Input[str]`)
         
         The **os_profile_linux_config** object supports the following:
         
-          * `disablePasswordAuthentication` (`pulumi.Input[bool]`)
+          * `disable_password_authentication` (`pulumi.Input[bool]`)
           * `sshKeys` (`pulumi.Input[list]`)
         
             * `keyData` (`pulumi.Input[str]`)
@@ -442,7 +442,7 @@ class VirtualMachine(pulumi.CustomResource):
             * `settingName` (`pulumi.Input[str]`)
         
           * `enableAutomaticUpgrades` (`pulumi.Input[bool]`)
-          * `provisionVmAgent` (`pulumi.Input[bool]`)
+          * `provision_vm_agent` (`pulumi.Input[bool]`)
           * `timezone` (`pulumi.Input[str]`)
           * `winrms` (`pulumi.Input[list]`)
         

@@ -16,13 +16,13 @@ namespace Pulumi.Azure.Network
     public partial class SubnetNatGatewayAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+        /// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+        /// The ID of the Subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -74,13 +74,13 @@ namespace Pulumi.Azure.Network
     public sealed class SubnetNatGatewayAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+        /// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("natGatewayId", required: true)]
         public Input<string> NatGatewayId { get; set; } = null!;
 
         /// <summary>
-        /// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+        /// The ID of the Subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -93,13 +93,13 @@ namespace Pulumi.Azure.Network
     public sealed class SubnetNatGatewayAssociationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+        /// The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("natGatewayId")]
         public Input<string>? NatGatewayId { get; set; }
 
         /// <summary>
-        /// The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+        /// The ID of the Subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

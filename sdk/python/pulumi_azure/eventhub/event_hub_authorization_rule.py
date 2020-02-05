@@ -45,11 +45,11 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     """
     secondary_connection_string: pulumi.Output[str]
     """
-    The Secondary Connection String for the Event Hubs authorization Rule.
+    The Secondary Connection String for the Event Hubs Authorization Rule.
     """
     secondary_key: pulumi.Output[str]
     """
-    The Secondary Key for the Event Hubs authorization Rule.
+    The Secondary Key for the Event Hubs Authorization Rule.
     """
     send: pulumi.Output[bool]
     """
@@ -129,8 +129,8 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] primary_connection_string: The Primary Connection String for the Event Hubs authorization Rule.
         :param pulumi.Input[str] primary_key: The Primary Key for the Event Hubs authorization Rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Event Hubs authorization Rule.
-        :param pulumi.Input[str] secondary_key: The Secondary Key for the Event Hubs authorization Rule.
+        :param pulumi.Input[str] secondary_connection_string: The Secondary Connection String for the Event Hubs Authorization Rule.
+        :param pulumi.Input[str] secondary_key: The Secondary Key for the Event Hubs Authorization Rule.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule_legacy.html.markdown.

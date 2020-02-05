@@ -11,7 +11,7 @@ namespace Pulumi.Azure.AppService
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to access information about an App Service certificate.
+        /// Use this data source to access information about an App Service Certificate.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_certificate.html.markdown.
         /// </summary>

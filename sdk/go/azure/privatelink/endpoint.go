@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages an Private Endpoint.
+// Manages a Private Endpoint.
 // 
 // > **NOTE** Private Endpoint is currently in Public Preview.
 // 

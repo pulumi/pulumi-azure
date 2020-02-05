@@ -51,6 +51,8 @@ The Cloud Environment which should be used. Possible values are public, usgovern
 public.
 """
 
+features = __config__.get('features')
+
 msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

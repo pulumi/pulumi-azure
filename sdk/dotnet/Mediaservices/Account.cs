@@ -163,7 +163,7 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountStorageAccountsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Resource ID of the Media Services Account.
+        /// The ID of the Media Services Account.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountStorageAccountsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Resource ID of the Media Services Account.
+        /// The ID of the Media Services Account.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.MediaServices
     public sealed class AccountStorageAccounts
     {
         /// <summary>
-        /// The Resource ID of the Media Services Account.
+        /// The ID of the Media Services Account.
         /// </summary>
         public readonly string Id;
         public readonly bool? IsPrimary;

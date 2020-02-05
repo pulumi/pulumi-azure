@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Iot
     public partial class EndpointStorageContainer : Pulumi.CustomResource
     {
         /// <summary>
-        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         /// </summary>
         [Output("batchFrequencyInSeconds")]
         public Output<int?> BatchFrequencyInSeconds { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Iot
     public sealed class EndpointStorageContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Iot
     public sealed class EndpointStorageContainerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+        /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         /// </summary>
         [Input("batchFrequencyInSeconds")]
         public Input<int>? BatchFrequencyInSeconds { get; set; }

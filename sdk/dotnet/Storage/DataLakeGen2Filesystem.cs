@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+        /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         /// </summary>
         [Output("properties")]
         public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Storage
         private InputMap<string>? _properties;
 
         /// <summary>
-        /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+        /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         /// </summary>
         public InputMap<string> Properties
         {
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Storage
         private InputMap<string>? _properties;
 
         /// <summary>
-        /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+        /// A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         /// </summary>
         public InputMap<string> Properties
         {

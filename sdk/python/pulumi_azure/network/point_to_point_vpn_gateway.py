@@ -45,7 +45,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     """
     vpn_server_configuration_id: pulumi.Output[str]
     """
-    The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+    The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, connection_configuration=None, location=None, name=None, resource_group_name=None, scale_unit=None, tags=None, virtual_hub_id=None, vpn_server_configuration_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -60,7 +60,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[float] scale_unit: The Scale Unit for this Point-to-Site VPN Gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         
         The **connection_configuration** object supports the following:
         
@@ -128,7 +128,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[float] scale_unit: The Scale Unit for this Point-to-Site VPN Gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         
         The **connection_configuration** object supports the following:
         

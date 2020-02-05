@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AD
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Application ID.
+        /// The ID of the Azure Active Directory Application.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.AD
     public sealed class ApplicationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Application ID.
+        /// The ID of the Azure Active Directory Application.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }

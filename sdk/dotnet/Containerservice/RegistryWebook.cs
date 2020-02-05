@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ServiceUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ServiceUri { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ServiceUri { get; set; }
 
         /// <summary>
-        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. 
+        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

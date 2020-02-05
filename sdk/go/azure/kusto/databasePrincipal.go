@@ -19,7 +19,7 @@ type DatabasePrincipal struct {
 
 	// The app id, if not empty, of the principal.
 	AppId pulumi.StringOutput `pulumi:"appId"`
-	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
@@ -31,7 +31,7 @@ type DatabasePrincipal struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The name of the Kusto Database Principal.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
 	// Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -92,7 +92,7 @@ func GetDatabasePrincipal(ctx *pulumi.Context,
 type databasePrincipalState struct {
 	// The app id, if not empty, of the principal.
 	AppId *string `pulumi:"appId"`
-	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
 	ClientId *string `pulumi:"clientId"`
 	// Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
@@ -104,7 +104,7 @@ type databasePrincipalState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The name of the Kusto Database Principal.
 	Name *string `pulumi:"name"`
-	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -117,7 +117,7 @@ type databasePrincipalState struct {
 type DatabasePrincipalState struct {
 	// The app id, if not empty, of the principal.
 	AppId pulumi.StringPtrInput
-	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
 	ClientId pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
@@ -129,7 +129,7 @@ type DatabasePrincipalState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// The name of the Kusto Database Principal.
 	Name pulumi.StringPtrInput
-	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -144,13 +144,13 @@ func (DatabasePrincipalState) ElementType() reflect.Type {
 }
 
 type databasePrincipalArgs struct {
-	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
 	ClientId string `pulumi:"clientId"`
 	// Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
 	// Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
 	ObjectId string `pulumi:"objectId"`
 	// Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -162,13 +162,13 @@ type databasePrincipalArgs struct {
 
 // The set of arguments for constructing a DatabasePrincipal resource.
 type DatabasePrincipalArgs struct {
-	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created. 
+	// The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
 	ClientId pulumi.StringInput
 	// Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
 	// Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+	// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringInput
 	// Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

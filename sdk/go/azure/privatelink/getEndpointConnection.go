@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the connection status information about an existing Private Endpoint.
+// Use this data source to access the connection status information about an existing Private Endpoint Connection.
 // 
 // > **NOTE** Private Endpoint is currently in Public Preview.
 // 

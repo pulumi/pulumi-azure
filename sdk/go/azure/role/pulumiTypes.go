@@ -232,10 +232,8 @@ func (o GetBuiltinRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRoleDefinitionPermission struct {
-	// a list of actions supported by this role
 	Actions []string `pulumi:"actions"`
 	DataActions []string `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
 	NotActions []string `pulumi:"notActions"`
 	NotDataActions []string `pulumi:"notDataActions"`
 }
@@ -248,10 +246,8 @@ type GetRoleDefinitionPermissionInput interface {
 }
 
 type GetRoleDefinitionPermissionArgs struct {
-	// a list of actions supported by this role
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
 	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
-	// a list of actions which are denied by this role
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
 	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
 }
@@ -303,7 +299,6 @@ func (o GetRoleDefinitionPermissionOutput) ToGetRoleDefinitionPermissionOutputWi
 	return o
 }
 
-// a list of actions supported by this role
 func (o GetRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
@@ -312,7 +307,6 @@ func (o GetRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutpu
 	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
 }
 
-// a list of actions which are denied by this role
 func (o GetRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v GetRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
 }

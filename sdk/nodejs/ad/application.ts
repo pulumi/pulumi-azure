@@ -35,7 +35,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The Application ID.
+     * The ID of the Azure Active Directory Application.
      */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationState {
     /**
-     * The Application ID.
+     * The ID of the Azure Active Directory Application.
      */
     readonly applicationId?: pulumi.Input<string>;
     /**

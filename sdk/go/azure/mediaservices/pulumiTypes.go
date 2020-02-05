@@ -12,7 +12,7 @@ import (
 )
 
 type AccountStorageAccount struct {
-	// The Resource ID of the Media Services Account.
+	// The ID of the Media Services Account.
 	Id string `pulumi:"id"`
 	IsPrimary *bool `pulumi:"isPrimary"`
 }
@@ -25,7 +25,7 @@ type AccountStorageAccountInput interface {
 }
 
 type AccountStorageAccountArgs struct {
-	// The Resource ID of the Media Services Account.
+	// The ID of the Media Services Account.
 	Id pulumi.StringInput `pulumi:"id"`
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 }
@@ -77,7 +77,7 @@ func (o AccountStorageAccountOutput) ToAccountStorageAccountOutputWithContext(ct
 	return o
 }
 
-// The Resource ID of the Media Services Account.
+// The ID of the Media Services Account.
 func (o AccountStorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func (v AccountStorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }

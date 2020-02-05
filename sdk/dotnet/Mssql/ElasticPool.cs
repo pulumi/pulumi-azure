@@ -31,13 +31,13 @@ namespace Pulumi.Azure.MSSql
         public Output<int> MaxSizeBytes { get; private set; } = null!;
 
         /// <summary>
-        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         /// </summary>
         [Output("maxSizeGb")]
         public Output<double> MaxSizeGb { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? MaxSizeBytes { get; set; }
 
         /// <summary>
-        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         /// </summary>
         [Input("maxSizeGb")]
         public Input<double>? MaxSizeGb { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -213,13 +213,13 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? MaxSizeBytes { get; set; }
 
         /// <summary>
-        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+        /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         /// </summary>
         [Input("maxSizeGb")]
         public Input<double>? MaxSizeGb { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -471,7 +471,7 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+        /// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
         /// </summary>
         public readonly string Name;
         /// <summary>

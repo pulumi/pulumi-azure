@@ -12,7 +12,7 @@ from .. import utilities, tables
 class BastionHost(pulumi.CustomResource):
     dns_name: pulumi.Output[str]
     """
-    The FQDN for the Azure Bastion Host.
+    The FQDN for the Bastion Host.
     """
     ip_configuration: pulumi.Output[dict]
     """
@@ -40,9 +40,9 @@ class BastionHost(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, ip_configuration=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Bastion Host Instance.
+        Manages a Bastion Host.
         
-        > **Note:** Bastion Host Instances are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
+        > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +100,7 @@ class BastionHost(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dns_name: The FQDN for the Azure Bastion Host.
+        :param pulumi.Input[str] dns_name: The FQDN for the Bastion Host.
         :param pulumi.Input[dict] ip_configuration: A `ip_configuration` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bastion Host. Changing this forces a new resource to be created.

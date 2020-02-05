@@ -607,16 +607,21 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_data_disk_attachment": {Tok: azureResource(azureCompute, "DataDiskAttachment")},
 			"azurerm_virtual_machine_scale_set":            {Tok: azureResource(azureCompute, "ScaleSet")},
 
-			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
-			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
-			"azurerm_image":                {Tok: azureResource(azureCompute, "Image")},
-			"azurerm_shared_image":         {Tok: azureResource(azureCompute, "SharedImage")},
-			"azurerm_shared_image_gallery": {Tok: azureResource(azureCompute, "SharedImageGallery")},
-			"azurerm_shared_image_version": {Tok: azureResource(azureCompute, "SharedImageVersion")},
-			"azurerm_bastion_host":         {Tok: azureResource(azureCompute, "BastionHost")},
-			"azurerm_dedicated_host_group": {Tok: azureResource(azureCompute, "DedicatedHostGroup")},
-			"azurerm_disk_encryption_set":  {Tok: azureResource(azureCompute, "DiskEncryptionSet")},
-			"azurerm_dedicated_host":       {Tok: azureResource(azureCompute, "DedicatedHost")},
+			"azurerm_managed_disk":                        {Tok: azureResource(azureCompute, "ManagedDisk")},
+			"azurerm_snapshot":                            {Tok: azureResource(azureCompute, "Snapshot")},
+			"azurerm_image":                               {Tok: azureResource(azureCompute, "Image")},
+			"azurerm_shared_image":                        {Tok: azureResource(azureCompute, "SharedImage")},
+			"azurerm_shared_image_gallery":                {Tok: azureResource(azureCompute, "SharedImageGallery")},
+			"azurerm_shared_image_version":                {Tok: azureResource(azureCompute, "SharedImageVersion")},
+			"azurerm_bastion_host":                        {Tok: azureResource(azureCompute, "BastionHost")},
+			"azurerm_dedicated_host_group":                {Tok: azureResource(azureCompute, "DedicatedHostGroup")},
+			"azurerm_disk_encryption_set":                 {Tok: azureResource(azureCompute, "DiskEncryptionSet")},
+			"azurerm_dedicated_host":                      {Tok: azureResource(azureCompute, "DedicatedHost")},
+			"azurerm_linux_virtual_machine":               {Tok: azureResource(azureCompute, "LinuxVirtualMachine")},
+			"azurerm_linux_virtual_machine_scale_set":     {Tok: azureResource(azureCompute, "LinuxVirtualMachineScaleSet")},
+			"azurerm_virtual_machine_scale_set_extension": {Tok: azureResource(azureCompute, "VirtualMachineScaleSetExtension")},
+			"azurerm_windows_virtual_machine":             {Tok: azureResource(azureCompute, "WindowsVirtualMachine")},
+			"azurerm_windows_virtual_machine_scale_set":   {Tok: azureResource(azureCompute, "WindowsVirtualMachineScaleSet")},
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
@@ -1441,6 +1446,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_disk_encryption_set":         {Tok: azureDataSource(azureCompute, "getDiskEncryptionSet")},
 			"azurerm_dedicated_host_group":        {Tok: azureDataSource(azureCompute, "getDedicatedHostGroup")},
 			"azurerm_dedicated_host":              {Tok: azureDataSource(azureCompute, "getDedicatedHost")},
+			"azurerm_mariadb_server":              {Tok: azureDataSource(azureMariaDB, "getMariaDbServer")},
+			"azurerm_eventhub_namespace_authorization_rule": {
+				Tok: azureDataSource(azureEventHub, "getNamespaceAuthorizationRule"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

@@ -4,6 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as outputs from "../types/output";
 
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -1513,7 +1514,7 @@ export namespace backup {
 export namespace batch {
     export interface AccountKeyVaultReference {
         /**
-         * The Batch account ID.
+         * The ID of the Batch Account.
          */
         id: string;
         url: string;
@@ -1744,7 +1745,7 @@ export namespace batch {
 
     export interface PoolCertificate {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id: string;
         storeLocation: string;
@@ -1821,7 +1822,7 @@ export namespace batch {
 
     export interface PoolStorageImageReference {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id?: string;
         offer?: string;
@@ -2025,6 +2026,198 @@ export namespace compute {
          * Specifies the size of the image to be created. The target size can't be smaller than the source size.
          */
         sizeGb: number;
+    }
+
+    export interface LinuxVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineAdminSshKey {
+        publicKey: string;
+        username: string;
+    }
+
+    export interface LinuxVirtualMachineBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface LinuxVirtualMachineIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface LinuxVirtualMachinePlan {
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdminSshKey {
+        publicKey: string;
+        username: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: boolean;
+        enableAutomaticOsUpgrade: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetDataDisk {
+        caching: string;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        lun: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: string[];
+        enableAcceleratedNetworking?: boolean;
+        enableIpForwarding?: boolean;
+        ipConfigurations: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupId?: string;
+        primary?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: string[];
+        applicationSecurityGroupIds?: string[];
+        loadBalancerBackendAddressPoolIds?: string[];
+        loadBalancerInboundNatRulesIds?: string[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary?: boolean;
+        publicIpAddresses?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        subnetId?: string;
+        version?: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: string;
+        idleTimeoutInMinutes: number;
+        ipTags?: outputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpPrefixId?: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
+        type: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: number;
+        maxUnhealthyInstancePercent: number;
+        maxUnhealthyUpgradedInstancePercent: number;
+        pauseTimeBetweenBatches: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecret {
+        certificates: outputs.compute.LinuxVirtualMachineScaleSetSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecretCertificate {
+        url: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSourceImageReference {
+        offer: string;
+        publisher: string;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: string;
+        version: string;
+    }
+
+    export interface LinuxVirtualMachineSecret {
+        certificates: outputs.compute.LinuxVirtualMachineSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface LinuxVirtualMachineSecretCertificate {
+        url: string;
+    }
+
+    export interface LinuxVirtualMachineSourceImageReference {
+        offer: string;
+        publisher: string;
+        sku: string;
+        version: string;
     }
 
     export interface ManagedDiskEncryptionSettings {
@@ -2563,6 +2756,210 @@ export namespace compute {
         osType: string;
         vhdUri?: string;
         writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineAdditionalUnattendContent {
+        content: string;
+        setting: string;
+    }
+
+    export interface WindowsVirtualMachineBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface WindowsVirtualMachineIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface WindowsVirtualMachinePlan {
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+        content: string;
+        setting: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: boolean;
+        enableAutomaticOsUpgrade: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetDataDisk {
+        caching: string;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        lun: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetIdentity {
+        identityIds?: string[];
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: string[];
+        enableAcceleratedNetworking?: boolean;
+        enableIpForwarding?: boolean;
+        ipConfigurations: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        networkSecurityGroupId?: string;
+        primary?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: string[];
+        applicationSecurityGroupIds?: string[];
+        loadBalancerBackendAddressPoolIds?: string[];
+        loadBalancerInboundNatRulesIds?: string[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        primary?: boolean;
+        publicIpAddresses?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        subnetId?: string;
+        version?: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: string;
+        idleTimeoutInMinutes: number;
+        ipTags?: outputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        publicIpPrefixId?: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
+        type: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDisk {
+        caching: string;
+        diffDiskSettings?: outputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings;
+        diskEncryptionSetId?: string;
+        diskSizeGb: number;
+        storageAccountType: string;
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: string;
+        product: string;
+        publisher: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: number;
+        maxUnhealthyInstancePercent: number;
+        maxUnhealthyUpgradedInstancePercent: number;
+        pauseTimeBetweenBatches: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecret {
+        certificates: outputs.compute.WindowsVirtualMachineScaleSetSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecretCertificate {
+        store: string;
+        url: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSourceImageReference {
+        offer: string;
+        publisher: string;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: string;
+        version: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetWinrmListener {
+        certificateUrl?: string;
+        protocol: string;
+    }
+
+    export interface WindowsVirtualMachineSecret {
+        certificates: outputs.compute.WindowsVirtualMachineSecretCertificate[];
+        keyVaultId: string;
+    }
+
+    export interface WindowsVirtualMachineSecretCertificate {
+        store: string;
+        url: string;
+    }
+
+    export interface WindowsVirtualMachineSourceImageReference {
+        offer: string;
+        publisher: string;
+        sku: string;
+        version: string;
+    }
+
+    export interface WindowsVirtualMachineWinrmListener {
+        certificateUrl?: string;
+        protocol: string;
     }
 }
 
@@ -3821,7 +4218,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
         /**
@@ -3836,7 +4233,7 @@ export namespace eventgrid {
          */
         queueName: string;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
     }
@@ -3858,7 +4255,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
     }
@@ -3969,7 +4366,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
         /**
@@ -3984,7 +4381,7 @@ export namespace eventhub {
          */
         queueName: string;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: string;
     }
@@ -4006,7 +4403,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: string;
     }
@@ -4119,7 +4516,7 @@ export namespace frontdoor {
         backends: outputs.frontdoor.FrontdoorBackendPoolBackend[];
         healthProbeName: string;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         loadBalancingName: string;
@@ -4141,7 +4538,7 @@ export namespace frontdoor {
 
     export interface FrontdoorBackendPoolHealthProbe {
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         intervalInSeconds?: number;
@@ -4156,7 +4553,7 @@ export namespace frontdoor {
     export interface FrontdoorBackendPoolLoadBalancing {
         additionalLatencyMilliseconds?: number;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         /**
@@ -4172,7 +4569,7 @@ export namespace frontdoor {
         customHttpsProvisioningEnabled: boolean;
         hostName: string;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         /**
@@ -4193,6 +4590,10 @@ export namespace frontdoor {
         azureKeyVaultCertificateVaultId?: string;
         certificateSource?: string;
         /**
+         * Minimum client TLS version supported.
+         */
+        minimumTlsVersion: string;
+        /**
          * Provisioning state of the Front Door.
          */
         provisioningState: string;
@@ -4208,7 +4609,7 @@ export namespace frontdoor {
         forwardingConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration;
         frontendEndpoints: string[];
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id: string;
         /**
@@ -5361,6 +5762,25 @@ export namespace loganalytics {
 }
 
 export namespace mariadb {
+    export interface GetMariaDbServerStorageProfile {
+        /**
+         * Whether autogrow is enabled or disabled for the storage.
+         */
+        autoGrow: string;
+        /**
+         * Backup retention days for the server.
+         */
+        backupRetentionDays: number;
+        /**
+         * Whether Geo-redundant is enabled or not for server backup.
+         */
+        geoRedundantBackup: string;
+        /**
+         * The max storage allowed for a server.
+         */
+        storageMb: number;
+    }
+
     export interface ServerSku {
         capacity: number;
         family: string;
@@ -5382,7 +5802,7 @@ export namespace mariadb {
 export namespace mediaservices {
     export interface AccountStorageAccount {
         /**
-         * The Resource ID of the Media Services Account.
+         * The ID of the Media Services Account.
          */
         id: string;
         isPrimary?: boolean;
@@ -5981,7 +6401,7 @@ export namespace mssql {
          */
         family?: string;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
          */
         name: string;
         /**
@@ -6583,7 +7003,6 @@ export namespace network {
         peerAsn: number;
         /**
          * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-         * > **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
          */
         peeringType: string;
         /**
@@ -7538,7 +7957,7 @@ export namespace privatelink {
          */
         requestMessage?: string;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
         subresourceNames?: string[];
     }
@@ -7586,7 +8005,7 @@ export namespace privatelink {
          */
         requestResponse: string;
         /**
-         * The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+         * The current status of the Private Link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
          */
         status: string;
     }
@@ -7806,14 +8225,8 @@ export namespace role {
     }
 
     export interface GetRoleDefinitionPermission {
-        /**
-         * a list of actions supported by this role
-         */
         actions: string[];
         dataActions?: string[];
-        /**
-         * a list of actions which are denied by this role
-         */
         notActions: string[];
         notDataActions?: string[];
     }
@@ -8305,7 +8718,13 @@ export namespace storage {
     }
 
     export interface AccountQueuePropertiesLogging {
+        /**
+         * (Defaults to 60 minutes) Used when deleting the Storage Account.
+         */
         delete: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the Storage Account.
+         */
         read: boolean;
         retentionPolicyDays?: number;
         version: string;
@@ -8324,6 +8743,9 @@ export namespace storage {
         create: boolean;
         delete: boolean;
         list: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the Blob Container.
+         */
         read: boolean;
         write: boolean;
     }
@@ -8341,6 +8763,9 @@ export namespace storage {
         delete: boolean;
         list: boolean;
         process: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the SAS Token.
+         */
         read: boolean;
         update: boolean;
         write: boolean;

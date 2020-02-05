@@ -7,9 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Bastion Host Instance.
+ * Manages a Bastion Host.
  * 
- * > **Note:** Bastion Host Instances are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
+ * > **Note:** Bastion Hosts are a preview feature in Azure, and therefore are only supported in a select number of regions. [Read more](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq).
  * 
  * ## Example Usage
  * 
@@ -79,7 +79,7 @@ export class BastionHost extends pulumi.CustomResource {
     }
 
     /**
-     * The FQDN for the Azure Bastion Host.
+     * The FQDN for the Bastion Host.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export class BastionHost extends pulumi.CustomResource {
  */
 export interface BastionHostState {
     /**
-     * The FQDN for the Azure Bastion Host.
+     * The FQDN for the Bastion Host.
      */
     readonly dnsName?: pulumi.Input<string>;
     /**

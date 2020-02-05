@@ -30,7 +30,7 @@ class Contact(pulumi.CustomResource):
         """
         Manages the subscription's Security Center Contact.
         
-        > **NOTE:** Owner access permission is required. 
+        > **NOTE:** Owner access permission is required.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -68,11 +68,11 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
     public readonly natGatewayId!: pulumi.Output<string>;
     /**
-     * The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+     * The ID of the Subnet. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -117,11 +117,11 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
  */
 export interface SubnetNatGatewayAssociationState {
     /**
-     * The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
     readonly natGatewayId?: pulumi.Input<string>;
     /**
-     * The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+     * The ID of the Subnet. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
 }
@@ -131,11 +131,11 @@ export interface SubnetNatGatewayAssociationState {
  */
 export interface SubnetNatGatewayAssociationArgs {
     /**
-     * The Azure resource ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
+     * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
     readonly natGatewayId: pulumi.Input<string>;
     /**
-     * The Azure resource ID of the Subnet. Changing this forces a new resource to be created.
+     * The ID of the Subnet. Changing this forces a new resource to be created.
      */
     readonly subnetId: pulumi.Input<string>;
 }

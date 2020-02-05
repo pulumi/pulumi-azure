@@ -25,6 +25,8 @@ type Vault struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
+	// Is soft delete enable for this Vault? Defaults to `true`.
+	SoftDeleteEnabled pulumi.BoolPtrOutput `pulumi:"softDeleteEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -71,6 +73,8 @@ type vaultState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku *string `pulumi:"sku"`
+	// Is soft delete enable for this Vault? Defaults to `true`.
+	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,6 +88,8 @@ type VaultState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku pulumi.StringPtrInput
+	// Is soft delete enable for this Vault? Defaults to `true`.
+	SoftDeleteEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -101,6 +107,8 @@ type vaultArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku string `pulumi:"sku"`
+	// Is soft delete enable for this Vault? Defaults to `true`.
+	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -115,6 +123,8 @@ type VaultArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku pulumi.StringInput
+	// Is soft delete enable for this Vault? Defaults to `true`.
+	SoftDeleteEnabled pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

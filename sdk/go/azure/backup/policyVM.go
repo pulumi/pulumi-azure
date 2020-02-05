@@ -17,7 +17,7 @@ import (
 type PolicyVM struct {
 	pulumi.CustomResourceState
 
-	// Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupOutput `pulumi:"backup"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -76,7 +76,7 @@ func GetPolicyVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyVM resources.
 type policyVMState struct {
-	// Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup *PolicyVMBackup `pulumi:"backup"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -99,7 +99,7 @@ type policyVMState struct {
 }
 
 type PolicyVMState struct {
-	// Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupPtrInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -126,7 +126,7 @@ func (PolicyVMState) ElementType() reflect.Type {
 }
 
 type policyVMArgs struct {
-	// Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackup `pulumi:"backup"`
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -150,7 +150,7 @@ type policyVMArgs struct {
 
 // The set of arguments for constructing a PolicyVM resource.
 type PolicyVMArgs struct {
-	// Configures the Policy backup frequency, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupInput
 	// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

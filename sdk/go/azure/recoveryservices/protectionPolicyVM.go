@@ -19,7 +19,7 @@ import (
 type ProtectionPolicyVM struct {
 	pulumi.CustomResourceState
 
-	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
 	Backup ProtectionPolicyVMBackupOutput `pulumi:"backup"`
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -78,7 +78,7 @@ func GetProtectionPolicyVM(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionPolicyVM resources.
 type protectionPolicyVMState struct {
-	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
 	Backup *ProtectionPolicyVMBackup `pulumi:"backup"`
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -101,7 +101,7 @@ type protectionPolicyVMState struct {
 }
 
 type ProtectionPolicyVMState struct {
-	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
 	Backup ProtectionPolicyVMBackupPtrInput
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -128,7 +128,7 @@ func (ProtectionPolicyVMState) ElementType() reflect.Type {
 }
 
 type protectionPolicyVMArgs struct {
-	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
 	Backup ProtectionPolicyVMBackup `pulumi:"backup"`
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -152,7 +152,7 @@ type protectionPolicyVMArgs struct {
 
 // The set of arguments for constructing a ProtectionPolicyVM resource.
 type ProtectionPolicyVMArgs struct {
-	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
 	Backup ProtectionPolicyVMBackupInput
 	// Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput

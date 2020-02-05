@@ -33,7 +33,7 @@ type GetPrivateLinkEndpointConnectionResult struct {
 	Id string `pulumi:"id"`
 	// The supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
-	// The name of the private linke endpoint.
+	// The name of the Private Link endpoint.
 	Name string `pulumi:"name"`
 	PrivateServiceConnections []GetPrivateLinkEndpointConnectionPrivateServiceConnection `pulumi:"privateServiceConnections"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

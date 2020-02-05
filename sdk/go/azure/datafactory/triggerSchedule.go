@@ -21,7 +21,7 @@ type TriggerSchedule struct {
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
-	// The time the Schedule Trigger should end. The time will be represented in UTC. 
+	// The time the Schedule Trigger should end. The time will be represented in UTC.
 	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
@@ -35,7 +35,7 @@ type TriggerSchedule struct {
 	PipelineParameters pulumi.StringMapOutput `pulumi:"pipelineParameters"`
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 }
 
@@ -80,7 +80,7 @@ type triggerScheduleState struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
-	// The time the Schedule Trigger should end. The time will be represented in UTC. 
+	// The time the Schedule Trigger should end. The time will be represented in UTC.
 	EndTime *string `pulumi:"endTime"`
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency *string `pulumi:"frequency"`
@@ -94,7 +94,7 @@ type triggerScheduleState struct {
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime *string `pulumi:"startTime"`
 }
 
@@ -103,7 +103,7 @@ type TriggerScheduleState struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringPtrInput
-	// The time the Schedule Trigger should end. The time will be represented in UTC. 
+	// The time the Schedule Trigger should end. The time will be represented in UTC.
 	EndTime pulumi.StringPtrInput
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency pulumi.StringPtrInput
@@ -117,7 +117,7 @@ type TriggerScheduleState struct {
 	PipelineParameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
-	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime pulumi.StringPtrInput
 }
 
@@ -130,7 +130,7 @@ type triggerScheduleArgs struct {
 	Annotations []string `pulumi:"annotations"`
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
 	DataFactoryName string `pulumi:"dataFactoryName"`
-	// The time the Schedule Trigger should end. The time will be represented in UTC. 
+	// The time the Schedule Trigger should end. The time will be represented in UTC.
 	EndTime *string `pulumi:"endTime"`
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency *string `pulumi:"frequency"`
@@ -144,7 +144,7 @@ type triggerScheduleArgs struct {
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime *string `pulumi:"startTime"`
 }
 
@@ -154,7 +154,7 @@ type TriggerScheduleArgs struct {
 	Annotations pulumi.StringArrayInput
 	// The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringInput
-	// The time the Schedule Trigger should end. The time will be represented in UTC. 
+	// The time the Schedule Trigger should end. The time will be represented in UTC.
 	EndTime pulumi.StringPtrInput
 	// The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
 	Frequency pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type TriggerScheduleArgs struct {
 	PipelineParameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
-	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+	// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 	StartTime pulumi.StringPtrInput
 }
 

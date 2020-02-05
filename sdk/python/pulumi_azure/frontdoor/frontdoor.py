@@ -25,7 +25,7 @@ class Frontdoor(pulumi.CustomResource):
         * `weight` (`float`)
     
       * `healthProbeName` (`str`)
-      * `id` (`str`) - Resource ID.
+      * `id` (`str`) - The ID of the FrontDoor.
       * `loadBalancingName` (`str`)
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
     """
@@ -33,7 +33,7 @@ class Frontdoor(pulumi.CustomResource):
     """
     A `backend_pool_health_probe` block as defined below.
     
-      * `id` (`str`) - Resource ID.
+      * `id` (`str`) - The ID of the FrontDoor.
       * `intervalInSeconds` (`float`)
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
       * `path` (`str`)
@@ -44,7 +44,7 @@ class Frontdoor(pulumi.CustomResource):
     A `backend_pool_load_balancing` block as defined below.
     
       * `additionalLatencyMilliseconds` (`float`)
-      * `id` (`str`) - Resource ID.
+      * `id` (`str`) - The ID of the FrontDoor.
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
       * `sampleSize` (`float`)
       * `successfulSamplesRequired` (`float`)
@@ -71,12 +71,13 @@ class Frontdoor(pulumi.CustomResource):
         * `azureKeyVaultCertificateSecretVersion` (`str`)
         * `azureKeyVaultCertificateVaultId` (`str`)
         * `certificateSource` (`str`)
+        * `minimumTlsVersion` (`str`) - Minimum client TLS version supported.
         * `provisioningState` (`str`) - Provisioning state of the Front Door.
         * `provisioningSubstate` (`str`) - Provisioning substate of the Front Door
     
       * `customHttpsProvisioningEnabled` (`bool`)
       * `host_name` (`str`)
-      * `id` (`str`) - Resource ID.
+      * `id` (`str`) - The ID of the FrontDoor.
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
       * `sessionAffinityEnabled` (`bool`)
       * `sessionAffinityTtlSeconds` (`float`)
@@ -114,7 +115,7 @@ class Frontdoor(pulumi.CustomResource):
         * `forwardingProtocol` (`str`)
     
       * `frontend_endpoints` (`list`)
-      * `id` (`str`) - Resource ID.
+      * `id` (`str`) - The ID of the FrontDoor.
       * `name` (`str`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
       * `patternsToMatches` (`list`)
       * `redirectConfiguration` (`dict`)
@@ -136,7 +137,7 @@ class Frontdoor(pulumi.CustomResource):
         
         Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
         
-        Below are some of the key scenarios that Azure Front Door Service addresses: 
+        Below are some of the key scenarios that Azure Front Door Service addresses:
         * Use Front Door to improve application scale and availability with instant multi-region failover
         * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
         * Use Front Door for application layer security and DDoS protection for your application.
@@ -158,7 +159,7 @@ class Frontdoor(pulumi.CustomResource):
         
         The **backend_pool_health_probes** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `intervalInSeconds` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `path` (`pulumi.Input[str]`)
@@ -167,7 +168,7 @@ class Frontdoor(pulumi.CustomResource):
         The **backend_pool_load_balancings** object supports the following:
         
           * `additionalLatencyMilliseconds` (`pulumi.Input[float]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `sampleSize` (`pulumi.Input[float]`)
           * `successfulSamplesRequired` (`pulumi.Input[float]`)
@@ -185,7 +186,7 @@ class Frontdoor(pulumi.CustomResource):
             * `weight` (`pulumi.Input[float]`)
         
           * `healthProbeName` (`pulumi.Input[str]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `loadBalancingName` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         
@@ -197,12 +198,13 @@ class Frontdoor(pulumi.CustomResource):
             * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`)
             * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`)
             * `certificateSource` (`pulumi.Input[str]`)
+            * `minimumTlsVersion` (`pulumi.Input[str]`) - Minimum client TLS version supported.
             * `provisioningState` (`pulumi.Input[str]`) - Provisioning state of the Front Door.
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
         
           * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`)
           * `host_name` (`pulumi.Input[str]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `sessionAffinityEnabled` (`pulumi.Input[bool]`)
           * `sessionAffinityTtlSeconds` (`pulumi.Input[float]`)
@@ -222,7 +224,7 @@ class Frontdoor(pulumi.CustomResource):
             * `forwardingProtocol` (`pulumi.Input[str]`)
         
           * `frontend_endpoints` (`pulumi.Input[list]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `patternsToMatches` (`pulumi.Input[list]`)
           * `redirectConfiguration` (`pulumi.Input[dict]`)
@@ -311,7 +313,7 @@ class Frontdoor(pulumi.CustomResource):
         
         The **backend_pool_health_probes** object supports the following:
         
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `intervalInSeconds` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `path` (`pulumi.Input[str]`)
@@ -320,7 +322,7 @@ class Frontdoor(pulumi.CustomResource):
         The **backend_pool_load_balancings** object supports the following:
         
           * `additionalLatencyMilliseconds` (`pulumi.Input[float]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `sampleSize` (`pulumi.Input[float]`)
           * `successfulSamplesRequired` (`pulumi.Input[float]`)
@@ -338,7 +340,7 @@ class Frontdoor(pulumi.CustomResource):
             * `weight` (`pulumi.Input[float]`)
         
           * `healthProbeName` (`pulumi.Input[str]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `loadBalancingName` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         
@@ -350,12 +352,13 @@ class Frontdoor(pulumi.CustomResource):
             * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`)
             * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`)
             * `certificateSource` (`pulumi.Input[str]`)
+            * `minimumTlsVersion` (`pulumi.Input[str]`) - Minimum client TLS version supported.
             * `provisioningState` (`pulumi.Input[str]`) - Provisioning state of the Front Door.
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
         
           * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`)
           * `host_name` (`pulumi.Input[str]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `sessionAffinityEnabled` (`pulumi.Input[bool]`)
           * `sessionAffinityTtlSeconds` (`pulumi.Input[float]`)
@@ -375,7 +378,7 @@ class Frontdoor(pulumi.CustomResource):
             * `forwardingProtocol` (`pulumi.Input[str]`)
         
           * `frontend_endpoints` (`pulumi.Input[list]`)
-          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Front Door service. Changing this forces a new resource to be created.
           * `patternsToMatches` (`pulumi.Input[list]`)
           * `redirectConfiguration` (`pulumi.Input[dict]`)

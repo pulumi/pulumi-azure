@@ -4,6 +4,19 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 
+export interface ProviderFeatures {
+    virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
+    virtualMachineScaleSet?: pulumi.Input<inputs.ProviderFeaturesVirtualMachineScaleSet>;
+}
+
+export interface ProviderFeaturesVirtualMachine {
+    deleteOsDiskOnDeletion: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesVirtualMachineScaleSet {
+    rollInstancesWhenRequired: pulumi.Input<boolean>;
+}
+
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
@@ -1165,7 +1178,7 @@ export namespace backup {
 export namespace batch {
     export interface AccountKeyVaultReference {
         /**
-         * The Batch account ID.
+         * The ID of the Batch Account.
          */
         id: pulumi.Input<string>;
         url: pulumi.Input<string>;
@@ -1322,7 +1335,7 @@ export namespace batch {
 
     export interface PoolCertificate {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id: pulumi.Input<string>;
         storeLocation: pulumi.Input<string>;
@@ -1399,7 +1412,7 @@ export namespace batch {
 
     export interface PoolStorageImageReference {
         /**
-         * The Batch pool ID.
+         * The ID of the Batch Pool.
          */
         id?: pulumi.Input<string>;
         offer?: pulumi.Input<string>;
@@ -1507,6 +1520,198 @@ export namespace compute {
          * Specifies the size of the image to be created. The target size can't be smaller than the source size.
          */
         sizeGb?: pulumi.Input<number>;
+    }
+
+    export interface LinuxVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineAdminSshKey {
+        publicKey: pulumi.Input<string>;
+        username: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineBootDiagnostics {
+        storageAccountUri: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineOsDisk {
+        caching: pulumi.Input<string>;
+        diffDiskSettings?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb?: pulumi.Input<number>;
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineOsDiskDiffDiskSettings {
+        option: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachinePlan {
+        /**
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        product: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAdminSshKey {
+        publicKey: pulumi.Input<string>;
+        username: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: pulumi.Input<boolean>;
+        enableAutomaticOsUpgrade: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetDataDisk {
+        caching: pulumi.Input<string>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb: pulumi.Input<number>;
+        lun: pulumi.Input<number>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        enableAcceleratedNetworking?: pulumi.Input<boolean>;
+        enableIpForwarding?: pulumi.Input<boolean>;
+        ipConfigurations: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration>[]>;
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        networkSecurityGroupId?: pulumi.Input<string>;
+        primary?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        primary?: pulumi.Input<boolean>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress>[]>;
+        subnetId?: pulumi.Input<string>;
+        version?: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: pulumi.Input<string>;
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        ipTags?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag>[]>;
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        publicIpPrefixId?: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDisk {
+        caching: pulumi.Input<string>;
+        diffDiskSettings?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb?: pulumi.Input<number>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        product: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: pulumi.Input<number>;
+        maxUnhealthyInstancePercent: pulumi.Input<number>;
+        maxUnhealthyUpgradedInstancePercent: pulumi.Input<number>;
+        pauseTimeBetweenBatches: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecret {
+        certificates: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSecretCertificate>[]>;
+        keyVaultId: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSecretCertificate {
+        url: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSourceImageReference {
+        offer: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: pulumi.Input<string>;
+        version: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineSecret {
+        certificates: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineSecretCertificate>[]>;
+        keyVaultId: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineSecretCertificate {
+        url: pulumi.Input<string>;
+    }
+
+    export interface LinuxVirtualMachineSourceImageReference {
+        offer: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+        sku: pulumi.Input<string>;
+        version: pulumi.Input<string>;
     }
 
     export interface ManagedDiskEncryptionSettings {
@@ -2045,6 +2250,210 @@ export namespace compute {
         osType?: pulumi.Input<string>;
         vhdUri?: pulumi.Input<string>;
         writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineAdditionalCapabilities {
+        ultraSsdEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineAdditionalUnattendContent {
+        content: pulumi.Input<string>;
+        setting: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineBootDiagnostics {
+        storageAccountUri: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineOsDisk {
+        caching: pulumi.Input<string>;
+        diffDiskSettings?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb?: pulumi.Input<number>;
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineOsDiskDiffDiskSettings {
+        option: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachinePlan {
+        /**
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        product: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalCapabilities {
+        ultraSsdEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAdditionalUnattendContent {
+        content: pulumi.Input<string>;
+        setting: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
+        disableAutomaticRollback: pulumi.Input<boolean>;
+        enableAutomaticOsUpgrade: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetBootDiagnostics {
+        storageAccountUri: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetDataDisk {
+        caching: pulumi.Input<string>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb: pulumi.Input<number>;
+        lun: pulumi.Input<number>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the System Managed Service Principal.
+         */
+        principalId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterface {
+        dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+        enableAcceleratedNetworking?: pulumi.Input<boolean>;
+        enableIpForwarding?: pulumi.Input<boolean>;
+        ipConfigurations: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration>[]>;
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        networkSecurityGroupId?: pulumi.Input<string>;
+        primary?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        primary?: pulumi.Input<boolean>;
+        publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress>[]>;
+        subnetId?: pulumi.Input<string>;
+        version?: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        domainNameLabel?: pulumi.Input<string>;
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        ipTags?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag>[]>;
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        publicIpPrefixId?: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDisk {
+        caching: pulumi.Input<string>;
+        diffDiskSettings?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings>;
+        diskEncryptionSetId?: pulumi.Input<string>;
+        diskSizeGb?: pulumi.Input<number>;
+        storageAccountType: pulumi.Input<string>;
+        writeAcceleratorEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
+        option: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetPlan {
+        /**
+         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        product: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
+        maxBatchInstancePercent: pulumi.Input<number>;
+        maxUnhealthyInstancePercent: pulumi.Input<number>;
+        maxUnhealthyUpgradedInstancePercent: pulumi.Input<number>;
+        pauseTimeBetweenBatches: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecret {
+        certificates: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecretCertificate>[]>;
+        keyVaultId: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSecretCertificate {
+        store: pulumi.Input<string>;
+        url: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSourceImageReference {
+        offer: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+        /**
+         * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         */
+        sku: pulumi.Input<string>;
+        version: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineScaleSetWinrmListener {
+        certificateUrl?: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineSecret {
+        certificates: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecretCertificate>[]>;
+        keyVaultId: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineSecretCertificate {
+        store: pulumi.Input<string>;
+        url: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineSourceImageReference {
+        offer: pulumi.Input<string>;
+        publisher: pulumi.Input<string>;
+        sku: pulumi.Input<string>;
+        version: pulumi.Input<string>;
+    }
+
+    export interface WindowsVirtualMachineWinrmListener {
+        certificateUrl?: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
     }
 }
 
@@ -2854,7 +3263,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
         /**
@@ -2869,7 +3278,7 @@ export namespace eventgrid {
          */
         queueName: pulumi.Input<string>;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
     }
@@ -2891,7 +3300,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
     }
@@ -3002,7 +3411,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionStorageBlobDeadLetterDestination {
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
         /**
@@ -3017,7 +3426,7 @@ export namespace eventhub {
          */
         queueName: pulumi.Input<string>;
         /**
-         * Specifies the id of the storage account id where the storage blob is located. 
+         * Specifies the id of the storage account id where the storage blob is located.
          */
         storageAccountId: pulumi.Input<string>;
     }
@@ -3039,7 +3448,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionWebhookEndpoint {
         /**
-         * Specifies the url of the webhook where the Event Subscription will receive events. 
+         * Specifies the url of the webhook where the Event Subscription will receive events.
          */
         url: pulumi.Input<string>;
     }
@@ -3152,7 +3561,7 @@ export namespace frontdoor {
         backends: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolBackend>[]>;
         healthProbeName: pulumi.Input<string>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         loadBalancingName: pulumi.Input<string>;
@@ -3174,7 +3583,7 @@ export namespace frontdoor {
 
     export interface FrontdoorBackendPoolHealthProbe {
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         intervalInSeconds?: pulumi.Input<number>;
@@ -3189,7 +3598,7 @@ export namespace frontdoor {
     export interface FrontdoorBackendPoolLoadBalancing {
         additionalLatencyMilliseconds?: pulumi.Input<number>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         /**
@@ -3205,7 +3614,7 @@ export namespace frontdoor {
         customHttpsProvisioningEnabled: pulumi.Input<boolean>;
         hostName: pulumi.Input<string>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         /**
@@ -3226,6 +3635,10 @@ export namespace frontdoor {
         azureKeyVaultCertificateVaultId?: pulumi.Input<string>;
         certificateSource?: pulumi.Input<string>;
         /**
+         * Minimum client TLS version supported.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        /**
          * Provisioning state of the Front Door.
          */
         provisioningState?: pulumi.Input<string>;
@@ -3241,7 +3654,7 @@ export namespace frontdoor {
         forwardingConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration>;
         frontendEndpoints: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Resource ID.
+         * The ID of the FrontDoor.
          */
         id?: pulumi.Input<string>;
         /**
@@ -4279,7 +4692,7 @@ export namespace mariadb {
 export namespace mediaservices {
     export interface AccountStorageAccount {
         /**
-         * The Resource ID of the Media Services Account.
+         * The ID of the Media Services Account.
          */
         id: pulumi.Input<string>;
         isPrimary?: pulumi.Input<boolean>;
@@ -4688,7 +5101,7 @@ export namespace mssql {
          */
         family?: pulumi.Input<string>;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
          */
         name: pulumi.Input<string>;
         /**
@@ -5851,7 +6264,7 @@ export namespace privatelink {
          */
         requestMessage?: pulumi.Input<string>;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
          */
         subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6398,7 +6811,13 @@ export namespace storage {
     }
 
     export interface AccountQueuePropertiesLogging {
+        /**
+         * (Defaults to 60 minutes) Used when deleting the Storage Account.
+         */
         delete: pulumi.Input<boolean>;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the Storage Account.
+         */
         read: pulumi.Input<boolean>;
         retentionPolicyDays?: pulumi.Input<number>;
         version: pulumi.Input<string>;
@@ -6417,6 +6836,9 @@ export namespace storage {
         create: boolean;
         delete: boolean;
         list: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the Blob Container.
+         */
         read: boolean;
         write: boolean;
     }
@@ -6427,6 +6849,9 @@ export namespace storage {
         delete: boolean;
         list: boolean;
         process: boolean;
+        /**
+         * (Defaults to 5 minutes) Used when retrieving the SAS Token.
+         */
         read: boolean;
         update: boolean;
         write: boolean;

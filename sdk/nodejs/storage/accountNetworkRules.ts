@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages network rules inside of a Azure Storage Account.
  * 
- * > **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account. 
+ * > **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.
  * 
  * > **NOTE:** Only one `azure.storage.AccountNetworkRules` can be tied to an `azure.storage.Account`. Spurious changes will occur if more than `azure.storage.AccountNetworkRules` is tied to the same `azure.storage.Account`.
  * 
@@ -84,7 +84,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
     public readonly bypasses!: pulumi.Output<string[]>;
     /**
@@ -160,7 +160,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
  */
 export interface AccountNetworkRulesState {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
     readonly bypasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -190,7 +190,7 @@ export interface AccountNetworkRulesState {
  */
 export interface AccountNetworkRulesArgs {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
     readonly bypasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**

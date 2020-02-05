@@ -26,11 +26,15 @@ class Vault(pulumi.CustomResource):
     """
     Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
     """
+    soft_delete_enabled: pulumi.Output[bool]
+    """
+    Is soft delete enable for this Vault? Defaults to `true`.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, soft_delete_enabled=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Recovery Services Vault.
         
@@ -40,6 +44,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
+        :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_vault.html.markdown.
@@ -69,6 +74,7 @@ class Vault(pulumi.CustomResource):
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['soft_delete_enabled'] = soft_delete_enabled
             __props__['tags'] = tags
         super(Vault, __self__).__init__(
             'azure:recoveryservices/vault:Vault',
@@ -77,7 +83,7 @@ class Vault(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, location=None, name=None, resource_group_name=None, sku=None, soft_delete_enabled=None, tags=None):
         """
         Get an existing Vault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,6 +95,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
+        :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_vault.html.markdown.
@@ -100,6 +107,7 @@ class Vault(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
+        __props__["soft_delete_enabled"] = soft_delete_enabled
         __props__["tags"] = tags
         return Vault(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

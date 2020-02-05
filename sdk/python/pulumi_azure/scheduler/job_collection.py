@@ -20,7 +20,7 @@ class JobCollection(pulumi.CustomResource):
     """
     quota: pulumi.Output[dict]
     """
-    Configures the Job collection quotas as documented in the `quota` block below. 
+    Configures the Job collection quotas as documented in the `quota` block below.
     
       * `maxJobCount` (`float`)
       * `maxRecurrenceFrequency` (`str`)
@@ -53,7 +53,7 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] quota: Configures the Job collection quotas as documented in the `quota` block below. 
+        :param pulumi.Input[dict] quota: Configures the Job collection quotas as documented in the `quota` block below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
         :param pulumi.Input[str] state: Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.
@@ -113,7 +113,7 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] quota: Configures the Job collection quotas as documented in the `quota` block below. 
+        :param pulumi.Input[dict] quota: Configures the Job collection quotas as documented in the `quota` block below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
         :param pulumi.Input[str] state: Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.

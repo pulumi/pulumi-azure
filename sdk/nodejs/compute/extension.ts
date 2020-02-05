@@ -180,7 +180,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
-     * The resource ID of the virtual machine. This value replaces 
+     * The resource ID of the virtual machine. This value replaces
      * `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
      * resource to be created
      */
@@ -305,7 +305,7 @@ export interface ExtensionState {
      */
     readonly typeHandlerVersion?: pulumi.Input<string>;
     /**
-     * The resource ID of the virtual machine. This value replaces 
+     * The resource ID of the virtual machine. This value replaces
      * `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
      * resource to be created
      */
@@ -372,7 +372,7 @@ export interface ExtensionArgs {
      */
     readonly typeHandlerVersion: pulumi.Input<string>;
     /**
-     * The resource ID of the virtual machine. This value replaces 
+     * The resource ID of the virtual machine. This value replaces
      * `location`, `resourceGroupName` and `virtualMachineName`. Changing this forces a new
      * resource to be created
      */

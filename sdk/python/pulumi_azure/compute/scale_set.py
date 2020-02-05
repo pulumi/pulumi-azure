@@ -32,7 +32,7 @@ class ScaleSet(pulumi.CustomResource):
       * `auto_upgrade_minor_version` (`bool`) - Specifies whether or not to use the latest minor version available.
       * `name` (`str`) - Specifies the name of the image from the marketplace.
       * `protected_settings` (`str`) - The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-      * `provisionAfterExtensions` (`list`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+      * `provision_after_extensions` (`list`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
       * `publisher` (`str`) - Specifies the publisher of the image.
       * `settings` (`str`) - The settings passed to the extension, these are specified as a JSON object in a string.
       * `type` (`str`) - The type of extension, available types for a publisher can be found using the Azure CLI.
@@ -89,16 +89,16 @@ class ScaleSet(pulumi.CustomResource):
     """
     A Virtual Machine OS Profile block as documented below.
     
-      * `adminPassword` (`str`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-      * `adminUsername` (`str`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-      * `computerNamePrefix` (`str`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-      * `customData` (`str`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+      * `admin_password` (`str`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
+      * `admin_username` (`str`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
+      * `computer_name_prefix` (`str`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+      * `custom_data` (`str`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
     """
     os_profile_linux_config: pulumi.Output[dict]
     """
     A Linux config block as documented below.
     
-      * `disablePasswordAuthentication` (`bool`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+      * `disable_password_authentication` (`bool`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
       * `sshKeys` (`list`) - Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
     
         * `keyData` (`str`)
@@ -126,7 +126,7 @@ class ScaleSet(pulumi.CustomResource):
         * `settingName` (`str`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
     
       * `enableAutomaticUpgrades` (`bool`) - Indicates whether virtual machines in the scale set are enabled for automatic updates.
-      * `provisionVmAgent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
+      * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
       * `winrms` (`list`) - A collection of WinRM configuration blocks as documented below.
     
         * `certificateUrl` (`str`) - Specifies URL of the certificate with which new Virtual Machines is provisioned.
@@ -268,7 +268,7 @@ class ScaleSet(pulumi.CustomResource):
           * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Specifies whether or not to use the latest minor version available.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
           * `protected_settings` (`pulumi.Input[str]`) - The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-          * `provisionAfterExtensions` (`pulumi.Input[list]`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+          * `provision_after_extensions` (`pulumi.Input[list]`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
           * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image.
           * `settings` (`pulumi.Input[str]`) - The settings passed to the extension, these are specified as a JSON object in a string.
           * `type` (`pulumi.Input[str]`) - The type of extension, available types for a publisher can be found using the Azure CLI.
@@ -310,14 +310,14 @@ class ScaleSet(pulumi.CustomResource):
         
         The **os_profile** object supports the following:
         
-          * `adminPassword` (`pulumi.Input[str]`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-          * `adminUsername` (`pulumi.Input[str]`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-          * `computerNamePrefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-          * `customData` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+          * `admin_password` (`pulumi.Input[str]`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
+          * `admin_username` (`pulumi.Input[str]`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
+          * `computer_name_prefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+          * `custom_data` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
         
         The **os_profile_linux_config** object supports the following:
         
-          * `disablePasswordAuthentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+          * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
           * `sshKeys` (`pulumi.Input[list]`) - Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
         
             * `keyData` (`pulumi.Input[str]`)
@@ -341,7 +341,7 @@ class ScaleSet(pulumi.CustomResource):
             * `settingName` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
         
           * `enableAutomaticUpgrades` (`pulumi.Input[bool]`) - Indicates whether virtual machines in the scale set are enabled for automatic updates.
-          * `provisionVmAgent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
+          * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
           * `winrms` (`pulumi.Input[list]`) - A collection of WinRM configuration blocks as documented below.
         
             * `certificateUrl` (`pulumi.Input[str]`) - Specifies URL of the certificate with which new Virtual Machines is provisioned.
@@ -507,7 +507,7 @@ class ScaleSet(pulumi.CustomResource):
           * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Specifies whether or not to use the latest minor version available.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
           * `protected_settings` (`pulumi.Input[str]`) - The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-          * `provisionAfterExtensions` (`pulumi.Input[list]`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+          * `provision_after_extensions` (`pulumi.Input[list]`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
           * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image.
           * `settings` (`pulumi.Input[str]`) - The settings passed to the extension, these are specified as a JSON object in a string.
           * `type` (`pulumi.Input[str]`) - The type of extension, available types for a publisher can be found using the Azure CLI.
@@ -549,14 +549,14 @@ class ScaleSet(pulumi.CustomResource):
         
         The **os_profile** object supports the following:
         
-          * `adminPassword` (`pulumi.Input[str]`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-          * `adminUsername` (`pulumi.Input[str]`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-          * `computerNamePrefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-          * `customData` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
+          * `admin_password` (`pulumi.Input[str]`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
+          * `admin_username` (`pulumi.Input[str]`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
+          * `computer_name_prefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
+          * `custom_data` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
         
         The **os_profile_linux_config** object supports the following:
         
-          * `disablePasswordAuthentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
+          * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
           * `sshKeys` (`pulumi.Input[list]`) - Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
         
             * `keyData` (`pulumi.Input[str]`)
@@ -580,7 +580,7 @@ class ScaleSet(pulumi.CustomResource):
             * `settingName` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
         
           * `enableAutomaticUpgrades` (`pulumi.Input[bool]`) - Indicates whether virtual machines in the scale set are enabled for automatic updates.
-          * `provisionVmAgent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
+          * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
           * `winrms` (`pulumi.Input[list]`) - A collection of WinRM configuration blocks as documented below.
         
             * `certificateUrl` (`pulumi.Input[str]`) - Specifies URL of the certificate with which new Virtual Machines is provisioned.

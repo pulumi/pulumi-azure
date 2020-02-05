@@ -12,7 +12,7 @@ import (
 )
 
 type AccountKeyVaultReference struct {
-	// The Batch account ID.
+	// The ID of the Batch Account.
 	Id string `pulumi:"id"`
 	Url string `pulumi:"url"`
 }
@@ -25,7 +25,7 @@ type AccountKeyVaultReferenceInput interface {
 }
 
 type AccountKeyVaultReferenceArgs struct {
-	// The Batch account ID.
+	// The ID of the Batch Account.
 	Id pulumi.StringInput `pulumi:"id"`
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -97,7 +97,7 @@ func (o AccountKeyVaultReferenceOutput) ToAccountKeyVaultReferencePtrOutputWithC
 		return &v
 	}).(AccountKeyVaultReferencePtrOutput)
 }
-// The Batch account ID.
+// The ID of the Batch Account.
 func (o AccountKeyVaultReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func (v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -124,7 +124,7 @@ func (o AccountKeyVaultReferencePtrOutput) Elem() AccountKeyVaultReferenceOutput
 	return o.ApplyT(func (v *AccountKeyVaultReference) AccountKeyVaultReference { return *v }).(AccountKeyVaultReferenceOutput)
 }
 
-// The Batch account ID.
+// The ID of the Batch Account.
 func (o AccountKeyVaultReferencePtrOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func (v AccountKeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -252,7 +252,7 @@ func (o PoolAutoScalePtrOutput) Formula() pulumi.StringOutput {
 }
 
 type PoolCertificate struct {
-	// The Batch pool ID.
+	// The ID of the Batch Pool.
 	Id string `pulumi:"id"`
 	StoreLocation string `pulumi:"storeLocation"`
 	StoreName *string `pulumi:"storeName"`
@@ -267,7 +267,7 @@ type PoolCertificateInput interface {
 }
 
 type PoolCertificateArgs struct {
-	// The Batch pool ID.
+	// The ID of the Batch Pool.
 	Id pulumi.StringInput `pulumi:"id"`
 	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
 	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
@@ -321,7 +321,7 @@ func (o PoolCertificateOutput) ToPoolCertificateOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Batch pool ID.
+// The ID of the Batch Pool.
 func (o PoolCertificateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func (v PoolCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1475,7 +1475,7 @@ func (o PoolStartTaskUserIdentityAutoUserPtrOutput) Scope() pulumi.StringPtrOutp
 }
 
 type PoolStorageImageReference struct {
-	// The Batch pool ID.
+	// The ID of the Batch Pool.
 	Id *string `pulumi:"id"`
 	Offer *string `pulumi:"offer"`
 	Publisher *string `pulumi:"publisher"`
@@ -1491,7 +1491,7 @@ type PoolStorageImageReferenceInput interface {
 }
 
 type PoolStorageImageReferenceArgs struct {
-	// The Batch pool ID.
+	// The ID of the Batch Pool.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	Offer pulumi.StringPtrInput `pulumi:"offer"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
@@ -1566,7 +1566,7 @@ func (o PoolStorageImageReferenceOutput) ToPoolStorageImageReferencePtrOutputWit
 		return &v
 	}).(PoolStorageImageReferencePtrOutput)
 }
-// The Batch pool ID.
+// The ID of the Batch Pool.
 func (o PoolStorageImageReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1605,7 +1605,7 @@ func (o PoolStorageImageReferencePtrOutput) Elem() PoolStorageImageReferenceOutp
 	return o.ApplyT(func (v *PoolStorageImageReference) PoolStorageImageReference { return *v }).(PoolStorageImageReferenceOutput)
 }
 
-// The Batch pool ID.
+// The ID of the Batch Pool.
 func (o PoolStorageImageReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v PoolStorageImageReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

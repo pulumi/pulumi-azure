@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azure.authorization.RoleDefinition` data source instead.
         /// 
-        /// &gt; **NOTE:** The this datasource has been deprecated in favour of `azure.authorization.RoleDefinition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
+        /// &gt; **Note:** The this datasource has been deprecated in favour of `azure.authorization.RoleDefinition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
         /// 
         /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition.html.markdown.
         /// </summary>

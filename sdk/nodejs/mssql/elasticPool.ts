@@ -82,11 +82,11 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly maxSizeBytes!: pulumi.Output<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -188,11 +188,11 @@ export interface ElasticPoolState {
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -234,11 +234,11 @@ export interface ElasticPoolArgs {
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
-     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+     * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      */
     readonly name?: pulumi.Input<string>;
     /**

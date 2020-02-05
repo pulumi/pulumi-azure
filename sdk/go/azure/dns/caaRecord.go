@@ -19,7 +19,7 @@ type CaaRecord struct {
 
 	// The FQDN of the DNS CAA Record.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// The name of the DNS CAA Record.
+	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records CaaRecordRecordArrayOutput `pulumi:"records"`
@@ -75,7 +75,7 @@ func GetCaaRecord(ctx *pulumi.Context,
 type caaRecordState struct {
 	// The FQDN of the DNS CAA Record.
 	Fqdn *string `pulumi:"fqdn"`
-	// The name of the DNS CAA Record.
+	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records []CaaRecordRecord `pulumi:"records"`
@@ -92,7 +92,7 @@ type caaRecordState struct {
 type CaaRecordState struct {
 	// The FQDN of the DNS CAA Record.
 	Fqdn pulumi.StringPtrInput
-	// The name of the DNS CAA Record.
+	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records CaaRecordRecordArrayInput
@@ -111,7 +111,7 @@ func (CaaRecordState) ElementType() reflect.Type {
 }
 
 type caaRecordArgs struct {
-	// The name of the DNS CAA Record.
+	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
 	Name *string `pulumi:"name"`
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records []CaaRecordRecord `pulumi:"records"`
@@ -127,7 +127,7 @@ type caaRecordArgs struct {
 
 // The set of arguments for constructing a CaaRecord resource.
 type CaaRecordArgs struct {
-	// The name of the DNS CAA Record.
+	// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
 	Name pulumi.StringPtrInput
 	// A list of values that make up the CAA record. Each `record` block supports fields documented below.
 	Records CaaRecordRecordArrayInput

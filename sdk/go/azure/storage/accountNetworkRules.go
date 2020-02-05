@@ -13,7 +13,7 @@ import (
 
 // Manages network rules inside of a Azure Storage Account.
 // 
-// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account. 
+// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.
 // 
 // > **NOTE:** Only one `storage.AccountNetworkRules` can be tied to an `storage.Account`. Spurious changes will occur if more than `storage.AccountNetworkRules` is tied to the same `storage.Account`.
 // 
@@ -23,7 +23,7 @@ import (
 type AccountNetworkRules struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses pulumi.StringArrayOutput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringOutput `pulumi:"defaultAction"`
@@ -74,7 +74,7 @@ func GetAccountNetworkRules(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountNetworkRules resources.
 type accountNetworkRulesState struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
@@ -89,7 +89,7 @@ type accountNetworkRulesState struct {
 }
 
 type AccountNetworkRulesState struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringPtrInput
@@ -108,7 +108,7 @@ func (AccountNetworkRulesState) ElementType() reflect.Type {
 }
 
 type accountNetworkRulesArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -124,7 +124,7 @@ type accountNetworkRulesArgs struct {
 
 // The set of arguments for constructing a AccountNetworkRules resource.
 type AccountNetworkRulesArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
 	Bypasses pulumi.StringArrayInput
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput

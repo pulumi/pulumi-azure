@@ -11,7 +11,7 @@ namespace Pulumi.Azure.PrivateLink
     public static partial class Invokes
     {
         /// <summary>
-        /// Use this data source to access the connection status information about an existing Private Endpoint.
+        /// Use this data source to access the connection status information about an existing Private Endpoint Connection.
         /// 
         /// &gt; **NOTE** Private Endpoint is currently in Public Preview.
         /// 

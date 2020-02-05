@@ -45,7 +45,7 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+     * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
     public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -97,7 +97,7 @@ export interface DataLakeGen2FilesystemState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+     * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
     readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -115,7 +115,7 @@ export interface DataLakeGen2FilesystemArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. 
+     * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
     readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -1010,7 +1010,9 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringOutpu
 }
 
 type AccountQueuePropertiesLogging struct {
+	// (Defaults to 60 minutes) Used when deleting the Storage Account.
 	Delete bool `pulumi:"delete"`
+	// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 	Read bool `pulumi:"read"`
 	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
 	Version string `pulumi:"version"`
@@ -1025,7 +1027,9 @@ type AccountQueuePropertiesLoggingInput interface {
 }
 
 type AccountQueuePropertiesLoggingArgs struct {
+	// (Defaults to 60 minutes) Used when deleting the Storage Account.
 	Delete pulumi.BoolInput `pulumi:"delete"`
+	// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 	Read pulumi.BoolInput `pulumi:"read"`
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
 	Version pulumi.StringInput `pulumi:"version"`
@@ -1099,10 +1103,12 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 		return &v
 	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
+// (Defaults to 60 minutes) Used when deleting the Storage Account.
 func (o AccountQueuePropertiesLoggingOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 func (o AccountQueuePropertiesLoggingOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -1137,10 +1143,12 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLog
 	return o.ApplyT(func (v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging { return *v }).(AccountQueuePropertiesLoggingOutput)
 }
 
+// (Defaults to 60 minutes) Used when deleting the Storage Account.
 func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
+// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -2237,6 +2245,7 @@ type GetAccountBlobContainerSASPermissions struct {
 	Create bool `pulumi:"create"`
 	Delete bool `pulumi:"delete"`
 	List bool `pulumi:"list"`
+	// (Defaults to 5 minutes) Used when retrieving the Blob Container.
 	Read bool `pulumi:"read"`
 	Write bool `pulumi:"write"`
 }
@@ -2253,6 +2262,7 @@ type GetAccountBlobContainerSASPermissionsArgs struct {
 	Create pulumi.BoolInput `pulumi:"create"`
 	Delete pulumi.BoolInput `pulumi:"delete"`
 	List pulumi.BoolInput `pulumi:"list"`
+	// (Defaults to 5 minutes) Used when retrieving the Blob Container.
 	Read pulumi.BoolInput `pulumi:"read"`
 	Write pulumi.BoolInput `pulumi:"write"`
 }
@@ -2299,6 +2309,7 @@ func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
 
+// (Defaults to 5 minutes) Used when retrieving the Blob Container.
 func (o GetAccountBlobContainerSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -2361,6 +2372,7 @@ type GetAccountSASPermissions struct {
 	Delete bool `pulumi:"delete"`
 	List bool `pulumi:"list"`
 	Process bool `pulumi:"process"`
+	// (Defaults to 5 minutes) Used when retrieving the SAS Token.
 	Read bool `pulumi:"read"`
 	Update bool `pulumi:"update"`
 	Write bool `pulumi:"write"`
@@ -2379,6 +2391,7 @@ type GetAccountSASPermissionsArgs struct {
 	Delete pulumi.BoolInput `pulumi:"delete"`
 	List pulumi.BoolInput `pulumi:"list"`
 	Process pulumi.BoolInput `pulumi:"process"`
+	// (Defaults to 5 minutes) Used when retrieving the SAS Token.
 	Read pulumi.BoolInput `pulumi:"read"`
 	Update pulumi.BoolInput `pulumi:"update"`
 	Write pulumi.BoolInput `pulumi:"write"`
@@ -2430,6 +2443,7 @@ func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Process }).(pulumi.BoolOutput)
 }
 
+// (Defaults to 5 minutes) Used when retrieving the SAS Token.
 func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }

@@ -11,7 +11,7 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages network rules inside of a Azure Storage Account.
     /// 
-    /// &gt; **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account. 
+    /// &gt; **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.
     /// 
     /// &gt; **NOTE:** Only one `azure.storage.AccountNetworkRules` can be tied to an `azure.storage.Account`. Spurious changes will occur if more than `azure.storage.AccountNetworkRules` is tied to the same `azure.storage.Account`.
     /// 
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage
     public partial class AccountNetworkRules : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         /// </summary>
         [Output("bypasses")]
         public Output<ImmutableArray<string>> Bypasses { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _bypasses;
 
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         /// </summary>
         public InputList<string> Bypasses
         {
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _bypasses;
 
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. 
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         /// </summary>
         public InputList<string> Bypasses
         {

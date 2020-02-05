@@ -112,7 +112,6 @@ namespace Pulumi.Azure.Network
         public readonly int PeerAsn;
         /// <summary>
         /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-        /// &gt; **NOTE:** only one Peering of each Type can be created per ExpressRoute circuit.
         /// </summary>
         public readonly string PeeringType;
         /// <summary>

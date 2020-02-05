@@ -384,7 +384,7 @@ type ElasticPoolSku struct {
 	Capacity int `pulumi:"capacity"`
 	// The `family` of hardware `Gen4` or `Gen5`.
 	Family *string `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name string `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier string `pulumi:"tier"`
@@ -402,7 +402,7 @@ type ElasticPoolSkuArgs struct {
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The `family` of hardware `Gen4` or `Gen5`.
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 	Tier pulumi.StringInput `pulumi:"tier"`
@@ -485,7 +485,7 @@ func (o ElasticPoolSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 func (o ElasticPoolSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -523,7 +523,7 @@ func (o ElasticPoolSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ElasticPoolSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
+// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
 func (o ElasticPoolSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v ElasticPoolSku) string { return v.Name }).(pulumi.StringOutput)
 }

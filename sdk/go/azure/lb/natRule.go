@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Load Balancer NAT Rule. 
+// Manages a Load Balancer NAT Rule.
 // 
 // > **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `lb.NatPool` resource.
 // 

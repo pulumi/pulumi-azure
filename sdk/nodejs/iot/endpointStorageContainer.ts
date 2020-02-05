@@ -81,7 +81,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
     }
 
     /**
-     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     public readonly batchFrequencyInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -179,7 +179,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
  */
 export interface EndpointStorageContainerState {
     /**
-     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     readonly batchFrequencyInSeconds?: pulumi.Input<number>;
     /**
@@ -222,7 +222,7 @@ export interface EndpointStorageContainerState {
  */
 export interface EndpointStorageContainerArgs {
     /**
-     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. 
+     * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
     readonly batchFrequencyInSeconds?: pulumi.Input<number>;
     /**

@@ -36,7 +36,7 @@ class Container(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+    The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
     """
     storage_account_name: pulumi.Output[str]
     """
@@ -51,7 +51,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
@@ -104,7 +104,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
         :param pulumi.Input[dict] properties: (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.

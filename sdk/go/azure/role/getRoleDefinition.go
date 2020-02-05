@@ -8,9 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about an existing Role Definition.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition_legacy.html.markdown.
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {
 	var rv GetRoleDefinitionResult
 	err := ctx.Invoke("azure:role/getRoleDefinition:getRoleDefinition", args, &rv, opts...)
@@ -22,29 +19,22 @@ func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ..
 
 // A collection of arguments for invoking getRoleDefinition.
 type GetRoleDefinitionArgs struct {
-	// Specifies the Name of either a built-in or custom Role Definition.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the Role Definition as a UUID/GUID.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// Specifies the Scope at which the Custom Role Definition exists.
 	Scope *string `pulumi:"scope"`
 }
 
 
 // A collection of values returned by getRoleDefinition.
 type GetRoleDefinitionResult struct {
-	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	AssignableScopes []string `pulumi:"assignableScopes"`
-	// the Description of the built-in Role.
 	Description string `pulumi:"description"`
 	// id is the provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// a `permissions` block as documented below.
 	Permissions []GetRoleDefinitionPermission `pulumi:"permissions"`
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 	Scope *string `pulumi:"scope"`
-	// the Type of the Role.
 	Type string `pulumi:"type"`
 }
 

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the private linke endpoint.
+        /// The name of the Private Link endpoint.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetPrivateLinkEndpointConnectionPrivateServiceConnectionsResult> PrivateServiceConnections;
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly string RequestResponse;
         /// <summary>
-        /// The current status of the private link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
+        /// The current status of the Private Link endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
         /// </summary>
         public readonly string Status;
 

@@ -69,7 +69,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
     /**
-     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      */
     public readonly keyVaultReference!: pulumi.Output<outputs.batch.AccountKeyVaultReference | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface AccountState {
      */
     readonly accountEndpoint?: pulumi.Input<string>;
     /**
-     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      */
     readonly keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
     /**
@@ -205,7 +205,7 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      */
     readonly keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
     /**

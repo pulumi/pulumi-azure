@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Backup
     public partial class PolicyFileShare : Pulumi.CustomResource
     {
         /// <summary>
-        /// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+        /// Configures the Policy backup frequency and times as documented in the `backup` block below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.PolicyFileShareBackup> Backup { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Backup
     public sealed class PolicyFileShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+        /// Configures the Policy backup frequency and times as documented in the `backup` block below.
         /// </summary>
         [Input("backup", required: true)]
         public Input<Inputs.PolicyFileShareBackupArgs> Backup { get; set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.Backup
     public sealed class PolicyFileShareState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequency and times as documented in the `backup` block below. 
+        /// Configures the Policy backup frequency and times as documented in the `backup` block below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyFileShareBackupGetArgs>? Backup { get; set; }

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateLink
 {
     /// <summary>
-    /// Manages an Private Endpoint.
+    /// Manages a Private Endpoint.
     /// 
     /// &gt; **NOTE** Private Endpoint is currently in Public Preview.
     /// 
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<string>? _subresourceNames;
 
         /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> SubresourceNames
         {
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<string>? _subresourceNames;
 
         /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> SubresourceNames
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// A list of subresource names which the Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        /// A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> SubresourceNames;
 

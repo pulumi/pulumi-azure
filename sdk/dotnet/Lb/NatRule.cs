@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lb
 {
     /// <summary>
-    /// Manages a Load Balancer NAT Rule. 
+    /// Manages a Load Balancer NAT Rule.
     /// 
     /// &gt; **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `azure.lb.NatPool` resource.
     /// 

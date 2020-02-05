@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the virtual machine. This value replaces 
+        /// The resource ID of the virtual machine. This value replaces
         /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
         /// resource to be created
         /// </summary>
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> TypeHandlerVersion { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID of the virtual machine. This value replaces 
+        /// The resource ID of the virtual machine. This value replaces
         /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
         /// resource to be created
         /// </summary>
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? TypeHandlerVersion { get; set; }
 
         /// <summary>
-        /// The resource ID of the virtual machine. This value replaces 
+        /// The resource ID of the virtual machine. This value replaces
         /// `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
         /// resource to be created
         /// </summary>

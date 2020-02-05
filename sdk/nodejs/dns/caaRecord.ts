@@ -87,7 +87,7 @@ export class CaaRecord extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * The name of the DNS CAA Record.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface CaaRecordState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * The name of the DNS CAA Record.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -202,7 +202,7 @@ export interface CaaRecordState {
  */
 export interface CaaRecordArgs {
     /**
-     * The name of the DNS CAA Record.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
      */
     readonly name?: pulumi.Input<string>;
     /**

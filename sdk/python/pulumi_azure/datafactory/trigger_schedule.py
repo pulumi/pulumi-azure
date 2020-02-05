@@ -20,7 +20,7 @@ class TriggerSchedule(pulumi.CustomResource):
     """
     end_time: pulumi.Output[str]
     """
-    The time the Schedule Trigger should end. The time will be represented in UTC. 
+    The time the Schedule Trigger should end. The time will be represented in UTC.
     """
     frequency: pulumi.Output[str]
     """
@@ -48,7 +48,7 @@ class TriggerSchedule(pulumi.CustomResource):
     """
     start_time: pulumi.Output[str]
     """
-    The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+    The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
     """
     def __init__(__self__, resource_name, opts=None, annotations=None, data_factory_name=None, end_time=None, frequency=None, interval=None, name=None, pipeline_name=None, pipeline_parameters=None, resource_group_name=None, start_time=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -58,14 +58,14 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-        :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC. 
+        :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
         :param pulumi.Input[str] frequency: The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         :param pulumi.Input[float] interval: The interval for how often the trigger occurs. This defaults to 1.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[dict] pipeline_parameters: The pipeline parameters that the trigger will act upon.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+        :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
         """
@@ -119,14 +119,14 @@ class TriggerSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Schedule Trigger.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
-        :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC. 
+        :param pulumi.Input[str] end_time: The time the Schedule Trigger should end. The time will be represented in UTC.
         :param pulumi.Input[str] frequency: The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         :param pulumi.Input[float] interval: The interval for how often the trigger occurs. This defaults to 1.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] pipeline_name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[dict] pipeline_parameters: The pipeline parameters that the trigger will act upon.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
-        :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+        :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_trigger_schedule.html.markdown.
         """

@@ -65,7 +65,7 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
     }
 
     /**
-     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
      */
     public readonly alternateName!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
  */
 export interface EventhubNamespaceDisasterRecoveryConfigState {
     /**
-     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
      */
     readonly alternateName?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface EventhubNamespaceDisasterRecoveryConfigState {
  */
 export interface EventhubNamespaceDisasterRecoveryConfigArgs {
     /**
-     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name. 
+     * An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
      */
     readonly alternateName?: pulumi.Input<string>;
     /**

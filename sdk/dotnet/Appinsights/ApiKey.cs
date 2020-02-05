@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// </summary>
         [Output("readPermissions")]
         public Output<ImmutableArray<string>> ReadPermissions { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<string>? _readPermissions;
 
         /// <summary>
-        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> ReadPermissions
         {
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<string>? _readPermissions;
 
         /// <summary>
-        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
+        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> ReadPermissions
         {

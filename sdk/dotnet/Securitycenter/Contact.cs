@@ -11,7 +11,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages the subscription's Security Center Contact.
     /// 
-    /// &gt; **NOTE:** Owner access permission is required. 
+    /// &gt; **NOTE:** Owner access permission is required.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
     /// </summary>

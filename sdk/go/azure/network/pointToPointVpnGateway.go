@@ -31,7 +31,7 @@ type PointToPointVpnGateway struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
-	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
 	VpnServerConfigurationId pulumi.StringOutput `pulumi:"vpnServerConfigurationId"`
 }
 
@@ -92,7 +92,7 @@ type pointToPointVpnGatewayState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
-	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
 	VpnServerConfigurationId *string `pulumi:"vpnServerConfigurationId"`
 }
 
@@ -111,7 +111,7 @@ type PointToPointVpnGatewayState struct {
 	Tags pulumi.StringMapInput
 	// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
-	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
 	VpnServerConfigurationId pulumi.StringPtrInput
 }
 
@@ -134,7 +134,7 @@ type pointToPointVpnGatewayArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
-	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
 	VpnServerConfigurationId string `pulumi:"vpnServerConfigurationId"`
 }
 
@@ -154,7 +154,7 @@ type PointToPointVpnGatewayArgs struct {
 	Tags pulumi.StringMapInput
 	// The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
-	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created. 
+	// The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
 	VpnServerConfigurationId pulumi.StringInput
 }
 

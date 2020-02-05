@@ -99,6 +99,9 @@ namespace Pulumi.Azure
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
+        [Input("features", json: true)]
+        public Input<Inputs.ProviderFeaturesArgs>? Features { get; set; }
+
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
         /// automatically.
@@ -159,5 +162,42 @@ namespace Pulumi.Azure
             TenantId = Utilities.GetEnv("AZURE_TENANT_ID", "ARM_TENANT_ID") ?? "";
             UseMsi = Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;
         }
+    }
+
+    namespace Inputs
+    {
+
+    public sealed class ProviderFeaturesArgs : Pulumi.ResourceArgs
+    {
+        [Input("virtualMachine")]
+        public Input<ProviderFeaturesVirtualMachineArgs>? VirtualMachine { get; set; }
+
+        [Input("virtualMachineScaleSet")]
+        public Input<ProviderFeaturesVirtualMachineScaleSetArgs>? VirtualMachineScaleSet { get; set; }
+
+        public ProviderFeaturesArgs()
+        {
+        }
+    }
+
+    public sealed class ProviderFeaturesVirtualMachineArgs : Pulumi.ResourceArgs
+    {
+        [Input("deleteOsDiskOnDeletion", required: true)]
+        public Input<bool> DeleteOsDiskOnDeletion { get; set; } = null!;
+
+        public ProviderFeaturesVirtualMachineArgs()
+        {
+        }
+    }
+
+    public sealed class ProviderFeaturesVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
+    {
+        [Input("rollInstancesWhenRequired", required: true)]
+        public Input<bool> RollInstancesWhenRequired { get; set; } = null!;
+
+        public ProviderFeaturesVirtualMachineScaleSetArgs()
+        {
+        }
+    }
     }
 }

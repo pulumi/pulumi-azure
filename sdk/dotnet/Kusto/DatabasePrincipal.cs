@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created. 
+        /// The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+        /// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
         /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Kusto
     public sealed class DatabasePrincipalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created. 
+        /// The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+        /// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created. 
+        /// The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An Object ID of a User, Group, or App. Changing this forces a new resource to be created. 
+        /// An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }

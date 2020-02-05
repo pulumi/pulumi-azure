@@ -73,7 +73,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
-     * The time the Schedule Trigger should end. The time will be represented in UTC. 
+     * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     public readonly endTime!: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +101,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     public readonly startTime!: pulumi.Output<string>;
 
@@ -173,7 +173,7 @@ export interface TriggerScheduleState {
      */
     readonly dataFactoryName?: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger should end. The time will be represented in UTC. 
+     * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     readonly endTime?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface TriggerScheduleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     readonly startTime?: pulumi.Input<string>;
 }
@@ -219,7 +219,7 @@ export interface TriggerScheduleArgs {
      */
     readonly dataFactoryName: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger should end. The time will be represented in UTC. 
+     * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
     readonly endTime?: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface TriggerScheduleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. 
+     * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
     readonly startTime?: pulumi.Input<string>;
 }
