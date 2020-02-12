@@ -6,23 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Data Lake Store.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "northeurope",
- * });
- * const exampleStore = new azure.datalake.Store("example", {
- *     encryptionState: "Enabled",
- *     encryptionType: "ServiceManaged",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store.html.markdown.
  */

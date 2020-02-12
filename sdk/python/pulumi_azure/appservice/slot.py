@@ -150,7 +150,7 @@ class Slot(pulumi.CustomResource):
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
       * `windowsFxVersion` (`str`)
     """
-    site_credential: pulumi.Output[dict]
+    site_credentials: pulumi.Output[list]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
     
@@ -338,7 +338,7 @@ class Slot(pulumi.CustomResource):
             __props__['site_config'] = site_config
             __props__['tags'] = tags
             __props__['default_site_hostname'] = None
-            __props__['site_credential'] = None
+            __props__['site_credentials'] = None
         super(Slot, __self__).__init__(
             'azure:appservice/slot:Slot',
             resource_name,
@@ -346,7 +346,7 @@ class Slot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, site_credential=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, site_credentials=None, tags=None):
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -368,7 +368,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Connection String.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **auth_settings** object supports the following:
@@ -484,7 +484,7 @@ class Slot(pulumi.CustomResource):
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)
         
-        The **site_credential** object supports the following:
+        The **site_credentials** object supports the following:
         
           * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
           * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
@@ -509,7 +509,7 @@ class Slot(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
-        __props__["site_credential"] = site_credential
+        __props__["site_credentials"] = site_credentials
         __props__["tags"] = tags
         return Slot(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

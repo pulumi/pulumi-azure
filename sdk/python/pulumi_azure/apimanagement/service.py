@@ -106,6 +106,12 @@ class Service(pulumi.CustomResource):
     """
     The URL for the Publisher Portal associated with this API Management service.
     """
+    protocols: pulumi.Output[dict]
+    """
+    A `protocols` block as defined below.
+    
+      * `enableHttp2` (`bool`)
+    """
     public_ip_addresses: pulumi.Output[list]
     """
     Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -178,7 +184,7 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags assigned to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, protocols=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Service.
         
@@ -192,6 +198,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[dict] policy: A `policy` block as defined below.
+        :param pulumi.Input[dict] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -260,6 +267,10 @@ class Service(pulumi.CustomResource):
           * `xml_content` (`pulumi.Input[str]`)
           * `xml_link` (`pulumi.Input[str]`)
         
+        The **protocols** object supports the following:
+        
+          * `enableHttp2` (`pulumi.Input[bool]`)
+        
         The **security** object supports the following:
         
           * `disableBackendSsl30` (`pulumi.Input[bool]`)
@@ -323,6 +334,7 @@ class Service(pulumi.CustomResource):
             __props__['name'] = name
             __props__['notification_sender_email'] = notification_sender_email
             __props__['policy'] = policy
+            __props__['protocols'] = protocols
             if publisher_email is None:
                 raise TypeError("Missing required property 'publisher_email'")
             __props__['publisher_email'] = publisher_email
@@ -351,7 +363,7 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku=None, sku_name=None, tags=None):
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -371,6 +383,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[dict] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
+        :param pulumi.Input[dict] protocols: A `protocols` block as defined below.
         :param pulumi.Input[list] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
@@ -441,6 +454,10 @@ class Service(pulumi.CustomResource):
           * `xml_content` (`pulumi.Input[str]`)
           * `xml_link` (`pulumi.Input[str]`)
         
+        The **protocols** object supports the following:
+        
+          * `enableHttp2` (`pulumi.Input[bool]`)
+        
         The **security** object supports the following:
         
           * `disableBackendSsl30` (`pulumi.Input[bool]`)
@@ -494,6 +511,7 @@ class Service(pulumi.CustomResource):
         __props__["notification_sender_email"] = notification_sender_email
         __props__["policy"] = policy
         __props__["portal_url"] = portal_url
+        __props__["protocols"] = protocols
         __props__["public_ip_addresses"] = public_ip_addresses
         __props__["publisher_email"] = publisher_email
         __props__["publisher_name"] = publisher_name

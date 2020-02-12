@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Schedule.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- * });
- * const exampleSchedule = new azure.automation.Schedule("example", {
- *     automationAccountName: exampleAccount.name,
- *     description: "This is an example schedule",
- *     frequency: "Week",
- *     interval: 1,
- *     resourceGroupName: exampleResourceGroup.name,
- *     startTime: "2014-04-15T18:00:15+02:00",
- *     timezone: "Central Europe Standard Time",
- *     weekDays: ["Friday"],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
  */

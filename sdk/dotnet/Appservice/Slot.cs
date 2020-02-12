@@ -107,8 +107,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        [Output("siteCredential")]
-        public Output<Outputs.SlotSiteCredential> SiteCredential { get; private set; } = null!;
+        [Output("siteCredentials")]
+        public Output<ImmutableArray<Outputs.SlotSiteCredentials>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -373,11 +373,17 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig")]
         public Input<Inputs.SlotSiteConfigGetArgs>? SiteConfig { get; set; }
 
+        [Input("siteCredentials")]
+        private InputList<Inputs.SlotSiteCredentialsGetArgs>? _siteCredentials;
+
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        [Input("siteCredential")]
-        public Input<Inputs.SlotSiteCredentialGetArgs>? SiteCredential { get; set; }
+        public InputList<Inputs.SlotSiteCredentialsGetArgs> SiteCredentials
+        {
+            get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.SlotSiteCredentialsGetArgs>());
+            set => _siteCredentials = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -1365,7 +1371,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class SlotSiteCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotSiteCredentialsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -1379,7 +1385,7 @@ namespace Pulumi.Azure.AppService
         [Input("username")]
         public Input<string>? Username { get; set; }
 
-        public SlotSiteCredentialGetArgs()
+        public SlotSiteCredentialsGetArgs()
         {
         }
     }
@@ -1870,7 +1876,7 @@ namespace Pulumi.Azure.AppService
     }
 
     [OutputType]
-    public sealed class SlotSiteCredential
+    public sealed class SlotSiteCredentials
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -1882,7 +1888,7 @@ namespace Pulumi.Azure.AppService
         public readonly string Username;
 
         [OutputConstructor]
-        private SlotSiteCredential(
+        private SlotSiteCredentials(
             string password,
             string username)
         {

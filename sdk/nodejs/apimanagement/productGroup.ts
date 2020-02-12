@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Product Assignment to a Group.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleService = azure.apimanagement.getService({
- *     name: "example-api",
- *     resourceGroupName: "example-resources",
- * });
- * const exampleProduct = azure.apimanagement.getProduct({
- *     apiManagementName: exampleService.name,
- *     productId: "my-product",
- *     resourceGroupName: exampleService.resourceGroupName,
- * });
- * const exampleGroup = azure.apimanagement.getGroup({
- *     apiManagementName: exampleService.name,
- *     name: "my-group",
- *     resourceGroupName: exampleService.resourceGroupName,
- * });
- * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
- *     apiManagementName: exampleService.name,
- *     groupName: exampleGroup.name,
- *     productId: exampleProduct.productId,
- *     resourceGroupName: exampleService.resourceGroupName,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_group.html.markdown.
  */

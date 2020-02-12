@@ -8,54 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Watcher Flow Log.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "eastus",
- * });
- * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     enableHttpsTrafficOnly: true,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("test", {
- *     enabled: true,
- *     networkSecurityGroupId: testNetworkSecurityGroup.id,
- *     networkWatcherName: testNetworkWatcher.name,
- *     resourceGroupName: testResourceGroup.name,
- *     retentionPolicy: {
- *         days: 7,
- *         enabled: true,
- *     },
- *     storageAccountId: testAccount.id,
- *     trafficAnalytics: {
- *         enabled: true,
- *         workspaceId: testAnalyticsWorkspace.workspaceId,
- *         workspaceRegion: testAnalyticsWorkspace.location,
- *         workspaceResourceId: testAnalyticsWorkspace.id,
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher_flow_log.html.markdown.
  */

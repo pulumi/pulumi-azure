@@ -239,7 +239,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// A `cors` block as defined above.
         /// </summary>
-        public readonly GetAppServiceSiteConfigsCorsResult Cors;
+        public readonly ImmutableArray<GetAppServiceSiteConfigsCorsResult> Cors;
         /// <summary>
         /// The ordering of default documents to load, if an address isn't specified.
         /// </summary>
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.AppService
         private GetAppServiceSiteConfigsResult(
             bool alwaysOn,
             string appCommandLine,
-            GetAppServiceSiteConfigsCorsResult cors,
+            ImmutableArray<GetAppServiceSiteConfigsCorsResult> cors,
             ImmutableArray<string> defaultDocuments,
             string dotnetFrameworkVersion,
             string ftpsState,

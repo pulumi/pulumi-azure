@@ -8,59 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "East US",
- * });
- * const cluster = new azure.kusto.Cluster("cluster", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     sku: {
- *         capacity: 2,
- *         name: "Standard_D13_v2",
- *     },
- * });
- * const database = new azure.kusto.Database("database", {
- *     clusterName: cluster.name,
- *     hotCachePeriod: "P7D",
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     softDeletePeriod: "P31D",
- * });
- * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhubNs", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     sku: "Standard",
- * });
- * const eventhub = new azure.eventhub.EventHub("eventhub", {
- *     messageRetention: 1,
- *     namespaceName: eventhubNs.name,
- *     partitionCount: 1,
- *     resourceGroupName: rg.name,
- * });
- * const consumerGroup = new azure.eventhub.ConsumerGroup("consumerGroup", {
- *     eventhubName: eventhub.name,
- *     namespaceName: eventhubNs.name,
- *     resourceGroupName: rg.name,
- * });
- * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhubConnection", {
- *     clusterName: cluster.name,
- *     consumerGroup: consumerGroup.name,
- *     dataFormat: "JSON", //(Optional)
- *     databaseName: database.name,
- *     eventhubId: azurerm_eventhub_evenhub.id,
- *     location: rg.location,
- *     mappingRuleName: "my-table-mapping", //(Optional)
- *     resourceGroupName: rg.name,
- *     tableName: "my-table", //(Optional)
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kusto_eventhub_data_connection.html.markdown.
  */

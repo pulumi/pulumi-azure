@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Volume.
- * 
- * ## NetApp Volume Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.netapp.getVolume({
- *     accountName: "acctestnetappaccount",
- *     name: "example-volume",
- *     poolName: "acctestnetapppool",
- *     resourceGroupName: "acctestRG",
- * });
- * 
- * export const netappVolumeId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_volume.html.markdown.
  */

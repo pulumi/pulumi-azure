@@ -52,7 +52,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
+        /// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
+        /// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
+        /// The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

@@ -6,29 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure Private DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- * });
- * const testZone = new azure.privatedns.Zone("test", {
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testAAAARecord = new azure.privatedns.AAAARecord("test", {
- *     records: [
- *         "fd5d:70bc:930e:d008:0000:0000:0000:7334",
- *         "fd5d:70bc:930e:d008::7335",
- *     ],
- *     resourceGroupName: testResourceGroup.name,
- *     ttl: 300,
- *     zoneName: testZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_aaaa_record.html.markdown.
  */

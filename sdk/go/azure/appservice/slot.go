@@ -49,7 +49,7 @@ type Slot struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential SlotSiteCredentialOutput `pulumi:"siteCredential"`
+	SiteCredentials SlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -121,7 +121,7 @@ type slotState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig *SlotSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential *SlotSiteCredential `pulumi:"siteCredential"`
+	SiteCredentials []SlotSiteCredential `pulumi:"siteCredentials"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -157,7 +157,7 @@ type SlotState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig SlotSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential SlotSiteCredentialPtrInput
+	SiteCredentials SlotSiteCredentialArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

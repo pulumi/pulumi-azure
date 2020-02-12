@@ -10,47 +10,6 @@ import * as utilities from "../utilities";
  * Manages a MariaDB Virtual Network Rule.
  * 
  * > **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mariadb/concepts-data-access-security-vnet)
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.7.29.0/29"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const internal = new azure.network.Subnet("internal", {
- *     addressPrefix: "10.7.29.0/29",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceEndpoints: ["Microsoft.Sql"],
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleServer = new azure.mariadb.Server("example", {
- *     administratorLogin: "mariadbadminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "GP_Gen5_2",
- *     sslEnforcement: "Enabled",
- *     storageProfile: {
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *         storageMb: 5120,
- *     },
- *     version: "5.7",
- * });
- * const exampleVirtualNetworkRule = new azure.mariadb.VirtualNetworkRule("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     subnetId: internal.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_virtual_network_rule.html.markdown.
  */

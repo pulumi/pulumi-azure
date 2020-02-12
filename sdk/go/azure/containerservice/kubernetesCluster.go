@@ -35,14 +35,14 @@ type KubernetesCluster struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig KubernetesClusterKubeAdminConfigOutput `pulumi:"kubeAdminConfig"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeConfig` block as defined below.
-	KubeConfig KubernetesClusterKubeConfigOutput `pulumi:"kubeConfig"`
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayOutput `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
+	// A `kubeConfig` block as defined below.
+	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -123,14 +123,14 @@ type kubernetesClusterState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig *KubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfig"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
-	// A `kubeConfig` block as defined below.
-	KubeConfig *KubernetesClusterKubeConfig `pulumi:"kubeConfig"`
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs []KubernetesClusterKubeAdminConfig `pulumi:"kubeAdminConfigs"`
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
+	// A `kubeConfig` block as defined below.
+	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -175,14 +175,14 @@ type KubernetesClusterState struct {
 	Fqdn pulumi.StringPtrInput
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrInput
-	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-	KubeAdminConfig KubernetesClusterKubeAdminConfigPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
-	// A `kubeConfig` block as defined below.
-	KubeConfig KubernetesClusterKubeConfigPtrInput
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs KubernetesClusterKubeAdminConfigArrayInput
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw pulumi.StringPtrInput
+	// A `kubeConfig` block as defined below.
+	KubeConfigs KubernetesClusterKubeConfigArrayInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.

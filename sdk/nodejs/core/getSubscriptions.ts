@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about all the Subscriptions currently available.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const available = azure.core.getSubscriptions();
- * 
- * export const availableSubscriptions = available.subscriptions;
- * export const firstAvailableSubscriptionDisplayName = available.subscriptions[0].displayName;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
  */

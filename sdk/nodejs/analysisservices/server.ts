@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Analysis Services Server.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "northeurope",
- * });
- * const server = new azure.analysisservices.Server("server", {
- *     adminUsers: ["myuser@domain.tld"],
- *     enablePowerBiService: true,
- *     ipv4FirewallRules: [{
- *         name: "myRule1",
- *         rangeEnd: "210.117.252.255",
- *         rangeStart: "210.117.252.0",
- *     }],
- *     location: "northeurope",
- *     resourceGroupName: rg.name,
- *     sku: "S0",
- *     tags: {
- *         abc: 123,
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/analysis_services_server.html.markdown.
  */

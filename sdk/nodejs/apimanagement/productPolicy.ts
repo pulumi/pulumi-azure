@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Product Policy
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleProduct = azure.apimanagement.getProduct({
- *     apiManagementName: "example-apim",
- *     productId: "my-product",
- *     resourceGroupName: "search-service",
- * });
- * const exampleProductPolicy = new azure.apimanagement.ProductPolicy("example", {
- *     apiManagementName: exampleProduct.apiManagementName,
- *     productId: exampleProduct.productId,
- *     resourceGroupName: exampleProduct.resourceGroupName,
- *     xmlContent: `<policies>
- *   <inbound>
- *     <find-and-replace from="xyz" to="abc" />
- *   </inbound>
- * </policies>
- * `,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_policy.html.markdown.
  */

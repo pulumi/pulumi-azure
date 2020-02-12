@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Azure Data Factory (Version 2).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = pulumi.all([azurerm_data_factory_example.name, azurerm_data_factory_example.resourceGroupName]).apply(([name, resourceGroupName]) => azure.datafactory.getFactory({
- *     name: name,
- *     resourceGroupName: resourceGroupName,
- * }));
- * 
- * export const dataFactoryId = azurerm_data_factory_example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_factory.html.markdown.
  */

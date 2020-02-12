@@ -2650,36 +2650,25 @@ func (i AppServiceSiteCredentialArgs) ToAppServiceSiteCredentialOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteCredentialOutput)
 }
 
-func (i AppServiceSiteCredentialArgs) ToAppServiceSiteCredentialPtrOutput() AppServiceSiteCredentialPtrOutput {
-	return i.ToAppServiceSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i AppServiceSiteCredentialArgs) ToAppServiceSiteCredentialPtrOutputWithContext(ctx context.Context) AppServiceSiteCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteCredentialOutput).ToAppServiceSiteCredentialPtrOutputWithContext(ctx)
-}
-
-type AppServiceSiteCredentialPtrInput interface {
+type AppServiceSiteCredentialArrayInput interface {
 	pulumi.Input
 
-	ToAppServiceSiteCredentialPtrOutput() AppServiceSiteCredentialPtrOutput
-	ToAppServiceSiteCredentialPtrOutputWithContext(context.Context) AppServiceSiteCredentialPtrOutput
+	ToAppServiceSiteCredentialArrayOutput() AppServiceSiteCredentialArrayOutput
+	ToAppServiceSiteCredentialArrayOutputWithContext(context.Context) AppServiceSiteCredentialArrayOutput
 }
 
-type appServiceSiteCredentialPtrType AppServiceSiteCredentialArgs
+type AppServiceSiteCredentialArray []AppServiceSiteCredentialInput
 
-func AppServiceSiteCredentialPtr(v *AppServiceSiteCredentialArgs) AppServiceSiteCredentialPtrInput {	return (*appServiceSiteCredentialPtrType)(v)
+func (AppServiceSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppServiceSiteCredential)(nil)).Elem()
 }
 
-func (*appServiceSiteCredentialPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceSiteCredential)(nil)).Elem()
+func (i AppServiceSiteCredentialArray) ToAppServiceSiteCredentialArrayOutput() AppServiceSiteCredentialArrayOutput {
+	return i.ToAppServiceSiteCredentialArrayOutputWithContext(context.Background())
 }
 
-func (i *appServiceSiteCredentialPtrType) ToAppServiceSiteCredentialPtrOutput() AppServiceSiteCredentialPtrOutput {
-	return i.ToAppServiceSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *appServiceSiteCredentialPtrType) ToAppServiceSiteCredentialPtrOutputWithContext(ctx context.Context) AppServiceSiteCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteCredentialPtrOutput)
+func (i AppServiceSiteCredentialArray) ToAppServiceSiteCredentialArrayOutputWithContext(ctx context.Context) AppServiceSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteCredentialArrayOutput)
 }
 
 type AppServiceSiteCredentialOutput struct { *pulumi.OutputState }
@@ -2696,15 +2685,6 @@ func (o AppServiceSiteCredentialOutput) ToAppServiceSiteCredentialOutputWithCont
 	return o
 }
 
-func (o AppServiceSiteCredentialOutput) ToAppServiceSiteCredentialPtrOutput() AppServiceSiteCredentialPtrOutput {
-	return o.ToAppServiceSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceSiteCredentialOutput) ToAppServiceSiteCredentialPtrOutputWithContext(ctx context.Context) AppServiceSiteCredentialPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteCredential) *AppServiceSiteCredential {
-		return &v
-	}).(AppServiceSiteCredentialPtrOutput)
-}
 // The password associated with the username, which can be used to publish to this App Service.
 func (o AppServiceSiteCredentialOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AppServiceSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -2715,32 +2695,24 @@ func (o AppServiceSiteCredentialOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AppServiceSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type AppServiceSiteCredentialPtrOutput struct { *pulumi.OutputState}
+type AppServiceSiteCredentialArrayOutput struct { *pulumi.OutputState}
 
-func (AppServiceSiteCredentialPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceSiteCredential)(nil)).Elem()
+func (AppServiceSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppServiceSiteCredential)(nil)).Elem()
 }
 
-func (o AppServiceSiteCredentialPtrOutput) ToAppServiceSiteCredentialPtrOutput() AppServiceSiteCredentialPtrOutput {
+func (o AppServiceSiteCredentialArrayOutput) ToAppServiceSiteCredentialArrayOutput() AppServiceSiteCredentialArrayOutput {
 	return o
 }
 
-func (o AppServiceSiteCredentialPtrOutput) ToAppServiceSiteCredentialPtrOutputWithContext(ctx context.Context) AppServiceSiteCredentialPtrOutput {
+func (o AppServiceSiteCredentialArrayOutput) ToAppServiceSiteCredentialArrayOutputWithContext(ctx context.Context) AppServiceSiteCredentialArrayOutput {
 	return o
 }
 
-func (o AppServiceSiteCredentialPtrOutput) Elem() AppServiceSiteCredentialOutput {
-	return o.ApplyT(func (v *AppServiceSiteCredential) AppServiceSiteCredential { return *v }).(AppServiceSiteCredentialOutput)
-}
-
-// The password associated with the username, which can be used to publish to this App Service.
-func (o AppServiceSiteCredentialPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AppServiceSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The username which can be used to publish to this App Service
-func (o AppServiceSiteCredentialPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AppServiceSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o AppServiceSiteCredentialArrayOutput) Index(i pulumi.IntInput) AppServiceSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AppServiceSiteCredential {
+		return vs[0].([]AppServiceSiteCredential)[vs[1].(int)]
+	}).(AppServiceSiteCredentialOutput)
 }
 
 type AppServiceSourceControl struct {
@@ -2776,36 +2748,25 @@ func (i AppServiceSourceControlArgs) ToAppServiceSourceControlOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlOutput)
 }
 
-func (i AppServiceSourceControlArgs) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
-	return i.ToAppServiceSourceControlPtrOutputWithContext(context.Background())
-}
-
-func (i AppServiceSourceControlArgs) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlOutput).ToAppServiceSourceControlPtrOutputWithContext(ctx)
-}
-
-type AppServiceSourceControlPtrInput interface {
+type AppServiceSourceControlArrayInput interface {
 	pulumi.Input
 
-	ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput
-	ToAppServiceSourceControlPtrOutputWithContext(context.Context) AppServiceSourceControlPtrOutput
+	ToAppServiceSourceControlArrayOutput() AppServiceSourceControlArrayOutput
+	ToAppServiceSourceControlArrayOutputWithContext(context.Context) AppServiceSourceControlArrayOutput
 }
 
-type appServiceSourceControlPtrType AppServiceSourceControlArgs
+type AppServiceSourceControlArray []AppServiceSourceControlInput
 
-func AppServiceSourceControlPtr(v *AppServiceSourceControlArgs) AppServiceSourceControlPtrInput {	return (*appServiceSourceControlPtrType)(v)
+func (AppServiceSourceControlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppServiceSourceControl)(nil)).Elem()
 }
 
-func (*appServiceSourceControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceSourceControl)(nil)).Elem()
+func (i AppServiceSourceControlArray) ToAppServiceSourceControlArrayOutput() AppServiceSourceControlArrayOutput {
+	return i.ToAppServiceSourceControlArrayOutputWithContext(context.Background())
 }
 
-func (i *appServiceSourceControlPtrType) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
-	return i.ToAppServiceSourceControlPtrOutputWithContext(context.Background())
-}
-
-func (i *appServiceSourceControlPtrType) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlPtrOutput)
+func (i AppServiceSourceControlArray) ToAppServiceSourceControlArrayOutputWithContext(ctx context.Context) AppServiceSourceControlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlArrayOutput)
 }
 
 type AppServiceSourceControlOutput struct { *pulumi.OutputState }
@@ -2822,15 +2783,6 @@ func (o AppServiceSourceControlOutput) ToAppServiceSourceControlOutputWithContex
 	return o
 }
 
-func (o AppServiceSourceControlOutput) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
-	return o.ToAppServiceSourceControlPtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceSourceControlOutput) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
-	return o.ApplyT(func(v AppServiceSourceControl) *AppServiceSourceControl {
-		return &v
-	}).(AppServiceSourceControlPtrOutput)
-}
 // Branch name of the Git repository for this App Service.
 func (o AppServiceSourceControlOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AppServiceSourceControl) *string { return v.Branch }).(pulumi.StringPtrOutput)
@@ -2841,32 +2793,24 @@ func (o AppServiceSourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v AppServiceSourceControl) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
 }
 
-type AppServiceSourceControlPtrOutput struct { *pulumi.OutputState}
+type AppServiceSourceControlArrayOutput struct { *pulumi.OutputState}
 
-func (AppServiceSourceControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceSourceControl)(nil)).Elem()
+func (AppServiceSourceControlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppServiceSourceControl)(nil)).Elem()
 }
 
-func (o AppServiceSourceControlPtrOutput) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
+func (o AppServiceSourceControlArrayOutput) ToAppServiceSourceControlArrayOutput() AppServiceSourceControlArrayOutput {
 	return o
 }
 
-func (o AppServiceSourceControlPtrOutput) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
+func (o AppServiceSourceControlArrayOutput) ToAppServiceSourceControlArrayOutputWithContext(ctx context.Context) AppServiceSourceControlArrayOutput {
 	return o
 }
 
-func (o AppServiceSourceControlPtrOutput) Elem() AppServiceSourceControlOutput {
-	return o.ApplyT(func (v *AppServiceSourceControl) AppServiceSourceControl { return *v }).(AppServiceSourceControlOutput)
-}
-
-// Branch name of the Git repository for this App Service.
-func (o AppServiceSourceControlPtrOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AppServiceSourceControl) *string { return v.Branch }).(pulumi.StringPtrOutput)
-}
-
-// URL of the Git repository for this App Service.
-func (o AppServiceSourceControlPtrOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AppServiceSourceControl) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
+func (o AppServiceSourceControlArrayOutput) Index(i pulumi.IntInput) AppServiceSourceControlOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AppServiceSourceControl {
+		return vs[0].([]AppServiceSourceControl)[vs[1].(int)]
+	}).(AppServiceSourceControlOutput)
 }
 
 type AppServiceStorageAccount struct {
@@ -4084,6 +4028,7 @@ func (o FunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) Functio
 }
 
 type FunctionAppIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -4100,6 +4045,7 @@ type FunctionAppIdentityInput interface {
 }
 
 type FunctionAppIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -4175,6 +4121,10 @@ func (o FunctionAppIdentityOutput) ToFunctionAppIdentityPtrOutputWithContext(ctx
 		return &v
 	}).(FunctionAppIdentityPtrOutput)
 }
+func (o FunctionAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v FunctionAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 func (o FunctionAppIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FunctionAppIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -4208,6 +4158,10 @@ func (o FunctionAppIdentityPtrOutput) Elem() FunctionAppIdentityOutput {
 	return o.ApplyT(func (v *FunctionAppIdentity) FunctionAppIdentity { return *v }).(FunctionAppIdentityOutput)
 }
 
+func (o FunctionAppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v FunctionAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 func (o FunctionAppIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FunctionAppIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -4232,6 +4186,8 @@ type FunctionAppSiteConfig struct {
 	FtpsState *string `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions []FunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -4260,6 +4216,8 @@ type FunctionAppSiteConfigArgs struct {
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	IpRestrictions FunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -4359,6 +4317,11 @@ func (o FunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o FunctionAppSiteConfigOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func (v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
 // Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 func (o FunctionAppSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
@@ -4420,6 +4383,11 @@ func (o FunctionAppSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 // Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 func (o FunctionAppSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o FunctionAppSiteConfigPtrOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func (v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
 
 // Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -4565,6 +4533,98 @@ func (o FunctionAppSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrO
 	return o.ApplyT(func (v FunctionAppSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
 
+type FunctionAppSiteConfigIpRestriction struct {
+	IpAddress *string `pulumi:"ipAddress"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+type FunctionAppSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigIpRestrictionOutput() FunctionAppSiteConfigIpRestrictionOutput
+	ToFunctionAppSiteConfigIpRestrictionOutputWithContext(context.Context) FunctionAppSiteConfigIpRestrictionOutput
+}
+
+type FunctionAppSiteConfigIpRestrictionArgs struct {
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (FunctionAppSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSiteConfigIpRestrictionArgs) ToFunctionAppSiteConfigIpRestrictionOutput() FunctionAppSiteConfigIpRestrictionOutput {
+	return i.ToFunctionAppSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigIpRestrictionArgs) ToFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigIpRestrictionOutput)
+}
+
+type FunctionAppSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigIpRestrictionArrayOutput() FunctionAppSiteConfigIpRestrictionArrayOutput
+	ToFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(context.Context) FunctionAppSiteConfigIpRestrictionArrayOutput
+}
+
+type FunctionAppSiteConfigIpRestrictionArray []FunctionAppSiteConfigIpRestrictionInput
+
+func (FunctionAppSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSiteConfigIpRestrictionArray) ToFunctionAppSiteConfigIpRestrictionArrayOutput() FunctionAppSiteConfigIpRestrictionArrayOutput {
+	return i.ToFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigIpRestrictionArray) ToFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+type FunctionAppSiteConfigIpRestrictionOutput struct { *pulumi.OutputState }
+
+func (FunctionAppSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigIpRestrictionOutput) ToFunctionAppSiteConfigIpRestrictionOutput() FunctionAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionOutput) ToFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FunctionAppSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v FunctionAppSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSiteConfigIpRestrictionArrayOutput struct { *pulumi.OutputState}
+
+func (FunctionAppSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigIpRestrictionArrayOutput) ToFunctionAppSiteConfigIpRestrictionArrayOutput() FunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionArrayOutput) ToFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) FunctionAppSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FunctionAppSiteConfigIpRestriction {
+		return vs[0].([]FunctionAppSiteConfigIpRestriction)[vs[1].(int)]
+	}).(FunctionAppSiteConfigIpRestrictionOutput)
+}
+
 type FunctionAppSiteCredential struct {
 	// The password associated with the username, which can be used to publish to this App Service.
 	Password *string `pulumi:"password"`
@@ -4598,36 +4658,25 @@ func (i FunctionAppSiteCredentialArgs) ToFunctionAppSiteCredentialOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteCredentialOutput)
 }
 
-func (i FunctionAppSiteCredentialArgs) ToFunctionAppSiteCredentialPtrOutput() FunctionAppSiteCredentialPtrOutput {
-	return i.ToFunctionAppSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i FunctionAppSiteCredentialArgs) ToFunctionAppSiteCredentialPtrOutputWithContext(ctx context.Context) FunctionAppSiteCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteCredentialOutput).ToFunctionAppSiteCredentialPtrOutputWithContext(ctx)
-}
-
-type FunctionAppSiteCredentialPtrInput interface {
+type FunctionAppSiteCredentialArrayInput interface {
 	pulumi.Input
 
-	ToFunctionAppSiteCredentialPtrOutput() FunctionAppSiteCredentialPtrOutput
-	ToFunctionAppSiteCredentialPtrOutputWithContext(context.Context) FunctionAppSiteCredentialPtrOutput
+	ToFunctionAppSiteCredentialArrayOutput() FunctionAppSiteCredentialArrayOutput
+	ToFunctionAppSiteCredentialArrayOutputWithContext(context.Context) FunctionAppSiteCredentialArrayOutput
 }
 
-type functionAppSiteCredentialPtrType FunctionAppSiteCredentialArgs
+type FunctionAppSiteCredentialArray []FunctionAppSiteCredentialInput
 
-func FunctionAppSiteCredentialPtr(v *FunctionAppSiteCredentialArgs) FunctionAppSiteCredentialPtrInput {	return (*functionAppSiteCredentialPtrType)(v)
+func (FunctionAppSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSiteCredential)(nil)).Elem()
 }
 
-func (*functionAppSiteCredentialPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionAppSiteCredential)(nil)).Elem()
+func (i FunctionAppSiteCredentialArray) ToFunctionAppSiteCredentialArrayOutput() FunctionAppSiteCredentialArrayOutput {
+	return i.ToFunctionAppSiteCredentialArrayOutputWithContext(context.Background())
 }
 
-func (i *functionAppSiteCredentialPtrType) ToFunctionAppSiteCredentialPtrOutput() FunctionAppSiteCredentialPtrOutput {
-	return i.ToFunctionAppSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *functionAppSiteCredentialPtrType) ToFunctionAppSiteCredentialPtrOutputWithContext(ctx context.Context) FunctionAppSiteCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteCredentialPtrOutput)
+func (i FunctionAppSiteCredentialArray) ToFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) FunctionAppSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteCredentialArrayOutput)
 }
 
 type FunctionAppSiteCredentialOutput struct { *pulumi.OutputState }
@@ -4644,15 +4693,6 @@ func (o FunctionAppSiteCredentialOutput) ToFunctionAppSiteCredentialOutputWithCo
 	return o
 }
 
-func (o FunctionAppSiteCredentialOutput) ToFunctionAppSiteCredentialPtrOutput() FunctionAppSiteCredentialPtrOutput {
-	return o.ToFunctionAppSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (o FunctionAppSiteCredentialOutput) ToFunctionAppSiteCredentialPtrOutputWithContext(ctx context.Context) FunctionAppSiteCredentialPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteCredential) *FunctionAppSiteCredential {
-		return &v
-	}).(FunctionAppSiteCredentialPtrOutput)
-}
 // The password associated with the username, which can be used to publish to this App Service.
 func (o FunctionAppSiteCredentialOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -4663,32 +4703,24 @@ func (o FunctionAppSiteCredentialOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v FunctionAppSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type FunctionAppSiteCredentialPtrOutput struct { *pulumi.OutputState}
+type FunctionAppSiteCredentialArrayOutput struct { *pulumi.OutputState}
 
-func (FunctionAppSiteCredentialPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionAppSiteCredential)(nil)).Elem()
+func (FunctionAppSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSiteCredential)(nil)).Elem()
 }
 
-func (o FunctionAppSiteCredentialPtrOutput) ToFunctionAppSiteCredentialPtrOutput() FunctionAppSiteCredentialPtrOutput {
+func (o FunctionAppSiteCredentialArrayOutput) ToFunctionAppSiteCredentialArrayOutput() FunctionAppSiteCredentialArrayOutput {
 	return o
 }
 
-func (o FunctionAppSiteCredentialPtrOutput) ToFunctionAppSiteCredentialPtrOutputWithContext(ctx context.Context) FunctionAppSiteCredentialPtrOutput {
+func (o FunctionAppSiteCredentialArrayOutput) ToFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) FunctionAppSiteCredentialArrayOutput {
 	return o
 }
 
-func (o FunctionAppSiteCredentialPtrOutput) Elem() FunctionAppSiteCredentialOutput {
-	return o.ApplyT(func (v *FunctionAppSiteCredential) FunctionAppSiteCredential { return *v }).(FunctionAppSiteCredentialOutput)
-}
-
-// The password associated with the username, which can be used to publish to this App Service.
-func (o FunctionAppSiteCredentialPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FunctionAppSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The username which can be used to publish to this App Service
-func (o FunctionAppSiteCredentialPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v FunctionAppSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o FunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) FunctionAppSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) FunctionAppSiteCredential {
+		return vs[0].([]FunctionAppSiteCredential)[vs[1].(int)]
+	}).(FunctionAppSiteCredentialOutput)
 }
 
 type PlanProperties struct {
@@ -7485,36 +7517,25 @@ func (i SlotSiteCredentialArgs) ToSlotSiteCredentialOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteCredentialOutput)
 }
 
-func (i SlotSiteCredentialArgs) ToSlotSiteCredentialPtrOutput() SlotSiteCredentialPtrOutput {
-	return i.ToSlotSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i SlotSiteCredentialArgs) ToSlotSiteCredentialPtrOutputWithContext(ctx context.Context) SlotSiteCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteCredentialOutput).ToSlotSiteCredentialPtrOutputWithContext(ctx)
-}
-
-type SlotSiteCredentialPtrInput interface {
+type SlotSiteCredentialArrayInput interface {
 	pulumi.Input
 
-	ToSlotSiteCredentialPtrOutput() SlotSiteCredentialPtrOutput
-	ToSlotSiteCredentialPtrOutputWithContext(context.Context) SlotSiteCredentialPtrOutput
+	ToSlotSiteCredentialArrayOutput() SlotSiteCredentialArrayOutput
+	ToSlotSiteCredentialArrayOutputWithContext(context.Context) SlotSiteCredentialArrayOutput
 }
 
-type slotSiteCredentialPtrType SlotSiteCredentialArgs
+type SlotSiteCredentialArray []SlotSiteCredentialInput
 
-func SlotSiteCredentialPtr(v *SlotSiteCredentialArgs) SlotSiteCredentialPtrInput {	return (*slotSiteCredentialPtrType)(v)
+func (SlotSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotSiteCredential)(nil)).Elem()
 }
 
-func (*slotSiteCredentialPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SlotSiteCredential)(nil)).Elem()
+func (i SlotSiteCredentialArray) ToSlotSiteCredentialArrayOutput() SlotSiteCredentialArrayOutput {
+	return i.ToSlotSiteCredentialArrayOutputWithContext(context.Background())
 }
 
-func (i *slotSiteCredentialPtrType) ToSlotSiteCredentialPtrOutput() SlotSiteCredentialPtrOutput {
-	return i.ToSlotSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (i *slotSiteCredentialPtrType) ToSlotSiteCredentialPtrOutputWithContext(ctx context.Context) SlotSiteCredentialPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteCredentialPtrOutput)
+func (i SlotSiteCredentialArray) ToSlotSiteCredentialArrayOutputWithContext(ctx context.Context) SlotSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteCredentialArrayOutput)
 }
 
 type SlotSiteCredentialOutput struct { *pulumi.OutputState }
@@ -7531,15 +7552,6 @@ func (o SlotSiteCredentialOutput) ToSlotSiteCredentialOutputWithContext(ctx cont
 	return o
 }
 
-func (o SlotSiteCredentialOutput) ToSlotSiteCredentialPtrOutput() SlotSiteCredentialPtrOutput {
-	return o.ToSlotSiteCredentialPtrOutputWithContext(context.Background())
-}
-
-func (o SlotSiteCredentialOutput) ToSlotSiteCredentialPtrOutputWithContext(ctx context.Context) SlotSiteCredentialPtrOutput {
-	return o.ApplyT(func(v SlotSiteCredential) *SlotSiteCredential {
-		return &v
-	}).(SlotSiteCredentialPtrOutput)
-}
 // The password associated with the username, which can be used to publish to this App Service.
 func (o SlotSiteCredentialOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v SlotSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -7550,32 +7562,24 @@ func (o SlotSiteCredentialOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v SlotSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type SlotSiteCredentialPtrOutput struct { *pulumi.OutputState}
+type SlotSiteCredentialArrayOutput struct { *pulumi.OutputState}
 
-func (SlotSiteCredentialPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SlotSiteCredential)(nil)).Elem()
+func (SlotSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlotSiteCredential)(nil)).Elem()
 }
 
-func (o SlotSiteCredentialPtrOutput) ToSlotSiteCredentialPtrOutput() SlotSiteCredentialPtrOutput {
+func (o SlotSiteCredentialArrayOutput) ToSlotSiteCredentialArrayOutput() SlotSiteCredentialArrayOutput {
 	return o
 }
 
-func (o SlotSiteCredentialPtrOutput) ToSlotSiteCredentialPtrOutputWithContext(ctx context.Context) SlotSiteCredentialPtrOutput {
+func (o SlotSiteCredentialArrayOutput) ToSlotSiteCredentialArrayOutputWithContext(ctx context.Context) SlotSiteCredentialArrayOutput {
 	return o
 }
 
-func (o SlotSiteCredentialPtrOutput) Elem() SlotSiteCredentialOutput {
-	return o.ApplyT(func (v *SlotSiteCredential) SlotSiteCredential { return *v }).(SlotSiteCredentialOutput)
-}
-
-// The password associated with the username, which can be used to publish to this App Service.
-func (o SlotSiteCredentialPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SlotSiteCredential) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The username which can be used to publish to this App Service
-func (o SlotSiteCredentialPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SlotSiteCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o SlotSiteCredentialArrayOutput) Index(i pulumi.IntInput) SlotSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SlotSiteCredential {
+		return vs[0].([]SlotSiteCredential)[vs[1].(int)]
+	}).(SlotSiteCredentialOutput)
 }
 
 type GetAppServiceConnectionString struct {
@@ -7864,7 +7868,7 @@ type GetAppServiceSiteConfig struct {
 	// App command line to launch.
 	AppCommandLine string `pulumi:"appCommandLine"`
 	// A `cors` block as defined above.
-	Cors GetAppServiceSiteConfigCors `pulumi:"cors"`
+	Cors []GetAppServiceSiteConfigCor `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments []string `pulumi:"defaultDocuments"`
 	// The version of the .net framework's CLR used in this App Service.
@@ -7922,7 +7926,7 @@ type GetAppServiceSiteConfigArgs struct {
 	// App command line to launch.
 	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
 	// A `cors` block as defined above.
-	Cors GetAppServiceSiteConfigCorsInput `pulumi:"cors"`
+	Cors GetAppServiceSiteConfigCorArrayInput `pulumi:"cors"`
 	// The ordering of default documents to load, if an address isn't specified.
 	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
 	// The version of the .net framework's CLR used in this App Service.
@@ -8025,8 +8029,8 @@ func (o GetAppServiceSiteConfigOutput) AppCommandLine() pulumi.StringOutput {
 }
 
 // A `cors` block as defined above.
-func (o GetAppServiceSiteConfigOutput) Cors() GetAppServiceSiteConfigCorsOutput {
-	return o.ApplyT(func (v GetAppServiceSiteConfig) GetAppServiceSiteConfigCors { return v.Cors }).(GetAppServiceSiteConfigCorsOutput)
+func (o GetAppServiceSiteConfigOutput) Cors() GetAppServiceSiteConfigCorArrayOutput {
+	return o.ApplyT(func (v GetAppServiceSiteConfig) []GetAppServiceSiteConfigCor { return v.Cors }).(GetAppServiceSiteConfigCorArrayOutput)
 }
 
 // The ordering of default documents to load, if an address isn't specified.
@@ -8154,61 +8158,102 @@ func (o GetAppServiceSiteConfigArrayOutput) Index(i pulumi.IntInput) GetAppServi
 	}).(GetAppServiceSiteConfigOutput)
 }
 
-type GetAppServiceSiteConfigCors struct {
+type GetAppServiceSiteConfigCor struct {
 	// A list of origins which are able to make cross-origin calls.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 	// Are credentials supported?
 	SupportCredentials bool `pulumi:"supportCredentials"`
 }
 
-type GetAppServiceSiteConfigCorsInput interface {
+type GetAppServiceSiteConfigCorInput interface {
 	pulumi.Input
 
-	ToGetAppServiceSiteConfigCorsOutput() GetAppServiceSiteConfigCorsOutput
-	ToGetAppServiceSiteConfigCorsOutputWithContext(context.Context) GetAppServiceSiteConfigCorsOutput
+	ToGetAppServiceSiteConfigCorOutput() GetAppServiceSiteConfigCorOutput
+	ToGetAppServiceSiteConfigCorOutputWithContext(context.Context) GetAppServiceSiteConfigCorOutput
 }
 
-type GetAppServiceSiteConfigCorsArgs struct {
+type GetAppServiceSiteConfigCorArgs struct {
 	// A list of origins which are able to make cross-origin calls.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 	// Are credentials supported?
 	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
 }
 
-func (GetAppServiceSiteConfigCorsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAppServiceSiteConfigCors)(nil)).Elem()
+func (GetAppServiceSiteConfigCorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigCor)(nil)).Elem()
 }
 
-func (i GetAppServiceSiteConfigCorsArgs) ToGetAppServiceSiteConfigCorsOutput() GetAppServiceSiteConfigCorsOutput {
-	return i.ToGetAppServiceSiteConfigCorsOutputWithContext(context.Background())
+func (i GetAppServiceSiteConfigCorArgs) ToGetAppServiceSiteConfigCorOutput() GetAppServiceSiteConfigCorOutput {
+	return i.ToGetAppServiceSiteConfigCorOutputWithContext(context.Background())
 }
 
-func (i GetAppServiceSiteConfigCorsArgs) ToGetAppServiceSiteConfigCorsOutputWithContext(ctx context.Context) GetAppServiceSiteConfigCorsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigCorsOutput)
+func (i GetAppServiceSiteConfigCorArgs) ToGetAppServiceSiteConfigCorOutputWithContext(ctx context.Context) GetAppServiceSiteConfigCorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigCorOutput)
 }
 
-type GetAppServiceSiteConfigCorsOutput struct { *pulumi.OutputState }
+type GetAppServiceSiteConfigCorArrayInput interface {
+	pulumi.Input
 
-func (GetAppServiceSiteConfigCorsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAppServiceSiteConfigCors)(nil)).Elem()
+	ToGetAppServiceSiteConfigCorArrayOutput() GetAppServiceSiteConfigCorArrayOutput
+	ToGetAppServiceSiteConfigCorArrayOutputWithContext(context.Context) GetAppServiceSiteConfigCorArrayOutput
 }
 
-func (o GetAppServiceSiteConfigCorsOutput) ToGetAppServiceSiteConfigCorsOutput() GetAppServiceSiteConfigCorsOutput {
+type GetAppServiceSiteConfigCorArray []GetAppServiceSiteConfigCorInput
+
+func (GetAppServiceSiteConfigCorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServiceSiteConfigCor)(nil)).Elem()
+}
+
+func (i GetAppServiceSiteConfigCorArray) ToGetAppServiceSiteConfigCorArrayOutput() GetAppServiceSiteConfigCorArrayOutput {
+	return i.ToGetAppServiceSiteConfigCorArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppServiceSiteConfigCorArray) ToGetAppServiceSiteConfigCorArrayOutputWithContext(ctx context.Context) GetAppServiceSiteConfigCorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppServiceSiteConfigCorArrayOutput)
+}
+
+type GetAppServiceSiteConfigCorOutput struct { *pulumi.OutputState }
+
+func (GetAppServiceSiteConfigCorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppServiceSiteConfigCor)(nil)).Elem()
+}
+
+func (o GetAppServiceSiteConfigCorOutput) ToGetAppServiceSiteConfigCorOutput() GetAppServiceSiteConfigCorOutput {
 	return o
 }
 
-func (o GetAppServiceSiteConfigCorsOutput) ToGetAppServiceSiteConfigCorsOutputWithContext(ctx context.Context) GetAppServiceSiteConfigCorsOutput {
+func (o GetAppServiceSiteConfigCorOutput) ToGetAppServiceSiteConfigCorOutputWithContext(ctx context.Context) GetAppServiceSiteConfigCorOutput {
 	return o
 }
 
 // A list of origins which are able to make cross-origin calls.
-func (o GetAppServiceSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetAppServiceSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+func (o GetAppServiceSiteConfigCorOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetAppServiceSiteConfigCor) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
 // Are credentials supported?
-func (o GetAppServiceSiteConfigCorsOutput) SupportCredentials() pulumi.BoolOutput {
-	return o.ApplyT(func (v GetAppServiceSiteConfigCors) bool { return v.SupportCredentials }).(pulumi.BoolOutput)
+func (o GetAppServiceSiteConfigCorOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func (v GetAppServiceSiteConfigCor) bool { return v.SupportCredentials }).(pulumi.BoolOutput)
+}
+
+type GetAppServiceSiteConfigCorArrayOutput struct { *pulumi.OutputState}
+
+func (GetAppServiceSiteConfigCorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppServiceSiteConfigCor)(nil)).Elem()
+}
+
+func (o GetAppServiceSiteConfigCorArrayOutput) ToGetAppServiceSiteConfigCorArrayOutput() GetAppServiceSiteConfigCorArrayOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigCorArrayOutput) ToGetAppServiceSiteConfigCorArrayOutputWithContext(ctx context.Context) GetAppServiceSiteConfigCorArrayOutput {
+	return o
+}
+
+func (o GetAppServiceSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetAppServiceSiteConfigCorOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAppServiceSiteConfigCor {
+		return vs[0].([]GetAppServiceSiteConfigCor)[vs[1].(int)]
+	}).(GetAppServiceSiteConfigCorOutput)
 }
 
 type GetAppServiceSiteConfigIpRestriction struct {
@@ -8615,6 +8660,211 @@ func (o GetCertificateOrderCertificateArrayOutput) Index(i pulumi.IntInput) GetC
 	}).(GetCertificateOrderCertificateOutput)
 }
 
+type GetFunctionAppConnectionString struct {
+	// The name of the Function App resource.
+	Name string `pulumi:"name"`
+	// The type of the Connection String. 
+	Type string `pulumi:"type"`
+	// The value for the Connection String.
+	Value string `pulumi:"value"`
+}
+
+type GetFunctionAppConnectionStringInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppConnectionStringOutput() GetFunctionAppConnectionStringOutput
+	ToGetFunctionAppConnectionStringOutputWithContext(context.Context) GetFunctionAppConnectionStringOutput
+}
+
+type GetFunctionAppConnectionStringArgs struct {
+	// The name of the Function App resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the Connection String. 
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value for the Connection String.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetFunctionAppConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (i GetFunctionAppConnectionStringArgs) ToGetFunctionAppConnectionStringOutput() GetFunctionAppConnectionStringOutput {
+	return i.ToGetFunctionAppConnectionStringOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppConnectionStringArgs) ToGetFunctionAppConnectionStringOutputWithContext(ctx context.Context) GetFunctionAppConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppConnectionStringOutput)
+}
+
+type GetFunctionAppConnectionStringArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppConnectionStringArrayOutput() GetFunctionAppConnectionStringArrayOutput
+	ToGetFunctionAppConnectionStringArrayOutputWithContext(context.Context) GetFunctionAppConnectionStringArrayOutput
+}
+
+type GetFunctionAppConnectionStringArray []GetFunctionAppConnectionStringInput
+
+func (GetFunctionAppConnectionStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (i GetFunctionAppConnectionStringArray) ToGetFunctionAppConnectionStringArrayOutput() GetFunctionAppConnectionStringArrayOutput {
+	return i.ToGetFunctionAppConnectionStringArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppConnectionStringArray) ToGetFunctionAppConnectionStringArrayOutputWithContext(ctx context.Context) GetFunctionAppConnectionStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppConnectionStringArrayOutput)
+}
+
+type GetFunctionAppConnectionStringOutput struct { *pulumi.OutputState }
+
+func (GetFunctionAppConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (o GetFunctionAppConnectionStringOutput) ToGetFunctionAppConnectionStringOutput() GetFunctionAppConnectionStringOutput {
+	return o
+}
+
+func (o GetFunctionAppConnectionStringOutput) ToGetFunctionAppConnectionStringOutputWithContext(ctx context.Context) GetFunctionAppConnectionStringOutput {
+	return o
+}
+
+// The name of the Function App resource.
+func (o GetFunctionAppConnectionStringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func (v GetFunctionAppConnectionString) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the Connection String. 
+func (o GetFunctionAppConnectionStringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func (v GetFunctionAppConnectionString) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value for the Connection String.
+func (o GetFunctionAppConnectionStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func (v GetFunctionAppConnectionString) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetFunctionAppConnectionStringArrayOutput struct { *pulumi.OutputState}
+
+func (GetFunctionAppConnectionStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppConnectionString)(nil)).Elem()
+}
+
+func (o GetFunctionAppConnectionStringArrayOutput) ToGetFunctionAppConnectionStringArrayOutput() GetFunctionAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppConnectionStringArrayOutput) ToGetFunctionAppConnectionStringArrayOutputWithContext(ctx context.Context) GetFunctionAppConnectionStringArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetFunctionAppConnectionStringOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetFunctionAppConnectionString {
+		return vs[0].([]GetFunctionAppConnectionString)[vs[1].(int)]
+	}).(GetFunctionAppConnectionStringOutput)
+}
+
+type GetFunctionAppSiteCredential struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password string `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username string `pulumi:"username"`
+}
+
+type GetFunctionAppSiteCredentialInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteCredentialOutput() GetFunctionAppSiteCredentialOutput
+	ToGetFunctionAppSiteCredentialOutputWithContext(context.Context) GetFunctionAppSiteCredentialOutput
+}
+
+type GetFunctionAppSiteCredentialArgs struct {
+	// The password associated with the username, which can be used to publish to this App Service.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username which can be used to publish to this App Service
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetFunctionAppSiteCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteCredentialArgs) ToGetFunctionAppSiteCredentialOutput() GetFunctionAppSiteCredentialOutput {
+	return i.ToGetFunctionAppSiteCredentialOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteCredentialArgs) ToGetFunctionAppSiteCredentialOutputWithContext(ctx context.Context) GetFunctionAppSiteCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteCredentialOutput)
+}
+
+type GetFunctionAppSiteCredentialArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteCredentialArrayOutput() GetFunctionAppSiteCredentialArrayOutput
+	ToGetFunctionAppSiteCredentialArrayOutputWithContext(context.Context) GetFunctionAppSiteCredentialArrayOutput
+}
+
+type GetFunctionAppSiteCredentialArray []GetFunctionAppSiteCredentialInput
+
+func (GetFunctionAppSiteCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteCredentialArray) ToGetFunctionAppSiteCredentialArrayOutput() GetFunctionAppSiteCredentialArrayOutput {
+	return i.ToGetFunctionAppSiteCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteCredentialArray) ToGetFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteCredentialArrayOutput)
+}
+
+type GetFunctionAppSiteCredentialOutput struct { *pulumi.OutputState }
+
+func (GetFunctionAppSiteCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteCredentialOutput) ToGetFunctionAppSiteCredentialOutput() GetFunctionAppSiteCredentialOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteCredentialOutput) ToGetFunctionAppSiteCredentialOutputWithContext(ctx context.Context) GetFunctionAppSiteCredentialOutput {
+	return o
+}
+
+// The password associated with the username, which can be used to publish to this App Service.
+func (o GetFunctionAppSiteCredentialOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func (v GetFunctionAppSiteCredential) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username which can be used to publish to this App Service
+func (o GetFunctionAppSiteCredentialOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func (v GetFunctionAppSiteCredential) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetFunctionAppSiteCredentialArrayOutput struct { *pulumi.OutputState}
+
+func (GetFunctionAppSiteCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteCredential)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteCredentialArrayOutput) ToGetFunctionAppSiteCredentialArrayOutput() GetFunctionAppSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteCredentialArrayOutput) ToGetFunctionAppSiteCredentialArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteCredentialArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetFunctionAppSiteCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetFunctionAppSiteCredential {
+		return vs[0].([]GetFunctionAppSiteCredential)[vs[1].(int)]
+	}).(GetFunctionAppSiteCredentialOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServiceAuthSettingsOutput{})
 	pulumi.RegisterOutputType(AppServiceAuthSettingsPtrOutput{})
@@ -8654,9 +8904,9 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteCredentialOutput{})
-	pulumi.RegisterOutputType(AppServiceSiteCredentialPtrOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceSourceControlOutput{})
-	pulumi.RegisterOutputType(AppServiceSourceControlPtrOutput{})
+	pulumi.RegisterOutputType(AppServiceSourceControlArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceStorageAccountOutput{})
 	pulumi.RegisterOutputType(AppServiceStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateOutput{})
@@ -8681,8 +8931,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSiteConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigCorsOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigCorsPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialOutput{})
-	pulumi.RegisterOutputType(FunctionAppSiteCredentialPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(PlanPropertiesOutput{})
 	pulumi.RegisterOutputType(PlanPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PlanSkuOutput{})
@@ -8722,7 +8974,7 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialOutput{})
-	pulumi.RegisterOutputType(SlotSiteCredentialPtrOutput{})
+	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServicePlanPropertyOutput{})
@@ -8730,7 +8982,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAppServicePlanSkuOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigArrayOutput{})
-	pulumi.RegisterOutputType(GetAppServiceSiteConfigCorsOutput{})
+	pulumi.RegisterOutputType(GetAppServiceSiteConfigCorOutput{})
+	pulumi.RegisterOutputType(GetAppServiceSiteConfigCorArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceSiteCredentialOutput{})
@@ -8739,4 +8992,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAppServiceSourceControlArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateOutput{})
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppConnectionStringOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteCredentialOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteCredentialArrayOutput{})
 }

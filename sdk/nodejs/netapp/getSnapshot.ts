@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses this data source to access information about an existing NetApp Snapshot.
- * 
- * ## NetApp Snapshot Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const test = azure.netapp.getSnapshot({
- *     accountName: "acctestnetappaccount",
- *     name: "acctestnetappsnapshot",
- *     poolName: "acctestnetapppool",
- *     resourceGroupName: "acctestRG",
- *     volumeName: "acctestnetappvolume",
- * });
- * 
- * export const netappSnapshotId = azurerm_netapp_snapshot_example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/netapp_snapshot.html.markdown.
  */

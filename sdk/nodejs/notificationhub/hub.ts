@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Notification Hub within a Notification Hub Namespace.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "Australia East",
- * });
- * const exampleNamespace = new azure.notificationhub.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     namespaceType: "NotificationHub",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Free",
- * });
- * const exampleHub = new azure.notificationhub.Hub("example", {
- *     location: exampleResourceGroup.location,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
  */

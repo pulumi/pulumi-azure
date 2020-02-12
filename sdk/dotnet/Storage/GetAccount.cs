@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
-        public readonly Outputs.GetAccountCustomDomainResult CustomDomain;
+        public readonly ImmutableArray<Outputs.GetAccountCustomDomainsResult> CustomDomains;
         /// <summary>
         /// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
         /// for more information.
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Storage
             string accountKind,
             string accountReplicationType,
             string accountTier,
-            Outputs.GetAccountCustomDomainResult customDomain,
+            ImmutableArray<Outputs.GetAccountCustomDomainsResult> customDomains,
             bool enableBlobEncryption,
             bool enableFileEncryption,
             bool enableHttpsTrafficOnly,
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Storage
             AccountKind = accountKind;
             AccountReplicationType = accountReplicationType;
             AccountTier = accountTier;
-            CustomDomain = customDomain;
+            CustomDomains = customDomains;
             EnableBlobEncryption = enableBlobEncryption;
             EnableFileEncryption = enableFileEncryption;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Storage
     {
 
     [OutputType]
-    public sealed class GetAccountCustomDomainResult
+    public sealed class GetAccountCustomDomainsResult
     {
         /// <summary>
         /// Specifies the name of the Storage Account
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.Storage
         public readonly string Name;
 
         [OutputConstructor]
-        private GetAccountCustomDomainResult(string name)
+        private GetAccountCustomDomainsResult(string name)
         {
             Name = name;
         }

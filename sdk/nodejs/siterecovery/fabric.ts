@@ -6,30 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = new azure.core.ResourceGroup("primary", {
- *     location: "West US",
- * });
- * const secondary = new azure.core.ResourceGroup("secondary", {
- *     location: "East US",
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondary.location,
- *     resourceGroupName: secondary.name,
- *     sku: "Standard",
- * });
- * const fabric = new azure.siterecovery.Fabric("fabric", {
- *     location: primary.location,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondary.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_fabric.html.markdown.
  */

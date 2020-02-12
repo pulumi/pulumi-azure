@@ -15,57 +15,6 @@ import * as utilities from "../utilities";
  * * Use Front Door to improve application scale and availability with instant multi-region failover
  * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
  * * Use Front Door for application layer security and DDoS protection for your application.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "EastUS2",
- * });
- * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
- *     backendPools: [{
- *         backends: [{
- *             address: "www.bing.com",
- *             hostHeader: "www.bing.com",
- *             httpPort: 80,
- *             httpsPort: 443,
- *         }],
- *         healthProbeName: "exampleHealthProbeSetting1",
- *         loadBalancingName: "exampleLoadBalancingSettings1",
- *         name: "exampleBackendBing",
- *     }],
- *     backendPoolHealthProbes: [{
- *         name: "exampleHealthProbeSetting1",
- *     }],
- *     backendPoolLoadBalancings: [{
- *         name: "exampleLoadBalancingSettings1",
- *     }],
- *     enforceBackendPoolsCertificateNameCheck: false,
- *     frontendEndpoints: [{
- *         customHttpsProvisioningEnabled: false,
- *         hostName: "example-FrontDoor.azurefd.net",
- *         name: "exampleFrontendEndpoint1",
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     routingRules: [{
- *         acceptedProtocols: [
- *             "Http",
- *             "Https",
- *         ],
- *         forwardingConfiguration: {
- *             backendPoolName: "exampleBackendBing",
- *             forwardingProtocol: "MatchRequest",
- *         },
- *         frontendEndpoints: ["exampleFrontendEndpoint1"],
- *         name: "exampleRoutingRule1",
- *         patternsToMatches: ["/*"],
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/frontdoor.html.markdown.
  */

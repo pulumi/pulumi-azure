@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.operationalinsights.getAnalyticsWorkspace({
- *     name: "acctest-01",
- *     resourceGroupName: "acctest",
- * });
- * 
- * export const logAnalyticsWorkspaceId = example.workspaceId;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
  */

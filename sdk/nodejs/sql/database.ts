@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Database
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
- * });
- * const exampleDatabase = new azure.sql.Database("example", {
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleSqlServer.name,
- *     tags: {
- *         environment: "production",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_database.html.markdown.
  */
@@ -110,12 +84,12 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly readScale!: pulumi.Output<boolean | undefined>;
     /**
-     * Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-     * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+     * .
      */
     public readonly requestedServiceObjectiveId!: pulumi.Output<string>;
     /**
-     * Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
@@ -271,12 +245,12 @@ export interface DatabaseState {
      */
     readonly readScale?: pulumi.Input<boolean>;
     /**
-     * Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-     * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+     * .
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
@@ -350,12 +324,12 @@ export interface DatabaseArgs {
      */
     readonly readScale?: pulumi.Input<boolean>;
     /**
-     * Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
-     * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
+     * .
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus --edition Standard -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**

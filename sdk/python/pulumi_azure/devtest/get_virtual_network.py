@@ -29,8 +29,8 @@ class GetVirtualNetworkResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-        if subnet_overrides and not isinstance(subnet_overrides, dict):
-            raise TypeError("Expected argument 'subnet_overrides' to be a dict")
+        if subnet_overrides and not isinstance(subnet_overrides, list):
+            raise TypeError("Expected argument 'subnet_overrides' to be a list")
         __self__.subnet_overrides = subnet_overrides
         """
         The list of permission overrides for the subnets as defined below.

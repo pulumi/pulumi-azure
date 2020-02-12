@@ -18,7 +18,7 @@ class GetVirtualNetworkGatewayResult:
             raise TypeError("Expected argument 'active_active' to be a bool")
         __self__.active_active = active_active
         """
-        (Optional) Is this an Active-Active Gateway?
+        Is this an Active-Active Gateway?
         """
         if bgp_settings and not isinstance(bgp_settings, list):
             raise TypeError("Expected argument 'bgp_settings' to be a list")

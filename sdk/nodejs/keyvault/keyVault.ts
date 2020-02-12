@@ -10,38 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Key Vault.
  * 
  * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     accessPolicies: [{
- *         keyPermissions: ["get"],
- *         objectId: "d746815a-0433-4a21-b95d-fc437d2d475b",
- *         secretPermissions: ["get"],
- *         storagePermissions: ["get"],
- *         tenantId: "d6e396d0-5584-41dc-9fc0-268df99bc610",
- *     }],
- *     enabledForDiskEncryption: true,
- *     location: exampleResourceGroup.location,
- *     networkAcls: {
- *         bypass: "AzureServices",
- *         defaultAction: "Deny",
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "standard",
- *     tags: {
- *         environment: "Production",
- *     },
- *     tenantId: "d6e396d0-5584-41dc-9fc0-268df99bc610",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
  */

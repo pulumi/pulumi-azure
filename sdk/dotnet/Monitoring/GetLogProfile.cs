@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         public readonly string Name;
-        public readonly Outputs.GetLogProfileRetentionPolicyResult RetentionPolicy;
+        public readonly ImmutableArray<Outputs.GetLogProfileRetentionPoliciesResult> RetentionPolicies;
         /// <summary>
         /// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Monitoring
             ImmutableArray<string> categories,
             ImmutableArray<string> locations,
             string name,
-            Outputs.GetLogProfileRetentionPolicyResult retentionPolicy,
+            ImmutableArray<Outputs.GetLogProfileRetentionPoliciesResult> retentionPolicies,
             string servicebusRuleId,
             string storageAccountId,
             string id)
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Monitoring
             Categories = categories;
             Locations = locations;
             Name = name;
-            RetentionPolicy = retentionPolicy;
+            RetentionPolicies = retentionPolicies;
             ServicebusRuleId = servicebusRuleId;
             StorageAccountId = storageAccountId;
             Id = id;
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Monitoring
     {
 
     [OutputType]
-    public sealed class GetLogProfileRetentionPolicyResult
+    public sealed class GetLogProfileRetentionPoliciesResult
     {
         /// <summary>
         /// The number of days for the retention policy.
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Monitoring
         public readonly bool Enabled;
 
         [OutputConstructor]
-        private GetLogProfileRetentionPolicyResult(
+        private GetLogProfileRetentionPoliciesResult(
             int days,
             bool enabled)
         {

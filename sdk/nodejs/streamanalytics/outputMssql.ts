@@ -8,46 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to Microsoft SQL Server Database.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     administratorLogin: "dbadmin",
- *     administratorLoginPassword: "example-password",
- *     location: azurerm_resource_group_example.location,
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     version: "12.0",
- * });
- * const exampleDatabase = new azure.sql.Database("example", {
- *     collation: "SQL_LATIN1_GENERAL_CP1_CI_AS",
- *     createMode: "Default",
- *     location: azurerm_resource_group_example.location,
- *     maxSizeBytes: "268435456000",
- *     requestedServiceObjectiveName: "S0",
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     serverName: exampleSqlServer.name,
- * });
- * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("example", {
- *     database: exampleDatabase.name,
- *     password: exampleSqlServer.administratorLoginPassword,
- *     resourceGroupName: azurerm_stream_analytics_job_example.resourceGroupName,
- *     server: exampleSqlServer.fullyQualifiedDomainName,
- *     streamAnalyticsJobName: azurerm_stream_analytics_job_example.name,
- *     table: "ExampleTable",
- *     user: exampleSqlServer.administratorLogin,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
  */

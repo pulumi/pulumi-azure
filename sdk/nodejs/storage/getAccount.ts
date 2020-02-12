@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.storage.getAccount({
- *     name: "packerimages",
- *     resourceGroupName: "packer-storage",
- * });
- * 
- * export const storageAccountTier = example.accountTier;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
  */
@@ -82,7 +68,7 @@ export interface GetAccountResult {
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain: outputs.storage.GetAccountCustomDomain;
+    readonly customDomains: outputs.storage.GetAccountCustomDomain[];
     /**
      * Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
      * for more information.

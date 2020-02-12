@@ -12,6 +12,7 @@ export * from "./getAppService";
 export * from "./getAppServicePlan";
 export * from "./getCertificate";
 export * from "./getCertificateOrder";
+export * from "./getFunctionApp";
 export * from "./kind";
 export * from "./plan";
 export * from "./slot";

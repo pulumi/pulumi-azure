@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management User.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     publisherEmail: "company@exmaple.com",
- *     publisherName: "My Company",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * const exampleUser = new azure.apimanagement.User("example", {
- *     apiManagementName: exampleService.name,
- *     email: "user@example.com",
- *     firstName: "Example",
- *     lastName: "User",
- *     resourceGroupName: exampleResourceGroup.name,
- *     state: "active",
- *     userId: "5931a75ae4bbd512288c680b",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_user.html.markdown.
  */

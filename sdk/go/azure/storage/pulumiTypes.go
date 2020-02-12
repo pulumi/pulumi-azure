@@ -1010,9 +1010,7 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) Version() pulumi.StringOutpu
 }
 
 type AccountQueuePropertiesLogging struct {
-	// (Defaults to 60 minutes) Used when deleting the Storage Account.
 	Delete bool `pulumi:"delete"`
-	// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 	Read bool `pulumi:"read"`
 	RetentionPolicyDays *int `pulumi:"retentionPolicyDays"`
 	Version string `pulumi:"version"`
@@ -1027,9 +1025,7 @@ type AccountQueuePropertiesLoggingInput interface {
 }
 
 type AccountQueuePropertiesLoggingArgs struct {
-	// (Defaults to 60 minutes) Used when deleting the Storage Account.
 	Delete pulumi.BoolInput `pulumi:"delete"`
-	// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 	Read pulumi.BoolInput `pulumi:"read"`
 	RetentionPolicyDays pulumi.IntPtrInput `pulumi:"retentionPolicyDays"`
 	Version pulumi.StringInput `pulumi:"version"`
@@ -1103,12 +1099,10 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 		return &v
 	}).(AccountQueuePropertiesLoggingPtrOutput)
 }
-// (Defaults to 60 minutes) Used when deleting the Storage Account.
 func (o AccountQueuePropertiesLoggingOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
-// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 func (o AccountQueuePropertiesLoggingOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -1143,12 +1137,10 @@ func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLog
 	return o.ApplyT(func (v *AccountQueuePropertiesLogging) AccountQueuePropertiesLogging { return *v }).(AccountQueuePropertiesLoggingOutput)
 }
 
-// (Defaults to 60 minutes) Used when deleting the Storage Account.
 func (o AccountQueuePropertiesLoggingPtrOutput) Delete() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Delete }).(pulumi.BoolOutput)
 }
 
-// (Defaults to 5 minutes) Used when retrieving the Storage Account.
 func (o AccountQueuePropertiesLoggingPtrOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesLogging) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -2245,7 +2237,6 @@ type GetAccountBlobContainerSASPermissions struct {
 	Create bool `pulumi:"create"`
 	Delete bool `pulumi:"delete"`
 	List bool `pulumi:"list"`
-	// (Defaults to 5 minutes) Used when retrieving the Blob Container.
 	Read bool `pulumi:"read"`
 	Write bool `pulumi:"write"`
 }
@@ -2262,7 +2253,6 @@ type GetAccountBlobContainerSASPermissionsArgs struct {
 	Create pulumi.BoolInput `pulumi:"create"`
 	Delete pulumi.BoolInput `pulumi:"delete"`
 	List pulumi.BoolInput `pulumi:"list"`
-	// (Defaults to 5 minutes) Used when retrieving the Blob Container.
 	Read pulumi.BoolInput `pulumi:"read"`
 	Write pulumi.BoolInput `pulumi:"write"`
 }
@@ -2309,7 +2299,6 @@ func (o GetAccountBlobContainerSASPermissionsOutput) List() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.List }).(pulumi.BoolOutput)
 }
 
-// (Defaults to 5 minutes) Used when retrieving the Blob Container.
 func (o GetAccountBlobContainerSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountBlobContainerSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -2347,6 +2336,27 @@ func (i GetAccountCustomDomainArgs) ToGetAccountCustomDomainOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomDomainOutput)
 }
 
+type GetAccountCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountCustomDomainArrayOutput() GetAccountCustomDomainArrayOutput
+	ToGetAccountCustomDomainArrayOutputWithContext(context.Context) GetAccountCustomDomainArrayOutput
+}
+
+type GetAccountCustomDomainArray []GetAccountCustomDomainInput
+
+func (GetAccountCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountCustomDomain)(nil)).Elem()
+}
+
+func (i GetAccountCustomDomainArray) ToGetAccountCustomDomainArrayOutput() GetAccountCustomDomainArrayOutput {
+	return i.ToGetAccountCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountCustomDomainArray) ToGetAccountCustomDomainArrayOutputWithContext(ctx context.Context) GetAccountCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomDomainArrayOutput)
+}
+
 type GetAccountCustomDomainOutput struct { *pulumi.OutputState }
 
 func (GetAccountCustomDomainOutput) ElementType() reflect.Type {
@@ -2366,13 +2376,32 @@ func (o GetAccountCustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v GetAccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
 }
 
+type GetAccountCustomDomainArrayOutput struct { *pulumi.OutputState}
+
+func (GetAccountCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountCustomDomain)(nil)).Elem()
+}
+
+func (o GetAccountCustomDomainArrayOutput) ToGetAccountCustomDomainArrayOutput() GetAccountCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetAccountCustomDomainArrayOutput) ToGetAccountCustomDomainArrayOutputWithContext(ctx context.Context) GetAccountCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetAccountCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAccountCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetAccountCustomDomain {
+		return vs[0].([]GetAccountCustomDomain)[vs[1].(int)]
+	}).(GetAccountCustomDomainOutput)
+}
+
 type GetAccountSASPermissions struct {
 	Add bool `pulumi:"add"`
 	Create bool `pulumi:"create"`
 	Delete bool `pulumi:"delete"`
 	List bool `pulumi:"list"`
 	Process bool `pulumi:"process"`
-	// (Defaults to 5 minutes) Used when retrieving the SAS Token.
 	Read bool `pulumi:"read"`
 	Update bool `pulumi:"update"`
 	Write bool `pulumi:"write"`
@@ -2391,7 +2420,6 @@ type GetAccountSASPermissionsArgs struct {
 	Delete pulumi.BoolInput `pulumi:"delete"`
 	List pulumi.BoolInput `pulumi:"list"`
 	Process pulumi.BoolInput `pulumi:"process"`
-	// (Defaults to 5 minutes) Used when retrieving the SAS Token.
 	Read pulumi.BoolInput `pulumi:"read"`
 	Update pulumi.BoolInput `pulumi:"update"`
 	Write pulumi.BoolInput `pulumi:"write"`
@@ -2443,7 +2471,6 @@ func (o GetAccountSASPermissionsOutput) Process() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Process }).(pulumi.BoolOutput)
 }
 
-// (Defaults to 5 minutes) Used when retrieving the SAS Token.
 func (o GetAccountSASPermissionsOutput) Read() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetAccountSASPermissions) bool { return v.Read }).(pulumi.BoolOutput)
 }
@@ -2578,12 +2605,12 @@ func (o GetAccountSASServicesOutput) Table() pulumi.BoolOutput {
 
 type GetPolicyRule struct {
 	// An `actions` block as documented below.
-	Actions GetPolicyRuleActions `pulumi:"actions"`
-	// (Required)  Boolean to specify whether the rule is enabled.
+	Actions []GetPolicyRuleAction `pulumi:"actions"`
+	// Boolean to specify whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// A `filter` block as documented below.
-	Filters GetPolicyRuleFilters `pulumi:"filters"`
-	// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Filters []GetPolicyRuleFilter `pulumi:"filters"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 	Name string `pulumi:"name"`
 }
 
@@ -2596,12 +2623,12 @@ type GetPolicyRuleInput interface {
 
 type GetPolicyRuleArgs struct {
 	// An `actions` block as documented below.
-	Actions GetPolicyRuleActionsInput `pulumi:"actions"`
-	// (Required)  Boolean to specify whether the rule is enabled.
+	Actions GetPolicyRuleActionArrayInput `pulumi:"actions"`
+	// Boolean to specify whether the rule is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A `filter` block as documented below.
-	Filters GetPolicyRuleFiltersInput `pulumi:"filters"`
-	// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	Filters GetPolicyRuleFilterArrayInput `pulumi:"filters"`
+	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2653,21 +2680,21 @@ func (o GetPolicyRuleOutput) ToGetPolicyRuleOutputWithContext(ctx context.Contex
 }
 
 // An `actions` block as documented below.
-func (o GetPolicyRuleOutput) Actions() GetPolicyRuleActionsOutput {
-	return o.ApplyT(func (v GetPolicyRule) GetPolicyRuleActions { return v.Actions }).(GetPolicyRuleActionsOutput)
+func (o GetPolicyRuleOutput) Actions() GetPolicyRuleActionArrayOutput {
+	return o.ApplyT(func (v GetPolicyRule) []GetPolicyRuleAction { return v.Actions }).(GetPolicyRuleActionArrayOutput)
 }
 
-// (Required)  Boolean to specify whether the rule is enabled.
+// Boolean to specify whether the rule is enabled.
 func (o GetPolicyRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetPolicyRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // A `filter` block as documented below.
-func (o GetPolicyRuleOutput) Filters() GetPolicyRuleFiltersOutput {
-	return o.ApplyT(func (v GetPolicyRule) GetPolicyRuleFilters { return v.Filters }).(GetPolicyRuleFiltersOutput)
+func (o GetPolicyRuleOutput) Filters() GetPolicyRuleFilterArrayOutput {
+	return o.ApplyT(func (v GetPolicyRule) []GetPolicyRuleFilter { return v.Filters }).(GetPolicyRuleFilterArrayOutput)
 }
 
-// (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
 func (o GetPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v GetPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2692,64 +2719,105 @@ func (o GetPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleOutput {
 	}).(GetPolicyRuleOutput)
 }
 
-type GetPolicyRuleActions struct {
+type GetPolicyRuleAction struct {
 	// A `baseBlob` block as documented below.
-	BaseBlob GetPolicyRuleActionsBaseBlob `pulumi:"baseBlob"`
+	BaseBlobs []GetPolicyRuleActionBaseBlob `pulumi:"baseBlobs"`
 	// A `snapshot` block as documented below.
-	Snapshot GetPolicyRuleActionsSnapshot `pulumi:"snapshot"`
+	Snapshots []GetPolicyRuleActionSnapshot `pulumi:"snapshots"`
 }
 
-type GetPolicyRuleActionsInput interface {
+type GetPolicyRuleActionInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleActionsOutput() GetPolicyRuleActionsOutput
-	ToGetPolicyRuleActionsOutputWithContext(context.Context) GetPolicyRuleActionsOutput
+	ToGetPolicyRuleActionOutput() GetPolicyRuleActionOutput
+	ToGetPolicyRuleActionOutputWithContext(context.Context) GetPolicyRuleActionOutput
 }
 
-type GetPolicyRuleActionsArgs struct {
+type GetPolicyRuleActionArgs struct {
 	// A `baseBlob` block as documented below.
-	BaseBlob GetPolicyRuleActionsBaseBlobInput `pulumi:"baseBlob"`
+	BaseBlobs GetPolicyRuleActionBaseBlobArrayInput `pulumi:"baseBlobs"`
 	// A `snapshot` block as documented below.
-	Snapshot GetPolicyRuleActionsSnapshotInput `pulumi:"snapshot"`
+	Snapshots GetPolicyRuleActionSnapshotArrayInput `pulumi:"snapshots"`
 }
 
-func (GetPolicyRuleActionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActions)(nil)).Elem()
+func (GetPolicyRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleAction)(nil)).Elem()
 }
 
-func (i GetPolicyRuleActionsArgs) ToGetPolicyRuleActionsOutput() GetPolicyRuleActionsOutput {
-	return i.ToGetPolicyRuleActionsOutputWithContext(context.Background())
+func (i GetPolicyRuleActionArgs) ToGetPolicyRuleActionOutput() GetPolicyRuleActionOutput {
+	return i.ToGetPolicyRuleActionOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleActionsArgs) ToGetPolicyRuleActionsOutputWithContext(ctx context.Context) GetPolicyRuleActionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionsOutput)
+func (i GetPolicyRuleActionArgs) ToGetPolicyRuleActionOutputWithContext(ctx context.Context) GetPolicyRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionOutput)
 }
 
-type GetPolicyRuleActionsOutput struct { *pulumi.OutputState }
+type GetPolicyRuleActionArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActions)(nil)).Elem()
+	ToGetPolicyRuleActionArrayOutput() GetPolicyRuleActionArrayOutput
+	ToGetPolicyRuleActionArrayOutputWithContext(context.Context) GetPolicyRuleActionArrayOutput
 }
 
-func (o GetPolicyRuleActionsOutput) ToGetPolicyRuleActionsOutput() GetPolicyRuleActionsOutput {
+type GetPolicyRuleActionArray []GetPolicyRuleActionInput
+
+func (GetPolicyRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleAction)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionArray) ToGetPolicyRuleActionArrayOutput() GetPolicyRuleActionArrayOutput {
+	return i.ToGetPolicyRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionArray) ToGetPolicyRuleActionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionArrayOutput)
+}
+
+type GetPolicyRuleActionOutput struct { *pulumi.OutputState }
+
+func (GetPolicyRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleAction)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutput() GetPolicyRuleActionOutput {
 	return o
 }
 
-func (o GetPolicyRuleActionsOutput) ToGetPolicyRuleActionsOutputWithContext(ctx context.Context) GetPolicyRuleActionsOutput {
+func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutputWithContext(ctx context.Context) GetPolicyRuleActionOutput {
 	return o
 }
 
 // A `baseBlob` block as documented below.
-func (o GetPolicyRuleActionsOutput) BaseBlob() GetPolicyRuleActionsBaseBlobOutput {
-	return o.ApplyT(func (v GetPolicyRuleActions) GetPolicyRuleActionsBaseBlob { return v.BaseBlob }).(GetPolicyRuleActionsBaseBlobOutput)
+func (o GetPolicyRuleActionOutput) BaseBlobs() GetPolicyRuleActionBaseBlobArrayOutput {
+	return o.ApplyT(func (v GetPolicyRuleAction) []GetPolicyRuleActionBaseBlob { return v.BaseBlobs }).(GetPolicyRuleActionBaseBlobArrayOutput)
 }
 
 // A `snapshot` block as documented below.
-func (o GetPolicyRuleActionsOutput) Snapshot() GetPolicyRuleActionsSnapshotOutput {
-	return o.ApplyT(func (v GetPolicyRuleActions) GetPolicyRuleActionsSnapshot { return v.Snapshot }).(GetPolicyRuleActionsSnapshotOutput)
+func (o GetPolicyRuleActionOutput) Snapshots() GetPolicyRuleActionSnapshotArrayOutput {
+	return o.ApplyT(func (v GetPolicyRuleAction) []GetPolicyRuleActionSnapshot { return v.Snapshots }).(GetPolicyRuleActionSnapshotArrayOutput)
 }
 
-type GetPolicyRuleActionsBaseBlob struct {
+type GetPolicyRuleActionArrayOutput struct { *pulumi.OutputState}
+
+func (GetPolicyRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleAction)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionArrayOutput) ToGetPolicyRuleActionArrayOutput() GetPolicyRuleActionArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionArrayOutput) ToGetPolicyRuleActionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyRuleAction {
+		return vs[0].([]GetPolicyRuleAction)[vs[1].(int)]
+	}).(GetPolicyRuleActionOutput)
+}
+
+type GetPolicyRuleActionBaseBlob struct {
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
@@ -2758,14 +2826,14 @@ type GetPolicyRuleActionsBaseBlob struct {
 	TierToCoolAfterDaysSinceModificationGreaterThan int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
-type GetPolicyRuleActionsBaseBlobInput interface {
+type GetPolicyRuleActionBaseBlobInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleActionsBaseBlobOutput() GetPolicyRuleActionsBaseBlobOutput
-	ToGetPolicyRuleActionsBaseBlobOutputWithContext(context.Context) GetPolicyRuleActionsBaseBlobOutput
+	ToGetPolicyRuleActionBaseBlobOutput() GetPolicyRuleActionBaseBlobOutput
+	ToGetPolicyRuleActionBaseBlobOutputWithContext(context.Context) GetPolicyRuleActionBaseBlobOutput
 }
 
-type GetPolicyRuleActionsBaseBlobArgs struct {
+type GetPolicyRuleActionBaseBlobArgs struct {
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
 	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
@@ -2774,150 +2842,273 @@ type GetPolicyRuleActionsBaseBlobArgs struct {
 	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
-func (GetPolicyRuleActionsBaseBlobArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsBaseBlob)(nil)).Elem()
+func (GetPolicyRuleActionBaseBlobArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionBaseBlob)(nil)).Elem()
 }
 
-func (i GetPolicyRuleActionsBaseBlobArgs) ToGetPolicyRuleActionsBaseBlobOutput() GetPolicyRuleActionsBaseBlobOutput {
-	return i.ToGetPolicyRuleActionsBaseBlobOutputWithContext(context.Background())
+func (i GetPolicyRuleActionBaseBlobArgs) ToGetPolicyRuleActionBaseBlobOutput() GetPolicyRuleActionBaseBlobOutput {
+	return i.ToGetPolicyRuleActionBaseBlobOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleActionsBaseBlobArgs) ToGetPolicyRuleActionsBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionsBaseBlobOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionsBaseBlobOutput)
+func (i GetPolicyRuleActionBaseBlobArgs) ToGetPolicyRuleActionBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionBaseBlobOutput)
 }
 
-type GetPolicyRuleActionsBaseBlobOutput struct { *pulumi.OutputState }
+type GetPolicyRuleActionBaseBlobArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleActionsBaseBlobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsBaseBlob)(nil)).Elem()
+	ToGetPolicyRuleActionBaseBlobArrayOutput() GetPolicyRuleActionBaseBlobArrayOutput
+	ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(context.Context) GetPolicyRuleActionBaseBlobArrayOutput
 }
 
-func (o GetPolicyRuleActionsBaseBlobOutput) ToGetPolicyRuleActionsBaseBlobOutput() GetPolicyRuleActionsBaseBlobOutput {
+type GetPolicyRuleActionBaseBlobArray []GetPolicyRuleActionBaseBlobInput
+
+func (GetPolicyRuleActionBaseBlobArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionBaseBlob)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionBaseBlobArray) ToGetPolicyRuleActionBaseBlobArrayOutput() GetPolicyRuleActionBaseBlobArrayOutput {
+	return i.ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionBaseBlobArray) ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionBaseBlobArrayOutput)
+}
+
+type GetPolicyRuleActionBaseBlobOutput struct { *pulumi.OutputState }
+
+func (GetPolicyRuleActionBaseBlobOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionBaseBlob)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutput() GetPolicyRuleActionBaseBlobOutput {
 	return o
 }
 
-func (o GetPolicyRuleActionsBaseBlobOutput) ToGetPolicyRuleActionsBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionsBaseBlobOutput {
+func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobOutput {
 	return o
 }
 
 // The age in days after last modification to delete the blob.
-func (o GetPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsBaseBlob) int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func (v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
 // The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
-func (o GetPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsBaseBlob) int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func (v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
 // The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
-func (o GetPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsBaseBlob) int { return v.TierToCoolAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func (v GetPolicyRuleActionBaseBlob) int { return v.TierToCoolAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
-type GetPolicyRuleActionsSnapshot struct {
+type GetPolicyRuleActionBaseBlobArrayOutput struct { *pulumi.OutputState}
+
+func (GetPolicyRuleActionBaseBlobArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionBaseBlob)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionBaseBlobArrayOutput) ToGetPolicyRuleActionBaseBlobArrayOutput() GetPolicyRuleActionBaseBlobArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionBaseBlobArrayOutput) ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionBaseBlobArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionBaseBlobOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyRuleActionBaseBlob {
+		return vs[0].([]GetPolicyRuleActionBaseBlob)[vs[1].(int)]
+	}).(GetPolicyRuleActionBaseBlobOutput)
+}
+
+type GetPolicyRuleActionSnapshot struct {
 	// The age in days after create to delete the snaphot.
 	DeleteAfterDaysSinceCreationGreaterThan int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
-type GetPolicyRuleActionsSnapshotInput interface {
+type GetPolicyRuleActionSnapshotInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleActionsSnapshotOutput() GetPolicyRuleActionsSnapshotOutput
-	ToGetPolicyRuleActionsSnapshotOutputWithContext(context.Context) GetPolicyRuleActionsSnapshotOutput
+	ToGetPolicyRuleActionSnapshotOutput() GetPolicyRuleActionSnapshotOutput
+	ToGetPolicyRuleActionSnapshotOutputWithContext(context.Context) GetPolicyRuleActionSnapshotOutput
 }
 
-type GetPolicyRuleActionsSnapshotArgs struct {
+type GetPolicyRuleActionSnapshotArgs struct {
 	// The age in days after create to delete the snaphot.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
-func (GetPolicyRuleActionsSnapshotArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsSnapshot)(nil)).Elem()
+func (GetPolicyRuleActionSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionSnapshot)(nil)).Elem()
 }
 
-func (i GetPolicyRuleActionsSnapshotArgs) ToGetPolicyRuleActionsSnapshotOutput() GetPolicyRuleActionsSnapshotOutput {
-	return i.ToGetPolicyRuleActionsSnapshotOutputWithContext(context.Background())
+func (i GetPolicyRuleActionSnapshotArgs) ToGetPolicyRuleActionSnapshotOutput() GetPolicyRuleActionSnapshotOutput {
+	return i.ToGetPolicyRuleActionSnapshotOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleActionsSnapshotArgs) ToGetPolicyRuleActionsSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionsSnapshotOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionsSnapshotOutput)
+func (i GetPolicyRuleActionSnapshotArgs) ToGetPolicyRuleActionSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionSnapshotOutput)
 }
 
-type GetPolicyRuleActionsSnapshotOutput struct { *pulumi.OutputState }
+type GetPolicyRuleActionSnapshotArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleActionsSnapshotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleActionsSnapshot)(nil)).Elem()
+	ToGetPolicyRuleActionSnapshotArrayOutput() GetPolicyRuleActionSnapshotArrayOutput
+	ToGetPolicyRuleActionSnapshotArrayOutputWithContext(context.Context) GetPolicyRuleActionSnapshotArrayOutput
 }
 
-func (o GetPolicyRuleActionsSnapshotOutput) ToGetPolicyRuleActionsSnapshotOutput() GetPolicyRuleActionsSnapshotOutput {
+type GetPolicyRuleActionSnapshotArray []GetPolicyRuleActionSnapshotInput
+
+func (GetPolicyRuleActionSnapshotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionSnapshot)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionSnapshotArray) ToGetPolicyRuleActionSnapshotArrayOutput() GetPolicyRuleActionSnapshotArrayOutput {
+	return i.ToGetPolicyRuleActionSnapshotArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionSnapshotArray) ToGetPolicyRuleActionSnapshotArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionSnapshotArrayOutput)
+}
+
+type GetPolicyRuleActionSnapshotOutput struct { *pulumi.OutputState }
+
+func (GetPolicyRuleActionSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionSnapshot)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutput() GetPolicyRuleActionSnapshotOutput {
 	return o
 }
 
-func (o GetPolicyRuleActionsSnapshotOutput) ToGetPolicyRuleActionsSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionsSnapshotOutput {
+func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotOutput {
 	return o
 }
 
 // The age in days after create to delete the snaphot.
-func (o GetPolicyRuleActionsSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
-	return o.ApplyT(func (v GetPolicyRuleActionsSnapshot) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
+func (o GetPolicyRuleActionSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func (v GetPolicyRuleActionSnapshot) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
 }
 
-type GetPolicyRuleFilters struct {
+type GetPolicyRuleActionSnapshotArrayOutput struct { *pulumi.OutputState}
+
+func (GetPolicyRuleActionSnapshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionSnapshot)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionSnapshotArrayOutput) ToGetPolicyRuleActionSnapshotArrayOutput() GetPolicyRuleActionSnapshotArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionSnapshotArrayOutput) ToGetPolicyRuleActionSnapshotArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionSnapshotArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionSnapshotOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyRuleActionSnapshot {
+		return vs[0].([]GetPolicyRuleActionSnapshot)[vs[1].(int)]
+	}).(GetPolicyRuleActionSnapshotOutput)
+}
+
+type GetPolicyRuleFilter struct {
 	// An array of predefined values. Only `blockBlob` is supported.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
 }
 
-type GetPolicyRuleFiltersInput interface {
+type GetPolicyRuleFilterInput interface {
 	pulumi.Input
 
-	ToGetPolicyRuleFiltersOutput() GetPolicyRuleFiltersOutput
-	ToGetPolicyRuleFiltersOutputWithContext(context.Context) GetPolicyRuleFiltersOutput
+	ToGetPolicyRuleFilterOutput() GetPolicyRuleFilterOutput
+	ToGetPolicyRuleFilterOutputWithContext(context.Context) GetPolicyRuleFilterOutput
 }
 
-type GetPolicyRuleFiltersArgs struct {
+type GetPolicyRuleFilterArgs struct {
 	// An array of predefined values. Only `blockBlob` is supported.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
 }
 
-func (GetPolicyRuleFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleFilters)(nil)).Elem()
+func (GetPolicyRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleFilter)(nil)).Elem()
 }
 
-func (i GetPolicyRuleFiltersArgs) ToGetPolicyRuleFiltersOutput() GetPolicyRuleFiltersOutput {
-	return i.ToGetPolicyRuleFiltersOutputWithContext(context.Background())
+func (i GetPolicyRuleFilterArgs) ToGetPolicyRuleFilterOutput() GetPolicyRuleFilterOutput {
+	return i.ToGetPolicyRuleFilterOutputWithContext(context.Background())
 }
 
-func (i GetPolicyRuleFiltersArgs) ToGetPolicyRuleFiltersOutputWithContext(ctx context.Context) GetPolicyRuleFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFiltersOutput)
+func (i GetPolicyRuleFilterArgs) ToGetPolicyRuleFilterOutputWithContext(ctx context.Context) GetPolicyRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterOutput)
 }
 
-type GetPolicyRuleFiltersOutput struct { *pulumi.OutputState }
+type GetPolicyRuleFilterArrayInput interface {
+	pulumi.Input
 
-func (GetPolicyRuleFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPolicyRuleFilters)(nil)).Elem()
+	ToGetPolicyRuleFilterArrayOutput() GetPolicyRuleFilterArrayOutput
+	ToGetPolicyRuleFilterArrayOutputWithContext(context.Context) GetPolicyRuleFilterArrayOutput
 }
 
-func (o GetPolicyRuleFiltersOutput) ToGetPolicyRuleFiltersOutput() GetPolicyRuleFiltersOutput {
+type GetPolicyRuleFilterArray []GetPolicyRuleFilterInput
+
+func (GetPolicyRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleFilter)(nil)).Elem()
+}
+
+func (i GetPolicyRuleFilterArray) ToGetPolicyRuleFilterArrayOutput() GetPolicyRuleFilterArrayOutput {
+	return i.ToGetPolicyRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleFilterArray) ToGetPolicyRuleFilterArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterArrayOutput)
+}
+
+type GetPolicyRuleFilterOutput struct { *pulumi.OutputState }
+
+func (GetPolicyRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleFilter)(nil)).Elem()
+}
+
+func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutput() GetPolicyRuleFilterOutput {
 	return o
 }
 
-func (o GetPolicyRuleFiltersOutput) ToGetPolicyRuleFiltersOutputWithContext(ctx context.Context) GetPolicyRuleFiltersOutput {
+func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutputWithContext(ctx context.Context) GetPolicyRuleFilterOutput {
 	return o
 }
 
 // An array of predefined values. Only `blockBlob` is supported.
-func (o GetPolicyRuleFiltersOutput) BlobTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+func (o GetPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
 // An array of strings for prefixes to be matched.
-func (o GetPolicyRuleFiltersOutput) PrefixMatches() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v GetPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+func (o GetPolicyRuleFilterOutput) PrefixMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v GetPolicyRuleFilter) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+}
+
+type GetPolicyRuleFilterArrayOutput struct { *pulumi.OutputState}
+
+func (GetPolicyRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleFilter)(nil)).Elem()
+}
+
+func (o GetPolicyRuleFilterArrayOutput) ToGetPolicyRuleFilterArrayOutput() GetPolicyRuleFilterArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterArrayOutput) ToGetPolicyRuleFilterArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetPolicyRuleFilter {
+		return vs[0].([]GetPolicyRuleFilter)[vs[1].(int)]
+	}).(GetPolicyRuleFilterOutput)
 }
 
 func init() {
@@ -2960,13 +3151,18 @@ func init() {
 	pulumi.RegisterOutputType(TableAclAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountBlobContainerSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainOutput{})
+	pulumi.RegisterOutputType(GetAccountCustomDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountSASResourceTypesOutput{})
 	pulumi.RegisterOutputType(GetAccountSASServicesOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleArrayOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleActionsOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleActionsBaseBlobOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleActionsSnapshotOutput{})
-	pulumi.RegisterOutputType(GetPolicyRuleFiltersOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionBaseBlobOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionBaseBlobArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionSnapshotOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionSnapshotArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleFilterOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleFilterArrayOutput{})
 }

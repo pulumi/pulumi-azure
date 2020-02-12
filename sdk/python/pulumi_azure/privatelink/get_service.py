@@ -13,7 +13,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configuration=None, network_interface_ids=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, network_interface_ids=None, resource_group_name=None, tags=None, visibility_subscription_ids=None, id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         __self__.alias = alias
@@ -50,9 +50,9 @@ class GetServiceResult:
         """
         The name of private link service NAT IP configuration.
         """
-        if nat_ip_configuration and not isinstance(nat_ip_configuration, dict):
-            raise TypeError("Expected argument 'nat_ip_configuration' to be a dict")
-        __self__.nat_ip_configuration = nat_ip_configuration
+        if nat_ip_configurations and not isinstance(nat_ip_configurations, list):
+            raise TypeError("Expected argument 'nat_ip_configurations' to be a list")
+        __self__.nat_ip_configurations = nat_ip_configurations
         """
         The `nat_ip_configuration` block as defined below.
         """
@@ -92,7 +92,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             load_balancer_frontend_ip_configuration_ids=self.load_balancer_frontend_ip_configuration_ids,
             location=self.location,
             name=self.name,
-            nat_ip_configuration=self.nat_ip_configuration,
+            nat_ip_configurations=self.nat_ip_configurations,
             network_interface_ids=self.network_interface_ids,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
@@ -127,7 +127,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
         load_balancer_frontend_ip_configuration_ids=__ret__.get('loadBalancerFrontendIpConfigurationIds'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        nat_ip_configuration=__ret__.get('natIpConfiguration'),
+        nat_ip_configurations=__ret__.get('natIpConfigurations'),
         network_interface_ids=__ret__.get('networkInterfaceIds'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),

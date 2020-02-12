@@ -57,7 +57,7 @@ namespace Pulumi.Azure.DevTest
         /// <summary>
         /// The list of permission overrides for the subnets as defined below.
         /// </summary>
-        public readonly Outputs.GetVirtualNetworkSubnetOverridesResult SubnetOverrides;
+        public readonly ImmutableArray<Outputs.GetVirtualNetworkSubnetOverridesResult> SubnetOverrides;
         /// <summary>
         /// The unique immutable identifier of the virtual network.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.DevTest
             string labName,
             string name,
             string resourceGroupName,
-            Outputs.GetVirtualNetworkSubnetOverridesResult subnetOverrides,
+            ImmutableArray<Outputs.GetVirtualNetworkSubnetOverridesResult> subnetOverrides,
             string uniqueIdentifier,
             string id)
         {

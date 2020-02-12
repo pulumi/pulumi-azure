@@ -419,6 +419,10 @@ export namespace apimanagement {
         xmlLink?: string;
     }
 
+    export interface ServiceProtocols {
+        enableHttp2?: boolean;
+    }
+
     export interface ServiceSecurity {
         disableBackendSsl30: boolean;
         disableBackendTls10: boolean;
@@ -803,6 +807,7 @@ export namespace appservice {
     }
 
     export interface FunctionAppIdentity {
+        identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
@@ -835,6 +840,10 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
+        /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion: string;
@@ -859,6 +868,11 @@ export namespace appservice {
     export interface FunctionAppSiteConfigCors {
         allowedOrigins: string[];
         supportCredentials?: boolean;
+    }
+
+    export interface FunctionAppSiteConfigIpRestriction {
+        ipAddress?: string;
+        subnetId?: string;
     }
 
     export interface FunctionAppSiteCredential {
@@ -929,7 +943,7 @@ export namespace appservice {
         /**
          * A `cors` block as defined above.
          */
-        cors: outputs.appservice.GetAppServiceSiteConfigCors;
+        cors: outputs.appservice.GetAppServiceSiteConfigCor[];
         /**
          * The ordering of default documents to load, if an address isn't specified.
          */
@@ -1016,7 +1030,7 @@ export namespace appservice {
         windowsFxVersion: string;
     }
 
-    export interface GetAppServiceSiteConfigCors {
+    export interface GetAppServiceSiteConfigCor {
         /**
          * A list of origins which are able to make cross-origin calls.
          */
@@ -1066,6 +1080,32 @@ export namespace appservice {
          * Status of the Key Vault secret.
          */
         provisioningState: string;
+    }
+
+    export interface GetFunctionAppConnectionString {
+        /**
+         * The name of the Function App resource.
+         */
+        name: string;
+        /**
+         * The type of the Connection String. 
+         */
+        type: string;
+        /**
+         * The value for the Connection String.
+         */
+        value: string;
+    }
+
+    export interface GetFunctionAppSiteCredential {
+        /**
+         * The password associated with the username, which can be used to publish to this App Service.
+         */
+        password: string;
+        /**
+         * The username which can be used to publish to this App Service
+         */
+        username: string;
     }
 
     export interface PlanProperties {
@@ -1604,11 +1644,11 @@ export namespace batch {
 
     export interface GetPoolNetworkConfiguration {
         /**
-         * (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+         * The inbound NAT pools that are used to address specific ports on the individual compute node externally.
          */
         endpointConfiguration: outputs.batch.GetPoolNetworkConfigurationEndpointConfiguration;
         /**
-         * (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+         * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
          */
         subnetId: string;
     }
@@ -1627,7 +1667,7 @@ export namespace batch {
          */
         name: string;
         /**
-         * (Optional) The list of network security group rules that are applied to the endpoint.
+         * The list of network security group rules that are applied to the endpoint.
          */
         networkSecurityGroupRules: outputs.batch.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
         /**
@@ -1665,7 +1705,7 @@ export namespace batch {
          */
         maxTaskRetryCount?: number;
         /**
-         * (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles: outputs.batch.GetPoolStartTaskResourceFile[];
         /**
@@ -4021,7 +4061,7 @@ export namespace devtest {
         resourceId: string;
     }
 
-    export interface GetVirtualNetworkSubnetOverrides {
+    export interface GetVirtualNetworkSubnetOverride {
         /**
          * The name of the subnet.
          */
@@ -6366,7 +6406,7 @@ export namespace mssql {
         results: string[];
     }
 
-    export interface ElasticPoolElasticPoolProperties {
+    export interface ElasticPoolElasticPoolProperty {
         creationDate: string;
         licenseType: string;
         /**
@@ -7302,12 +7342,12 @@ export namespace network {
          */
         addressSpaces: string[];
         /**
-         * (Optional) The address of the Radius server.
+         * The address of the Radius server.
          * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
          */
         radiusServerAddress: string;
         /**
-         * (Optional) The secret used by the Radius server.
+         * The secret used by the Radius server.
          * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
          */
         radiusServerSecret: string;
@@ -7323,7 +7363,7 @@ export namespace network {
          */
         rootCertificates: outputs.network.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate[];
         /**
-         * (Optional) List of the protocols supported by the vpn client.
+         * List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
          */
         vpnClientProtocols: string[];
@@ -8718,13 +8758,7 @@ export namespace storage {
     }
 
     export interface AccountQueuePropertiesLogging {
-        /**
-         * (Defaults to 60 minutes) Used when deleting the Storage Account.
-         */
         delete: boolean;
-        /**
-         * (Defaults to 5 minutes) Used when retrieving the Storage Account.
-         */
         read: boolean;
         retentionPolicyDays?: number;
         version: string;
@@ -8743,9 +8777,6 @@ export namespace storage {
         create: boolean;
         delete: boolean;
         list: boolean;
-        /**
-         * (Defaults to 5 minutes) Used when retrieving the Blob Container.
-         */
         read: boolean;
         write: boolean;
     }
@@ -8763,9 +8794,6 @@ export namespace storage {
         delete: boolean;
         list: boolean;
         process: boolean;
-        /**
-         * (Defaults to 5 minutes) Used when retrieving the SAS Token.
-         */
         read: boolean;
         update: boolean;
         write: boolean;
@@ -8788,33 +8816,33 @@ export namespace storage {
         /**
          * An `actions` block as documented below.
          */
-        actions: outputs.storage.GetPolicyRuleActions;
+        actions: outputs.storage.GetPolicyRuleAction[];
         /**
-         * (Required)  Boolean to specify whether the rule is enabled.
+         * Boolean to specify whether the rule is enabled.
          */
         enabled: boolean;
         /**
          * A `filter` block as documented below.
          */
-        filters: outputs.storage.GetPolicyRuleFilters;
+        filters: outputs.storage.GetPolicyRuleFilter[];
         /**
-         * (Required) A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
          */
         name: string;
     }
 
-    export interface GetPolicyRuleActions {
+    export interface GetPolicyRuleAction {
         /**
          * A `baseBlob` block as documented below.
          */
-        baseBlob: outputs.storage.GetPolicyRuleActionsBaseBlob;
+        baseBlobs: outputs.storage.GetPolicyRuleActionBaseBlob[];
         /**
          * A `snapshot` block as documented below.
          */
-        snapshot: outputs.storage.GetPolicyRuleActionsSnapshot;
+        snapshots: outputs.storage.GetPolicyRuleActionSnapshot[];
     }
 
-    export interface GetPolicyRuleActionsBaseBlob {
+    export interface GetPolicyRuleActionBaseBlob {
         /**
          * The age in days after last modification to delete the blob.
          */
@@ -8829,14 +8857,14 @@ export namespace storage {
         tierToCoolAfterDaysSinceModificationGreaterThan: number;
     }
 
-    export interface GetPolicyRuleActionsSnapshot {
+    export interface GetPolicyRuleActionSnapshot {
         /**
          * The age in days after create to delete the snaphot.
          */
         deleteAfterDaysSinceCreationGreaterThan: number;
     }
 
-    export interface GetPolicyRuleFilters {
+    export interface GetPolicyRuleFilter {
         /**
          * An array of predefined values. Only `blockBlob` is supported.
          */

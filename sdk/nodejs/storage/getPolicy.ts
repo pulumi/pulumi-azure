@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Storage Management Policy.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleAccount = azure.storage.getAccount({
- *     name: "storageaccountname",
- *     resourceGroupName: "resourcegroupname",
- * });
- * const examplePolicy = azurerm_storage_account_example.id.apply(id => azure.storage.getPolicy({
- *     storageAccountId: id,
- * }));
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_management_policy.html.markdown.
  */

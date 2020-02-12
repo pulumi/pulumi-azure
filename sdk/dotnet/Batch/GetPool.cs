@@ -186,13 +186,13 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolNetworkConfigurationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+        /// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         /// </summary>
         [Input("endpointConfiguration")]
         public GetPoolNetworkConfigurationEndpointConfigurationArgs? EndpointConfiguration { get; set; }
 
         /// <summary>
-        /// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+        /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
         /// </summary>
         [Input("subnetId")]
         public string? SubnetId { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Batch
         private List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs>? _networkSecurityGroupRules;
 
         /// <summary>
-        /// (Optional) The list of network security group rules that are applied to the endpoint.
+        /// The list of network security group rules that are applied to the endpoint.
         /// </summary>
         public List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesArgs> NetworkSecurityGroupRules
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Batch
         private List<GetPoolStartTaskResourceFilesArgs>? _resourceFiles;
 
         /// <summary>
-        /// (Optional) One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public List<GetPoolStartTaskResourceFilesArgs> ResourceFiles
         {
@@ -600,7 +600,7 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Optional) The list of network security group rules that are applied to the endpoint.
+        /// The list of network security group rules that are applied to the endpoint.
         /// </summary>
         public readonly ImmutableArray<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRulesResult> NetworkSecurityGroupRules;
         /// <summary>
@@ -628,11 +628,11 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolNetworkConfigurationResult
     {
         /// <summary>
-        /// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+        /// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         /// </summary>
         public readonly GetPoolNetworkConfigurationEndpointConfigurationResult EndpointConfiguration;
         /// <summary>
-        /// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+        /// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
         /// </summary>
         public readonly string SubnetId;
 
@@ -708,7 +708,7 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly int? MaxTaskRetryCount;
         /// <summary>
-        /// (Optional) One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         /// </summary>
         public readonly ImmutableArray<GetPoolStartTaskResourceFilesResult> ResourceFiles;
         /// <summary>

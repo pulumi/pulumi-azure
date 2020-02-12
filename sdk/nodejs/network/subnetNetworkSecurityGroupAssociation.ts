@@ -10,47 +10,6 @@ import * as utilities from "../utilities";
  * Associates a Network Security Group with a Subnet within a Virtual Network.
  * 
  * > **NOTE:** Subnet `<->` Network Security Group associations currently need to be configured on both this resource and using the `networkSecurityGroupId` field on the `azure.network.Subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `networkSecurityGroupId` field from the `azure.network.Subnet` resource such that this resource is used to link resources in future.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     securityRules: [{
- *         access: "Allow",
- *         destinationAddressPrefix: "*",
- *         destinationPortRange: "*",
- *         direction: "Inbound",
- *         name: "test123",
- *         priority: 100,
- *         protocol: "Tcp",
- *         sourceAddressPrefix: "*",
- *         sourcePortRange: "*",
- *     }],
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
- *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
- *     subnetId: exampleSubnet.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
  */

@@ -8,65 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a NetApp Snapshot.
- * 
- * ## NetApp Snapshot Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     delegations: [{
- *         name: "netapp",
- *         serviceDelegation: {
- *             actions: [
- *                 "Microsoft.Network/networkinterfaces/*",
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *             ],
- *             name: "Microsoft.Netapp/volumes",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleAccount = new azure.netapp.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePool = new azure.netapp.Pool("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     sizeInTb: 4,
- * });
- * const exampleVolume = new azure.netapp.Volume("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     poolName: examplePool.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     serviceLevel: "Premium",
- *     storageQuotaInGb: 100,
- *     subnetId: azurerm_subnet_test.id,
- *     volumePath: "my-unique-file-path",
- * });
- * const exampleSnapshot = new azure.netapp.Snapshot("example", {
- *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     poolName: examplePool.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     volumeName: exampleVolume.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/netapp_snapshot.html.markdown.
  */

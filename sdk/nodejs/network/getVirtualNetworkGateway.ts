@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Network Gateway.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.network.getVirtualNetworkGateway({
- *     name: "production",
- *     resourceGroupName: "networking",
- * });
- * 
- * export const virtualNetworkGatewayId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
  */
@@ -60,7 +46,7 @@ export interface GetVirtualNetworkGatewayArgs {
  */
 export interface GetVirtualNetworkGatewayResult {
     /**
-     * (Optional) Is this an Active-Active Gateway?
+     * Is this an Active-Active Gateway?
      */
     readonly activeActive: boolean;
     readonly bgpSettings: outputs.network.GetVirtualNetworkGatewayBgpSetting[];

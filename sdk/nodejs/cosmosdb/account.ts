@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CosmosDB (formally DocumentDB) Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: var_resource_group_location,
- * });
- * const ri = new random.RandomInteger("ri", {
- *     max: 99999,
- *     min: 10000,
- * });
- * const db = new azure.cosmosdb.Account("db", {
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 10,
- *         maxStalenessPrefix: 200,
- *     },
- *     enableAutomaticFailover: true,
- *     geoLocations: [
- *         {
- *             failoverPriority: 1,
- *             location: var_failover_location,
- *         },
- *         {
- *             failoverPriority: 0,
- *             location: rg.location,
- *             prefix: pulumi.interpolate`tfex-cosmos-db-${ri.result}-customid`,
- *         },
- *     ],
- *     kind: "GlobalDocumentDB",
- *     location: rg.location,
- *     offerType: "Standard",
- *     resourceGroupName: rg.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
  */

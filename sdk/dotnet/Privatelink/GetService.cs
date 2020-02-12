@@ -70,7 +70,7 @@ namespace Pulumi.Azure.PrivateLink
         /// <summary>
         /// The `nat_ip_configuration` block as defined below.
         /// </summary>
-        public readonly Outputs.GetServiceNatIpConfigurationResult NatIpConfiguration;
+        public readonly ImmutableArray<Outputs.GetServiceNatIpConfigurationsResult> NatIpConfigurations;
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.PrivateLink
             ImmutableArray<string> loadBalancerFrontendIpConfigurationIds,
             string location,
             string name,
-            Outputs.GetServiceNatIpConfigurationResult natIpConfiguration,
+            ImmutableArray<Outputs.GetServiceNatIpConfigurationsResult> natIpConfigurations,
             ImmutableArray<string> networkInterfaceIds,
             string resourceGroupName,
             ImmutableDictionary<string, string> tags,
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.PrivateLink
             LoadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             Location = location;
             Name = name;
-            NatIpConfiguration = natIpConfiguration;
+            NatIpConfigurations = natIpConfigurations;
             NetworkInterfaceIds = networkInterfaceIds;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.PrivateLink
     {
 
     [OutputType]
-    public sealed class GetServiceNatIpConfigurationResult
+    public sealed class GetServiceNatIpConfigurationsResult
     {
         /// <summary>
         /// The name of the private link service.
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.PrivateLink
         public readonly string SubnetId;
 
         [OutputConstructor]
-        private GetServiceNatIpConfigurationResult(
+        private GetServiceNatIpConfigurationsResult(
             string name,
             bool primary,
             string privateIpAddress,

@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westeurope",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     version: "12.0",
- * });
- * const exampleElasticPool = new azure.mssql.ElasticPool("example", {
- *     location: exampleResourceGroup.location,
- *     maxSizeGb: 756,
- *     perDatabaseSettings: {
- *         maxCapacity: 4,
- *         minCapacity: 0.25,
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleSqlServer.name,
- *     sku: {
- *         capacity: 4,
- *         family: "Gen5",
- *         name: "GP_Gen5",
- *         tier: "GeneralPurpose",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mssql_elasticpool.html.markdown.
  */
@@ -72,7 +38,7 @@ export class ElasticPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticPool.__pulumiType;
     }
 
-    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<outputs.mssql.ElasticPoolElasticPoolProperties>;
+    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<outputs.mssql.ElasticPoolElasticPoolProperty[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -178,7 +144,7 @@ export class ElasticPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ElasticPool resources.
  */
 export interface ElasticPoolState {
-    readonly elasticPoolProperties?: pulumi.Input<inputs.mssql.ElasticPoolElasticPoolProperties>;
+    readonly elasticPoolProperties?: pulumi.Input<pulumi.Input<inputs.mssql.ElasticPoolElasticPoolProperty>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

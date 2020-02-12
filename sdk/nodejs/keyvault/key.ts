@@ -8,56 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Key.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const current = azure.core.getClientConfig();
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         ami_id: 1,
- *     },
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     accessPolicies: [{
- *         keyPermissions: [
- *             "create",
- *             "get",
- *         ],
- *         objectId: current.servicePrincipalObjectId,
- *         secretPermissions: ["set"],
- *         tenantId: current.tenantId,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "premium",
- *     tags: {
- *         environment: "Production",
- *     },
- *     tenantId: current.tenantId,
- * });
- * const generated = new azure.keyvault.Key("generated", {
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- *     keySize: 2048,
- *     keyType: "RSA",
- *     keyVaultId: exampleKeyVault.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
  */
@@ -97,6 +47,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly e!: pulumi.Output<string>;
     /**
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
     public readonly keyOpts!: pulumi.Output<string[]>;
@@ -120,6 +74,10 @@ export class Key extends pulumi.CustomResource {
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    public readonly notBeforeDate!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -152,12 +110,14 @@ export class Key extends pulumi.CustomResource {
             const state = argsOrState as KeyState | undefined;
             inputs["curve"] = state ? state.curve : undefined;
             inputs["e"] = state ? state.e : undefined;
+            inputs["expirationDate"] = state ? state.expirationDate : undefined;
             inputs["keyOpts"] = state ? state.keyOpts : undefined;
             inputs["keySize"] = state ? state.keySize : undefined;
             inputs["keyType"] = state ? state.keyType : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["n"] = state ? state.n : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -172,11 +132,13 @@ export class Key extends pulumi.CustomResource {
                 throw new Error("Missing required property 'keyType'");
             }
             inputs["curve"] = args ? args.curve : undefined;
+            inputs["expirationDate"] = args ? args.expirationDate : undefined;
             inputs["keyOpts"] = args ? args.keyOpts : undefined;
             inputs["keySize"] = args ? args.keySize : undefined;
             inputs["keyType"] = args ? args.keyType : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["e"] = undefined /*out*/;
@@ -209,6 +171,10 @@ export interface KeyState {
      */
     readonly e?: pulumi.Input<string>;
     /**
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly expirationDate?: pulumi.Input<string>;
+    /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
     readonly keyOpts?: pulumi.Input<pulumi.Input<string>[]>;
@@ -232,6 +198,10 @@ export interface KeyState {
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly notBeforeDate?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -260,6 +230,10 @@ export interface KeyArgs {
      */
     readonly curve?: pulumi.Input<string>;
     /**
+     * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly expirationDate?: pulumi.Input<string>;
+    /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
     readonly keyOpts: pulumi.Input<pulumi.Input<string>[]>;
@@ -279,6 +253,10 @@ export interface KeyArgs {
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+     */
+    readonly notBeforeDate?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

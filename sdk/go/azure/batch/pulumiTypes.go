@@ -2251,9 +2251,9 @@ func (o GetPoolFixedScaleArrayOutput) Index(i pulumi.IntInput) GetPoolFixedScale
 }
 
 type GetPoolNetworkConfiguration struct {
-	// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 	EndpointConfiguration GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -2265,9 +2265,9 @@ type GetPoolNetworkConfigurationInput interface {
 }
 
 type GetPoolNetworkConfigurationArgs struct {
-	// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 	EndpointConfiguration GetPoolNetworkConfigurationEndpointConfigurationInput `pulumi:"endpointConfiguration"`
-	// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -2297,12 +2297,12 @@ func (o GetPoolNetworkConfigurationOutput) ToGetPoolNetworkConfigurationOutputWi
 	return o
 }
 
-// (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 func (o GetPoolNetworkConfigurationOutput) EndpointConfiguration() GetPoolNetworkConfigurationEndpointConfigurationOutput {
 	return o.ApplyT(func (v GetPoolNetworkConfiguration) GetPoolNetworkConfigurationEndpointConfiguration { return v.EndpointConfiguration }).(GetPoolNetworkConfigurationEndpointConfigurationOutput)
 }
 
-// (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 func (o GetPoolNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func (v GetPoolNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -2314,7 +2314,7 @@ type GetPoolNetworkConfigurationEndpointConfiguration struct {
 	FrontendPortRange string `pulumi:"frontendPortRange"`
 	// The name of the endpoint.
 	Name string `pulumi:"name"`
-	// (Optional) The list of network security group rules that are applied to the endpoint.
+	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
 	// The protocol of the endpoint.
 	Protocol string `pulumi:"protocol"`
@@ -2334,7 +2334,7 @@ type GetPoolNetworkConfigurationEndpointConfigurationArgs struct {
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
 	// The name of the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Optional) The list of network security group rules that are applied to the endpoint.
+	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
 	// The protocol of the endpoint.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -2381,7 +2381,7 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.St
 	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional) The list of network security group rules that are applied to the endpoint.
+// The list of network security group rules that are applied to the endpoint.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) NetworkSecurityGroupRules() GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput {
 	return o.ApplyT(func (v GetPoolNetworkConfigurationEndpointConfiguration) []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule { return v.NetworkSecurityGroupRules }).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput)
 }
@@ -2505,7 +2505,7 @@ type GetPoolStartTask struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The number of retry count.
 	MaxTaskRetryCount *int `pulumi:"maxTaskRetryCount"`
-	// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []GetPoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentities []GetPoolStartTaskUserIdentity `pulumi:"userIdentities"`
@@ -2527,7 +2527,7 @@ type GetPoolStartTaskArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The number of retry count.
 	MaxTaskRetryCount pulumi.IntPtrInput `pulumi:"maxTaskRetryCount"`
-	// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles GetPoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// A `userIdentity` block that describes the user identity under which the start task runs.
 	UserIdentities GetPoolStartTaskUserIdentityArrayInput `pulumi:"userIdentities"`
@@ -2576,7 +2576,7 @@ func (o GetPoolStartTaskOutput) MaxTaskRetryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func (v GetPoolStartTask) *int { return v.MaxTaskRetryCount }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o GetPoolStartTaskOutput) ResourceFiles() GetPoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func (v GetPoolStartTask) []GetPoolStartTaskResourceFile { return v.ResourceFiles }).(GetPoolStartTaskResourceFileArrayOutput)
 }

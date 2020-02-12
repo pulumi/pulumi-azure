@@ -31,7 +31,7 @@ type LookupVirtualNetworkGatewayArgs struct {
 
 // A collection of values returned by getVirtualNetworkGateway.
 type LookupVirtualNetworkGatewayResult struct {
-	// (Optional) Is this an Active-Active Gateway?
+	// Is this an Active-Active Gateway?
 	ActiveActive bool `pulumi:"activeActive"`
 	BgpSettings []GetVirtualNetworkGatewayBgpSetting `pulumi:"bgpSettings"`
 	// The ID of the local network gateway

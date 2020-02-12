@@ -52,7 +52,7 @@ type FunctionApp struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential FunctionAppSiteCredentialOutput `pulumi:"siteCredential"`
+	SiteCredentials FunctionAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString pulumi.StringOutput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -133,7 +133,7 @@ type functionAppState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential *FunctionAppSiteCredential `pulumi:"siteCredential"`
+	SiteCredentials []FunctionAppSiteCredential `pulumi:"siteCredentials"`
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -178,7 +178,7 @@ type FunctionAppState struct {
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-	SiteCredential FunctionAppSiteCredentialPtrInput
+	SiteCredentials FunctionAppSiteCredentialArrayInput
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.

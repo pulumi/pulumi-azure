@@ -68,8 +68,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         /// </summary>
-        [Output("kubeAdminConfig")]
-        public Output<Outputs.KubernetesClusterKubeAdminConfig> KubeAdminConfig { get; private set; } = null!;
+        [Output("kubeAdminConfigs")]
+        public Output<ImmutableArray<Outputs.KubernetesClusterKubeAdminConfigs>> KubeAdminConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -80,8 +80,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `kube_config` block as defined below.
         /// </summary>
-        [Output("kubeConfig")]
-        public Output<Outputs.KubernetesClusterKubeConfig> KubeConfig { get; private set; } = null!;
+        [Output("kubeConfigs")]
+        public Output<ImmutableArray<Outputs.KubernetesClusterKubeConfigs>> KubeConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
@@ -406,11 +406,17 @@ namespace Pulumi.Azure.ContainerService
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }
 
+        [Input("kubeAdminConfigs")]
+        private InputList<Inputs.KubernetesClusterKubeAdminConfigsGetArgs>? _kubeAdminConfigs;
+
         /// <summary>
         /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         /// </summary>
-        [Input("kubeAdminConfig")]
-        public Input<Inputs.KubernetesClusterKubeAdminConfigGetArgs>? KubeAdminConfig { get; set; }
+        public InputList<Inputs.KubernetesClusterKubeAdminConfigsGetArgs> KubeAdminConfigs
+        {
+            get => _kubeAdminConfigs ?? (_kubeAdminConfigs = new InputList<Inputs.KubernetesClusterKubeAdminConfigsGetArgs>());
+            set => _kubeAdminConfigs = value;
+        }
 
         /// <summary>
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -418,11 +424,17 @@ namespace Pulumi.Azure.ContainerService
         [Input("kubeAdminConfigRaw")]
         public Input<string>? KubeAdminConfigRaw { get; set; }
 
+        [Input("kubeConfigs")]
+        private InputList<Inputs.KubernetesClusterKubeConfigsGetArgs>? _kubeConfigs;
+
         /// <summary>
         /// A `kube_config` block as defined below.
         /// </summary>
-        [Input("kubeConfig")]
-        public Input<Inputs.KubernetesClusterKubeConfigGetArgs>? KubeConfig { get; set; }
+        public InputList<Inputs.KubernetesClusterKubeConfigsGetArgs> KubeConfigs
+        {
+            get => _kubeConfigs ?? (_kubeConfigs = new InputList<Inputs.KubernetesClusterKubeConfigsGetArgs>());
+            set => _kubeConfigs = value;
+        }
 
         /// <summary>
         /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
@@ -1003,7 +1015,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class KubernetesClusterKubeAdminConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterKubeAdminConfigsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -1041,12 +1053,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("username")]
         public Input<string>? Username { get; set; }
 
-        public KubernetesClusterKubeAdminConfigGetArgs()
+        public KubernetesClusterKubeAdminConfigsGetArgs()
         {
         }
     }
 
-    public sealed class KubernetesClusterKubeConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterKubeConfigsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -1084,7 +1096,7 @@ namespace Pulumi.Azure.ContainerService
         [Input("username")]
         public Input<string>? Username { get; set; }
 
-        public KubernetesClusterKubeConfigGetArgs()
+        public KubernetesClusterKubeConfigsGetArgs()
         {
         }
     }
@@ -1647,7 +1659,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
     [OutputType]
-    public sealed class KubernetesClusterKubeAdminConfig
+    public sealed class KubernetesClusterKubeAdminConfigs
     {
         /// <summary>
         /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -1675,7 +1687,7 @@ namespace Pulumi.Azure.ContainerService
         public readonly string Username;
 
         [OutputConstructor]
-        private KubernetesClusterKubeAdminConfig(
+        private KubernetesClusterKubeAdminConfigs(
             string clientCertificate,
             string clientKey,
             string clusterCaCertificate,
@@ -1693,7 +1705,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
     [OutputType]
-    public sealed class KubernetesClusterKubeConfig
+    public sealed class KubernetesClusterKubeConfigs
     {
         /// <summary>
         /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -1721,7 +1733,7 @@ namespace Pulumi.Azure.ContainerService
         public readonly string Username;
 
         [OutputConstructor]
-        private KubernetesClusterKubeConfig(
+        private KubernetesClusterKubeConfigs(
             string clientCertificate,
             string clientKey,
             string clusterCaCertificate,

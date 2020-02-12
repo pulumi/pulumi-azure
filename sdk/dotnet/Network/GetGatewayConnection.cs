@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string SharedKey;
         /// <summary>
-        /// (Optional) A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

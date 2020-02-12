@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Role Definition.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = azure.core.getSubscription();
- * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.id,
- * });
- * const customAuthorizationRoleDefinition = customRoleDefinition.roleDefinitionId.apply(roleDefinitionId => azure.authorization.getRoleDefinition({
- *     roleDefinitionId: roleDefinitionId,
- *     scope: primary, // /subscriptions/00000000-0000-0000-0000-000000000000
- * }));
- * const customByname = customRoleDefinition.name.apply(name => azure.authorization.getRoleDefinition({
- *     name: name,
- *     scope: primary,
- * }));
- * const builtin = azure.authorization.getBuiltinRoleDefinition({
- *     name: "Contributor",
- * });
- * 
- * export const customRoleDefinitionId = customAuthorizationRoleDefinition.id;
- * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
  */

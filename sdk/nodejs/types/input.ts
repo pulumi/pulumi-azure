@@ -311,6 +311,10 @@ export namespace apimanagement {
         xmlLink?: pulumi.Input<string>;
     }
 
+    export interface ServiceProtocols {
+        enableHttp2?: pulumi.Input<boolean>;
+    }
+
     export interface ServiceSecurity {
         disableBackendSsl30?: pulumi.Input<boolean>;
         disableBackendTls10?: pulumi.Input<boolean>;
@@ -695,6 +699,7 @@ export namespace appservice {
     }
 
     export interface FunctionAppIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
@@ -727,6 +732,10 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigIpRestriction>[]>;
+        /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion?: pulumi.Input<string>;
@@ -751,6 +760,11 @@ export namespace appservice {
     export interface FunctionAppSiteConfigCors {
         allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
         supportCredentials?: pulumi.Input<boolean>;
+    }
+
+    export interface FunctionAppSiteConfigIpRestriction {
+        ipAddress?: pulumi.Input<string>;
+        subnetId?: pulumi.Input<string>;
     }
 
     export interface FunctionAppSiteCredential {
@@ -1205,11 +1219,11 @@ export namespace batch {
 
     export interface GetPoolNetworkConfiguration {
         /**
-         * (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+         * The inbound NAT pools that are used to address specific ports on the individual compute node externally.
          */
         endpointConfiguration?: inputs.batch.GetPoolNetworkConfigurationEndpointConfiguration;
         /**
-         * (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+         * The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
          */
         subnetId?: string;
     }
@@ -1228,7 +1242,7 @@ export namespace batch {
          */
         name?: string;
         /**
-         * (Optional) The list of network security group rules that are applied to the endpoint.
+         * The list of network security group rules that are applied to the endpoint.
          */
         networkSecurityGroupRules?: inputs.batch.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule[];
         /**
@@ -1266,7 +1280,7 @@ export namespace batch {
          */
         maxTaskRetryCount?: number;
         /**
-         * (Optional) One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
+         * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles?: inputs.batch.GetPoolStartTaskResourceFile[];
         /**
@@ -5066,7 +5080,7 @@ export namespace mssql {
         results: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface ElasticPoolElasticPoolProperties {
+    export interface ElasticPoolElasticPoolProperty {
         creationDate?: pulumi.Input<string>;
         licenseType?: pulumi.Input<string>;
         /**
@@ -6811,13 +6825,7 @@ export namespace storage {
     }
 
     export interface AccountQueuePropertiesLogging {
-        /**
-         * (Defaults to 60 minutes) Used when deleting the Storage Account.
-         */
         delete: pulumi.Input<boolean>;
-        /**
-         * (Defaults to 5 minutes) Used when retrieving the Storage Account.
-         */
         read: pulumi.Input<boolean>;
         retentionPolicyDays?: pulumi.Input<number>;
         version: pulumi.Input<string>;
@@ -6836,9 +6844,6 @@ export namespace storage {
         create: boolean;
         delete: boolean;
         list: boolean;
-        /**
-         * (Defaults to 5 minutes) Used when retrieving the Blob Container.
-         */
         read: boolean;
         write: boolean;
     }
@@ -6849,9 +6854,6 @@ export namespace storage {
         delete: boolean;
         list: boolean;
         process: boolean;
-        /**
-         * (Defaults to 5 minutes) Used when retrieving the SAS Token.
-         */
         read: boolean;
         update: boolean;
         write: boolean;

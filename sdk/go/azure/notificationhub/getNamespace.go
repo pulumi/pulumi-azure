@@ -37,7 +37,7 @@ type LookupNamespaceResult struct {
 	Id string `pulumi:"id"`
 	// The Azure Region in which this Notification Hub Namespace exists.
 	Location string `pulumi:"location"`
-	// (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
 	Name string `pulumi:"name"`
 	// The Type of Namespace, such as `Messaging` or `NotificationHub`.
 	NamespaceType string `pulumi:"namespaceType"`

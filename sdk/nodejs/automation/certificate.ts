@@ -8,29 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Automation Certificate.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Basic",
- * });
- * const exampleCertificate = new azure.automation.Certificate("example", {
- *     accountName: exampleAccount.name,
- *     base64: Buffer.from(fs.readFileSync("certificate.pfx", "utf-8")).toString("base64"),
- *     description: "This is an example certificate",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_certificate.html.markdown.
  */

@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Job.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleJob = new azure.streamanalytics.Job("example", {
- *     compatibilityLevel: "1.1",
- *     dataLocale: "en-GB",
- *     eventsLateArrivalMaxDelayInSeconds: 60,
- *     eventsOutOfOrderMaxDelayInSeconds: 50,
- *     eventsOutOfOrderPolicy: "Adjust",
- *     location: exampleResourceGroup.location,
- *     outputErrorPolicy: "Drop",
- *     resourceGroupName: exampleResourceGroup.name,
- *     streamingUnits: 3,
- *     tags: {
- *         environment: "Example",
- *     },
- *     transformationQuery: `    SELECT *
- *     INTO [YourOutputAlias]
- *     FROM [YourInputAlias]
- * `,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_job.html.markdown.
  */

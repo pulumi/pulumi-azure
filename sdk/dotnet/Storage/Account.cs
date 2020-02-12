@@ -1182,15 +1182,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesLoggingArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Defaults to 60 minutes) Used when deleting the Storage Account.
-        /// </summary>
         [Input("delete", required: true)]
         public Input<bool> Delete { get; set; } = null!;
 
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the Storage Account.
-        /// </summary>
         [Input("read", required: true)]
         public Input<bool> Read { get; set; } = null!;
 
@@ -1210,15 +1204,9 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountQueuePropertiesLoggingGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Defaults to 60 minutes) Used when deleting the Storage Account.
-        /// </summary>
         [Input("delete", required: true)]
         public Input<bool> Delete { get; set; } = null!;
 
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the Storage Account.
-        /// </summary>
         [Input("read", required: true)]
         public Input<bool> Read { get; set; } = null!;
 
@@ -1440,13 +1428,7 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountQueuePropertiesLogging
     {
-        /// <summary>
-        /// (Defaults to 60 minutes) Used when deleting the Storage Account.
-        /// </summary>
         public readonly bool Delete;
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the Storage Account.
-        /// </summary>
         public readonly bool Read;
         public readonly int? RetentionPolicyDays;
         public readonly string Version;

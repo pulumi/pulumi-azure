@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
- *     capacity: 2,
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Basic",
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("example", {
- *     messageRetention: 2,
- *     namespaceName: exampleEventHubNamespace.name,
- *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
- *     eventhubName: exampleEventHub.name,
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     userMetadata: "some-meta-data",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group_legacy.html.markdown.
  */

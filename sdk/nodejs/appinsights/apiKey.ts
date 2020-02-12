@@ -6,57 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Insights API key.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
- *     applicationType: "web",
- *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: [
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- * });
- * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
- *     applicationInsightsId: exampleInsights.id,
- *     writePermissions: ["annotations"],
- * });
- * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannel", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: ["agentconfig"],
- * });
- * const fullPermissions = new azure.appinsights.ApiKey("fullPermissions", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: [
- *         "agentconfig",
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- *     writePermissions: ["annotations"],
- * });
- * 
- * export const readTelemetryApiKey = readTelemetry.apiKey;
- * export const writeAnnotationsApiKey = writeAnnotations.apiKey;
- * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
- * export const fullPermissionsApiKey = fullPermissions.apiKey;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
  */

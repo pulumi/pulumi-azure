@@ -66,7 +66,7 @@ type GetGatewayConnectionResult struct {
 	RoutingWeight int `pulumi:"routingWeight"`
 	// The shared IPSec key. 
 	SharedKey string `pulumi:"sharedKey"`
-	// (Optional) A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).

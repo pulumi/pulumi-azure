@@ -8,42 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS SRV Records within Azure Private DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const testZone = new azure.privatedns.Zone("test", {
- *     resourceGroupName: azurerm_resource_group_test.name,
- * });
- * const testSRVRecord = new azure.privatedns.SRVRecord("test", {
- *     records: [
- *         {
- *             port: 8080,
- *             priority: 1,
- *             target: "target1.contoso.com",
- *             weight: 5,
- *         },
- *         {
- *             port: 8080,
- *             priority: 10,
- *             target: "target2.contoso.com",
- *             weight: 10,
- *         },
- *     ],
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     tags: {
- *         Environment: "Production",
- *     },
- *     ttl: 300,
- *     zoneName: testZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_srv_record.html.markdown.
  */

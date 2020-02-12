@@ -97,7 +97,7 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) In
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput)
 }
 
-type ElasticPoolElasticPoolProperties struct {
+type ElasticPoolElasticPoolProperty struct {
 	CreationDate *string `pulumi:"creationDate"`
 	LicenseType *string `pulumi:"licenseType"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -107,14 +107,14 @@ type ElasticPoolElasticPoolProperties struct {
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
-type ElasticPoolElasticPoolPropertiesInput interface {
+type ElasticPoolElasticPoolPropertyInput interface {
 	pulumi.Input
 
-	ToElasticPoolElasticPoolPropertiesOutput() ElasticPoolElasticPoolPropertiesOutput
-	ToElasticPoolElasticPoolPropertiesOutputWithContext(context.Context) ElasticPoolElasticPoolPropertiesOutput
+	ToElasticPoolElasticPoolPropertyOutput() ElasticPoolElasticPoolPropertyOutput
+	ToElasticPoolElasticPoolPropertyOutputWithContext(context.Context) ElasticPoolElasticPoolPropertyOutput
 }
 
-type ElasticPoolElasticPoolPropertiesArgs struct {
+type ElasticPoolElasticPoolPropertyArgs struct {
 	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
 	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -124,133 +124,93 @@ type ElasticPoolElasticPoolPropertiesArgs struct {
 	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
 }
 
-func (ElasticPoolElasticPoolPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolElasticPoolProperties)(nil)).Elem()
+func (ElasticPoolElasticPoolPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolElasticPoolProperty)(nil)).Elem()
 }
 
-func (i ElasticPoolElasticPoolPropertiesArgs) ToElasticPoolElasticPoolPropertiesOutput() ElasticPoolElasticPoolPropertiesOutput {
-	return i.ToElasticPoolElasticPoolPropertiesOutputWithContext(context.Background())
+func (i ElasticPoolElasticPoolPropertyArgs) ToElasticPoolElasticPoolPropertyOutput() ElasticPoolElasticPoolPropertyOutput {
+	return i.ToElasticPoolElasticPoolPropertyOutputWithContext(context.Background())
 }
 
-func (i ElasticPoolElasticPoolPropertiesArgs) ToElasticPoolElasticPoolPropertiesOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolElasticPoolPropertiesOutput)
+func (i ElasticPoolElasticPoolPropertyArgs) ToElasticPoolElasticPoolPropertyOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolElasticPoolPropertyOutput)
 }
 
-func (i ElasticPoolElasticPoolPropertiesArgs) ToElasticPoolElasticPoolPropertiesPtrOutput() ElasticPoolElasticPoolPropertiesPtrOutput {
-	return i.ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ElasticPoolElasticPoolPropertiesArgs) ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolElasticPoolPropertiesOutput).ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(ctx)
-}
-
-type ElasticPoolElasticPoolPropertiesPtrInput interface {
+type ElasticPoolElasticPoolPropertyArrayInput interface {
 	pulumi.Input
 
-	ToElasticPoolElasticPoolPropertiesPtrOutput() ElasticPoolElasticPoolPropertiesPtrOutput
-	ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(context.Context) ElasticPoolElasticPoolPropertiesPtrOutput
+	ToElasticPoolElasticPoolPropertyArrayOutput() ElasticPoolElasticPoolPropertyArrayOutput
+	ToElasticPoolElasticPoolPropertyArrayOutputWithContext(context.Context) ElasticPoolElasticPoolPropertyArrayOutput
 }
 
-type elasticPoolElasticPoolPropertiesPtrType ElasticPoolElasticPoolPropertiesArgs
+type ElasticPoolElasticPoolPropertyArray []ElasticPoolElasticPoolPropertyInput
 
-func ElasticPoolElasticPoolPropertiesPtr(v *ElasticPoolElasticPoolPropertiesArgs) ElasticPoolElasticPoolPropertiesPtrInput {	return (*elasticPoolElasticPoolPropertiesPtrType)(v)
+func (ElasticPoolElasticPoolPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ElasticPoolElasticPoolProperty)(nil)).Elem()
 }
 
-func (*elasticPoolElasticPoolPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolElasticPoolProperties)(nil)).Elem()
+func (i ElasticPoolElasticPoolPropertyArray) ToElasticPoolElasticPoolPropertyArrayOutput() ElasticPoolElasticPoolPropertyArrayOutput {
+	return i.ToElasticPoolElasticPoolPropertyArrayOutputWithContext(context.Background())
 }
 
-func (i *elasticPoolElasticPoolPropertiesPtrType) ToElasticPoolElasticPoolPropertiesPtrOutput() ElasticPoolElasticPoolPropertiesPtrOutput {
-	return i.ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(context.Background())
+func (i ElasticPoolElasticPoolPropertyArray) ToElasticPoolElasticPoolPropertyArrayOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolElasticPoolPropertyArrayOutput)
 }
 
-func (i *elasticPoolElasticPoolPropertiesPtrType) ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolElasticPoolPropertiesPtrOutput)
+type ElasticPoolElasticPoolPropertyOutput struct { *pulumi.OutputState }
+
+func (ElasticPoolElasticPoolPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolElasticPoolProperty)(nil)).Elem()
 }
 
-type ElasticPoolElasticPoolPropertiesOutput struct { *pulumi.OutputState }
-
-func (ElasticPoolElasticPoolPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPoolElasticPoolProperties)(nil)).Elem()
-}
-
-func (o ElasticPoolElasticPoolPropertiesOutput) ToElasticPoolElasticPoolPropertiesOutput() ElasticPoolElasticPoolPropertiesOutput {
+func (o ElasticPoolElasticPoolPropertyOutput) ToElasticPoolElasticPoolPropertyOutput() ElasticPoolElasticPoolPropertyOutput {
 	return o
 }
 
-func (o ElasticPoolElasticPoolPropertiesOutput) ToElasticPoolElasticPoolPropertiesOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesOutput {
+func (o ElasticPoolElasticPoolPropertyOutput) ToElasticPoolElasticPoolPropertyOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertyOutput {
 	return o
 }
 
-func (o ElasticPoolElasticPoolPropertiesOutput) ToElasticPoolElasticPoolPropertiesPtrOutput() ElasticPoolElasticPoolPropertiesPtrOutput {
-	return o.ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(context.Background())
+func (o ElasticPoolElasticPoolPropertyOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ElasticPoolElasticPoolProperty) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
-func (o ElasticPoolElasticPoolPropertiesOutput) ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesPtrOutput {
-	return o.ApplyT(func(v ElasticPoolElasticPoolProperties) *ElasticPoolElasticPoolProperties {
-		return &v
-	}).(ElasticPoolElasticPoolPropertiesPtrOutput)
-}
-func (o ElasticPoolElasticPoolPropertiesOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
-}
-
-func (o ElasticPoolElasticPoolPropertiesOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
+func (o ElasticPoolElasticPoolPropertyOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ElasticPoolElasticPoolProperty) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 // The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-func (o ElasticPoolElasticPoolPropertiesOutput) MaxSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *int { return v.MaxSizeBytes }).(pulumi.IntPtrOutput)
+func (o ElasticPoolElasticPoolPropertyOutput) MaxSizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func (v ElasticPoolElasticPoolProperty) *int { return v.MaxSizeBytes }).(pulumi.IntPtrOutput)
 }
 
-func (o ElasticPoolElasticPoolPropertiesOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-func (o ElasticPoolElasticPoolPropertiesOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
-}
-
-type ElasticPoolElasticPoolPropertiesPtrOutput struct { *pulumi.OutputState}
-
-func (ElasticPoolElasticPoolPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ElasticPoolElasticPoolProperties)(nil)).Elem()
-}
-
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) ToElasticPoolElasticPoolPropertiesPtrOutput() ElasticPoolElasticPoolPropertiesPtrOutput {
-	return o
-}
-
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) ToElasticPoolElasticPoolPropertiesPtrOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertiesPtrOutput {
-	return o
-}
-
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) Elem() ElasticPoolElasticPoolPropertiesOutput {
-	return o.ApplyT(func (v *ElasticPoolElasticPoolProperties) ElasticPoolElasticPoolProperties { return *v }).(ElasticPoolElasticPoolPropertiesOutput)
-}
-
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
-}
-
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
-}
-
-// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) MaxSizeBytes() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *int { return v.MaxSizeBytes }).(pulumi.IntPtrOutput)
-}
-
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *string { return v.State }).(pulumi.StringPtrOutput)
+func (o ElasticPoolElasticPoolPropertyOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ElasticPoolElasticPoolProperty) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-func (o ElasticPoolElasticPoolPropertiesPtrOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ElasticPoolElasticPoolProperties) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+func (o ElasticPoolElasticPoolPropertyOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ElasticPoolElasticPoolProperty) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
+type ElasticPoolElasticPoolPropertyArrayOutput struct { *pulumi.OutputState}
+
+func (ElasticPoolElasticPoolPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ElasticPoolElasticPoolProperty)(nil)).Elem()
+}
+
+func (o ElasticPoolElasticPoolPropertyArrayOutput) ToElasticPoolElasticPoolPropertyArrayOutput() ElasticPoolElasticPoolPropertyArrayOutput {
+	return o
+}
+
+func (o ElasticPoolElasticPoolPropertyArrayOutput) ToElasticPoolElasticPoolPropertyArrayOutputWithContext(ctx context.Context) ElasticPoolElasticPoolPropertyArrayOutput {
+	return o
+}
+
+func (o ElasticPoolElasticPoolPropertyArrayOutput) Index(i pulumi.IntInput) ElasticPoolElasticPoolPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ElasticPoolElasticPoolProperty {
+		return vs[0].([]ElasticPoolElasticPoolProperty)[vs[1].(int)]
+	}).(ElasticPoolElasticPoolPropertyOutput)
 }
 
 type ElasticPoolPerDatabaseSettings struct {
@@ -676,8 +636,8 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Enabled() pulumi.B
 func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput{})
-	pulumi.RegisterOutputType(ElasticPoolElasticPoolPropertiesOutput{})
-	pulumi.RegisterOutputType(ElasticPoolElasticPoolPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ElasticPoolElasticPoolPropertyOutput{})
+	pulumi.RegisterOutputType(ElasticPoolElasticPoolPropertyArrayOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ElasticPoolSkuOutput{})

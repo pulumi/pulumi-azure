@@ -75,6 +75,11 @@ namespace Pulumi.Azure
         public static bool? SkipProviderRegistration { get; set; } = __config.GetBoolean("skipProviderRegistration") ?? Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
 
         /// <summary>
+        /// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        /// </summary>
+        public static bool? StorageUseAzuread { get; set; } = __config.GetBoolean("storageUseAzuread");
+
+        /// <summary>
         /// The Subscription ID which should be used.
         /// </summary>
         public static string? SubscriptionId { get; set; } = __config.Get("subscriptionId") ?? Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";

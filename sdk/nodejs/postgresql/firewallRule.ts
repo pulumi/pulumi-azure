@@ -6,42 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule for a PostgreSQL Server
- * 
- * ## Example Usage (Single IP Address)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.postgresql.Server("example", {});
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
- *     endIpAddress: "40.112.8.12",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "40.112.8.12",
- * });
- * ```
- * 
- * ## Example Usage (IP Range)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.postgresql.Server("example", {});
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
- *     endIpAddress: "40.112.255.255",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- *     startIpAddress: "40.112.0.0",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_firewall_rule.html.markdown.
  */

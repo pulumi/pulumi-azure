@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Private Link Service.
  * 
  * > **NOTE** Private Link is currently in Public Preview.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.privatelink.getService({
- *     name: "myPrivateLinkService",
- *     resourceGroupName: "PrivateLinkServiceRG",
- * });
- * 
- * export const privateLinkServiceId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/private_link_service.html.markdown.
  */
@@ -88,7 +74,7 @@ export interface GetServiceResult {
     /**
      * The `natIpConfiguration` block as defined below.
      */
-    readonly natIpConfiguration: outputs.privatelink.GetServiceNatIpConfiguration;
+    readonly natIpConfigurations: outputs.privatelink.GetServiceNatIpConfiguration[];
     readonly networkInterfaceIds: string[];
     readonly resourceGroupName: string;
     /**

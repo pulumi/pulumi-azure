@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
  * Promotes an App Service Slot to Production within an App Service.
  * 
  * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const server = new random.RandomId("server", {});
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {});
- * const examplePlan = new azure.appservice.Plan("example", {});
- * const exampleAppService = new azure.appservice.AppService("example", {});
- * const exampleSlot = new azure.appservice.Slot("example", {});
- * const exampleActiveSlot = new azure.appservice.ActiveSlot("example", {
- *     appServiceName: exampleAppService.name,
- *     appServiceSlotName: exampleSlot.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_active_slot.html.markdown.
  */

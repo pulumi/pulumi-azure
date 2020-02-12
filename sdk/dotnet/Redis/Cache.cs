@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Redis
 {
     /// <summary>
+    /// Manages a Redis Cache.
+    /// 
+    /// ## Default Redis Configuration Values
+    /// 
+    /// | Redis Value                     | Basic        | Standard     | Premium      |
+    /// | ------------------------------- | ------------ | ------------ | ------------ |
+    /// | enable_authentication           | true         | true         | true         |
+    /// | maxmemory_reserved              | 2            | 50           | 200          |
+    /// | maxfragmentationmemory_reserved | 2            | 50           | 200          |
+    /// | maxmemory_delta                 | 2            | 50           | 200          |
+    /// | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
+    /// 
+    /// &gt; **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+    /// 
+    /// ---
+    /// 
+    /// A `patch_schedule` block supports the following:
+    /// 
+    /// * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+    /// 
+    /// * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+    /// 
+    /// &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+    /// 
+    /// ## Relevant Links
+    /// 
+    ///  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+    ///  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
     /// </summary>
     public partial class Cache : Pulumi.CustomResource

@@ -3687,6 +3687,114 @@ func (o ServicePolicyPtrOutput) XmlLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
 }
 
+type ServiceProtocols struct {
+	EnableHttp2 *bool `pulumi:"enableHttp2"`
+}
+
+type ServiceProtocolsInput interface {
+	pulumi.Input
+
+	ToServiceProtocolsOutput() ServiceProtocolsOutput
+	ToServiceProtocolsOutputWithContext(context.Context) ServiceProtocolsOutput
+}
+
+type ServiceProtocolsArgs struct {
+	EnableHttp2 pulumi.BoolPtrInput `pulumi:"enableHttp2"`
+}
+
+func (ServiceProtocolsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProtocols)(nil)).Elem()
+}
+
+func (i ServiceProtocolsArgs) ToServiceProtocolsOutput() ServiceProtocolsOutput {
+	return i.ToServiceProtocolsOutputWithContext(context.Background())
+}
+
+func (i ServiceProtocolsArgs) ToServiceProtocolsOutputWithContext(ctx context.Context) ServiceProtocolsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProtocolsOutput)
+}
+
+func (i ServiceProtocolsArgs) ToServiceProtocolsPtrOutput() ServiceProtocolsPtrOutput {
+	return i.ToServiceProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceProtocolsArgs) ToServiceProtocolsPtrOutputWithContext(ctx context.Context) ServiceProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProtocolsOutput).ToServiceProtocolsPtrOutputWithContext(ctx)
+}
+
+type ServiceProtocolsPtrInput interface {
+	pulumi.Input
+
+	ToServiceProtocolsPtrOutput() ServiceProtocolsPtrOutput
+	ToServiceProtocolsPtrOutputWithContext(context.Context) ServiceProtocolsPtrOutput
+}
+
+type serviceProtocolsPtrType ServiceProtocolsArgs
+
+func ServiceProtocolsPtr(v *ServiceProtocolsArgs) ServiceProtocolsPtrInput {	return (*serviceProtocolsPtrType)(v)
+}
+
+func (*serviceProtocolsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProtocols)(nil)).Elem()
+}
+
+func (i *serviceProtocolsPtrType) ToServiceProtocolsPtrOutput() ServiceProtocolsPtrOutput {
+	return i.ToServiceProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceProtocolsPtrType) ToServiceProtocolsPtrOutputWithContext(ctx context.Context) ServiceProtocolsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProtocolsPtrOutput)
+}
+
+type ServiceProtocolsOutput struct { *pulumi.OutputState }
+
+func (ServiceProtocolsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProtocols)(nil)).Elem()
+}
+
+func (o ServiceProtocolsOutput) ToServiceProtocolsOutput() ServiceProtocolsOutput {
+	return o
+}
+
+func (o ServiceProtocolsOutput) ToServiceProtocolsOutputWithContext(ctx context.Context) ServiceProtocolsOutput {
+	return o
+}
+
+func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutput() ServiceProtocolsPtrOutput {
+	return o.ToServiceProtocolsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutputWithContext(ctx context.Context) ServiceProtocolsPtrOutput {
+	return o.ApplyT(func(v ServiceProtocols) *ServiceProtocols {
+		return &v
+	}).(ServiceProtocolsPtrOutput)
+}
+func (o ServiceProtocolsOutput) EnableHttp2() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceProtocolsPtrOutput struct { *pulumi.OutputState}
+
+func (ServiceProtocolsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProtocols)(nil)).Elem()
+}
+
+func (o ServiceProtocolsPtrOutput) ToServiceProtocolsPtrOutput() ServiceProtocolsPtrOutput {
+	return o
+}
+
+func (o ServiceProtocolsPtrOutput) ToServiceProtocolsPtrOutputWithContext(ctx context.Context) ServiceProtocolsPtrOutput {
+	return o
+}
+
+func (o ServiceProtocolsPtrOutput) Elem() ServiceProtocolsOutput {
+	return o.ApplyT(func (v *ServiceProtocols) ServiceProtocols { return *v }).(ServiceProtocolsOutput)
+}
+
+func (o ServiceProtocolsPtrOutput) EnableHttp2() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+}
+
 type ServiceSecurity struct {
 	DisableBackendSsl30 *bool `pulumi:"disableBackendSsl30"`
 	DisableBackendTls10 *bool `pulumi:"disableBackendTls10"`
@@ -5218,6 +5326,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServicePolicyOutput{})
 	pulumi.RegisterOutputType(ServicePolicyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceProtocolsOutput{})
+	pulumi.RegisterOutputType(ServiceProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSecurityOutput{})
 	pulumi.RegisterOutputType(ServiceSecurityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSignInOutput{})

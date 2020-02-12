@@ -10,59 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource has been deprecated in favour of the `azure.siterecovery.ProtectionContainerMapping` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
  * Manages a Azure recovery vault protection container mapping. A network protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primaryResourceGroup = new azure.core.ResourceGroup("primary", {
- *     location: "West US",
- * });
- * const secondaryResourceGroup = new azure.core.ResourceGroup("secondary", {
- *     location: "East US",
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondaryResourceGroup.location,
- *     resourceGroupName: secondaryResourceGroup.name,
- *     sku: "Standard",
- * });
- * const primaryFabric = new azure.recoveryservices.Fabric("primary", {
- *     location: primaryResourceGroup.location,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const secondaryFabric = new azure.recoveryservices.Fabric("secondary", {
- *     location: secondaryResourceGroup.location,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const primaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("primary", {
- *     recoveryFabricName: primaryFabric.name,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const secondaryProtectionContainer = new azure.recoveryservices.ProtectionContainer("secondary", {
- *     recoveryFabricName: secondaryFabric.name,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const policy = new azure.recoveryservices.ReplicationPolicy("policy", {
- *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
- *     recoveryPointRetentionInMinutes: (24 * 60),
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const containerMapping = new azure.recoveryservices.ProtectionContainerMapping("container-mapping", {
- *     recoveryFabricName: primaryFabric.name,
- *     recoveryReplicationPolicyId: policy.id,
- *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,
- *     recoveryTargetProtectionContainerId: secondaryProtectionContainer.id,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_container_mapping.html.markdown.
  */

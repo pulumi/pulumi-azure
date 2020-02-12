@@ -42,7 +42,7 @@ type LookupAccountResult struct {
 	// The Tier of this storage account.
 	AccountTier string `pulumi:"accountTier"`
 	// A `customDomain` block as documented below.
-	CustomDomain GetAccountCustomDomain `pulumi:"customDomain"`
+	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
 	// for more information.
 	EnableBlobEncryption bool `pulumi:"enableBlobEncryption"`

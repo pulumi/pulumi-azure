@@ -11,54 +11,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const current = azure.core.getClientConfig();
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         ami_id: 1,
- *     },
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     accessPolicies: [{
- *         keyPermissions: [
- *             "create",
- *             "get",
- *         ],
- *         objectId: current.servicePrincipalObjectId,
- *         secretPermissions: [
- *             "set",
- *             "get",
- *             "delete",
- *         ],
- *         tenantId: current.tenantId,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "premium",
- *     tags: {
- *         environment: "Production",
- *     },
- *     tenantId: current.tenantId,
- * });
- * const exampleSecret = new azure.keyvault.Secret("example", {
- *     keyVaultId: exampleKeyVault.id,
- *     tags: {
- *         environment: "Production",
- *     },
- *     value: "szechuan",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
  */

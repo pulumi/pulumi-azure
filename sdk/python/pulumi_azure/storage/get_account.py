@@ -13,7 +13,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None, id=None):
+    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domains=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None, id=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         __self__.access_tier = access_tier
@@ -44,9 +44,9 @@ class GetAccountResult:
         """
         The Tier of this storage account.
         """
-        if custom_domain and not isinstance(custom_domain, dict):
-            raise TypeError("Expected argument 'custom_domain' to be a dict")
-        __self__.custom_domain = custom_domain
+        if custom_domains and not isinstance(custom_domains, list):
+            raise TypeError("Expected argument 'custom_domains' to be a list")
+        __self__.custom_domains = custom_domains
         """
         A `custom_domain` block as documented below.
         """
@@ -307,7 +307,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             account_kind=self.account_kind,
             account_replication_type=self.account_replication_type,
             account_tier=self.account_tier,
-            custom_domain=self.custom_domain,
+            custom_domains=self.custom_domains,
             enable_blob_encryption=self.enable_blob_encryption,
             enable_file_encryption=self.enable_file_encryption,
             enable_https_traffic_only=self.enable_https_traffic_only,
@@ -375,7 +375,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         account_kind=__ret__.get('accountKind'),
         account_replication_type=__ret__.get('accountReplicationType'),
         account_tier=__ret__.get('accountTier'),
-        custom_domain=__ret__.get('customDomain'),
+        custom_domains=__ret__.get('customDomains'),
         enable_blob_encryption=__ret__.get('enableBlobEncryption'),
         enable_file_encryption=__ret__.get('enableFileEncryption'),
         enable_https_traffic_only=__ret__.get('enableHttpsTrafficOnly'),

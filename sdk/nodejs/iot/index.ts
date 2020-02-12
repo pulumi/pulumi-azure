@@ -12,6 +12,7 @@ export * from "./endpointServicebusTopic";
 export * from "./endpointStorageContainer";
 export * from "./fallbackRoute";
 export * from "./getDps";
+export * from "./getDpsSharedAccessPolicy";
 export * from "./getSharedAccessPolicy";
 export * from "./ioTHub";
 export * from "./iotHubCertificate";

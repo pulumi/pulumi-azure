@@ -120,8 +120,8 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        [Output("siteCredential")]
-        public Output<Outputs.FunctionAppSiteCredential> SiteCredential { get; private set; } = null!;
+        [Output("siteCredentials")]
+        public Output<ImmutableArray<Outputs.FunctionAppSiteCredentials>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
         /// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
@@ -422,11 +422,17 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig")]
         public Input<Inputs.FunctionAppSiteConfigGetArgs>? SiteConfig { get; set; }
 
+        [Input("siteCredentials")]
+        private InputList<Inputs.FunctionAppSiteCredentialsGetArgs>? _siteCredentials;
+
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        [Input("siteCredential")]
-        public Input<Inputs.FunctionAppSiteCredentialGetArgs>? SiteCredential { get; set; }
+        public InputList<Inputs.FunctionAppSiteCredentialsGetArgs> SiteCredentials
+        {
+            get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.FunctionAppSiteCredentialsGetArgs>());
+            set => _siteCredentials = value;
+        }
 
         /// <summary>
         /// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
@@ -830,6 +836,14 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         /// </summary>
@@ -855,6 +869,14 @@ namespace Pulumi.Azure.AppService
 
     public sealed class FunctionAppIdentityGetArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         /// </summary>
@@ -903,6 +925,18 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
+
+        [Input("ipRestrictions")]
+        private InputList<FunctionAppSiteConfigIpRestrictionsArgs>? _ipRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public InputList<FunctionAppSiteConfigIpRestrictionsArgs> IpRestrictions
+        {
+            get => _ipRestrictions ?? (_ipRestrictions = new InputList<FunctionAppSiteConfigIpRestrictionsArgs>());
+            set => _ipRestrictions = value;
+        }
 
         /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -1001,6 +1035,18 @@ namespace Pulumi.Azure.AppService
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
 
+        [Input("ipRestrictions")]
+        private InputList<FunctionAppSiteConfigIpRestrictionsGetArgs>? _ipRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public InputList<FunctionAppSiteConfigIpRestrictionsGetArgs> IpRestrictions
+        {
+            get => _ipRestrictions ?? (_ipRestrictions = new InputList<FunctionAppSiteConfigIpRestrictionsGetArgs>());
+            set => _ipRestrictions = value;
+        }
+
         /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         /// </summary>
@@ -1036,7 +1082,33 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class FunctionAppSiteCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppSiteConfigIpRestrictionsArgs : Pulumi.ResourceArgs
+    {
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
+        public FunctionAppSiteConfigIpRestrictionsArgs()
+        {
+        }
+    }
+
+    public sealed class FunctionAppSiteConfigIpRestrictionsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
+        public FunctionAppSiteConfigIpRestrictionsGetArgs()
+        {
+        }
+    }
+
+    public sealed class FunctionAppSiteCredentialsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -1050,7 +1122,7 @@ namespace Pulumi.Azure.AppService
         [Input("username")]
         public Input<string>? Username { get; set; }
 
-        public FunctionAppSiteCredentialGetArgs()
+        public FunctionAppSiteCredentialsGetArgs()
         {
         }
     }
@@ -1237,6 +1309,7 @@ namespace Pulumi.Azure.AppService
     [OutputType]
     public sealed class FunctionAppIdentity
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         /// </summary>
@@ -1252,10 +1325,12 @@ namespace Pulumi.Azure.AppService
 
         [OutputConstructor]
         private FunctionAppIdentity(
+            ImmutableArray<string> identityIds,
             string principalId,
             string tenantId,
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
@@ -1281,6 +1356,10 @@ namespace Pulumi.Azure.AppService
         /// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? Http2Enabled;
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public readonly ImmutableArray<FunctionAppSiteConfigIpRestrictions> IpRestrictions;
         /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         /// </summary>
@@ -1308,6 +1387,7 @@ namespace Pulumi.Azure.AppService
             FunctionAppSiteConfigCors cors,
             string ftpsState,
             bool? http2Enabled,
+            ImmutableArray<FunctionAppSiteConfigIpRestrictions> ipRestrictions,
             string linuxFxVersion,
             string minTlsVersion,
             bool? use32BitWorkerProcess,
@@ -1318,6 +1398,7 @@ namespace Pulumi.Azure.AppService
             Cors = cors;
             FtpsState = ftpsState;
             Http2Enabled = http2Enabled;
+            IpRestrictions = ipRestrictions;
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             Use32BitWorkerProcess = use32BitWorkerProcess;
@@ -1343,7 +1424,23 @@ namespace Pulumi.Azure.AppService
     }
 
     [OutputType]
-    public sealed class FunctionAppSiteCredential
+    public sealed class FunctionAppSiteConfigIpRestrictions
+    {
+        public readonly string? IpAddress;
+        public readonly string? SubnetId;
+
+        [OutputConstructor]
+        private FunctionAppSiteConfigIpRestrictions(
+            string? ipAddress,
+            string? subnetId)
+        {
+            IpAddress = ipAddress;
+            SubnetId = subnetId;
+        }
+    }
+
+    [OutputType]
+    public sealed class FunctionAppSiteCredentials
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -1355,7 +1452,7 @@ namespace Pulumi.Azure.AppService
         public readonly string Username;
 
         [OutputConstructor]
-        private FunctionAppSiteCredential(
+        private FunctionAppSiteCredentials(
             string password,
             string username)
         {

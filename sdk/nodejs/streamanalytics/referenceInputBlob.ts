@@ -8,46 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: azurerm_resource_group_example.location,
- *     resourceGroupName: azurerm_resource_group_example.name,
- * });
- * const exampleContainer = new azure.storage.Container("example", {
- *     containerAccessType: "private",
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     storageAccountName: exampleAccount.name,
- * });
- * const test = new azure.streamanalytics.ReferenceInputBlob("test", {
- *     dateFormat: "yyyy/MM/dd",
- *     pathPattern: "some-random-pattern",
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     serialization: {
- *         encoding: "UTF8",
- *         type: "Json",
- *     },
- *     storageAccountKey: exampleAccount.primaryAccessKey,
- *     storageAccountName: exampleAccount.name,
- *     storageContainerName: exampleContainer.name,
- *     streamAnalyticsJobName: exampleJob.name,
- *     timeFormat: "HH",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_reference_input_blob.html.markdown.
  */

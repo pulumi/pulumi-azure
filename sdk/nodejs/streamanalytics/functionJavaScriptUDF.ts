@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("example", {
- *     inputs: [{
- *         type: "bigint",
- *     }],
- *     output: {
- *         type: "bigint",
- *     },
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     script: `function getRandomNumber(in) {
- *   return in;
- * }
- * `,
- *     streamAnalyticsJobName: exampleJob.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_function_javascript_udf.html.markdown.
  */

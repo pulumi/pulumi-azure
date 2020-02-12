@@ -11,13 +11,23 @@ from .. import utilities, tables
 
 class VirtualNetworkSwiftConnection(pulumi.CustomResource):
     app_service_id: pulumi.Output[str]
+    """
+    The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+    """
     subnet_id: pulumi.Output[str]
+    """
+    The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+    """
     def __init__(__self__, resource_name, opts=None, app_service_id=None, subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a VirtualNetworkSwiftConnection resource with the given unique name, props, and options.
+        Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_service_id: The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,6 +67,10 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_service_id: The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
