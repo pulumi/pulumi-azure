@@ -172,9 +172,6 @@ namespace Pulumi.Azure.Storage
         [Input("list", required: true)]
         public bool List { get; set; }
 
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the Blob Container.
-        /// </summary>
         [Input("read", required: true)]
         public bool Read { get; set; }
 
@@ -197,9 +194,6 @@ namespace Pulumi.Azure.Storage
         public readonly bool Create;
         public readonly bool Delete;
         public readonly bool List;
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the Blob Container.
-        /// </summary>
         public readonly bool Read;
         public readonly bool Write;
 

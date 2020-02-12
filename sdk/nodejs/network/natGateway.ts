@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Azure NAT Gateway.
  * 
  * > **NOTE:** The Azure NAT Gateway service is currently in private preview. Your subscription must be on the NAT Gateway private preview whitelist for this resource to be provisioned correctly. If you attempt to provision this resource and receive an `InvalidResourceType` error may mean that your subscription is not part of the NAT Gateway private preview or you are using a region which does not yet support the NAT Gateway private preview service. The NAT Gateway private preview service is currently available in a limited set of regions. Private preview resources may have multiple breaking changes over their lifecycle until they GA. You can opt into the Private Preview by contacting your Microsoft Representative.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "eastus2",
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     zones: "1",
- * });
- * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("example", {
- *     location: exampleResourceGroup.location,
- *     prefixLength: 30,
- *     resourceGroupName: exampleResourceGroup.name,
- *     zones: "1",
- * });
- * const exampleNatGateway = new azure.network.NatGateway("example", {
- *     idleTimeoutInMinutes: 10,
- *     location: exampleResourceGroup.location,
- *     publicIpAddressIds: [examplePublicIp.id],
- *     publicIpPrefixIds: [examplePublicIpPrefix.id],
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard",
- *     zones: ["1"],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/nat_gateway.html.markdown.
  */

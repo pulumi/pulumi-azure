@@ -12,39 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource cannot be used with with virtual machines, instead use the `azure.lb.NatRule` resource.
  * 
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     frontendIpConfigurations: [{
- *         name: "PublicIPAddress",
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNatPool = new azure.lb.NatPool("example", {
- *     backendPort: 8080,
- *     frontendIpConfigurationName: "PublicIPAddress",
- *     frontendPortEnd: 81,
- *     frontendPortStart: 80,
- *     loadbalancerId: exampleLoadBalancer.id,
- *     protocol: "Tcp",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
  */

@@ -100,7 +100,7 @@ class KubernetesCluster(pulumi.CustomResource):
       * `tenantId` (`str`) - The tenant id of the system assigned identity which is used by master components.
       * `type` (`str`)
     """
-    kube_admin_config: pulumi.Output[dict]
+    kube_admin_configs: pulumi.Output[list]
     """
     A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
     
@@ -115,7 +115,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
     """
-    kube_config: pulumi.Output[dict]
+    kube_configs: pulumi.Output[list]
     """
     A `kube_config` block as defined below.
     
@@ -397,9 +397,9 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
             __props__['fqdn'] = None
-            __props__['kube_admin_config'] = None
+            __props__['kube_admin_configs'] = None
             __props__['kube_admin_config_raw'] = None
-            __props__['kube_config'] = None
+            __props__['kube_configs'] = None
             __props__['kube_config_raw'] = None
             __props__['private_fqdn'] = None
         super(KubernetesCluster, __self__).__init__(
@@ -409,7 +409,7 @@ class KubernetesCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_config=None, kube_admin_config_raw=None, kube_config=None, kube_config_raw=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
+    def get(resource_name, id, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, default_node_pool=None, dns_prefix=None, enable_pod_security_policy=None, fqdn=None, identity=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, private_link_enabled=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, windows_profile=None):
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -425,9 +425,9 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_pod_security_policy: Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[dict] identity: A `identity` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] kube_admin_config: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        :param pulumi.Input[list] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-        :param pulumi.Input[dict] kube_config: A `kube_config` block as defined below.
+        :param pulumi.Input[list] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[dict] linux_profile: A `linux_profile` block as defined below.
@@ -508,7 +508,7 @@ class KubernetesCluster(pulumi.CustomResource):
           * `tenantId` (`pulumi.Input[str]`) - The tenant id of the system assigned identity which is used by master components.
           * `type` (`pulumi.Input[str]`)
         
-        The **kube_admin_config** object supports the following:
+        The **kube_admin_configs** object supports the following:
         
           * `clientCertificate` (`pulumi.Input[str]`) - Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
           * `clientKey` (`pulumi.Input[str]`) - Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
@@ -517,7 +517,7 @@ class KubernetesCluster(pulumi.CustomResource):
           * `password` (`pulumi.Input[str]`) - A password or token used to authenticate to the Kubernetes cluster.
           * `username` (`pulumi.Input[str]`) - A username used to authenticate to the Kubernetes cluster.
         
-        The **kube_config** object supports the following:
+        The **kube_configs** object supports the following:
         
           * `clientCertificate` (`pulumi.Input[str]`) - Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
           * `clientKey` (`pulumi.Input[str]`) - Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
@@ -584,9 +584,9 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__["fqdn"] = fqdn
         __props__["identity"] = identity
-        __props__["kube_admin_config"] = kube_admin_config
+        __props__["kube_admin_configs"] = kube_admin_configs
         __props__["kube_admin_config_raw"] = kube_admin_config_raw
-        __props__["kube_config"] = kube_config
+        __props__["kube_configs"] = kube_configs
         __props__["kube_config_raw"] = kube_config_raw
         __props__["kubernetes_version"] = kubernetes_version
         __props__["linux_profile"] = linux_profile

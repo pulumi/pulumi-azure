@@ -41,7 +41,7 @@ type LookupVirtualNetworkResult struct {
 	Name string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of permission overrides for the subnets as defined below.
-	SubnetOverrides GetVirtualNetworkSubnetOverrides `pulumi:"subnetOverrides"`
+	SubnetOverrides []GetVirtualNetworkSubnetOverride `pulumi:"subnetOverrides"`
 	// The unique immutable identifier of the virtual network.
 	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 }

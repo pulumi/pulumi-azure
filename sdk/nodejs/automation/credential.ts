@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Credential.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- * });
- * const exampleCredential = new azure.automation.Credential("example", {
- *     automationAccountName: exampleAccount.name,
- *     description: "This is an example credential",
- *     password: "examplePwd",
- *     resourceGroupName: exampleResourceGroup.name,
- *     username: "exampleUser",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_credential.html.markdown.
  */

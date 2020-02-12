@@ -6,6 +6,11 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_virtual_network_swift_connection.html.markdown.
+ */
 export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
     /**
      * Get an existing VirtualNetworkSwiftConnection resource's state with the given name, ID, and optional extra
@@ -33,7 +38,13 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualNetworkSwiftConnection.__pulumiType;
     }
 
+    /**
+     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     */
     public readonly appServiceId!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
+     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -76,7 +87,13 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualNetworkSwiftConnection resources.
  */
 export interface VirtualNetworkSwiftConnectionState {
+    /**
+     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     */
     readonly appServiceId?: pulumi.Input<string>;
+    /**
+     * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
+     */
     readonly subnetId?: pulumi.Input<string>;
 }
 
@@ -84,6 +101,12 @@ export interface VirtualNetworkSwiftConnectionState {
  * The set of arguments for constructing a VirtualNetworkSwiftConnection resource.
  */
 export interface VirtualNetworkSwiftConnectionArgs {
+    /**
+     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     */
     readonly appServiceId: pulumi.Input<string>;
+    /**
+     * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
+     */
     readonly subnetId: pulumi.Input<string>;
 }

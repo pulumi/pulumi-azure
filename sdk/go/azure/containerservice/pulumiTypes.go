@@ -2770,36 +2770,25 @@ func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfig
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigOutput)
 }
 
-func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
-	return i.ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterKubeAdminConfigArgs) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigOutput).ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx)
-}
-
-type KubernetesClusterKubeAdminConfigPtrInput interface {
+type KubernetesClusterKubeAdminConfigArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput
-	ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Context) KubernetesClusterKubeAdminConfigPtrOutput
+	ToKubernetesClusterKubeAdminConfigArrayOutput() KubernetesClusterKubeAdminConfigArrayOutput
+	ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(context.Context) KubernetesClusterKubeAdminConfigArrayOutput
 }
 
-type kubernetesClusterKubeAdminConfigPtrType KubernetesClusterKubeAdminConfigArgs
+type KubernetesClusterKubeAdminConfigArray []KubernetesClusterKubeAdminConfigInput
 
-func KubernetesClusterKubeAdminConfigPtr(v *KubernetesClusterKubeAdminConfigArgs) KubernetesClusterKubeAdminConfigPtrInput {	return (*kubernetesClusterKubeAdminConfigPtrType)(v)
+func (KubernetesClusterKubeAdminConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeAdminConfig)(nil)).Elem()
 }
 
-func (*kubernetesClusterKubeAdminConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeAdminConfig)(nil)).Elem()
+func (i KubernetesClusterKubeAdminConfigArray) ToKubernetesClusterKubeAdminConfigArrayOutput() KubernetesClusterKubeAdminConfigArrayOutput {
+	return i.ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(context.Background())
 }
 
-func (i *kubernetesClusterKubeAdminConfigPtrType) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
-	return i.ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterKubeAdminConfigPtrType) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigPtrOutput)
+func (i KubernetesClusterKubeAdminConfigArray) ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeAdminConfigArrayOutput)
 }
 
 type KubernetesClusterKubeAdminConfigOutput struct { *pulumi.OutputState }
@@ -2816,15 +2805,6 @@ func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConf
 	return o
 }
 
-func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
-	return o.ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterKubeAdminConfigOutput) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterKubeAdminConfig) *KubernetesClusterKubeAdminConfig {
-		return &v
-	}).(KubernetesClusterKubeAdminConfigPtrOutput)
-}
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeAdminConfigOutput) ClientCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
@@ -2855,52 +2835,24 @@ func (o KubernetesClusterKubeAdminConfigOutput) Username() pulumi.StringPtrOutpu
 	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeAdminConfigPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterKubeAdminConfigArrayOutput struct { *pulumi.OutputState}
 
-func (KubernetesClusterKubeAdminConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeAdminConfig)(nil)).Elem()
+func (KubernetesClusterKubeAdminConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeAdminConfig)(nil)).Elem()
 }
 
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ToKubernetesClusterKubeAdminConfigPtrOutput() KubernetesClusterKubeAdminConfigPtrOutput {
+func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdminConfigArrayOutput() KubernetesClusterKubeAdminConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ToKubernetesClusterKubeAdminConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigPtrOutput {
+func (o KubernetesClusterKubeAdminConfigArrayOutput) ToKubernetesClusterKubeAdminConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeAdminConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Elem() KubernetesClusterKubeAdminConfigOutput {
-	return o.ApplyT(func (v *KubernetesClusterKubeAdminConfig) KubernetesClusterKubeAdminConfig { return *v }).(KubernetesClusterKubeAdminConfigOutput)
-}
-
-// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes cluster server host.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
-}
-
-// A password or token used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// A username used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeAdminConfigPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeAdminConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o KubernetesClusterKubeAdminConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeAdminConfigOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) KubernetesClusterKubeAdminConfig {
+		return vs[0].([]KubernetesClusterKubeAdminConfig)[vs[1].(int)]
+	}).(KubernetesClusterKubeAdminConfigOutput)
 }
 
 type KubernetesClusterKubeConfig struct {
@@ -2952,36 +2904,25 @@ func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigOutput)
 }
 
-func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
-	return i.ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterKubeConfigArgs) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigOutput).ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx)
-}
-
-type KubernetesClusterKubeConfigPtrInput interface {
+type KubernetesClusterKubeConfigArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput
-	ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Context) KubernetesClusterKubeConfigPtrOutput
+	ToKubernetesClusterKubeConfigArrayOutput() KubernetesClusterKubeConfigArrayOutput
+	ToKubernetesClusterKubeConfigArrayOutputWithContext(context.Context) KubernetesClusterKubeConfigArrayOutput
 }
 
-type kubernetesClusterKubeConfigPtrType KubernetesClusterKubeConfigArgs
+type KubernetesClusterKubeConfigArray []KubernetesClusterKubeConfigInput
 
-func KubernetesClusterKubeConfigPtr(v *KubernetesClusterKubeConfigArgs) KubernetesClusterKubeConfigPtrInput {	return (*kubernetesClusterKubeConfigPtrType)(v)
+func (KubernetesClusterKubeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeConfig)(nil)).Elem()
 }
 
-func (*kubernetesClusterKubeConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeConfig)(nil)).Elem()
+func (i KubernetesClusterKubeConfigArray) ToKubernetesClusterKubeConfigArrayOutput() KubernetesClusterKubeConfigArrayOutput {
+	return i.ToKubernetesClusterKubeConfigArrayOutputWithContext(context.Background())
 }
 
-func (i *kubernetesClusterKubeConfigPtrType) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
-	return i.ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterKubeConfigPtrType) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigPtrOutput)
+func (i KubernetesClusterKubeConfigArray) ToKubernetesClusterKubeConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterKubeConfigArrayOutput)
 }
 
 type KubernetesClusterKubeConfigOutput struct { *pulumi.OutputState }
@@ -2998,15 +2939,6 @@ func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigOutputWi
 	return o
 }
 
-func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
-	return o.ToKubernetesClusterKubeConfigPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterKubeConfigOutput) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterKubeConfig) *KubernetesClusterKubeConfig {
-		return &v
-	}).(KubernetesClusterKubeConfigPtrOutput)
-}
 // Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
 func (o KubernetesClusterKubeConfigOutput) ClientCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
@@ -3037,52 +2969,24 @@ func (o KubernetesClusterKubeConfigOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesClusterKubeConfigPtrOutput struct { *pulumi.OutputState}
+type KubernetesClusterKubeConfigArrayOutput struct { *pulumi.OutputState}
 
-func (KubernetesClusterKubeConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterKubeConfig)(nil)).Elem()
+func (KubernetesClusterKubeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterKubeConfig)(nil)).Elem()
 }
 
-func (o KubernetesClusterKubeConfigPtrOutput) ToKubernetesClusterKubeConfigPtrOutput() KubernetesClusterKubeConfigPtrOutput {
+func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArrayOutput() KubernetesClusterKubeConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeConfigPtrOutput) ToKubernetesClusterKubeConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigPtrOutput {
+func (o KubernetesClusterKubeConfigArrayOutput) ToKubernetesClusterKubeConfigArrayOutputWithContext(ctx context.Context) KubernetesClusterKubeConfigArrayOutput {
 	return o
 }
 
-func (o KubernetesClusterKubeConfigPtrOutput) Elem() KubernetesClusterKubeConfigOutput {
-	return o.ApplyT(func (v *KubernetesClusterKubeConfig) KubernetesClusterKubeConfig { return *v }).(KubernetesClusterKubeConfigOutput)
-}
-
-// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) ClientCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientCertificate }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) ClientKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClientKey }).(pulumi.StringPtrOutput)
-}
-
-// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) ClusterCaCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.ClusterCaCertificate }).(pulumi.StringPtrOutput)
-}
-
-// The Kubernetes cluster server host.
-func (o KubernetesClusterKubeConfigPtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Host }).(pulumi.StringPtrOutput)
-}
-
-// A password or token used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// A username used to authenticate to the Kubernetes cluster.
-func (o KubernetesClusterKubeConfigPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KubernetesClusterKubeConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) KubernetesClusterKubeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) KubernetesClusterKubeConfig {
+		return vs[0].([]KubernetesClusterKubeConfig)[vs[1].(int)]
+	}).(KubernetesClusterKubeConfigOutput)
 }
 
 type KubernetesClusterLinuxProfile struct {
@@ -6967,9 +6871,9 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeAdminConfigArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterKubeConfigOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterKubeConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterKubeConfigArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterLinuxProfileSshKeyOutput{})

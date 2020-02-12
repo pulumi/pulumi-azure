@@ -4857,6 +4857,27 @@ func (i GetLogProfileRetentionPolicyArgs) ToGetLogProfileRetentionPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogProfileRetentionPolicyOutput)
 }
 
+type GetLogProfileRetentionPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetLogProfileRetentionPolicyArrayOutput() GetLogProfileRetentionPolicyArrayOutput
+	ToGetLogProfileRetentionPolicyArrayOutputWithContext(context.Context) GetLogProfileRetentionPolicyArrayOutput
+}
+
+type GetLogProfileRetentionPolicyArray []GetLogProfileRetentionPolicyInput
+
+func (GetLogProfileRetentionPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogProfileRetentionPolicy)(nil)).Elem()
+}
+
+func (i GetLogProfileRetentionPolicyArray) ToGetLogProfileRetentionPolicyArrayOutput() GetLogProfileRetentionPolicyArrayOutput {
+	return i.ToGetLogProfileRetentionPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetLogProfileRetentionPolicyArray) ToGetLogProfileRetentionPolicyArrayOutputWithContext(ctx context.Context) GetLogProfileRetentionPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLogProfileRetentionPolicyArrayOutput)
+}
+
 type GetLogProfileRetentionPolicyOutput struct { *pulumi.OutputState }
 
 func (GetLogProfileRetentionPolicyOutput) ElementType() reflect.Type {
@@ -4879,6 +4900,26 @@ func (o GetLogProfileRetentionPolicyOutput) Days() pulumi.IntOutput {
 // A boolean value indicating whether the retention policy is enabled.
 func (o GetLogProfileRetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func (v GetLogProfileRetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetLogProfileRetentionPolicyArrayOutput struct { *pulumi.OutputState}
+
+func (GetLogProfileRetentionPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLogProfileRetentionPolicy)(nil)).Elem()
+}
+
+func (o GetLogProfileRetentionPolicyArrayOutput) ToGetLogProfileRetentionPolicyArrayOutput() GetLogProfileRetentionPolicyArrayOutput {
+	return o
+}
+
+func (o GetLogProfileRetentionPolicyArrayOutput) ToGetLogProfileRetentionPolicyArrayOutputWithContext(ctx context.Context) GetLogProfileRetentionPolicyArrayOutput {
+	return o
+}
+
+func (o GetLogProfileRetentionPolicyArrayOutput) Index(i pulumi.IntInput) GetLogProfileRetentionPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetLogProfileRetentionPolicy {
+		return vs[0].([]GetLogProfileRetentionPolicy)[vs[1].(int)]
+	}).(GetLogProfileRetentionPolicyOutput)
 }
 
 func init() {
@@ -4966,4 +5007,5 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyArrayOutput{})
 }

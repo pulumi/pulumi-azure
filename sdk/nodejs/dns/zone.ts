@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const examplePublic = new azure.dns.Zone("example-public", {
- *     resourceGroupName: example.name,
- *     zoneType: "Public",
- * });
- * const examplePrivate = new azure.dns.Zone("example-private", {
- *     resourceGroupName: example.name,
- *     zoneType: "Private",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
  */

@@ -10,7 +10,7 @@ from typing import Union
 from .. import utilities, tables
 
 class ElasticPool(pulumi.CustomResource):
-    elastic_pool_properties: pulumi.Output[dict]
+    elastic_pool_properties: pulumi.Output[list]
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

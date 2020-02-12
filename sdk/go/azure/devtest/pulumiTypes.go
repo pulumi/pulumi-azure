@@ -1214,7 +1214,7 @@ func (o GetVirtualNetworkAllowedSubnetArrayOutput) Index(i pulumi.IntInput) GetV
 	}).(GetVirtualNetworkAllowedSubnetOutput)
 }
 
-type GetVirtualNetworkSubnetOverrides struct {
+type GetVirtualNetworkSubnetOverride struct {
 	// The name of the subnet.
 	LabSubnetName string `pulumi:"labSubnetName"`
 	// The resource identifier for the subnet.
@@ -1226,14 +1226,14 @@ type GetVirtualNetworkSubnetOverrides struct {
 	VirtualNetworkPoolName string `pulumi:"virtualNetworkPoolName"`
 }
 
-type GetVirtualNetworkSubnetOverridesInput interface {
+type GetVirtualNetworkSubnetOverrideInput interface {
 	pulumi.Input
 
-	ToGetVirtualNetworkSubnetOverridesOutput() GetVirtualNetworkSubnetOverridesOutput
-	ToGetVirtualNetworkSubnetOverridesOutputWithContext(context.Context) GetVirtualNetworkSubnetOverridesOutput
+	ToGetVirtualNetworkSubnetOverrideOutput() GetVirtualNetworkSubnetOverrideOutput
+	ToGetVirtualNetworkSubnetOverrideOutputWithContext(context.Context) GetVirtualNetworkSubnetOverrideOutput
 }
 
-type GetVirtualNetworkSubnetOverridesArgs struct {
+type GetVirtualNetworkSubnetOverrideArgs struct {
 	// The name of the subnet.
 	LabSubnetName pulumi.StringInput `pulumi:"labSubnetName"`
 	// The resource identifier for the subnet.
@@ -1245,54 +1245,95 @@ type GetVirtualNetworkSubnetOverridesArgs struct {
 	VirtualNetworkPoolName pulumi.StringInput `pulumi:"virtualNetworkPoolName"`
 }
 
-func (GetVirtualNetworkSubnetOverridesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVirtualNetworkSubnetOverrides)(nil)).Elem()
+func (GetVirtualNetworkSubnetOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkSubnetOverride)(nil)).Elem()
 }
 
-func (i GetVirtualNetworkSubnetOverridesArgs) ToGetVirtualNetworkSubnetOverridesOutput() GetVirtualNetworkSubnetOverridesOutput {
-	return i.ToGetVirtualNetworkSubnetOverridesOutputWithContext(context.Background())
+func (i GetVirtualNetworkSubnetOverrideArgs) ToGetVirtualNetworkSubnetOverrideOutput() GetVirtualNetworkSubnetOverrideOutput {
+	return i.ToGetVirtualNetworkSubnetOverrideOutputWithContext(context.Background())
 }
 
-func (i GetVirtualNetworkSubnetOverridesArgs) ToGetVirtualNetworkSubnetOverridesOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverridesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkSubnetOverridesOutput)
+func (i GetVirtualNetworkSubnetOverrideArgs) ToGetVirtualNetworkSubnetOverrideOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkSubnetOverrideOutput)
 }
 
-type GetVirtualNetworkSubnetOverridesOutput struct { *pulumi.OutputState }
+type GetVirtualNetworkSubnetOverrideArrayInput interface {
+	pulumi.Input
 
-func (GetVirtualNetworkSubnetOverridesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVirtualNetworkSubnetOverrides)(nil)).Elem()
+	ToGetVirtualNetworkSubnetOverrideArrayOutput() GetVirtualNetworkSubnetOverrideArrayOutput
+	ToGetVirtualNetworkSubnetOverrideArrayOutputWithContext(context.Context) GetVirtualNetworkSubnetOverrideArrayOutput
 }
 
-func (o GetVirtualNetworkSubnetOverridesOutput) ToGetVirtualNetworkSubnetOverridesOutput() GetVirtualNetworkSubnetOverridesOutput {
+type GetVirtualNetworkSubnetOverrideArray []GetVirtualNetworkSubnetOverrideInput
+
+func (GetVirtualNetworkSubnetOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualNetworkSubnetOverride)(nil)).Elem()
+}
+
+func (i GetVirtualNetworkSubnetOverrideArray) ToGetVirtualNetworkSubnetOverrideArrayOutput() GetVirtualNetworkSubnetOverrideArrayOutput {
+	return i.ToGetVirtualNetworkSubnetOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualNetworkSubnetOverrideArray) ToGetVirtualNetworkSubnetOverrideArrayOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualNetworkSubnetOverrideArrayOutput)
+}
+
+type GetVirtualNetworkSubnetOverrideOutput struct { *pulumi.OutputState }
+
+func (GetVirtualNetworkSubnetOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualNetworkSubnetOverride)(nil)).Elem()
+}
+
+func (o GetVirtualNetworkSubnetOverrideOutput) ToGetVirtualNetworkSubnetOverrideOutput() GetVirtualNetworkSubnetOverrideOutput {
 	return o
 }
 
-func (o GetVirtualNetworkSubnetOverridesOutput) ToGetVirtualNetworkSubnetOverridesOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverridesOutput {
+func (o GetVirtualNetworkSubnetOverrideOutput) ToGetVirtualNetworkSubnetOverrideOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverrideOutput {
 	return o
 }
 
 // The name of the subnet.
-func (o GetVirtualNetworkSubnetOverridesOutput) LabSubnetName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVirtualNetworkSubnetOverrides) string { return v.LabSubnetName }).(pulumi.StringOutput)
+func (o GetVirtualNetworkSubnetOverrideOutput) LabSubnetName() pulumi.StringOutput {
+	return o.ApplyT(func (v GetVirtualNetworkSubnetOverride) string { return v.LabSubnetName }).(pulumi.StringOutput)
 }
 
 // The resource identifier for the subnet.
-func (o GetVirtualNetworkSubnetOverridesOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVirtualNetworkSubnetOverrides) string { return v.ResourceId }).(pulumi.StringOutput)
+func (o GetVirtualNetworkSubnetOverrideOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func (v GetVirtualNetworkSubnetOverride) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 // Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
-func (o GetVirtualNetworkSubnetOverridesOutput) UseInVmCreationPermission() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVirtualNetworkSubnetOverrides) string { return v.UseInVmCreationPermission }).(pulumi.StringOutput)
+func (o GetVirtualNetworkSubnetOverrideOutput) UseInVmCreationPermission() pulumi.StringOutput {
+	return o.ApplyT(func (v GetVirtualNetworkSubnetOverride) string { return v.UseInVmCreationPermission }).(pulumi.StringOutput)
 }
 
-func (o GetVirtualNetworkSubnetOverridesOutput) UsePublicIpAddressPermission() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVirtualNetworkSubnetOverrides) string { return v.UsePublicIpAddressPermission }).(pulumi.StringOutput)
+func (o GetVirtualNetworkSubnetOverrideOutput) UsePublicIpAddressPermission() pulumi.StringOutput {
+	return o.ApplyT(func (v GetVirtualNetworkSubnetOverride) string { return v.UsePublicIpAddressPermission }).(pulumi.StringOutput)
 }
 
 // The virtual network pool associated with this subnet.
-func (o GetVirtualNetworkSubnetOverridesOutput) VirtualNetworkPoolName() pulumi.StringOutput {
-	return o.ApplyT(func (v GetVirtualNetworkSubnetOverrides) string { return v.VirtualNetworkPoolName }).(pulumi.StringOutput)
+func (o GetVirtualNetworkSubnetOverrideOutput) VirtualNetworkPoolName() pulumi.StringOutput {
+	return o.ApplyT(func (v GetVirtualNetworkSubnetOverride) string { return v.VirtualNetworkPoolName }).(pulumi.StringOutput)
+}
+
+type GetVirtualNetworkSubnetOverrideArrayOutput struct { *pulumi.OutputState}
+
+func (GetVirtualNetworkSubnetOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualNetworkSubnetOverride)(nil)).Elem()
+}
+
+func (o GetVirtualNetworkSubnetOverrideArrayOutput) ToGetVirtualNetworkSubnetOverrideArrayOutput() GetVirtualNetworkSubnetOverrideArrayOutput {
+	return o
+}
+
+func (o GetVirtualNetworkSubnetOverrideArrayOutput) ToGetVirtualNetworkSubnetOverrideArrayOutputWithContext(ctx context.Context) GetVirtualNetworkSubnetOverrideArrayOutput {
+	return o
+}
+
+func (o GetVirtualNetworkSubnetOverrideArrayOutput) Index(i pulumi.IntInput) GetVirtualNetworkSubnetOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetVirtualNetworkSubnetOverride {
+		return vs[0].([]GetVirtualNetworkSubnetOverride)[vs[1].(int)]
+	}).(GetVirtualNetworkSubnetOverrideOutput)
 }
 
 func init() {
@@ -1316,5 +1357,6 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineInboundNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkAllowedSubnetOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkAllowedSubnetArrayOutput{})
-	pulumi.RegisterOutputType(GetVirtualNetworkSubnetOverridesOutput{})
+	pulumi.RegisterOutputType(GetVirtualNetworkSubnetOverrideOutput{})
+	pulumi.RegisterOutputType(GetVirtualNetworkSubnetOverrideArrayOutput{})
 }

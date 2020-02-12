@@ -10,28 +10,6 @@ import * as utilities from "../utilities";
  * Manages a Scheduler Job Collection.
  * 
  * > **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West US",
- * });
- * const jobs = new azure.scheduler.JobCollection("jobs", {
- *     location: rg.location,
- *     quota: {
- *         maxJobCount: 5,
- *         maxRecurrenceFrequency: "hour",
- *         maxRecurrenceInterval: 24,
- *     },
- *     resourceGroupName: rg.name,
- *     sku: "free",
- *     state: "enabled",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job_collection.html.markdown.
  */

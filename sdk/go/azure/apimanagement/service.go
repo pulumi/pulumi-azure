@@ -41,6 +41,8 @@ type Service struct {
 	Policy ServicePolicyOutput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	// A `protocols` block as defined below.
+	Protocols ServiceProtocolsOutput `pulumi:"protocols"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayOutput `pulumi:"publicIpAddresses"`
 	// The email of publisher/company.
@@ -126,6 +128,8 @@ type serviceState struct {
 	Policy *ServicePolicy `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl *string `pulumi:"portalUrl"`
+	// A `protocols` block as defined below.
+	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// The email of publisher/company.
@@ -175,6 +179,8 @@ type ServiceState struct {
 	Policy ServicePolicyPtrInput
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringPtrInput
+	// A `protocols` block as defined below.
+	Protocols ServiceProtocolsPtrInput
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput
 	// The email of publisher/company.
@@ -220,6 +226,8 @@ type serviceArgs struct {
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
 	// A `policy` block as defined below.
 	Policy *ServicePolicy `pulumi:"policy"`
+	// A `protocols` block as defined below.
+	Protocols *ServiceProtocols `pulumi:"protocols"`
 	// The email of publisher/company.
 	PublisherEmail string `pulumi:"publisherEmail"`
 	// The name of publisher/company.
@@ -258,6 +266,8 @@ type ServiceArgs struct {
 	NotificationSenderEmail pulumi.StringPtrInput
 	// A `policy` block as defined below.
 	Policy ServicePolicyPtrInput
+	// A `protocols` block as defined below.
+	Protocols ServiceProtocolsPtrInput
 	// The email of publisher/company.
 	PublisherEmail pulumi.StringInput
 	// The name of publisher/company.

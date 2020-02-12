@@ -8,42 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Stream Input IoTHub.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     location: azurerm_resource_group_example.location,
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     sku: {
- *         capacity: 1,
- *         name: "S1",
- *     },
- * });
- * const exampleStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("example", {
- *     endpoint: "messages/events",
- *     eventhubConsumerGroupName: "$Default",
- *     iothubNamespace: exampleIoTHub.name,
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     serialization: {
- *         encoding: "UTF8",
- *         type: "Json",
- *     },
- *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies[0].primaryKey,
- *     sharedAccessPolicyName: "iothubowner",
- *     streamAnalyticsJobName: exampleJob.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_iothub.html.markdown.
  */

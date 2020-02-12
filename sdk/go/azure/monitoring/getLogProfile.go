@@ -36,7 +36,7 @@ type LookupLogProfileResult struct {
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations []string `pulumi:"locations"`
 	Name string `pulumi:"name"`
-	RetentionPolicy GetLogProfileRetentionPolicy `pulumi:"retentionPolicy"`
+	RetentionPolicies []GetLogProfileRetentionPolicy `pulumi:"retentionPolicies"`
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
 	ServicebusRuleId string `pulumi:"servicebusRuleId"`
 	// The resource id of the storage account in which the Activity Log is stored.

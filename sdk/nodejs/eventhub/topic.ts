@@ -10,30 +10,6 @@ import * as utilities from "../utilities";
  * Manages a ServiceBus Topic.
  * 
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleTopic = new azure.servicebus.Topic("example", {
- *     enablePartitioning: true,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_legacy.html.markdown.
  */

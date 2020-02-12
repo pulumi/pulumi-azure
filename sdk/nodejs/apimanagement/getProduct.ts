@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management Product.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.apimanagement.getProduct({
- *     apiManagementName: "example-apim",
- *     productId: "my-product",
- *     resourceGroupName: "search-service",
- * });
- * 
- * export const productTerms = example.terms;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
  */

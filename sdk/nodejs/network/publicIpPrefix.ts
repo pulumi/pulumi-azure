@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Public IP Prefix.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("example", {
- *     location: exampleResourceGroup.location,
- *     prefixLength: 31,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip_prefix.html.markdown.
  */

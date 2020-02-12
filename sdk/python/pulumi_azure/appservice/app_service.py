@@ -62,6 +62,21 @@ class AppService(pulumi.CustomResource):
       * `unauthenticatedClientAction` (`str`)
     """
     backup: pulumi.Output[dict]
+    """
+    A `backup` block as defined below.
+    
+      * `enabled` (`bool`) - Is the App Service Enabled?
+      * `name` (`str`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+      * `schedule` (`dict`)
+    
+        * `frequencyInterval` (`float`)
+        * `frequencyUnit` (`str`)
+        * `keepAtLeastOneBackup` (`bool`)
+        * `retentionPeriodInDays` (`float`)
+        * `startTime` (`str`)
+    
+      * `storageAccountUrl` (`str`)
+    """
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -182,14 +197,14 @@ class AppService(pulumi.CustomResource):
       * `websocketsEnabled` (`bool`)
       * `windowsFxVersion` (`str`)
     """
-    site_credential: pulumi.Output[dict]
+    site_credentials: pulumi.Output[list]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
     
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
-    source_control: pulumi.Output[dict]
+    source_controls: pulumi.Output[list]
     """
     A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
     
@@ -222,6 +237,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[dict] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[list] connection_strings: One or more `connection_string` blocks as defined below.
@@ -415,8 +431,8 @@ class AppService(pulumi.CustomResource):
             __props__['default_site_hostname'] = None
             __props__['outbound_ip_addresses'] = None
             __props__['possible_outbound_ip_addresses'] = None
-            __props__['site_credential'] = None
-            __props__['source_control'] = None
+            __props__['site_credentials'] = None
+            __props__['source_controls'] = None
         super(AppService, __self__).__init__(
             'azure:appservice/appService:AppService',
             resource_name,
@@ -424,7 +440,7 @@ class AppService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credential=None, source_control=None, storage_accounts=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, source_controls=None, storage_accounts=None, tags=None):
         """
         Get an existing AppService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -435,6 +451,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[dict] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[list] connection_strings: One or more `connection_string` blocks as defined below.
@@ -449,8 +466,8 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[dict] source_control: A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+        :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[list] source_controls: A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
@@ -581,12 +598,12 @@ class AppService(pulumi.CustomResource):
           * `websocketsEnabled` (`pulumi.Input[bool]`)
           * `windowsFxVersion` (`pulumi.Input[str]`)
         
-        The **site_credential** object supports the following:
+        The **site_credentials** object supports the following:
         
           * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
           * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
         
-        The **source_control** object supports the following:
+        The **source_controls** object supports the following:
         
           * `branch` (`pulumi.Input[str]`) - Branch name of the Git repository for this App Service.
           * `repoUrl` (`pulumi.Input[str]`) - URL of the Git repository for this App Service.
@@ -623,8 +640,8 @@ class AppService(pulumi.CustomResource):
         __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
-        __props__["site_credential"] = site_credential
-        __props__["source_control"] = source_control
+        __props__["site_credentials"] = site_credentials
+        __props__["source_controls"] = source_controls
         __props__["storage_accounts"] = storage_accounts
         __props__["tags"] = tags
         return AppService(resource_name, opts=opts, __props__=__props__)

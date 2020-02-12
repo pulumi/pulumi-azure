@@ -6,25 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Insights component.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
- *     applicationType: "web",
- *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * 
- * export const instrumentationKey = exampleInsights.instrumentationKey;
- * export const appId = exampleInsights.appId;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
  */

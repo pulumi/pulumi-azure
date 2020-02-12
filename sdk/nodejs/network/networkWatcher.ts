@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Watcher.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleNetworkWatcher = new azure.network.NetworkWatcher("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_watcher.html.markdown.
  */

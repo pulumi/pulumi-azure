@@ -10,113 +10,6 @@ import * as utilities from "../utilities";
  * Manages an App Service Slot (within an App Service).
  * 
  * > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
- * 
- * 
- * ## Example Usage (.net 4.x)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         azi_id: 1,
- *     },
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const examplePlan = new azure.appservice.Plan("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         size: "S1",
- *         tier: "Standard",
- *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("example", {
- *     appServicePlanId: examplePlan.id,
- *     appSettings: {
- *         SOME_KEY: "some-value",
- *     },
- *     connectionStrings: [{
- *         name: "Database",
- *         type: "SQLServer",
- *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     siteConfig: {
- *         dotnetFrameworkVersion: "v4.0",
- *     },
- * });
- * const exampleSlot = new azure.appservice.Slot("example", {
- *     appServiceName: exampleAppService.name,
- *     appServicePlanId: examplePlan.id,
- *     appSettings: {
- *         SOME_KEY: "some-value",
- *     },
- *     connectionStrings: [{
- *         name: "Database",
- *         type: "SQLServer",
- *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     siteConfig: {
- *         dotnetFrameworkVersion: "v4.0",
- *     },
- * });
- * ```
- * 
- * ## Example Usage (Java 1.8)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         azi_id: 1,
- *     },
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const examplePlan = new azure.appservice.Plan("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         size: "S1",
- *         tier: "Standard",
- *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("example", {
- *     appServicePlanId: examplePlan.id,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     siteConfig: {
- *         javaContainer: "JETTY",
- *         javaContainerVersion: "9.3",
- *         javaVersion: "1.8",
- *     },
- * });
- * const exampleSlot = new azure.appservice.Slot("example", {
- *     appServiceName: exampleAppService.name,
- *     appServicePlanId: examplePlan.id,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     siteConfig: {
- *         javaContainer: "JETTY",
- *         javaContainerVersion: "9.3",
- *         javaVersion: "1.8",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
  */
@@ -207,7 +100,7 @@ export class Slot extends pulumi.CustomResource {
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential!: pulumi.Output<outputs.appservice.SlotSiteCredential>;
+    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.SlotSiteCredential[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -240,7 +133,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
-            inputs["siteCredential"] = state ? state.siteCredential : undefined;
+            inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SlotArgs | undefined;
@@ -269,7 +162,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSiteHostname"] = undefined /*out*/;
-            inputs["siteCredential"] = undefined /*out*/;
+            inputs["siteCredentials"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -346,7 +239,7 @@ export interface SlotState {
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    readonly siteCredential?: pulumi.Input<inputs.appservice.SlotSiteCredential>;
+    readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteCredential>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

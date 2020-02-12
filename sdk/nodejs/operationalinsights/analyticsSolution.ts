@@ -8,41 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Log Analytics (formally Operational Insights) Solution.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westeurope",
- * });
- * const workspace = new random.RandomId("workspace", {
- *     byteLength: 8,
- *     keepers: {
- *         // Generate a new id each time we switch to a new resource group
- *         group_name: exampleResourceGroup.name,
- *     },
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
- *     location: exampleResourceGroup.location,
- *     plan: {
- *         product: "OMSGallery/ContainerInsights",
- *         publisher: "Microsoft",
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- *     solutionName: "ContainerInsights",
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
  */

@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Group.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     publisherEmail: "pub1@email.com",
- *     publisherName: "pub1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * const exampleGroup = new azure.apimanagement.Group("example", {
- *     apiManagementName: exampleService.name,
- *     description: "This is an example API management group.",
- *     displayName: "Example Group",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group.html.markdown.
  */

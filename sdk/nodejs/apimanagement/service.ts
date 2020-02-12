@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     policy: {
- *         xmlContent: `    <policies>
- *       <inbound />
- *       <backend />
- *       <outbound />
- *       <on-error />
- *     </policies>
- * `,
- *     },
- *     publisherEmail: "company@exmaple.com",
- *     publisherName: "My Company",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
  */
@@ -114,6 +87,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
+     * A `protocols` block as defined below.
+     */
+    public readonly protocols!: pulumi.Output<outputs.apimanagement.ServiceProtocols>;
+    /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
     public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
@@ -182,6 +159,7 @@ export class Service extends pulumi.CustomResource {
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
+            inputs["protocols"] = state ? state.protocols : undefined;
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
             inputs["publisherName"] = state ? state.publisherName : undefined;
@@ -212,6 +190,7 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["protocols"] = args ? args.protocols : undefined;
             inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -291,6 +270,10 @@ export interface ServiceState {
      * The URL for the Publisher Portal associated with this API Management service.
      */
     readonly portalUrl?: pulumi.Input<string>;
+    /**
+     * A `protocols` block as defined below.
+     */
+    readonly protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
@@ -373,6 +356,10 @@ export interface ServiceArgs {
      * A `policy` block as defined below.
      */
     readonly policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
+    /**
+     * A `protocols` block as defined below.
+     */
+    readonly protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
      * The email of publisher/company.
      */

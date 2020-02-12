@@ -41,7 +41,7 @@ class Workspace(pulumi.CustomResource):
     """
     sku: pulumi.Output[str]
     """
-    The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
+    The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -58,7 +58,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **custom_parameters** object supports the following:
@@ -120,7 +120,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] managed_resource_group_name: The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **custom_parameters** object supports the following:

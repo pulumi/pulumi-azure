@@ -8,37 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Logger within an API Management Service.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleInsights = new azure.appinsights.Insights("example", {
- *     applicationType: "Other",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleService = new azure.apimanagement.Service("example", {
- *     location: exampleResourceGroup.location,
- *     publisherEmail: "company@exmaple.com",
- *     publisherName: "My Company",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Developer_1",
- * });
- * const exampleLogger = new azure.apimanagement.Logger("example", {
- *     apiManagementName: exampleService.name,
- *     applicationInsights: {
- *         instrumentationKey: exampleInsights.instrumentationKey,
- *     },
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
  */

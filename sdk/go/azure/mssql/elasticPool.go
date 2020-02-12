@@ -17,7 +17,7 @@ import (
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
-	ElasticPoolProperties ElasticPoolElasticPoolPropertiesOutput `pulumi:"elasticPoolProperties"`
+	ElasticPoolProperties ElasticPoolElasticPoolPropertyArrayOutput `pulumi:"elasticPoolProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -80,7 +80,7 @@ func GetElasticPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type elasticPoolState struct {
-	ElasticPoolProperties *ElasticPoolElasticPoolProperties `pulumi:"elasticPoolProperties"`
+	ElasticPoolProperties []ElasticPoolElasticPoolProperty `pulumi:"elasticPoolProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
@@ -104,7 +104,7 @@ type elasticPoolState struct {
 }
 
 type ElasticPoolState struct {
-	ElasticPoolProperties ElasticPoolElasticPoolPropertiesPtrInput
+	ElasticPoolProperties ElasticPoolElasticPoolPropertyArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.

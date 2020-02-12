@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the access key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West US",
- * });
- * const acr = new azure.containerservice.Registry("acr", {
- *     adminEnabled: false,
- *     georeplicationLocations: [
- *         "East US",
- *         "West Europe",
- *     ],
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     sku: "Premium",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
  */

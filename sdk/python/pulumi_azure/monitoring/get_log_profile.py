@@ -13,7 +13,7 @@ class GetLogProfileResult:
     """
     A collection of values returned by getLogProfile.
     """
-    def __init__(__self__, categories=None, locations=None, name=None, retention_policy=None, servicebus_rule_id=None, storage_account_id=None, id=None):
+    def __init__(__self__, categories=None, locations=None, name=None, retention_policies=None, servicebus_rule_id=None, storage_account_id=None, id=None):
         if categories and not isinstance(categories, list):
             raise TypeError("Expected argument 'categories' to be a list")
         __self__.categories = categories
@@ -29,9 +29,9 @@ class GetLogProfileResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        if retention_policy and not isinstance(retention_policy, dict):
-            raise TypeError("Expected argument 'retention_policy' to be a dict")
-        __self__.retention_policy = retention_policy
+        if retention_policies and not isinstance(retention_policies, list):
+            raise TypeError("Expected argument 'retention_policies' to be a list")
+        __self__.retention_policies = retention_policies
         if servicebus_rule_id and not isinstance(servicebus_rule_id, str):
             raise TypeError("Expected argument 'servicebus_rule_id' to be a str")
         __self__.servicebus_rule_id = servicebus_rule_id
@@ -59,7 +59,7 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
             categories=self.categories,
             locations=self.locations,
             name=self.name,
-            retention_policy=self.retention_policy,
+            retention_policies=self.retention_policies,
             servicebus_rule_id=self.servicebus_rule_id,
             storage_account_id=self.storage_account_id,
             id=self.id)
@@ -85,7 +85,7 @@ def get_log_profile(name=None,opts=None):
         categories=__ret__.get('categories'),
         locations=__ret__.get('locations'),
         name=__ret__.get('name'),
-        retention_policy=__ret__.get('retentionPolicy'),
+        retention_policies=__ret__.get('retentionPolicies'),
         servicebus_rule_id=__ret__.get('servicebusRuleId'),
         storage_account_id=__ret__.get('storageAccountId'),
         id=__ret__.get('id'))

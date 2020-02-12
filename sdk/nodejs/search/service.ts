@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure Search Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleService = new azure.search.Service("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "standard",
- *     tags: {
- *         database: "test",
- *         environment: "staging",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
  */

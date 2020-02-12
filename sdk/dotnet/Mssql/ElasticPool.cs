@@ -16,7 +16,7 @@ namespace Pulumi.Azure.MSSql
     public partial class ElasticPool : Pulumi.CustomResource
     {
         [Output("elasticPoolProperties")]
-        public Output<Outputs.ElasticPoolElasticPoolProperties> ElasticPoolProperties { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ElasticPoolElasticPoolProperties>> ElasticPoolProperties { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -198,7 +198,12 @@ namespace Pulumi.Azure.MSSql
     public sealed class ElasticPoolState : Pulumi.ResourceArgs
     {
         [Input("elasticPoolProperties")]
-        public Input<Inputs.ElasticPoolElasticPoolPropertiesGetArgs>? ElasticPoolProperties { get; set; }
+        private InputList<Inputs.ElasticPoolElasticPoolPropertiesGetArgs>? _elasticPoolProperties;
+        public InputList<Inputs.ElasticPoolElasticPoolPropertiesGetArgs> ElasticPoolProperties
+        {
+            get => _elasticPoolProperties ?? (_elasticPoolProperties = new InputList<Inputs.ElasticPoolElasticPoolPropertiesGetArgs>());
+            set => _elasticPoolProperties = value;
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

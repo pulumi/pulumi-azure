@@ -12,37 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE on Virtual Networks and Subnet's:** This provider currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.1.0/24",
- *     delegations: [{
- *         name: "acctestdelegation",
- *         serviceDelegation: {
- *             actions: [
- *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
- *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
- *             ],
- *             name: "Microsoft.ContainerInstance/containerGroups",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
  */

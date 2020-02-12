@@ -6,37 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MySQL Database within a MySQL Server
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.mysql.Server("example", {
- *     administratorLogin: "mysqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     sslEnforcement: "Enabled",
- *     storageProfile: {
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *         storageMb: 5120,
- *     },
- *     version: "5.7",
- * });
- * const exampleDatabase = new azure.mysql.Database("example", {
- *     charset: "utf8",
- *     collation: "utf8UnicodeCi",
- *     resourceGroupName: exampleResourceGroup.name,
- *     serverName: exampleServer.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_database.html.markdown.
  */

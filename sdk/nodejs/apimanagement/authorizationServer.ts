@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Server within an API Management Service.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleApi = azure.apimanagement.getApi({
- *     apiManagementName: "search-api-management",
- *     name: "search-api",
- *     resourceGroupName: "search-service",
- *     revision: "2",
- * });
- * const exampleAuthorizationServer = new azure.apimanagement.AuthorizationServer("example", {
- *     apiManagementName: azurerm_api_management_example.name,
- *     authorizationEndpoint: "https://example.mydomain.com/client/authorize",
- *     clientId: "42424242-4242-4242-4242-424242424242",
- *     clientRegistrationEndpoint: "https://example.mydomain.com/client/register",
- *     displayName: "Test Server",
- *     grantTypes: ["authorizationCode"],
- *     resourceGroupName: azurerm_api_management_example.resourceGroupName,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
  */

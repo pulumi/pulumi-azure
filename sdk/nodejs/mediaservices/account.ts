@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Media Services Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleStorageAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleAccount = new azure.mediaservices.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccounts: [{
- *         id: exampleStorageAccount.id,
- *         isPrimary: true,
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
  */

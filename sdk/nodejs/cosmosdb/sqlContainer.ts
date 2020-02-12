@@ -8,27 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a SQL Container within a Cosmos DB Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = new azure.cosmosdb.SqlContainer("example", {
- *     accountName: azurerm_cosmosdb_account_example.name,
- *     databaseName: azurerm_cosmosdb_sql_database_example.name,
- *     partitionKeyPath: "/definition/id",
- *     resourceGroupName: azurerm_cosmosdb_account_example.resourceGroupName,
- *     throughput: 400,
- *     uniqueKeys: [{
- *         paths: [
- *             "/definition/idlong",
- *             "/definition/idshort",
- *         ],
- *     }],
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_sql_container.html.markdown.
  */

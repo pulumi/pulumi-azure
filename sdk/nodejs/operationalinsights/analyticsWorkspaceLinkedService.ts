@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
  * Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
  * 
  * > **NOTE:** This resource has been deprecated in favour of the `azure.loganalytics.LinkedService` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
- * 
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleAccount = new azure.automation.Account("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
- *         name: "Basic",
- *     },
- *     tags: {
- *         environment: "development",
- *     },
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     retentionInDays: 30,
- *     sku: "PerGB2018",
- * });
- * const exampleAnalyticsWorkspaceLinkedService = new azure.operationalinsights.AnalyticsWorkspaceLinkedService("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     resourceId: exampleAccount.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_workspace_linked_service.html.markdown.
  */

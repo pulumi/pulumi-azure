@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS PTR Records within Azure Private DNS.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleZone = new azure.privatedns.Zone("example", {
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const examplePTRRecord = new azure.privatedns.PTRRecord("example", {
- *     records: ["test.example.com"],
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     zoneName: exampleZone.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_ptr_record.html.markdown.
  */

@@ -48,7 +48,7 @@ type GetServiceResult struct {
 	// The name of private link service NAT IP configuration.
 	Name string `pulumi:"name"`
 	// The `natIpConfiguration` block as defined below.
-	NatIpConfiguration GetServiceNatIpConfiguration `pulumi:"natIpConfiguration"`
+	NatIpConfigurations []GetServiceNatIpConfiguration `pulumi:"natIpConfigurations"`
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.

@@ -107,7 +107,7 @@ def get_account_blob_container_sas(cache_control=None,connection_string=None,con
       * `create` (`bool`)
       * `delete` (`bool`)
       * `list` (`bool`)
-      * `read` (`bool`) - (Defaults to 5 minutes) Used when retrieving the Blob Container.
+      * `read` (`bool`)
       * `write` (`bool`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_blob_container_sas.html.markdown.

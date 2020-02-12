@@ -136,9 +136,6 @@ namespace Pulumi.Azure.Storage
         [Input("process", required: true)]
         public bool Process { get; set; }
 
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the SAS Token.
-        /// </summary>
         [Input("read", required: true)]
         public bool Read { get; set; }
 
@@ -200,9 +197,6 @@ namespace Pulumi.Azure.Storage
         public readonly bool Delete;
         public readonly bool List;
         public readonly bool Process;
-        /// <summary>
-        /// (Defaults to 5 minutes) Used when retrieving the SAS Token.
-        /// </summary>
         public readonly bool Read;
         public readonly bool Update;
         public readonly bool Write;

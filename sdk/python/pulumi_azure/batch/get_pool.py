@@ -135,12 +135,12 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
     
     The **network_configuration** object supports the following:
     
-      * `endpointConfiguration` (`dict`) - (Optional) The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+      * `endpointConfiguration` (`dict`) - The inbound NAT pools that are used to address specific ports on the individual compute node externally.
     
         * `backendPort` (`float`) - The port number on the compute node.
         * `frontendPortRange` (`str`) - The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
         * `name` (`str`) - The name of the endpoint.
-        * `networkSecurityGroupRules` (`list`) - (Optional) The list of network security group rules that are applied to the endpoint.
+        * `networkSecurityGroupRules` (`list`) - The list of network security group rules that are applied to the endpoint.
     
           * `access` (`str`) - The action that should be taken for a specified IP address, subnet range or tag.
           * `priority` (`float`) - The priority for this rule.
@@ -148,14 +148,14 @@ def get_pool(account_name=None,certificates=None,name=None,network_configuration
     
         * `protocol` (`str`) - The protocol of the endpoint.
     
-      * `subnet_id` (`str`) - (Optional) The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
+      * `subnet_id` (`str`) - The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
     
     The **start_task** object supports the following:
     
       * `commandLine` (`str`) - The command line executed by the start task.
       * `environment` (`dict`) - A map of strings (key,value) that represents the environment variables to set in the start task.
       * `maxTaskRetryCount` (`float`) - The number of retry count.
-      * `resourceFiles` (`list`) - (Optional) One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+      * `resourceFiles` (`list`) - One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
     
         * `autoStorageContainerName` (`str`) - The storage container name in the auto storage account.
         * `blobPrefix` (`str`) - The blob prefix used when downloading blobs from an Azure Storage container.

@@ -7,6 +7,8 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an API Management Twitter Identity Provider.
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_identity_provider_twitter.html.markdown.
  */
 export class IdentityProviderTwitter extends pulumi.CustomResource {

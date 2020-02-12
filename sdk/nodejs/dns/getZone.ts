@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing DNS Zone.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = azure.dns.getZone({
- *     name: "search-eventhubns",
- *     resourceGroupName: "search-service",
- * });
- * 
- * export const dnsZoneId = example.id;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
  */

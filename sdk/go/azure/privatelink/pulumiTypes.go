@@ -629,6 +629,27 @@ func (i GetServiceNatIpConfigurationArgs) ToGetServiceNatIpConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNatIpConfigurationOutput)
 }
 
+type GetServiceNatIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceNatIpConfigurationArrayOutput() GetServiceNatIpConfigurationArrayOutput
+	ToGetServiceNatIpConfigurationArrayOutputWithContext(context.Context) GetServiceNatIpConfigurationArrayOutput
+}
+
+type GetServiceNatIpConfigurationArray []GetServiceNatIpConfigurationInput
+
+func (GetServiceNatIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNatIpConfiguration)(nil)).Elem()
+}
+
+func (i GetServiceNatIpConfigurationArray) ToGetServiceNatIpConfigurationArrayOutput() GetServiceNatIpConfigurationArrayOutput {
+	return i.ToGetServiceNatIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceNatIpConfigurationArray) ToGetServiceNatIpConfigurationArrayOutputWithContext(ctx context.Context) GetServiceNatIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNatIpConfigurationArrayOutput)
+}
+
 type GetServiceNatIpConfigurationOutput struct { *pulumi.OutputState }
 
 func (GetServiceNatIpConfigurationOutput) ElementType() reflect.Type {
@@ -668,6 +689,26 @@ func (o GetServiceNatIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func (v GetServiceNatIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
+type GetServiceNatIpConfigurationArrayOutput struct { *pulumi.OutputState}
+
+func (GetServiceNatIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNatIpConfiguration)(nil)).Elem()
+}
+
+func (o GetServiceNatIpConfigurationArrayOutput) ToGetServiceNatIpConfigurationArrayOutput() GetServiceNatIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceNatIpConfigurationArrayOutput) ToGetServiceNatIpConfigurationArrayOutputWithContext(ctx context.Context) GetServiceNatIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceNatIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) GetServiceNatIpConfiguration {
+		return vs[0].([]GetServiceNatIpConfiguration)[vs[1].(int)]
+	}).(GetServiceNatIpConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateServiceConnectionPtrOutput{})
@@ -678,4 +719,5 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceEndpointConnectionsPrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceNatIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetServiceNatIpConfigurationArrayOutput{})
 }

@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Rule for a ServiceBus Queue.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "example",
- *     },
- * });
- * const exampleQueue = new azure.servicebus.Queue("example", {
- *     enablePartitioning: true,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("example", {
- *     listen: true,
- *     manage: false,
- *     namespaceName: exampleNamespace.name,
- *     queueName: exampleQueue.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     send: true,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule_legacy.html.markdown.
  */

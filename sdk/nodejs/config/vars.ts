@@ -58,6 +58,10 @@ export let skipCredentialsValidation: boolean | undefined = __config.getObject<b
  */
 export let skipProviderRegistration: boolean | undefined = __config.getObject<boolean>("skipProviderRegistration") || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
 /**
+ * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+ */
+export let storageUseAzuread: boolean | undefined = __config.getObject<boolean>("storageUseAzuread");
+/**
  * The Subscription ID which should be used.
  */
 export let subscriptionId: string | undefined = __config.get("subscriptionId") || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");

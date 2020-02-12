@@ -18,6 +18,10 @@ class Key(pulumi.CustomResource):
     """
     The RSA public exponent of this Key Vault Key.
     """
+    expiration_date: pulumi.Output[str]
+    """
+    Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+    """
     key_opts: pulumi.Output[list]
     """
     A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
@@ -42,6 +46,10 @@ class Key(pulumi.CustomResource):
     """
     Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
     """
+    not_before_date: pulumi.Output[str]
+    """
+    Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -59,18 +67,20 @@ class Key(pulumi.CustomResource):
     """
     The EC Y component of this Key Vault Key.
     """
-    def __init__(__self__, resource_name, opts=None, curve=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, curve=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, not_before_date=None, tags=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Key.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[list] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         :param pulumi.Input[float] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
@@ -93,6 +103,7 @@ class Key(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['curve'] = curve
+            __props__['expiration_date'] = expiration_date
             if key_opts is None:
                 raise TypeError("Missing required property 'key_opts'")
             __props__['key_opts'] = key_opts
@@ -102,6 +113,7 @@ class Key(pulumi.CustomResource):
             __props__['key_type'] = key_type
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
+            __props__['not_before_date'] = not_before_date
             __props__['tags'] = tags
             __props__['vault_uri'] = vault_uri
             __props__['e'] = None
@@ -116,7 +128,7 @@ class Key(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, curve=None, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, vault_uri=None, version=None, x=None, y=None):
+    def get(resource_name, id, opts=None, curve=None, e=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, not_before_date=None, tags=None, vault_uri=None, version=None, x=None, y=None):
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,12 +138,14 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] e: The RSA public exponent of this Key Vault Key.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[list] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         :param pulumi.Input[float] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] n: The RSA modulus of this Key Vault Key.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] x: The EC X component of this Key Vault Key.
@@ -144,12 +158,14 @@ class Key(pulumi.CustomResource):
         __props__ = dict()
         __props__["curve"] = curve
         __props__["e"] = e
+        __props__["expiration_date"] = expiration_date
         __props__["key_opts"] = key_opts
         __props__["key_size"] = key_size
         __props__["key_type"] = key_type
         __props__["key_vault_id"] = key_vault_id
         __props__["n"] = n
         __props__["name"] = name
+        __props__["not_before_date"] = not_before_date
         __props__["tags"] = tags
         __props__["vault_uri"] = vault_uri
         __props__["version"] = version

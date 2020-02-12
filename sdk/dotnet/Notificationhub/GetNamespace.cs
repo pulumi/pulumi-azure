@@ -50,7 +50,7 @@ namespace Pulumi.Azure.NotificationHub
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+        /// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
         /// </summary>
         public readonly string Name;
         /// <summary>

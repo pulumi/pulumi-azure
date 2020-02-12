@@ -22,7 +22,8 @@ import * as utilities from "../utilities";
  *     metadata: `    {
  *     "category": "General"
  *     }
- *   `,
+ *   
+ * `,
  *     mode: "Indexed",
  *     parameters: `	{
  *     "allowedLocations": {

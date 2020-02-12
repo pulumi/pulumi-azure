@@ -100,6 +100,10 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 		return v
 	}
 	return getEnvOrDefault(false, parseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION").(bool)}
+// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+func GetStorageUseAzuread(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azure:storageUseAzuread")
+}
 // The Subscription ID which should be used.
 func GetSubscriptionId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:subscriptionId")

@@ -10,35 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource has been deprecated in favour of the `azure.siterecovery.ProtectionContainer` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
  * Manages a Azure recovery vault protection container.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primary = new azure.core.ResourceGroup("primary", {
- *     location: "West US",
- * });
- * const secondary = new azure.core.ResourceGroup("secondary", {
- *     location: "East US",
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondary.location,
- *     resourceGroupName: secondary.name,
- *     sku: "Standard",
- * });
- * const fabric = new azure.recoveryservices.Fabric("fabric", {
- *     location: primary.location,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondary.name,
- * });
- * const protectionContainer = new azure.recoveryservices.ProtectionContainer("protection-container", {
- *     recoveryFabricName: fabric.name,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondary.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_container.html.markdown.
  */

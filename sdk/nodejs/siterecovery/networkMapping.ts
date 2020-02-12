@@ -6,53 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const primaryResourceGroup = new azure.core.ResourceGroup("primary", {
- *     location: "West US",
- * });
- * const secondaryResourceGroup = new azure.core.ResourceGroup("secondary", {
- *     location: "East US",
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondaryResourceGroup.location,
- *     resourceGroupName: secondaryResourceGroup.name,
- *     sku: "Standard",
- * });
- * const primaryFabric = new azure.siterecovery.Fabric("primary", {
- *     location: primaryResourceGroup.location,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const secondaryFabric = new azure.siterecovery.Fabric("secondary", {
- *     location: secondaryResourceGroup.location,
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- * }, {dependsOn: [primaryFabric]});
- * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
- *     addressSpaces: ["192.168.1.0/24"],
- *     location: primaryResourceGroup.location,
- *     resourceGroupName: primaryResourceGroup.name,
- * });
- * const secondaryVirtualNetwork = new azure.network.VirtualNetwork("secondary", {
- *     addressSpaces: ["192.168.2.0/24"],
- *     location: secondaryResourceGroup.location,
- *     resourceGroupName: secondaryResourceGroup.name,
- * });
- * const recoveryMapping = new azure.siterecovery.NetworkMapping("recovery-mapping", {
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondaryResourceGroup.name,
- *     sourceNetworkId: primaryVirtualNetwork.id,
- *     sourceRecoveryFabricName: "primary-fabric",
- *     targetNetworkId: secondaryVirtualNetwork.id,
- *     targetRecoveryFabricName: "secondary-fabric",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/site_recovery_network_mapping.html.markdown.
  */

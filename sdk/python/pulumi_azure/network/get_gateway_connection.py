@@ -101,7 +101,7 @@ class GetGatewayConnectionResult:
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
-        (Optional) A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")

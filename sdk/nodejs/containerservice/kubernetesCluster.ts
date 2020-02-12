@@ -75,7 +75,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    public /*out*/ readonly kubeAdminConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig>;
+    public /*out*/ readonly kubeAdminConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
@@ -83,7 +83,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `kubeConfig` block as defined below.
      */
-    public /*out*/ readonly kubeConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig>;
+    public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
@@ -158,9 +158,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["identity"] = state ? state.identity : undefined;
-            inputs["kubeAdminConfig"] = state ? state.kubeAdminConfig : undefined;
+            inputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
             inputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
-            inputs["kubeConfig"] = state ? state.kubeConfig : undefined;
+            inputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
             inputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
             inputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;
@@ -206,9 +206,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
             inputs["fqdn"] = undefined /*out*/;
-            inputs["kubeAdminConfig"] = undefined /*out*/;
+            inputs["kubeAdminConfigs"] = undefined /*out*/;
             inputs["kubeAdminConfigRaw"] = undefined /*out*/;
-            inputs["kubeConfig"] = undefined /*out*/;
+            inputs["kubeConfigs"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["privateFqdn"] = undefined /*out*/;
         }
@@ -262,7 +262,7 @@ export interface KubernetesClusterState {
     /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    readonly kubeAdminConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>;
+    readonly kubeAdminConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeAdminConfig>[]>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
@@ -270,7 +270,7 @@ export interface KubernetesClusterState {
     /**
      * A `kubeConfig` block as defined below.
      */
-    readonly kubeConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>;
+    readonly kubeConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */

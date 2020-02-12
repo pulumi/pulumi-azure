@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Log Analytics (formally Operational Insights) Workspace.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "East US",
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     retentionInDays: 30,
- *     sku: "PerGB2018",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_workspace.html.markdown.
  */

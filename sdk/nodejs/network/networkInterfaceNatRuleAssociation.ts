@@ -8,62 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the association between a Network Interface and a Load Balancer's NAT Rule.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.0.2.0/24",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const examplePublicIp = new azure.network.PublicIp("example", {
- *     allocationMethod: "Static",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     frontendIpConfigurations: [{
- *         name: "primary",
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNatRule = new azure.lb.NatRule("example", {
- *     backendPort: 3389,
- *     frontendIpConfigurationName: "primary",
- *     frontendPort: 3389,
- *     loadbalancerId: exampleLoadBalancer.id,
- *     protocol: "Tcp",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     ipConfigurations: [{
- *         name: "testconfiguration1",
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: exampleSubnet.id,
- *     }],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleNetworkInterfaceNatRuleAssociation = new azure.network.NetworkInterfaceNatRuleAssociation("example", {
- *     ipConfigurationName: "testconfiguration1",
- *     natRuleId: exampleNatRule.id,
- *     networkInterfaceId: exampleNetworkInterface.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_nat_rule_association.html.markdown.
  */

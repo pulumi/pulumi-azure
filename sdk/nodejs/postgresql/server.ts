@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a PostgreSQL Server.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleServer = new azure.postgresql.Server("example", {
- *     administratorLogin: "psqladminun",
- *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
- *     sslEnforcement: "Enabled",
- *     storageProfile: {
- *         autoGrow: "Enabled",
- *         backupRetentionDays: 7,
- *         geoRedundantBackup: "Disabled",
- *         storageMb: 5120,
- *     },
- *     version: "9.5",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_server.html.markdown.
  */

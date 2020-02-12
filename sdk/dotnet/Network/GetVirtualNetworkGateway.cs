@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetVirtualNetworkGatewayResult
     {
         /// <summary>
-        /// (Optional) Is this an Active-Active Gateway?
+        /// Is this an Active-Active Gateway?
         /// </summary>
         public readonly bool ActiveActive;
         public readonly ImmutableArray<Outputs.GetVirtualNetworkGatewayBgpSettingsResult> BgpSettings;
@@ -219,12 +219,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>
-        /// (Optional) The address of the Radius server.
+        /// The address of the Radius server.
         /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
         /// </summary>
         public readonly string RadiusServerAddress;
         /// <summary>
-        /// (Optional) The secret used by the Radius server.
+        /// The secret used by the Radius server.
         /// This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
         /// </summary>
         public readonly string RadiusServerSecret;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<GetVirtualNetworkGatewayVpnClientConfigurationsRootCertificatesResult> RootCertificates;
         /// <summary>
-        /// (Optional) List of the protocols supported by the vpn client.
+        /// List of the protocols supported by the vpn client.
         /// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         /// </summary>
         public readonly ImmutableArray<string> VpnClientProtocols;

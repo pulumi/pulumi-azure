@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Container Registry Webhook.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const rg = new azure.core.ResourceGroup("rg", {
- *     location: "West US",
- * });
- * const acr = new azure.containerservice.Registry("acr", {
- *     adminEnabled: false,
- *     location: rg.location,
- *     resourceGroupName: rg.name,
- *     sku: "Standard",
- * });
- * const webhook = new azure.containerservice.RegistryWebook("webhook", {
- *     actions: ["push"],
- *     customHeaders: {
- *         "Content-Type": "application/json",
- *     },
- *     location: rg.location,
- *     registryName: acr.name,
- *     resourceGroupName: rg.name,
- *     scope: "mytag:*",
- *     serviceUri: "https://mywebhookreceiver.example/mytag",
- *     status: "enabled",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry_webhook.html.markdown.
  */

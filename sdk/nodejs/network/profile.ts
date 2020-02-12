@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Profile.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     addressSpaces: ["10.1.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("example", {
- *     addressPrefix: "10.1.0.0/24",
- *     delegations: [{
- *         name: "delegation",
- *         serviceDelegation: {
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
- *             name: "Microsoft.ContainerInstance/containerGroups",
- *         },
- *     }],
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- * });
- * const exampleProfile = new azure.network.Profile("example", {
- *     containerNetworkInterface: {
- *         ipConfigurations: [{
- *             name: "exampleipconfig",
- *             subnetId: exampleSubnet.id,
- *         }],
- *         name: "examplecnic",
- *     },
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
  */

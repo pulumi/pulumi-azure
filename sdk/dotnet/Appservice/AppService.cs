@@ -35,6 +35,9 @@ namespace Pulumi.Azure.AppService
         [Output("authSettings")]
         public Output<Outputs.AppServiceAuthSettings> AuthSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// A `backup` block as defined below.
+        /// </summary>
         [Output("backup")]
         public Output<Outputs.AppServiceBackup?> Backup { get; private set; } = null!;
 
@@ -125,14 +128,14 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        [Output("siteCredential")]
-        public Output<Outputs.AppServiceSiteCredential> SiteCredential { get; private set; } = null!;
+        [Output("siteCredentials")]
+        public Output<ImmutableArray<Outputs.AppServiceSiteCredentials>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
         /// A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
         /// </summary>
-        [Output("sourceControl")]
-        public Output<Outputs.AppServiceSourceControl> SourceControl { get; private set; } = null!;
+        [Output("sourceControls")]
+        public Output<ImmutableArray<Outputs.AppServiceSourceControls>> SourceControls { get; private set; } = null!;
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
@@ -216,6 +219,9 @@ namespace Pulumi.Azure.AppService
         [Input("authSettings")]
         public Input<Inputs.AppServiceAuthSettingsArgs>? AuthSettings { get; set; }
 
+        /// <summary>
+        /// A `backup` block as defined below.
+        /// </summary>
         [Input("backup")]
         public Input<Inputs.AppServiceBackupArgs>? Backup { get; set; }
 
@@ -346,6 +352,9 @@ namespace Pulumi.Azure.AppService
         [Input("authSettings")]
         public Input<Inputs.AppServiceAuthSettingsGetArgs>? AuthSettings { get; set; }
 
+        /// <summary>
+        /// A `backup` block as defined below.
+        /// </summary>
         [Input("backup")]
         public Input<Inputs.AppServiceBackupGetArgs>? Backup { get; set; }
 
@@ -439,17 +448,29 @@ namespace Pulumi.Azure.AppService
         [Input("siteConfig")]
         public Input<Inputs.AppServiceSiteConfigGetArgs>? SiteConfig { get; set; }
 
+        [Input("siteCredentials")]
+        private InputList<Inputs.AppServiceSiteCredentialsGetArgs>? _siteCredentials;
+
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
-        [Input("siteCredential")]
-        public Input<Inputs.AppServiceSiteCredentialGetArgs>? SiteCredential { get; set; }
+        public InputList<Inputs.AppServiceSiteCredentialsGetArgs> SiteCredentials
+        {
+            get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.AppServiceSiteCredentialsGetArgs>());
+            set => _siteCredentials = value;
+        }
+
+        [Input("sourceControls")]
+        private InputList<Inputs.AppServiceSourceControlsGetArgs>? _sourceControls;
 
         /// <summary>
         /// A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
         /// </summary>
-        [Input("sourceControl")]
-        public Input<Inputs.AppServiceSourceControlGetArgs>? SourceControl { get; set; }
+        public InputList<Inputs.AppServiceSourceControlsGetArgs> SourceControls
+        {
+            get => _sourceControls ?? (_sourceControls = new InputList<Inputs.AppServiceSourceControlsGetArgs>());
+            set => _sourceControls = value;
+        }
 
         [Input("storageAccounts")]
         private InputList<Inputs.AppServiceStorageAccountsGetArgs>? _storageAccounts;
@@ -1401,7 +1422,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class AppServiceSiteCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceSiteCredentialsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -1415,12 +1436,12 @@ namespace Pulumi.Azure.AppService
         [Input("username")]
         public Input<string>? Username { get; set; }
 
-        public AppServiceSiteCredentialGetArgs()
+        public AppServiceSiteCredentialsGetArgs()
         {
         }
     }
 
-    public sealed class AppServiceSourceControlGetArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceSourceControlsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Branch name of the Git repository for this App Service.
@@ -1434,7 +1455,7 @@ namespace Pulumi.Azure.AppService
         [Input("repoUrl")]
         public Input<string>? RepoUrl { get; set; }
 
-        public AppServiceSourceControlGetArgs()
+        public AppServiceSourceControlsGetArgs()
         {
         }
     }
@@ -1965,7 +1986,7 @@ namespace Pulumi.Azure.AppService
     }
 
     [OutputType]
-    public sealed class AppServiceSiteCredential
+    public sealed class AppServiceSiteCredentials
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -1977,7 +1998,7 @@ namespace Pulumi.Azure.AppService
         public readonly string Username;
 
         [OutputConstructor]
-        private AppServiceSiteCredential(
+        private AppServiceSiteCredentials(
             string password,
             string username)
         {
@@ -1987,7 +2008,7 @@ namespace Pulumi.Azure.AppService
     }
 
     [OutputType]
-    public sealed class AppServiceSourceControl
+    public sealed class AppServiceSourceControls
     {
         /// <summary>
         /// Branch name of the Git repository for this App Service.
@@ -1999,7 +2020,7 @@ namespace Pulumi.Azure.AppService
         public readonly string RepoUrl;
 
         [OutputConstructor]
-        private AppServiceSourceControl(
+        private AppServiceSourceControls(
             string branch,
             string repoUrl)
         {

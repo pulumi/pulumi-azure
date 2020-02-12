@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleSqlServer = new azure.sql.SqlServer("example", {
- *     administratorLogin: "mradministrator",
- *     administratorLoginPassword: "thisIsDog11",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "production",
- *     },
- *     version: "12.0",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
  */

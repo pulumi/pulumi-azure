@@ -104,6 +104,8 @@ type providerArgs struct {
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
 	SkipProviderRegistration *bool `pulumi:"skipProviderRegistration"`
+	// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+	StorageUseAzuread *bool `pulumi:"storageUseAzuread"`
 	// The Subscription ID which should be used.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
@@ -143,6 +145,8 @@ type ProviderArgs struct {
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
 	// registered?
 	SkipProviderRegistration pulumi.BoolPtrInput
+	// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+	StorageUseAzuread pulumi.BoolPtrInput
 	// The Subscription ID which should be used.
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.

@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Mongo Collection within a Cosmos DB Account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleAccount = azure.cosmosdb.getAccount({
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
- *     accountName: exampleAccount.name,
- *     resourceGroupName: exampleAccount.resourceGroupName,
- * });
- * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("example", {
- *     accountName: exampleAccount.name,
- *     databaseName: exampleMongoDatabase.name,
- *     defaultTtlSeconds: 777,
- *     indexes: [
- *         {
- *             key: "aKey",
- *             unique: false,
- *         },
- *         {
- *             key: "uniqueKey",
- *             unique: true,
- *         },
- *     ],
- *     resourceGroupName: exampleAccount.resourceGroupName,
- *     shardKey: "uniqueKey",
- *     throughput: 400,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
  */

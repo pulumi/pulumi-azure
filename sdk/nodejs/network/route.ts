@@ -12,27 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE on Route Tables and Routes:** This provider currently
  * provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
  * At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleRoute = new azure.network.Route("example", {
- *     addressPrefix: "10.1.0.0/16",
- *     nextHopType: "vnetlocal",
- *     resourceGroupName: exampleResourceGroup.name,
- *     routeTableName: exampleRouteTable.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route.html.markdown.
  */

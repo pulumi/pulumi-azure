@@ -10,28 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource has been deprecated in favour of the `azure.siterecovery.ReplicationPolicy` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
  * Manages a Azure recovery vault replication policy.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const secondary = new azure.core.ResourceGroup("secondary", {
- *     location: "East US",
- * });
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondary.location,
- *     resourceGroupName: secondary.name,
- *     sku: "Standard",
- * });
- * const policy = new azure.recoveryservices.ReplicationPolicy("policy", {
- *     applicationConsistentSnapshotFrequencyInMinutes: (4 * 60),
- *     recoveryPointRetentionInMinutes: (24 * 60),
- *     recoveryVaultName: vault.name,
- *     resourceGroupName: secondary.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_replication_policy.html.markdown.
  */

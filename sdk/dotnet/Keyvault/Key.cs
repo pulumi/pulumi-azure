@@ -28,6 +28,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> E { get; private set; } = null!;
 
         /// <summary>
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string?> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
         /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         /// </summary>
         [Output("keyOpts")]
@@ -62,6 +68,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Output("notBeforeDate")]
+        public Output<string?> NotBeforeDate { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -142,6 +154,12 @@ namespace Pulumi.Azure.KeyVault
         [Input("curve")]
         public Input<string>? Curve { get; set; }
 
+        /// <summary>
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
+
         [Input("keyOpts", required: true)]
         private InputList<string>? _keyOpts;
 
@@ -178,6 +196,12 @@ namespace Pulumi.Azure.KeyVault
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("notBeforeDate")]
+        public Input<string>? NotBeforeDate { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -211,6 +235,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("e")]
         public Input<string>? E { get; set; }
+
+        /// <summary>
+        /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
 
         [Input("keyOpts")]
         private InputList<string>? _keyOpts;
@@ -253,6 +283,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        /// </summary>
+        [Input("notBeforeDate")]
+        public Input<string>? NotBeforeDate { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

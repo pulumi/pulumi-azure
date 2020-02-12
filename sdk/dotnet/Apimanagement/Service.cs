@@ -88,6 +88,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> PortalUrl { get; private set; } = null!;
 
         /// <summary>
+        /// A `protocols` block as defined below.
+        /// </summary>
+        [Output("protocols")]
+        public Output<Outputs.ServiceProtocols> Protocols { get; private set; } = null!;
+
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         [Output("publicIpAddresses")]
@@ -260,6 +266,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ServicePolicyArgs>? Policy { get; set; }
 
         /// <summary>
+        /// A `protocols` block as defined below.
+        /// </summary>
+        [Input("protocols")]
+        public Input<Inputs.ServiceProtocolsArgs>? Protocols { get; set; }
+
+        /// <summary>
         /// The email of publisher/company.
         /// </summary>
         [Input("publisherEmail", required: true)]
@@ -409,6 +421,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("portalUrl")]
         public Input<string>? PortalUrl { get; set; }
+
+        /// <summary>
+        /// A `protocols` block as defined below.
+        /// </summary>
+        [Input("protocols")]
+        public Input<Inputs.ServiceProtocolsGetArgs>? Protocols { get; set; }
 
         [Input("publicIpAddresses")]
         private InputList<string>? _publicIpAddresses;
@@ -944,6 +962,26 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
+    public sealed class ServiceProtocolsArgs : Pulumi.ResourceArgs
+    {
+        [Input("enableHttp2")]
+        public Input<bool>? EnableHttp2 { get; set; }
+
+        public ServiceProtocolsArgs()
+        {
+        }
+    }
+
+    public sealed class ServiceProtocolsGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("enableHttp2")]
+        public Input<bool>? EnableHttp2 { get; set; }
+
+        public ServiceProtocolsGetArgs()
+        {
+        }
+    }
+
     public sealed class ServiceSecurityArgs : Pulumi.ResourceArgs
     {
         [Input("disableBackendSsl30")]
@@ -1384,6 +1422,18 @@ namespace Pulumi.Azure.ApiManagement
         {
             XmlContent = xmlContent;
             XmlLink = xmlLink;
+        }
+    }
+
+    [OutputType]
+    public sealed class ServiceProtocols
+    {
+        public readonly bool? EnableHttp2;
+
+        [OutputConstructor]
+        private ServiceProtocols(bool? enableHttp2)
+        {
+            EnableHttp2 = enableHttp2;
         }
     }
 

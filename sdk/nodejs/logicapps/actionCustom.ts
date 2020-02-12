@@ -6,39 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Custom Action within a Logic App Workflow
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "East US",
- * });
- * const exampleWorkflow = new azure.logicapps.Workflow("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleActionCustom = new azure.logicapps.ActionCustom("example", {
- *     body: `{
- *     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
- *     "inputs": {
- *         "variables": [
- *             {
- *                 "name": "ExpirationAgeInDays",
- *                 "type": "Integer",
- *                 "value": -30
- *             }
- *         ]
- *     },
- *     "runAfter": {},
- *     "type": "InitializeVariable"
- * }
- * `,
- *     logicAppId: exampleWorkflow.id,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_custom.html.markdown.
  */

@@ -11054,10 +11054,10 @@ type GetVirtualNetworkGatewayVpnClientConfiguration struct {
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
-	// (Optional) The address of the Radius server.
+	// The address of the Radius server.
 	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress string `pulumi:"radiusServerAddress"`
-	// (Optional) The secret used by the Radius server.
+	// The secret used by the Radius server.
 	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret string `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
@@ -11067,7 +11067,7 @@ type GetVirtualNetworkGatewayVpnClientConfiguration struct {
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
 	RootCertificates []GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
-	// (Optional) List of the protocols supported by the vpn client.
+	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
 	VpnClientProtocols []string `pulumi:"vpnClientProtocols"`
 }
@@ -11084,10 +11084,10 @@ type GetVirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
-	// (Optional) The address of the Radius server.
+	// The address of the Radius server.
 	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress pulumi.StringInput `pulumi:"radiusServerAddress"`
-	// (Optional) The secret used by the Radius server.
+	// The secret used by the Radius server.
 	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret pulumi.StringInput `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
@@ -11097,7 +11097,7 @@ type GetVirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
 	RootCertificates GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
-	// (Optional) List of the protocols supported by the vpn client.
+	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
 	VpnClientProtocols pulumi.StringArrayInput `pulumi:"vpnClientProtocols"`
 }
@@ -11156,13 +11156,13 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pu
 	return o.ApplyT(func (v GetVirtualNetworkGatewayVpnClientConfiguration) []string { return v.AddressSpaces }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) The address of the Radius server.
+// The address of the Radius server.
 // This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress() pulumi.StringOutput {
 	return o.ApplyT(func (v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.RadiusServerAddress }).(pulumi.StringOutput)
 }
 
-// (Optional) The secret used by the Radius server.
+// The secret used by the Radius server.
 // This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() pulumi.StringOutput {
 	return o.ApplyT(func (v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.RadiusServerSecret }).(pulumi.StringOutput)
@@ -11181,7 +11181,7 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates()
 	return o.ApplyT(func (v GetVirtualNetworkGatewayVpnClientConfiguration) []GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate { return v.RootCertificates }).(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput)
 }
 
-// (Optional) List of the protocols supported by the vpn client.
+// List of the protocols supported by the vpn client.
 // The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) VpnClientProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v GetVirtualNetworkGatewayVpnClientConfiguration) []string { return v.VpnClientProtocols }).(pulumi.StringArrayOutput)

@@ -30,7 +30,7 @@ class GetNamespaceResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
         """
         if namespace_type and not isinstance(namespace_type, str):
             raise TypeError("Expected argument 'namespace_type' to be a str")

@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route Table
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleRouteTable = new azure.network.RouteTable("example", {
- *     disableBgpRoutePropagation: false,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     routes: [{
- *         addressPrefix: "10.1.0.0/16",
- *         name: "route1",
- *         nextHopType: "vnetlocal",
- *     }],
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
  */

@@ -21,6 +21,8 @@ type Key struct {
 	Curve pulumi.StringOutput `pulumi:"curve"`
 	// The RSA public exponent of this Key Vault Key.
 	E pulumi.StringOutput `pulumi:"e"`
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
@@ -33,6 +35,8 @@ type Key struct {
 	N pulumi.StringOutput `pulumi:"n"`
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate pulumi.StringPtrOutput `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
@@ -82,6 +86,8 @@ type keyState struct {
 	Curve *string `pulumi:"curve"`
 	// The RSA public exponent of this Key Vault Key.
 	E *string `pulumi:"e"`
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
@@ -94,6 +100,8 @@ type keyState struct {
 	N *string `pulumi:"n"`
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate *string `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	VaultUri *string `pulumi:"vaultUri"`
@@ -110,6 +118,8 @@ type KeyState struct {
 	Curve pulumi.StringPtrInput
 	// The RSA public exponent of this Key Vault Key.
 	E pulumi.StringPtrInput
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate pulumi.StringPtrInput
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
@@ -122,6 +132,8 @@ type KeyState struct {
 	N pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	VaultUri pulumi.StringPtrInput
@@ -140,6 +152,8 @@ func (KeyState) ElementType() reflect.Type {
 type keyArgs struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
 	Curve *string `pulumi:"curve"`
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate *string `pulumi:"expirationDate"`
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
@@ -150,6 +164,8 @@ type keyArgs struct {
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate *string `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	VaultUri *string `pulumi:"vaultUri"`
@@ -159,6 +175,8 @@ type keyArgs struct {
 type KeyArgs struct {
 	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
 	Curve pulumi.StringPtrInput
+	// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+	ExpirationDate pulumi.StringPtrInput
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
@@ -169,6 +187,8 @@ type KeyArgs struct {
 	KeyVaultId pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+	NotBeforeDate pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	VaultUri pulumi.StringPtrInput

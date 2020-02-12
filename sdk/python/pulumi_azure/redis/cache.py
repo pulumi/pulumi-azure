@@ -112,7 +112,34 @@ class Cache(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a Cache resource with the given unique name, props, and options.
+        Manages a Redis Cache.
+        
+        ## Default Redis Configuration Values
+        
+        | Redis Value                     | Basic        | Standard     | Premium      |
+        | ------------------------------- | ------------ | ------------ | ------------ |
+        | enable_authentication           | true         | true         | true         |
+        | maxmemory_reserved              | 2            | 50           | 200          |
+        | maxfragmentationmemory_reserved | 2            | 50           | 200          |
+        | maxmemory_delta                 | 2            | 50           | 200          |
+        | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
+        
+        > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+        
+        ---
+        
+        A `patch_schedule` block supports the following:
+        
+        * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+        
+        * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+        
+        > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+        
+        ## Relevant Links
+        
+         - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+         - [Redis: Available Configuration Settings](http://redis.io/topics/config)
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

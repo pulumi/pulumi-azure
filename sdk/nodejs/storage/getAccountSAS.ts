@@ -13,55 +13,6 @@ import * as utilities from "../utilities";
  * 
  * Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
  * and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "westus",
- * });
- * const exampleAccount = new azure.storage.Account("example", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: "westus",
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
- *     connectionString: primaryConnectionString,
- *     expiry: "2020-03-21",
- *     httpsOnly: true,
- *     permissions: {
- *         add: true,
- *         create: true,
- *         delete: false,
- *         list: false,
- *         process: false,
- *         read: true,
- *         update: false,
- *         write: true,
- *     },
- *     resourceTypes: {
- *         container: false,
- *         object: false,
- *         service: true,
- *     },
- *     services: {
- *         blob: true,
- *         file: false,
- *         queue: false,
- *         table: false,
- *     },
- *     start: "2018-03-21",
- * }));
- * 
- * export const sasUrlQueryString = exampleAccountSAS.sas;
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
  */

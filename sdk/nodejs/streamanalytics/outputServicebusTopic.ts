@@ -8,42 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to a ServiceBus Topic.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = azure.core.getResourceGroup({
- *     name: "example-resources",
- * });
- * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
- *     name: "example-job",
- *     resourceGroupName: name,
- * }));
- * const exampleNamespace = new azure.servicebus.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const exampleTopic = new azure.servicebus.Topic("example", {
- *     enablePartitioning: true,
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("example", {
- *     resourceGroupName: exampleJob.resourceGroupName,
- *     serialization: {
- *         format: "Avro",
- *     },
- *     servicebusNamespace: exampleNamespace.name,
- *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
- *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     streamAnalyticsJobName: exampleJob.name,
- *     topicName: exampleTopic.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_topic.html.markdown.
  */

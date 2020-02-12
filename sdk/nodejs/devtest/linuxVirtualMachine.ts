@@ -8,51 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Linux Virtual Machine within a Dev Test Lab.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- * });
- * const exampleLab = new azure.devtest.Lab("example", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         Sydney: "Australia",
- *     },
- * });
- * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
- *     labName: exampleLab.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     subnet: {
- *         useInVirtualMachineCreation: "Allow",
- *         usePublicIpAddress: "Allow",
- *     },
- * });
- * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("example", {
- *     galleryImageReference: {
- *         offer: "UbuntuServer",
- *         publisher: "Canonical",
- *         sku: "18.04-LTS",
- *         version: "latest",
- *     },
- *     labName: exampleLab.name,
- *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
- *     labVirtualNetworkId: exampleVirtualNetwork.id,
- *     location: exampleResourceGroup.location,
- *     notes: "Some notes about this Virtual Machine.",
- *     resourceGroupName: exampleResourceGroup.name,
- *     size: "Standard_DS2",
- *     sshKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf-8"),
- *     storageType: "Premium",
- *     username: "exampleuser99",
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_linux_virtual_machine.html.markdown.
  */
