@@ -75,3 +75,17 @@ export class DurableActivityFunction<TActivityInputBinding> extends mod.Function
         super(name, trigger, args);
     }
 }
+
+export class DurableOrchestrationClientInputBindingSettings implements mod.InputBindingSettings {
+    binding: pulumi.Input<mod.InputBindingDefinition>;
+    settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string) {
+        this.binding = {
+            name,
+            type: "orchestrationClient",
+            direction: "in"
+        }
+        this.settings = {};
+    }
+}

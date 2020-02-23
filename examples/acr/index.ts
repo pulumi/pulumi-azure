@@ -28,6 +28,14 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
                 return output;
             })
         }),
-        new azure.appservice.HttpFunction
+        new azure.appservice.HttpFunction("hello", {
+            callback: async (con, req) => {
+                return {
+                    status: 200,
+                    body: ""
+                }
+            },
+            inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
+        })
     ]
 });
