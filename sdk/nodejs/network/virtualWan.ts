@@ -66,11 +66,10 @@ export class VirtualWan extends pulumi.CustomResource {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly securityProviderName!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -91,7 +90,6 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["office365LocalBreakoutCategory"] = state ? state.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["securityProviderName"] = state ? state.securityProviderName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as VirtualWanArgs | undefined;
@@ -105,7 +103,6 @@ export class VirtualWan extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
@@ -151,7 +148,6 @@ export interface VirtualWanState {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    readonly securityProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
@@ -190,7 +186,6 @@ export interface VirtualWanArgs {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    readonly securityProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */

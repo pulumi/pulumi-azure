@@ -59,14 +59,6 @@ export class Container extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
-     */
-    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * The name of the Storage Account where the Container should be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
@@ -88,8 +80,6 @@ export class Container extends pulumi.CustomResource {
             inputs["hasLegalHold"] = state ? state.hasLegalHold : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
@@ -99,11 +89,9 @@ export class Container extends pulumi.CustomResource {
             inputs["containerAccessType"] = args ? args.containerAccessType : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["hasImmutabilityPolicy"] = undefined /*out*/;
             inputs["hasLegalHold"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -141,14 +129,6 @@ export interface ContainerState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
-     */
-    readonly properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    /**
      * The name of the Storage Account where the Container should be created.
      */
     readonly storageAccountName?: pulumi.Input<string>;
@@ -170,10 +150,6 @@ export interface ContainerArgs {
      * The name of the Container which should be created within the Storage Account.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created.
      */

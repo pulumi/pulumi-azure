@@ -57,7 +57,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
      */

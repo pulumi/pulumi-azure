@@ -41,7 +41,7 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * The desired content of the runbook.
      */
@@ -81,7 +81,7 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RunBook resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class RunBook extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as RunBookState | undefined;
-            inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -108,8 +108,8 @@ export class RunBook extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as RunBookArgs | undefined;
-            if (!args || args.accountName === undefined) {
-                throw new Error("Missing required property 'accountName'");
+            if (!args || args.automationAccountName === undefined) {
+                throw new Error("Missing required property 'automationAccountName'");
             }
             if (!args || args.logProgress === undefined) {
                 throw new Error("Missing required property 'logProgress'");
@@ -126,7 +126,7 @@ export class RunBook extends pulumi.CustomResource {
             if (!args || args.runbookType === undefined) {
                 throw new Error("Missing required property 'runbookType'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -156,7 +156,7 @@ export interface RunBookState {
     /**
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * The desired content of the runbook.
      */
@@ -206,7 +206,7 @@ export interface RunBookArgs {
     /**
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly automationAccountName: pulumi.Input<string>;
     /**
      * The desired content of the runbook.
      */

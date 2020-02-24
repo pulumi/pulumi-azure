@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Unique ID for this Linux Virtual Machine Scale Set.

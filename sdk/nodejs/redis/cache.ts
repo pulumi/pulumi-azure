@@ -142,7 +142,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
      */

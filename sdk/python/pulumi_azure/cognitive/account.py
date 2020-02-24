@@ -38,7 +38,6 @@ class Account(pulumi.CustomResource):
     """
     The secondary access key which can be used to connect to the Cognitive Service Account.
     """
-    sku: pulumi.Output[dict]
     sku_name: pulumi.Output[str]
     """
     Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
@@ -47,7 +46,7 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Cognitive Services Account.
         
@@ -59,11 +58,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cognitive_account.html.markdown.
         """
@@ -92,7 +86,8 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
             __props__['endpoint'] = None
@@ -105,7 +100,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoint=None, kind=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, sku=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, endpoint=None, kind=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -122,11 +117,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cognitive_account.html.markdown.
         """
@@ -140,7 +130,6 @@ class Account(pulumi.CustomResource):
         __props__["primary_access_key"] = primary_access_key
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_access_key"] = secondary_access_key
-        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)

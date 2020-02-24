@@ -42,12 +42,6 @@ class Namespace(pulumi.CustomResource):
     """
     The secondary access key for the authorization rule `RootManageSharedAccessKey`.
     """
-    sku: pulumi.Output[dict]
-    """
-    ) A `sku` block as described below.
-    
-      * `name` (`str`) - Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
-    """
     sku_name: pulumi.Output[str]
     """
     The name of the SKU to use. At this time the only supported value is `Standard`.
@@ -56,7 +50,7 @@ class Namespace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Relay Namespace.
         
@@ -65,13 +59,8 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
         """
@@ -97,7 +86,8 @@ class Namespace(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
             __props__['metric_id'] = None
@@ -112,7 +102,7 @@ class Namespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, metric_id=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, sku=None, sku_name=None, tags=None):
+    def get(resource_name, id, opts=None, location=None, metric_id=None, name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, sku_name=None, tags=None):
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,13 +118,8 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
         """
@@ -149,7 +134,6 @@ class Namespace(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["secondary_connection_string"] = secondary_connection_string
         __props__["secondary_key"] = secondary_key
-        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
         return Namespace(resource_name, opts=opts, __props__=__props__)

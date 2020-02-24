@@ -29,7 +29,6 @@ type Account struct {
 	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	FailoverPolicies AccountFailoverPolicyArrayOutput `pulumi:"failoverPolicies"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations AccountGeoLocationArrayOutput `pulumi:"geoLocations"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -69,6 +68,9 @@ func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
 	if args == nil || args.ConsistencyPolicy == nil {
 		return nil, errors.New("missing required argument 'ConsistencyPolicy'")
+	}
+	if args == nil || args.GeoLocations == nil {
+		return nil, errors.New("missing required argument 'GeoLocations'")
 	}
 	if args == nil || args.OfferType == nil {
 		return nil, errors.New("missing required argument 'OfferType'")
@@ -113,7 +115,6 @@ type accountState struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint *string `pulumi:"endpoint"`
-	FailoverPolicies []AccountFailoverPolicy `pulumi:"failoverPolicies"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -161,7 +162,6 @@ type AccountState struct {
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint pulumi.StringPtrInput
-	FailoverPolicies AccountFailoverPolicyArrayInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations AccountGeoLocationArrayInput
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -209,7 +209,6 @@ type accountArgs struct {
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
-	FailoverPolicies []AccountFailoverPolicy `pulumi:"failoverPolicies"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -242,7 +241,6 @@ type AccountArgs struct {
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
-	FailoverPolicies AccountFailoverPolicyArrayInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations AccountGeoLocationArrayInput
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.

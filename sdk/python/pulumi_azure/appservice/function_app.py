@@ -142,7 +142,6 @@ class FunctionApp(pulumi.CustomResource):
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `minTlsVersion` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
-      * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service should be attached to.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
     """
     site_credentials: pulumi.Output[list]
@@ -259,7 +258,6 @@ class FunctionApp(pulumi.CustomResource):
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
-          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
@@ -417,7 +415,6 @@ class FunctionApp(pulumi.CustomResource):
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
-          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
         
         The **site_credentials** object supports the following:

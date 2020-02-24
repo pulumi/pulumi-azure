@@ -24,7 +24,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     """
     Controls if the VMs in the remote
     virtual network can access VMs in the local virtual network. Defaults to
-    false.
+    true.
     """
     name: pulumi.Output[str]
     """
@@ -73,7 +73,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                remote virtual network’s link to the local virtual network.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote
                virtual network can access VMs in the local virtual network. Defaults to
-               false.
+               true.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this
                forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the
@@ -144,7 +144,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                remote virtual network’s link to the local virtual network.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote
                virtual network can access VMs in the local virtual network. Defaults to
-               false.
+               true.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this
                forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the

@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Automation
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("automationAccountName")]
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
@@ -97,6 +100,9 @@ namespace Pulumi.Azure.Automation
 
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("automationAccountName", required: true)]
         public Input<string> AutomationAccountName { get; set; } = null!;
 
@@ -131,6 +137,9 @@ namespace Pulumi.Azure.Automation
 
     public sealed class CertificateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("automationAccountName")]
         public Input<string>? AutomationAccountName { get; set; }
 

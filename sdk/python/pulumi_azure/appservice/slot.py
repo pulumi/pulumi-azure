@@ -130,7 +130,6 @@ class Slot(pulumi.CustomResource):
       * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
     
         * `ipAddress` (`str`)
-        * `subnetMask` (`str`)
         * `virtualNetworkSubnetId` (`str`)
     
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
@@ -146,7 +145,6 @@ class Slot(pulumi.CustomResource):
       * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
       * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
       * `use32BitWorkerProcess` (`bool`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-      * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service Slot should be attached to.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
       * `windowsFxVersion` (`str`)
     """
@@ -277,7 +275,6 @@ class Slot(pulumi.CustomResource):
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         
             * `ipAddress` (`pulumi.Input[str]`)
-            * `subnetMask` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
@@ -293,7 +290,6 @@ class Slot(pulumi.CustomResource):
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)
 
@@ -464,7 +460,6 @@ class Slot(pulumi.CustomResource):
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         
             * `ipAddress` (`pulumi.Input[str]`)
-            * `subnetMask` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
@@ -480,7 +475,6 @@ class Slot(pulumi.CustomResource):
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
-          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`)
         

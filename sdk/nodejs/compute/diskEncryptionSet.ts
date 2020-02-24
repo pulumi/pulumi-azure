@@ -59,7 +59,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Disk Encryption Set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DiskEncryptionSet resource with the given unique name, arguments, and options.

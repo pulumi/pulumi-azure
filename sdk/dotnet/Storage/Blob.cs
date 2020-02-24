@@ -22,12 +22,6 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
-        /// The number of attempts to make per page or block when uploading. Defaults to `1`.
-        /// </summary>
-        [Output("attempts")]
-        public Output<int?> Attempts { get; private set; } = null!;
-
-        /// <summary>
         /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Output("contentType")]
@@ -50,12 +44,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to create the storage container.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
@@ -160,12 +148,6 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// The number of attempts to make per page or block when uploading. Defaults to `1`.
-        /// </summary>
-        [Input("attempts")]
-        public Input<int>? Attempts { get; set; }
-
-        /// <summary>
         /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Input("contentType")]
@@ -194,12 +176,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the storage container.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
@@ -259,12 +235,6 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// The number of attempts to make per page or block when uploading. Defaults to `1`.
-        /// </summary>
-        [Input("attempts")]
-        public Input<int>? Attempts { get; set; }
-
-        /// <summary>
         /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Input("contentType")]
@@ -293,12 +263,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to create the storage container.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.

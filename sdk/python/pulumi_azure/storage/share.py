@@ -34,11 +34,6 @@ class Share(pulumi.CustomResource):
     """
     The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
     """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to
-    create the share. Changing this forces a new resource to be created.
-    """
     storage_account_name: pulumi.Output[str]
     """
     Specifies the storage account in which to create the share.
@@ -48,7 +43,7 @@ class Share(pulumi.CustomResource):
     """
     The URL of the File Share
     """
-    def __init__(__self__, resource_name, opts=None, acls=None, metadata=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acls=None, metadata=None, name=None, quota=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a File Share within Azure Storage.
         
@@ -58,8 +53,6 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
         
@@ -96,7 +89,6 @@ class Share(pulumi.CustomResource):
             __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['quota'] = quota
-            __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
@@ -108,7 +100,7 @@ class Share(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, acls=None, metadata=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, url=None):
+    def get(resource_name, id, opts=None, acls=None, metadata=None, name=None, quota=None, storage_account_name=None, url=None):
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,8 +112,6 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
@@ -145,7 +135,6 @@ class Share(pulumi.CustomResource):
         __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["quota"] = quota
-        __props__["resource_group_name"] = resource_group_name
         __props__["storage_account_name"] = storage_account_name
         __props__["url"] = url
         return Share(resource_name, opts=opts, __props__=__props__)

@@ -74,7 +74,7 @@ export class RegistryWebook extends pulumi.CustomResource {
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
     public readonly status!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RegistryWebook resource with the given unique name, arguments, and options.

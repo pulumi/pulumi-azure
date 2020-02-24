@@ -59,9 +59,6 @@ namespace Pulumi.Azure.PrivateDns
         [Output("natIpConfigurations")]
         public Output<ImmutableArray<Outputs.LinkServiceNatIpConfigurations>> NatIpConfigurations { get; private set; } = null!;
 
-        [Output("networkInterfaceIds")]
-        public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
-
         /// <summary>
         /// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -72,7 +69,7 @@ namespace Pulumi.Azure.PrivateDns
         /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
@@ -275,14 +272,6 @@ namespace Pulumi.Azure.PrivateDns
         {
             get => _natIpConfigurations ?? (_natIpConfigurations = new InputList<Inputs.LinkServiceNatIpConfigurationsGetArgs>());
             set => _natIpConfigurations = value;
-        }
-
-        [Input("networkInterfaceIds")]
-        private InputList<string>? _networkInterfaceIds;
-        public InputList<string> NetworkInterfaceIds
-        {
-            get => _networkInterfaceIds ?? (_networkInterfaceIds = new InputList<string>());
-            set => _networkInterfaceIds = value;
         }
 
         /// <summary>

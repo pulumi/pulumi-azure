@@ -55,7 +55,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Virtual Network ID's associated with the DDoS Protection Plan.
      */

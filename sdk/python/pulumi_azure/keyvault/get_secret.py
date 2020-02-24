@@ -13,7 +13,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, key_vault_id=None, name=None, tags=None, value=None, vault_uri=None, version=None, id=None):
+    def __init__(__self__, content_type=None, key_vault_id=None, name=None, tags=None, value=None, version=None, id=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         __self__.content_type = content_type
@@ -38,9 +38,6 @@ class GetSecretResult:
         """
         The value of the Key Vault Secret.
         """
-        if vault_uri and not isinstance(vault_uri, str):
-            raise TypeError("Expected argument 'vault_uri' to be a str")
-        __self__.vault_uri = vault_uri
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
@@ -64,11 +61,10 @@ class AwaitableGetSecretResult(GetSecretResult):
             name=self.name,
             tags=self.tags,
             value=self.value,
-            vault_uri=self.vault_uri,
             version=self.version,
             id=self.id)
 
-def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
+def get_secret(key_vault_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault Secret.
     
@@ -84,7 +80,6 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
 
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
-    __args__['vaultUri'] = vault_uri
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -97,6 +92,5 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),
         value=__ret__.get('value'),
-        vault_uri=__ret__.get('vaultUri'),
         version=__ret__.get('version'),
         id=__ret__.get('id'))

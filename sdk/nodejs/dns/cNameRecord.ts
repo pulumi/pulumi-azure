@@ -57,7 +57,7 @@ export class CNameRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure resource id of the target object. Conflicts with `records`
      */

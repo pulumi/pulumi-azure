@@ -31,12 +31,6 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> DefaultTtlSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `indexes` blocks as defined below.
-        /// </summary>
-        [Output("indexes")]
-        public Output<ImmutableArray<Outputs.MongoCollectionIndexes>> Indexes { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -118,18 +112,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
-        [Input("indexes")]
-        private InputList<Inputs.MongoCollectionIndexesArgs>? _indexes;
-
-        /// <summary>
-        /// One or more `indexes` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.MongoCollectionIndexesArgs> Indexes
-        {
-            get => _indexes ?? (_indexes = new InputList<Inputs.MongoCollectionIndexesArgs>());
-            set => _indexes = value;
-        }
-
         /// <summary>
         /// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         /// </summary>
@@ -173,18 +155,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtlSeconds")]
         public Input<int>? DefaultTtlSeconds { get; set; }
 
-        [Input("indexes")]
-        private InputList<Inputs.MongoCollectionIndexesGetArgs>? _indexes;
-
-        /// <summary>
-        /// One or more `indexes` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.MongoCollectionIndexesGetArgs> Indexes
-        {
-            get => _indexes ?? (_indexes = new InputList<Inputs.MongoCollectionIndexesGetArgs>());
-            set => _indexes = value;
-        }
-
         /// <summary>
         /// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         /// </summary>
@@ -209,55 +179,5 @@ namespace Pulumi.Azure.CosmosDB
         public MongoCollectionState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class MongoCollectionIndexesArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("unique")]
-        public Input<bool>? Unique { get; set; }
-
-        public MongoCollectionIndexesArgs()
-        {
-        }
-    }
-
-    public sealed class MongoCollectionIndexesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
-
-        [Input("unique")]
-        public Input<bool>? Unique { get; set; }
-
-        public MongoCollectionIndexesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class MongoCollectionIndexes
-    {
-        public readonly string Key;
-        public readonly bool? Unique;
-
-        [OutputConstructor]
-        private MongoCollectionIndexes(
-            string key,
-            bool? unique)
-        {
-            Key = key;
-            Unique = unique;
-        }
-    }
     }
 }

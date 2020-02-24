@@ -11,6 +11,9 @@ from .. import utilities, tables
 
 class Certificate(pulumi.CustomResource):
     automation_account_name: pulumi.Output[str]
+    """
+    The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
+    """
     base64: pulumi.Output[str]
     """
     Base64 encoded value of the certificate.
@@ -38,6 +41,7 @@ class Certificate(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] base64: Base64 encoded value of the certificate.
         :param pulumi.Input[str] description: The description of this Automation Certificate.
         :param pulumi.Input[str] name: Specifies the name of the Certificate. Changing this forces a new resource to be created.
@@ -90,6 +94,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] base64: Base64 encoded value of the certificate.
         :param pulumi.Input[str] description: The description of this Automation Certificate.
         :param pulumi.Input[str] name: Specifies the name of the Certificate. Changing this forces a new resource to be created.

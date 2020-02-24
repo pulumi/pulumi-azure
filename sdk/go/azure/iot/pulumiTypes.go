@@ -11,251 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-type DpsLinkedHub struct {
-	AllocationWeight *int `pulumi:"allocationWeight"`
-	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
-	ConnectionString string `pulumi:"connectionString"`
-	Hostname *string `pulumi:"hostname"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-	Location string `pulumi:"location"`
-}
-
-type DpsLinkedHubInput interface {
-	pulumi.Input
-
-	ToDpsLinkedHubOutput() DpsLinkedHubOutput
-	ToDpsLinkedHubOutputWithContext(context.Context) DpsLinkedHubOutput
-}
-
-type DpsLinkedHubArgs struct {
-	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
-	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
-	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-	Location pulumi.StringInput `pulumi:"location"`
-}
-
-func (DpsLinkedHubArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsLinkedHub)(nil)).Elem()
-}
-
-func (i DpsLinkedHubArgs) ToDpsLinkedHubOutput() DpsLinkedHubOutput {
-	return i.ToDpsLinkedHubOutputWithContext(context.Background())
-}
-
-func (i DpsLinkedHubArgs) ToDpsLinkedHubOutputWithContext(ctx context.Context) DpsLinkedHubOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DpsLinkedHubOutput)
-}
-
-type DpsLinkedHubArrayInput interface {
-	pulumi.Input
-
-	ToDpsLinkedHubArrayOutput() DpsLinkedHubArrayOutput
-	ToDpsLinkedHubArrayOutputWithContext(context.Context) DpsLinkedHubArrayOutput
-}
-
-type DpsLinkedHubArray []DpsLinkedHubInput
-
-func (DpsLinkedHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DpsLinkedHub)(nil)).Elem()
-}
-
-func (i DpsLinkedHubArray) ToDpsLinkedHubArrayOutput() DpsLinkedHubArrayOutput {
-	return i.ToDpsLinkedHubArrayOutputWithContext(context.Background())
-}
-
-func (i DpsLinkedHubArray) ToDpsLinkedHubArrayOutputWithContext(ctx context.Context) DpsLinkedHubArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DpsLinkedHubArrayOutput)
-}
-
-type DpsLinkedHubOutput struct { *pulumi.OutputState }
-
-func (DpsLinkedHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsLinkedHub)(nil)).Elem()
-}
-
-func (o DpsLinkedHubOutput) ToDpsLinkedHubOutput() DpsLinkedHubOutput {
-	return o
-}
-
-func (o DpsLinkedHubOutput) ToDpsLinkedHubOutputWithContext(ctx context.Context) DpsLinkedHubOutput {
-	return o
-}
-
-func (o DpsLinkedHubOutput) AllocationWeight() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v DpsLinkedHub) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
-}
-
-func (o DpsLinkedHubOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DpsLinkedHub) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
-}
-
-func (o DpsLinkedHubOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func (v DpsLinkedHub) string { return v.ConnectionString }).(pulumi.StringOutput)
-}
-
-func (o DpsLinkedHubOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DpsLinkedHub) *string { return v.Hostname }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-func (o DpsLinkedHubOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v DpsLinkedHub) string { return v.Location }).(pulumi.StringOutput)
-}
-
-type DpsLinkedHubArrayOutput struct { *pulumi.OutputState}
-
-func (DpsLinkedHubArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DpsLinkedHub)(nil)).Elem()
-}
-
-func (o DpsLinkedHubArrayOutput) ToDpsLinkedHubArrayOutput() DpsLinkedHubArrayOutput {
-	return o
-}
-
-func (o DpsLinkedHubArrayOutput) ToDpsLinkedHubArrayOutputWithContext(ctx context.Context) DpsLinkedHubArrayOutput {
-	return o
-}
-
-func (o DpsLinkedHubArrayOutput) Index(i pulumi.IntInput) DpsLinkedHubOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DpsLinkedHub {
-		return vs[0].([]DpsLinkedHub)[vs[1].(int)]
-	}).(DpsLinkedHubOutput)
-}
-
-type DpsSku struct {
-	Capacity int `pulumi:"capacity"`
-	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-	Tier *string `pulumi:"tier"`
-}
-
-type DpsSkuInput interface {
-	pulumi.Input
-
-	ToDpsSkuOutput() DpsSkuOutput
-	ToDpsSkuOutputWithContext(context.Context) DpsSkuOutput
-}
-
-type DpsSkuArgs struct {
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (DpsSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsSku)(nil)).Elem()
-}
-
-func (i DpsSkuArgs) ToDpsSkuOutput() DpsSkuOutput {
-	return i.ToDpsSkuOutputWithContext(context.Background())
-}
-
-func (i DpsSkuArgs) ToDpsSkuOutputWithContext(ctx context.Context) DpsSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DpsSkuOutput)
-}
-
-func (i DpsSkuArgs) ToDpsSkuPtrOutput() DpsSkuPtrOutput {
-	return i.ToDpsSkuPtrOutputWithContext(context.Background())
-}
-
-func (i DpsSkuArgs) ToDpsSkuPtrOutputWithContext(ctx context.Context) DpsSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DpsSkuOutput).ToDpsSkuPtrOutputWithContext(ctx)
-}
-
-type DpsSkuPtrInput interface {
-	pulumi.Input
-
-	ToDpsSkuPtrOutput() DpsSkuPtrOutput
-	ToDpsSkuPtrOutputWithContext(context.Context) DpsSkuPtrOutput
-}
-
-type dpsSkuPtrType DpsSkuArgs
-
-func DpsSkuPtr(v *DpsSkuArgs) DpsSkuPtrInput {	return (*dpsSkuPtrType)(v)
-}
-
-func (*dpsSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DpsSku)(nil)).Elem()
-}
-
-func (i *dpsSkuPtrType) ToDpsSkuPtrOutput() DpsSkuPtrOutput {
-	return i.ToDpsSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *dpsSkuPtrType) ToDpsSkuPtrOutputWithContext(ctx context.Context) DpsSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DpsSkuPtrOutput)
-}
-
-type DpsSkuOutput struct { *pulumi.OutputState }
-
-func (DpsSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsSku)(nil)).Elem()
-}
-
-func (o DpsSkuOutput) ToDpsSkuOutput() DpsSkuOutput {
-	return o
-}
-
-func (o DpsSkuOutput) ToDpsSkuOutputWithContext(ctx context.Context) DpsSkuOutput {
-	return o
-}
-
-func (o DpsSkuOutput) ToDpsSkuPtrOutput() DpsSkuPtrOutput {
-	return o.ToDpsSkuPtrOutputWithContext(context.Background())
-}
-
-func (o DpsSkuOutput) ToDpsSkuPtrOutputWithContext(ctx context.Context) DpsSkuPtrOutput {
-	return o.ApplyT(func(v DpsSku) *DpsSku {
-		return &v
-	}).(DpsSkuPtrOutput)
-}
-func (o DpsSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v DpsSku) int { return v.Capacity }).(pulumi.IntOutput)
-}
-
-// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-func (o DpsSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DpsSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DpsSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DpsSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type DpsSkuPtrOutput struct { *pulumi.OutputState}
-
-func (DpsSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DpsSku)(nil)).Elem()
-}
-
-func (o DpsSkuPtrOutput) ToDpsSkuPtrOutput() DpsSkuPtrOutput {
-	return o
-}
-
-func (o DpsSkuPtrOutput) ToDpsSkuPtrOutputWithContext(ctx context.Context) DpsSkuPtrOutput {
-	return o
-}
-
-func (o DpsSkuPtrOutput) Elem() DpsSkuOutput {
-	return o.ApplyT(func (v *DpsSku) DpsSku { return *v }).(DpsSkuOutput)
-}
-
-func (o DpsSkuPtrOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v DpsSku) int { return v.Capacity }).(pulumi.IntOutput)
-}
-
-// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-func (o DpsSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DpsSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o DpsSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DpsSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
 type IoTHubEndpoint struct {
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
 	ConnectionString string `pulumi:"connectionString"`
@@ -1027,7 +782,6 @@ type IoTHubSku struct {
 	Capacity int `pulumi:"capacity"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	Tier *string `pulumi:"tier"`
 }
 
 type IoTHubSkuInput interface {
@@ -1041,7 +795,6 @@ type IoTHubSkuArgs struct {
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (IoTHubSkuArgs) ElementType() reflect.Type {
@@ -1120,10 +873,6 @@ func (o IoTHubSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o IoTHubSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IoTHubSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
 type IoTHubSkuPtrOutput struct { *pulumi.OutputState}
 
 func (IoTHubSkuPtrOutput) ElementType() reflect.Type {
@@ -1149,10 +898,6 @@ func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntOutput {
 // Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 func (o IoTHubSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o IoTHubSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IoTHubSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type IotHubDpsLinkedHub struct {
@@ -1272,7 +1017,6 @@ type IotHubDpsSku struct {
 	Capacity int `pulumi:"capacity"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	Tier *string `pulumi:"tier"`
 }
 
 type IotHubDpsSkuInput interface {
@@ -1286,7 +1030,6 @@ type IotHubDpsSkuArgs struct {
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (IotHubDpsSkuArgs) ElementType() reflect.Type {
@@ -1365,10 +1108,6 @@ func (o IotHubDpsSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o IotHubDpsSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IotHubDpsSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
 type IotHubDpsSkuPtrOutput struct { *pulumi.OutputState}
 
 func (IotHubDpsSkuPtrOutput) ElementType() reflect.Type {
@@ -1396,15 +1135,7 @@ func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func (v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o IotHubDpsSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IotHubDpsSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(DpsLinkedHubOutput{})
-	pulumi.RegisterOutputType(DpsLinkedHubArrayOutput{})
-	pulumi.RegisterOutputType(DpsSkuOutput{})
-	pulumi.RegisterOutputType(DpsSkuPtrOutput{})
 	pulumi.RegisterOutputType(IoTHubEndpointOutput{})
 	pulumi.RegisterOutputType(IoTHubEndpointArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubFallbackRouteOutput{})

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute
 {
     /// <summary>
-    /// Manages an availability set for virtual machines.
+    /// Manages an Availability Set for Virtual Machines.
     /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
     /// </summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
         /// </summary>
         [Output("managed")]
         public Output<bool?> Managed { get; private set; } = null!;
@@ -34,13 +34,13 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of fault domains that are used. Defaults to 3.
+        /// Specifies the number of fault domains that are used. Defaults to `3`.
         /// </summary>
         [Output("platformFaultDomainCount")]
         public Output<int?> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of update domains that are used. Defaults to 5.
+        /// Specifies the number of update domains that are used. Defaults to `5`.
         /// </summary>
         [Output("platformUpdateDomainCount")]
         public Output<int?> PlatformUpdateDomainCount { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
         /// </summary>
         [Input("managed")]
         public Input<bool>? Managed { get; set; }
@@ -128,13 +128,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of fault domains that are used. Defaults to 3.
+        /// Specifies the number of fault domains that are used. Defaults to `3`.
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
-        /// Specifies the number of update domains that are used. Defaults to 5.
+        /// Specifies the number of update domains that are used. Defaults to `5`.
         /// </summary>
         [Input("platformUpdateDomainCount")]
         public Input<int>? PlatformUpdateDomainCount { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+        /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
         /// </summary>
         [Input("managed")]
         public Input<bool>? Managed { get; set; }
@@ -189,13 +189,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of fault domains that are used. Defaults to 3.
+        /// Specifies the number of fault domains that are used. Defaults to `3`.
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
-        /// Specifies the number of update domains that are used. Defaults to 5.
+        /// Specifies the number of update domains that are used. Defaults to `5`.
         /// </summary>
         [Input("platformUpdateDomainCount")]
         public Input<int>? PlatformUpdateDomainCount { get; set; }

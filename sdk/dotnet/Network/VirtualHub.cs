@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the Virtual Hub.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of a Virtual WAN within which the Virtual Hub should be created.

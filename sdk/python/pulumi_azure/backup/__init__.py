@@ -8,3 +8,4 @@ from .policy_file_share import *
 from .policy_vm import *
 from .protected_file_share import *
 from .protected_vm import *
+from .get_policy_vm import *

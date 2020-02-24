@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,17 +61,13 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * ) A `sku` block as described below.
-     */
-    public readonly sku!: pulumi.Output<outputs.automation.AccountSku>;
-    /**
      * The SKU name of the account - only `Basic` is supported at this time.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -93,7 +87,6 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -101,10 +94,12 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.skuName === undefined) {
+                throw new Error("Missing required property 'skuName'");
+            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["dscPrimaryAccessKey"] = undefined /*out*/;
@@ -151,10 +146,6 @@ export interface AccountState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * ) A `sku` block as described below.
-     */
-    readonly sku?: pulumi.Input<inputs.automation.AccountSku>;
-    /**
      * The SKU name of the account - only `Basic` is supported at this time.
      */
     readonly skuName?: pulumi.Input<string>;
@@ -181,13 +172,9 @@ export interface AccountArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * ) A `sku` block as described below.
-     */
-    readonly sku?: pulumi.Input<inputs.automation.AccountSku>;
-    /**
      * The SKU name of the account - only `Basic` is supported at this time.
      */
-    readonly skuName?: pulumi.Input<string>;
+    readonly skuName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

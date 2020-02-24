@@ -18,7 +18,7 @@ type RunBook struct {
 	pulumi.CustomResourceState
 
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// A description for this credential.
@@ -44,8 +44,8 @@ type RunBook struct {
 // NewRunBook registers a new resource with the given unique name, arguments, and options.
 func NewRunBook(ctx *pulumi.Context,
 	name string, args *RunBookArgs, opts ...pulumi.ResourceOption) (*RunBook, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
+	if args == nil || args.AutomationAccountName == nil {
+		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
 	if args == nil || args.LogProgress == nil {
 		return nil, errors.New("missing required argument 'LogProgress'")
@@ -88,7 +88,7 @@ func GetRunBook(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RunBook resources.
 type runBookState struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
+	AutomationAccountName *string `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
@@ -113,7 +113,7 @@ type runBookState struct {
 
 type RunBookState struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
+	AutomationAccountName pulumi.StringPtrInput
 	// The desired content of the runbook.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
@@ -142,7 +142,7 @@ func (RunBookState) ElementType() reflect.Type {
 
 type runBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
+	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The desired content of the runbook.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
@@ -168,7 +168,7 @@ type runBookArgs struct {
 // The set of arguments for constructing a RunBook resource.
 type RunBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
+	AutomationAccountName pulumi.StringInput
 	// The desired content of the runbook.
 	Content pulumi.StringPtrInput
 	// A description for this credential.

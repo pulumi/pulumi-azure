@@ -7,10 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Key Vault.
- * 
- * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
- *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
  */
 export class KeyVault extends pulumi.CustomResource {
@@ -69,21 +65,25 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly networkAcls!: pulumi.Output<outputs.keyvault.KeyVaultNetworkAcls>;
     /**
+     * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     */
+    public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * ) A `sku` block as described below.
-     */
-    public readonly sku!: pulumi.Output<outputs.keyvault.KeyVaultSku>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
+     * Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+     */
+    public readonly softDeleteEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
@@ -112,9 +112,10 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkAcls"] = state ? state.networkAcls : undefined;
+            inputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            inputs["sku"] = state ? state.sku : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
+            inputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tenantId"] = state ? state.tenantId : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
@@ -122,6 +123,9 @@ export class KeyVault extends pulumi.CustomResource {
             const args = argsOrState as KeyVaultArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.skuName === undefined) {
+                throw new Error("Missing required property 'skuName'");
             }
             if (!args || args.tenantId === undefined) {
                 throw new Error("Missing required property 'tenantId'");
@@ -133,9 +137,10 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkAcls"] = args ? args.networkAcls : undefined;
+            inputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
+            inputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultUri"] = undefined /*out*/;
@@ -184,17 +189,21 @@ export interface KeyVaultState {
      */
     readonly networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
     /**
+     * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     */
+    readonly purgeProtectionEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * ) A `sku` block as described below.
-     */
-    readonly sku?: pulumi.Input<inputs.keyvault.KeyVaultSku>;
-    /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
     readonly skuName?: pulumi.Input<string>;
+    /**
+     * Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+     */
+    readonly softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -242,17 +251,21 @@ export interface KeyVaultArgs {
      */
     readonly networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
     /**
+     * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+     */
+    readonly purgeProtectionEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * ) A `sku` block as described below.
-     */
-    readonly sku?: pulumi.Input<inputs.keyvault.KeyVaultSku>;
-    /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    readonly skuName: pulumi.Input<string>;
+    /**
+     * Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+     */
+    readonly softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */

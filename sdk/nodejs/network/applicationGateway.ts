@@ -59,11 +59,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
     /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-     * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-     */
-    public readonly disabledSslProtocols!: pulumi.Output<string[]>;
-    /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
     public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
@@ -130,7 +125,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
@@ -165,7 +160,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
-            inputs["disabledSslProtocols"] = state ? state.disabledSslProtocols : undefined;
             inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
             inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
@@ -221,7 +215,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
-            inputs["disabledSslProtocols"] = args ? args.disabledSslProtocols : undefined;
             inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
             inputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
             inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
@@ -279,11 +272,6 @@ export interface ApplicationGatewayState {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
-    /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-     * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-     */
-    readonly disabledSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
@@ -394,11 +382,6 @@ export interface ApplicationGatewayArgs {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
-    /**
-     * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-     * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
-     */
-    readonly disabledSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */

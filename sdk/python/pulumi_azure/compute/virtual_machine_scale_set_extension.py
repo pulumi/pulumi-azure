@@ -52,8 +52,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, publisher=None, settings=None, type=None, type_handler_version=None, virtual_machine_scale_set_id=None, __props__=None, __name__=None, __opts__=None):
         """
-        > **NOTE:** **This resource is in Beta** and as such the Schema can change in Minor versions of the Provider.
-        
         Manages an Extension for a Virtual Machine Scale Set.
         
         > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.

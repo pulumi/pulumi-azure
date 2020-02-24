@@ -21,7 +21,6 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     }
     const promise: Promise<GetAccountResult> = pulumi.runtime.invoke("azure:storage/getAccount:getAccount", {
         "name": args.name,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -35,10 +34,6 @@ export interface GetAccountArgs {
      * Specifies the name of the Storage Account
      */
     readonly name: string;
-    /**
-     * Specifies the name of the resource group the Storage Account is located in.
-     */
-    readonly resourceGroupName: string;
 }
 
 /**
@@ -49,10 +44,6 @@ export interface GetAccountResult {
      * The access tier for `BlobStorage` accounts.
      */
     readonly accessTier: string;
-    /**
-     * The Encryption Source for this Storage Account.
-     */
-    readonly accountEncryptionSource: string;
     /**
      * The Kind of account.
      */
@@ -69,16 +60,6 @@ export interface GetAccountResult {
      * A `customDomain` block as documented below.
      */
     readonly customDomains: outputs.storage.GetAccountCustomDomain[];
-    /**
-     * Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-     * for more information.
-     */
-    readonly enableBlobEncryption: boolean;
-    /**
-     * Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-     * for more information.
-     */
-    readonly enableFileEncryption: boolean;
     /**
      * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information.

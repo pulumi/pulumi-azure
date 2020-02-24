@@ -37,7 +37,6 @@ type NatRule struct {
 	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -108,7 +107,6 @@ type natRuleState struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -134,7 +132,6 @@ type NatRuleState struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT Rule.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -162,7 +159,6 @@ type natRuleArgs struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the NAT Rule.
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
@@ -187,7 +183,6 @@ type NatRuleArgs struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId pulumi.StringInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the NAT Rule.
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.

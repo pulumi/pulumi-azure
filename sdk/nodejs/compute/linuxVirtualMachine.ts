@@ -160,7 +160,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */

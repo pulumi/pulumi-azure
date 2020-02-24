@@ -27,17 +27,14 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource. 
         /// </summary>
-        [Input("keyVaultId")]
-        public string? KeyVaultId { get; set; }
+        [Input("keyVaultId", required: true)]
+        public string KeyVaultId { get; set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Key Vault Secret.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
-
-        [Input("vaultUri")]
-        public string? VaultUri { get; set; }
 
         public GetSecretArgs()
         {
@@ -61,7 +58,6 @@ namespace Pulumi.Azure.KeyVault
         /// The value of the Key Vault Secret.
         /// </summary>
         public readonly string Value;
-        public readonly string VaultUri;
         /// <summary>
         /// The current version of the Key Vault Secret.
         /// </summary>
@@ -78,7 +74,6 @@ namespace Pulumi.Azure.KeyVault
             string name,
             ImmutableDictionary<string, string> tags,
             string value,
-            string vaultUri,
             string version,
             string id)
         {
@@ -87,7 +82,6 @@ namespace Pulumi.Azure.KeyVault
             Name = name;
             Tags = tags;
             Value = value;
-            VaultUri = vaultUri;
             Version = version;
             Id = id;
         }

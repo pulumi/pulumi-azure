@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Storage
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
 
-        [Output("attempts")]
-        public Output<int?> Attempts { get; private set; } = null!;
-
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
@@ -27,9 +24,6 @@ namespace Pulumi.Azure.Storage
 
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         [Output("size")]
         public Output<int?> Size { get; private set; } = null!;
@@ -104,9 +98,6 @@ namespace Pulumi.Azure.Storage
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 
-        [Input("attempts")]
-        public Input<int>? Attempts { get; set; }
-
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
@@ -123,9 +114,6 @@ namespace Pulumi.Azure.Storage
 
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("size")]
         public Input<int>? Size { get; set; }
@@ -158,9 +146,6 @@ namespace Pulumi.Azure.Storage
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
 
-        [Input("attempts")]
-        public Input<int>? Attempts { get; set; }
-
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
@@ -177,9 +162,6 @@ namespace Pulumi.Azure.Storage
 
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("size")]
         public Input<int>? Size { get; set; }

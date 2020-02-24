@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
  *     location: "global",
- *     microsoftAppId: current.servicePrincipalApplicationId,
+ *     microsoftAppId: current.clientId,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });

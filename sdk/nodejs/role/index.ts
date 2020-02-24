@@ -4,5 +4,4 @@
 // Export members:
 export * from "./assignment";
 export * from "./definition";
-export * from "./getBuiltinRoleDefinition";
 export * from "./getRoleDefinition";

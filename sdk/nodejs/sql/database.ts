@@ -115,11 +115,15 @@ export class Database extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     public readonly threatDetectionPolicy!: pulumi.Output<outputs.sql.DatabaseThreatDetectionPolicy>;
+    /**
+     * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -154,6 +158,7 @@ export class Database extends pulumi.CustomResource {
             inputs["sourceDatabaseId"] = state ? state.sourceDatabaseId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
+            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -180,6 +185,7 @@ export class Database extends pulumi.CustomResource {
             inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
@@ -281,6 +287,10 @@ export interface DatabaseState {
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     readonly threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
+    /**
+     * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -360,4 +370,8 @@ export interface DatabaseArgs {
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     readonly threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
+    /**
+     * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

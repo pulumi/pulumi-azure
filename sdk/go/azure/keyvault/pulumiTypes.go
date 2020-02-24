@@ -2226,118 +2226,6 @@ func (o KeyVaultNetworkAclsPtrOutput) VirtualNetworkSubnetIds() pulumi.StringArr
 	return o.ApplyT(func (v KeyVaultNetworkAcls) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
 }
 
-type KeyVaultSku struct {
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
-}
-
-type KeyVaultSkuInput interface {
-	pulumi.Input
-
-	ToKeyVaultSkuOutput() KeyVaultSkuOutput
-	ToKeyVaultSkuOutputWithContext(context.Context) KeyVaultSkuOutput
-}
-
-type KeyVaultSkuArgs struct {
-	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (KeyVaultSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultSku)(nil)).Elem()
-}
-
-func (i KeyVaultSkuArgs) ToKeyVaultSkuOutput() KeyVaultSkuOutput {
-	return i.ToKeyVaultSkuOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSkuArgs) ToKeyVaultSkuOutputWithContext(ctx context.Context) KeyVaultSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSkuOutput)
-}
-
-func (i KeyVaultSkuArgs) ToKeyVaultSkuPtrOutput() KeyVaultSkuPtrOutput {
-	return i.ToKeyVaultSkuPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultSkuArgs) ToKeyVaultSkuPtrOutputWithContext(ctx context.Context) KeyVaultSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSkuOutput).ToKeyVaultSkuPtrOutputWithContext(ctx)
-}
-
-type KeyVaultSkuPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultSkuPtrOutput() KeyVaultSkuPtrOutput
-	ToKeyVaultSkuPtrOutputWithContext(context.Context) KeyVaultSkuPtrOutput
-}
-
-type keyVaultSkuPtrType KeyVaultSkuArgs
-
-func KeyVaultSkuPtr(v *KeyVaultSkuArgs) KeyVaultSkuPtrInput {	return (*keyVaultSkuPtrType)(v)
-}
-
-func (*keyVaultSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSku)(nil)).Elem()
-}
-
-func (i *keyVaultSkuPtrType) ToKeyVaultSkuPtrOutput() KeyVaultSkuPtrOutput {
-	return i.ToKeyVaultSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultSkuPtrType) ToKeyVaultSkuPtrOutputWithContext(ctx context.Context) KeyVaultSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSkuPtrOutput)
-}
-
-type KeyVaultSkuOutput struct { *pulumi.OutputState }
-
-func (KeyVaultSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultSku)(nil)).Elem()
-}
-
-func (o KeyVaultSkuOutput) ToKeyVaultSkuOutput() KeyVaultSkuOutput {
-	return o
-}
-
-func (o KeyVaultSkuOutput) ToKeyVaultSkuOutputWithContext(ctx context.Context) KeyVaultSkuOutput {
-	return o
-}
-
-func (o KeyVaultSkuOutput) ToKeyVaultSkuPtrOutput() KeyVaultSkuPtrOutput {
-	return o.ToKeyVaultSkuPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultSkuOutput) ToKeyVaultSkuPtrOutputWithContext(ctx context.Context) KeyVaultSkuPtrOutput {
-	return o.ApplyT(func(v KeyVaultSku) *KeyVaultSku {
-		return &v
-	}).(KeyVaultSkuPtrOutput)
-}
-// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-func (o KeyVaultSkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KeyVaultSku) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultSkuPtrOutput struct { *pulumi.OutputState}
-
-func (KeyVaultSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultSku)(nil)).Elem()
-}
-
-func (o KeyVaultSkuPtrOutput) ToKeyVaultSkuPtrOutput() KeyVaultSkuPtrOutput {
-	return o
-}
-
-func (o KeyVaultSkuPtrOutput) ToKeyVaultSkuPtrOutputWithContext(ctx context.Context) KeyVaultSkuPtrOutput {
-	return o
-}
-
-func (o KeyVaultSkuPtrOutput) Elem() KeyVaultSkuOutput {
-	return o.ApplyT(func (v *KeyVaultSku) KeyVaultSku { return *v }).(KeyVaultSkuOutput)
-}
-
-// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-func (o KeyVaultSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v KeyVaultSku) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
 type GetKeyVaultAccessPolicy struct {
 	// The Object ID of a Azure Active Directory Application.
 	ApplicationId string `pulumi:"applicationId"`
@@ -2585,54 +2473,6 @@ func (o GetKeyVaultNetworkAclArrayOutput) Index(i pulumi.IntInput) GetKeyVaultNe
 	}).(GetKeyVaultNetworkAclOutput)
 }
 
-type GetKeyVaultSku struct {
-	// Specifies the name of the Key Vault.
-	Name string `pulumi:"name"`
-}
-
-type GetKeyVaultSkuInput interface {
-	pulumi.Input
-
-	ToGetKeyVaultSkuOutput() GetKeyVaultSkuOutput
-	ToGetKeyVaultSkuOutputWithContext(context.Context) GetKeyVaultSkuOutput
-}
-
-type GetKeyVaultSkuArgs struct {
-	// Specifies the name of the Key Vault.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetKeyVaultSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKeyVaultSku)(nil)).Elem()
-}
-
-func (i GetKeyVaultSkuArgs) ToGetKeyVaultSkuOutput() GetKeyVaultSkuOutput {
-	return i.ToGetKeyVaultSkuOutputWithContext(context.Background())
-}
-
-func (i GetKeyVaultSkuArgs) ToGetKeyVaultSkuOutputWithContext(ctx context.Context) GetKeyVaultSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetKeyVaultSkuOutput)
-}
-
-type GetKeyVaultSkuOutput struct { *pulumi.OutputState }
-
-func (GetKeyVaultSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetKeyVaultSku)(nil)).Elem()
-}
-
-func (o GetKeyVaultSkuOutput) ToGetKeyVaultSkuOutput() GetKeyVaultSkuOutput {
-	return o
-}
-
-func (o GetKeyVaultSkuOutput) ToGetKeyVaultSkuOutputWithContext(ctx context.Context) GetKeyVaultSkuOutput {
-	return o
-}
-
-// Specifies the name of the Key Vault.
-func (o GetKeyVaultSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetKeyVaultSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(CertifiateCertificateOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePtrOutput{})
@@ -2668,11 +2508,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultSkuOutput{})
-	pulumi.RegisterOutputType(KeyVaultSkuPtrOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclArrayOutput{})
-	pulumi.RegisterOutputType(GetKeyVaultSkuOutput{})
 }

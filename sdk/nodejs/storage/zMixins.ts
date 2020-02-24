@@ -174,7 +174,7 @@ export interface BlobFunctionArgs extends GetBlobFunctionArgs {
 }
 
 export interface BlobEventSubscriptionArgs extends GetBlobFunctionArgs,
-                                                   appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
+    appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Storage Account will be used.
@@ -523,11 +523,11 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 function resolveAccount(container: { storageAccountName: pulumi.Output<string>, resourceGroupName: pulumi.Output<string> }) {
     const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
     const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
-                        .apply(([resourceGroupName, storageAccountName]) =>
-                            storage.getAccount({
-                                resourceGroupName,
-                                name: storageAccountName
-                            }, { async: true }));
+        .apply(([resourceGroupName, storageAccountName]) =>
+            storage.getAccount({
+                resourceGroupName,
+                name: storageAccountName
+            }, { async: true }));
 
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
         ([connectionString, key]) => ({ [key]: connectionString }));

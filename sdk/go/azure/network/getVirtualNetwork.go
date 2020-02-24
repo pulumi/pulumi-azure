@@ -33,7 +33,6 @@ type LookupVirtualNetworkArgs struct {
 type LookupVirtualNetworkResult struct {
 	// The list of address spaces used by the virtual network.
 	AddressSpaces []string `pulumi:"addressSpaces"`
-	AddressSpacesCollection []string `pulumi:"addressSpacesCollection"`
 	// The list of DNS servers used by the virtual network.
 	DnsServers []string `pulumi:"dnsServers"`
 	// id is the provider-assigned unique ID for this managed resource.

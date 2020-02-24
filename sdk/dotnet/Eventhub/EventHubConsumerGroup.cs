@@ -21,9 +21,6 @@ namespace Pulumi.Azure.EventHub
         [Output("eventhubName")]
         public Output<string> EventhubName { get; private set; } = null!;
 
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
         /// </summary>
@@ -100,9 +97,6 @@ namespace Pulumi.Azure.EventHub
         [Input("eventhubName", required: true)]
         public Input<string> EventhubName { get; set; } = null!;
 
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
         /// <summary>
         /// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
         /// </summary>
@@ -139,9 +133,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("eventhubName")]
         public Input<string>? EventhubName { get; set; }
-
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.

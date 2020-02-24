@@ -47,11 +47,7 @@ export class NsRecord extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-     */
-    public readonly record!: pulumi.Output<outputs.dns.NsRecordRecord[]>;
-    /**
-     * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+     * A list of values that make up the NS record. 
      */
     public readonly records!: pulumi.Output<string[]>;
     /**
@@ -61,7 +57,7 @@ export class NsRecord extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
@@ -85,7 +81,6 @@ export class NsRecord extends pulumi.CustomResource {
             const state = argsOrState as NsRecordState | undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["record"] = state ? state.record : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -93,6 +88,9 @@ export class NsRecord extends pulumi.CustomResource {
             inputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as NsRecordArgs | undefined;
+            if (!args || args.records === undefined) {
+                throw new Error("Missing required property 'records'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +101,6 @@ export class NsRecord extends pulumi.CustomResource {
                 throw new Error("Missing required property 'zoneName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["record"] = args ? args.record : undefined;
             inputs["records"] = args ? args.records : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -135,11 +132,7 @@ export interface NsRecordState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
-     */
-    readonly record?: pulumi.Input<pulumi.Input<inputs.dns.NsRecordRecord>[]>;
-    /**
-     * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+     * A list of values that make up the NS record. 
      */
     readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -169,13 +162,9 @@ export interface NsRecordArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+     * A list of values that make up the NS record. 
      */
-    readonly record?: pulumi.Input<pulumi.Input<inputs.dns.NsRecordRecord>[]>;
-    /**
-     * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
-     */
-    readonly records?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly records: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

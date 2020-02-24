@@ -3796,14 +3796,6 @@ func (o ServiceProtocolsPtrOutput) EnableHttp2() pulumi.BoolPtrOutput {
 }
 
 type ServiceSecurity struct {
-	DisableBackendSsl30 *bool `pulumi:"disableBackendSsl30"`
-	DisableBackendTls10 *bool `pulumi:"disableBackendTls10"`
-	DisableBackendTls11 *bool `pulumi:"disableBackendTls11"`
-	DisableFrontendSsl30 *bool `pulumi:"disableFrontendSsl30"`
-	DisableFrontendTls10 *bool `pulumi:"disableFrontendTls10"`
-	DisableFrontendTls11 *bool `pulumi:"disableFrontendTls11"`
-	DisableTripleDesChipers *bool `pulumi:"disableTripleDesChipers"`
-	DisableTripleDesCiphers *bool `pulumi:"disableTripleDesCiphers"`
 	EnableBackendSsl30 *bool `pulumi:"enableBackendSsl30"`
 	EnableBackendTls10 *bool `pulumi:"enableBackendTls10"`
 	EnableBackendTls11 *bool `pulumi:"enableBackendTls11"`
@@ -3821,14 +3813,6 @@ type ServiceSecurityInput interface {
 }
 
 type ServiceSecurityArgs struct {
-	DisableBackendSsl30 pulumi.BoolPtrInput `pulumi:"disableBackendSsl30"`
-	DisableBackendTls10 pulumi.BoolPtrInput `pulumi:"disableBackendTls10"`
-	DisableBackendTls11 pulumi.BoolPtrInput `pulumi:"disableBackendTls11"`
-	DisableFrontendSsl30 pulumi.BoolPtrInput `pulumi:"disableFrontendSsl30"`
-	DisableFrontendTls10 pulumi.BoolPtrInput `pulumi:"disableFrontendTls10"`
-	DisableFrontendTls11 pulumi.BoolPtrInput `pulumi:"disableFrontendTls11"`
-	DisableTripleDesChipers pulumi.BoolPtrInput `pulumi:"disableTripleDesChipers"`
-	DisableTripleDesCiphers pulumi.BoolPtrInput `pulumi:"disableTripleDesCiphers"`
 	EnableBackendSsl30 pulumi.BoolPtrInput `pulumi:"enableBackendSsl30"`
 	EnableBackendTls10 pulumi.BoolPtrInput `pulumi:"enableBackendTls10"`
 	EnableBackendTls11 pulumi.BoolPtrInput `pulumi:"enableBackendTls11"`
@@ -3905,38 +3889,6 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context
 		return &v
 	}).(ServiceSecurityPtrOutput)
 }
-func (o ServiceSecurityOutput) DisableBackendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableBackendSsl30 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableBackendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableBackendTls10 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableBackendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableBackendTls11 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableFrontendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableFrontendSsl30 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableFrontendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableFrontendTls10 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableFrontendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableFrontendTls11 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableTripleDesChipers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableTripleDesChipers }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityOutput) DisableTripleDesCiphers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableTripleDesCiphers }).(pulumi.BoolPtrOutput)
-}
-
 func (o ServiceSecurityOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
 	return o.ApplyT(func (v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
 }
@@ -3981,38 +3933,6 @@ func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutputWithContext(ctx cont
 
 func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
 	return o.ApplyT(func (v *ServiceSecurity) ServiceSecurity { return *v }).(ServiceSecurityOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableBackendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableBackendSsl30 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableBackendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableBackendTls10 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableBackendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableBackendTls11 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableFrontendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableFrontendSsl30 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableFrontendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableFrontendTls10 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableFrontendTls11() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableFrontendTls11 }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableTripleDesChipers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableTripleDesChipers }).(pulumi.BoolPtrOutput)
-}
-
-func (o ServiceSecurityPtrOutput) DisableTripleDesCiphers() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v ServiceSecurity) *bool { return v.DisableTripleDesCiphers }).(pulumi.BoolPtrOutput)
 }
 
 func (o ServiceSecurityPtrOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
@@ -4324,128 +4244,6 @@ func (o ServiceSignUpTermsOfServiceOutput) Enabled() pulumi.BoolOutput {
 
 func (o ServiceSignUpTermsOfServiceOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func (v ServiceSignUpTermsOfService) *string { return v.Text }).(pulumi.StringPtrOutput)
-}
-
-type ServiceSku struct {
-	Capacity *int `pulumi:"capacity"`
-	// The name of the API Management Service. Changing this forces a new resource to be created.
-	Name string `pulumi:"name"`
-}
-
-type ServiceSkuInput interface {
-	pulumi.Input
-
-	ToServiceSkuOutput() ServiceSkuOutput
-	ToServiceSkuOutputWithContext(context.Context) ServiceSkuOutput
-}
-
-type ServiceSkuArgs struct {
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// The name of the API Management Service. Changing this forces a new resource to be created.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (ServiceSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceSku)(nil)).Elem()
-}
-
-func (i ServiceSkuArgs) ToServiceSkuOutput() ServiceSkuOutput {
-	return i.ToServiceSkuOutputWithContext(context.Background())
-}
-
-func (i ServiceSkuArgs) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput)
-}
-
-func (i ServiceSkuArgs) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return i.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceSkuArgs) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput).ToServiceSkuPtrOutputWithContext(ctx)
-}
-
-type ServiceSkuPtrInput interface {
-	pulumi.Input
-
-	ToServiceSkuPtrOutput() ServiceSkuPtrOutput
-	ToServiceSkuPtrOutputWithContext(context.Context) ServiceSkuPtrOutput
-}
-
-type serviceSkuPtrType ServiceSkuArgs
-
-func ServiceSkuPtr(v *ServiceSkuArgs) ServiceSkuPtrInput {	return (*serviceSkuPtrType)(v)
-}
-
-func (*serviceSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
-}
-
-func (i *serviceSkuPtrType) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return i.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceSkuPtrType) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuPtrOutput)
-}
-
-type ServiceSkuOutput struct { *pulumi.OutputState }
-
-func (ServiceSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceSku)(nil)).Elem()
-}
-
-func (o ServiceSkuOutput) ToServiceSkuOutput() ServiceSkuOutput {
-	return o
-}
-
-func (o ServiceSkuOutput) ToServiceSkuOutputWithContext(ctx context.Context) ServiceSkuOutput {
-	return o
-}
-
-func (o ServiceSkuOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return o.ToServiceSkuPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o.ApplyT(func(v ServiceSku) *ServiceSku {
-		return &v
-	}).(ServiceSkuPtrOutput)
-}
-func (o ServiceSkuOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ServiceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (o ServiceSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ServiceSkuPtrOutput struct { *pulumi.OutputState}
-
-func (ServiceSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSku)(nil)).Elem()
-}
-
-func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
-	return o
-}
-
-func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
-	return o
-}
-
-func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
-	return o.ApplyT(func (v *ServiceSku) ServiceSku { return *v }).(ServiceSkuOutput)
-}
-
-func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v ServiceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
-}
-
-// The name of the API Management Service. Changing this forces a new resource to be created.
-func (o ServiceSkuPtrOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v ServiceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type GetApiSubscriptionKeyParameterName struct {
@@ -5206,63 +5004,6 @@ func (o GetServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetServiceHostnameConfigurationScmOutput)
 }
 
-type GetServiceSku struct {
-	// Specifies the number of units associated with this API Management service.
-	Capacity int `pulumi:"capacity"`
-	// The name of the API Management service.
-	Name string `pulumi:"name"`
-}
-
-type GetServiceSkuInput interface {
-	pulumi.Input
-
-	ToGetServiceSkuOutput() GetServiceSkuOutput
-	ToGetServiceSkuOutputWithContext(context.Context) GetServiceSkuOutput
-}
-
-type GetServiceSkuArgs struct {
-	// Specifies the number of units associated with this API Management service.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of the API Management service.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetServiceSkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetServiceSku)(nil)).Elem()
-}
-
-func (i GetServiceSkuArgs) ToGetServiceSkuOutput() GetServiceSkuOutput {
-	return i.ToGetServiceSkuOutputWithContext(context.Background())
-}
-
-func (i GetServiceSkuArgs) ToGetServiceSkuOutputWithContext(ctx context.Context) GetServiceSkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetServiceSkuOutput)
-}
-
-type GetServiceSkuOutput struct { *pulumi.OutputState }
-
-func (GetServiceSkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetServiceSku)(nil)).Elem()
-}
-
-func (o GetServiceSkuOutput) ToGetServiceSkuOutput() GetServiceSkuOutput {
-	return o
-}
-
-func (o GetServiceSkuOutput) ToGetServiceSkuOutputWithContext(ctx context.Context) GetServiceSkuOutput {
-	return o
-}
-
-// Specifies the number of units associated with this API Management service.
-func (o GetServiceSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func (v GetServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
-}
-
-// The name of the API Management service.
-func (o GetServiceSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v GetServiceSku) string { return v.Name }).(pulumi.StringOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ApiImportOutput{})
 	pulumi.RegisterOutputType(ApiImportPtrOutput{})
@@ -5335,8 +5076,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSignUpOutput{})
 	pulumi.RegisterOutputType(ServiceSignUpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSignUpTermsOfServiceOutput{})
-	pulumi.RegisterOutputType(ServiceSkuOutput{})
-	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceAdditionalLocationOutput{})
@@ -5351,5 +5090,4 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationProxyArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationScmOutput{})
 	pulumi.RegisterOutputType(GetServiceHostnameConfigurationScmArrayOutput{})
-	pulumi.RegisterOutputType(GetServiceSkuOutput{})
 }

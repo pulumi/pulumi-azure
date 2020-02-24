@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Monitoring
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource ID of the resource that the autoscale setting should be added to.

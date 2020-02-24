@@ -39,7 +39,6 @@ type Key struct {
 	NotBeforeDate pulumi.StringPtrOutput `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	VaultUri pulumi.StringOutput `pulumi:"vaultUri"`
 	// The current version of the Key Vault Key.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The EC X component of this Key Vault Key.
@@ -56,6 +55,9 @@ func NewKey(ctx *pulumi.Context,
 	}
 	if args == nil || args.KeyType == nil {
 		return nil, errors.New("missing required argument 'KeyType'")
+	}
+	if args == nil || args.KeyVaultId == nil {
+		return nil, errors.New("missing required argument 'KeyVaultId'")
 	}
 	if args == nil {
 		args = &KeyArgs{}
@@ -104,7 +106,6 @@ type keyState struct {
 	NotBeforeDate *string `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	VaultUri *string `pulumi:"vaultUri"`
 	// The current version of the Key Vault Key.
 	Version *string `pulumi:"version"`
 	// The EC X component of this Key Vault Key.
@@ -136,7 +137,6 @@ type KeyState struct {
 	NotBeforeDate pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	VaultUri pulumi.StringPtrInput
 	// The current version of the Key Vault Key.
 	Version pulumi.StringPtrInput
 	// The EC X component of this Key Vault Key.
@@ -161,14 +161,13 @@ type keyArgs struct {
 	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
-	KeyVaultId *string `pulumi:"keyVaultId"`
+	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate *string `pulumi:"notBeforeDate"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	VaultUri *string `pulumi:"vaultUri"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -184,14 +183,13 @@ type KeyArgs struct {
 	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
-	KeyVaultId pulumi.StringPtrInput
+	KeyVaultId pulumi.StringInput
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
 	NotBeforeDate pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	VaultUri pulumi.StringPtrInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {

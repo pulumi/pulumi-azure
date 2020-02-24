@@ -164,7 +164,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */

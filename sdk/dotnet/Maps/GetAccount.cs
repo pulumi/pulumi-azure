@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Maps
         /// The sku of the Azure Maps Account.
         /// </summary>
         public readonly string SkuName;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// A unique identifier for the Maps Account.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Maps
             string resourceGroupName,
             string secondaryAccessKey,
             string skuName,
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
             string xMsClientId,
             string id)
         {

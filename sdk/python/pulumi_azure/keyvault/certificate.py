@@ -84,12 +84,11 @@ class Certificate(pulumi.CustomResource):
     """
     The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
     """
-    vault_uri: pulumi.Output[str]
     version: pulumi.Output[str]
     """
     The current version of the Key Vault Certificate.
     """
-    def __init__(__self__, resource_name, opts=None, certificate=None, certificate_policy=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate=None, certificate_policy=None, key_vault_id=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Certificate.
         
@@ -170,10 +169,11 @@ class Certificate(pulumi.CustomResource):
             if certificate_policy is None:
                 raise TypeError("Missing required property 'certificate_policy'")
             __props__['certificate_policy'] = certificate_policy
+            if key_vault_id is None:
+                raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['tags'] = tags
-            __props__['vault_uri'] = vault_uri
             __props__['certificate_data'] = None
             __props__['secret_id'] = None
             __props__['thumbprint'] = None
@@ -187,7 +187,7 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, certificate=None, certificate_data=None, certificate_policy=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, vault_uri=None, version=None):
+    def get(resource_name, id, opts=None, certificate=None, certificate_data=None, certificate_policy=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -264,7 +264,6 @@ class Certificate(pulumi.CustomResource):
         __props__["secret_id"] = secret_id
         __props__["tags"] = tags
         __props__["thumbprint"] = thumbprint
-        __props__["vault_uri"] = vault_uri
         __props__["version"] = version
         return Certificate(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

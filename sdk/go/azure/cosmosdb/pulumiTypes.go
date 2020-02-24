@@ -240,110 +240,6 @@ func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOut
 	return o.ApplyT(func (v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
 }
 
-type AccountFailoverPolicy struct {
-	// The ID of the virtual network subnet.
-	Id *string `pulumi:"id"`
-	// The name of the Azure region to host replicated data.
-	Location string `pulumi:"location"`
-	Priority int `pulumi:"priority"`
-}
-
-type AccountFailoverPolicyInput interface {
-	pulumi.Input
-
-	ToAccountFailoverPolicyOutput() AccountFailoverPolicyOutput
-	ToAccountFailoverPolicyOutputWithContext(context.Context) AccountFailoverPolicyOutput
-}
-
-type AccountFailoverPolicyArgs struct {
-	// The ID of the virtual network subnet.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Azure region to host replicated data.
-	Location pulumi.StringInput `pulumi:"location"`
-	Priority pulumi.IntInput `pulumi:"priority"`
-}
-
-func (AccountFailoverPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (i AccountFailoverPolicyArgs) ToAccountFailoverPolicyOutput() AccountFailoverPolicyOutput {
-	return i.ToAccountFailoverPolicyOutputWithContext(context.Background())
-}
-
-func (i AccountFailoverPolicyArgs) ToAccountFailoverPolicyOutputWithContext(ctx context.Context) AccountFailoverPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountFailoverPolicyOutput)
-}
-
-type AccountFailoverPolicyArrayInput interface {
-	pulumi.Input
-
-	ToAccountFailoverPolicyArrayOutput() AccountFailoverPolicyArrayOutput
-	ToAccountFailoverPolicyArrayOutputWithContext(context.Context) AccountFailoverPolicyArrayOutput
-}
-
-type AccountFailoverPolicyArray []AccountFailoverPolicyInput
-
-func (AccountFailoverPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (i AccountFailoverPolicyArray) ToAccountFailoverPolicyArrayOutput() AccountFailoverPolicyArrayOutput {
-	return i.ToAccountFailoverPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i AccountFailoverPolicyArray) ToAccountFailoverPolicyArrayOutputWithContext(ctx context.Context) AccountFailoverPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountFailoverPolicyArrayOutput)
-}
-
-type AccountFailoverPolicyOutput struct { *pulumi.OutputState }
-
-func (AccountFailoverPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (o AccountFailoverPolicyOutput) ToAccountFailoverPolicyOutput() AccountFailoverPolicyOutput {
-	return o
-}
-
-func (o AccountFailoverPolicyOutput) ToAccountFailoverPolicyOutputWithContext(ctx context.Context) AccountFailoverPolicyOutput {
-	return o
-}
-
-// The ID of the virtual network subnet.
-func (o AccountFailoverPolicyOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v AccountFailoverPolicy) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Azure region to host replicated data.
-func (o AccountFailoverPolicyOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func (v AccountFailoverPolicy) string { return v.Location }).(pulumi.StringOutput)
-}
-
-func (o AccountFailoverPolicyOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func (v AccountFailoverPolicy) int { return v.Priority }).(pulumi.IntOutput)
-}
-
-type AccountFailoverPolicyArrayOutput struct { *pulumi.OutputState}
-
-func (AccountFailoverPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountFailoverPolicy)(nil)).Elem()
-}
-
-func (o AccountFailoverPolicyArrayOutput) ToAccountFailoverPolicyArrayOutput() AccountFailoverPolicyArrayOutput {
-	return o
-}
-
-func (o AccountFailoverPolicyArrayOutput) ToAccountFailoverPolicyArrayOutputWithContext(ctx context.Context) AccountFailoverPolicyArrayOutput {
-	return o
-}
-
-func (o AccountFailoverPolicyArrayOutput) Index(i pulumi.IntInput) AccountFailoverPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountFailoverPolicy {
-		return vs[0].([]AccountFailoverPolicy)[vs[1].(int)]
-	}).(AccountFailoverPolicyOutput)
-}
-
 type AccountGeoLocation struct {
 	// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
 	FailoverPriority int `pulumi:"failoverPriority"`
@@ -837,98 +733,6 @@ func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphU
 	}).(GremlinGraphUniqueKeyOutput)
 }
 
-type MongoCollectionIndex struct {
-	Key string `pulumi:"key"`
-	Unique *bool `pulumi:"unique"`
-}
-
-type MongoCollectionIndexInput interface {
-	pulumi.Input
-
-	ToMongoCollectionIndexOutput() MongoCollectionIndexOutput
-	ToMongoCollectionIndexOutputWithContext(context.Context) MongoCollectionIndexOutput
-}
-
-type MongoCollectionIndexArgs struct {
-	Key pulumi.StringInput `pulumi:"key"`
-	Unique pulumi.BoolPtrInput `pulumi:"unique"`
-}
-
-func (MongoCollectionIndexArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollectionIndex)(nil)).Elem()
-}
-
-func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutput() MongoCollectionIndexOutput {
-	return i.ToMongoCollectionIndexOutputWithContext(context.Background())
-}
-
-func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutputWithContext(ctx context.Context) MongoCollectionIndexOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionIndexOutput)
-}
-
-type MongoCollectionIndexArrayInput interface {
-	pulumi.Input
-
-	ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput
-	ToMongoCollectionIndexArrayOutputWithContext(context.Context) MongoCollectionIndexArrayOutput
-}
-
-type MongoCollectionIndexArray []MongoCollectionIndexInput
-
-func (MongoCollectionIndexArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MongoCollectionIndex)(nil)).Elem()
-}
-
-func (i MongoCollectionIndexArray) ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput {
-	return i.ToMongoCollectionIndexArrayOutputWithContext(context.Background())
-}
-
-func (i MongoCollectionIndexArray) ToMongoCollectionIndexArrayOutputWithContext(ctx context.Context) MongoCollectionIndexArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionIndexArrayOutput)
-}
-
-type MongoCollectionIndexOutput struct { *pulumi.OutputState }
-
-func (MongoCollectionIndexOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoCollectionIndex)(nil)).Elem()
-}
-
-func (o MongoCollectionIndexOutput) ToMongoCollectionIndexOutput() MongoCollectionIndexOutput {
-	return o
-}
-
-func (o MongoCollectionIndexOutput) ToMongoCollectionIndexOutputWithContext(ctx context.Context) MongoCollectionIndexOutput {
-	return o
-}
-
-func (o MongoCollectionIndexOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func (v MongoCollectionIndex) string { return v.Key }).(pulumi.StringOutput)
-}
-
-func (o MongoCollectionIndexOutput) Unique() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v MongoCollectionIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
-}
-
-type MongoCollectionIndexArrayOutput struct { *pulumi.OutputState}
-
-func (MongoCollectionIndexArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MongoCollectionIndex)(nil)).Elem()
-}
-
-func (o MongoCollectionIndexArrayOutput) ToMongoCollectionIndexArrayOutput() MongoCollectionIndexArrayOutput {
-	return o
-}
-
-func (o MongoCollectionIndexArrayOutput) ToMongoCollectionIndexArrayOutputWithContext(ctx context.Context) MongoCollectionIndexArrayOutput {
-	return o
-}
-
-func (o MongoCollectionIndexArrayOutput) Index(i pulumi.IntInput) MongoCollectionIndexOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) MongoCollectionIndex {
-		return vs[0].([]MongoCollectionIndex)[vs[1].(int)]
-	}).(MongoCollectionIndexOutput)
-}
-
 type SqlContainerUniqueKey struct {
 	Paths []string `pulumi:"paths"`
 }
@@ -1409,8 +1213,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountCapabilityArrayOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyPtrOutput{})
-	pulumi.RegisterOutputType(AccountFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(AccountFailoverPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationArrayOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
@@ -1421,8 +1223,6 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
-	pulumi.RegisterOutputType(MongoCollectionIndexOutput{})
-	pulumi.RegisterOutputType(MongoCollectionIndexArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountCapabilityOutput{})

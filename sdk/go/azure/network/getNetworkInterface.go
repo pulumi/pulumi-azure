@@ -43,7 +43,6 @@ type LookupNetworkInterfaceResult struct {
 	Id string `pulumi:"id"`
 	// The internal dns name label of the specified Network Interface.
 	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`
-	InternalFqdn string `pulumi:"internalFqdn"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []GetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
 	// The location of the specified Network Interface.

@@ -54,7 +54,6 @@ class Key(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    vault_uri: pulumi.Output[str]
     version: pulumi.Output[str]
     """
     The current version of the Key Vault Key.
@@ -67,7 +66,7 @@ class Key(pulumi.CustomResource):
     """
     The EC Y component of this Key Vault Key.
     """
-    def __init__(__self__, resource_name, opts=None, curve=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, not_before_date=None, tags=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, curve=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, not_before_date=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Key.
         
@@ -111,11 +110,12 @@ class Key(pulumi.CustomResource):
             if key_type is None:
                 raise TypeError("Missing required property 'key_type'")
             __props__['key_type'] = key_type
+            if key_vault_id is None:
+                raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['not_before_date'] = not_before_date
             __props__['tags'] = tags
-            __props__['vault_uri'] = vault_uri
             __props__['e'] = None
             __props__['n'] = None
             __props__['version'] = None
@@ -128,7 +128,7 @@ class Key(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, curve=None, e=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, not_before_date=None, tags=None, vault_uri=None, version=None, x=None, y=None):
+    def get(resource_name, id, opts=None, curve=None, e=None, expiration_date=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, not_before_date=None, tags=None, version=None, x=None, y=None):
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -167,7 +167,6 @@ class Key(pulumi.CustomResource):
         __props__["name"] = name
         __props__["not_before_date"] = not_before_date
         __props__["tags"] = tags
-        __props__["vault_uri"] = vault_uri
         __props__["version"] = version
         __props__["x"] = x
         __props__["y"] = y

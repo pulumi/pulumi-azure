@@ -58,13 +58,6 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
         /// List of secret permissions, must be one or more
         /// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
         /// </summary>
@@ -84,13 +77,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the Key Vault resource. Changing this
-        /// forces a new resource to be created.
-        /// </summary>
-        [Output("vaultName")]
-        public Output<string> VaultName { get; private set; } = null!;
 
 
         /// <summary>
@@ -176,8 +162,8 @@ namespace Pulumi.Azure.KeyVault
         /// Specifies the id of the Key Vault resource. Changing this
         /// forces a new resource to be created.
         /// </summary>
-        [Input("keyVaultId")]
-        public Input<string>? KeyVaultId { get; set; }
+        [Input("keyVaultId", required: true)]
+        public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
         /// The object ID of a user, service principal or security
@@ -187,13 +173,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
-
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("secretPermissions")]
         private InputList<string>? _secretPermissions;
@@ -227,13 +206,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the name of the Key Vault resource. Changing this
-        /// forces a new resource to be created.
-        /// </summary>
-        [Input("vaultName")]
-        public Input<string>? VaultName { get; set; }
 
         public AccessPolicyArgs()
         {
@@ -292,13 +264,6 @@ namespace Pulumi.Azure.KeyVault
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         [Input("secretPermissions")]
         private InputList<string>? _secretPermissions;
 
@@ -331,13 +296,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the Key Vault resource. Changing this
-        /// forces a new resource to be created.
-        /// </summary>
-        [Input("vaultName")]
-        public Input<string>? VaultName { get; set; }
 
         public AccessPolicyState()
         {

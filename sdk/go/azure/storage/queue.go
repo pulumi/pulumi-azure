@@ -21,8 +21,6 @@ type Queue struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 }
@@ -62,8 +60,6 @@ type queueState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
@@ -73,8 +69,6 @@ type QueueState struct {
 	Metadata pulumi.StringMapInput
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 }
@@ -88,8 +82,6 @@ type queueArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
@@ -100,8 +92,6 @@ type QueueArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to create the storage queue.
-	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 }

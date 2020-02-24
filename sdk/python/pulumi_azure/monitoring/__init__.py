@@ -3,14 +3,12 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .alert_rule import *
 from .action_group import *
 from .activity_log_alert import *
 from .autoscale_setting import *
 from .diagnostic_setting import *
 from .log_profile import *
 from .metric_alert import *
-from .metric_alert_rule import *
 from .get_action_group import *
 from .get_diagnostic_categories import *
 from .get_log_profile import *

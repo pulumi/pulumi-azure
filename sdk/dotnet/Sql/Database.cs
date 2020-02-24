@@ -131,13 +131,19 @@ namespace Pulumi.Azure.Sql
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         /// </summary>
         [Output("threatDetectionPolicy")]
         public Output<Outputs.DatabaseThreatDetectionPolicy> ThreatDetectionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -300,6 +306,12 @@ namespace Pulumi.Azure.Sql
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
 
+        /// <summary>
+        /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public DatabaseArgs()
         {
         }
@@ -436,6 +448,12 @@ namespace Pulumi.Azure.Sql
         /// </summary>
         [Input("threatDetectionPolicy")]
         public Input<Inputs.DatabaseThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
+
+        /// <summary>
+        /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public DatabaseState()
         {

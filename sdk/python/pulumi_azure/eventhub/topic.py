@@ -36,16 +36,10 @@ class Topic(pulumi.CustomResource):
     are enabled. An express topic holds a message in memory temporarily before writing
     it to persistent storage. Defaults to false.
     """
-    enable_filtering_messages_before_publishing: pulumi.Output[bool]
     enable_partitioning: pulumi.Output[bool]
     """
     Boolean flag which controls whether to enable
     the topic to be partitioned across multiple message brokers. Defaults to false.
-    Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists.
     Changing this forces a new resource to be created.
     """
     max_size_in_megabytes: pulumi.Output[float]
@@ -84,7 +78,7 @@ class Topic(pulumi.CustomResource):
     Boolean flag which controls whether the Topic
     supports ordering. Defaults to false.
     """
-    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_filtering_messages_before_publishing=None, enable_partitioning=None, location=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Topic.
         
@@ -105,8 +99,6 @@ class Topic(pulumi.CustomResource):
                it to persistent storage. Defaults to false.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -148,9 +140,7 @@ class Topic(pulumi.CustomResource):
             __props__['duplicate_detection_history_time_window'] = duplicate_detection_history_time_window
             __props__['enable_batched_operations'] = enable_batched_operations
             __props__['enable_express'] = enable_express
-            __props__['enable_filtering_messages_before_publishing'] = enable_filtering_messages_before_publishing
             __props__['enable_partitioning'] = enable_partitioning
-            __props__['location'] = location
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
             __props__['name'] = name
             if namespace_name is None:
@@ -169,7 +159,7 @@ class Topic(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_filtering_messages_before_publishing=None, enable_partitioning=None, location=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None):
+    def get(resource_name, id, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None):
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -190,8 +180,6 @@ class Topic(pulumi.CustomResource):
                it to persistent storage. Defaults to false.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
-               Changing this forces a new resource to be created.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -219,9 +207,7 @@ class Topic(pulumi.CustomResource):
         __props__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
         __props__["enable_batched_operations"] = enable_batched_operations
         __props__["enable_express"] = enable_express
-        __props__["enable_filtering_messages_before_publishing"] = enable_filtering_messages_before_publishing
         __props__["enable_partitioning"] = enable_partitioning
-        __props__["location"] = location
         __props__["max_size_in_megabytes"] = max_size_in_megabytes
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

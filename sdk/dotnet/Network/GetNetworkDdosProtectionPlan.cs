@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network
             string location,
             string name,
             string resourceGroupName,
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
             ImmutableArray<string> virtualNetworkIds,
             string id)
         {

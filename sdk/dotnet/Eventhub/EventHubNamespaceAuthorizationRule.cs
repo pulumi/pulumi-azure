@@ -21,9 +21,6 @@ namespace Pulumi.Azure.EventHub
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
-
         /// <summary>
         /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         /// </summary>
@@ -130,9 +127,6 @@ namespace Pulumi.Azure.EventHub
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
         /// <summary>
         /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         /// </summary>
@@ -175,9 +169,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
-
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.

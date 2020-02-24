@@ -13,6 +13,7 @@ export * from "./eventHubNamespace";
 export * from "./eventHubNamespaceAuthorizationRule";
 export * from "./eventSubscription";
 export * from "./eventhubNamespaceDisasterRecoveryConfig";
+export * from "./getAuthorizationRule";
 export * from "./getConsumeGroup";
 export * from "./getEventhubNamespace";
 export * from "./getNamespace";

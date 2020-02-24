@@ -38,9 +38,8 @@ type Registry struct {
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	StorageAccount RegistryStorageAccountPtrOutput `pulumi:"storageAccount"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
@@ -96,9 +95,8 @@ type registryState struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku *string `pulumi:"sku"`
-	StorageAccount *RegistryStorageAccount `pulumi:"storageAccount"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
@@ -124,9 +122,8 @@ type RegistryState struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrInput
-	StorageAccount RegistryStorageAccountPtrInput
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -150,9 +147,8 @@ type registryArgs struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku *string `pulumi:"sku"`
-	StorageAccount *RegistryStorageAccount `pulumi:"storageAccount"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
@@ -173,9 +169,8 @@ type RegistryArgs struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name of the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrInput
-	StorageAccount RegistryStorageAccountPtrInput
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.

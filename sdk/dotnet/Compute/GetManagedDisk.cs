@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// A list of Availability Zones where the Managed Disk exists.
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Compute
             string sourceUri,
             string storageAccountId,
             string storageAccountType,
-            ImmutableDictionary<string, string> tags,
+            ImmutableDictionary<string, string>? tags,
             ImmutableArray<string> zones,
             string id)
         {

@@ -15,9 +15,6 @@ namespace Pulumi.Azure.Automation
     /// </summary>
     public partial class Credential : Pulumi.CustomResource
     {
-        [Output("accountName")]
-        public Output<string> AccountName { get; private set; } = null!;
-
         /// <summary>
         /// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
         /// </summary>
@@ -100,14 +97,11 @@ namespace Pulumi.Azure.Automation
 
     public sealed class CredentialArgs : Pulumi.ResourceArgs
     {
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
-
         /// <summary>
         /// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("automationAccountName")]
-        public Input<string>? AutomationAccountName { get; set; }
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
         /// The description associated with this Automation Credential.
@@ -146,9 +140,6 @@ namespace Pulumi.Azure.Automation
 
     public sealed class CredentialState : Pulumi.ResourceArgs
     {
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
-
         /// <summary>
         /// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
         /// </summary>

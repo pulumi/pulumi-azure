@@ -12,6 +12,7 @@ import (
 )
 
 type Features struct {
+	KeyVault *FeaturesKeyVault `pulumi:"keyVault"`
 	VirtualMachine *FeaturesVirtualMachine `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
@@ -24,6 +25,7 @@ type FeaturesInput interface {
 }
 
 type FeaturesArgs struct {
+	KeyVault FeaturesKeyVaultPtrInput `pulumi:"keyVault"`
 	VirtualMachine FeaturesVirtualMachinePtrInput `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
@@ -54,12 +56,134 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 	return o
 }
 
+func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
+	return o.ApplyT(func (v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
+}
+
 func (o FeaturesOutput) VirtualMachine() FeaturesVirtualMachinePtrOutput {
 	return o.ApplyT(func (v Features) *FeaturesVirtualMachine { return v.VirtualMachine }).(FeaturesVirtualMachinePtrOutput)
 }
 
 func (o FeaturesOutput) VirtualMachineScaleSet() FeaturesVirtualMachineScaleSetPtrOutput {
 	return o.ApplyT(func (v Features) *FeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(FeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type FeaturesKeyVault struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeletedKeyVaults *bool `pulumi:"recoverSoftDeletedKeyVaults"`
+}
+
+type FeaturesKeyVaultInput interface {
+	pulumi.Input
+
+	ToFeaturesKeyVaultOutput() FeaturesKeyVaultOutput
+	ToFeaturesKeyVaultOutputWithContext(context.Context) FeaturesKeyVaultOutput
+}
+
+type FeaturesKeyVaultArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeletedKeyVaults pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
+}
+
+func (FeaturesKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesKeyVault)(nil)).Elem()
+}
+
+func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultOutput() FeaturesKeyVaultOutput {
+	return i.ToFeaturesKeyVaultOutputWithContext(context.Background())
+}
+
+func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultOutputWithContext(ctx context.Context) FeaturesKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesKeyVaultOutput)
+}
+
+func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPtrOutput {
+	return i.ToFeaturesKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) FeaturesKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesKeyVaultOutput).ToFeaturesKeyVaultPtrOutputWithContext(ctx)
+}
+
+type FeaturesKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPtrOutput
+	ToFeaturesKeyVaultPtrOutputWithContext(context.Context) FeaturesKeyVaultPtrOutput
+}
+
+type featuresKeyVaultPtrType FeaturesKeyVaultArgs
+
+func FeaturesKeyVaultPtr(v *FeaturesKeyVaultArgs) FeaturesKeyVaultPtrInput {	return (*featuresKeyVaultPtrType)(v)
+}
+
+func (*featuresKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesKeyVault)(nil)).Elem()
+}
+
+func (i *featuresKeyVaultPtrType) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPtrOutput {
+	return i.ToFeaturesKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresKeyVaultPtrType) ToFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) FeaturesKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesKeyVaultPtrOutput)
+}
+
+type FeaturesKeyVaultOutput struct { *pulumi.OutputState }
+
+func (FeaturesKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesKeyVault)(nil)).Elem()
+}
+
+func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultOutput() FeaturesKeyVaultOutput {
+	return o
+}
+
+func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultOutputWithContext(ctx context.Context) FeaturesKeyVaultOutput {
+	return o
+}
+
+func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPtrOutput {
+	return o.ToFeaturesKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) FeaturesKeyVaultPtrOutput {
+	return o.ApplyT(func(v FeaturesKeyVault) *FeaturesKeyVault {
+		return &v
+	}).(FeaturesKeyVaultPtrOutput)
+}
+func (o FeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesKeyVaultOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesKeyVaultPtrOutput struct { *pulumi.OutputState}
+
+func (FeaturesKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesKeyVault)(nil)).Elem()
+}
+
+func (o FeaturesKeyVaultPtrOutput) ToFeaturesKeyVaultPtrOutput() FeaturesKeyVaultPtrOutput {
+	return o
+}
+
+func (o FeaturesKeyVaultPtrOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) FeaturesKeyVaultPtrOutput {
+	return o
+}
+
+func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
+	return o.ApplyT(func (v *FeaturesKeyVault) FeaturesKeyVault { return *v }).(FeaturesKeyVaultOutput)
+}
+
+func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
 }
 
 type FeaturesVirtualMachine struct {
@@ -280,6 +404,8 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pul
 
 func init() {
 	pulumi.RegisterOutputType(FeaturesOutput{})
+	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})
+	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachineOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachineScaleSetOutput{})

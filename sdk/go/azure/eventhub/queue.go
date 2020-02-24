@@ -28,7 +28,6 @@ type Queue struct {
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
@@ -39,9 +38,6 @@ type Queue struct {
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location pulumi.StringOutput `pulumi:"location"`
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration pulumi.StringOutput `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
@@ -68,7 +64,6 @@ type Queue struct {
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	SupportOrdering pulumi.BoolPtrOutput `pulumi:"supportOrdering"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -116,7 +111,6 @@ type queueState struct {
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
@@ -127,9 +121,6 @@ type queueState struct {
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration *string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
@@ -156,7 +147,6 @@ type queueState struct {
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
 
 type QueueState struct {
@@ -171,7 +161,6 @@ type QueueState struct {
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
@@ -182,9 +171,6 @@ type QueueState struct {
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration pulumi.StringPtrInput
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
@@ -211,7 +197,6 @@ type QueueState struct {
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	SupportOrdering pulumi.BoolPtrInput
 }
 
 func (QueueState) ElementType() reflect.Type {
@@ -230,7 +215,6 @@ type queueArgs struct {
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
@@ -241,9 +225,6 @@ type queueArgs struct {
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location *string `pulumi:"location"`
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration *string `pulumi:"lockDuration"`
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
@@ -270,7 +251,6 @@ type queueArgs struct {
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -286,7 +266,6 @@ type QueueArgs struct {
 	// The ISO 8601 timespan duration during which
 	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities
 	// are enabled. An express queue holds a message in memory temporarily before writing
 	// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
@@ -297,9 +276,6 @@ type QueueArgs struct {
 	// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
 	// be set to `true`.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
-	Location pulumi.StringPtrInput
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration pulumi.StringPtrInput
 	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
@@ -326,7 +302,6 @@ type QueueArgs struct {
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	SupportOrdering pulumi.BoolPtrInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {

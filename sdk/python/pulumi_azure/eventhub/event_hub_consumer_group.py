@@ -14,7 +14,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
     """
     Specifies the name of the EventHub. Changing this forces a new resource to be created.
     """
-    location: pulumi.Output[str]
     name: pulumi.Output[str]
     """
     Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
@@ -31,7 +30,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
     """
     Specifies the user metadata.
     """
-    def __init__(__self__, resource_name, opts=None, eventhub_name=None, location=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, eventhub_name=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
         
@@ -65,7 +64,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             if eventhub_name is None:
                 raise TypeError("Missing required property 'eventhub_name'")
             __props__['eventhub_name'] = eventhub_name
-            __props__['location'] = location
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
@@ -81,7 +79,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eventhub_name=None, location=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None):
+    def get(resource_name, id, opts=None, eventhub_name=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None):
         """
         Get an existing EventHubConsumerGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -101,7 +99,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["eventhub_name"] = eventhub_name
-        __props__["location"] = location
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name
         __props__["resource_group_name"] = resource_group_name

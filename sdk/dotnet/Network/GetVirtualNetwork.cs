@@ -45,7 +45,6 @@ namespace Pulumi.Azure.Network
         /// The list of address spaces used by the virtual network.
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
-        public readonly ImmutableArray<string> AddressSpacesCollection;
         /// <summary>
         /// The list of DNS servers used by the virtual network.
         /// </summary>
@@ -72,7 +71,6 @@ namespace Pulumi.Azure.Network
         [OutputConstructor]
         private GetVirtualNetworkResult(
             ImmutableArray<string> addressSpaces,
-            ImmutableArray<string> addressSpacesCollection,
             ImmutableArray<string> dnsServers,
             string location,
             string name,
@@ -82,7 +80,6 @@ namespace Pulumi.Azure.Network
             string id)
         {
             AddressSpaces = addressSpaces;
-            AddressSpacesCollection = addressSpacesCollection;
             DnsServers = dnsServers;
             Location = location;
             Name = name;

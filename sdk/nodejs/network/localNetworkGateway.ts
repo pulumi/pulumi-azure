@@ -71,7 +71,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LocalNetworkGateway resource with the given unique name, arguments, and options.

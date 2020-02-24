@@ -2,9 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./certificate";
 export * from "./consumerGroup";
-export * from "./dps";
 export * from "./dpsSharedAccessPolicy";
 export * from "./endpointEventhub";
 export * from "./endpointServicebusQueue";

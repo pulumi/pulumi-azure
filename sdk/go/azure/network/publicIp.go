@@ -34,7 +34,6 @@ type PublicIp struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	PublicIpAddressAllocation pulumi.StringOutput `pulumi:"publicIpAddressAllocation"`
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
 	PublicIpPrefixId pulumi.StringPtrOutput `pulumi:"publicIpPrefixId"`
 	// The name of the resource group in which to
@@ -53,6 +52,9 @@ type PublicIp struct {
 // NewPublicIp registers a new resource with the given unique name, arguments, and options.
 func NewPublicIp(ctx *pulumi.Context,
 	name string, args *PublicIpArgs, opts ...pulumi.ResourceOption) (*PublicIp, error) {
+	if args == nil || args.AllocationMethod == nil {
+		return nil, errors.New("missing required argument 'AllocationMethod'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -98,7 +100,6 @@ type publicIpState struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	PublicIpAddressAllocation *string `pulumi:"publicIpAddressAllocation"`
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The name of the resource group in which to
@@ -132,7 +133,6 @@ type PublicIpState struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	PublicIpAddressAllocation pulumi.StringPtrInput
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
 	PublicIpPrefixId pulumi.StringPtrInput
 	// The name of the resource group in which to
@@ -154,7 +154,7 @@ func (PublicIpState) ElementType() reflect.Type {
 
 type publicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-	AllocationMethod *string `pulumi:"allocationMethod"`
+	AllocationMethod string `pulumi:"allocationMethod"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -166,7 +166,6 @@ type publicIpArgs struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
-	PublicIpAddressAllocation *string `pulumi:"publicIpAddressAllocation"`
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The name of the resource group in which to
@@ -185,7 +184,7 @@ type publicIpArgs struct {
 // The set of arguments for constructing a PublicIp resource.
 type PublicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
-	AllocationMethod pulumi.StringPtrInput
+	AllocationMethod pulumi.StringInput
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -197,7 +196,6 @@ type PublicIpArgs struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
-	PublicIpAddressAllocation pulumi.StringPtrInput
 	// If specified then public IP address allocated will be provided from the public IP prefix resource.
 	PublicIpPrefixId pulumi.StringPtrInput
 	// The name of the resource group in which to

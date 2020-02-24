@@ -49,7 +49,6 @@ export class Probe extends pulumi.CustomResource {
      * The ID of the LoadBalancer in which to create the NAT Rule.
      */
     public readonly loadbalancerId!: pulumi.Output<string>;
-    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Probe.
      */
@@ -90,7 +89,6 @@ export class Probe extends pulumi.CustomResource {
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
             inputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["numberOfProbes"] = state ? state.numberOfProbes : undefined;
             inputs["port"] = state ? state.port : undefined;
@@ -110,7 +108,6 @@ export class Probe extends pulumi.CustomResource {
             }
             inputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
             inputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["numberOfProbes"] = args ? args.numberOfProbes : undefined;
             inputs["port"] = args ? args.port : undefined;
@@ -143,7 +140,6 @@ export interface ProbeState {
      * The ID of the LoadBalancer in which to create the NAT Rule.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Probe.
      */
@@ -182,7 +178,6 @@ export interface ProbeArgs {
      * The ID of the LoadBalancer in which to create the NAT Rule.
      */
     readonly loadbalancerId: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Probe.
      */

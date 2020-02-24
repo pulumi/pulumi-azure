@@ -28,19 +28,19 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
+        /// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        /// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
         /// </summary>
         [Output("prefixLength")]
         public Output<int?> PrefixLength { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the public IP.
+        /// The name of the resource group in which to create the Public IP Prefix.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -55,10 +55,10 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
+        /// A collection containing the availability zone to allocate the Public IP Prefix in.
         /// </summary>
         [Output("zones")]
         public Output<string?> Zones { get; private set; } = null!;
@@ -116,19 +116,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
+        /// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        /// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the public IP.
+        /// The name of the resource group in which to create the Public IP Prefix.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
+        /// A collection containing the availability zone to allocate the Public IP Prefix in.
         /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }
@@ -177,19 +177,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
+        /// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
+        /// Specifies the number of bits of the prefix. The value can be set between 28 (16 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
         /// </summary>
         [Input("prefixLength")]
         public Input<int>? PrefixLength { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create the public IP.
+        /// The name of the resource group in which to create the Public IP Prefix.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
+        /// A collection containing the availability zone to allocate the Public IP Prefix in.
         /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }

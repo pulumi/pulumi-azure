@@ -60,8 +60,6 @@ type LookupServiceResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SCM (Source Code Management) endpoint.
 	ScmUrl string `pulumi:"scmUrl"`
-	// A `sku` block as documented below.
-	Sku GetServiceSku `pulumi:"sku"`
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`

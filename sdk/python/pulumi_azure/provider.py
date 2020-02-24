@@ -22,6 +22,11 @@ class Provider(pulumi.ProviderResource):
         
         The **features** object supports the following:
         
+          * `keyVault` (`pulumi.Input[dict]`)
+        
+            * `purgeSoftDeleteOnDestroy` (`pulumi.Input[bool]`)
+            * `recoverSoftDeletedKeyVaults` (`pulumi.Input[bool]`)
+        
           * `virtualMachine` (`pulumi.Input[dict]`)
         
             * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)
@@ -69,6 +74,8 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
+            if features is None:
+                raise TypeError("Missing required property 'features'")
             __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
             if msi_endpoint is None:
                 msi_endpoint = (utilities.get_env('ARM_MSI_ENDPOINT') or '')

@@ -85,7 +85,7 @@ export class SparkCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

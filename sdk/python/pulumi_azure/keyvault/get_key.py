@@ -13,7 +13,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, vault_uri=None, version=None, id=None):
+    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, version=None, id=None):
         if e and not isinstance(e, str):
             raise TypeError("Expected argument 'e' to be a str")
         __self__.e = e
@@ -56,9 +56,6 @@ class GetKeyResult:
         """
         A mapping of tags assigned to this Key Vault Key.
         """
-        if vault_uri and not isinstance(vault_uri, str):
-            raise TypeError("Expected argument 'vault_uri' to be a str")
-        __self__.vault_uri = vault_uri
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
@@ -85,11 +82,10 @@ class AwaitableGetKeyResult(GetKeyResult):
             n=self.n,
             name=self.name,
             tags=self.tags,
-            vault_uri=self.vault_uri,
             version=self.version,
             id=self.id)
 
-def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
+def get_key(key_vault_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault Key.
     
@@ -105,7 +101,6 @@ def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
 
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
-    __args__['vaultUri'] = vault_uri
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -121,6 +116,5 @@ def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
         n=__ret__.get('n'),
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),
-        vault_uri=__ret__.get('vaultUri'),
         version=__ret__.get('version'),
         id=__ret__.get('id'))

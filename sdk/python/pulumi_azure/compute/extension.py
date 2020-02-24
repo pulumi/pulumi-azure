@@ -15,11 +15,6 @@ class Extension(pulumi.CustomResource):
     Specifies if the platform deploys
     the latest minor version update to the `type_handler_version` specified.
     """
-    location: pulumi.Output[str]
-    """
-    The location where the extension is created. Changing
-    this forces a new resource to be created.
-    """
     name: pulumi.Output[str]
     """
     The name of the virtual machine extension peering. Changing
@@ -34,12 +29,6 @@ class Extension(pulumi.CustomResource):
     """
     The publisher of the extension, available publishers
     can be found by using the Azure CLI.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to
-    create the virtual network. Changing this forces a new resource to be
-    created.
     """
     settings: pulumi.Output[str]
     """
@@ -62,16 +51,9 @@ class Extension(pulumi.CustomResource):
     """
     virtual_machine_id: pulumi.Output[str]
     """
-    The resource ID of the virtual machine. This value replaces
-    `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
-    resource to be created
+    The ID of the Virtual Machine. Changing this forces a new resource to be created
     """
-    virtual_machine_name: pulumi.Output[str]
-    """
-    The name of the virtual machine. Changing
-    this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_id=None, virtual_machine_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, name=None, protected_settings=None, publisher=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
@@ -84,17 +66,12 @@ class Extension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
-        :param pulumi.Input[str] location: The location where the extension is created. Changing
-               this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
                can be found by using the Azure CLI.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network. Changing this forces a new resource to be
-               created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are
                specified as a JSON object in a string.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -102,11 +79,7 @@ class Extension(pulumi.CustomResource):
                be found using the Azure CLI.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
                use, available versions can be found using the Azure CLI.
-        :param pulumi.Input[str] virtual_machine_id: The resource ID of the virtual machine. This value replaces
-               `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
-               resource to be created
-        :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
         """
@@ -128,13 +101,11 @@ class Extension(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
-            __props__['location'] = location
             __props__['name'] = name
             __props__['protected_settings'] = protected_settings
             if publisher is None:
                 raise TypeError("Missing required property 'publisher'")
             __props__['publisher'] = publisher
-            __props__['resource_group_name'] = resource_group_name
             __props__['settings'] = settings
             __props__['tags'] = tags
             if type is None:
@@ -143,8 +114,9 @@ class Extension(pulumi.CustomResource):
             if type_handler_version is None:
                 raise TypeError("Missing required property 'type_handler_version'")
             __props__['type_handler_version'] = type_handler_version
+            if virtual_machine_id is None:
+                raise TypeError("Missing required property 'virtual_machine_id'")
             __props__['virtual_machine_id'] = virtual_machine_id
-            __props__['virtual_machine_name'] = virtual_machine_name
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
             resource_name,
@@ -152,7 +124,7 @@ class Extension(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_id=None, virtual_machine_name=None):
+    def get(resource_name, id, opts=None, auto_upgrade_minor_version=None, name=None, protected_settings=None, publisher=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_id=None):
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -162,17 +134,12 @@ class Extension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
-        :param pulumi.Input[str] location: The location where the extension is created. Changing
-               this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
                this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the
                extension, like settings, these are specified as a JSON object in a string.
         :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
                can be found by using the Azure CLI.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network. Changing this forces a new resource to be
-               created.
         :param pulumi.Input[str] settings: The settings passed to the extension, these are
                specified as a JSON object in a string.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -180,11 +147,7 @@ class Extension(pulumi.CustomResource):
                be found using the Azure CLI.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
                use, available versions can be found using the Azure CLI.
-        :param pulumi.Input[str] virtual_machine_id: The resource ID of the virtual machine. This value replaces
-               `location`, `resource_group_name` and `virtual_machine_name`. Changing this forces a new
-               resource to be created
-        :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing
-               this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
         """
@@ -192,17 +155,14 @@ class Extension(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
-        __props__["location"] = location
         __props__["name"] = name
         __props__["protected_settings"] = protected_settings
         __props__["publisher"] = publisher
-        __props__["resource_group_name"] = resource_group_name
         __props__["settings"] = settings
         __props__["tags"] = tags
         __props__["type"] = type
         __props__["type_handler_version"] = type_handler_version
         __props__["virtual_machine_id"] = virtual_machine_id
-        __props__["virtual_machine_name"] = virtual_machine_name
         return Extension(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

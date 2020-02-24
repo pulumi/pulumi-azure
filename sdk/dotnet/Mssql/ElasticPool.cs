@@ -15,9 +15,6 @@ namespace Pulumi.Azure.MSSql
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {
-        [Output("elasticPoolProperties")]
-        public Output<ImmutableArray<Outputs.ElasticPoolElasticPoolProperties>> ElasticPoolProperties { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -70,7 +67,7 @@ namespace Pulumi.Azure.MSSql
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
@@ -197,14 +194,6 @@ namespace Pulumi.Azure.MSSql
 
     public sealed class ElasticPoolState : Pulumi.ResourceArgs
     {
-        [Input("elasticPoolProperties")]
-        private InputList<Inputs.ElasticPoolElasticPoolPropertiesGetArgs>? _elasticPoolProperties;
-        public InputList<Inputs.ElasticPoolElasticPoolPropertiesGetArgs> ElasticPoolProperties
-        {
-            get => _elasticPoolProperties ?? (_elasticPoolProperties = new InputList<Inputs.ElasticPoolElasticPoolPropertiesGetArgs>());
-            set => _elasticPoolProperties = value;
-        }
-
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -278,34 +267,6 @@ namespace Pulumi.Azure.MSSql
 
     namespace Inputs
     {
-
-    public sealed class ElasticPoolElasticPoolPropertiesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("creationDate")]
-        public Input<string>? CreationDate { get; set; }
-
-        [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
-
-        /// <summary>
-        /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
-        /// </summary>
-        [Input("maxSizeBytes")]
-        public Input<int>? MaxSizeBytes { get; set; }
-
-        [Input("state")]
-        public Input<string>? State { get; set; }
-
-        /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-        /// </summary>
-        [Input("zoneRedundant")]
-        public Input<bool>? ZoneRedundant { get; set; }
-
-        public ElasticPoolElasticPoolPropertiesGetArgs()
-        {
-        }
-    }
 
     public sealed class ElasticPoolPerDatabaseSettingsArgs : Pulumi.ResourceArgs
     {
@@ -410,37 +371,6 @@ namespace Pulumi.Azure.MSSql
 
     namespace Outputs
     {
-
-    [OutputType]
-    public sealed class ElasticPoolElasticPoolProperties
-    {
-        public readonly string CreationDate;
-        public readonly string LicenseType;
-        /// <summary>
-        /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
-        /// </summary>
-        public readonly int MaxSizeBytes;
-        public readonly string State;
-        /// <summary>
-        /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
-        /// </summary>
-        public readonly bool ZoneRedundant;
-
-        [OutputConstructor]
-        private ElasticPoolElasticPoolProperties(
-            string creationDate,
-            string licenseType,
-            int maxSizeBytes,
-            string state,
-            bool zoneRedundant)
-        {
-            CreationDate = creationDate;
-            LicenseType = licenseType;
-            MaxSizeBytes = maxSizeBytes;
-            State = state;
-            ZoneRedundant = zoneRedundant;
-        }
-    }
 
     [OutputType]
     public sealed class ElasticPoolPerDatabaseSettings
