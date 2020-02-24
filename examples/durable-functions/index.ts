@@ -28,14 +28,14 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
                 return output;
             })
         }),
-        new azure.appservice.HttpFunction("hello", {
+        new azure.appservice.HttpFunction("hello/{id}", {
             callback: async (con, req) => {
-                return {
-                    status: 200,
-                    body: ""
-                }
+                const client = df.getClient(con);
+                client.startNew("orch", req.params.id);
+
+                return client.waitForCompletionOrCreateCheckStatusResponse(req, req.params.id, 5000, 100);
             },
-            inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
+            // inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
         })
     ]
 });
