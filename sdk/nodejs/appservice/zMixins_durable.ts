@@ -13,10 +13,6 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-
-import * as azureessentials from "azure-functions-ts-essentials";
-import * as azurefunctions from "@azure/functions";
-
 import * as mod from ".";
 
 
@@ -47,13 +43,10 @@ export class DurableOrchestratorFunction extends mod.Function<DurableOrchestrato
     }
 }
 
-
-export interface Bindings {
-    [key: string]: any;
-}
-
 export interface DurableActivityFunctionContext<TActivityInputBinding> extends mod.Context<mod.Result> {
-    bindings: Bindings & TActivityInputBinding
+    bindings: {
+        [key: string]: any;
+    } & TActivityInputBinding
 }
 
 export interface DurableActivityFunctionArgs<TActivityInputBinding> extends mod.CallbackFunctionArgs<DurableActivityFunctionContext<TActivityInputBinding>, void, void> {
