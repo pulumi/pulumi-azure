@@ -61,6 +61,7 @@ _(none)_
 * BREAKING: Support assets and archives in azure.storage.Blob, deprecate azure.storage.ZipBlob resource.
   ([#479](https://github.com/pulumi/pulumi-azure/pull/479), [#482](https://github.com/pulumi/pulumi-azure/pull/482))
 * Update AppService Mixins to match AppService SiteConfig parameters
+* Add support for Azure Durable Functions
 
 ## 1.14.0 (2020-02-12)
 * Upgrade to v1.44.0 of the AzureRM Terraform Provider
