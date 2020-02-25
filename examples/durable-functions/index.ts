@@ -3,12 +3,9 @@
 import * as azure from "@pulumi/azure";
 import * as df from 'durable-functions';
 
-
-
 const resourceGroup = new azure.core.ResourceGroup("chedDurable", {
     location: azure.Locations.WestEurope
 });
-
 
 var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
     resourceGroup,
@@ -20,7 +17,7 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
             }
         }),
         new azure.appservice.DurableOrchestratorFunction("orch", {
-            callback: df.orchestrator(function* (context) {
+            callbackFactory: () => df.orchestrator(function* (context) {
                 const output = [];
                 output.push(yield context.df.callActivity("SayHello", "Tokyo"));
                 output.push(yield context.df.callActivity("SayHello", "Seattle"));
@@ -28,14 +25,17 @@ var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
                 return output;
             })
         }),
-        new azure.appservice.HttpFunction("hello/{id}", {
+        new azure.appservice.HttpFunction("hello", {
+            route: "hello/{id}",
             callback: async (con, req) => {
                 const client = df.getClient(con);
                 client.startNew("orch", req.params.id);
 
                 return client.waitForCompletionOrCreateCheckStatusResponse(req, req.params.id, 5000, 100);
             },
-            // inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
+            inputs: [new azure.appservice.DurableOrchestrationClientInputBindingSettings("starter")]
         })
     ]
 });
+
+export const url = app.endpoint;

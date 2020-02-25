@@ -32,6 +32,11 @@ export interface DurableOrchestratorFunctionArgs extends mod.CallbackFunctionArg
  */
 export class DurableOrchestratorFunction extends mod.Function<DurableOrchestratorFunctionContext, void, void> {
     constructor(name: string, args: DurableOrchestratorFunctionArgs) {
+
+        if(args.callback){
+            throw new Error("Durable orchestrator functions need to use the [callbackFactory]");
+        }
+        
         const trigger = {
             name: "context",
             type: "orchestrationTrigger",
@@ -45,12 +50,6 @@ export class DurableOrchestratorFunction extends mod.Function<DurableOrchestrato
 
 export interface Bindings {
     [key: string]: any;
-}
-
-
-interface Foo {
-    bar: number;
-    baz: string;
 }
 
 export interface DurableActivityFunctionContext<TActivityInputBinding> extends mod.Context<mod.Result> {
