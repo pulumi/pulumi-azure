@@ -24,6 +24,8 @@ import * as core from "../core";
 import * as eventhubForTypesOnly from "../eventhub";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
+import * as outputs from "../types/output";
+import * as inputs from "../types/input";
 
 /**
  * An object containing output binding data. This value will be passed to JSON.stringify unless it
@@ -192,7 +194,7 @@ interface FunctionAppArgsBase {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
 
     /**
      * A mapping of tags to assign to the resource.
