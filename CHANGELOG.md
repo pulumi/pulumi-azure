@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update AppService Mixins to match AppService SiteConfig parameters
 
 ---
 
