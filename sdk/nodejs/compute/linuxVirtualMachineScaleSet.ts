@@ -164,7 +164,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Unique ID for this Linux Virtual Machine Scale Set.
      */

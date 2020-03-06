@@ -65,12 +65,11 @@ export class Certifiate extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
     public /*out*/ readonly thumbprint!: pulumi.Output<string>;
-    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
@@ -96,19 +95,20 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["secretId"] = state ? state.secretId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["thumbprint"] = state ? state.thumbprint : undefined;
-            inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CertifiateArgs | undefined;
             if (!args || args.certificatePolicy === undefined) {
                 throw new Error("Missing required property 'certificatePolicy'");
             }
+            if (!args || args.keyVaultId === undefined) {
+                throw new Error("Missing required property 'keyVaultId'");
+            }
             inputs["certificate"] = args ? args.certificate : undefined;
             inputs["certificatePolicy"] = args ? args.certificatePolicy : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["certificateData"] = undefined /*out*/;
             inputs["secretId"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
@@ -161,7 +161,6 @@ export interface CertifiateState {
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
     readonly thumbprint?: pulumi.Input<string>;
-    readonly vaultUri?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
@@ -183,7 +182,7 @@ export interface CertifiateArgs {
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    readonly keyVaultId: pulumi.Input<string>;
     /**
      * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
      */
@@ -192,5 +191,4 @@ export interface CertifiateArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly vaultUri?: pulumi.Input<string>;
 }

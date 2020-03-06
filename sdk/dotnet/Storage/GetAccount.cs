@@ -30,8 +30,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the name of the resource group the Storage Account is located in.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public string ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
 
         public GetAccountArgs()
         {
@@ -45,10 +45,6 @@ namespace Pulumi.Azure.Storage
         /// The access tier for `BlobStorage` accounts.
         /// </summary>
         public readonly string AccessTier;
-        /// <summary>
-        /// The Encryption Source for this Storage Account.
-        /// </summary>
-        public readonly string AccountEncryptionSource;
         /// <summary>
         /// The Kind of account.
         /// </summary>
@@ -65,16 +61,6 @@ namespace Pulumi.Azure.Storage
         /// A `custom_domain` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCustomDomainsResult> CustomDomains;
-        /// <summary>
-        /// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-        /// for more information.
-        /// </summary>
-        public readonly bool EnableBlobEncryption;
-        /// <summary>
-        /// Are Encryption Services are enabled for File storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-        /// for more information.
-        /// </summary>
-        public readonly bool EnableFileEncryption;
         /// <summary>
         /// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         /// for more information.
@@ -233,13 +219,10 @@ namespace Pulumi.Azure.Storage
         [OutputConstructor]
         private GetAccountResult(
             string accessTier,
-            string accountEncryptionSource,
             string accountKind,
             string accountReplicationType,
             string accountTier,
             ImmutableArray<Outputs.GetAccountCustomDomainsResult> customDomains,
-            bool enableBlobEncryption,
-            bool enableFileEncryption,
             bool enableHttpsTrafficOnly,
             bool isHnsEnabled,
             string location,
@@ -281,13 +264,10 @@ namespace Pulumi.Azure.Storage
             string id)
         {
             AccessTier = accessTier;
-            AccountEncryptionSource = accountEncryptionSource;
             AccountKind = accountKind;
             AccountReplicationType = accountReplicationType;
             AccountTier = accountTier;
             CustomDomains = customDomains;
-            EnableBlobEncryption = enableBlobEncryption;
-            EnableFileEncryption = enableFileEncryption;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             IsHnsEnabled = isHnsEnabled;
             Location = location;

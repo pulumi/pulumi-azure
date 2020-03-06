@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute
         /// A mapping of tags to assign to the Shared Image Gallery.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Unique Name for this Shared Image Gallery.

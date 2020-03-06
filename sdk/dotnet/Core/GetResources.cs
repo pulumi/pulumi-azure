@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Core
         /// The name of this Resource.
         /// </summary>
         public readonly string Name;
-        public readonly ImmutableDictionary<string, string> RequiredTags;
+        public readonly ImmutableDictionary<string, string>? RequiredTags;
         public readonly string ResourceGroupName;
         /// <summary>
         /// One or more `resource` blocks as defined below.
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Core
         [OutputConstructor]
         private GetResourcesResult(
             string name,
-            ImmutableDictionary<string, string> requiredTags,
+            ImmutableDictionary<string, string>? requiredTags,
             string resourceGroupName,
             ImmutableArray<Outputs.GetResourcesResourcesResult> resources,
             string type,

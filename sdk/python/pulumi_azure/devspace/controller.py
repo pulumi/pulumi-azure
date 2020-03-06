@@ -30,7 +30,6 @@ class Controller(pulumi.CustomResource):
     """
     The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
     """
-    sku: pulumi.Output[dict]
     sku_name: pulumi.Output[str]
     """
     Specifies the SKU Name for this DevSpace Controller. Possible values are `S1`.
@@ -47,7 +46,7 @@ class Controller(pulumi.CustomResource):
     """
     The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a DevSpace Controller.
         
@@ -60,11 +59,6 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_container_host_credentials_base64: Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_container_host_resource_id: The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
         """
@@ -90,7 +84,8 @@ class Controller(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['tags'] = tags
             if target_container_host_credentials_base64 is None:
@@ -108,7 +103,7 @@ class Controller(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, data_plane_fqdn=None, host_suffix=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None):
+    def get(resource_name, id, opts=None, data_plane_fqdn=None, host_suffix=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None):
         """
         Get an existing Controller resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,11 +120,6 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_container_host_credentials_base64: Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_container_host_resource_id: The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
-        
-        The **sku** object supports the following:
-        
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
         """
@@ -141,7 +131,6 @@ class Controller(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
-        __props__["sku"] = sku
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
         __props__["target_container_host_credentials_base64"] = target_container_host_credentials_base64

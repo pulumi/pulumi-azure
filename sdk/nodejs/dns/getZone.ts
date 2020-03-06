@@ -60,23 +60,11 @@ export interface GetZoneResult {
      * The number of records already in the zone.
      */
     readonly numberOfRecordSets: number;
-    /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone.
-     */
-    readonly registrationVirtualNetworkIds: string[];
-    /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone.
-     */
-    readonly resolutionVirtualNetworkIds: string[];
     readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the EventHub Namespace.
      */
     readonly tags: {[key: string]: string};
-    /**
-     * (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
-     */
-    readonly zoneType: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

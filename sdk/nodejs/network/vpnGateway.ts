@@ -61,7 +61,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */

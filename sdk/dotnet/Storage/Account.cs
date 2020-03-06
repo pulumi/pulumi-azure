@@ -22,13 +22,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
-        /// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        /// </summary>
-        [Output("accountEncryptionSource")]
-        public Output<string?> AccountEncryptionSource { get; private set; } = null!;
-
-        /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         /// </summary>
         [Output("accountKind")]
         public Output<string?> AccountKind { get; private set; } = null!;
@@ -45,9 +39,6 @@ namespace Pulumi.Azure.Storage
         [Output("accountTier")]
         public Output<string> AccountTier { get; private set; } = null!;
 
-        [Output("accountType")]
-        public Output<string> AccountType { get; private set; } = null!;
-
         /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
@@ -61,26 +52,8 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountCustomDomain?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-        /// </summary>
-        [Output("enableAdvancedThreatProtection")]
-        public Output<bool> EnableAdvancedThreatProtection { get; private set; } = null!;
-
-        /// <summary>
-        /// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        /// </summary>
-        [Output("enableBlobEncryption")]
-        public Output<bool?> EnableBlobEncryption { get; private set; } = null!;
-
-        /// <summary>
-        /// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        /// </summary>
-        [Output("enableFileEncryption")]
-        public Output<bool?> EnableFileEncryption { get; private set; } = null!;
-
-        /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-        /// for more information.
+        /// for more information. Defaults to `true`.
         /// </summary>
         [Output("enableHttpsTrafficOnly")]
         public Output<bool?> EnableHttpsTrafficOnly { get; private set; } = null!;
@@ -320,6 +293,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> SecondaryWebHost { get; private set; } = null!;
 
         /// <summary>
+        /// A `static_website` block as defined below.
+        /// </summary>
+        [Output("staticWebsite")]
+        public Output<Outputs.AccountStaticWebsite?> StaticWebsite { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -378,13 +357,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        /// </summary>
-        [Input("accountEncryptionSource")]
-        public Input<string>? AccountEncryptionSource { get; set; }
-
-        /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
@@ -401,9 +374,6 @@ namespace Pulumi.Azure.Storage
         [Input("accountTier", required: true)]
         public Input<string> AccountTier { get; set; } = null!;
 
-        [Input("accountType")]
-        public Input<string>? AccountType { get; set; }
-
         /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
@@ -417,26 +387,8 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountCustomDomainArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-        /// </summary>
-        [Input("enableAdvancedThreatProtection")]
-        public Input<bool>? EnableAdvancedThreatProtection { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        /// </summary>
-        [Input("enableBlobEncryption")]
-        public Input<bool>? EnableBlobEncryption { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        /// </summary>
-        [Input("enableFileEncryption")]
-        public Input<bool>? EnableFileEncryption { get; set; }
-
-        /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-        /// for more information.
+        /// for more information. Defaults to `true`.
         /// </summary>
         [Input("enableHttpsTrafficOnly")]
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
@@ -483,6 +435,12 @@ namespace Pulumi.Azure.Storage
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// A `static_website` block as defined below.
+        /// </summary>
+        [Input("staticWebsite")]
+        public Input<Inputs.AccountStaticWebsiteArgs>? StaticWebsite { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -509,13 +467,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccessTier { get; set; }
 
         /// <summary>
-        /// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        /// </summary>
-        [Input("accountEncryptionSource")]
-        public Input<string>? AccountEncryptionSource { get; set; }
-
-        /// <summary>
-        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
+        /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
@@ -532,9 +484,6 @@ namespace Pulumi.Azure.Storage
         [Input("accountTier")]
         public Input<string>? AccountTier { get; set; }
 
-        [Input("accountType")]
-        public Input<string>? AccountType { get; set; }
-
         /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
@@ -548,26 +497,8 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountCustomDomainGetArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
-        /// </summary>
-        [Input("enableAdvancedThreatProtection")]
-        public Input<bool>? EnableAdvancedThreatProtection { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        /// </summary>
-        [Input("enableBlobEncryption")]
-        public Input<bool>? EnableBlobEncryption { get; set; }
-
-        /// <summary>
-        /// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        /// </summary>
-        [Input("enableFileEncryption")]
-        public Input<bool>? EnableFileEncryption { get; set; }
-
-        /// <summary>
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-        /// for more information.
+        /// for more information. Defaults to `true`.
         /// </summary>
         [Input("enableHttpsTrafficOnly")]
         public Input<bool>? EnableHttpsTrafficOnly { get; set; }
@@ -806,6 +737,12 @@ namespace Pulumi.Azure.Storage
         [Input("secondaryWebHost")]
         public Input<string>? SecondaryWebHost { get; set; }
 
+        /// <summary>
+        /// A `static_website` block as defined below.
+        /// </summary>
+        [Input("staticWebsite")]
+        public Input<Inputs.AccountStaticWebsiteGetArgs>? StaticWebsite { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -828,10 +765,102 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountBlobPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("corsRules")]
+        private InputList<AccountBlobPropertiesCorsRulesArgs>? _corsRules;
+        public InputList<AccountBlobPropertiesCorsRulesArgs> CorsRules
+        {
+            get => _corsRules ?? (_corsRules = new InputList<AccountBlobPropertiesCorsRulesArgs>());
+            set => _corsRules = value;
+        }
+
         [Input("deleteRetentionPolicy")]
         public Input<AccountBlobPropertiesDeleteRetentionPolicyArgs>? DeleteRetentionPolicy { get; set; }
 
         public AccountBlobPropertiesArgs()
+        {
+        }
+    }
+
+    public sealed class AccountBlobPropertiesCorsRulesArgs : Pulumi.ResourceArgs
+    {
+        [Input("allowedHeaders", required: true)]
+        private InputList<string>? _allowedHeaders;
+        public InputList<string> AllowedHeaders
+        {
+            get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
+            set => _allowedHeaders = value;
+        }
+
+        [Input("allowedMethods", required: true)]
+        private InputList<string>? _allowedMethods;
+        public InputList<string> AllowedMethods
+        {
+            get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
+            set => _allowedMethods = value;
+        }
+
+        [Input("allowedOrigins", required: true)]
+        private InputList<string>? _allowedOrigins;
+        public InputList<string> AllowedOrigins
+        {
+            get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
+            set => _allowedOrigins = value;
+        }
+
+        [Input("exposedHeaders", required: true)]
+        private InputList<string>? _exposedHeaders;
+        public InputList<string> ExposedHeaders
+        {
+            get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
+            set => _exposedHeaders = value;
+        }
+
+        [Input("maxAgeInSeconds", required: true)]
+        public Input<int> MaxAgeInSeconds { get; set; } = null!;
+
+        public AccountBlobPropertiesCorsRulesArgs()
+        {
+        }
+    }
+
+    public sealed class AccountBlobPropertiesCorsRulesGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("allowedHeaders", required: true)]
+        private InputList<string>? _allowedHeaders;
+        public InputList<string> AllowedHeaders
+        {
+            get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
+            set => _allowedHeaders = value;
+        }
+
+        [Input("allowedMethods", required: true)]
+        private InputList<string>? _allowedMethods;
+        public InputList<string> AllowedMethods
+        {
+            get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
+            set => _allowedMethods = value;
+        }
+
+        [Input("allowedOrigins", required: true)]
+        private InputList<string>? _allowedOrigins;
+        public InputList<string> AllowedOrigins
+        {
+            get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
+            set => _allowedOrigins = value;
+        }
+
+        [Input("exposedHeaders", required: true)]
+        private InputList<string>? _exposedHeaders;
+        public InputList<string> ExposedHeaders
+        {
+            get => _exposedHeaders ?? (_exposedHeaders = new InputList<string>());
+            set => _exposedHeaders = value;
+        }
+
+        [Input("maxAgeInSeconds", required: true)]
+        public Input<int> MaxAgeInSeconds { get; set; } = null!;
+
+        public AccountBlobPropertiesCorsRulesGetArgs()
         {
         }
     }
@@ -858,6 +887,14 @@ namespace Pulumi.Azure.Storage
 
     public sealed class AccountBlobPropertiesGetArgs : Pulumi.ResourceArgs
     {
+        [Input("corsRules")]
+        private InputList<AccountBlobPropertiesCorsRulesGetArgs>? _corsRules;
+        public InputList<AccountBlobPropertiesCorsRulesGetArgs> CorsRules
+        {
+            get => _corsRules ?? (_corsRules = new InputList<AccountBlobPropertiesCorsRulesGetArgs>());
+            set => _corsRules = value;
+        }
+
         [Input("deleteRetentionPolicy")]
         public Input<AccountBlobPropertiesDeleteRetentionPolicyGetArgs>? DeleteRetentionPolicy { get; set; }
 
@@ -1261,6 +1298,32 @@ namespace Pulumi.Azure.Storage
         {
         }
     }
+
+    public sealed class AccountStaticWebsiteArgs : Pulumi.ResourceArgs
+    {
+        [Input("error404Document")]
+        public Input<string>? Error404Document { get; set; }
+
+        [Input("indexDocument")]
+        public Input<string>? IndexDocument { get; set; }
+
+        public AccountStaticWebsiteArgs()
+        {
+        }
+    }
+
+    public sealed class AccountStaticWebsiteGetArgs : Pulumi.ResourceArgs
+    {
+        [Input("error404Document")]
+        public Input<string>? Error404Document { get; set; }
+
+        [Input("indexDocument")]
+        public Input<string>? IndexDocument { get; set; }
+
+        public AccountStaticWebsiteGetArgs()
+        {
+        }
+    }
     }
 
     namespace Outputs
@@ -1269,12 +1332,41 @@ namespace Pulumi.Azure.Storage
     [OutputType]
     public sealed class AccountBlobProperties
     {
+        public readonly ImmutableArray<AccountBlobPropertiesCorsRules> CorsRules;
         public readonly AccountBlobPropertiesDeleteRetentionPolicy? DeleteRetentionPolicy;
 
         [OutputConstructor]
-        private AccountBlobProperties(AccountBlobPropertiesDeleteRetentionPolicy? deleteRetentionPolicy)
+        private AccountBlobProperties(
+            ImmutableArray<AccountBlobPropertiesCorsRules> corsRules,
+            AccountBlobPropertiesDeleteRetentionPolicy? deleteRetentionPolicy)
         {
+            CorsRules = corsRules;
             DeleteRetentionPolicy = deleteRetentionPolicy;
+        }
+    }
+
+    [OutputType]
+    public sealed class AccountBlobPropertiesCorsRules
+    {
+        public readonly ImmutableArray<string> AllowedHeaders;
+        public readonly ImmutableArray<string> AllowedMethods;
+        public readonly ImmutableArray<string> AllowedOrigins;
+        public readonly ImmutableArray<string> ExposedHeaders;
+        public readonly int MaxAgeInSeconds;
+
+        [OutputConstructor]
+        private AccountBlobPropertiesCorsRules(
+            ImmutableArray<string> allowedHeaders,
+            ImmutableArray<string> allowedMethods,
+            ImmutableArray<string> allowedOrigins,
+            ImmutableArray<string> exposedHeaders,
+            int maxAgeInSeconds)
+        {
+            AllowedHeaders = allowedHeaders;
+            AllowedMethods = allowedMethods;
+            AllowedOrigins = allowedOrigins;
+            ExposedHeaders = exposedHeaders;
+            MaxAgeInSeconds = maxAgeInSeconds;
         }
     }
 
@@ -1469,6 +1561,22 @@ namespace Pulumi.Azure.Storage
             IncludeApis = includeApis;
             RetentionPolicyDays = retentionPolicyDays;
             Version = version;
+        }
+    }
+
+    [OutputType]
+    public sealed class AccountStaticWebsite
+    {
+        public readonly string? Error404Document;
+        public readonly string? IndexDocument;
+
+        [OutputConstructor]
+        private AccountStaticWebsite(
+            string? error404Document,
+            string? indexDocument)
+        {
+            Error404Document = error404Document;
+            IndexDocument = indexDocument;
         }
     }
     }

@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Redis
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.

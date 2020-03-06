@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Duration in years (must be between `1` and `3`).  Defaults to `1`.

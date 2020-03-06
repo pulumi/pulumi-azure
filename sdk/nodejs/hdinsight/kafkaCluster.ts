@@ -85,7 +85,7 @@ export class KafkaCluster extends pulumi.CustomResource {
     /**
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */

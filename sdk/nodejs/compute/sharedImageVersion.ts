@@ -69,7 +69,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * A collection of tags which should be applied to this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */

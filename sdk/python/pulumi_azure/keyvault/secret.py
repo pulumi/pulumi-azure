@@ -38,12 +38,11 @@ class Secret(pulumi.CustomResource):
     """
     Specifies the value of the Key Vault Secret.
     """
-    vault_uri: pulumi.Output[str]
     version: pulumi.Output[str]
     """
     The current version of the Key Vault Secret.
     """
-    def __init__(__self__, resource_name, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Secret.
         
@@ -81,6 +80,8 @@ class Secret(pulumi.CustomResource):
 
             __props__['content_type'] = content_type
             __props__['expiration_date'] = expiration_date
+            if key_vault_id is None:
+                raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['not_before_date'] = not_before_date
@@ -88,7 +89,6 @@ class Secret(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
-            __props__['vault_uri'] = vault_uri
             __props__['version'] = None
         super(Secret, __self__).__init__(
             'azure:keyvault/secret:Secret',
@@ -97,7 +97,7 @@ class Secret(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, vault_uri=None, version=None):
+    def get(resource_name, id, opts=None, content_type=None, expiration_date=None, key_vault_id=None, name=None, not_before_date=None, tags=None, value=None, version=None):
         """
         Get an existing Secret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,7 +126,6 @@ class Secret(pulumi.CustomResource):
         __props__["not_before_date"] = not_before_date
         __props__["tags"] = tags
         __props__["value"] = value
-        __props__["vault_uri"] = vault_uri
         __props__["version"] = version
         return Secret(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

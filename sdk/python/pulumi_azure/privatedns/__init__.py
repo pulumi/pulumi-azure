@@ -11,5 +11,4 @@ from .ptr_record import *
 from .srv_record import *
 from .zone import *
 from .zone_virtual_network_link import *
-from .link_endpoint import *
 from .link_service import *

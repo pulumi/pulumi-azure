@@ -18,7 +18,6 @@ class AuthorizationRule(pulumi.CustomResource):
     """
     Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
     """
-    location: pulumi.Output[str]
     manage: pulumi.Output[bool]
     """
     Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
@@ -55,7 +54,7 @@ class AuthorizationRule(pulumi.CustomResource):
     """
     Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
     """
-    def __init__(__self__, resource_name, opts=None, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
         
@@ -92,7 +91,6 @@ class AuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'eventhub_name'")
             __props__['eventhub_name'] = eventhub_name
             __props__['listen'] = listen
-            __props__['location'] = location
             __props__['manage'] = manage
             __props__['name'] = name
             if namespace_name is None:
@@ -115,7 +113,7 @@ class AuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
+    def get(resource_name, id, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
         """
         Get an existing AuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -142,7 +140,6 @@ class AuthorizationRule(pulumi.CustomResource):
         __props__ = dict()
         __props__["eventhub_name"] = eventhub_name
         __props__["listen"] = listen
-        __props__["location"] = location
         __props__["manage"] = manage
         __props__["name"] = name
         __props__["namespace_name"] = namespace_name

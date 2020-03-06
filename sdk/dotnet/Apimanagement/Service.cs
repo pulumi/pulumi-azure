@@ -142,12 +142,6 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.ServiceSignUp> SignUp { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as documented below
-        /// </summary>
-        [Output("sku")]
-        public Output<Outputs.ServiceSku> Sku { get; private set; } = null!;
-
-        /// <summary>
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         /// </summary>
         [Output("skuName")]
@@ -157,7 +151,7 @@ namespace Pulumi.Azure.ApiManagement
         /// A mapping of tags assigned to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -308,16 +302,10 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ServiceSignUpArgs>? SignUp { get; set; }
 
         /// <summary>
-        /// A `sku` block as documented below
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.ServiceSkuArgs>? Sku { get; set; }
-
-        /// <summary>
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         /// </summary>
-        [Input("skuName")]
-        public Input<string>? SkuName { get; set; }
+        [Input("skuName", required: true)]
+        public Input<string> SkuName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -481,12 +469,6 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("signUp")]
         public Input<Inputs.ServiceSignUpGetArgs>? SignUp { get; set; }
-
-        /// <summary>
-        /// A `sku` block as documented below
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.ServiceSkuGetArgs>? Sku { get; set; }
 
         /// <summary>
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
@@ -984,30 +966,6 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSecurityArgs : Pulumi.ResourceArgs
     {
-        [Input("disableBackendSsl30")]
-        public Input<bool>? DisableBackendSsl30 { get; set; }
-
-        [Input("disableBackendTls10")]
-        public Input<bool>? DisableBackendTls10 { get; set; }
-
-        [Input("disableBackendTls11")]
-        public Input<bool>? DisableBackendTls11 { get; set; }
-
-        [Input("disableFrontendSsl30")]
-        public Input<bool>? DisableFrontendSsl30 { get; set; }
-
-        [Input("disableFrontendTls10")]
-        public Input<bool>? DisableFrontendTls10 { get; set; }
-
-        [Input("disableFrontendTls11")]
-        public Input<bool>? DisableFrontendTls11 { get; set; }
-
-        [Input("disableTripleDesChipers")]
-        public Input<bool>? DisableTripleDesChipers { get; set; }
-
-        [Input("disableTripleDesCiphers")]
-        public Input<bool>? DisableTripleDesCiphers { get; set; }
-
         [Input("enableBackendSsl30")]
         public Input<bool>? EnableBackendSsl30 { get; set; }
 
@@ -1036,30 +994,6 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class ServiceSecurityGetArgs : Pulumi.ResourceArgs
     {
-        [Input("disableBackendSsl30")]
-        public Input<bool>? DisableBackendSsl30 { get; set; }
-
-        [Input("disableBackendTls10")]
-        public Input<bool>? DisableBackendTls10 { get; set; }
-
-        [Input("disableBackendTls11")]
-        public Input<bool>? DisableBackendTls11 { get; set; }
-
-        [Input("disableFrontendSsl30")]
-        public Input<bool>? DisableFrontendSsl30 { get; set; }
-
-        [Input("disableFrontendTls10")]
-        public Input<bool>? DisableFrontendTls10 { get; set; }
-
-        [Input("disableFrontendTls11")]
-        public Input<bool>? DisableFrontendTls11 { get; set; }
-
-        [Input("disableTripleDesChipers")]
-        public Input<bool>? DisableTripleDesChipers { get; set; }
-
-        [Input("disableTripleDesCiphers")]
-        public Input<bool>? DisableTripleDesCiphers { get; set; }
-
         [Input("enableBackendSsl30")]
         public Input<bool>? EnableBackendSsl30 { get; set; }
 
@@ -1160,38 +1094,6 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Text { get; set; }
 
         public ServiceSignUpTermsOfServiceGetArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceSkuArgs : Pulumi.ResourceArgs
-    {
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// The name of the API Management Service. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ServiceSkuArgs()
-        {
-        }
-    }
-
-    public sealed class ServiceSkuGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("capacity")]
-        public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// The name of the API Management Service. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public ServiceSkuGetArgs()
         {
         }
     }
@@ -1440,48 +1342,24 @@ namespace Pulumi.Azure.ApiManagement
     [OutputType]
     public sealed class ServiceSecurity
     {
-        public readonly bool DisableBackendSsl30;
-        public readonly bool DisableBackendTls10;
-        public readonly bool DisableBackendTls11;
-        public readonly bool DisableFrontendSsl30;
-        public readonly bool DisableFrontendTls10;
-        public readonly bool DisableFrontendTls11;
-        public readonly bool DisableTripleDesChipers;
-        public readonly bool DisableTripleDesCiphers;
-        public readonly bool EnableBackendSsl30;
-        public readonly bool EnableBackendTls10;
-        public readonly bool EnableBackendTls11;
-        public readonly bool EnableFrontendSsl30;
-        public readonly bool EnableFrontendTls10;
-        public readonly bool EnableFrontendTls11;
-        public readonly bool EnableTripleDesCiphers;
+        public readonly bool? EnableBackendSsl30;
+        public readonly bool? EnableBackendTls10;
+        public readonly bool? EnableBackendTls11;
+        public readonly bool? EnableFrontendSsl30;
+        public readonly bool? EnableFrontendTls10;
+        public readonly bool? EnableFrontendTls11;
+        public readonly bool? EnableTripleDesCiphers;
 
         [OutputConstructor]
         private ServiceSecurity(
-            bool disableBackendSsl30,
-            bool disableBackendTls10,
-            bool disableBackendTls11,
-            bool disableFrontendSsl30,
-            bool disableFrontendTls10,
-            bool disableFrontendTls11,
-            bool disableTripleDesChipers,
-            bool disableTripleDesCiphers,
-            bool enableBackendSsl30,
-            bool enableBackendTls10,
-            bool enableBackendTls11,
-            bool enableFrontendSsl30,
-            bool enableFrontendTls10,
-            bool enableFrontendTls11,
-            bool enableTripleDesCiphers)
+            bool? enableBackendSsl30,
+            bool? enableBackendTls10,
+            bool? enableBackendTls11,
+            bool? enableFrontendSsl30,
+            bool? enableFrontendTls10,
+            bool? enableFrontendTls11,
+            bool? enableTripleDesCiphers)
         {
-            DisableBackendSsl30 = disableBackendSsl30;
-            DisableBackendTls10 = disableBackendTls10;
-            DisableBackendTls11 = disableBackendTls11;
-            DisableFrontendSsl30 = disableFrontendSsl30;
-            DisableFrontendTls10 = disableFrontendTls10;
-            DisableFrontendTls11 = disableFrontendTls11;
-            DisableTripleDesChipers = disableTripleDesChipers;
-            DisableTripleDesCiphers = disableTripleDesCiphers;
             EnableBackendSsl30 = enableBackendSsl30;
             EnableBackendTls10 = enableBackendTls10;
             EnableBackendTls11 = enableBackendTls11;
@@ -1536,25 +1414,6 @@ namespace Pulumi.Azure.ApiManagement
             ConsentRequired = consentRequired;
             Enabled = enabled;
             Text = text;
-        }
-    }
-
-    [OutputType]
-    public sealed class ServiceSku
-    {
-        public readonly int? Capacity;
-        /// <summary>
-        /// The name of the API Management Service. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private ServiceSku(
-            int? capacity,
-            string name)
-        {
-            Capacity = capacity;
-            Name = name;
         }
     }
     }

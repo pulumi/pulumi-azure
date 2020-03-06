@@ -26,14 +26,6 @@ class Zone(pulumi.CustomResource):
     """
     (Optional) The number of records already in the zone.
     """
-    registration_virtual_network_ids: pulumi.Output[list]
-    """
-    A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-    """
-    resolution_virtual_network_ids: pulumi.Output[list]
-    """
-    A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-    """
     resource_group_name: pulumi.Output[str]
     """
     Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
@@ -42,22 +34,15 @@ class Zone(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    zone_type: pulumi.Output[str]
-    """
-    Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
-        :param pulumi.Input[list] registration_virtual_network_ids: A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        :param pulumi.Input[list] resolution_virtual_network_ids: A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zone_type: Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
         """
@@ -79,13 +64,10 @@ class Zone(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            __props__['registration_virtual_network_ids'] = registration_virtual_network_ids
-            __props__['resolution_virtual_network_ids'] = resolution_virtual_network_ids
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['zone_type'] = zone_type
             __props__['max_number_of_record_sets'] = None
             __props__['name_servers'] = None
             __props__['number_of_record_sets'] = None
@@ -96,7 +78,7 @@ class Zone(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None):
+    def get(resource_name, id, opts=None, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None):
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -108,11 +90,8 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
         :param pulumi.Input[list] name_servers: (Optional) A list of values that make up the NS record for the zone.
         :param pulumi.Input[float] number_of_record_sets: (Optional) The number of records already in the zone.
-        :param pulumi.Input[list] registration_virtual_network_ids: A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        :param pulumi.Input[list] resolution_virtual_network_ids: A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zone_type: Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
         """
@@ -123,11 +102,8 @@ class Zone(pulumi.CustomResource):
         __props__["name"] = name
         __props__["name_servers"] = name_servers
         __props__["number_of_record_sets"] = number_of_record_sets
-        __props__["registration_virtual_network_ids"] = registration_virtual_network_ids
-        __props__["resolution_virtual_network_ids"] = resolution_virtual_network_ids
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
-        __props__["zone_type"] = zone_type
         return Zone(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

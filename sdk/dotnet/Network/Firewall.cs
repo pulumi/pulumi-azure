@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the availability zones in which the Azure Firewall should be created.
@@ -222,9 +222,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallIpConfigurationsArgs : Pulumi.ResourceArgs
     {
-        [Input("internalPublicIpAddressId")]
-        public Input<string>? InternalPublicIpAddressId { get; set; }
-
         /// <summary>
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.
         /// </summary>
@@ -237,8 +234,8 @@ namespace Pulumi.Azure.Network
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
+        [Input("publicIpAddressId", required: true)]
+        public Input<string> PublicIpAddressId { get; set; } = null!;
 
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -250,9 +247,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallIpConfigurationsGetArgs : Pulumi.ResourceArgs
     {
-        [Input("internalPublicIpAddressId")]
-        public Input<string>? InternalPublicIpAddressId { get; set; }
-
         /// <summary>
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.
         /// </summary>
@@ -265,8 +259,8 @@ namespace Pulumi.Azure.Network
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        [Input("publicIpAddressId")]
-        public Input<string>? PublicIpAddressId { get; set; }
+        [Input("publicIpAddressId", required: true)]
+        public Input<string> PublicIpAddressId { get; set; } = null!;
 
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -283,7 +277,6 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class FirewallIpConfigurations
     {
-        public readonly string InternalPublicIpAddressId;
         /// <summary>
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.
         /// </summary>
@@ -297,13 +290,11 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private FirewallIpConfigurations(
-            string internalPublicIpAddressId,
             string name,
             string privateIpAddress,
             string publicIpAddressId,
             string? subnetId)
         {
-            InternalPublicIpAddressId = internalPublicIpAddressId;
             Name = name;
             PrivateIpAddress = privateIpAddress;
             PublicIpAddressId = publicIpAddressId;

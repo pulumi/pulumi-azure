@@ -21,16 +21,14 @@ type KubernetesCluster struct {
 
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfileOutput `pulumi:"addonProfile"`
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles KubernetesClusterAgentPoolProfileArrayOutput `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayOutput `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool KubernetesClusterDefaultNodePoolPtrOutput `pulumi:"defaultNodePool"`
+	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringOutput `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-	EnablePodSecurityPolicy pulumi.BoolOutput `pulumi:"enablePodSecurityPolicy"`
+	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// A `identity` block as defined below. Changing this forces a new resource to be created.
@@ -73,6 +71,9 @@ type KubernetesCluster struct {
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesCluster(ctx *pulumi.Context,
 	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOption) (*KubernetesCluster, error) {
+	if args == nil || args.DefaultNodePool == nil {
+		return nil, errors.New("missing required argument 'DefaultNodePool'")
+	}
 	if args == nil || args.DnsPrefix == nil {
 		return nil, errors.New("missing required argument 'DnsPrefix'")
 	}
@@ -109,8 +110,6 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 type kubernetesClusterState struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles []KubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
@@ -161,8 +160,6 @@ type kubernetesClusterState struct {
 type KubernetesClusterState struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles KubernetesClusterAgentPoolProfileArrayInput
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
@@ -217,12 +214,10 @@ func (KubernetesClusterState) ElementType() reflect.Type {
 type kubernetesClusterArgs struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile *KubernetesClusterAddonProfile `pulumi:"addonProfile"`
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles []KubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
+	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
@@ -258,12 +253,10 @@ type kubernetesClusterArgs struct {
 type KubernetesClusterArgs struct {
 	// A `addonProfile` block as defined below.
 	AddonProfile KubernetesClusterAddonProfilePtrInput
-	// One or more `agentPoolProfile` blocks as defined below.
-	AgentPoolProfiles KubernetesClusterAgentPoolProfileArrayInput
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
-	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
+	DefaultNodePool KubernetesClusterDefaultNodePoolInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix pulumi.StringInput
 	// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.

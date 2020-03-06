@@ -43,7 +43,7 @@ namespace Pulumi.Azure.PrivateDns
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.

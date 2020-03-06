@@ -22,6 +22,11 @@ class Provider(pulumi.ProviderResource):
         
         The **features** object supports the following:
         
+          * `keyVault` (`pulumi.Input[dict]`)
+        
+            * `purgeSoftDeleteOnDestroy` (`pulumi.Input[bool]`)
+            * `recoverSoftDeletedKeyVaults` (`pulumi.Input[bool]`)
+        
           * `virtualMachine` (`pulumi.Input[dict]`)
         
             * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)

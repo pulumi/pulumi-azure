@@ -12,6 +12,7 @@ import (
 )
 
 type ProviderFeatures struct {
+	KeyVault *ProviderFeaturesKeyVault `pulumi:"keyVault"`
 	VirtualMachine *ProviderFeaturesVirtualMachine `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *ProviderFeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
@@ -24,6 +25,7 @@ type ProviderFeaturesInput interface {
 }
 
 type ProviderFeaturesArgs struct {
+	KeyVault ProviderFeaturesKeyVaultPtrInput `pulumi:"keyVault"`
 	VirtualMachine ProviderFeaturesVirtualMachinePtrInput `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet ProviderFeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
@@ -95,6 +97,10 @@ func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutputWithContext(ctx conte
 		return &v
 	}).(ProviderFeaturesPtrOutput)
 }
+func (o ProviderFeaturesOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
+	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
 	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesVirtualMachine { return v.VirtualMachine }).(ProviderFeaturesVirtualMachinePtrOutput)
 }
@@ -121,12 +127,134 @@ func (o ProviderFeaturesPtrOutput) Elem() ProviderFeaturesOutput {
 	return o.ApplyT(func (v *ProviderFeatures) ProviderFeatures { return *v }).(ProviderFeaturesOutput)
 }
 
+func (o ProviderFeaturesPtrOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
+	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
 func (o ProviderFeaturesPtrOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
 	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesVirtualMachine { return v.VirtualMachine }).(ProviderFeaturesVirtualMachinePtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) VirtualMachineScaleSet() ProviderFeaturesVirtualMachineScaleSetPtrOutput {
 	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type ProviderFeaturesKeyVault struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeletedKeyVaults *bool `pulumi:"recoverSoftDeletedKeyVaults"`
+}
+
+type ProviderFeaturesKeyVaultInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesKeyVaultOutput() ProviderFeaturesKeyVaultOutput
+	ToProviderFeaturesKeyVaultOutputWithContext(context.Context) ProviderFeaturesKeyVaultOutput
+}
+
+type ProviderFeaturesKeyVaultArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeletedKeyVaults pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
+}
+
+func (ProviderFeaturesKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesKeyVault)(nil)).Elem()
+}
+
+func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultOutput() ProviderFeaturesKeyVaultOutput {
+	return i.ToProviderFeaturesKeyVaultOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesKeyVaultOutput)
+}
+
+func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultPtrOutput() ProviderFeaturesKeyVaultPtrOutput {
+	return i.ToProviderFeaturesKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesKeyVaultOutput).ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx)
+}
+
+type ProviderFeaturesKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesKeyVaultPtrOutput() ProviderFeaturesKeyVaultPtrOutput
+	ToProviderFeaturesKeyVaultPtrOutputWithContext(context.Context) ProviderFeaturesKeyVaultPtrOutput
+}
+
+type providerFeaturesKeyVaultPtrType ProviderFeaturesKeyVaultArgs
+
+func ProviderFeaturesKeyVaultPtr(v *ProviderFeaturesKeyVaultArgs) ProviderFeaturesKeyVaultPtrInput {	return (*providerFeaturesKeyVaultPtrType)(v)
+}
+
+func (*providerFeaturesKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesKeyVault)(nil)).Elem()
+}
+
+func (i *providerFeaturesKeyVaultPtrType) ToProviderFeaturesKeyVaultPtrOutput() ProviderFeaturesKeyVaultPtrOutput {
+	return i.ToProviderFeaturesKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesKeyVaultPtrType) ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
+type ProviderFeaturesKeyVaultOutput struct { *pulumi.OutputState }
+
+func (ProviderFeaturesKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesKeyVault)(nil)).Elem()
+}
+
+func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultOutput() ProviderFeaturesKeyVaultOutput {
+	return o
+}
+
+func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultOutput {
+	return o
+}
+
+func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultPtrOutput() ProviderFeaturesKeyVaultPtrOutput {
+	return o.ToProviderFeaturesKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesKeyVaultOutput) ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesKeyVault) *ProviderFeaturesKeyVault {
+		return &v
+	}).(ProviderFeaturesKeyVaultPtrOutput)
+}
+func (o ProviderFeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ProviderFeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesKeyVaultPtrOutput struct { *pulumi.OutputState}
+
+func (ProviderFeaturesKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesKeyVault)(nil)).Elem()
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) ToProviderFeaturesKeyVaultPtrOutput() ProviderFeaturesKeyVaultPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) ToProviderFeaturesKeyVaultPtrOutputWithContext(ctx context.Context) ProviderFeaturesKeyVaultPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) Elem() ProviderFeaturesKeyVaultOutput {
+	return o.ApplyT(func (v *ProviderFeaturesKeyVault) ProviderFeaturesKeyVault { return *v }).(ProviderFeaturesKeyVaultOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ProviderFeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func (v ProviderFeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
 }
 
 type ProviderFeaturesVirtualMachine struct {
@@ -348,6 +476,8 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequir
 func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineScaleSetOutput{})

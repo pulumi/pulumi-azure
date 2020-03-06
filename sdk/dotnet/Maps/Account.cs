@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Maps
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+        /// The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Maps
         /// A mapping of tags to assign to the Azure Maps Account.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the Maps Account.
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Maps
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+        /// The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Maps
         public Input<string>? SecondaryAccessKey { get; set; }
 
         /// <summary>
-        /// The sku of the Azure Maps Account. Possible values are `s0` and `s1`.
+        /// The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

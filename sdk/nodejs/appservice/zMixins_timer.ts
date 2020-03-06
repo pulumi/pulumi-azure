@@ -74,8 +74,8 @@ function cronExpression(a: ScheduleArgs) {
     }
 
     function checkRange(
-            val: number | undefined, name: keyof ScheduleArgs,
-            minInclusive: number, maxInclusive: number) {
+        val: number | undefined, name: keyof ScheduleArgs,
+        minInclusive: number, maxInclusive: number) {
         if (val !== undefined) {
             if (val < minInclusive || val > maxInclusive) {
                 throw new Error(`Value for [args.${name}] was not in the inclusive range [${minInclusive}, ${maxInclusive}].`);

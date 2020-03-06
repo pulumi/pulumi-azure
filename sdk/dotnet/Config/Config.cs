@@ -102,8 +102,15 @@ namespace Pulumi.Azure
 
     public class Features
     {
+        public FeaturesKeyVault? KeyVault { get; set; }
         public FeaturesVirtualMachine? VirtualMachine { get; set; }
         public FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; }
+    }
+
+    public class FeaturesKeyVault
+    {
+        public bool? PurgeSoftDeleteOnDestroy { get; set; }
+        public bool? RecoverSoftDeletedKeyVaults { get; set; }
     }
 
     public class FeaturesVirtualMachine

@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Iot
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -317,9 +317,6 @@ namespace Pulumi.Azure.Iot
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("tier")]
-        public Input<string>? Tier { get; set; }
-
         public IotHubDpsSkuArgs()
         {
         }
@@ -335,9 +332,6 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        [Input("tier")]
-        public Input<string>? Tier { get; set; }
 
         public IotHubDpsSkuGetArgs()
         {
@@ -384,17 +378,14 @@ namespace Pulumi.Azure.Iot
         /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
-        public readonly string Tier;
 
         [OutputConstructor]
         private IotHubDpsSku(
             int capacity,
-            string name,
-            string tier)
+            string name)
         {
             Capacity = capacity;
             Name = name;
-            Tier = tier;
         }
     }
     }

@@ -10,7 +10,6 @@ from typing import Union
 from .. import utilities, tables
 
 class Schedule(pulumi.CustomResource):
-    account_name: pulumi.Output[str]
     automation_account_name: pulumi.Output[str]
     """
     The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
@@ -62,7 +61,7 @@ class Schedule(pulumi.CustomResource):
     """
     List of days of the week that the job should execute on. Only valid when frequency is `Week`.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Schedule.
         
@@ -105,7 +104,8 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['account_name'] = account_name
+            if automation_account_name is None:
+                raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['description'] = description
             __props__['expiry_time'] = expiry_time
@@ -129,7 +129,7 @@ class Schedule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None):
+    def get(resource_name, id, opts=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None):
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -160,7 +160,6 @@ class Schedule(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
-        __props__["account_name"] = account_name
         __props__["automation_account_name"] = automation_account_name
         __props__["description"] = description
         __props__["expiry_time"] = expiry_time

@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -1124,12 +1124,6 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Network which this App Service Slot should be attached to.
-        /// </summary>
-        [Input("virtualNetworkName")]
-        public Input<string>? VirtualNetworkName { get; set; }
-
-        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         [Input("websocketsEnabled")]
@@ -1320,12 +1314,6 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Use32BitWorkerProcess { get; set; }
 
         /// <summary>
-        /// The name of the Virtual Network which this App Service Slot should be attached to.
-        /// </summary>
-        [Input("virtualNetworkName")]
-        public Input<string>? VirtualNetworkName { get; set; }
-
-        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         [Input("websocketsEnabled")]
@@ -1344,9 +1332,6 @@ namespace Pulumi.Azure.AppService
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
-        [Input("subnetMask")]
-        public Input<string>? SubnetMask { get; set; }
-
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -1359,9 +1344,6 @@ namespace Pulumi.Azure.AppService
     {
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
-
-        [Input("subnetMask")]
-        public Input<string>? SubnetMask { get; set; }
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
@@ -1775,10 +1757,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
         /// <summary>
-        /// The name of the Virtual Network which this App Service Slot should be attached to.
-        /// </summary>
-        public readonly string? VirtualNetworkName;
-        /// <summary>
         /// Should WebSockets be enabled?
         /// </summary>
         public readonly bool WebsocketsEnabled;
@@ -1808,7 +1786,6 @@ namespace Pulumi.Azure.AppService
             string remoteDebuggingVersion,
             string? scmType,
             bool? use32BitWorkerProcess,
-            string? virtualNetworkName,
             bool websocketsEnabled,
             string windowsFxVersion)
         {
@@ -1834,7 +1811,6 @@ namespace Pulumi.Azure.AppService
             RemoteDebuggingVersion = remoteDebuggingVersion;
             ScmType = scmType;
             Use32BitWorkerProcess = use32BitWorkerProcess;
-            VirtualNetworkName = virtualNetworkName;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;
         }
@@ -1860,17 +1836,14 @@ namespace Pulumi.Azure.AppService
     public sealed class SlotSiteConfigIpRestrictions
     {
         public readonly string? IpAddress;
-        public readonly string SubnetMask;
         public readonly string? VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private SlotSiteConfigIpRestrictions(
             string? ipAddress,
-            string subnetMask,
             string? virtualNetworkSubnetId)
         {
             IpAddress = ipAddress;
-            SubnetMask = subnetMask;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

@@ -61,7 +61,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.

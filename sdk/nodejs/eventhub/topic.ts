@@ -66,18 +66,12 @@ export class Topic extends pulumi.CustomResource {
      * it to persistent storage. Defaults to false.
      */
     public readonly enableExpress!: pulumi.Output<boolean | undefined>;
-    public readonly enableFilteringMessagesBeforePublishing!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether to enable
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    public readonly location!: pulumi.Output<string>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -132,9 +126,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
             inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
             inputs["enableExpress"] = state ? state.enableExpress : undefined;
-            inputs["enableFilteringMessagesBeforePublishing"] = state ? state.enableFilteringMessagesBeforePublishing : undefined;
             inputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -155,9 +147,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["enableExpress"] = args ? args.enableExpress : undefined;
-            inputs["enableFilteringMessagesBeforePublishing"] = args ? args.enableFilteringMessagesBeforePublishing : undefined;
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -207,18 +197,12 @@ export interface TopicState {
      * it to persistent storage. Defaults to false.
      */
     readonly enableExpress?: pulumi.Input<boolean>;
-    readonly enableFilteringMessagesBeforePublishing?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether to enable
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      */
     readonly enablePartitioning?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    readonly location?: pulumi.Input<string>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -287,18 +271,12 @@ export interface TopicArgs {
      * it to persistent storage. Defaults to false.
      */
     readonly enableExpress?: pulumi.Input<boolean>;
-    readonly enableFilteringMessagesBeforePublishing?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether to enable
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      */
     readonly enablePartitioning?: pulumi.Input<boolean>;
-    /**
-     * Specifies the supported Azure location where the resource exists.
-     * Changing this forces a new resource to be created.
-     */
-    readonly location?: pulumi.Input<string>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"

@@ -74,7 +74,7 @@ export interface GetCertificateResult {
      * The subject name of the certificate.
      */
     readonly subjectName: string;
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * The thumbprint for the certificate.
      */

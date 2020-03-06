@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// > **NOTE:** **This resource is in Beta** and as such the Schema can change in Minor versions of the Provider.
-// 
 // Manages an Extension for a Virtual Machine Scale Set.
 // 
 // > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.

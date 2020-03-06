@@ -33,8 +33,6 @@ type Namespace struct {
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// ) A `sku` block as described below.
-	Sku NamespaceSkuOutput `pulumi:"sku"`
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -46,6 +44,9 @@ func NewNamespace(ctx *pulumi.Context,
 	name string, args *NamespaceArgs, opts ...pulumi.ResourceOption) (*Namespace, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SkuName == nil {
+		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil {
 		args = &NamespaceArgs{}
@@ -88,8 +89,6 @@ type namespaceState struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryKey *string `pulumi:"secondaryKey"`
-	// ) A `sku` block as described below.
-	Sku *NamespaceSku `pulumi:"sku"`
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -113,8 +112,6 @@ type NamespaceState struct {
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryKey pulumi.StringPtrInput
-	// ) A `sku` block as described below.
-	Sku NamespaceSkuPtrInput
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -132,10 +129,8 @@ type namespaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Azure Relay Namespace.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// ) A `sku` block as described below.
-	Sku *NamespaceSku `pulumi:"sku"`
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -148,10 +143,8 @@ type NamespaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Azure Relay Namespace.
 	ResourceGroupName pulumi.StringInput
-	// ) A `sku` block as described below.
-	Sku NamespaceSkuPtrInput
 	// The name of the SKU to use. At this time the only supported value is `Standard`.
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

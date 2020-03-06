@@ -59,6 +59,8 @@ type Database struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -137,6 +139,8 @@ type databaseState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type DatabaseState struct {
@@ -182,6 +186,8 @@ type DatabaseState struct {
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -226,6 +232,8 @@ type databaseArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -267,6 +275,8 @@ type DatabaseArgs struct {
 	Tags pulumi.StringMapInput
 	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
+	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

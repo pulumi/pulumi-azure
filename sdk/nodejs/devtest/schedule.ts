@@ -64,7 +64,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */

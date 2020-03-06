@@ -109,7 +109,7 @@ export class CertificateOrder extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Duration in years (must be between `1` and `3`).  Defaults to `1`.
      */

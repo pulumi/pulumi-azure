@@ -42,9 +42,6 @@ namespace Pulumi.Azure.ServiceBus
         [Output("duplicateDetectionHistoryTimeWindow")]
         public Output<string> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
 
-        [Output("enableBatchedOperations")]
-        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
-
         /// <summary>
         /// Boolean flag which controls whether Express Entities
         /// are enabled. An express queue holds a message in memory temporarily before writing
@@ -62,13 +59,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("enablePartitioning")]
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the supported Azure location where the resource exists.
-        /// Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
@@ -127,9 +117,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        [Output("supportOrdering")]
-        public Output<bool?> SupportOrdering { get; private set; } = null!;
 
 
         /// <summary>
@@ -204,9 +191,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
-        [Input("enableBatchedOperations")]
-        public Input<bool>? EnableBatchedOperations { get; set; }
-
         /// <summary>
         /// Boolean flag which controls whether Express Entities
         /// are enabled. An express queue holds a message in memory temporarily before writing
@@ -224,13 +208,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
-
-        /// <summary>
-        /// Specifies the supported Azure location where the resource exists.
-        /// Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
@@ -290,9 +267,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("supportOrdering")]
-        public Input<bool>? SupportOrdering { get; set; }
-
         public QueueArgs()
         {
         }
@@ -327,9 +301,6 @@ namespace Pulumi.Azure.ServiceBus
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
-        [Input("enableBatchedOperations")]
-        public Input<bool>? EnableBatchedOperations { get; set; }
-
         /// <summary>
         /// Boolean flag which controls whether Express Entities
         /// are enabled. An express queue holds a message in memory temporarily before writing
@@ -347,13 +318,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
-
-        /// <summary>
-        /// Specifies the supported Azure location where the resource exists.
-        /// Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
@@ -412,9 +376,6 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        [Input("supportOrdering")]
-        public Input<bool>? SupportOrdering { get; set; }
 
         public QueueState()
         {

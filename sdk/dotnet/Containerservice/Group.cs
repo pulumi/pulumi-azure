@@ -103,7 +103,7 @@ namespace Pulumi.Azure.ContainerService
         /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -372,9 +372,6 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersArgs : Pulumi.ResourceArgs
     {
-        [Input("command")]
-        public Input<string>? Command { get; set; }
-
         [Input("commands")]
         private InputList<string>? _commands;
         public InputList<string> Commands
@@ -412,9 +409,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
         [Input("ports")]
         private InputList<GroupContainersPortsArgs>? _ports;
         public InputList<GroupContainersPortsArgs> Ports
@@ -422,9 +416,6 @@ namespace Pulumi.Azure.ContainerService
             get => _ports ?? (_ports = new InputList<GroupContainersPortsArgs>());
             set => _ports = value;
         }
-
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
 
         [Input("readinessProbe")]
         public Input<GroupContainersReadinessProbeArgs>? ReadinessProbe { get; set; }
@@ -452,9 +443,6 @@ namespace Pulumi.Azure.ContainerService
 
     public sealed class GroupContainersGetArgs : Pulumi.ResourceArgs
     {
-        [Input("command")]
-        public Input<string>? Command { get; set; }
-
         [Input("commands")]
         private InputList<string>? _commands;
         public InputList<string> Commands
@@ -492,9 +480,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("port")]
-        public Input<int>? Port { get; set; }
-
         [Input("ports")]
         private InputList<GroupContainersPortsGetArgs>? _ports;
         public InputList<GroupContainersPortsGetArgs> Ports
@@ -502,9 +487,6 @@ namespace Pulumi.Azure.ContainerService
             get => _ports ?? (_ports = new InputList<GroupContainersPortsGetArgs>());
             set => _ports = value;
         }
-
-        [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
 
         [Input("readinessProbe")]
         public Input<GroupContainersReadinessProbeGetArgs>? ReadinessProbe { get; set; }
@@ -1003,7 +985,6 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainers
     {
-        public readonly string Command;
         public readonly ImmutableArray<string> Commands;
         public readonly double Cpu;
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
@@ -1015,16 +996,13 @@ namespace Pulumi.Azure.ContainerService
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
-        public readonly int Port;
         public readonly ImmutableArray<GroupContainersPorts> Ports;
-        public readonly string Protocol;
         public readonly GroupContainersReadinessProbe? ReadinessProbe;
         public readonly ImmutableDictionary<string, string>? SecureEnvironmentVariables;
         public readonly ImmutableArray<GroupContainersVolumes> Volumes;
 
         [OutputConstructor]
         private GroupContainers(
-            string command,
             ImmutableArray<string> commands,
             double cpu,
             ImmutableDictionary<string, string>? environmentVariables,
@@ -1033,14 +1011,11 @@ namespace Pulumi.Azure.ContainerService
             GroupContainersLivenessProbe? livenessProbe,
             double memory,
             string name,
-            int port,
             ImmutableArray<GroupContainersPorts> ports,
-            string protocol,
             GroupContainersReadinessProbe? readinessProbe,
             ImmutableDictionary<string, string>? secureEnvironmentVariables,
             ImmutableArray<GroupContainersVolumes> volumes)
         {
-            Command = command;
             Commands = commands;
             Cpu = cpu;
             EnvironmentVariables = environmentVariables;
@@ -1049,9 +1024,7 @@ namespace Pulumi.Azure.ContainerService
             LivenessProbe = livenessProbe;
             Memory = memory;
             Name = name;
-            Port = port;
             Ports = ports;
-            Protocol = protocol;
             ReadinessProbe = readinessProbe;
             SecureEnvironmentVariables = secureEnvironmentVariables;
             Volumes = volumes;
@@ -1127,13 +1100,13 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GroupContainersPorts
     {
-        public readonly int Port;
-        public readonly string Protocol;
+        public readonly int? Port;
+        public readonly string? Protocol;
 
         [OutputConstructor]
         private GroupContainersPorts(
-            int port,
-            string protocol)
+            int? port,
+            string? protocol)
         {
             Port = port;
             Protocol = protocol;

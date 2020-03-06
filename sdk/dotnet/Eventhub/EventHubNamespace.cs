@@ -54,12 +54,6 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-        /// </summary>
-        [Output("kafkaEnabled")]
-        public Output<bool> KafkaEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -99,7 +93,7 @@ namespace Pulumi.Azure.EventHub
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -158,12 +152,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
-
-        /// <summary>
-        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-        /// </summary>
-        [Input("kafkaEnabled")]
-        public Input<bool>? KafkaEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -259,12 +247,6 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultSecondaryKey { get; set; }
 
         /// <summary>
-        /// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
-        /// </summary>
-        [Input("kafkaEnabled")]
-        public Input<bool>? KafkaEnabled { get; set; }
-
-        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -325,8 +307,13 @@ namespace Pulumi.Azure.EventHub
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
 
-        [Input("ipRule")]
-        public Input<EventHubNamespaceNetworkRulesetsIpRuleArgs>? IpRule { get; set; }
+        [Input("ipRules")]
+        private InputList<EventHubNamespaceNetworkRulesetsIpRulesArgs>? _ipRules;
+        public InputList<EventHubNamespaceNetworkRulesetsIpRulesArgs> IpRules
+        {
+            get => _ipRules ?? (_ipRules = new InputList<EventHubNamespaceNetworkRulesetsIpRulesArgs>());
+            set => _ipRules = value;
+        }
 
         [Input("virtualNetworkRules")]
         private InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesArgs>? _virtualNetworkRules;
@@ -346,8 +333,13 @@ namespace Pulumi.Azure.EventHub
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
 
-        [Input("ipRule")]
-        public Input<EventHubNamespaceNetworkRulesetsIpRuleGetArgs>? IpRule { get; set; }
+        [Input("ipRules")]
+        private InputList<EventHubNamespaceNetworkRulesetsIpRulesGetArgs>? _ipRules;
+        public InputList<EventHubNamespaceNetworkRulesetsIpRulesGetArgs> IpRules
+        {
+            get => _ipRules ?? (_ipRules = new InputList<EventHubNamespaceNetworkRulesetsIpRulesGetArgs>());
+            set => _ipRules = value;
+        }
 
         [Input("virtualNetworkRules")]
         private InputList<EventHubNamespaceNetworkRulesetsVirtualNetworkRulesGetArgs>? _virtualNetworkRules;
@@ -362,7 +354,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventHubNamespaceNetworkRulesetsIpRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceNetworkRulesetsIpRulesArgs : Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -370,12 +362,12 @@ namespace Pulumi.Azure.EventHub
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
-        public EventHubNamespaceNetworkRulesetsIpRuleArgs()
+        public EventHubNamespaceNetworkRulesetsIpRulesArgs()
         {
         }
     }
 
-    public sealed class EventHubNamespaceNetworkRulesetsIpRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceNetworkRulesetsIpRulesGetArgs : Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -383,7 +375,7 @@ namespace Pulumi.Azure.EventHub
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
-        public EventHubNamespaceNetworkRulesetsIpRuleGetArgs()
+        public EventHubNamespaceNetworkRulesetsIpRulesGetArgs()
         {
         }
     }
@@ -422,29 +414,29 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventHubNamespaceNetworkRulesets
     {
         public readonly string DefaultAction;
-        public readonly EventHubNamespaceNetworkRulesetsIpRule? IpRule;
+        public readonly ImmutableArray<EventHubNamespaceNetworkRulesetsIpRules> IpRules;
         public readonly ImmutableArray<EventHubNamespaceNetworkRulesetsVirtualNetworkRules> VirtualNetworkRules;
 
         [OutputConstructor]
         private EventHubNamespaceNetworkRulesets(
             string defaultAction,
-            EventHubNamespaceNetworkRulesetsIpRule? ipRule,
+            ImmutableArray<EventHubNamespaceNetworkRulesetsIpRules> ipRules,
             ImmutableArray<EventHubNamespaceNetworkRulesetsVirtualNetworkRules> virtualNetworkRules)
         {
             DefaultAction = defaultAction;
-            IpRule = ipRule;
+            IpRules = ipRules;
             VirtualNetworkRules = virtualNetworkRules;
         }
     }
 
     [OutputType]
-    public sealed class EventHubNamespaceNetworkRulesetsIpRule
+    public sealed class EventHubNamespaceNetworkRulesetsIpRules
     {
         public readonly string? Action;
         public readonly string IpMask;
 
         [OutputConstructor]
-        private EventHubNamespaceNetworkRulesetsIpRule(
+        private EventHubNamespaceNetworkRulesetsIpRules(
             string? action,
             string ipMask)
         {

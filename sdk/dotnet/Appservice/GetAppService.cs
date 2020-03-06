@@ -207,20 +207,14 @@ namespace Pulumi.Azure.AppService
         /// The IP Address used for this IP Restriction.
         /// </summary>
         public readonly string IpAddress;
-        /// <summary>
-        /// The Subnet mask used for this IP Restriction.
-        /// </summary>
-        public readonly string SubnetMask;
         public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetAppServiceSiteConfigsIpRestrictionsResult(
             string ipAddress,
-            string subnetMask,
             string virtualNetworkSubnetId)
         {
             IpAddress = ipAddress;
-            SubnetMask = subnetMask;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
@@ -313,10 +307,6 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool Use32BitWorkerProcess;
         /// <summary>
-        /// The name of the Virtual Network which this App Service is attached to.
-        /// </summary>
-        public readonly string VirtualNetworkName;
-        /// <summary>
         /// Are WebSockets enabled for this App Service?
         /// </summary>
         public readonly bool WebsocketsEnabled;
@@ -348,7 +338,6 @@ namespace Pulumi.Azure.AppService
             string remoteDebuggingVersion,
             string scmType,
             bool use32BitWorkerProcess,
-            string virtualNetworkName,
             bool websocketsEnabled,
             string windowsFxVersion)
         {
@@ -373,7 +362,6 @@ namespace Pulumi.Azure.AppService
             RemoteDebuggingVersion = remoteDebuggingVersion;
             ScmType = scmType;
             Use32BitWorkerProcess = use32BitWorkerProcess;
-            VirtualNetworkName = virtualNetworkName;
             WebsocketsEnabled = websocketsEnabled;
             WindowsFxVersion = windowsFxVersion;
         }

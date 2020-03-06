@@ -79,7 +79,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */

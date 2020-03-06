@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     activeDirectory: {
- *         dns: ["1.2.3.4"],
+ *         dnsServers: ["1.2.3.4"],
  *         domain: "westcentralus.com",
  *         organizationalUnit: "OU=FirstLevel",
  *         password: "aduserpwd",

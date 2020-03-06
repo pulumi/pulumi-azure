@@ -54,7 +54,6 @@ class IotHubDps(pulumi.CustomResource):
     
       * `capacity` (`float`)
       * `name` (`str`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-      * `tier` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -85,7 +84,6 @@ class IotHubDps(pulumi.CustomResource):
         
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
         """
@@ -158,7 +156,6 @@ class IotHubDps(pulumi.CustomResource):
         
           * `capacity` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_dps.html.markdown.
         """

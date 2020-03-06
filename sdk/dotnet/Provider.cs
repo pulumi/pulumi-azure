@@ -175,6 +175,9 @@ namespace Pulumi.Azure
 
     public sealed class ProviderFeaturesArgs : Pulumi.ResourceArgs
     {
+        [Input("keyVault")]
+        public Input<ProviderFeaturesKeyVaultArgs>? KeyVault { get; set; }
+
         [Input("virtualMachine")]
         public Input<ProviderFeaturesVirtualMachineArgs>? VirtualMachine { get; set; }
 
@@ -182,6 +185,19 @@ namespace Pulumi.Azure
         public Input<ProviderFeaturesVirtualMachineScaleSetArgs>? VirtualMachineScaleSet { get; set; }
 
         public ProviderFeaturesArgs()
+        {
+        }
+    }
+
+    public sealed class ProviderFeaturesKeyVaultArgs : Pulumi.ResourceArgs
+    {
+        [Input("purgeSoftDeleteOnDestroy")]
+        public Input<bool>? PurgeSoftDeleteOnDestroy { get; set; }
+
+        [Input("recoverSoftDeletedKeyVaults")]
+        public Input<bool>? RecoverSoftDeletedKeyVaults { get; set; }
+
+        public ProviderFeaturesKeyVaultArgs()
         {
         }
     }

@@ -201,92 +201,6 @@ func (o MxRecordRecordArrayOutput) Index(i pulumi.IntInput) MxRecordRecordOutput
 	}).(MxRecordRecordOutput)
 }
 
-type NsRecordRecord struct {
-	Nsdname string `pulumi:"nsdname"`
-}
-
-type NsRecordRecordInput interface {
-	pulumi.Input
-
-	ToNsRecordRecordOutput() NsRecordRecordOutput
-	ToNsRecordRecordOutputWithContext(context.Context) NsRecordRecordOutput
-}
-
-type NsRecordRecordArgs struct {
-	Nsdname pulumi.StringInput `pulumi:"nsdname"`
-}
-
-func (NsRecordRecordArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecordRecord)(nil)).Elem()
-}
-
-func (i NsRecordRecordArgs) ToNsRecordRecordOutput() NsRecordRecordOutput {
-	return i.ToNsRecordRecordOutputWithContext(context.Background())
-}
-
-func (i NsRecordRecordArgs) ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsRecordRecordOutput)
-}
-
-type NsRecordRecordArrayInput interface {
-	pulumi.Input
-
-	ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput
-	ToNsRecordRecordArrayOutputWithContext(context.Context) NsRecordRecordArrayOutput
-}
-
-type NsRecordRecordArray []NsRecordRecordInput
-
-func (NsRecordRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NsRecordRecord)(nil)).Elem()
-}
-
-func (i NsRecordRecordArray) ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput {
-	return i.ToNsRecordRecordArrayOutputWithContext(context.Background())
-}
-
-func (i NsRecordRecordArray) ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NsRecordRecordArrayOutput)
-}
-
-type NsRecordRecordOutput struct { *pulumi.OutputState }
-
-func (NsRecordRecordOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NsRecordRecord)(nil)).Elem()
-}
-
-func (o NsRecordRecordOutput) ToNsRecordRecordOutput() NsRecordRecordOutput {
-	return o
-}
-
-func (o NsRecordRecordOutput) ToNsRecordRecordOutputWithContext(ctx context.Context) NsRecordRecordOutput {
-	return o
-}
-
-func (o NsRecordRecordOutput) Nsdname() pulumi.StringOutput {
-	return o.ApplyT(func (v NsRecordRecord) string { return v.Nsdname }).(pulumi.StringOutput)
-}
-
-type NsRecordRecordArrayOutput struct { *pulumi.OutputState}
-
-func (NsRecordRecordArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NsRecordRecord)(nil)).Elem()
-}
-
-func (o NsRecordRecordArrayOutput) ToNsRecordRecordArrayOutput() NsRecordRecordArrayOutput {
-	return o
-}
-
-func (o NsRecordRecordArrayOutput) ToNsRecordRecordArrayOutputWithContext(ctx context.Context) NsRecordRecordArrayOutput {
-	return o
-}
-
-func (o NsRecordRecordArrayOutput) Index(i pulumi.IntInput) NsRecordRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) NsRecordRecord {
-		return vs[0].([]NsRecordRecord)[vs[1].(int)]
-	}).(NsRecordRecordOutput)
-}
-
 type SrvRecordRecord struct {
 	Port int `pulumi:"port"`
 	Priority int `pulumi:"priority"`
@@ -482,8 +396,6 @@ func init() {
 	pulumi.RegisterOutputType(CaaRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordArrayOutput{})
-	pulumi.RegisterOutputType(NsRecordRecordOutput{})
-	pulumi.RegisterOutputType(NsRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(SrvRecordRecordOutput{})
 	pulumi.RegisterOutputType(SrvRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordRecordOutput{})

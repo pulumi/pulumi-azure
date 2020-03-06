@@ -47,10 +47,6 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the storage table.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * Specifies the storage account in which to create the storage table.
      * Changing this forces a new resource to be created.
      */
@@ -70,7 +66,6 @@ export class Table extends pulumi.CustomResource {
             const state = argsOrState as TableState | undefined;
             inputs["acls"] = state ? state.acls : undefined;
             inputs["name"] = state ? state.name : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
@@ -79,7 +74,6 @@ export class Table extends pulumi.CustomResource {
             }
             inputs["acls"] = args ? args.acls : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
         if (!opts) {
@@ -106,10 +100,6 @@ export interface TableState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the storage table.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    /**
      * Specifies the storage account in which to create the storage table.
      * Changing this forces a new resource to be created.
      */
@@ -128,10 +118,6 @@ export interface TableArgs {
      * The name of the storage table. Must be unique within the storage account the table is located.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to create the storage table.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage table.
      * Changing this forces a new resource to be created.

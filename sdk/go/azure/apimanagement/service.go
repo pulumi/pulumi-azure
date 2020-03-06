@@ -59,8 +59,6 @@ type Service struct {
 	SignIn ServiceSignInOutput `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpOutput `pulumi:"signUp"`
-	// A `sku` block as documented below
-	Sku ServiceSkuOutput `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
@@ -78,6 +76,9 @@ func NewService(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SkuName == nil {
+		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil {
 		args = &ServiceArgs{}
@@ -146,8 +147,6 @@ type serviceState struct {
 	SignIn *ServiceSignIn `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp *ServiceSignUp `pulumi:"signUp"`
-	// A `sku` block as documented below
-	Sku *ServiceSku `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
@@ -197,8 +196,6 @@ type ServiceState struct {
 	SignIn ServiceSignInPtrInput
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpPtrInput
-	// A `sku` block as documented below
-	Sku ServiceSkuPtrInput
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
@@ -240,10 +237,8 @@ type serviceArgs struct {
 	SignIn *ServiceSignIn `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp *ServiceSignUp `pulumi:"signUp"`
-	// A `sku` block as documented below
-	Sku *ServiceSku `pulumi:"sku"`
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -280,10 +275,8 @@ type ServiceArgs struct {
 	SignIn ServiceSignInPtrInput
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpPtrInput
-	// A `sku` block as documented below
-	Sku ServiceSkuPtrInput
 	// `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 }

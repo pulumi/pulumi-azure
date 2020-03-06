@@ -36,7 +36,7 @@ class DedicatedHost(pulumi.CustomResource):
     """
     sku_name: pulumi.Output[str]
     """
-    Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `ESv3-Type1`, `FSv2-Type2`. Changing this forces a new resource to be created.
+    Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -54,7 +54,7 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain: Specify the fault domain of the Dedicated Host Group in which to create the Dedicated Host. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `ESv3-Type1`, `FSv2-Type2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host.html.markdown.
@@ -111,7 +111,7 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain: Specify the fault domain of the Dedicated Host Group in which to create the Dedicated Host. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `ESv3-Type1`, `FSv2-Type2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dedicated_host.html.markdown.

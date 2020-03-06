@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleWebApp = new azure.bot.WebApp("example", {
  *     location: "global",
- *     microsoftAppId: current.servicePrincipalApplicationId,
+ *     microsoftAppId: current.clientId,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "F0",
  * });
@@ -105,7 +105,7 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a WebApp resource with the given unique name, arguments, and options.

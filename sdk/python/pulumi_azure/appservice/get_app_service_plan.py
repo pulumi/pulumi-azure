@@ -13,7 +13,13 @@ class GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
     """
-    def __init__(__self__, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, id=None):
+    def __init__(__self__, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, id=None):
+        if app_service_environment_id and not isinstance(app_service_environment_id, str):
+            raise TypeError("Expected argument 'app_service_environment_id' to be a str")
+        __self__.app_service_environment_id = app_service_environment_id
+        """
+        The ID of the App Service Environment where the App Service Plan is located.
+        """
         if is_xenon and not isinstance(is_xenon, bool):
             raise TypeError("Expected argument 'is_xenon' to be a bool")
         __self__.is_xenon = is_xenon
@@ -42,16 +48,22 @@ class GetAppServicePlanResult:
             raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
         __self__.maximum_number_of_workers = maximum_number_of_workers
         """
-        Maximum number of instances that can be assigned to this App Service plan.
+        The maximum number of workers supported with the App Service Plan's sku.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
-        if properties and not isinstance(properties, list):
-            raise TypeError("Expected argument 'properties' to be a list")
-        __self__.properties = properties
+        if per_site_scaling and not isinstance(per_site_scaling, bool):
+            raise TypeError("Expected argument 'per_site_scaling' to be a bool")
+        __self__.per_site_scaling = per_site_scaling
         """
-        A `properties` block as documented below.
+        Can Apps assigned to this App Service Plan be scaled independently?
+        """
+        if reserved and not isinstance(reserved, bool):
+            raise TypeError("Expected argument 'reserved' to be a bool")
+        __self__.reserved = reserved
+        """
+        Is this App Service Plan `Reserved`?
         """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -80,13 +92,15 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
         if False:
             yield self
         return GetAppServicePlanResult(
+            app_service_environment_id=self.app_service_environment_id,
             is_xenon=self.is_xenon,
             kind=self.kind,
             location=self.location,
             maximum_elastic_worker_count=self.maximum_elastic_worker_count,
             maximum_number_of_workers=self.maximum_number_of_workers,
             name=self.name,
-            properties=self.properties,
+            per_site_scaling=self.per_site_scaling,
+            reserved=self.reserved,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
             tags=self.tags,
@@ -112,13 +126,15 @@ def get_app_service_plan(name=None,resource_group_name=None,opts=None):
     __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__, opts=opts).value
 
     return AwaitableGetAppServicePlanResult(
+        app_service_environment_id=__ret__.get('appServiceEnvironmentId'),
         is_xenon=__ret__.get('isXenon'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         maximum_elastic_worker_count=__ret__.get('maximumElasticWorkerCount'),
         maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        per_site_scaling=__ret__.get('perSiteScaling'),
+        reserved=__ret__.get('reserved'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),

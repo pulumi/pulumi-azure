@@ -31,7 +31,6 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
-	Sku AccountSkuOutput `pulumi:"sku"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -46,6 +45,9 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SkuName == nil {
+		return nil, errors.New("missing required argument 'SkuName'")
 	}
 	if args == nil {
 		args = &AccountArgs{}
@@ -86,7 +88,6 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
-	Sku *AccountSku `pulumi:"sku"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
@@ -108,7 +109,6 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary access key which can be used to connect to the Cognitive Service Account.
 	SecondaryAccessKey pulumi.StringPtrInput
-	Sku AccountSkuPtrInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -128,9 +128,8 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	Sku *AccountSku `pulumi:"sku"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
-	SkuName *string `pulumi:"skuName"`
+	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -145,9 +144,8 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Sku AccountSkuPtrInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
-	SkuName pulumi.StringPtrInput
+	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

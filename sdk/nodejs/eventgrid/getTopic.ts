@@ -74,7 +74,7 @@ export interface GetTopicResult {
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      */
     readonly secondaryAccessKey: string;
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

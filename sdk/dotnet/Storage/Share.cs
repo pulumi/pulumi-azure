@@ -40,13 +40,6 @@ namespace Pulumi.Azure.Storage
         public Output<int?> Quota { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the share. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the storage account in which to create the share.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -142,13 +135,6 @@ namespace Pulumi.Azure.Storage
         public Input<int>? Quota { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the share. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
-        /// <summary>
         /// Specifies the storage account in which to create the share.
         /// Changing this forces a new resource to be created.
         /// </summary>
@@ -197,13 +183,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("quota")]
         public Input<int>? Quota { get; set; }
-
-        /// <summary>
-        /// The name of the resource group in which to
-        /// create the share. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Specifies the storage account in which to create the share.

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<Outputs.MetricAlertActions>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         /// </summary>
         [Output("autoMitigate")]
         public Output<bool?> AutoMitigate { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Monitoring
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }

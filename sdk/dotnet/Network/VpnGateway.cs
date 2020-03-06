@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the VPN Gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.

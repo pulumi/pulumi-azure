@@ -12,6 +12,7 @@ import (
 )
 
 type AccountBlobProperties struct {
+	CorsRules []AccountBlobPropertiesCorsRule `pulumi:"corsRules"`
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 }
 
@@ -23,6 +24,7 @@ type AccountBlobPropertiesInput interface {
 }
 
 type AccountBlobPropertiesArgs struct {
+	CorsRules AccountBlobPropertiesCorsRuleArrayInput `pulumi:"corsRules"`
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 }
 
@@ -93,6 +95,10 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 		return &v
 	}).(AccountBlobPropertiesPtrOutput)
 }
+func (o AccountBlobPropertiesOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func (v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
+}
+
 func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func (v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy { return v.DeleteRetentionPolicy }).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
@@ -115,8 +121,122 @@ func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 	return o.ApplyT(func (v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
 }
 
+func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func (v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
+}
+
 func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func (v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy { return v.DeleteRetentionPolicy }).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+}
+
+type AccountBlobPropertiesCorsRule struct {
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+type AccountBlobPropertiesCorsRuleInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesCorsRuleOutput() AccountBlobPropertiesCorsRuleOutput
+	ToAccountBlobPropertiesCorsRuleOutputWithContext(context.Context) AccountBlobPropertiesCorsRuleOutput
+}
+
+type AccountBlobPropertiesCorsRuleArgs struct {
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (AccountBlobPropertiesCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (i AccountBlobPropertiesCorsRuleArgs) ToAccountBlobPropertiesCorsRuleOutput() AccountBlobPropertiesCorsRuleOutput {
+	return i.ToAccountBlobPropertiesCorsRuleOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesCorsRuleArgs) ToAccountBlobPropertiesCorsRuleOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesCorsRuleOutput)
+}
+
+type AccountBlobPropertiesCorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToAccountBlobPropertiesCorsRuleArrayOutput() AccountBlobPropertiesCorsRuleArrayOutput
+	ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(context.Context) AccountBlobPropertiesCorsRuleArrayOutput
+}
+
+type AccountBlobPropertiesCorsRuleArray []AccountBlobPropertiesCorsRuleInput
+
+func (AccountBlobPropertiesCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (i AccountBlobPropertiesCorsRuleArray) ToAccountBlobPropertiesCorsRuleArrayOutput() AccountBlobPropertiesCorsRuleArrayOutput {
+	return i.ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AccountBlobPropertiesCorsRuleArray) ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesCorsRuleArrayOutput)
+}
+
+type AccountBlobPropertiesCorsRuleOutput struct { *pulumi.OutputState }
+
+func (AccountBlobPropertiesCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutput() AccountBlobPropertiesCorsRuleOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v AccountBlobPropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v AccountBlobPropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v AccountBlobPropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func (v AccountBlobPropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountBlobPropertiesCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func (v AccountBlobPropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type AccountBlobPropertiesCorsRuleArrayOutput struct { *pulumi.OutputState}
+
+func (AccountBlobPropertiesCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountBlobPropertiesCorsRule)(nil)).Elem()
+}
+
+func (o AccountBlobPropertiesCorsRuleArrayOutput) ToAccountBlobPropertiesCorsRuleArrayOutput() AccountBlobPropertiesCorsRuleArrayOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleArrayOutput) ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleArrayOutput {
+	return o
+}
+
+func (o AccountBlobPropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountBlobPropertiesCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) AccountBlobPropertiesCorsRule {
+		return vs[0].([]AccountBlobPropertiesCorsRule)[vs[1].(int)]
+	}).(AccountBlobPropertiesCorsRuleOutput)
 }
 
 type AccountBlobPropertiesDeleteRetentionPolicy struct {
@@ -1293,6 +1413,124 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) RetentionPolicyDays() pulu
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func (v AccountQueuePropertiesMinuteMetrics) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type AccountStaticWebsite struct {
+	Error404Document *string `pulumi:"error404Document"`
+	IndexDocument *string `pulumi:"indexDocument"`
+}
+
+type AccountStaticWebsiteInput interface {
+	pulumi.Input
+
+	ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput
+	ToAccountStaticWebsiteOutputWithContext(context.Context) AccountStaticWebsiteOutput
+}
+
+type AccountStaticWebsiteArgs struct {
+	Error404Document pulumi.StringPtrInput `pulumi:"error404Document"`
+	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
+}
+
+func (AccountStaticWebsiteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStaticWebsite)(nil)).Elem()
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput {
+	return i.ToAccountStaticWebsiteOutputWithContext(context.Background())
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutputWithContext(ctx context.Context) AccountStaticWebsiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput)
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+}
+
+func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput).ToAccountStaticWebsitePtrOutputWithContext(ctx)
+}
+
+type AccountStaticWebsitePtrInput interface {
+	pulumi.Input
+
+	ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput
+	ToAccountStaticWebsitePtrOutputWithContext(context.Context) AccountStaticWebsitePtrOutput
+}
+
+type accountStaticWebsitePtrType AccountStaticWebsiteArgs
+
+func AccountStaticWebsitePtr(v *AccountStaticWebsiteArgs) AccountStaticWebsitePtrInput {	return (*accountStaticWebsitePtrType)(v)
+}
+
+func (*accountStaticWebsitePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStaticWebsite)(nil)).Elem()
+}
+
+func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+}
+
+func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsitePtrOutput)
+}
+
+type AccountStaticWebsiteOutput struct { *pulumi.OutputState }
+
+func (AccountStaticWebsiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountStaticWebsite)(nil)).Elem()
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsiteOutput() AccountStaticWebsiteOutput {
+	return o
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsiteOutputWithContext(ctx context.Context) AccountStaticWebsiteOutput {
+	return o
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return o.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
+}
+
+func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return o.ApplyT(func(v AccountStaticWebsite) *AccountStaticWebsite {
+		return &v
+	}).(AccountStaticWebsitePtrOutput)
+}
+func (o AccountStaticWebsiteOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
+}
+
+func (o AccountStaticWebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
+}
+
+type AccountStaticWebsitePtrOutput struct { *pulumi.OutputState}
+
+func (AccountStaticWebsitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountStaticWebsite)(nil)).Elem()
+}
+
+func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
+	return o
+}
+
+func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
+	return o
+}
+
+func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
+	return o.ApplyT(func (v *AccountStaticWebsite) AccountStaticWebsite { return *v }).(AccountStaticWebsiteOutput)
+}
+
+func (o AccountStaticWebsitePtrOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
+}
+
+func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v AccountStaticWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
 
 type ManagementPolicyRule struct {
@@ -3114,6 +3352,8 @@ func (o GetPolicyRuleFilterArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFi
 func init() {
 	pulumi.RegisterOutputType(AccountBlobPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleOutput{})
+	pulumi.RegisterOutputType(AccountBlobPropertiesCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AccountCustomDomainOutput{})
@@ -3132,6 +3372,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesLoggingPtrOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
+	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
+	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsOutput{})

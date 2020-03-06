@@ -3,6 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update AppService Mixins to match AppService SiteConfig parameters
+* Upgrade to v2.0.0 of the AzureRM Terraform Provider
+  ** Breaking **
+  Please note that a number of the old deprecated resources have been removed as well as
+  a number of deprecated properties on resources. You can check the full list of
+  changes in the [upstream CHANGELOG](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md)
 
 ---
 

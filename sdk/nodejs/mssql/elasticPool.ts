@@ -38,7 +38,6 @@ export class ElasticPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticPool.__pulumiType;
     }
 
-    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<outputs.mssql.ElasticPoolElasticPoolProperty[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -74,7 +73,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
@@ -92,7 +91,6 @@ export class ElasticPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
-            inputs["elasticPoolProperties"] = state ? state.elasticPoolProperties : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
             inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
@@ -127,7 +125,6 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["elasticPoolProperties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -144,7 +141,6 @@ export class ElasticPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ElasticPool resources.
  */
 export interface ElasticPoolState {
-    readonly elasticPoolProperties?: pulumi.Input<pulumi.Input<inputs.mssql.ElasticPoolElasticPoolProperty>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

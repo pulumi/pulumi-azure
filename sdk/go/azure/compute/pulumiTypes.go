@@ -4777,7 +4777,7 @@ func (o ScaleSetNetworkProfileDnsSettingsPtrOutput) DnsServers() pulumi.StringAr
 }
 
 type ScaleSetNetworkProfileIpConfiguration struct {
-	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
 	// Specifies up to `20` application security group IDs.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
@@ -4803,7 +4803,7 @@ type ScaleSetNetworkProfileIpConfigurationInput interface {
 }
 
 type ScaleSetNetworkProfileIpConfigurationArgs struct {
-	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
 	// Specifies up to `20` application security group IDs.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
@@ -4868,7 +4868,7 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) ToScaleSetNetworkProfileIpC
 	return o
 }
 
-// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func (v ScaleSetNetworkProfileIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolIds }).(pulumi.StringArrayOutput)
 }

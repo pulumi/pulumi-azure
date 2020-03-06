@@ -52,16 +52,13 @@ namespace Pulumi.Azure.KeyVault
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
-
-        [Output("vaultUri")]
-        public Output<string> VaultUri { get; private set; } = null!;
 
         /// <summary>
         /// The current version of the Key Vault Secret.
@@ -130,8 +127,8 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// The ID of the Key Vault where the Secret should be created.
         /// </summary>
-        [Input("keyVaultId")]
-        public Input<string>? KeyVaultId { get; set; }
+        [Input("keyVaultId", required: true)]
+        public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
@@ -162,9 +159,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
-
-        [Input("vaultUri")]
-        public Input<string>? VaultUri { get; set; }
 
         public SecretArgs()
         {
@@ -220,9 +214,6 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
-
-        [Input("vaultUri")]
-        public Input<string>? VaultUri { get; set; }
 
         /// <summary>
         /// The current version of the Key Vault Secret.

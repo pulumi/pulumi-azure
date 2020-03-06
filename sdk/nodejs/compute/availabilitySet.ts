@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an availability set for virtual machines.
+ * Manages an Availability Set for Virtual Machines.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
  */
@@ -41,7 +41,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
      */
     public readonly managed!: pulumi.Output<boolean | undefined>;
     /**
@@ -49,11 +49,11 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the number of fault domains that are used. Defaults to 3.
+     * Specifies the number of fault domains that are used. Defaults to `3`.
      */
     public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the number of update domains that are used. Defaults to 5.
+     * Specifies the number of update domains that are used. Defaults to `5`.
      */
     public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
     /**
@@ -67,7 +67,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AvailabilitySet resource with the given unique name, arguments, and options.
@@ -123,7 +123,7 @@ export interface AvailabilitySetState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
      */
     readonly managed?: pulumi.Input<boolean>;
     /**
@@ -131,11 +131,11 @@ export interface AvailabilitySetState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of fault domains that are used. Defaults to 3.
+     * Specifies the number of fault domains that are used. Defaults to `3`.
      */
     readonly platformFaultDomainCount?: pulumi.Input<number>;
     /**
-     * Specifies the number of update domains that are used. Defaults to 5.
+     * Specifies the number of update domains that are used. Defaults to `5`.
      */
     readonly platformUpdateDomainCount?: pulumi.Input<number>;
     /**
@@ -161,7 +161,7 @@ export interface AvailabilitySetArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+     * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`.
      */
     readonly managed?: pulumi.Input<boolean>;
     /**
@@ -169,11 +169,11 @@ export interface AvailabilitySetArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the number of fault domains that are used. Defaults to 3.
+     * Specifies the number of fault domains that are used. Defaults to `3`.
      */
     readonly platformFaultDomainCount?: pulumi.Input<number>;
     /**
-     * Specifies the number of update domains that are used. Defaults to 5.
+     * Specifies the number of update domains that are used. Defaults to `5`.
      */
     readonly platformUpdateDomainCount?: pulumi.Input<number>;
     /**

@@ -25,7 +25,6 @@ type BackendAddressPool struct {
 	LoadBalancingRules pulumi.StringArrayOutput `pulumi:"loadBalancingRules"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
-	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the resource.
@@ -72,7 +71,6 @@ type backendAddressPoolState struct {
 	LoadBalancingRules []string `pulumi:"loadBalancingRules"`
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the Backend Address Pool.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the resource.
@@ -86,7 +84,6 @@ type BackendAddressPoolState struct {
 	LoadBalancingRules pulumi.StringArrayInput
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId pulumi.StringPtrInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource.
@@ -100,7 +97,6 @@ func (BackendAddressPoolState) ElementType() reflect.Type {
 type backendAddressPoolArgs struct {
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
-	Location *string `pulumi:"location"`
 	// Specifies the name of the Backend Address Pool.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the resource.
@@ -111,7 +107,6 @@ type backendAddressPoolArgs struct {
 type BackendAddressPoolArgs struct {
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId pulumi.StringInput
-	Location pulumi.StringPtrInput
 	// Specifies the name of the Backend Address Pool.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource.

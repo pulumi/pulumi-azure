@@ -11,6 +11,10 @@ namespace Pulumi.Azure.PostgreSql
     /// <summary>
     /// Sets a PostgreSQL Configuration value on a PostgreSQL Server.
     /// 
+    /// ## Disclaimers
+    /// 
+    /// &gt; **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_configuration.html.markdown.
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource

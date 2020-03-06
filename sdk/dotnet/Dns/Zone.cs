@@ -40,18 +40,6 @@ namespace Pulumi.Azure.Dns
         public Output<int> NumberOfRecordSets { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        /// </summary>
-        [Output("registrationVirtualNetworkIds")]
-        public Output<ImmutableArray<string>> RegistrationVirtualNetworkIds { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        /// </summary>
-        [Output("resolutionVirtualNetworkIds")]
-        public Output<ImmutableArray<string>> ResolutionVirtualNetworkIds { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -61,13 +49,7 @@ namespace Pulumi.Azure.Dns
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-        /// </summary>
-        [Output("zoneType")]
-        public Output<string?> ZoneType { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,30 +103,6 @@ namespace Pulumi.Azure.Dns
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("registrationVirtualNetworkIds")]
-        private InputList<string>? _registrationVirtualNetworkIds;
-
-        /// <summary>
-        /// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        /// </summary>
-        public InputList<string> RegistrationVirtualNetworkIds
-        {
-            get => _registrationVirtualNetworkIds ?? (_registrationVirtualNetworkIds = new InputList<string>());
-            set => _registrationVirtualNetworkIds = value;
-        }
-
-        [Input("resolutionVirtualNetworkIds")]
-        private InputList<string>? _resolutionVirtualNetworkIds;
-
-        /// <summary>
-        /// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        /// </summary>
-        public InputList<string> ResolutionVirtualNetworkIds
-        {
-            get => _resolutionVirtualNetworkIds ?? (_resolutionVirtualNetworkIds = new InputList<string>());
-            set => _resolutionVirtualNetworkIds = value;
-        }
-
         /// <summary>
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -162,12 +120,6 @@ namespace Pulumi.Azure.Dns
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-        /// </summary>
-        [Input("zoneType")]
-        public Input<string>? ZoneType { get; set; }
 
         public ZoneArgs()
         {
@@ -206,30 +158,6 @@ namespace Pulumi.Azure.Dns
         [Input("numberOfRecordSets")]
         public Input<int>? NumberOfRecordSets { get; set; }
 
-        [Input("registrationVirtualNetworkIds")]
-        private InputList<string>? _registrationVirtualNetworkIds;
-
-        /// <summary>
-        /// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        /// </summary>
-        public InputList<string> RegistrationVirtualNetworkIds
-        {
-            get => _registrationVirtualNetworkIds ?? (_registrationVirtualNetworkIds = new InputList<string>());
-            set => _registrationVirtualNetworkIds = value;
-        }
-
-        [Input("resolutionVirtualNetworkIds")]
-        private InputList<string>? _resolutionVirtualNetworkIds;
-
-        /// <summary>
-        /// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        /// </summary>
-        public InputList<string> ResolutionVirtualNetworkIds
-        {
-            get => _resolutionVirtualNetworkIds ?? (_resolutionVirtualNetworkIds = new InputList<string>());
-            set => _resolutionVirtualNetworkIds = value;
-        }
-
         /// <summary>
         /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -247,12 +175,6 @@ namespace Pulumi.Azure.Dns
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-        /// </summary>
-        [Input("zoneType")]
-        public Input<string>? ZoneType { get; set; }
 
         public ZoneState()
         {

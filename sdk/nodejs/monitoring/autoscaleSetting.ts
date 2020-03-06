@@ -145,7 +145,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the resource ID of the resource that the autoscale setting should be added to.
      */

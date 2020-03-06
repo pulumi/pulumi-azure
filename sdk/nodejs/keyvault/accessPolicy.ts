@@ -71,11 +71,6 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     public readonly objectId!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
-     */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
@@ -90,11 +85,6 @@ export class AccessPolicy extends pulumi.CustomResource {
      * to be created.
      */
     public readonly tenantId!: pulumi.Output<string>;
-    /**
-     * Specifies the name of the Key Vault resource. Changing this
-     * forces a new resource to be created.
-     */
-    public readonly vaultName!: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -113,13 +103,14 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["keyPermissions"] = state ? state.keyPermissions : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["objectId"] = state ? state.objectId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secretPermissions"] = state ? state.secretPermissions : undefined;
             inputs["storagePermissions"] = state ? state.storagePermissions : undefined;
             inputs["tenantId"] = state ? state.tenantId : undefined;
-            inputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as AccessPolicyArgs | undefined;
+            if (!args || args.keyVaultId === undefined) {
+                throw new Error("Missing required property 'keyVaultId'");
+            }
             if (!args || args.objectId === undefined) {
                 throw new Error("Missing required property 'objectId'");
             }
@@ -131,11 +122,9 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["keyPermissions"] = args ? args.keyPermissions : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["objectId"] = args ? args.objectId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secretPermissions"] = args ? args.secretPermissions : undefined;
             inputs["storagePermissions"] = args ? args.storagePermissions : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
         }
         if (!opts) {
             opts = {}
@@ -181,11 +170,6 @@ export interface AccessPolicyState {
      */
     readonly objectId?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    /**
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
@@ -200,11 +184,6 @@ export interface AccessPolicyState {
      * to be created.
      */
     readonly tenantId?: pulumi.Input<string>;
-    /**
-     * Specifies the name of the Key Vault resource. Changing this
-     * forces a new resource to be created.
-     */
-    readonly vaultName?: pulumi.Input<string>;
 }
 
 /**
@@ -231,7 +210,7 @@ export interface AccessPolicyArgs {
      * Specifies the id of the Key Vault resource. Changing this
      * forces a new resource to be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    readonly keyVaultId: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
@@ -239,11 +218,6 @@ export interface AccessPolicyArgs {
      * to be created.
      */
     readonly objectId: pulumi.Input<string>;
-    /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
@@ -259,9 +233,4 @@ export interface AccessPolicyArgs {
      * to be created.
      */
     readonly tenantId: pulumi.Input<string>;
-    /**
-     * Specifies the name of the Key Vault resource. Changing this
-     * forces a new resource to be created.
-     */
-    readonly vaultName?: pulumi.Input<string>;
 }
