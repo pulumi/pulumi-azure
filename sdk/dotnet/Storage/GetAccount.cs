@@ -27,6 +27,12 @@ namespace Pulumi.Azure.Storage
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the resource group the Storage Account is located in.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public string? ResourceGroupName { get; set; }
+
         public GetAccountArgs()
         {
         }

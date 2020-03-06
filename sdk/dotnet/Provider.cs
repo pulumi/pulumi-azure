@@ -25,7 +25,7 @@ namespace Pulumi.Azure
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, ResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, ResourceOptions? options = null)
             : base("azure", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.Azure
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
-        [Input("features", required: true, json: true)]
-        public Input<Inputs.ProviderFeaturesArgs> Features { get; set; } = null!;
+        [Input("features", json: true)]
+        public Input<Inputs.ProviderFeaturesArgs>? Features { get; set; }
 
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

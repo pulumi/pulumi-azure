@@ -36,12 +36,9 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            if (!args || args.features === undefined) {
-                throw new Error("Missing required property 'features'");
-            }
             inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
             inputs["clientCertificatePassword"] = (args ? args.clientCertificatePassword : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PASSWORD", "ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
             inputs["clientCertificatePath"] = (args ? args.clientCertificatePath : undefined) || (utilities.getEnv("AZURE_CLIENT_CERTIFICATE_PATH", "ARM_CLIENT_CERTIFICATE_PATH") || "");
@@ -107,7 +104,7 @@ export interface ProviderArgs {
      * public.
      */
     readonly environment?: pulumi.Input<string>;
-    readonly features: pulumi.Input<inputs.ProviderFeatures>;
+    readonly features?: pulumi.Input<inputs.ProviderFeatures>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.

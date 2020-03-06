@@ -21,6 +21,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
     }
     const promise: Promise<GetAccountResult> = pulumi.runtime.invoke("azure:storage/getAccount:getAccount", {
         "name": args.name,
+        "resourceGroupName": args.resourceGroupName,
     }, opts);
 
     return pulumi.utils.liftProperties(promise, opts);
@@ -34,6 +35,10 @@ export interface GetAccountArgs {
      * Specifies the name of the Storage Account
      */
     readonly name: string;
+    /**
+     * Specifies the name of the resource group the Storage Account is located in.
+     */
+    readonly resourceGroupName?: string;
 }
 
 /**

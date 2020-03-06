@@ -24,6 +24,8 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 type LookupAccountArgs struct {
 	// Specifies the name of the Storage Account
 	Name string `pulumi:"name"`
+	// Specifies the name of the resource group the Storage Account is located in.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 

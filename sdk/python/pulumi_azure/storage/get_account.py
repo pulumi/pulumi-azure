@@ -327,17 +327,19 @@ class AwaitableGetAccountResult(GetAccountResult):
             tags=self.tags,
             id=self.id)
 
-def get_account(name=None,opts=None):
+def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Storage Account.
     
     :param str name: Specifies the name of the Storage Account
+    :param str resource_group_name: Specifies the name of the resource group the Storage Account is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
+    __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

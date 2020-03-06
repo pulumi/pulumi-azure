@@ -42,6 +42,38 @@ func (i ProviderFeaturesArgs) ToProviderFeaturesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesOutput)
 }
 
+func (i ProviderFeaturesArgs) ToProviderFeaturesPtrOutput() ProviderFeaturesPtrOutput {
+	return i.ToProviderFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesArgs) ToProviderFeaturesPtrOutputWithContext(ctx context.Context) ProviderFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesOutput).ToProviderFeaturesPtrOutputWithContext(ctx)
+}
+
+type ProviderFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesPtrOutput() ProviderFeaturesPtrOutput
+	ToProviderFeaturesPtrOutputWithContext(context.Context) ProviderFeaturesPtrOutput
+}
+
+type providerFeaturesPtrType ProviderFeaturesArgs
+
+func ProviderFeaturesPtr(v *ProviderFeaturesArgs) ProviderFeaturesPtrInput {	return (*providerFeaturesPtrType)(v)
+}
+
+func (*providerFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeatures)(nil)).Elem()
+}
+
+func (i *providerFeaturesPtrType) ToProviderFeaturesPtrOutput() ProviderFeaturesPtrOutput {
+	return i.ToProviderFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesPtrType) ToProviderFeaturesPtrOutputWithContext(ctx context.Context) ProviderFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesPtrOutput)
+}
+
 type ProviderFeaturesOutput struct { *pulumi.OutputState }
 
 func (ProviderFeaturesOutput) ElementType() reflect.Type {
@@ -56,6 +88,15 @@ func (o ProviderFeaturesOutput) ToProviderFeaturesOutputWithContext(ctx context.
 	return o
 }
 
+func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutput() ProviderFeaturesPtrOutput {
+	return o.ToProviderFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesOutput) ToProviderFeaturesPtrOutputWithContext(ctx context.Context) ProviderFeaturesPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeatures {
+		return &v
+	}).(ProviderFeaturesPtrOutput)
+}
 func (o ProviderFeaturesOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
 }
@@ -65,6 +106,36 @@ func (o ProviderFeaturesOutput) VirtualMachine() ProviderFeaturesVirtualMachineP
 }
 
 func (o ProviderFeaturesOutput) VirtualMachineScaleSet() ProviderFeaturesVirtualMachineScaleSetPtrOutput {
+	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
+}
+
+type ProviderFeaturesPtrOutput struct { *pulumi.OutputState}
+
+func (ProviderFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeatures)(nil)).Elem()
+}
+
+func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutput() ProviderFeaturesPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesPtrOutput) ToProviderFeaturesPtrOutputWithContext(ctx context.Context) ProviderFeaturesPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesPtrOutput) Elem() ProviderFeaturesOutput {
+	return o.ApplyT(func (v *ProviderFeatures) ProviderFeatures { return *v }).(ProviderFeaturesOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
+	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
+	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesVirtualMachine { return v.VirtualMachine }).(ProviderFeaturesVirtualMachinePtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) VirtualMachineScaleSet() ProviderFeaturesVirtualMachineScaleSetPtrOutput {
 	return o.ApplyT(func (v ProviderFeatures) *ProviderFeaturesVirtualMachineScaleSet { return v.VirtualMachineScaleSet }).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
 }
 
@@ -404,6 +475,7 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequir
 
 func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineOutput{})
