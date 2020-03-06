@@ -520,16 +520,16 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 }
 
 // Given a Queue or a Table, resolve the resource group name of the corresponding storage account
-function resolveResourceGroupName(container: { storageAccountName: pulumi.Output<string> }) {
-    const account = container.storageAccountName.apply(storageAccountName =>
+function resolveResourceGroupName(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
+    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
         storage.getAccount({ name: storageAccountName }, { async: true }));
     return account.resourceGroupName;
 }
 
 // Given a Queue or a Table, produce App Settings and a Connection String Key relevant to the Storage Account
-function resolveAccount(container: { storageAccountName: pulumi.Output<string> }) {
+function resolveAccount(container: { storageAccountName: pulumi.Output<string>, id: pulumi.Output<string> }) {
     const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
-    const account = container.storageAccountName.apply(storageAccountName =>
+    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) =>
         storage.getAccount({ name: storageAccountName }, { async: true }));
 
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
