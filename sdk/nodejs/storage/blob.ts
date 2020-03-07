@@ -65,7 +65,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    public readonly content!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */
@@ -111,7 +111,7 @@ export class Blob extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["parallelism"] = state ? state.parallelism : undefined;
             inputs["size"] = state ? state.size : undefined;
-            inputs["source"] = state ? state.source : undefined;
+            inputs["content"] = state ? state.content : undefined;
             inputs["sourceContent"] = state ? state.sourceContent : undefined;
             inputs["sourceUri"] = state ? state.sourceUri : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
@@ -135,7 +135,7 @@ export class Blob extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parallelism"] = args ? args.parallelism : undefined;
             inputs["size"] = args ? args.size : undefined;
-            inputs["source"] = args ? args.source : undefined;
+            inputs["content"] = args ? args.content : undefined;
             inputs["sourceContent"] = args ? args.sourceContent : undefined;
             inputs["sourceUri"] = args ? args.sourceUri : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
@@ -185,7 +185,7 @@ export interface BlobState {
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    readonly source?: pulumi.Input<string>;
+    readonly content?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */
@@ -245,7 +245,7 @@ export interface BlobArgs {
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    readonly source?: pulumi.Input<string>;
+    readonly content?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */

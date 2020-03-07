@@ -40,7 +40,7 @@ class Program
                 ContainerAccessType = "private",
             });
 
-            var blob = new ZipBlob("zip", new ZipBlobArgs
+            var blob = new Blob("zip", new BlobArgs
             {
                 StorageAccountName = storageAccount.Name,
                 StorageContainerName = container.Name,

@@ -24,7 +24,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
-	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
 	"github.com/pulumi/pulumi/pkg/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
@@ -1073,6 +1072,12 @@ func Provider() tfbridge.ProviderInfo {
 							return strings.ToLower(name)
 						},
 					}),
+					"source": {
+						Name: "content",
+						Asset: &tfbridge.AssetTranslation{
+							Kind: tfbridge.FileAsset,
+						},
+					},
 				}},
 			"azurerm_storage_container": {
 				Tok: azureResource(azureStorage, "Container"),
@@ -1629,32 +1634,6 @@ func Provider() tfbridge.ProviderInfo {
 					CSharpName: "KeyVaultCertificate",
 				},
 			}})
-
-	// TODO[pulumi/pulumi#280]: Until we can pass an Archive as an Asset, create a resource type
-	// specifically for uploading ZIP blobs to Azure storage.
-	prov.P.ResourcesMap["azurerm_storage_zipblob"] = prov.P.ResourcesMap["azurerm_storage_blob"]
-	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
-		Tok: azureResource(azureStorage, "ZipBlob"),
-		Fields: map[string]*tfbridge.SchemaInfo{
-			"source": {
-				Name: "content",
-				Asset: &tfbridge.AssetTranslation{
-					Kind:   tfbridge.FileArchive,
-					Format: resource.ZIPArchive,
-				},
-			},
-			// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
-			// Max length of a container name is 1024.
-			azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-				Separator: "",
-				Maxlen:    1024,
-				Randlen:   8,
-				Transform: func(name string) string {
-					return strings.ToLower(name)
-				},
-			}),
-		},
-	}
 
 	// Provide default values for certain resource properties, to improve usability:
 	//     1) For all resources with `name` properties, we will add an auto-name property.  Make sure to skip those

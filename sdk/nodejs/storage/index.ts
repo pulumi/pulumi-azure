@@ -20,4 +20,3 @@ export * from "./shareDirectory";
 export * from "./table";
 export * from "./tableEntity";
 export * from "./zMixins";
-export * from "./zipBlob";
